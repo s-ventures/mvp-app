@@ -1,0 +1,151 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'simplified_account_transactions_state.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+mixin _$SimplifiedAccountTransactionsState {
+  AsyncValue<List<SimplifiedAccountTransaction>> get transactions =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SimplifiedAccountTransactionsStateCopyWith<
+          SimplifiedAccountTransactionsState>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SimplifiedAccountTransactionsStateCopyWith<$Res> {
+  factory $SimplifiedAccountTransactionsStateCopyWith(
+          SimplifiedAccountTransactionsState value,
+          $Res Function(SimplifiedAccountTransactionsState) then) =
+      _$SimplifiedAccountTransactionsStateCopyWithImpl<$Res,
+          SimplifiedAccountTransactionsState>;
+  @useResult
+  $Res call({AsyncValue<List<SimplifiedAccountTransaction>> transactions});
+}
+
+/// @nodoc
+class _$SimplifiedAccountTransactionsStateCopyWithImpl<$Res,
+        $Val extends SimplifiedAccountTransactionsState>
+    implements $SimplifiedAccountTransactionsStateCopyWith<$Res> {
+  _$SimplifiedAccountTransactionsStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? transactions = null,
+  }) {
+    return _then(_value.copyWith(
+      transactions: null == transactions
+          ? _value.transactions
+          : transactions // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<List<SimplifiedAccountTransaction>>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SimplifiedAccountTransactionsStateImplCopyWith<$Res>
+    implements $SimplifiedAccountTransactionsStateCopyWith<$Res> {
+  factory _$$SimplifiedAccountTransactionsStateImplCopyWith(
+          _$SimplifiedAccountTransactionsStateImpl value,
+          $Res Function(_$SimplifiedAccountTransactionsStateImpl) then) =
+      __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AsyncValue<List<SimplifiedAccountTransaction>> transactions});
+}
+
+/// @nodoc
+class __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
+    extends _$SimplifiedAccountTransactionsStateCopyWithImpl<$Res,
+        _$SimplifiedAccountTransactionsStateImpl>
+    implements _$$SimplifiedAccountTransactionsStateImplCopyWith<$Res> {
+  __$$SimplifiedAccountTransactionsStateImplCopyWithImpl(
+      _$SimplifiedAccountTransactionsStateImpl _value,
+      $Res Function(_$SimplifiedAccountTransactionsStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? transactions = null,
+  }) {
+    return _then(_$SimplifiedAccountTransactionsStateImpl(
+      transactions: null == transactions
+          ? _value.transactions
+          : transactions // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<List<SimplifiedAccountTransaction>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SimplifiedAccountTransactionsStateImpl
+    implements _SimplifiedAccountTransactionsState {
+  const _$SimplifiedAccountTransactionsStateImpl(
+      {this.transactions =
+          const AsyncLoading<List<SimplifiedAccountTransaction>>()});
+
+  @override
+  @JsonKey()
+  final AsyncValue<List<SimplifiedAccountTransaction>> transactions;
+
+  @override
+  String toString() {
+    return 'SimplifiedAccountTransactionsState(transactions: $transactions)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SimplifiedAccountTransactionsStateImpl &&
+            (identical(other.transactions, transactions) ||
+                other.transactions == transactions));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, transactions);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SimplifiedAccountTransactionsStateImplCopyWith<
+          _$SimplifiedAccountTransactionsStateImpl>
+      get copyWith => __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<
+          _$SimplifiedAccountTransactionsStateImpl>(this, _$identity);
+}
+
+abstract class _SimplifiedAccountTransactionsState
+    implements SimplifiedAccountTransactionsState {
+  const factory _SimplifiedAccountTransactionsState(
+          {final AsyncValue<List<SimplifiedAccountTransaction>> transactions}) =
+      _$SimplifiedAccountTransactionsStateImpl;
+
+  @override
+  AsyncValue<List<SimplifiedAccountTransaction>> get transactions;
+  @override
+  @JsonKey(ignore: true)
+  _$$SimplifiedAccountTransactionsStateImplCopyWith<
+          _$SimplifiedAccountTransactionsStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

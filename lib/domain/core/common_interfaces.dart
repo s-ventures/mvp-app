@@ -1,0 +1,3 @@
+mixin IValidatable {
+  bool isValid();
+}

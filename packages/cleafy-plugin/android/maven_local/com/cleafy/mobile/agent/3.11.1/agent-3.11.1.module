@@ -1,0 +1,109 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.cleafy.mobile",
+    "module": "agent",
+    "version": "3.11.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.7.22"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "agent-3.11.1.aar",
+          "url": "agent-3.11.1.aar",
+          "size": 421110,
+          "sha512": "78be25607f35e22c4b6904dbd689c2b2df7128a4c505c4b66bb421dba2d347dcba9b71d461621241eed554350a2dd58f2833ab99dad388939e197a044b5adb19",
+          "sha256": "d654c74504efbf0b1f04661b5096f03b992ff3c9d8e10fd6afe0528635718b31",
+          "sha1": "51ca81bde9d6132cbb3e34f583fcc698823868c2",
+          "md5": "44b11d8427802d93bc118e3e43b2ad3a"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.7.22"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.9.0"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-process",
+          "version": {
+            "requires": "2.5.1"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "okhttp",
+          "version": {
+            "requires": "3.14.9"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-javalite",
+          "version": {
+            "requires": "3.25.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.6.4"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "agent-3.11.1.aar",
+          "url": "agent-3.11.1.aar",
+          "size": 421110,
+          "sha512": "78be25607f35e22c4b6904dbd689c2b2df7128a4c505c4b66bb421dba2d347dcba9b71d461621241eed554350a2dd58f2833ab99dad388939e197a044b5adb19",
+          "sha256": "d654c74504efbf0b1f04661b5096f03b992ff3c9d8e10fd6afe0528635718b31",
+          "sha1": "51ca81bde9d6132cbb3e34f583fcc698823868c2",
+          "md5": "44b11d8427802d93bc118e3e43b2ad3a"
+        }
+      ]
+    }
+  ]
+}

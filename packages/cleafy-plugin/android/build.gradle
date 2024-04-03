@@ -1,0 +1,105 @@
+buildscript {
+    ext.kotlin_version = '1.8.22'
+    repositories {
+        maven {
+            url "https://nexus.cleafy.org/repository/mobile-maven-group/"
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "org.sonarqube" version "4.0.0.2929"
+    id "org.jetbrains.kotlinx.kover" version "0.6.1"
+}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+rootProject.allprojects {
+    repositories {
+        maven {
+            url "https://nexus.cleafy.org/repository/mobile-maven-group/"
+        }
+        maven {
+            url("$rootDir/maven_local")
+        }
+    }
+}
+
+group 'com.cleafy.cleafyPlugin'
+def localVersion = System.getenv('PUBSPEC_VERSION')
+version localVersion
+
+android {
+    compileSdkVersion 33
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+
+    namespace = "com.cleafy.cleafyPlugin"
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.google.protobuf:protobuf-javalite:3.23.2"
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "com.squareup.okhttp3:okhttp:3.12.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation 'io.mockk:mockk:1.13.4'
+
+    //noinspection GradleDynamicVersion
+    implementation "com.cleafy.mobile:agent:+"
+}
+
+kover {
+    filters {
+        annotations {
+            excludes.add("com.cleafy.mobile.detection.utils.KoverExclude")
+        }
+    }
+    htmlReport {
+        reportDir.set(file("${buildDir}/reports/kover/kover_html.html"))
+    }
+    xmlReport {
+        reportFile.set(file("${buildDir}/reports/kover/kover_xml.xml"))
+    }
+}
+
+sonarqube {
+    androidVariant = "release"
+    properties {
+        property("sonar.projectKey", "flutter-cleafy-plugin")
+        property("sonar.projectName", "Flutter Cleafy Plugin")
+        property("sonar.organization", "cleafy")
+        property("sonar.projectVersion", localVersion)
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.sources", "src/main/kotlin")
+        property("sonar.tests", "src/test/kotlin")
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/CleafyPlugin/reports/kover/kover_xml.xml")
+        property("sonar.androidLint.reportPaths", "build/CleafyPlugin/reports/lint/lint-report.xml")
+    }
+}
+
+tasks["sonarqube"].dependsOn("koverXmlReport")
