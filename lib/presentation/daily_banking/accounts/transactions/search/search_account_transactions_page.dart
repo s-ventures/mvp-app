@@ -16,10 +16,12 @@ class SearchAccountTransactionsPage extends ConsumerStatefulWidget {
   const SearchAccountTransactionsPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _SearchAccountTransactionsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _SearchAccountTransactionsPageState();
 }
 
-class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTransactionsPage> {
+class _SearchAccountTransactionsPageState
+    extends ConsumerState<SearchAccountTransactionsPage> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
   final _textSubject = PublishSubject<String>();
@@ -32,9 +34,14 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
       _textSubject.add(_controller.text);
     });
 
-    _debounceSubscription = _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
+    _debounceSubscription =
+        _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
       (text) {
-        ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier).setSearch(text);
+        ref
+            .read(
+              filterSimplifiedAccountTransactionsControllerProvider.notifier,
+            )
+            .setSearch(text);
       },
     );
   }
@@ -50,17 +57,29 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
 
   @override
   Widget build(BuildContext context) {
-    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
-    final stateDate =
-        ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.startDate));
-    final endDate = ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.endDate));
-    final amountRange =
-        ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountRange));
+    final controller = ref
+        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
+    final stateDate = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.startDate),
+    );
+    final endDate = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.endDate),
+    );
+    final amountRange = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.amountRange),
+    );
     final creditDebitList = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.creditDebitList),
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.creditDebitList),
     );
 
-    final isFilterApplied = stateDate != null || endDate != null || amountRange != null || creditDebitList.isNotEmpty;
+    final isFilterApplied = stateDate != null ||
+        endDate != null ||
+        amountRange != null ||
+        creditDebitList.isNotEmpty;
 
     return Scaffold(
       body: NestedScrollView(
@@ -73,9 +92,7 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async {
-                  await controller.resetFilters().then((_) => context.pop());
-                },
+                onPressed: () async => context.pop(),
               ),
               actions: [
                 Stack(
@@ -97,7 +114,10 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
                         top: 0,
                         right: 0,
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s2, vertical: AppSpacing.s1),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.s2,
+                            vertical: AppSpacing.s1,
+                          ),
                           width: AppSpacing.s3,
                           height: AppSpacing.s3,
                           decoration: BoxDecoration(
@@ -110,7 +130,9 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
                 ),
               ],
               bottom: PreferredSize(
-                preferredSize: Size.fromHeight(kToolbarHeight + (isFilterApplied ? kTextTabBarHeight : 0)),
+                preferredSize: Size.fromHeight(
+                  kToolbarHeight + (isFilterApplied ? kTextTabBarHeight : 0),
+                ),
                 child: Column(
                   children: [
                     TransactionSearchBar(
@@ -126,7 +148,10 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
         body: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5, vertical: AppSpacing.s5),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s5,
+                vertical: AppSpacing.s5,
+              ),
               sliver: AccountTransactionList(
                 onTransactionPressed: (transaction) {
                   context.pushNamed(

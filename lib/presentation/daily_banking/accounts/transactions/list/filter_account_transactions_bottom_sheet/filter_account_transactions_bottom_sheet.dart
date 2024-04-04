@@ -144,9 +144,7 @@ class FilterAccountTransactionsBottomSheet {
         ),
         isTopBarLayerAlwaysVisible: true,
         trailingNavBarWidget: IconButton(
-          onPressed: () {
-            onReset().then((_) => context.pop());
-          },
+          onPressed: () => context.pop(),
           icon: IconSvg.small(
             IconAssets.xMark,
             color: context.color.iconLight900,
@@ -154,7 +152,12 @@ class FilterAccountTransactionsBottomSheet {
         ),
         mainContentSlivers: [
           SliverPadding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 16,
+              bottom: 80,
+            ),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
@@ -259,7 +262,12 @@ class FilterAccountTransactionsBottomSheet {
         ),
         mainContentSlivers: [
           SliverPadding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 16,
+              bottom: 80,
+            ),
             sliver: SliverToBoxAdapter(
               child: Container(
                 decoration: BoxDecoration(
