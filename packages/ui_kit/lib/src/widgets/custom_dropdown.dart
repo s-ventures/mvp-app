@@ -69,7 +69,7 @@ class CustomDropdown<T> extends StatefulWidget {
   /// function,called when value selected from dropdown.
   /// for single Selection Dropdown it will return single DropDownValueModel object,
   /// and for multi Selection Dropdown ,it will return list of DropDownValueModel object,
-  final Function(T)? onChanged;
+  final dynamic Function(T)? onChanged;
 
   @override
   State<CustomDropdown<T>> createState() => _CustomDropdownState<T>();
@@ -190,7 +190,8 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
                     ),
                   ),
                 ),
-                if (index != widget.dropDownList.length - 1) const CustomDivider(),
+                if (index != widget.dropDownList.length - 1)
+                  const CustomDivider(),
               ],
             ),
           ),

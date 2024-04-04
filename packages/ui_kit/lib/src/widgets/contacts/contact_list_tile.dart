@@ -30,29 +30,29 @@ class ContactListTile extends StatelessWidget {
       child: Ink(
         child: InkWell(
           child: ListTile(
-              shape: RoundedRectangleBorder(borderRadius: borderRadius),
-              onTap: onTap,
-              leading: leading,
-              title: Text(name, style: context.textStyle.bodySmallRegular),
-              subtitle: Text(
-                'NIF: $nif',
-                style: context.textStyle.buttonTabBar
-                    .copyWith(color: context.color.textLight600),
+            shape: RoundedRectangleBorder(borderRadius: borderRadius),
+            onTap: onTap,
+            leading: leading,
+            title: Text(name, style: context.textStyle.bodySmallRegular),
+            subtitle: Text(
+              'NIF: $nif',
+              style: context.textStyle.buttonTabBar
+                  .copyWith(color: context.color.textLight600),
+            ),
+            trailing: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              decoration: BoxDecoration(
+                color: typeBackgroundColor,
+                borderRadius: BorderRadius.circular(context.radius.soft),
               ),
-              trailing: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                decoration: BoxDecoration(
-                  color: typeBackgroundColor,
-                  borderRadius: BorderRadius.circular(context.radius.soft),
+              child: Text(
+                type,
+                style: context.textStyle.buttonTabBar.copyWith(
+                  color: typeForegroundColor,
                 ),
-                child: Text(
-                  type,
-                  style: context.textStyle.buttonTabBar.copyWith(
-                    color: typeForegroundColor,
-                  ),
-                ),
-              )),
+              ),
+            ),
+          ),
         ),
       ),
     );

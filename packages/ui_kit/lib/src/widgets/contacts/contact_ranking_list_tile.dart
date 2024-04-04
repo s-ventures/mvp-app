@@ -3,13 +3,13 @@ import 'package:ui_kit/ui_kit.dart';
 
 class ContactRankingListTile extends StatefulWidget {
   const ContactRankingListTile({
-    Key? key,
     required this.leading,
     required this.contact,
     required this.amount,
-    this.onExpansionChanged,
     required this.lineBarChart,
-  }) : super(key: key);
+    this.onExpansionChanged,
+    super.key,
+  });
 
   final Widget leading;
   final String contact;
@@ -26,7 +26,7 @@ class _ContactRankingListTileState extends State<ContactRankingListTile>
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.easeIn);
   static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0.0, end: 0.5);
+      Tween<double>(begin: 0, end: 0.5);
 
   late AnimationController _controller;
   late Animation<double> _iconTurns;
@@ -38,7 +38,9 @@ class _ContactRankingListTileState extends State<ContactRankingListTile>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this);
+      duration: const Duration(milliseconds: 200),
+      vsync: this,
+    );
     _heightFactor = _controller.drive(_easeInTween);
     _iconTurns = _controller.drive(_halfTween.chain(_easeInTween));
 
@@ -72,7 +74,8 @@ class _ContactRankingListTileState extends State<ContactRankingListTile>
         Container(
           height: 64,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(context.radius.soft)),
+            borderRadius:
+                BorderRadius.all(Radius.circular(context.radius.soft)),
             border: Border.all(color: context.color.strokeLigth100),
             color: context.color.neutralLight0,
           ),
@@ -107,14 +110,14 @@ class _ContactRankingListTileState extends State<ContactRankingListTile>
         ),
         ClipRect(
           child: Align(
-            alignment: Alignment.center,
             heightFactor: _heightFactor.value,
             child: Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Container(
                 decoration: BoxDecoration(
-                    color: context.color.neutralLight100,
-                    borderRadius: BorderRadius.circular(context.radius.soft)),
+                  color: context.color.neutralLight100,
+                  borderRadius: BorderRadius.circular(context.radius.soft),
+                ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                 child: Column(

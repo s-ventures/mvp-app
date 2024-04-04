@@ -14,31 +14,28 @@ enum IconSvgSize {
 class IconSvg extends StatelessWidget {
   const IconSvg(
     this.icon, {
-    Key? key,
+    super.key,
     this.color,
     this.size = 24,
-  }) : super(key: key);
+  });
 
   IconSvg.small(
     this.icon, {
-    Key? key,
+    super.key,
     this.color,
-  })  : size = IconSvgSize.small.value,
-        super(key: key);
+  }) : size = IconSvgSize.small.value;
 
   IconSvg.medium(
     this.icon, {
-    Key? key,
+    super.key,
     this.color,
-  })  : size = IconSvgSize.medium.value,
-        super(key: key);
+  }) : size = IconSvgSize.medium.value;
 
   IconSvg.big(
     this.icon, {
-    Key? key,
+    super.key,
     this.color,
-  })  : size = IconSvgSize.large.value,
-        super(key: key);
+  }) : size = IconSvgSize.large.value;
 
   final String icon;
   final Color? color;

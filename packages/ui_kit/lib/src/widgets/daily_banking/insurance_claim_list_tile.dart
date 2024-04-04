@@ -34,72 +34,74 @@ class InsuranceClaimListTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(context.radius.soft),
               ),
               child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(context.radius.soft),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              'Número de expediente: $number',
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(context.radius.soft),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Número de expediente: $number',
+                            style: context.textStyle.buttonTabBar.copyWith(
+                              color: context.color.textLight600,
+                            ),
+                          ),
+                        ),
+                        AppSpacing.vertical.s2,
+                        Row(
+                          children: [
+                            Container(
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                color: statusColor,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            AppSpacing.horizontal.s2,
+                            Text(
+                              status,
                               style: context.textStyle.buttonTabBar.copyWith(
                                 color: context.color.textLight600,
                               ),
                             ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    AppSpacing.vertical.s5,
+                    Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: leadingBackgroundColor,
+                            borderRadius:
+                                BorderRadius.circular(context.radius.soft),
                           ),
-                          AppSpacing.vertical.s2,
-                          Row(
-                            children: [
-                              Container(
-                                width: 6,
-                                height: 6,
-                                decoration: BoxDecoration(
-                                  color: statusColor,
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                              AppSpacing.horizontal.s2,
-                              Text(
-                                status,
-                                style: context.textStyle.buttonTabBar.copyWith(
-                                  color: context.color.textLight600,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      AppSpacing.vertical.s5,
-                      Row(
-                        children: [
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: leadingBackgroundColor,
-                              borderRadius: BorderRadius.circular(context.radius.soft),
-                            ),
-                            child: Center(
-                              child: Text(
-                                leadingEmoji,
-                                style: const TextStyle(fontSize: 20),
-                              ),
-                            ),
-                          ),
-                          AppSpacing.horizontal.s5,
-                          Flexible(
+                          child: Center(
                             child: Text(
-                              title,
-                              style: context.textStyle.bodyMediumSemiBold,
+                              leadingEmoji,
+                              style: const TextStyle(fontSize: 20),
                             ),
                           ),
-                        ],
-                      )
-                    ],
-                  )),
+                        ),
+                        AppSpacing.horizontal.s5,
+                        Flexible(
+                          child: Text(
+                            title,
+                            style: context.textStyle.bodyMediumSemiBold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),

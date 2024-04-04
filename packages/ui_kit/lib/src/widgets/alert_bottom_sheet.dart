@@ -12,28 +12,33 @@ class AlertBottomSheet {
     required BuildContext context,
     required String icon,
     required String title,
-    String? message,
     required String buttonOkText,
+    String? message,
     String? buttonOkIcon,
     ButtonType buttonOkType = ButtonType.filled,
     Color? buttonOkBackground,
     Color? buttonOkForeground,
-    Function? onOkPressed,
+    void Function()? onOkPressed,
     String? buttonCancelText,
     String? buttonCancelIcon,
     ButtonType? buttonCancelType,
     Color? buttonCancelBackground,
     Color? buttonCancelForeground,
-    Function? onCancelPressed,
-    AlertButtonsOrientation buttonsOrientation = AlertButtonsOrientation.horizontal,
+    void Function()? onCancelPressed,
+    AlertButtonsOrientation buttonsOrientation =
+        AlertButtonsOrientation.horizontal,
   }) {
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       useRootNavigator: true,
       builder: (BuildContext context) {
         return SafeArea(
           child: Container(
-            padding: const EdgeInsets.only(top: AppSpacing.s5, left: AppSpacing.s5, right: AppSpacing.s5),
+            padding: const EdgeInsets.only(
+              top: AppSpacing.s5,
+              left: AppSpacing.s5,
+              right: AppSpacing.s5,
+            ),
             decoration: ShapeDecoration(
               color: context.color.backgroundLight0,
               shape: RoundedRectangleBorder(
@@ -90,7 +95,8 @@ class AlertBottomSheet {
                     decoration: ShapeDecoration(
                       color: context.color.neutralLight100,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(context.radius.soft),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.soft),
                       ),
                     ),
                     child: Center(

@@ -6,12 +6,12 @@ class CustomRadioListTile extends StatelessWidget {
     required this.title,
     required this.value,
     required this.groupValue,
+    required this.onChanged,
     this.leadingEmoji,
     this.leadingBackgroundColor,
     this.showRadio = true,
     this.borderRadius = BorderRadius.zero,
     this.controlAffinity = ListTileControlAffinity.trailing,
-    required this.onChanged,
     super.key,
   });
 
@@ -35,7 +35,8 @@ class CustomRadioListTile extends StatelessWidget {
         groupValue: groupValue,
         onChanged: (value) => onChanged?.call(value),
         controlAffinity: controlAffinity,
-        fillColor: showRadio ? null : MaterialStateProperty.all(Colors.transparent),
+        fillColor:
+            showRadio ? null : MaterialStateProperty.all(Colors.transparent),
         splashRadius: 0,
         secondary: leadingEmoji != null
             ? TextAvatar(

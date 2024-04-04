@@ -3,10 +3,10 @@ import 'package:ui_kit/ui_kit.dart';
 
 class TextAvatar extends StatelessWidget {
   const TextAvatar({
-    super.key,
     required this.backgroundColor,
     required this.text,
     this.textStyle,
+    super.key,
   });
 
   final Color backgroundColor;

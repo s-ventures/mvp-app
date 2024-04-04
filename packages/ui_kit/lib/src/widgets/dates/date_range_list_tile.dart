@@ -3,23 +3,15 @@ import 'package:ui_kit/ui_kit.dart';
 
 class DateRangeListTile extends StatelessWidget {
   const DateRangeListTile({
-    super.key,
     required this.startDate,
+    required this.endDate,
     this.startDateTitle = 'Desde',
     this.startDateOnChanged,
-    required this.endDate,
     this.endDateTitle = 'Hasta',
     this.endDateOnChanged,
     this.disabled = false,
+    super.key,
   });
-
-  final String startDate;
-  final String startDateTitle;
-  final void Function(DateTime)? startDateOnChanged;
-  final String endDate;
-  final String endDateTitle;
-  final void Function(DateTime)? endDateOnChanged;
-  final bool disabled;
 
   factory DateRangeListTile.disabled({
     required String startDateTitle,
@@ -35,6 +27,14 @@ class DateRangeListTile extends StatelessWidget {
       disabled: true,
     );
   }
+
+  final String startDate;
+  final String startDateTitle;
+  final void Function(DateTime)? startDateOnChanged;
+  final String endDate;
+  final String endDateTitle;
+  final void Function(DateTime)? endDateOnChanged;
+  final bool disabled;
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +71,9 @@ class DateRangeListTile extends StatelessWidget {
                                 lastDate: DateTime.now(),
                               );
 
-                              if (startDateSelected != null && startDateOnChanged != null) {
-                                disabled ? null : startDateOnChanged?.call(DateTime.now());
+                              if (startDateSelected != null &&
+                                  startDateOnChanged != null) {
+                                startDateOnChanged?.call(DateTime.now());
                               }
                             },
                     ),
@@ -107,8 +108,9 @@ class DateRangeListTile extends StatelessWidget {
                                 lastDate: DateTime.now(),
                               );
 
-                              if (endDateSelected != null && endDateOnChanged != null) {
-                                disabled ? null : endDateOnChanged?.call(DateTime.now());
+                              if (endDateSelected != null &&
+                                  endDateOnChanged != null) {
+                                endDateOnChanged?.call(DateTime.now());
                               }
                             },
                     ),

@@ -56,7 +56,10 @@ class _ButtonState extends State<Button> {
 
   @override
   Widget build(BuildContext context) {
-    assert(widget.title != null || widget.icon != null);
+    assert(
+      widget.title != null || widget.icon != null,
+      'Button must have a title or an icon',
+    );
 
     /// Show loader when dev pass isLoading to true OR there is operation processing on button tap.
     final showLoader = widget.isLoading || _isLoading;
@@ -80,7 +83,9 @@ class _ButtonState extends State<Button> {
     final padding = widget.title != null
         ? switch (widget.size) {
             ButtonSize.large => const EdgeInsets.symmetric(horizontal: 32),
-            ButtonSize.medium || ButtonSize.small => const EdgeInsets.symmetric(horizontal: 24),
+            ButtonSize.medium ||
+            ButtonSize.small =>
+              const EdgeInsets.symmetric(horizontal: 24),
             ButtonSize.extraSmall => const EdgeInsets.symmetric(horizontal: 16),
           }
         : widget.icon != null
@@ -90,7 +95,7 @@ class _ButtonState extends State<Button> {
                 ButtonSize.small => const EdgeInsets.all(12),
                 ButtonSize.extraSmall => const EdgeInsets.all(8),
               }
-            : const EdgeInsets.all(0);
+            : EdgeInsets.zero;
     final height = widget.size.height;
     final width = widget.expand
         ? double.infinity
@@ -100,7 +105,9 @@ class _ButtonState extends State<Button> {
     final childOrLoadingWidget = showLoader
         ? ColorFiltered(
             colorFilter: ColorFilter.mode(
-              widget.type == ButtonType.filled ? context.color.textLight0 : context.color.textLight900,
+              widget.type == ButtonType.filled
+                  ? context.color.textLight0
+                  : context.color.textLight900,
               BlendMode.srcIn,
             ),
             child: const Loader(),
@@ -114,9 +121,13 @@ class _ButtonState extends State<Button> {
                     color: widget.foreground ??
                         (widget.type == ButtonType.filled
                             ? context.color.textLight0
-                            : context.color.textLight900.withOpacity(isDisabled ? .32 : 1)),
+                            : context.color.textLight900
+                                .withOpacity(isDisabled ? .32 : 1)),
                     size: switch (widget.size) {
-                      ButtonSize.large || ButtonSize.medium || ButtonSize.small => 24,
+                      ButtonSize.large ||
+                      ButtonSize.medium ||
+                      ButtonSize.small =>
+                        24,
                       ButtonSize.extraSmall => 16,
                     },
                   ),
@@ -128,7 +139,8 @@ class _ButtonState extends State<Button> {
                       ButtonSize.large => context.textStyle.buttonLarge,
                       ButtonSize.medium => context.textStyle.buttonMedium,
                       ButtonSize.small => context.textStyle.buttonSmall,
-                      ButtonSize.extraSmall => context.textStyle.buttonExtraSmall,
+                      ButtonSize.extraSmall =>
+                        context.textStyle.buttonExtraSmall,
                     },
                   ),
                 ],
@@ -141,7 +153,8 @@ class _ButtonState extends State<Button> {
                       ButtonSize.large => context.textStyle.buttonLarge,
                       ButtonSize.medium => context.textStyle.buttonMedium,
                       ButtonSize.small => context.textStyle.buttonSmall,
-                      ButtonSize.extraSmall => context.textStyle.buttonExtraSmall,
+                      ButtonSize.extraSmall =>
+                        context.textStyle.buttonExtraSmall,
                     },
                   )
                 : widget.icon != null
@@ -150,9 +163,13 @@ class _ButtonState extends State<Button> {
                         color: widget.foreground ??
                             (widget.type == ButtonType.filled
                                 ? context.color.textLight0
-                                : context.color.textLight900.withOpacity(isDisabled ? .32 : 1)),
+                                : context.color.textLight900
+                                    .withOpacity(isDisabled ? .32 : 1)),
                         size: switch (widget.size) {
-                          ButtonSize.large || ButtonSize.medium || ButtonSize.small => 24,
+                          ButtonSize.large ||
+                          ButtonSize.medium ||
+                          ButtonSize.small =>
+                            24,
                           ButtonSize.extraSmall => 16,
                         },
                       )
@@ -181,8 +198,8 @@ class _CustomButton extends StatelessWidget {
     required this.padding,
     required this.background,
     required this.foreground,
-    this.outlineColor,
     required this.child,
+    this.outlineColor,
     this.onPressed,
   });
 
@@ -198,7 +215,10 @@ class _CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final radius = switch (size) {
-      ButtonSize.large || ButtonSize.medium || ButtonSize.small => context.radius.hard,
+      ButtonSize.large ||
+      ButtonSize.medium ||
+      ButtonSize.small =>
+        context.radius.hard,
       ButtonSize.extraSmall => context.radius.soft,
     };
 
@@ -216,11 +236,16 @@ class _CustomButton extends StatelessWidget {
             backgroundColor: MaterialStateProperty.resolveWith<Color?>(
               (states) =>
                   background ??
-                  context.color.primaryLight600.withOpacity(states.contains(MaterialState.disabled) ? .32 : 1),
+                  context.color.primaryLight600.withOpacity(
+                    states.contains(MaterialState.disabled) ? .32 : 1,
+                  ),
             ),
             foregroundColor: MaterialStateProperty.resolveWith<Color?>(
               (states) =>
-                  foreground ?? context.color.textLight0.withOpacity(states.contains(MaterialState.disabled) ? .54 : 1),
+                  foreground ??
+                  context.color.textLight0.withOpacity(
+                    states.contains(MaterialState.disabled) ? .54 : 1,
+                  ),
             ),
           ),
           child: child,
@@ -231,17 +256,24 @@ class _CustomButton extends StatelessWidget {
           style: ButtonStyle(
             padding: MaterialStatePropertyAll(padding),
             shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(radius),
+              ),
             ),
             side: MaterialStateProperty.resolveWith<BorderSide?>(
               (states) => BorderSide(
                 color: outlineColor ??
-                    context.color.strokeLigth100.withOpacity(states.contains(MaterialState.disabled) ? 0 : 1),
+                    context.color.strokeLigth100.withOpacity(
+                      states.contains(MaterialState.disabled) ? 0 : 1,
+                    ),
               ),
             ),
-            backgroundColor: MaterialStatePropertyAll(context.color.neutralLight0),
+            backgroundColor:
+                MaterialStatePropertyAll(context.color.neutralLight0),
             foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-              (states) => context.color.textLight900.withOpacity(states.contains(MaterialState.disabled) ? .32 : 1),
+              (states) => context.color.textLight900.withOpacity(
+                states.contains(MaterialState.disabled) ? .32 : 1,
+              ),
             ),
           ),
           child: child,
@@ -252,11 +284,15 @@ class _CustomButton extends StatelessWidget {
           style: ButtonStyle(
             padding: MaterialStatePropertyAll(padding),
             shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(radius),
+              ),
             ),
             backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
             foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-              (states) => context.color.textLight900.withOpacity(states.contains(MaterialState.disabled) ? .32 : 1),
+              (states) => context.color.textLight900.withOpacity(
+                states.contains(MaterialState.disabled) ? .32 : 1,
+              ),
             ),
           ),
           child: child,

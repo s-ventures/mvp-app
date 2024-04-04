@@ -98,7 +98,8 @@ class TextInput extends StatefulWidget {
 }
 
 class _TextInputState extends State<TextInput> {
-  TextEditingController get _activeController => widget.controller ?? _internalController;
+  TextEditingController get _activeController =>
+      widget.controller ?? _internalController;
   final TextEditingController _internalController = TextEditingController();
 
   @override
@@ -138,26 +139,40 @@ class _TextInputState extends State<TextInput> {
       maxLength: widget.counter != null ? widget.counter! : widget.maxLength,
       minLines: widget.minLines,
       style: widget.size == TextInputSize.extraSmall
-          ? context.textStyle.bodySmallRegular
-              .copyWith(color: widget.enabled ? context.color.textLight900 : context.color.textLight300)
-          : context.textStyle.bodyMediumRegular
-              .copyWith(color: widget.enabled ? context.color.textLight900 : context.color.textLight300),
+          ? context.textStyle.bodySmallRegular.copyWith(
+              color: widget.enabled
+                  ? context.color.textLight900
+                  : context.color.textLight300,
+            )
+          : context.textStyle.bodyMediumRegular.copyWith(
+              color: widget.enabled
+                  ? context.color.textLight900
+                  : context.color.textLight300,
+            ),
       maxLines: widget.obscureText ? 1 : widget.maxLines,
-      focusNode: widget.focusNode ?? (widget.readOnly ? _AlwaysDisabledFocusNode() : null),
+      focusNode: widget.focusNode ??
+          (widget.readOnly ? _AlwaysDisabledFocusNode() : null),
       decoration: InputDecoration(
         helperText: widget.helperText,
         errorText: widget.errorText,
         counter: widget.counter != null ? const SizedBox.shrink() : null,
         contentPadding: widget.contentPadding ??
             EdgeInsets.symmetric(
-              horizontal: widget.size == TextInputSize.extraSmall ? widget.size.verticalPadding : 16,
+              horizontal: widget.size == TextInputSize.extraSmall
+                  ? widget.size.verticalPadding
+                  : 16,
               vertical: widget.size.verticalPadding,
             ),
-        border: widget.border ?? OutlineInputBorder(borderRadius: BorderRadius.circular(context.radius.soft)),
+        border: widget.border ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(context.radius.soft),
+            ),
         enabledBorder: widget.enabledBorder ??
             OutlineInputBorder(
               borderSide: BorderSide(
-                color: hasError ? context.color.statusError : context.color.strokeLigth100,
+                color: hasError
+                    ? context.color.statusError
+                    : context.color.strokeLigth100,
               ),
               borderRadius: BorderRadius.circular(context.radius.soft),
             ),
@@ -167,28 +182,41 @@ class _TextInputState extends State<TextInput> {
         ),
         labelText: widget.labelText,
         filled: widget.fillColor != null || !widget.enabled,
-        fillColor: widget.fillColor ?? (widget.enabled ? context.color.neutralLight0 : context.color.neutralLight100),
+        fillColor: widget.fillColor ??
+            (widget.enabled
+                ? context.color.neutralLight0
+                : context.color.neutralLight100),
         hintText: widget.hintText,
-        alignLabelWithHint: widget.alignLabelWithHint ?? (widget.maxLines != null && widget.maxLines! > 1),
+        alignLabelWithHint: widget.alignLabelWithHint ??
+            (widget.maxLines != null && widget.maxLines! > 1),
         floatingLabelBehavior: widget.floatingLabelBehavior,
-        labelStyle: context.textStyle.bodyMediumRegular
-            .copyWith(color: widget.enabled ? context.color.textLight600 : context.color.textLight300),
-        hintStyle: widget.hintStyle ?? context.textStyle.bodyMediumRegular.copyWith(color: context.color.textLight600),
+        labelStyle: context.textStyle.bodyMediumRegular.copyWith(
+          color: widget.enabled
+              ? context.color.textLight600
+              : context.color.textLight300,
+        ),
+        hintStyle: widget.hintStyle ??
+            context.textStyle.bodyMediumRegular
+                .copyWith(color: context.color.textLight600),
         suffixText: widget.suffixText,
-        suffixStyle:
-            widget.size == TextInputSize.extraSmall ? context.textStyle.bodySmall : context.textStyle.bodyMedium,
+        suffixStyle: widget.size == TextInputSize.extraSmall
+            ? context.textStyle.bodySmall
+            : context.textStyle.bodyMedium,
         suffixIconConstraints: widget.suffixConstraints,
         prefix: widget.prefix,
         prefixIcon: widget.prefixIcon,
         suffixIcon: widget.suffixIcon,
-        suffixIconColor: widget.enabled ? context.color.iconLight600 : context.color.iconLight300,
+        suffixIconColor: widget.enabled
+            ? context.color.iconLight600
+            : context.color.iconLight300,
         prefixIconConstraints: widget.prefixConstraints,
         helperStyle: context.textStyle.bodySmallRegular.copyWith(
-            color: hasError
-                ? context.color.statusError
-                : widget.enabled
-                    ? context.color.textLight600
-                    : context.color.textLight300),
+          color: hasError
+              ? context.color.statusError
+              : widget.enabled
+                  ? context.color.textLight600
+                  : context.color.textLight300,
+        ),
       ),
       onTap: widget.onTap,
       onTapOutside: (event) {

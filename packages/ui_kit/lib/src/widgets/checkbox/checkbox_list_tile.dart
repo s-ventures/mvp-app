@@ -3,9 +3,9 @@ import 'package:ui_kit/ui_kit.dart';
 
 class CustomCheckboxListTile extends StatelessWidget {
   const CustomCheckboxListTile({
-    required this.title, 
+    required this.title,
+    required this.onChecked,
     this.value = false,
-    required this.onChecked, 
     this.checkboxSize = CheckboxSize.medium,
     this.checkboxIcon = IconAssets.check,
     this.borderRadius = BorderRadius.zero,

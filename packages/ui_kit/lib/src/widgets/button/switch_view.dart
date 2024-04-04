@@ -10,8 +10,6 @@ extension SwitchViewTypeExtension on SwitchViewType {
         return IconSvg.small(IconAssets.gripSolid);
       case SwitchViewType.list:
         return IconSvg.small(IconAssets.gripLines);
-      default:
-        throw 'Invalid SwitchViewType: $this';
     }
   }
 }
@@ -57,7 +55,7 @@ class _SwitchViewState extends State<SwitchView> {
 
     const duration = kThemeAnimationDuration;
 
-    for (int i = 0; i < SwitchViewType.values.length; i++) {
+    for (var i = 0; i < SwitchViewType.values.length; i++) {
       yield Container(
         color: color,
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
@@ -71,7 +69,9 @@ class _SwitchViewState extends State<SwitchView> {
           child: AnimatedContainer(
             duration: duration,
             decoration: BoxDecoration(
-              color: _typeSelected == SwitchViewType.values[i] ? Colors.white : color,
+              color: _typeSelected == SwitchViewType.values[i]
+                  ? Colors.white
+                  : color,
               borderRadius: BorderRadius.circular(6),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -80,7 +80,8 @@ class _SwitchViewState extends State<SwitchView> {
               data: theme,
               child: AnimatedDefaultTextStyle(
                 duration: duration,
-                style: _typeSelected == SwitchViewType.values[i] ? style2 : style1,
+                style:
+                    _typeSelected == SwitchViewType.values[i] ? style2 : style1,
                 child: SwitchViewType.values[i].icon,
               ),
             ),

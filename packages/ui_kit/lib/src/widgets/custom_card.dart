@@ -34,12 +34,11 @@ class CustomCard extends StatelessWidget {
         side: outlined
             ? BorderSide(
                 color: context.color.strokeLigth100,
-                width: 1,
               )
             : BorderSide.none,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(AppSpacing.s5),
         child: child,
       ),
     );

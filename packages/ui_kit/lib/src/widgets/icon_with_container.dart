@@ -46,7 +46,9 @@ class IconWithContainer extends StatelessWidget {
             child: icon != null
                 ? IconSvg(
                     icon!,
-                    color: foreground == Colors.black ? context.color.iconLight900 : foreground,
+                    color: foreground == Colors.black
+                        ? context.color.iconLight900
+                        : foreground,
                     size: size == IconWithContainerSize.small
                         ? 16
                         : size == IconWithContainerSize.medium
@@ -72,7 +74,6 @@ class IconWithContainer extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   side: const BorderSide(
                     color: Colors.white,
-                    width: 1,
                   ),
                 ),
               ),

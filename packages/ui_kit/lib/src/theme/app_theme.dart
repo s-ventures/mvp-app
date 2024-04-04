@@ -18,22 +18,23 @@ class AppTheme {
     final textStyle = AppTextTheme.byColorScheme(colorScheme);
 
     return AppTheme(
-        color: colorScheme,
-        theme: _createBaseThemeData(
-          colorScheme,
-          textStyle,
-          baseThemeData,
-        ),
-        textStyle: textStyle,
-        shimmer: AppShimmerThemeExtension(
-          colors: [
-            colorScheme.secondaryLight100,
-            colorScheme.strokeLigth100,
-            colorScheme.primaryLight100,
-            colorScheme.secondaryLight100,
-          ],
-        ),
-        radius: const AppRadius());
+      color: colorScheme,
+      theme: _createBaseThemeData(
+        colorScheme,
+        textStyle,
+        baseThemeData,
+      ),
+      textStyle: textStyle,
+      shimmer: AppShimmerThemeExtension(
+        colors: [
+          colorScheme.secondaryLight100,
+          colorScheme.strokeLigth100,
+          colorScheme.primaryLight100,
+          colorScheme.secondaryLight100,
+        ],
+      ),
+      radius: const AppRadius(),
+    );
   }
 
   static AppTheme darkTheme = AppTheme.initializeTheme(
@@ -60,7 +61,9 @@ class AppTheme {
     final brightness = MediaQueryData.fromView(
       View.of(context),
     ).platformBrightness;
-    return brightness == Brightness.dark ? AppTheme.darkTheme : AppTheme.lightTheme;
+    return brightness == Brightness.dark
+        ? AppTheme.darkTheme
+        : AppTheme.lightTheme;
   }
 
   static ThemeData _createBaseThemeData(
@@ -121,40 +124,42 @@ class AppTheme {
           ),
         ),
         checkboxTheme: CheckboxThemeData(
-            fillColor: MaterialStateColor.resolveWith(
-              (states) {
-                if (states.contains(MaterialState.selected)) {
-                  return colorScheme.secondaryLight600;
-                }
-                return colorScheme.backgroundLight0;
-              },
-            ),
-            side: MaterialStateBorderSide.resolveWith(
-              (states) {
-                if (states.contains(MaterialState.selected)) {
-                  return BorderSide(
-                    color: colorScheme.secondaryLight600,
-                    width: 2,
-                  );
-                }
+          fillColor: MaterialStateColor.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.selected)) {
+                return colorScheme.secondaryLight600;
+              }
+              return colorScheme.backgroundLight0;
+            },
+          ),
+          side: MaterialStateBorderSide.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.selected)) {
                 return BorderSide(
-                  color: colorScheme.strokeLigth200,
+                  color: colorScheme.secondaryLight600,
                   width: 2,
                 );
-              },
+              }
+              return BorderSide(
+                color: colorScheme.strokeLigth200,
+                width: 2,
+              );
+            },
+          ),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(6),
             ),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(6),
-              ),
-            ),
-            visualDensity: VisualDensity.comfortable),
+          ),
+          visualDensity: VisualDensity.comfortable,
+        ),
         sliderTheme: SliderThemeData(
-            activeTrackColor: colorScheme.secondaryLight300,
-            inactiveTrackColor: colorScheme.strokeLigth200,
-            thumbColor: colorScheme.backgroundLight200,
-            overlayColor: colorScheme.secondaryLight600.withOpacity(0.3),
-            trackHeight: 1),
+          activeTrackColor: colorScheme.secondaryLight300,
+          inactiveTrackColor: colorScheme.strokeLigth200,
+          thumbColor: colorScheme.backgroundLight200,
+          overlayColor: colorScheme.secondaryLight600.withOpacity(0.3),
+          trackHeight: 1,
+        ),
         switchTheme: SwitchThemeData(
           thumbColor: MaterialStateColor.resolveWith(
             (states) {
@@ -191,7 +196,8 @@ class ThemeProvider extends InheritedWidget {
   AppShimmerThemeExtension get shimmer => appTheme.shimmer;
   AppThemeColorScheme get color => appTheme.color;
 
-  static ThemeProvider of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<ThemeProvider>()!;
+  static ThemeProvider of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<ThemeProvider>()!;
 
   @override
   bool updateShouldNotify(covariant ThemeProvider oldWidget) =>

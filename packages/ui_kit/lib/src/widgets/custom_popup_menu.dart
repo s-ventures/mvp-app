@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CustomPopupMenuButton extends StatefulWidget {
-  const CustomPopupMenuButton(
-      {super.key,
-      this.showCloseIcon = false,
-      this.icon = IconAssets.ellipsisVertical,
-      this.text = '',
-      this.buttonSize = ButtonSize.extraSmall,
-      this.buttonType = ButtonType.outlined,
-      this.buttonBackground = Colors.white,
-      this.buttonForeground = Colors.black,
-      this.menuColor = Colors.white,
-      this.menuSurfaceTintColor = Colors.white,
-      required this.items});
+  const CustomPopupMenuButton({
+    required this.items,
+    this.showCloseIcon = false,
+    this.icon = IconAssets.ellipsisVertical,
+    this.text = '',
+    this.buttonSize = ButtonSize.extraSmall,
+    this.buttonType = ButtonType.outlined,
+    this.buttonBackground = Colors.white,
+    this.buttonForeground = Colors.black,
+    this.menuColor = Colors.white,
+    this.menuSurfaceTintColor = Colors.white,
+    super.key,
+  });
 
   final bool showCloseIcon;
   final String icon;
@@ -24,21 +25,24 @@ class CustomPopupMenuButton extends StatefulWidget {
   final Color buttonForeground;
   final Color menuSurfaceTintColor;
   final Color menuColor;
-  final List<PopupMenuEntry> items;
+  final List<PopupMenuEntry<dynamic>> items;
 
   @override
   CustomPopupMenuButtonState createState() => CustomPopupMenuButtonState();
 }
 
 class CustomPopupMenuButtonState extends State<CustomPopupMenuButton> {
-  late double height, width, xPosition, yPosition;
+  late double height;
+  late double width;
+  late double xPosition;
+  late double yPosition;
   bool isMenuOpen = false;
 
   void findButton(BuildContext context) {
-    RenderBox renderBox = context.findRenderObject() as RenderBox;
+    final renderBox = context.findRenderObject()! as RenderBox;
     height = renderBox.size.height;
     width = renderBox.size.width;
-    Offset offset = renderBox.localToGlobal(Offset.zero);
+    final offset = renderBox.localToGlobal(Offset.zero);
     xPosition = offset.dx;
     yPosition = offset.dy;
   }

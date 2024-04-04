@@ -5,8 +5,8 @@ class CategoryListTile extends StatelessWidget {
   const CategoryListTile({
     required this.leadingEmoji,
     required this.leadingBackgroundColor,
-    this.borderRadius = BorderRadius.zero,
     required this.title,
+    this.borderRadius = BorderRadius.zero,
     this.trailing,
     this.onTap,
     super.key,

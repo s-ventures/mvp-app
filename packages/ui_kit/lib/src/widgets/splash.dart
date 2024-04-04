@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class Splash extends StatelessWidget {
   const Splash({
-    super.key,
+    required this.child,
     this.borderRadius = BorderRadius.zero,
     this.onPressed,
-    required this.child
+    super.key,
   });
 
   final BorderRadius borderRadius;
@@ -20,7 +20,7 @@ class Splash extends StatelessWidget {
         child: InkWell(
           borderRadius: borderRadius,
           onTap: () => onPressed?.call(),
-          child: child
+          child: child,
         ),
       ),
     );

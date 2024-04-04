@@ -32,59 +32,61 @@ class InsurancePolicyListTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(context.radius.soft),
               ),
               child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(context.radius.soft),
-                  ),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              'Número de póliza: $number',
-                              style: context.textStyle.buttonTabBar.copyWith(
-                                color: context.color.textLight600,
-                              ),
-                            ),
-                          ),
-                          AppSpacing.vertical.s2,
-                          Text(
-                            category,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(context.radius.soft),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Número de póliza: $number',
                             style: context.textStyle.buttonTabBar.copyWith(
                               color: context.color.textLight600,
                             ),
                           ),
-                        ],
-                      ),
-                      AppSpacing.vertical.s5,
-                      Row(
-                        children: [
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: leadingBackgroundColor,
-                              borderRadius: BorderRadius.circular(context.radius.soft),
-                            ),
-                            child: Center(
-                              child: Text(
-                                leadingEmoji,
-                                style: const TextStyle(fontSize: 20),
-                              ),
-                            ),
+                        ),
+                        AppSpacing.vertical.s2,
+                        Text(
+                          category,
+                          style: context.textStyle.buttonTabBar.copyWith(
+                            color: context.color.textLight600,
                           ),
-                          AppSpacing.horizontal.s5,
-                          Flexible(
+                        ),
+                      ],
+                    ),
+                    AppSpacing.vertical.s5,
+                    Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: leadingBackgroundColor,
+                            borderRadius:
+                                BorderRadius.circular(context.radius.soft),
+                          ),
+                          child: Center(
                             child: Text(
-                              title,
-                              style: context.textStyle.bodyMediumSemiBold,
+                              leadingEmoji,
+                              style: const TextStyle(fontSize: 20),
                             ),
                           ),
-                        ],
-                      )
-                    ],
-                  )),
+                        ),
+                        AppSpacing.horizontal.s5,
+                        Flexible(
+                          child: Text(
+                            title,
+                            style: context.textStyle.bodyMediumSemiBold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),

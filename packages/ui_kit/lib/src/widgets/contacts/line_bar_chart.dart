@@ -3,13 +3,13 @@ import 'package:ui_kit/ui_kit.dart';
 
 class LineBarChart extends StatelessWidget {
   const LineBarChart({
-    super.key,
     required this.greenValue,
     required this.greenLabel,
     required this.yellowValue,
     required this.yellowLabel,
     required this.redValue,
     required this.redLabel,
+    super.key,
   });
 
   final double? greenValue;
@@ -83,7 +83,7 @@ class LineBarChart extends StatelessWidget {
                 value: redValue.toString(),
               ),
           ],
-        )
+        ),
       ],
     );
   }
@@ -126,7 +126,7 @@ class _Value extends StatelessWidget {
         Text(
           value,
           style: context.textStyle.bodyMediumRegular,
-        )
+        ),
       ],
     );
   }

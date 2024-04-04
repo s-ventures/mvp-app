@@ -8,31 +8,33 @@ class FakeSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedList(children: [
-      Splash(
-        borderRadius: BorderRadius.circular(context.radius.soft),
-        onPressed: onPressed,
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              IconSvg.small(
-                IconAssets.search,
-                color: context.color.iconLight600,
-              ),
-              AppSpacing.horizontal.s3,
-              Expanded(
-                child: Text(
-                  'Buscar',
-                  style: context.textStyle.bodyMediumRegular.copyWith(
-                    color: context.color.textLight600,
+    return OutlinedList(
+      children: [
+        Splash(
+          borderRadius: BorderRadius.circular(context.radius.soft),
+          onPressed: onPressed,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                IconSvg.small(
+                  IconAssets.search,
+                  color: context.color.iconLight600,
+                ),
+                AppSpacing.horizontal.s3,
+                Expanded(
+                  child: Text(
+                    'Buscar',
+                    style: context.textStyle.bodyMediumRegular.copyWith(
+                      color: context.color.textLight600,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 }

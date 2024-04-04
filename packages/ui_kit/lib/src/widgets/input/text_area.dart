@@ -127,9 +127,10 @@ class _TextAreaState extends State<TextArea> {
       minLines: widget.size.minLines,
       maxLines: null,
       style: context.textStyle.bodyMediumRegular.copyWith(
-          color: widget.enabled
-              ? context.color.textLight900
-              : context.color.textLight300),
+        color: widget.enabled
+            ? context.color.textLight900
+            : context.color.textLight300,
+      ),
       focusNode: widget.focusNode ??
           (widget.readOnly ? _AlwaysDisabledFocusNode() : null),
       decoration: InputDecoration(
@@ -142,7 +143,9 @@ class _TextAreaState extends State<TextArea> {
               vertical: 12,
             ),
         border: widget.border ??
-            OutlineInputBorder(borderRadius: BorderRadius.circular(context.radius.soft)),
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(context.radius.soft),
+            ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: hasError
@@ -164,9 +167,10 @@ class _TextAreaState extends State<TextArea> {
         alignLabelWithHint: true,
         floatingLabelBehavior: widget.floatingLabelBehavior,
         labelStyle: context.textStyle.bodyMediumRegular.copyWith(
-            color: widget.enabled
-                ? context.color.textLight600
-                : context.color.textLight300),
+          color: widget.enabled
+              ? context.color.textLight600
+              : context.color.textLight300,
+        ),
         hintStyle: widget.hintStyle ??
             context.textStyle.bodyMediumRegular
                 .copyWith(color: context.color.textLight600),
@@ -181,11 +185,12 @@ class _TextAreaState extends State<TextArea> {
             : context.color.iconLight300,
         prefixIconConstraints: widget.prefixConstraints,
         helperStyle: context.textStyle.bodySmallRegular.copyWith(
-            color: hasError
-                ? context.color.statusError
-                : widget.enabled
-                    ? context.color.textLight600
-                    : context.color.textLight300),
+          color: hasError
+              ? context.color.statusError
+              : widget.enabled
+                  ? context.color.textLight600
+                  : context.color.textLight300,
+        ),
       ),
       onTap: widget.onTap,
       onTapOutside: (event) {

@@ -27,7 +27,7 @@ class CustomChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget label = title;
+    var label = title;
 
     if (isExpanded) {
       label = Center(child: label);
@@ -50,13 +50,17 @@ class CustomChip extends StatelessWidget {
       avatar: leadingIcon != null
           ? IconSvg.small(
               leadingIcon!,
-              color: selected ? context.color.strokeLigth100 : context.color.primaryLight300,
+              color: selected
+                  ? context.color.strokeLigth100
+                  : context.color.primaryLight300,
             )
           : null,
       deleteIcon: trailingIcon != null
           ? IconSvg.small(
               trailingIcon!,
-              color: selected ? context.color.strokeLigth100 : context.color.primaryLight300,
+              color: selected
+                  ? context.color.strokeLigth100
+                  : context.color.primaryLight300,
             )
           : null,
       onDeleted: onTrailingIconPressed,
