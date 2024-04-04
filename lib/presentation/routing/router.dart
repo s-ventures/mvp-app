@@ -17,6 +17,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_details/scheduled_transfer_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_edit/scheduled_transfer_edit_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_signature/scheduled_transfer_signature_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_contact/soon_pay_contact.page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_otp/soon_pay_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_page.dart';
@@ -194,61 +195,18 @@ GoRouter router(RouterRef ref) {
                               child: const ScheduledTransferEditPage(),
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  // Scheduled transfers
-                  GoRoute(
-                    parentNavigatorKey: _rootNavigatorKey,
-                    path: AppRoute.dailyBankingScheduledTransfers.path,
-                    name: AppRoute.dailyBankingScheduledTransfers.name,
-                    pageBuilder: (context, state) => MaterialPage(
-                      key: state.pageKey,
-                      child: const ScheduledTransfersPage(),
-                    ),
-                  ),
-                  // Soon pay
-                  GoRoute(
-                    parentNavigatorKey: _rootNavigatorKey,
-                    path: AppRoute.dailyBankingSoonPay.path,
-                    name: AppRoute.dailyBankingSoonPay.name,
-                    pageBuilder: (context, state) => MaterialPage(
-                      key: state.pageKey,
-                      child: const SoonPayPage(),
-                    ),
-                    routes: [
-                      GoRoute(
-                        parentNavigatorKey: _rootNavigatorKey,
-                        path: AppRoute.dailyBankingSoonPayContact.path,
-                        name: AppRoute.dailyBankingSoonPayContact.name,
-                        pageBuilder: (context, state) => MaterialPage(
-                          key: state.pageKey,
-                          child: const SoonPayContactPage(),
-                        ),
-                        routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute.dailyBankingSoonPayOTP.path,
-                            name: AppRoute.dailyBankingSoonPayOTP.name,
+                            path: AppRoute.dailyBankingScheduledTransferSignature.path,
+                            name: AppRoute.dailyBankingScheduledTransferSignature.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
-                              child: const SoonPayOTPPage(),
+                              child: const ScheduledTransferSignaturePage(),
                             ),
                           ),
                         ],
                       ),
                     ],
-                  ),
-                  // Scheduled transfers
-                  GoRoute(
-                    parentNavigatorKey: _rootNavigatorKey,
-                    path: AppRoute.dailyBankingScheduledTransfers.path,
-                    name: AppRoute.dailyBankingScheduledTransfers.name,
-                    pageBuilder: (context, state) => MaterialPage(
-                      key: state.pageKey,
-                      child: const ScheduledTransfersPage(),
-                    ),
                   ),
                   // Soon pay
                   GoRoute(

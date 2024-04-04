@@ -6,16 +6,14 @@ import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/card_transa
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/cards_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 
-final cardTransactionsPaginationRepositoryProvider =
-    Provider<CardTransactionsPaginationRepository>(
+final cardTransactionsPaginationRepositoryProvider = Provider<CardTransactionsPaginationRepository>(
   (ref) => CardTransactionsPaginationRepository(
     ref.watch(simplifiedCardTransactionsRepositoryProvider),
     ref.watch(cardsRepositoryProvider),
   ),
 );
 
-class CardTransactionsPaginationRepository
-    extends PaginationRepository<SimplifiedCardTransaction> {
+class CardTransactionsPaginationRepository extends PaginationRepository<SimplifiedCardTransaction> {
   CardTransactionsPaginationRepository(
     this._transactionsRepository,
     this._cardsRepository,
@@ -32,7 +30,7 @@ class CardTransactionsPaginationRepository
       // No card has been selected. Select first card
       if (cardRecordOption.isNone()) {
         _filter = CardTransactionsFilter(
-          // TODO(sergio): hardcoded card id
+          // // TODO(sergio): hardcoded card id
           cardContractIds: [UniqueId.fromUniqueString(1068.toString())],
           cardIds: [UniqueId.fromUniqueString(50.toString())],
         );
@@ -76,8 +74,7 @@ class CardTransactionsPaginationRepository
       return [];
     }
 
-    final transactions =
-        await _transactionsRepository.getSimplifiedCardTransactions(
+    final transactions = await _transactionsRepository.getSimplifiedCardTransactions(
       filter: filter,
       page: page,
       pageSize: pageSize,

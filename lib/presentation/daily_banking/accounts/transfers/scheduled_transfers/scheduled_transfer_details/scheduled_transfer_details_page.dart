@@ -89,6 +89,8 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
                             message: 'Se activará tu pago periódico de 25 €',
                             buttonOkText: 'Activar',
                             buttonCancelText: 'Cancelar',
+                            onOkPressed: () async =>
+                                context.pushNamed(AppRoute.dailyBankingScheduledTransferSignature.name),
                           ),
                         ),
                       ),
