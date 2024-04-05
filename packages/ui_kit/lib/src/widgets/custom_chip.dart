@@ -64,7 +64,7 @@ class CustomChip extends StatelessWidget {
             )
           : null,
       onDeleted: onTrailingIconPressed,
-      backgroundColor: backgroundColor ?? context.color.backgroundLight200,
+      backgroundColor: backgroundColor ?? context.color.backgroundLight0,
       selected: selected,
       selectedColor: backgroundColor ?? context.color.primaryLight300,
       onSelected: onSelected,

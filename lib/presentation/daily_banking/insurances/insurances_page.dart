@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/claims.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/policies.dart';
 
 class Insurances extends StatelessWidget {
@@ -15,6 +16,7 @@ class Insurances extends StatelessWidget {
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
             ),
             const SliverToBoxAdapter(child: Policies()),
+            const SliverToBoxAdapter(child: Claims()),
           ],
         );
       },

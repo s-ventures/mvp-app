@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
-enum FilterBy { policies, claims }
-
-class FilterInsurancesBottomSheet {
-  static Future<void> show({
-    required BuildContext context,
-    required FilterBy filterBy,
-  }) {
+class FilterPoliciesBottomSheet {
+  static Future<void> show({required BuildContext context}) {
     final pageIndexNotifier = ValueNotifier(0);
 
     return WoltModalSheet.show(
@@ -19,11 +13,12 @@ class FilterInsurancesBottomSheet {
       useRootNavigator: true,
       pageIndexNotifier: pageIndexNotifier,
       modalTypeBuilder: (context) => WoltModalType.bottomSheet,
+      useSafeArea: false,
       minPageHeight: 0,
       maxPageHeight: 0.99,
       onModalDismissedWithBarrierTap: () => context.pop(),
       pageListBuilder: (modalSheetContext) => [
-        _buildFilters(modalSheetContext, pageIndexNotifier, filterBy),
+        _buildFilters(modalSheetContext, pageIndexNotifier),
         _buildCategories(modalSheetContext, pageIndexNotifier),
       ],
     );
@@ -32,12 +27,16 @@ class FilterInsurancesBottomSheet {
   static SliverWoltModalSheetPage _buildFilters(
     BuildContext context,
     ValueNotifier<int> pageIndexNotifier,
-    FilterBy filterBy,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
         stickyActionBar: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(
+            top: AppSpacing.s5,
+            left: AppSpacing.s5,
+            right: AppSpacing.s5,
+            bottom: AppSpacing.s7,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -50,9 +49,9 @@ class FilterInsurancesBottomSheet {
               Button(
                 title: 'Aplicar',
                 size: ButtonSize.small,
-                onPressed: () async => filterBy == FilterBy.policies
-                    ? context.pushNamed(AppRoute.dailyBankingInsurancePoliciesList.name)
-                    : context.pushNamed(AppRoute.dailyBankingInsuranceClaimsList.name),
+                onPressed: () async => context.pushNamed(
+                  AppRoute.dailyBankingInsurancePoliciesList.name,
+                ),
               ),
             ],
           ),
@@ -73,28 +72,15 @@ class FilterInsurancesBottomSheet {
         ),
         mainContentSlivers: [
           SliverPadding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+            padding: const EdgeInsets.only(
+              left: AppSpacing.s5,
+              right: AppSpacing.s5,
+              top: AppSpacing.s5,
+              bottom: 96,
+            ),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  if (filterBy == FilterBy.claims)
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Fecha',
-                          style: context.textStyle.bodyMediumSemiBold.copyWith(
-                            color: context.color.textLight600,
-                          ),
-                        ),
-                        AppSpacing.vertical.s2,
-                        DateRangeListTile(
-                          startDate: DateFormat('dd/MM/yyyy').format(DateTime.now().subtract(const Duration(days: 30))),
-                          endDate: DateFormat('dd/MM/yyyy').format(DateTime.now()),
-                        ),
-                        AppSpacing.vertical.s5,
-                      ],
-                    ),
                   Text(
                     'Ramo',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
@@ -108,7 +94,9 @@ class FilterInsurancesBottomSheet {
                       CategoryListTile(
                         leadingEmoji: '⚡️',
                         leadingBackgroundColor: const Color(0xFFFFF2E0),
-                        borderRadius: BorderRadius.circular(context.radius.soft),
+                        borderRadius: BorderRadius.circular(
+                          context.radius.soft,
+                        ),
                         title: 'Energía',
                         trailing: IconSvg.small(
                           IconAssets.chevronRight,
@@ -182,7 +170,12 @@ class FilterInsurancesBottomSheet {
         ),
         mainContentSlivers: [
           SliverPadding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+            padding: const EdgeInsets.only(
+              left: AppSpacing.s5,
+              right: AppSpacing.s5,
+              top: AppSpacing.s5,
+              bottom: 80,
+            ),
             sliver: SliverToBoxAdapter(
               child: Container(
                 decoration: BoxDecoration(

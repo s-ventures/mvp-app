@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_insurances_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_policies_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -52,7 +52,7 @@ class InsuranceClaimsListPage extends StatelessWidget {
                     type: ButtonType.outlined,
                     size: ButtonSize.extraSmall,
                     onPressed: () async {
-                      await FilterInsurancesBottomSheet.show(context: context, filterBy: FilterBy.claims);
+                      await FilterPoliciesBottomSheet.show(context: context);
                     },
                   ),
                 ],
@@ -66,18 +66,18 @@ class InsuranceClaimsListPage extends StatelessWidget {
                         color: context.color.primaryLight300,
                       ),
                     ),
-                    onSelected: (value) {},
+                    onSelected: print,
                   ),
                   AppSpacing.horizontal.s3,
                   CustomChip(
                     title: Text(
                       'En curso',
                       style: context.textStyle.bodySmallSemiBold.copyWith(
-                        color: context.color.primaryLight300,
+                        color: context.color.textLight0,
                       ),
                     ),
                     selected: true,
-                    onSelected: (value) {},
+                    onSelected: print,
                   ),
                 ],
               ),
@@ -89,7 +89,8 @@ class InsuranceClaimsListPage extends StatelessWidget {
                 title: 'Protección de la actividad de tu negocio',
                 status: 'En curso',
                 statusColor: context.color.statusWarning,
-                onTap: () => context.pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
+                onTap: () => context
+                    .pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
               ),
               AppSpacing.vertical.s3,
               InsuranceClaimListTile(
@@ -99,7 +100,8 @@ class InsuranceClaimsListPage extends StatelessWidget {
                 title: 'Protección de la actividad de tu negocio',
                 status: 'En curso',
                 statusColor: context.color.statusWarning,
-                onTap: () => context.pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
+                onTap: () => context
+                    .pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
               ),
             ],
           ),
