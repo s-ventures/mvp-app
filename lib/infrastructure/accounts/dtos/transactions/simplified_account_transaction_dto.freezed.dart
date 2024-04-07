@@ -12,7 +12,7 @@ part of 'simplified_account_transaction_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SimplifiedAccountTransactionDto _$SimplifiedAccountTransactionDtoFromJson(
     Map<String, dynamic> json) {
@@ -34,8 +34,6 @@ mixin _$SimplifiedAccountTransactionDto {
   String? get analyticsCategory => throw _privateConstructorUsedError;
   String? get userCategory => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
-  AccountTransactionCreditDebitDto get creditDebit =>
-      throw _privateConstructorUsedError;
   String get originBranch => throw _privateConstructorUsedError;
   ProductTypeDto get productType => throw _privateConstructorUsedError;
 
@@ -65,7 +63,6 @@ abstract class $SimplifiedAccountTransactionDtoCopyWith<$Res> {
       String? analyticsCategory,
       String? userCategory,
       int accountId,
-      AccountTransactionCreditDebitDto creditDebit,
       String originBranch,
       ProductTypeDto productType});
 }
@@ -95,7 +92,6 @@ class _$SimplifiedAccountTransactionDtoCopyWithImpl<$Res,
     Object? analyticsCategory = freezed,
     Object? userCategory = freezed,
     Object? accountId = null,
-    Object? creditDebit = null,
     Object? originBranch = null,
     Object? productType = null,
   }) {
@@ -144,10 +140,6 @@ class _$SimplifiedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      creditDebit: null == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebitDto,
       originBranch: null == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
@@ -181,7 +173,6 @@ abstract class _$$SimplifiedAccountTransactionDtoImplCopyWith<$Res>
       String? analyticsCategory,
       String? userCategory,
       int accountId,
-      AccountTransactionCreditDebitDto creditDebit,
       String originBranch,
       ProductTypeDto productType});
 }
@@ -210,7 +201,6 @@ class __$$SimplifiedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? analyticsCategory = freezed,
     Object? userCategory = freezed,
     Object? accountId = null,
-    Object? creditDebit = null,
     Object? originBranch = null,
     Object? productType = null,
   }) {
@@ -259,10 +249,6 @@ class __$$SimplifiedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      creditDebit: null == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebitDto,
       originBranch: null == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
@@ -291,7 +277,6 @@ class _$SimplifiedAccountTransactionDtoImpl
       required this.analyticsCategory,
       required this.userCategory,
       required this.accountId,
-      required this.creditDebit,
       required this.originBranch,
       required this.productType});
 
@@ -324,15 +309,13 @@ class _$SimplifiedAccountTransactionDtoImpl
   @override
   final int accountId;
   @override
-  final AccountTransactionCreditDebitDto creditDebit;
-  @override
   final String originBranch;
   @override
   final ProductTypeDto productType;
 
   @override
   String toString() {
-    return 'SimplifiedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, endBalance: $endBalance, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userCategory: $userCategory, accountId: $accountId, creditDebit: $creditDebit, originBranch: $originBranch, productType: $productType)';
+    return 'SimplifiedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, endBalance: $endBalance, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userCategory: $userCategory, accountId: $accountId, originBranch: $originBranch, productType: $productType)';
   }
 
   @override
@@ -360,8 +343,6 @@ class _$SimplifiedAccountTransactionDtoImpl
                 other.userCategory == userCategory) &&
             (identical(other.accountId, accountId) ||
                 other.accountId == accountId) &&
-            (identical(other.creditDebit, creditDebit) ||
-                other.creditDebit == creditDebit) &&
             (identical(other.originBranch, originBranch) ||
                 other.originBranch == originBranch) &&
             (identical(other.productType, productType) ||
@@ -383,7 +364,6 @@ class _$SimplifiedAccountTransactionDtoImpl
       analyticsCategory,
       userCategory,
       accountId,
-      creditDebit,
       originBranch,
       productType);
 
@@ -417,7 +397,6 @@ abstract class _SimplifiedAccountTransactionDto
           required final String? analyticsCategory,
           required final String? userCategory,
           required final int accountId,
-          required final AccountTransactionCreditDebitDto creditDebit,
           required final String originBranch,
           required final ProductTypeDto productType}) =
       _$SimplifiedAccountTransactionDtoImpl;
@@ -449,8 +428,6 @@ abstract class _SimplifiedAccountTransactionDto
   String? get userCategory;
   @override
   int get accountId;
-  @override
-  AccountTransactionCreditDebitDto get creditDebit;
   @override
   String get originBranch;
   @override

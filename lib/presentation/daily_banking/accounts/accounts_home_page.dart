@@ -32,8 +32,11 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   }
 
   void _loadMore() {
-    if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
-      ref.read(simplifiedAccountTransactionsControllerProvider.notifier).loadNextPage();
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      ref
+          .read(simplifiedAccountTransactionsControllerProvider.notifier)
+          .loadNextPage();
     }
   }
 
@@ -65,13 +68,15 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                       icon: IconAssets.transfer,
                       type: ButtonType.filled,
                       label: 'Enviar dinero',
-                      onPressed: () => context.pushNamed(AppRoute.dailyBankingTransfers.name),
+                      onPressed: () => context
+                          .pushNamed(AppRoute.dailyBankingTransfers.name),
                     ),
                     IconOverTextButton(
                       icon: IconAssets.wallet,
                       type: ButtonType.outlined,
                       label: 'Cuentas',
-                      onPressed: () => context.pushNamed(AppRoute.dailyBankingAggregatedAccounts.name),
+                      onPressed: () => context.pushNamed(
+                          AppRoute.dailyBankingAggregatedAccounts.name),
                     ),
                   ],
                 ),
@@ -82,12 +87,14 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
               sliver: SliverToBoxAdapter(
                 child: TransactionsHeader(
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingSearchAccountTransactions.name),
+                  onPressed: () => context.pushNamed(
+                      AppRoute.dailyBankingSearchAccountTransactions.name),
                 ),
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.s5, vertical: AppSpacing.s3),
               sliver: AccountTransactionList(
                 onTransactionPressed: (transaction) {
                   context.pushNamed(

@@ -8,7 +8,8 @@ class CardTransactionsRemoteDataSource {
 
   final CardTransactionsRestClient _restClient;
 
-  Future<PaginatedResponse<SimplifiedCardTransactionDto>> getSimplifiedCardTransactions({
+  Future<PaginatedResponse<SimplifiedCardTransactionDto>>
+      getSimplifiedCardTransactions({
     required CardTransactionsFilterDto filterDto,
   }) async {
     try {

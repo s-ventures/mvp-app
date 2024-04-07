@@ -6,13 +6,16 @@ import 'package:manifiesto_mvp_app/domain/cards/cards/entities/simplified_card.d
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/cards_pagination_repository.dart';
 
-final simplifiedCardsControllerProvider = StateNotifierProvider<SimplifiedCardsController, SimplifiedCardsState>(
-  (ref) => SimplifiedCardsController(ref.watch(cardsPaginationRepositoryProvider)),
+final simplifiedCardsControllerProvider =
+    StateNotifierProvider<SimplifiedCardsController, SimplifiedCardsState>(
+  (ref) =>
+      SimplifiedCardsController(ref.watch(cardsPaginationRepositoryProvider)),
 );
 
 class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
-    with PaginationLoadingProvider<SimplifiedCard> {
-  SimplifiedCardsController(this._repository) : super(const SimplifiedCardsState());
+    with PaginationLoadingProvider<List<SimplifiedCard>> {
+  SimplifiedCardsController(this._repository)
+      : super(const SimplifiedCardsState());
 
   final CardsPaginationRepository _repository;
 
@@ -22,7 +25,8 @@ class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            cards: const AsyncLoading<List<SimplifiedCard>>().copyWithPrevious(state.cards),
+            cards: const AsyncLoading<List<SimplifiedCard>>()
+                .copyWithPrevious(state.cards),
           ),
         );
       },
@@ -38,6 +42,9 @@ class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
     required UniqueId cardContractId,
     required UniqueId cardId,
   }) {
-    _repository.selectCard(cardId: cardId.toInt(), cardContractId: cardContractId.toInt());
+    _repository.selectCard(
+      cardId: cardId.toInt(),
+      cardContractId: cardContractId.toInt(),
+    );
   }
 }
