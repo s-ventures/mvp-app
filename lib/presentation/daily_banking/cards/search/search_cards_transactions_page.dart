@@ -13,10 +13,12 @@ class SearchCardTransactionsPage extends ConsumerStatefulWidget {
   const SearchCardTransactionsPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _SearchCardTransactionsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _SearchCardTransactionsPageState();
 }
 
-class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransactionsPage> {
+class _SearchCardTransactionsPageState
+    extends ConsumerState<SearchCardTransactionsPage> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
   final _textSubject = PublishSubject<String>();
@@ -29,9 +31,12 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
       _textSubject.add(_controller.text);
     });
 
-    _debounceSubscription = _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
+    _debounceSubscription =
+        _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
       (text) {
-        ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier).setSearch(text);
+        ref
+            .read(filterSimplifiedCardTransactionsControllerProvider.notifier)
+            .setSearch(text);
       },
     );
   }
@@ -47,7 +52,8 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
 
   @override
   Widget build(BuildContext context) {
-    final controller = ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
+    final controller =
+        ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
 
     return Scaffold(
       body: NestedScrollView(
@@ -60,9 +66,7 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async {
-                  await controller.resetFilters().then((_) => context.pop());
-                },
+                onPressed: () async => context.pop(),
               ),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -80,7 +84,10 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
         body: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5, vertical: AppSpacing.s5),
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s5,
+                vertical: AppSpacing.s5,
+              ),
               sliver: CardTransactionsList(
                 onTransactionPressed: (transaction) {},
               ),
