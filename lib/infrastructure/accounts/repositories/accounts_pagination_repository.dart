@@ -3,13 +3,15 @@ import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/accounts/entities/simplified_account.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/accounts/failures/select_account_failure.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/accounts_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 
-final accountsPaginationRepositoryProvider = Provider<AccountsPaginationRepository>(
+final accountsPaginationRepositoryProvider =
+    Provider<AccountsPaginationRepository>(
   (ref) => AccountsPaginationRepository(ref.watch(accountsRepositoryProvider)),
 );
 
-class AccountsPaginationRepository extends PaginationRepository<SimplifiedAccount> {
+class AccountsPaginationRepository
+    extends PaginationListRepository<SimplifiedAccount> {
   AccountsPaginationRepository(this._repository);
 
   final AccountsRepository _repository;
@@ -26,6 +28,8 @@ class AccountsPaginationRepository extends PaginationRepository<SimplifiedAccoun
     return accounts.fold((l) => null, (r) => r);
   }
 
-  Future<Either<SelectAccountFailure, Unit>> selectAccount({required int accountId}) =>
+  Future<Either<SelectAccountFailure, Unit>> selectAccount({
+    required int accountId,
+  }) =>
       _repository.selectAccount(accountId: accountId);
 }

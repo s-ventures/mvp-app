@@ -13,7 +13,7 @@ mixin PaginationLoadingProvider<T> {
 
   void initPagination(
     PaginationRepository<T> source, {
-    required void Function(AsyncValue<List<T>>) onDataLoaded,
+    required void Function(AsyncValue<T>) onDataLoaded,
     void Function({required bool isDataLoaded})? onNextPageLoaded,
     void Function(Object)? onDataLoadingError,
     void Function()? onDataLoading,

@@ -10,12 +10,14 @@ class PaginatedResponse<T> {
     required this.data,
   });
 
-  factory PaginatedResponse.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+  factory PaginatedResponse.fromJson(
+          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
       _$PaginatedResponseFromJson(json, fromJsonT);
 
   final int totalElements;
   final int totalPages;
   final List<T> data;
 
-  Map<String, dynamic> toJson(Object Function(T value) toJsonT) => _$PaginatedResponseToJson(this, toJsonT);
+  Map<String, dynamic> toJson(Object Function(T value) toJsonT) =>
+      _$PaginatedResponseToJson(this, toJsonT);
 }

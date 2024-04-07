@@ -84,6 +84,18 @@ class AccountTransactionsFilterDto extends PaginatedRequest {
   final double? amountFrom;
   final double? amountTo;
   final AccountTransactionCreditDebitDto? creditDebit;
+  @JsonKey(
+    includeFromJson: true,
+    includeToJson: true,
+    name: 'sortingTarget',
+  )
+  final String _sortingTarget = 'POSTING_DATE';
+  @JsonKey(
+    includeFromJson: true,
+    includeToJson: true,
+    name: 'sortingOrder',
+  )
+  final String _sortingOrder = 'DESCENDANT';
 
   @override
   Map<String, dynamic> toJson() => _$AccountTransactionsFilterDtoToJson(this);

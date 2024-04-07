@@ -5,16 +5,18 @@ import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/simplif
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/account_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/accounts_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_map_repository.dart';
 
-final accountTransactionsPaginationRepositoryProvider = Provider<AccountTransactionsPaginationRepository>(
+final accountTransactionsPaginationRepositoryProvider =
+    Provider<AccountTransactionsPaginationRepository>(
   (ref) => AccountTransactionsPaginationRepository(
     ref.watch(accountTransactionsRepositoryProvider),
     ref.watch(accountsRepositoryProvider),
   ),
 );
 
-class AccountTransactionsPaginationRepository extends PaginationRepository<SimplifiedAccountTransaction> {
+class AccountTransactionsPaginationRepository extends PaginationMapRepository<
+    DateTime, List<SimplifiedAccountTransaction>> {
   AccountTransactionsPaginationRepository(
     this._transactionRepository,
     this._accountsRepository,
@@ -60,22 +62,26 @@ class AccountTransactionsPaginationRepository extends PaginationRepository<Simpl
   }
 
   @override
-  Future<List<SimplifiedAccountTransaction>> fetchPage({
+  Future<Map<DateTime, List<SimplifiedAccountTransaction>>> fetchPage({
     required int page,
     required int pageSize,
   }) async {
     final filter = _filter;
     if (filter == null) {
-      return <SimplifiedAccountTransaction>[];
+      return <DateTime, List<SimplifiedAccountTransaction>>{};
     }
 
-    final transactions = await _transactionRepository.getSimplifiedAccountTransactions(
+    final transactions =
+        await _transactionRepository.getSimplifiedAccountTransactions(
       filter: filter,
       page: page,
       pageSize: pageSize,
       onPaginationInfo: onPaginationInfo,
     );
-    return transactions.fold((l) => <SimplifiedAccountTransaction>[], (r) => r);
+    return transactions.fold(
+      (l) => <DateTime, List<SimplifiedAccountTransaction>>{},
+      (r) => r,
+    );
   }
 
   void updateFilter({

@@ -51,6 +51,8 @@ Map<String, dynamic> _$AccountTransactionsFilterDtoToJson(
   writeNotNull('amountTo', instance.amountTo);
   writeNotNull('creditDebit',
       _$AccountTransactionCreditDebitDtoEnumMap[instance.creditDebit]);
+  val['sortingTarget'] = instance._sortingTarget;
+  val['sortingOrder'] = instance._sortingOrder;
   return val;
 }
 

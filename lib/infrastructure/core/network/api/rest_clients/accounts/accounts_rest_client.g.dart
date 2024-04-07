@@ -21,10 +21,10 @@ class _AccountsRestClient implements AccountsRestClient {
   @override
   Future<PaginatedResponse<SimplifiedAccountDto>> getSimplifiedAccounts(
       {required PaginatedRequest paginatedRequest}) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': paginatedRequest.toJson()};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PaginatedResponse<SimplifiedAccountDto>>(Options(
       method: 'GET',
@@ -52,10 +52,10 @@ class _AccountsRestClient implements AccountsRestClient {
   @override
   Future<DetailedAccountDto> getDetailedAccount(
       {required String accountId}) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<DetailedAccountDto>(Options(
       method: 'GET',

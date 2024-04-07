@@ -8,15 +8,16 @@ import 'package:retrofit/retrofit.dart';
 
 part 'card_transactions_rest_client.g.dart';
 
-final cardTransactionsRestClientProvider =
-    Provider<CardTransactionsRestClient>((ref) => CardTransactionsRestClient(ref.watch(dioProvider)));
+final cardTransactionsRestClientProvider = Provider<CardTransactionsRestClient>(
+    (ref) => CardTransactionsRestClient(ref.watch(dioProvider)));
 
 @RestApi()
 abstract class CardTransactionsRestClient {
   factory CardTransactionsRestClient(Dio dio) = _CardTransactionsRestClient;
 
   @GET('/cards/v1/query/transactions')
-  Future<PaginatedResponse<SimplifiedCardTransactionDto>> getSimplifiedCardTransactions({
+  Future<PaginatedResponse<SimplifiedCardTransactionDto>>
+      getSimplifiedCardTransactions({
     @Query('') required CardTransactionsFilterDto filter,
   });
 }

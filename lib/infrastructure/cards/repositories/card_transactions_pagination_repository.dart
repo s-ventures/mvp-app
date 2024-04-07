@@ -4,7 +4,7 @@ import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/card_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/cards_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 
 final cardTransactionsPaginationRepositoryProvider =
     Provider<CardTransactionsPaginationRepository>(
@@ -15,7 +15,7 @@ final cardTransactionsPaginationRepositoryProvider =
 );
 
 class CardTransactionsPaginationRepository
-    extends PaginationRepository<SimplifiedCardTransaction> {
+    extends PaginationListRepository<SimplifiedCardTransaction> {
   CardTransactionsPaginationRepository(
     this._transactionsRepository,
     this._cardsRepository,
