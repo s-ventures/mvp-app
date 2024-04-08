@@ -22,6 +22,7 @@ enum AppRoute {
   dailyBankingScheduledTransfers('scheduled-transfers'),
   dailyBankingScheduledTransferDetails('details'),
   dailyBankingScheduledTransferEdit('edit'),
+  dailyBankingScheduledTransferSignature('signature'),
   dailyBankingInternationalTransfers('international-transfer'),
   dailyBankingInternationalTransferResume('resume'),
   dailyBankingInternationalTransferSignature('signature'),

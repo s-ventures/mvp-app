@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/widgets/filter_scheduled_transfers_bottom_sheet/filter_scheduled_transfers_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/widgets/scheduled_transfer_card.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -44,7 +45,11 @@ class ScheduledTransfersPage extends StatelessWidget {
                       icon: IconAssets.filter,
                       type: ButtonType.outlined,
                       size: ButtonSize.extraSmall,
-                      onPressed: () async {},
+                      onPressed: () => FilterScheduledTransfersBottomSheet.show(
+                        context: context,
+                        onApply: () async {},
+                        onReset: () async {},
+                      ),
                     ),
                   ],
                 ),
