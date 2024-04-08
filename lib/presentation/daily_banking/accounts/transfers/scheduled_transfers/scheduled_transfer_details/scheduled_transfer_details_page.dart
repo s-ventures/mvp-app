@@ -39,7 +39,7 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    '25,00 €',
+                    25.00.toCurrency(plusSign: false),
                     style: context.textStyle.h4.copyWith(
                       color: context.color.textLight900,
                     ),
@@ -86,7 +86,7 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
                             context: context,
                             icon: IconAssets.check,
                             title: '¿Quieres activar el pago periódico?',
-                            message: 'Se activará tu pago periódico de 25 €',
+                            message: 'Se activará tu pago periódico de ${25.00.toCurrency(plusSign: false)}',
                             buttonOkText: 'Activar',
                             buttonCancelText: 'Cancelar',
                             onOkPressed: () async =>
@@ -222,7 +222,7 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
                 ),
               ),
               trailing: Text(
-                '25,00 €',
+                25.00.toCurrency(plusSign: false),
                 style: context.textStyle.bodyMediumRegular.copyWith(
                   color: context.color.textLight600,
                   fontSize: 20,

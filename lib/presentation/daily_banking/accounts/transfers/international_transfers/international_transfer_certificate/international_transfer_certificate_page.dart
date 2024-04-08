@@ -84,7 +84,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Center(child: Text('56,00 €', style: context.textStyle.h4)),
+                  Center(child: Text(56.00.toCurrency(plusSign: false), style: context.textStyle.h4)),
                   AppSpacing.vertical.s3,
                   Container(
                     padding: const EdgeInsets.all(AppSpacing.s3),
@@ -148,7 +148,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '56,00 € (EURO)',
+                    '${56.00.toCurrency(plusSign: false)} (EURO)',
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight900,
                     ),
@@ -161,7 +161,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '2,00 € (EURO)',
+                    '${2.00.toCurrency(plusSign: false)} (EURO)',
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight900,
                     ),

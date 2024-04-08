@@ -65,7 +65,7 @@ class AccountListPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '789,00 €',
+                                789.00.toCurrency(plusSign: false),
                                 style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight900,
                                 ),
@@ -118,7 +118,7 @@ class AccountListPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '456,00 €',
+                                      456.00.toCurrency(plusSign: false),
                                       style: context.textStyle.bodySmallRegular.copyWith(
                                         color: context.color.textLight900,
                                       ),
@@ -166,7 +166,7 @@ class AccountListPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '333,00 €',
+                                      333.00.toCurrency(plusSign: false),
                                       style: context.textStyle.bodySmallRegular.copyWith(
                                         color: context.color.textLight900,
                                       ),

@@ -51,7 +51,9 @@ class _ScheduledTransferCardState extends State<ScheduledTransferCard> {
                   type: ButtonType.text,
                   size: ButtonSize.extraSmall,
                   foreground: context.color.secondaryLight600,
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingScheduledTransferDetails.name),
+                  onPressed: () => context.pushNamed(
+                    AppRoute.dailyBankingScheduledTransferDetails.name,
+                  ),
                 ),
               ),
               Divider(
@@ -62,14 +64,24 @@ class _ScheduledTransferCardState extends State<ScheduledTransferCard> {
                 padding: const EdgeInsets.all(AppSpacing.s5),
                 child: Column(
                   children: [
-                    Text('25,00 €', style: context.textStyle.h4.copyWith(color: context.color.textLight900)),
+                    Text(
+                      25.00.toCurrency(plusSign: false),
+                      style: context.textStyle.h4.copyWith(
+                        color: context.color.textLight900,
+                      ),
+                    ),
                     AppSpacing.vertical.s5,
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5, vertical: AppSpacing.s3),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.s5,
+                        vertical: AppSpacing.s3,
+                      ),
                       decoration: ShapeDecoration(
                         color: context.color.backgroundLight200,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(context.radius.soft),
+                          borderRadius: BorderRadius.circular(
+                            context.radius.soft,
+                          ),
                         ),
                       ),
                       child: Row(

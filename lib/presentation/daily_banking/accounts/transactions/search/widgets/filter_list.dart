@@ -15,14 +15,28 @@ class FilterList extends ConsumerStatefulWidget {
 class _FilterListState extends ConsumerState<FilterList> {
   @override
   Widget build(BuildContext context) {
-    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
-    final stateDate =
-        ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.startDate));
-    final endDate = ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.endDate));
-    final amountRange =
-        ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountRange));
+    final controller = ref.read(
+      filterSimplifiedAccountTransactionsControllerProvider.notifier,
+    );
+    final stateDate = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider.select(
+        (value) => value.startDate,
+      ),
+    );
+    final endDate = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider.select(
+        (value) => value.endDate,
+      ),
+    );
+    final amountRange = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider.select(
+        (value) => value.amountRange,
+      ),
+    );
     final creditDebitList = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.creditDebitList),
+      filterSimplifiedAccountTransactionsControllerProvider.select(
+        (value) => value.creditDebitList,
+      ),
     );
 
     return SizedBox(

@@ -69,7 +69,7 @@ class Rankings extends StatelessWidget {
             ),
           ),
           contact: 'Dori Doreau',
-          amount: '983 €',
+          amount: 983.00.toCurrency(plusSign: false),
           lineBarChart: const LineBarChart(
             greenValue: 0.5,
             greenLabel: 'Cobrado',
@@ -89,7 +89,7 @@ class Rankings extends StatelessWidget {
             ),
           ),
           contact: 'Kate Tanner',
-          amount: '357 €',
+          amount: 357.00.toCurrency(plusSign: false),
           lineBarChart: const LineBarChart(
             greenValue: 0.6,
             greenLabel: 'Cobrado',
@@ -109,7 +109,7 @@ class Rankings extends StatelessWidget {
             ),
           ),
           contact: 'Alba Bosch',
-          amount: '234 €',
+          amount: 234.00.toCurrency(plusSign: false),
           lineBarChart: const LineBarChart(
             greenValue: 0.3,
             greenLabel: 'Cobrado',

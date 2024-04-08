@@ -64,7 +64,7 @@ class NationalTransferResumePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '56,00 € (EURO)',
+                    '${56.00.toCurrency(plusSign: false)} (EURO)',
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight900,
                     ),
@@ -77,7 +77,7 @@ class NationalTransferResumePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '2,00 € (EURO)',
+                    '${2.00.toCurrency(plusSign: false)} (EURO)',
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight900,
                     ),
