@@ -47,7 +47,7 @@ class LastTransfers extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '- 1654,56 €',
+                      (-1654.56).toCurrency(plusSign: false),
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -83,7 +83,7 @@ class LastTransfers extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '- 54,78 €',
+                      (-54.78).toCurrency(plusSign: false),
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -119,7 +119,7 @@ class LastTransfers extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '- 435,96 €',
+                      (-435.96).toCurrency(plusSign: false),
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -155,7 +155,7 @@ class LastTransfers extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '- 1654,56 €',
+                      (-1654.56).toCurrency(plusSign: false),
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),

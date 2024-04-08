@@ -47,7 +47,7 @@ class NationalTransfersPage extends StatelessWidget {
                         ),
                         AppSpacing.horizontal.s3,
                         Text(
-                          '2.00 €',
+                          2.00.toCurrency(plusSign: false),
                           style: context.textStyle.bodyMediumBold.copyWith(
                             color: context.color.textLight300,
                           ),
