@@ -37,7 +37,8 @@ class SimplifiedAccountDto with _$SimplifiedAccountDto {
     required AccountBalanceDto balance,
   }) = _SimplifiedAccountDto;
 
-  factory SimplifiedAccountDto.fromJson(Map<String, dynamic> json) => _$SimplifiedAccountDtoFromJson(json);
+  factory SimplifiedAccountDto.fromJson(Map<String, dynamic> json) =>
+      _$SimplifiedAccountDtoFromJson(json);
 }
 
 extension SimplifiedAccountDtoX on SimplifiedAccountDto {

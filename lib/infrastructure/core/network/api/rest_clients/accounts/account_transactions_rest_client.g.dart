@@ -19,35 +19,34 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
   String? baseUrl;
 
   @override
-  Future<PaginatedResponse<SimplifiedAccountTransactionDto>>
+  Future<PaginatedResponse<DateAccountTransactionsDto>>
       getSimplifiedAccountTransactions(
           {required AccountTransactionsFilterDto filter}) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PaginatedResponse<SimplifiedAccountTransactionDto>>(
-            Options(
+        _setStreamType<PaginatedResponse<DateAccountTransactionsDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-                .compose(
-                  _dio.options,
-                  '/accounts/v1/query/transactions',
-                  queryParameters: queryParameters,
-                  data: _data,
-                )
-                .copyWith(
-                    baseUrl: _combineBaseUrls(
-                  _dio.options.baseUrl,
-                  baseUrl,
-                ))));
-    final value = PaginatedResponse<SimplifiedAccountTransactionDto>.fromJson(
+            .compose(
+              _dio.options,
+              '/accounts/v1/query/transactions',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PaginatedResponse<DateAccountTransactionsDto>.fromJson(
       _result.data!,
-      (json) => SimplifiedAccountTransactionDto.fromJson(
-          json as Map<String, dynamic>),
+      (json) =>
+          DateAccountTransactionsDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
@@ -57,10 +56,10 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
     required String accountId,
     required String transactionId,
   }) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<DetailedAccountTransactionDto>(Options(
       method: 'GET',

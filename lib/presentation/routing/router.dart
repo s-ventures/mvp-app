@@ -102,8 +102,10 @@ GoRouter router(RouterRef ref) {
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute.dailyBankingNationalTransferSignature.path,
-                            name: AppRoute.dailyBankingNationalTransferSignature.name,
+                            path: AppRoute
+                                .dailyBankingNationalTransferSignature.path,
+                            name: AppRoute
+                                .dailyBankingNationalTransferSignature.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const NationalTransferSignaturePage(),
@@ -111,11 +113,16 @@ GoRouter router(RouterRef ref) {
                             routes: [
                               GoRoute(
                                 parentNavigatorKey: _rootNavigatorKey,
-                                path: AppRoute.dailyBankingNationalTransferCertificate.path,
-                                name: AppRoute.dailyBankingNationalTransferCertificate.name,
+                                path: AppRoute
+                                    .dailyBankingNationalTransferCertificate
+                                    .path,
+                                name: AppRoute
+                                    .dailyBankingNationalTransferCertificate
+                                    .name,
                                 pageBuilder: (context, state) => MaterialPage(
                                   key: state.pageKey,
-                                  child: const NationalTransferCertificatePage(),
+                                  child:
+                                      const NationalTransferCertificatePage(),
                                 ),
                               ),
                             ],
@@ -136,8 +143,10 @@ GoRouter router(RouterRef ref) {
                     routes: [
                       GoRoute(
                         parentNavigatorKey: _rootNavigatorKey,
-                        path: AppRoute.dailyBankingInternationalTransferResume.path,
-                        name: AppRoute.dailyBankingInternationalTransferResume.name,
+                        path: AppRoute
+                            .dailyBankingInternationalTransferResume.path,
+                        name: AppRoute
+                            .dailyBankingInternationalTransferResume.name,
                         pageBuilder: (context, state) => MaterialPage(
                           key: state.pageKey,
                           child: const InternationalTransferResumePage(),
@@ -145,8 +154,12 @@ GoRouter router(RouterRef ref) {
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute.dailyBankingInternationalTransferSignature.path,
-                            name: AppRoute.dailyBankingInternationalTransferSignature.name,
+                            path: AppRoute
+                                .dailyBankingInternationalTransferSignature
+                                .path,
+                            name: AppRoute
+                                .dailyBankingInternationalTransferSignature
+                                .name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const InternationalTransferSignaturePage(),
@@ -154,11 +167,16 @@ GoRouter router(RouterRef ref) {
                             routes: [
                               GoRoute(
                                 parentNavigatorKey: _rootNavigatorKey,
-                                path: AppRoute.dailyBankingInternationalTransferCertificate.path,
-                                name: AppRoute.dailyBankingInternationalTransferCertificate.name,
+                                path: AppRoute
+                                    .dailyBankingInternationalTransferCertificate
+                                    .path,
+                                name: AppRoute
+                                    .dailyBankingInternationalTransferCertificate
+                                    .name,
                                 pageBuilder: (context, state) => MaterialPage(
                                   key: state.pageKey,
-                                  child: const InternationalTransferCertificatePage(),
+                                  child:
+                                      const InternationalTransferCertificatePage(),
                                 ),
                               ),
                             ],
@@ -179,8 +197,10 @@ GoRouter router(RouterRef ref) {
                     routes: [
                       GoRoute(
                         parentNavigatorKey: _rootNavigatorKey,
-                        path: AppRoute.dailyBankingScheduledTransferDetails.path,
-                        name: AppRoute.dailyBankingScheduledTransferDetails.name,
+                        path:
+                            AppRoute.dailyBankingScheduledTransferDetails.path,
+                        name:
+                            AppRoute.dailyBankingScheduledTransferDetails.name,
                         pageBuilder: (context, state) => MaterialPage(
                           key: state.pageKey,
                           child: const ScheduledTransferDetailsPage(),
@@ -188,8 +208,10 @@ GoRouter router(RouterRef ref) {
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute.dailyBankingScheduledTransferEdit.path,
-                            name: AppRoute.dailyBankingScheduledTransferEdit.name,
+                            path:
+                                AppRoute.dailyBankingScheduledTransferEdit.path,
+                            name:
+                                AppRoute.dailyBankingScheduledTransferEdit.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const ScheduledTransferEditPage(),
@@ -197,8 +219,10 @@ GoRouter router(RouterRef ref) {
                           ),
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute.dailyBankingScheduledTransferSignature.path,
-                            name: AppRoute.dailyBankingScheduledTransferSignature.name,
+                            path: AppRoute
+                                .dailyBankingScheduledTransferSignature.path,
+                            name: AppRoute
+                                .dailyBankingScheduledTransferSignature.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const ScheduledTransferSignaturePage(),
@@ -451,4 +475,5 @@ GoRouter router(RouterRef ref) {
 }
 
 /// Route observer to use with RouteAware
-final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
+final RouteObserver<ModalRoute<void>> routeObserver =
+    RouteObserver<ModalRoute<void>>();

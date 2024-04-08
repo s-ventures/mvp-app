@@ -22,8 +22,6 @@ _$SimplifiedAccountTransactionDtoImpl
           analyticsCategory: json['analyticsCategory'] as String?,
           userCategory: json['userCategory'] as String?,
           accountId: json['accountId'] as int,
-          creditDebit: $enumDecode(
-              _$AccountTransactionCreditDebitDtoEnumMap, json['creditDebit']),
           originBranch: json['originBranch'] as String,
           productType:
               $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
@@ -43,8 +41,6 @@ Map<String, dynamic> _$$SimplifiedAccountTransactionDtoImplToJson(
       'analyticsCategory': instance.analyticsCategory,
       'userCategory': instance.userCategory,
       'accountId': instance.accountId,
-      'creditDebit':
-          _$AccountTransactionCreditDebitDtoEnumMap[instance.creditDebit]!,
       'originBranch': instance.originBranch,
       'productType': _$ProductTypeDtoEnumMap[instance.productType]!,
     };
@@ -69,11 +65,6 @@ const _$AccountTransactionTypeDtoEnumMap = {
   AccountTransactionTypeDto.transferIn: 'TRANSFER_IN',
   AccountTransactionTypeDto.transferOut: 'TRANSFER_OUT',
   AccountTransactionTypeDto.periodicTransfer: 'PERIODIC_TRANSFER',
-};
-
-const _$AccountTransactionCreditDebitDtoEnumMap = {
-  AccountTransactionCreditDebitDto.credit: 'CREDIT',
-  AccountTransactionCreditDebitDto.debit: 'DEBIT',
 };
 
 const _$ProductTypeDtoEnumMap = {

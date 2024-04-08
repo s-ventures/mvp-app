@@ -13,7 +13,9 @@ class CardsRemoteDataSource {
     required PaginatedRequest paginatedRequest,
   }) async {
     try {
-      final response = await _restClient.getSimplifiedCards(paginatedRequest: paginatedRequest);
+      final response = await _restClient.getSimplifiedCards(
+        paginatedRequest: paginatedRequest,
+      );
       return response;
     } catch (_) {
       rethrow;
@@ -24,7 +26,8 @@ class CardsRemoteDataSource {
     required PaginatedRequest paginatedRequest,
   }) async {
     try {
-      final response = await _restClient.getDetailedCard(paginatedRequest: paginatedRequest);
+      final response =
+          await _restClient.getDetailedCard(paginatedRequest: paginatedRequest);
       return response;
     } catch (_) {
       rethrow;

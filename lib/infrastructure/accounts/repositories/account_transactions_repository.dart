@@ -10,11 +10,15 @@ import 'package:manifiesto_mvp_app/infrastructure/accounts/data_sources/remote/a
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transactions_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/detailed_account_transaction_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/simplified_account_transaction_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_transactions_rest_client.dart';
 
-final accountTransactionsRepositoryProvider = Provider<AccountTransactionsRepository>(
+final accountTransactionsRepositoryProvider =
+    Provider<AccountTransactionsRepository>(
   (ref) => AccountTransactionsRepository(
-    remoteDataSource: AccountTransactionsRemoteDataSource(ref.watch(accountTransactionsRestClientProvider)),
+    remoteDataSource: AccountTransactionsRemoteDataSource(
+      ref.watch(accountTransactionsRestClientProvider),
+    ),
   ),
 );
 
@@ -26,7 +30,9 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
   final AccountTransactionsRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<SimplifiedAccountTransactionFailure, List<SimplifiedAccountTransaction>>>
+  Future<
+          Either<SimplifiedAccountTransactionFailure,
+              Map<DateTime, List<SimplifiedAccountTransaction>>>>
       getSimplifiedAccountTransactions({
     required AccountTransactionsFilter filter,
     int page = 0,
@@ -43,15 +49,19 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
         filterDto: filterDto,
       );
       onPaginationInfo?.call(response.totalPages, response.totalElements);
-      final transactions = response.data.map((e) => e.toDomain()).toList();
-      return right(transactions);
+      return right({
+        for (final e in response.data)
+          const DateConverter().fromJson(e.date):
+              e.transactions.map((e) => e.toDomain()).toList(),
+      });
     } catch (_) {
       return left(const SimplifiedAccountTransactionFailure.unexpected());
     }
   }
 
   @override
-  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>> getDetailedAccountTransaction({
+  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>>
+      getDetailedAccountTransaction({
     required String accountId,
     required String transactionId,
   }) async {

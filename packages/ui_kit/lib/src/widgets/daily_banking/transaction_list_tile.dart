@@ -78,11 +78,13 @@ class TransactionListTile extends StatelessWidget {
                       Text(
                         amount.toCurrency(),
                         style: context.textStyle.bodyMediumRegular.copyWith(
-                          color: amount >= 0 ? context.color.statusSuccess : context.color.textLight600,
+                          color: amount >= 0
+                              ? context.color.statusSuccess
+                              : context.color.textLight600,
                         ),
                       ),
                       Text(
-                        endBalance.toCurrency(),
+                        endBalance.toCurrency(plusSign: false),
                         style: context.textStyle.bodyMediumRegular.copyWith(
                           color: context.color.textLight300,
                           fontSize: 10,

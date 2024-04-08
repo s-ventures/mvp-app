@@ -7,7 +7,9 @@ import 'package:manifiesto_mvp_app/domain/accounts/transactions/failures/simplif
 
 // ignore: one_member_abstracts
 abstract class IAccountTransactionsRepository {
-  Future<Either<SimplifiedAccountTransactionFailure, List<SimplifiedAccountTransaction>>>
+  Future<
+          Either<SimplifiedAccountTransactionFailure,
+              Map<DateTime, List<SimplifiedAccountTransaction>>>>
       getSimplifiedAccountTransactions({
     required AccountTransactionsFilter filter,
     int page = 0,
@@ -15,7 +17,8 @@ abstract class IAccountTransactionsRepository {
     void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
-  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>> getDetailedAccountTransaction({
+  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>>
+      getDetailedAccountTransaction({
     required String accountId,
     required String transactionId,
   });

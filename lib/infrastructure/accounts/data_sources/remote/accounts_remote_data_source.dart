@@ -13,7 +13,9 @@ class AccountsRemoteDataSource {
     required PaginatedRequest paginatedRequest,
   }) {
     try {
-      return _restClient.getSimplifiedAccounts(paginatedRequest: paginatedRequest);
+      return _restClient.getSimplifiedAccounts(
+        paginatedRequest: paginatedRequest,
+      );
     } catch (_) {
       rethrow;
     }

@@ -1,6 +1,6 @@
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/accounts/date_account_transactions_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transactions_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/detailed_account_transaction_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/simplified_account_transaction_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_transactions_rest_client.dart';
 
@@ -9,11 +9,13 @@ class AccountTransactionsRemoteDataSource {
 
   final AccountTransactionsRestClient _restClient;
 
-  Future<PaginatedResponse<SimplifiedAccountTransactionDto>> getSimplifiedAccountTransactions({
+  Future<PaginatedResponse<DateAccountTransactionsDto>>
+      getSimplifiedAccountTransactions({
     required AccountTransactionsFilterDto filterDto,
   }) async {
     try {
-      final response = await _restClient.getSimplifiedAccountTransactions(filter: filterDto);
+      final response =
+          await _restClient.getSimplifiedAccountTransactions(filter: filterDto);
       return response;
     } catch (_) {
       rethrow;
@@ -25,8 +27,10 @@ class AccountTransactionsRemoteDataSource {
     required String transactionId,
   }) async {
     try {
-      final response =
-          await _restClient.getDetailedAccountTransaction(accountId: accountId, transactionId: transactionId);
+      final response = await _restClient.getDetailedAccountTransaction(
+        accountId: accountId,
+        transactionId: transactionId,
+      );
       return response;
     } catch (_) {
       rethrow;

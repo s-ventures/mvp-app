@@ -12,12 +12,12 @@ part of 'simplified_account_transactions_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SimplifiedAccountTransactionsState {
-  AsyncValue<List<SimplifiedAccountTransaction>> get transactions =>
-      throw _privateConstructorUsedError;
+  AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+      get transactions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedAccountTransactionsStateCopyWith<
@@ -33,7 +33,9 @@ abstract class $SimplifiedAccountTransactionsStateCopyWith<$Res> {
       _$SimplifiedAccountTransactionsStateCopyWithImpl<$Res,
           SimplifiedAccountTransactionsState>;
   @useResult
-  $Res call({AsyncValue<List<SimplifiedAccountTransaction>> transactions});
+  $Res call(
+      {AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+          transactions});
 }
 
 /// @nodoc
@@ -56,7 +58,7 @@ class _$SimplifiedAccountTransactionsStateCopyWithImpl<$Res,
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as AsyncValue<List<SimplifiedAccountTransaction>>,
+              as AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>,
     ) as $Val);
   }
 }
@@ -70,7 +72,9 @@ abstract class _$$SimplifiedAccountTransactionsStateImplCopyWith<$Res>
       __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<List<SimplifiedAccountTransaction>> transactions});
+  $Res call(
+      {AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+          transactions});
 }
 
 /// @nodoc
@@ -92,7 +96,7 @@ class __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as AsyncValue<List<SimplifiedAccountTransaction>>,
+              as AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>,
     ));
   }
 }
@@ -102,12 +106,13 @@ class __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
 class _$SimplifiedAccountTransactionsStateImpl
     implements _SimplifiedAccountTransactionsState {
   const _$SimplifiedAccountTransactionsStateImpl(
-      {this.transactions =
-          const AsyncLoading<List<SimplifiedAccountTransaction>>()});
+      {this.transactions = const AsyncLoading<
+          Map<DateTime, List<SimplifiedAccountTransaction>>>()});
 
   @override
   @JsonKey()
-  final AsyncValue<List<SimplifiedAccountTransaction>> transactions;
+  final AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+      transactions;
 
   @override
   String toString() {
@@ -138,11 +143,12 @@ class _$SimplifiedAccountTransactionsStateImpl
 abstract class _SimplifiedAccountTransactionsState
     implements SimplifiedAccountTransactionsState {
   const factory _SimplifiedAccountTransactionsState(
-          {final AsyncValue<List<SimplifiedAccountTransaction>> transactions}) =
-      _$SimplifiedAccountTransactionsStateImpl;
+      {final AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+          transactions}) = _$SimplifiedAccountTransactionsStateImpl;
 
   @override
-  AsyncValue<List<SimplifiedAccountTransaction>> get transactions;
+  AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+      get transactions;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedAccountTransactionsStateImplCopyWith<
