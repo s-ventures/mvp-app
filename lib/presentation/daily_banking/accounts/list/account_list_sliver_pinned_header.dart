@@ -88,10 +88,7 @@ class _AccountList extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(
-                    width: 40,
-                    height: 40,
-                  ),
+                  AppSpacing.horizontal.s7,
                   Text(
                     account.balance.balance.toCurrency(plusSign: false),
                     style: context.textStyle.h4,
