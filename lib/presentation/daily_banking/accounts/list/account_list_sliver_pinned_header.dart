@@ -72,9 +72,10 @@ class _AccountList extends StatelessWidget {
 
         return Container(
           padding: const EdgeInsets.all(AppSpacing.s5),
-          margin: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.s2,
-            vertical: AppSpacing.s5,
+          margin: const EdgeInsets.only(
+            left: AppSpacing.s2,
+            bottom: AppSpacing.s5,
+            right: AppSpacing.s2,
           ),
           decoration: BoxDecoration(
             color: context.color.backgroundLight0,
@@ -148,7 +149,7 @@ class _AccountList extends StatelessWidget {
                   ),
                 ],
               ),
-              AppSpacing.vertical.s3,
+              AppSpacing.vertical.s2,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -174,6 +175,13 @@ class _AccountList extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomChip(
+                    size: CustomChipSize.extraSmall,
+                    backgroundColor: context.color.backgroundLight200,
+                    leadingIcon:
+                        account.entity == '2103' ? IconAssets.soon : null,
+                    leadingIconColor: account.entity == '2103'
+                        ? context.color.secondaryLight600
+                        : null,
                     title: Row(
                       children: [
                         Text(
@@ -183,7 +191,7 @@ class _AccountList extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          account.entity,
+                          account.entity == '2103' ? 'soon' : account.entity,
                           style: context.textStyle.bodySmallSemiBold.copyWith(
                             color: context.color.primaryLight600,
                           ),
@@ -196,7 +204,6 @@ class _AccountList extends StatelessWidget {
                         ),
                       ],
                     ),
-                    backgroundColor: context.color.backgroundLight200,
                     onSelected: (_) {},
                   ),
                 ],
