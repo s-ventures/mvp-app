@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:intl/intl.dart';
 
 extension DateFormatX on DateTime? {
@@ -22,9 +24,10 @@ extension DateFormatX on DateTime? {
     } else if (transactionDate == yesterday) {
       return 'Ayer';
     } else if (transactionDate.year == today.year) {
-      return DateFormat('d MMMM').format(transactionDate);
+      return DateFormat('d MMMM', Platform.localeName).format(transactionDate);
     } else {
-      return DateFormat('d MMMM yyyy').format(transactionDate);
+      return DateFormat('d MMMM yyyy', Platform.localeName)
+          .format(transactionDate);
     }
   }
 }
