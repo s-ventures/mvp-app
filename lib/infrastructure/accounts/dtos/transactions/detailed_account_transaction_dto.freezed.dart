@@ -36,10 +36,10 @@ mixin _$DetailedAccountTransactionDto {
   String? get placeId => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
   double get endBalance => throw _privateConstructorUsedError;
-  AccountTransactionCreditDebitDto get creditDebit =>
+  AccountTransactionCreditDebitDto? get creditDebit =>
       throw _privateConstructorUsedError;
   String? get detailFields => throw _privateConstructorUsedError;
-  bool get visible => throw _privateConstructorUsedError;
+  bool? get visible => throw _privateConstructorUsedError;
   bool get bankReceipt => throw _privateConstructorUsedError;
   String get originBranch => throw _privateConstructorUsedError;
   double get originalAmount => throw _privateConstructorUsedError;
@@ -78,9 +78,9 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       String? placeId,
       int accountId,
       double endBalance,
-      AccountTransactionCreditDebitDto creditDebit,
+      AccountTransactionCreditDebitDto? creditDebit,
       String? detailFields,
-      bool visible,
+      bool? visible,
       bool bankReceipt,
       String originBranch,
       double originalAmount,
@@ -117,9 +117,9 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? placeId = freezed,
     Object? accountId = null,
     Object? endBalance = null,
-    Object? creditDebit = null,
+    Object? creditDebit = freezed,
     Object? detailFields = freezed,
-    Object? visible = null,
+    Object? visible = freezed,
     Object? bankReceipt = null,
     Object? originBranch = null,
     Object? originalAmount = null,
@@ -181,18 +181,18 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      creditDebit: null == creditDebit
+      creditDebit: freezed == creditDebit
           ? _value.creditDebit
           : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebitDto,
+              as AccountTransactionCreditDebitDto?,
       detailFields: freezed == detailFields
           ? _value.detailFields
           : detailFields // ignore: cast_nullable_to_non_nullable
               as String?,
-      visible: null == visible
+      visible: freezed == visible
           ? _value.visible
           : visible // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       bankReceipt: null == bankReceipt
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
@@ -248,9 +248,9 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       String? placeId,
       int accountId,
       double endBalance,
-      AccountTransactionCreditDebitDto creditDebit,
+      AccountTransactionCreditDebitDto? creditDebit,
       String? detailFields,
-      bool visible,
+      bool? visible,
       bool bankReceipt,
       String originBranch,
       double originalAmount,
@@ -286,9 +286,9 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? placeId = freezed,
     Object? accountId = null,
     Object? endBalance = null,
-    Object? creditDebit = null,
+    Object? creditDebit = freezed,
     Object? detailFields = freezed,
-    Object? visible = null,
+    Object? visible = freezed,
     Object? bankReceipt = null,
     Object? originBranch = null,
     Object? originalAmount = null,
@@ -350,18 +350,18 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      creditDebit: null == creditDebit
+      creditDebit: freezed == creditDebit
           ? _value.creditDebit
           : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebitDto,
+              as AccountTransactionCreditDebitDto?,
       detailFields: freezed == detailFields
           ? _value.detailFields
           : detailFields // ignore: cast_nullable_to_non_nullable
               as String?,
-      visible: null == visible
+      visible: freezed == visible
           ? _value.visible
           : visible // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       bankReceipt: null == bankReceipt
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
@@ -457,11 +457,11 @@ class _$DetailedAccountTransactionDtoImpl
   @override
   final double endBalance;
   @override
-  final AccountTransactionCreditDebitDto creditDebit;
+  final AccountTransactionCreditDebitDto? creditDebit;
   @override
   final String? detailFields;
   @override
-  final bool visible;
+  final bool? visible;
   @override
   final bool bankReceipt;
   @override
@@ -602,9 +602,9 @@ abstract class _DetailedAccountTransactionDto
           required final String? placeId,
           required final int accountId,
           required final double endBalance,
-          required final AccountTransactionCreditDebitDto creditDebit,
+          required final AccountTransactionCreditDebitDto? creditDebit,
           required final String? detailFields,
-          required final bool visible,
+          required final bool? visible,
           required final bool bankReceipt,
           required final String originBranch,
           required final double originalAmount,
@@ -646,11 +646,11 @@ abstract class _DetailedAccountTransactionDto
   @override
   double get endBalance;
   @override
-  AccountTransactionCreditDebitDto get creditDebit;
+  AccountTransactionCreditDebitDto? get creditDebit;
   @override
   String? get detailFields;
   @override
-  bool get visible;
+  bool? get visible;
   @override
   bool get bankReceipt;
   @override
