@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedCardTransactionsState {
-  AsyncValue<List<SimplifiedCardTransaction>> get transactions =>
+  AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> get transactions =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,7 +32,9 @@ abstract class $SimplifiedCardTransactionsStateCopyWith<$Res> {
       _$SimplifiedCardTransactionsStateCopyWithImpl<$Res,
           SimplifiedCardTransactionsState>;
   @useResult
-  $Res call({AsyncValue<List<SimplifiedCardTransaction>> transactions});
+  $Res call(
+      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
+          transactions});
 }
 
 /// @nodoc
@@ -55,7 +57,7 @@ class _$SimplifiedCardTransactionsStateCopyWithImpl<$Res,
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as AsyncValue<List<SimplifiedCardTransaction>>,
+              as AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>,
     ) as $Val);
   }
 }
@@ -69,7 +71,9 @@ abstract class _$$SimplifiedCardTransactionsStateImplCopyWith<$Res>
       __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<List<SimplifiedCardTransaction>> transactions});
+  $Res call(
+      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
+          transactions});
 }
 
 /// @nodoc
@@ -91,7 +95,7 @@ class __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
-              as AsyncValue<List<SimplifiedCardTransaction>>,
+              as AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>,
     ));
   }
 }
@@ -101,12 +105,12 @@ class __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>
 class _$SimplifiedCardTransactionsStateImpl
     implements _SimplifiedCardTransactionsState {
   const _$SimplifiedCardTransactionsStateImpl(
-      {this.transactions =
-          const AsyncLoading<List<SimplifiedCardTransaction>>()});
+      {this.transactions = const AsyncLoading<
+          Map<DateTime, List<SimplifiedCardTransaction>>>()});
 
   @override
   @JsonKey()
-  final AsyncValue<List<SimplifiedCardTransaction>> transactions;
+  final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions;
 
   @override
   String toString() {
@@ -137,11 +141,11 @@ class _$SimplifiedCardTransactionsStateImpl
 abstract class _SimplifiedCardTransactionsState
     implements SimplifiedCardTransactionsState {
   const factory _SimplifiedCardTransactionsState(
-          {final AsyncValue<List<SimplifiedCardTransaction>> transactions}) =
-      _$SimplifiedCardTransactionsStateImpl;
+      {final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
+          transactions}) = _$SimplifiedCardTransactionsStateImpl;
 
   @override
-  AsyncValue<List<SimplifiedCardTransaction>> get transactions;
+  AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> get transactions;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedCardTransactionsStateImplCopyWith<

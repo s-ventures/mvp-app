@@ -75,7 +75,8 @@ class CardTransactionsFilterDto extends PaginatedRequest {
     );
   }
 
-  factory CardTransactionsFilterDto.fromJson(Map<String, dynamic> json) => _$CardTransactionsFilterDtoFromJson(json);
+  factory CardTransactionsFilterDto.fromJson(Map<String, dynamic> json) =>
+      _$CardTransactionsFilterDtoFromJson(json);
 
   final List<int> cardContractId;
   final List<int> cardId;
@@ -86,6 +87,18 @@ class CardTransactionsFilterDto extends PaginatedRequest {
   final double? amountFrom;
   final double? amountTo;
   final String? concept;
+  @JsonKey(
+    includeFromJson: true,
+    includeToJson: true,
+    name: 'sortingTarget',
+  )
+  final String _sortingTarget = 'POSTING_DATE';
+  @JsonKey(
+    includeFromJson: true,
+    includeToJson: true,
+    name: 'sortingOrder',
+  )
+  final String _sortingOrder = 'DESCENDANT';
 
   @override
   Map<String, dynamic> toJson() => _$CardTransactionsFilterDtoToJson(this);

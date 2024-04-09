@@ -50,6 +50,8 @@ Map<String, dynamic> _$CardTransactionsFilterDtoToJson(
   writeNotNull('amountFrom', instance.amountFrom);
   writeNotNull('amountTo', instance.amountTo);
   writeNotNull('concept', instance.concept);
+  val['sortingTarget'] = instance._sortingTarget;
+  val['sortingOrder'] = instance._sortingOrder;
   return val;
 }
 

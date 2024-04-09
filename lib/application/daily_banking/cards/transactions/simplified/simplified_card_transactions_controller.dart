@@ -14,7 +14,9 @@ final simplifiedCardTransactionsControllerProvider = StateNotifierProvider<
 
 class SimplifiedCardTransactionsController
     extends StateNotifier<SimplifiedCardTransactionsState>
-    with PaginationLoadingProvider<List<SimplifiedCardTransaction>> {
+    with
+        PaginationLoadingProvider<
+            Map<DateTime, List<SimplifiedCardTransaction>>> {
   SimplifiedCardTransactionsController(
     this._repository,
   ) : super(const SimplifiedCardTransactionsState());
@@ -27,7 +29,8 @@ class SimplifiedCardTransactionsController
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            transactions: const AsyncLoading<List<SimplifiedCardTransaction>>()
+            transactions: const AsyncLoading<
+                    Map<DateTime, List<SimplifiedCardTransaction>>>()
                 .copyWithPrevious(state.transactions),
           ),
         );
