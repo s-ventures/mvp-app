@@ -10,7 +10,8 @@ import 'package:retrofit/retrofit.dart';
 part 'accounts_rest_client.g.dart';
 
 final accountsRestClientProvider = Provider<AccountsRestClient>(
-    (ref) => AccountsRestClient(ref.watch(dioProvider)));
+  (ref) => AccountsRestClient(ref.watch(dioProvider)),
+);
 
 @RestApi()
 abstract class AccountsRestClient {

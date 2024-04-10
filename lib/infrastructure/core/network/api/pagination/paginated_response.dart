@@ -11,7 +11,9 @@ class PaginatedResponse<T> {
   });
 
   factory PaginatedResponse.fromJson(
-          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT,
+  ) =>
       _$PaginatedResponseFromJson(json, fromJsonT);
 
   final int totalElements;

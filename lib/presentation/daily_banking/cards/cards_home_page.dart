@@ -59,7 +59,8 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
               sliver: SliverToBoxAdapter(
                 child: TransactionsHeader(
                   onPressed: () => context.pushNamed(
-                      AppRoute.dailyBankingSearchCardTransactions.name),
+                    AppRoute.dailyBankingSearchCardTransactions.name,
+                  ),
                 ),
               ),
             ),

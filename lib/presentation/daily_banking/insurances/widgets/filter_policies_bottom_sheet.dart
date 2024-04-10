@@ -154,7 +154,7 @@ class FilterPoliciesBottomSheet {
         backgroundColor: context.color.bottomSheetBackground,
         sabGradientColor: context.color.bottomSheetBackground,
         topBarTitle: Text(
-          'Categoría',
+          'Ramo',
           style: context.textStyle.h6,
         ),
         isTopBarLayerAlwaysVisible: true,
