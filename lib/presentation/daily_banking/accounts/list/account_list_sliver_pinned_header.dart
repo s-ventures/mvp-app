@@ -40,7 +40,7 @@ class _AccountListSliverPinnedHeaderState
       pinned: true,
       surfaceTintColor: context.color.backgroundLight200,
       backgroundColor: context.color.backgroundLight200,
-      toolbarHeight: 117,
+      toolbarHeight: 125,
       flexibleSpace: accounts.mapOrNull(
             data: (data) => _AccountList(
               accounts: data.value,
