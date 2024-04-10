@@ -7,6 +7,7 @@ part 'simplified_card_transactions_state.freezed.dart';
 @freezed
 class SimplifiedCardTransactionsState with _$SimplifiedCardTransactionsState {
   const factory SimplifiedCardTransactionsState({
-    @Default(AsyncLoading<List<SimplifiedCardTransaction>>()) AsyncValue<List<SimplifiedCardTransaction>> transactions,
+    @Default(AsyncLoading<Map<DateTime, List<SimplifiedCardTransaction>>>())
+    AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions,
   }) = _SimplifiedCardTransactionsState;
 }

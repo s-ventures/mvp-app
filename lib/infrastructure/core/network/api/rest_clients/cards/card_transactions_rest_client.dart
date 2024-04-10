@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/infrastructure/cards/dtos/cards/date_card_transactions_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/dtos/transactions/card_transactions_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/dtos/transactions/simplified_card_transaction_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/dio_provider.dart';
@@ -16,7 +17,7 @@ abstract class CardTransactionsRestClient {
   factory CardTransactionsRestClient(Dio dio) = _CardTransactionsRestClient;
 
   @GET('/cards/v1/query/transactions')
-  Future<PaginatedResponse<SimplifiedCardTransactionDto>>
+  Future<PaginatedResponse<DateCardTransactionsDto>>
       getSimplifiedCardTransactions({
     @Query('') required CardTransactionsFilterDto filter,
   });

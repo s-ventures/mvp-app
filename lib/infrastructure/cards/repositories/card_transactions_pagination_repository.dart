@@ -4,7 +4,7 @@ import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/card_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/cards_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_map_repository.dart';
 
 final cardTransactionsPaginationRepositoryProvider =
     Provider<CardTransactionsPaginationRepository>(
@@ -15,7 +15,7 @@ final cardTransactionsPaginationRepositoryProvider =
 );
 
 class CardTransactionsPaginationRepository
-    extends PaginationListRepository<SimplifiedCardTransaction> {
+    extends PaginationMapRepository<DateTime, List<SimplifiedCardTransaction>> {
   CardTransactionsPaginationRepository(
     this._transactionsRepository,
     this._cardsRepository,
@@ -67,13 +67,13 @@ class CardTransactionsPaginationRepository
   }
 
   @override
-  Future<List<SimplifiedCardTransaction>> fetchPage({
+  Future<Map<DateTime, List<SimplifiedCardTransaction>>> fetchPage({
     required int page,
     required int pageSize,
   }) async {
     final filter = _filter;
     if (filter == null) {
-      return [];
+      return <DateTime, List<SimplifiedCardTransaction>>{};
     }
 
     final transactions =
@@ -83,7 +83,10 @@ class CardTransactionsPaginationRepository
       pageSize: pageSize,
       onPaginationInfo: onPaginationInfo,
     );
-    return transactions.fold((l) => <SimplifiedCardTransaction>[], (r) => r);
+    return transactions.fold(
+      (l) => <DateTime, List<SimplifiedCardTransaction>>{},
+      (r) => r,
+    );
   }
 
   // ignore: use_setters_to_change_properties

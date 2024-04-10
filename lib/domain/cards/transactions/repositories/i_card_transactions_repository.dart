@@ -5,7 +5,10 @@ import 'package:manifiesto_mvp_app/domain/cards/transactions/failures/simplified
 
 // ignore: one_member_abstracts
 abstract class ICardTransactionsRepository {
-  Future<Either<SimplifiedCardTransactionFailure, List<SimplifiedCardTransaction>>> getSimplifiedCardTransactions({
+  Future<
+          Either<SimplifiedCardTransactionFailure,
+              Map<DateTime, List<SimplifiedCardTransaction>>>>
+      getSimplifiedCardTransactions({
     required CardTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,

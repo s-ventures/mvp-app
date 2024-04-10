@@ -35,8 +35,11 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
   }
 
   void _loadMore() {
-    if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
-      ref.read(simplifiedCardTransactionsControllerProvider.notifier).loadNextPage();
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      ref
+          .read(simplifiedCardTransactionsControllerProvider.notifier)
+          .loadNextPage();
     }
   }
 
@@ -55,7 +58,8 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
               sliver: SliverToBoxAdapter(
                 child: TransactionsHeader(
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingSearchCardTransactions.name),
+                  onPressed: () => context.pushNamed(
+                      AppRoute.dailyBankingSearchCardTransactions.name),
                 ),
               ),
             ),

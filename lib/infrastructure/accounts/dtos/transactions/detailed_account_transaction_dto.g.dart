@@ -24,10 +24,10 @@ _$DetailedAccountTransactionDtoImpl
           placeId: json['placeId'] as String?,
           accountId: json['accountId'] as int,
           endBalance: (json['endBalance'] as num).toDouble(),
-          creditDebit: $enumDecode(
+          creditDebit: $enumDecodeNullable(
               _$AccountTransactionCreditDebitDtoEnumMap, json['creditDebit']),
           detailFields: json['detailFields'] as String?,
-          visible: json['visible'] as bool,
+          visible: json['visible'] as bool?,
           bankReceipt: json['bankReceipt'] as bool,
           originBranch: json['originBranch'] as String,
           originalAmount: (json['originalAmount'] as num).toDouble(),
@@ -59,7 +59,7 @@ Map<String, dynamic> _$$DetailedAccountTransactionDtoImplToJson(
       'accountId': instance.accountId,
       'endBalance': instance.endBalance,
       'creditDebit':
-          _$AccountTransactionCreditDebitDtoEnumMap[instance.creditDebit]!,
+          _$AccountTransactionCreditDebitDtoEnumMap[instance.creditDebit],
       'detailFields': instance.detailFields,
       'visible': instance.visible,
       'bankReceipt': instance.bankReceipt,
