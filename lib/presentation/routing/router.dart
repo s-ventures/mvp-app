@@ -17,6 +17,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_details/scheduled_transfer_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_edit/scheduled_transfer_edit_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_signature/scheduled_transfer_signature_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_contact/soon_pay_contact.page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_otp/soon_pay_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_page.dart';
@@ -214,6 +215,17 @@ GoRouter router(RouterRef ref) {
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const ScheduledTransferEditPage(),
+                            ),
+                          ),
+                          GoRoute(
+                            parentNavigatorKey: _rootNavigatorKey,
+                            path: AppRoute
+                                .dailyBankingScheduledTransferSignature.path,
+                            name: AppRoute
+                                .dailyBankingScheduledTransferSignature.name,
+                            pageBuilder: (context, state) => MaterialPage(
+                              key: state.pageKey,
+                              child: const ScheduledTransferSignaturePage(),
                             ),
                           ),
                         ],

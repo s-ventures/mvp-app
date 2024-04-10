@@ -22,20 +22,25 @@ class Overview extends StatelessWidget {
           Row(
             children: [
               Text(
-                '456,00€',
+                456.00.toCurrency(plusSign: false),
                 style: context.textStyle.h5.copyWith(
                   color: context.color.textLight900,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.15,
                 ),
               ),
-              AppSpacing.vertical.s3,
+              AppSpacing.horizontal.s3,
+              Padding(
+                padding: const EdgeInsets.only(top: AppSpacing.s3),
+                child: Text('/', style: context.textStyle.bodyMediumRegular.copyWith(color: context.color.textLight300),),
+              ),
+              AppSpacing.horizontal.s3,
               Container(
                 padding: const EdgeInsets.only(
                   top: 8,
                 ),
                 child: Text(
-                  '/ 798,00€',
+                  798.00.toCurrency(plusSign: false),
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight300,
                   ),
@@ -81,7 +86,7 @@ class Overview extends StatelessWidget {
                   ),
                 ),
               ),
-              AppSpacing.vertical.s5,
+              AppSpacing.horizontal.s3,
               SizedBox(
                 width: 72,
                 child: DropdownButton(

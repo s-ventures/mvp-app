@@ -130,7 +130,14 @@ class ScheduledTransferEditPage extends StatelessWidget {
                     icon: IconAssets.calendar,
                     size: ButtonSize.small,
                     type: ButtonType.outlined,
-                    onPressed: () async {},
+                    onPressed: () async {
+                      await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime.now(),
+                        lastDate: DateTime(2025),
+                      );
+                    },
                   ),
                   AppSpacing.horizontal.s3,
                   Expanded(

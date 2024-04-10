@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class SoonPayOTPPage extends StatelessWidget {
-  const SoonPayOTPPage({super.key});
+class ScheduledTransferSignaturePage extends StatelessWidget {
+  const ScheduledTransferSignaturePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class SoonPayOTPPage extends StatelessWidget {
           return [
             CustomAppBar(
               centerTitle: true,
-              title: 'Firma de operación',
+              title: 'Pago periódico',
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -32,7 +31,7 @@ class SoonPayOTPPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Código de confirmación de pago',
+                    'Código de confirmación de activación de pago periódico',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -74,14 +73,7 @@ class SoonPayOTPPage extends StatelessWidget {
             title: 'Confirmar',
             size: ButtonSize.small,
             expand: true,
-            onPressed: () async => AlertBottomSheet.show(
-              context: context,
-              icon: IconAssets.send,
-              title: 'Envío realizado',
-              message: 'Se han enviado ${50.00.toCurrency(plusSign: false)} a Thomas Magnum',
-              buttonOkText: 'Continuar',
-              onOkPressed: () => context.pushNamed(AppRoute.dailyBankingTransfers.name),
-            ),
+            onPressed: () async => context.pop(),
           ),
         ),
       ),

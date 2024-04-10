@@ -16,7 +16,7 @@ class PolicyBilling extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            '2.640€',
+            2640.00.toCurrency(plusSign: false),
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight900,
             ),
@@ -34,7 +34,7 @@ class PolicyBilling extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            '220€',
+            220.00.toCurrency(plusSign: false),
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight900,
             ),

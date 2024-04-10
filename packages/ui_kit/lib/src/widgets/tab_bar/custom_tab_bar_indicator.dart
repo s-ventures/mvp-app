@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_kit/src/theme/app_radius.dart';
 
 class CustomTabBarIndicator extends Decoration {
   @override
@@ -18,12 +19,12 @@ class _CustomPainter extends BoxPainter {
     assert(configuration.size != null, 'Size is null');
 
     var size = configuration.size!;
-    size = Size(size.width - 20 - 20, 40);
-    final offset = Offset(o.dx + 20, o.dy + 2);
+    size = Size(size.width, 32);
+    final offset = Offset(o.dx, o.dy);
 
     final rect = offset & size;
     canvas.drawRRect(
-      RRect.fromRectAndRadius(rect, const Radius.circular(10)),
+      RRect.fromRectAndRadius(rect, Radius.circular(const AppRadius().soft)),
       Paint()
         ..color = Colors.white
         ..style = PaintingStyle.fill,
@@ -31,7 +32,7 @@ class _CustomPainter extends BoxPainter {
 
     final rect2 = offset & size;
     canvas.drawRRect(
-      RRect.fromRectAndRadius(rect2, const Radius.circular(10)),
+      RRect.fromRectAndRadius(rect2, Radius.circular(const AppRadius().soft)),
       Paint()
         ..color = const Color(0xFFF4F4FC)
         ..style = PaintingStyle.stroke

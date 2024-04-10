@@ -93,8 +93,6 @@ class AppTheme {
           indicatorSize: TabBarIndicatorSize.tab,
           splashFactory: NoSplash.splashFactory,
           overlayColor: MaterialStateProperty.all(Colors.transparent),
-          labelPadding: const EdgeInsets.only(left: 12 + 20, right: 12 + 20),
-          dividerColor: colorScheme.strokeLigth200,
         ),
         radioTheme: RadioThemeData(
           fillColor: MaterialStateColor.resolveWith(
