@@ -138,7 +138,12 @@ class _SearchAccountTransactionsPageState
                     TransactionSearchBar(
                       controller: _controller,
                     ),
-                    if (isFilterApplied) const FilterList(),
+                    if (isFilterApplied)
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: AppSpacing.s5),
+                        child: FilterList(),
+                      ),
                   ],
                 ),
               ),
