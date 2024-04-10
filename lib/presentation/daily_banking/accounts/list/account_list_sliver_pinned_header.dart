@@ -34,73 +34,13 @@ class _AccountListSliverPinnedHeaderState
     );
     final controller = ref.read(simplifiedAccountsControllerProvider.notifier);
 
-    final heightAmount = MeasureUtil.measureWidget(
-      Directionality(
-        textDirection: TextDirection.ltr,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppSpacing.horizontal.s7,
-            SizedBox(
-              child: Text(
-                0.00.toCurrency(plusSign: false),
-                style: context.textStyle.h4,
-              ),
-            ),
-            AppSpacing.horizontal.s7,
-          ],
-        ),
-      ),
-    ).height;
-
-    final heightBalance = MeasureUtil.measureWidget(
-      Directionality(
-        textDirection: TextDirection.ltr,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Saldo disponible ',
-              style: context.textStyle.bodySmallRegular.copyWith(
-                color: context.color.textLight600,
-              ),
-            ),
-            Text(
-              0.00.toCurrency(plusSign: false),
-              style: context.textStyle.bodySmallSemiBold.copyWith(
-                color: 0.00 < 0
-                    ? context.color.statusError
-                    : context.color.textLight600,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ).height;
-
-    final heightChip = MeasureUtil.measureWidget(
-      Directionality(
-        textDirection: TextDirection.ltr,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AppSpacing.vertical.s7,
-          ],
-        ),
-      ),
-    ).height;
-
     return SliverAppBar(
       shadowColor: Colors.grey,
       scrolledUnderElevation: 4,
       pinned: true,
       surfaceTintColor: context.color.backgroundLight200,
       backgroundColor: context.color.backgroundLight200,
-      toolbarHeight: heightAmount +
-          AppSpacing.s2 +
-          heightBalance +
-          AppSpacing.s5 +
-          heightChip,
+      toolbarHeight: 117,
       flexibleSpace: accounts.mapOrNull(
             data: (data) => _AccountList(
               accounts: data.value,
