@@ -28,9 +28,14 @@ class _FilterListState extends ConsumerState<FilterList> {
         (value) => value.endDate,
       ),
     );
-    final amountRange = ref.watch(
+    final amountFrom = ref.watch(
       filterSimplifiedAccountTransactionsControllerProvider.select(
-        (value) => value.amountRange,
+        (value) => value.amountFrom,
+      ),
+    );
+    final amountTo = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider.select(
+        (value) => value.amountTo,
       ),
     );
     final creditDebitList = ref.watch(
@@ -56,12 +61,14 @@ class _FilterListState extends ConsumerState<FilterList> {
                   ..applyFilters();
               },
             ),
-          if (amountRange != null)
+          if (amountFrom != null || amountTo != null)
             AmountRangeFilterItem(
-              amountRange: amountRange,
+              amountFrom: amountFrom!,
+              amountTo: amountTo!,
               onClear: () {
                 controller
-                  ..setAmountRange(null)
+                  ..setAmountFrom(null)
+                  ..setAmountTo(null)
                   ..applyFilters();
               },
             ),

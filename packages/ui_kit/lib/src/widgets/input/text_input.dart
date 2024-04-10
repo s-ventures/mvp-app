@@ -44,12 +44,14 @@ class TextInput extends StatefulWidget {
     this.maxLines,
     this.counter,
     this.hintStyle,
+    this.style,
     this.alignLabelWithHint,
     this.errorText,
     this.contentPadding,
     this.autofocus = false,
     this.enabled = true,
     this.suffixConstraints,
+    this.textAlign = TextAlign.start,
     this.prefixConstraints,
     this.fillColor,
     super.key,
@@ -84,12 +86,14 @@ class TextInput extends StatefulWidget {
   final bool? alignLabelWithHint;
   final bool enabled;
   final TextStyle? hintStyle;
+  final TextStyle? style;
   final String? initialValue;
   final String? errorText;
   final String? helperText;
   final EdgeInsets? contentPadding;
   final bool autofocus;
   final BoxConstraints? suffixConstraints;
+  final TextAlign textAlign;
   final BoxConstraints? prefixConstraints;
   final Color? fillColor;
 
@@ -127,6 +131,7 @@ class _TextInputState extends State<TextInput> {
 
     return TextField(
       autofocus: widget.autofocus,
+      textAlign: widget.textAlign,
       controller: _activeController,
       keyboardType: widget.keyboardType,
       inputFormatters: widget.inputFormatters,
@@ -138,17 +143,18 @@ class _TextInputState extends State<TextInput> {
       enabled: widget.enabled,
       maxLength: widget.counter != null ? widget.counter! : widget.maxLength,
       minLines: widget.minLines,
-      style: widget.size == TextInputSize.extraSmall
-          ? context.textStyle.bodySmallRegular.copyWith(
-              color: widget.enabled
-                  ? context.color.textLight900
-                  : context.color.textLight300,
-            )
-          : context.textStyle.bodyMediumRegular.copyWith(
-              color: widget.enabled
-                  ? context.color.textLight900
-                  : context.color.textLight300,
-            ),
+      style: widget.style ??
+          (widget.size == TextInputSize.extraSmall
+              ? context.textStyle.bodySmallRegular.copyWith(
+                  color: widget.enabled
+                      ? context.color.textLight900
+                      : context.color.textLight300,
+                )
+              : context.textStyle.bodyMediumRegular.copyWith(
+                  color: widget.enabled
+                      ? context.color.textLight900
+                      : context.color.textLight300,
+                )),
       maxLines: widget.obscureText ? 1 : widget.maxLines,
       focusNode: widget.focusNode ??
           (widget.readOnly ? _AlwaysDisabledFocusNode() : null),
@@ -199,9 +205,10 @@ class _TextInputState extends State<TextInput> {
             context.textStyle.bodyMediumRegular
                 .copyWith(color: context.color.textLight600),
         suffixText: widget.suffixText,
-        suffixStyle: widget.size == TextInputSize.extraSmall
-            ? context.textStyle.bodySmall
-            : context.textStyle.bodyMedium,
+        suffixStyle: widget.style ??
+            (widget.size == TextInputSize.extraSmall
+                ? context.textStyle.bodySmall
+                : context.textStyle.bodyMedium),
         suffixIconConstraints: widget.suffixConstraints,
         prefix: widget.prefix,
         prefixIcon: widget.prefixIcon,

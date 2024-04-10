@@ -7,6 +7,8 @@ part 'simplified_accounts_state.freezed.dart';
 @freezed
 class SimplifiedAccountsState with _$SimplifiedAccountsState {
   const factory SimplifiedAccountsState({
-    @Default(AsyncLoading<List<SimplifiedAccount>>()) AsyncValue<List<SimplifiedAccount>> accounts,
+    @Default(AsyncLoading<List<SimplifiedAccount>>())
+    AsyncValue<List<SimplifiedAccount>> accounts,
+    @Default(0) int selectedAccountIndex,
   }) = _SimplifiedAccountsState;
 }

@@ -9,11 +9,19 @@ class DateRange extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final startDate = ref.watch(filterSimplifiedAccountTransactionsControllerProvider).startDate;
-    final endDate = ref.watch(filterSimplifiedAccountTransactionsControllerProvider).endDate;
+    final startDate = ref
+        .watch(filterSimplifiedAccountTransactionsControllerProvider)
+        .startDate;
+    final endDate = ref
+        .watch(filterSimplifiedAccountTransactionsControllerProvider)
+        .endDate;
 
-    final setStartDate = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier).setStartDate;
-    final setEndDate = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier).setEndDate;
+    final setStartDate = ref
+        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
+        .setStartDate;
+    final setEndDate = ref
+        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
+        .setEndDate;
 
     return CustomCard(
       child: Row(
@@ -64,7 +72,8 @@ class DateRange extends ConsumerWidget {
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: endDate?.formatToDayMonthYear() ?? DateTime.now().formatToDayMonthYear(),
+                  title: endDate?.formatToDayMonthYear() ??
+                      DateTime.now().formatToDayMonthYear(),
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,
