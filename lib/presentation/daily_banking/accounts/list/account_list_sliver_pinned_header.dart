@@ -37,21 +37,18 @@ class _AccountListSliverPinnedHeaderState
     final heightAmount = MeasureUtil.measureWidget(
       Directionality(
         textDirection: TextDirection.ltr,
-        child: SizedBox(
-          height: AppSpacing.s7,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              AppSpacing.horizontal.s7,
-              SizedBox(
-                child: Text(
-                  0.00.toCurrency(plusSign: false),
-                  style: context.textStyle.h4,
-                ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            AppSpacing.horizontal.s7,
+            SizedBox(
+              child: Text(
+                0.00.toCurrency(plusSign: false),
+                style: context.textStyle.h4,
               ),
-              AppSpacing.horizontal.s7,
-            ],
-          ),
+            ),
+            AppSpacing.horizontal.s7,
+          ],
         ),
       ),
     ).height;
@@ -59,27 +56,24 @@ class _AccountListSliverPinnedHeaderState
     final heightBalance = MeasureUtil.measureWidget(
       Directionality(
         textDirection: TextDirection.ltr,
-        child: SizedBox(
-          height: AppSpacing.s6,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Saldo disponible ',
-                style: context.textStyle.bodySmallRegular.copyWith(
-                  color: context.color.textLight600,
-                ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Saldo disponible ',
+              style: context.textStyle.bodySmallRegular.copyWith(
+                color: context.color.textLight600,
               ),
-              Text(
-                0.00.toCurrency(plusSign: false),
-                style: context.textStyle.bodySmallSemiBold.copyWith(
-                  color: 0.00 < 0
-                      ? context.color.statusError
-                      : context.color.textLight600,
-                ),
+            ),
+            Text(
+              0.00.toCurrency(plusSign: false),
+              style: context.textStyle.bodySmallSemiBold.copyWith(
+                color: 0.00 < 0
+                    ? context.color.statusError
+                    : context.color.textLight600,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     ).height;
@@ -87,14 +81,11 @@ class _AccountListSliverPinnedHeaderState
     final heightChip = MeasureUtil.measureWidget(
       Directionality(
         textDirection: TextDirection.ltr,
-        child: SizedBox(
-          height: AppSpacing.s7,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppSpacing.vertical.s7,
-            ],
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AppSpacing.vertical.s7,
+          ],
         ),
       ),
     ).height;
@@ -155,136 +146,117 @@ class _AccountList extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(
-                height: AppSpacing.s7,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AppSpacing.horizontal.s7,
-                    Text(
-                      account.balance.balance.toCurrency(plusSign: false),
-                      style: context.textStyle.h4,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppSpacing.horizontal.s7,
+                  Text(
+                    account.balance.balance.toCurrency(plusSign: false),
+                    style: context.textStyle.h4,
+                  ),
+                  CustomPopupMenuButton(
+                    items: [
+                      PopupMenuItem(
+                        onTap: () => context.pushNamed(
+                          AppRoute.dailyBankingAccountDetails.name,
+                          pathParameters: {
+                            'accountId': account.id.getOrCrash(),
+                          },
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text('Ver detalles'),
+                            AppSpacing.horizontal.s6,
+                            IconSvg.small(IconAssets.bank),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text('Pagar un impuesto'),
+                            AppSpacing.horizontal.s6,
+                            IconSvg.small(IconAssets.invoice),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text('Certificados y documentos'),
+                            AppSpacing.horizontal.s6,
+                            IconSvg.small(IconAssets.document),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              AppSpacing.vertical.s2,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Saldo disponible ',
+                    style: context.textStyle.bodySmallRegular.copyWith(
+                      color: context.color.textLight600,
                     ),
-                    CustomPopupMenuButton(
-                      items: [
-                        PopupMenuItem(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('Transferencias programadas'),
-                              AppSpacing.horizontal.s6,
-                              IconSvg.small(IconAssets.calendar),
-                            ],
-                          ),
-                          onTap: () => context.pushNamed(
-                            AppRoute.dailyBankingScheduledTransfers.name,
-                          ),
-                        ),
-                        PopupMenuItem(
-                          onTap: () => context.pushNamed(
-                            AppRoute.dailyBankingAccountDetails.name,
-                            pathParameters: {
-                              'accountId': account.id.getOrCrash(),
-                            },
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('Ver detalles'),
-                              AppSpacing.horizontal.s6,
-                              IconSvg.small(IconAssets.bank),
-                            ],
-                          ),
-                        ),
-                        PopupMenuItem(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('Pagar un impuesto'),
-                              AppSpacing.horizontal.s6,
-                              IconSvg.small(IconAssets.invoice),
-                            ],
+                  ),
+                  Text(
+                    account.balance.availableBalance
+                        .toCurrency(plusSign: false),
+                    style: context.textStyle.bodySmallSemiBold.copyWith(
+                      color: account.balance.availableBalance < 0
+                          ? context.color.statusError
+                          : context.color.textLight600,
+                    ),
+                  ),
+                ],
+              ),
+              AppSpacing.vertical.s5,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomChip(
+                    size: CustomChipSize.extraSmall,
+                    backgroundColor: context.color.backgroundLight200,
+                    leadingIcon: account.entity == '2103'
+                        ? IconAssets.soon
+                        : IconAssets.santander,
+                    leadingIconColor: account.entity == '2103'
+                        ? context.color.secondaryLight600
+                        : context.color.statusError,
+                    title: Row(
+                      children: [
+                        Text(
+                          'Cuenta ',
+                          style: context.textStyle.bodySmallRegular.copyWith(
+                            color: context.color.primaryLight600,
                           ),
                         ),
-                        PopupMenuItem(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('Certificados y documentos'),
-                              AppSpacing.horizontal.s6,
-                              IconSvg.small(IconAssets.document),
-                            ],
+                        Text(
+                          account.entity == '2103' ? 'soon' : 'Santander',
+                          style: context.textStyle.bodySmallSemiBold.copyWith(
+                            color: context.color.primaryLight600,
+                          ),
+                        ),
+                        Text(
+                          ' • ${account.currencyCode}',
+                          style: context.textStyle.buttonTabBar.copyWith(
+                            color: context.color.primaryLight300,
                           ),
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              AppSpacing.vertical.s2,
-              SizedBox(
-                height: AppSpacing.s6,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Saldo disponible ',
-                      style: context.textStyle.bodySmallRegular.copyWith(
-                        color: context.color.textLight600,
-                      ),
+                    onSelected: (_) => context.pushNamed(
+                      AppRoute.dailyBankingAggregatedAccounts.name,
                     ),
-                    Text(
-                      account.balance.availableBalance
-                          .toCurrency(plusSign: false),
-                      style: context.textStyle.bodySmallSemiBold.copyWith(
-                        color: account.balance.availableBalance < 0
-                            ? context.color.statusError
-                            : context.color.textLight600,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              AppSpacing.vertical.s5,
-              SizedBox(
-                height: 34,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomChip(
-                      size: CustomChipSize.extraSmall,
-                      backgroundColor: context.color.backgroundLight200,
-                      leadingIcon:
-                          account.entity == '2103' ? IconAssets.soon : null,
-                      leadingIconColor: account.entity == '2103'
-                          ? context.color.secondaryLight600
-                          : null,
-                      title: Row(
-                        children: [
-                          Text(
-                            'Cuenta ',
-                            style: context.textStyle.bodySmallRegular.copyWith(
-                              color: context.color.primaryLight600,
-                            ),
-                          ),
-                          Text(
-                            account.entity == '2103' ? 'soon' : account.entity,
-                            style: context.textStyle.bodySmallSemiBold.copyWith(
-                              color: context.color.primaryLight600,
-                            ),
-                          ),
-                          Text(
-                            ' • ${account.currencyCode}',
-                            style: context.textStyle.buttonTabBar.copyWith(
-                              color: context.color.primaryLight300,
-                            ),
-                          ),
-                        ],
-                      ),
-                      onSelected: (_) {},
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),
