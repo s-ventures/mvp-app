@@ -72,11 +72,12 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                           .pushNamed(AppRoute.dailyBankingTransfers.name),
                     ),
                     IconOverTextButton(
-                      icon: IconAssets.wallet,
+                      icon: IconAssets.calendar,
                       type: ButtonType.outlined,
-                      label: 'Cuentas',
+                      label: 'Programado',
                       onPressed: () => context.pushNamed(
-                          AppRoute.dailyBankingAggregatedAccounts.name),
+                        AppRoute.dailyBankingScheduledTransfers.name,
+                      ),
                     ),
                   ],
                 ),
