@@ -72,8 +72,7 @@ class DateRange extends ConsumerWidget {
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: endDate?.formatToDayMonthYear() ??
-                      DateTime.now().formatToDayMonthYear(),
+                  title: endDate?.formatToDayMonthYear() ?? '',
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,
