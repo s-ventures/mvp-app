@@ -27,6 +27,7 @@ export 'input/text_area.dart';
 export 'input/text_input.dart';
 export 'lists/outlined_list.dart';
 export 'radio/radio_list_tile.dart';
+export 'segmented_control.dart';
 export 'sliver_pinned_overlap_injector.dart';
 export 'splash.dart';
 export 'tab_bar/custom_tab_bar.dart';

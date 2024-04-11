@@ -32,7 +32,8 @@ class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
       },
       onDataLoaded: (cards) {
         setStateSafe(
-          () => state.copyWith(cards: cards),
+          () => state.copyWith(
+              cards: cards, selectedCardIndex: state.selectedCardIndex),
         );
       },
     );
@@ -46,5 +47,9 @@ class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
       cardId: cardId.toInt(),
       cardContractId: cardContractId.toInt(),
     );
+  }
+
+  void setSelectedCardIndex(int index) {
+    state = state.copyWith(selectedCardIndex: index);
   }
 }

@@ -14,14 +14,15 @@ final simplifiedCardTransactionsRepositoryProvider =
     Provider<CardTransactionsRepository>(
   (ref) => CardTransactionsRepository(
     remoteDataSource: CardTransactionsRemoteDataSource(
-        ref.watch(cardTransactionsRestClientProvider)),
+      ref.watch(cardTransactionsRestClientProvider),
+    ),
   ),
 );
 
 class CardTransactionsRepository implements ICardTransactionsRepository {
-  CardTransactionsRepository(
-      {required CardTransactionsRemoteDataSource remoteDataSource})
-      : _remoteDataSource = remoteDataSource;
+  CardTransactionsRepository({
+    required CardTransactionsRemoteDataSource remoteDataSource,
+  }) : _remoteDataSource = remoteDataSource;
 
   final CardTransactionsRemoteDataSource _remoteDataSource;
 

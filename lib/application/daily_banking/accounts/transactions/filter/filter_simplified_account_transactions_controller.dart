@@ -1,31 +1,35 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_credit_debit.dart';
 
 final filterSimplifiedAccountTransactionsControllerProvider =
-    StateNotifierProvider<FilterSimplifiedAccountTransactionsController, FilterSimplifiedAccountTransactionsState>(
+    StateNotifierProvider<FilterSimplifiedAccountTransactionsController,
+        FilterSimplifiedAccountTransactionsState>(
   (ref) => FilterSimplifiedAccountTransactionsController(
     ref.read(simplifiedAccountTransactionsControllerProvider.notifier),
   ),
 );
 
-class FilterSimplifiedAccountTransactionsController extends StateNotifier<FilterSimplifiedAccountTransactionsState> {
+class FilterSimplifiedAccountTransactionsController
+    extends StateNotifier<FilterSimplifiedAccountTransactionsState> {
   FilterSimplifiedAccountTransactionsController(
     this._simplifiedAccountTransactionsController,
   ) : super(const FilterSimplifiedAccountTransactionsState());
 
-  final SimplifiedAccountTransactionsController _simplifiedAccountTransactionsController;
+  final SimplifiedAccountTransactionsController
+      _simplifiedAccountTransactionsController;
 
   Future<void> applyFilters() async {
     await _simplifiedAccountTransactionsController.updateFilter(
       description: state.search,
-      amountFrom: state.amountRange?.start,
-      amountTo: state.amountRange?.end,
+      amountFrom: state.amountFrom,
+      amountTo: state.amountTo,
       dateFrom: state.startDate,
       dateTo: state.endDate,
-      creditDebit: state.creditDebitList.length == 2 ? null : state.creditDebitList.firstOrNull,
+      creditDebit: state.creditDebitList.length == 2
+          ? null
+          : state.creditDebitList.firstOrNull,
     );
   }
 
@@ -47,8 +51,12 @@ class FilterSimplifiedAccountTransactionsController extends StateNotifier<Filter
     state = state.copyWith(endDate: endDate);
   }
 
-  void setAmountRange(RangeValues? range) {
-    state = state.copyWith(amountRange: range);
+  void setAmountFrom(double? amountFrom) {
+    state = state.copyWith(amountFrom: amountFrom);
+  }
+
+  void setAmountTo(double? amountTo) {
+    state = state.copyWith(amountTo: amountTo);
   }
 
   void setCategory(String category) {

@@ -14,8 +14,10 @@ class CardsPaginationRepository
   final CardsRepository _repository;
 
   @override
-  Future<List<SimplifiedCard>?> fetchPage(
-      {required int page, required int pageSize}) async {
+  Future<List<SimplifiedCard>?> fetchPage({
+    required int page,
+    required int pageSize,
+  }) async {
     final cards = await _repository.getSimplifiedCards(
       page: page,
       pageSize: pageSize,

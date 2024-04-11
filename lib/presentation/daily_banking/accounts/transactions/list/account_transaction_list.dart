@@ -107,7 +107,7 @@ class _TransactionList extends StatelessWidget {
                 },
               ),
             ),
-            AppSpacing.vertical.s5
+            AppSpacing.vertical.s5,
           ],
         );
       },

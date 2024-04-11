@@ -19,7 +19,8 @@ mixin _$FilterSimplifiedAccountTransactionsState {
   String get search => throw _privateConstructorUsedError;
   DateTime? get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
-  RangeValues? get amountRange => throw _privateConstructorUsedError;
+  double? get amountFrom => throw _privateConstructorUsedError;
+  double? get amountTo => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   List<AccountTransactionCreditDebit> get creditDebitList =>
       throw _privateConstructorUsedError;
@@ -42,7 +43,8 @@ abstract class $FilterSimplifiedAccountTransactionsStateCopyWith<$Res> {
       {String search,
       DateTime? startDate,
       DateTime? endDate,
-      RangeValues? amountRange,
+      double? amountFrom,
+      double? amountTo,
       String category,
       List<AccountTransactionCreditDebit> creditDebitList});
 }
@@ -65,7 +67,8 @@ class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
     Object? search = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? amountRange = freezed,
+    Object? amountFrom = freezed,
+    Object? amountTo = freezed,
     Object? category = null,
     Object? creditDebitList = null,
   }) {
@@ -82,10 +85,14 @@ class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      amountRange: freezed == amountRange
-          ? _value.amountRange
-          : amountRange // ignore: cast_nullable_to_non_nullable
-              as RangeValues?,
+      amountFrom: freezed == amountFrom
+          ? _value.amountFrom
+          : amountFrom // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amountTo: freezed == amountTo
+          ? _value.amountTo
+          : amountTo // ignore: cast_nullable_to_non_nullable
+              as double?,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -111,7 +118,8 @@ abstract class _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<$Res>
       {String search,
       DateTime? startDate,
       DateTime? endDate,
-      RangeValues? amountRange,
+      double? amountFrom,
+      double? amountTo,
       String category,
       List<AccountTransactionCreditDebit> creditDebitList});
 }
@@ -132,7 +140,8 @@ class __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
     Object? search = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
-    Object? amountRange = freezed,
+    Object? amountFrom = freezed,
+    Object? amountTo = freezed,
     Object? category = null,
     Object? creditDebitList = null,
   }) {
@@ -149,10 +158,14 @@ class __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      amountRange: freezed == amountRange
-          ? _value.amountRange
-          : amountRange // ignore: cast_nullable_to_non_nullable
-              as RangeValues?,
+      amountFrom: freezed == amountFrom
+          ? _value.amountFrom
+          : amountFrom // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amountTo: freezed == amountTo
+          ? _value.amountTo
+          : amountTo // ignore: cast_nullable_to_non_nullable
+              as double?,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -173,7 +186,8 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
       {this.search = '',
       this.startDate,
       this.endDate,
-      this.amountRange,
+      this.amountFrom,
+      this.amountTo,
       this.category = 'Entretenimiento',
       final List<AccountTransactionCreditDebit> creditDebitList = const []})
       : _creditDebitList = creditDebitList;
@@ -186,7 +200,9 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
   @override
   final DateTime? endDate;
   @override
-  final RangeValues? amountRange;
+  final double? amountFrom;
+  @override
+  final double? amountTo;
   @override
   @JsonKey()
   final String category;
@@ -201,7 +217,7 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
 
   @override
   String toString() {
-    return 'FilterSimplifiedAccountTransactionsState(search: $search, startDate: $startDate, endDate: $endDate, amountRange: $amountRange, category: $category, creditDebitList: $creditDebitList)';
+    return 'FilterSimplifiedAccountTransactionsState(search: $search, startDate: $startDate, endDate: $endDate, amountFrom: $amountFrom, amountTo: $amountTo, category: $category, creditDebitList: $creditDebitList)';
   }
 
   @override
@@ -213,8 +229,10 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.amountRange, amountRange) ||
-                other.amountRange == amountRange) &&
+            (identical(other.amountFrom, amountFrom) ||
+                other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) ||
+                other.amountTo == amountTo) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             const DeepCollectionEquality()
@@ -227,7 +245,8 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
       search,
       startDate,
       endDate,
-      amountRange,
+      amountFrom,
+      amountTo,
       category,
       const DeepCollectionEquality().hash(_creditDebitList));
 
@@ -247,7 +266,8 @@ abstract class _FilterSimplifiedAccountTransactionsState
           {final String search,
           final DateTime? startDate,
           final DateTime? endDate,
-          final RangeValues? amountRange,
+          final double? amountFrom,
+          final double? amountTo,
           final String category,
           final List<AccountTransactionCreditDebit> creditDebitList}) =
       _$FilterSimplifiedAccountTransactionsStateImpl;
@@ -259,7 +279,9 @@ abstract class _FilterSimplifiedAccountTransactionsState
   @override
   DateTime? get endDate;
   @override
-  RangeValues? get amountRange;
+  double? get amountFrom;
+  @override
+  double? get amountTo;
   @override
   String get category;
   @override

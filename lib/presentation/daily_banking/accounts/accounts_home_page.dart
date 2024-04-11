@@ -89,13 +89,16 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
               sliver: SliverToBoxAdapter(
                 child: TransactionsHeader(
                   onPressed: () => context.pushNamed(
-                      AppRoute.dailyBankingSearchAccountTransactions.name),
+                    AppRoute.dailyBankingSearchAccountTransactions.name,
+                  ),
                 ),
               ),
             ),
             SliverPadding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.s5, vertical: AppSpacing.s3),
+                horizontal: AppSpacing.s5,
+                vertical: AppSpacing.s3,
+              ),
               sliver: AccountTransactionList(
                 onTransactionPressed: (transaction) {
                   context.pushNamed(

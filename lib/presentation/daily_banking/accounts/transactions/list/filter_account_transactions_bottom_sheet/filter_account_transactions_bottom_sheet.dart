@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/amount_range.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/amount.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category_list.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/credit_debit.dart';
@@ -191,15 +191,15 @@ class FilterAccountTransactionsBottomSheet {
                     categories: categories,
                     onPressed: () => pageIndexNotifier.value = 1,
                   ),
-                  AppSpacing.vertical.s5,
-                  Text(
-                    'Tipo',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
-                      color: context.color.textLight600,
-                    ),
-                  ),
-                  AppSpacing.vertical.s2,
-                  const CreditDebit(),
+                  // AppSpacing.vertical.s5,
+                  // Text(
+                  //   'Tipo',
+                  //   style: context.textStyle.bodyMediumSemiBold.copyWith(
+                  //     color: context.color.textLight600,
+                  //   ),
+                  // ),
+                  // AppSpacing.vertical.s2,
+                  // const CreditDebit(),
                 ],
               ),
             ),

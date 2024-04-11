@@ -7,6 +7,8 @@ part 'simplified_cards_state.freezed.dart';
 @freezed
 class SimplifiedCardsState with _$SimplifiedCardsState {
   const factory SimplifiedCardsState({
-    @Default(AsyncLoading<List<SimplifiedCard>>()) AsyncValue<List<SimplifiedCard>> cards,
+    @Default(AsyncLoading<List<SimplifiedCard>>())
+    AsyncValue<List<SimplifiedCard>> cards,
+    @Default(0) int selectedCardIndex,
   }) = _SimplifiedCardsState;
 }
