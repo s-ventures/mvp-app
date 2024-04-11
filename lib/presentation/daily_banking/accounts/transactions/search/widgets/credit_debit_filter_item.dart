@@ -4,21 +4,19 @@ import 'package:ui_kit/ui_kit.dart';
 
 class CreditDebitFilterItem extends StatelessWidget {
   const CreditDebitFilterItem({
-    required this.creditDebitList,
+    required this.creditDebit,
     required this.onClear,
     super.key,
   });
 
-  final List<AccountTransactionCreditDebit> creditDebitList;
+  final AccountTransactionCreditDebit creditDebit;
   final VoidCallback onClear;
 
   @override
   Widget build(BuildContext context) {
-    final text = creditDebitList.map((creditDebit) => creditDebit.name).join(' y ');
-
     return CustomChip(
       title: Text(
-        text,
+        creditDebit.name,
         style: context.textStyle.bodySmallSemiBold.copyWith(
           color: context.color.primaryLight300,
         ),

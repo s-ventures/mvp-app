@@ -34,7 +34,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_credit_debit_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/movement_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
@@ -59,7 +58,6 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     required String? placeId,
     required int accountId,
     required double endBalance,
-    required AccountTransactionCreditDebitDto? creditDebit,
     required String? detailFields,
     required bool? visible,
     required bool bankReceipt,

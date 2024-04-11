@@ -75,15 +75,15 @@ class _SearchAccountTransactionsPageState
       filterSimplifiedAccountTransactionsControllerProvider
           .select((value) => value.amountTo),
     );
-    final creditDebitList = ref.watch(
+    final creditDebit = ref.watch(
       filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.creditDebitList),
+          .select((value) => value.creditDebit),
     );
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
         (amountFrom != null && amountTo != null) ||
-        creditDebitList.isNotEmpty;
+        creditDebit != null;
 
     return Scaffold(
       body: NestedScrollView(
@@ -97,8 +97,7 @@ class _SearchAccountTransactionsPageState
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
                 onPressed: () async {
-                  await controller.resetFilters();
-                  context.pop();
+                  await controller.resetFilters().then((_) => context.pop());
                 },
               ),
               actions: [

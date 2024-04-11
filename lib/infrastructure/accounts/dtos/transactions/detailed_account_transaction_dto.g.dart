@@ -24,8 +24,6 @@ _$DetailedAccountTransactionDtoImpl
           placeId: json['placeId'] as String?,
           accountId: json['accountId'] as int,
           endBalance: (json['endBalance'] as num).toDouble(),
-          creditDebit: $enumDecodeNullable(
-              _$AccountTransactionCreditDebitDtoEnumMap, json['creditDebit']),
           detailFields: json['detailFields'] as String?,
           visible: json['visible'] as bool?,
           bankReceipt: json['bankReceipt'] as bool,
@@ -58,8 +56,6 @@ Map<String, dynamic> _$$DetailedAccountTransactionDtoImplToJson(
       'placeId': instance.placeId,
       'accountId': instance.accountId,
       'endBalance': instance.endBalance,
-      'creditDebit':
-          _$AccountTransactionCreditDebitDtoEnumMap[instance.creditDebit],
       'detailFields': instance.detailFields,
       'visible': instance.visible,
       'bankReceipt': instance.bankReceipt,
@@ -91,11 +87,6 @@ const _$AccountTransactionTypeDtoEnumMap = {
   AccountTransactionTypeDto.transferIn: 'TRANSFER_IN',
   AccountTransactionTypeDto.transferOut: 'TRANSFER_OUT',
   AccountTransactionTypeDto.periodicTransfer: 'PERIODIC_TRANSFER',
-};
-
-const _$AccountTransactionCreditDebitDtoEnumMap = {
-  AccountTransactionCreditDebitDto.credit: 'CREDIT',
-  AccountTransactionCreditDebitDto.debit: 'DEBIT',
 };
 
 const _$ProductTypeDtoEnumMap = {

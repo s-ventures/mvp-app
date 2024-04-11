@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_credit_debit.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class Amount extends ConsumerWidget {
@@ -13,11 +14,11 @@ class Amount extends ConsumerWidget {
 
     return CustomCard(
       child: Column(
-        mainAxisSize: MainAxisSize.min, // Add this line
         children: [
-          SegmentedControl(
-            onValueChanged: (String? value) {},
-            children: const [],
+          SegmentedControl<AccountTransactionCreditDebit>(
+            onChanged: controller.selectCreditDebit,
+            values: AccountTransactionCreditDebit.values,
+            widgetBuilder: (value) => Text(value.name),
           ),
           AppSpacing.vertical.s4,
           Row(

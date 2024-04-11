@@ -18,8 +18,6 @@ AccountTransactionsFilterDto _$AccountTransactionsFilterDtoFromJson(
           json['postingDateFrom'], const DateConverter().fromJson),
       postingDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['postingDateTo'], const DateConverter().fromJson),
-      creditDebit: $enumDecodeNullable(
-          _$AccountTransactionCreditDebitDtoEnumMap, json['creditDebit']),
       pageNumber: json['pageNumber'] as int? ?? 0,
       pageSize: json['pageSize'] as int? ?? 10,
     );
@@ -49,8 +47,6 @@ Map<String, dynamic> _$AccountTransactionsFilterDtoToJson(
           instance.postingDateTo, const DateConverter().toJson));
   writeNotNull('amountFrom', instance.amountFrom);
   writeNotNull('amountTo', instance.amountTo);
-  writeNotNull('creditDebit',
-      _$AccountTransactionCreditDebitDtoEnumMap[instance.creditDebit]);
   val['sortingTarget'] = instance._sortingTarget;
   val['sortingOrder'] = instance._sortingOrder;
   return val;
@@ -61,11 +57,6 @@ Value? _$JsonConverterFromJson<Json, Value>(
   Value? Function(Json json) fromJson,
 ) =>
     json == null ? null : fromJson(json as Json);
-
-const _$AccountTransactionCreditDebitDtoEnumMap = {
-  AccountTransactionCreditDebitDto.credit: 'CREDIT',
-  AccountTransactionCreditDebitDto.debit: 'DEBIT',
-};
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,
