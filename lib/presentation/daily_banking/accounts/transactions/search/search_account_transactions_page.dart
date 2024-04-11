@@ -67,9 +67,13 @@ class _SearchAccountTransactionsPageState
       filterSimplifiedAccountTransactionsControllerProvider
           .select((value) => value.endDate),
     );
-    final amountRange = ref.watch(
+    final amountFrom = ref.watch(
       filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.amountRange),
+          .select((value) => value.amountFrom),
+    );
+    final amountTo = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.amountTo),
     );
     final creditDebitList = ref.watch(
       filterSimplifiedAccountTransactionsControllerProvider
@@ -78,7 +82,7 @@ class _SearchAccountTransactionsPageState
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
-        amountRange != null ||
+        (amountFrom != null && amountTo != null) ||
         creditDebitList.isNotEmpty;
 
     return Scaffold(

@@ -15,17 +15,33 @@ class TransactionsHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
-    final stateDate =
-        ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.startDate));
-    final endDate = ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.endDate));
-    final amountRange =
-        ref.watch(filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountRange));
+    final controller = ref
+        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
+    final stateDate = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.startDate),
+    );
+    final endDate = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.endDate),
+    );
+    final amountFrom = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.amountFrom),
+    );
+    final amountTo = ref.watch(
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.amountTo),
+    );
     final creditDebitList = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.creditDebitList),
+      filterSimplifiedAccountTransactionsControllerProvider
+          .select((value) => value.creditDebitList),
     );
 
-    final isFilterApplied = stateDate != null || endDate != null || amountRange != null || creditDebitList.isNotEmpty;
+    final isFilterApplied = stateDate != null ||
+        endDate != null ||
+        (amountFrom != null && amountTo != null) ||
+        creditDebitList.isNotEmpty;
 
     return Column(
       children: [
@@ -58,7 +74,10 @@ class TransactionsHeader extends ConsumerWidget {
                     top: 0,
                     right: 0,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s2, vertical: AppSpacing.s1),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSpacing.s2,
+                        vertical: AppSpacing.s1,
+                      ),
                       width: AppSpacing.s3,
                       height: AppSpacing.s3,
                       decoration: BoxDecoration(

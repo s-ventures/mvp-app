@@ -3,19 +3,21 @@ import 'package:ui_kit/ui_kit.dart';
 
 class AmountRangeFilterItem extends StatelessWidget {
   const AmountRangeFilterItem({
-    required this.amountRange,
+    required this.amountFrom,
+    required this.amountTo,
     required this.onClear,
     super.key,
   });
 
-  final RangeValues amountRange;
+  final double amountFrom;
+  final double amountTo;
   final VoidCallback onClear;
 
   @override
   Widget build(BuildContext context) {
     return CustomChip(
       title: Text(
-        '${amountRange.start.toCurrency()} - ${amountRange.end.toCurrency()}',
+        '${amountFrom.toCurrency(plusSign: false)} - ${amountTo.toCurrency(plusSign: false)}',
         style: context.textStyle.bodySmallSemiBold.copyWith(
           color: context.color.primaryLight300,
         ),

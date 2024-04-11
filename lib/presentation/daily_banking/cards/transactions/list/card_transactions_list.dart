@@ -25,9 +25,9 @@ class _CardTransactionsListState extends ConsumerState<CardTransactionsList> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(ref
-          .read(simplifiedCardTransactionsControllerProvider.notifier)
-          .init());
+      unawaited(
+        ref.read(simplifiedCardTransactionsControllerProvider.notifier).init(),
+      );
     });
     super.initState();
   }
@@ -103,7 +103,7 @@ class _TransactionList extends StatelessWidget {
                 },
               ),
             ),
-            AppSpacing.vertical.s5
+            AppSpacing.vertical.s5,
           ],
         );
       },
