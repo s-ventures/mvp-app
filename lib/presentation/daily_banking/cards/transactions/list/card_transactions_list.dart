@@ -78,31 +78,31 @@ class _TransactionList extends StatelessWidget {
               ),
             ),
             AppSpacing.vertical.s3,
-            ...list.map(
-              (transaction) => TransactionListTile(
+            ...list.asMap().entries.map((entry) {
+              final transaction = entry.value;
+              final isFirst = entry.key == 0 || transaction.date != list[entry.key - 1].date;
+              final isLast = entry.key == list.length - 1 || transaction.date != list[entry.key + 1].date;
+              
+              final borderRadius = BorderRadius.only(
+                topLeft: isFirst ? Radius.circular(context.radius.soft) : Radius.zero,
+                topRight: isFirst ? Radius.circular(context.radius.soft) : Radius.zero,
+                bottomLeft: isLast ? Radius.circular(context.radius.soft) : Radius.zero,
+                bottomRight: isLast ? Radius.circular(context.radius.soft) : Radius.zero,
+              );
+
+              return TransactionListTile(
                 leadingEmoji: '💳',
-                leadingBackgroundColor:
-                    context.color.statusWarning.withOpacity(.2),
+                leadingBackgroundColor: context.color.statusWarning.withOpacity(.2),
                 title: transaction.concept,
                 subtitle: '',
                 endBalance: 0,
                 amount: transaction.amount,
-                borderRadius: index == 0
-                    ? BorderRadius.only(
-                        topLeft: Radius.circular(context.radius.soft),
-                        topRight: Radius.circular(context.radius.soft),
-                      )
-                    : index == transactions.length - 1
-                        ? BorderRadius.only(
-                            bottomLeft: Radius.circular(context.radius.soft),
-                            bottomRight: Radius.circular(context.radius.soft),
-                          )
-                        : BorderRadius.zero,
+                borderRadius: borderRadius,
                 onTap: () {
                   onTransactionPressed(transaction);
                 },
-              ),
-            ),
+              );
+            }),
             AppSpacing.vertical.s5,
           ],
         );
