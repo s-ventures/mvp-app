@@ -23,10 +23,12 @@ class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
   final String transactionId;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _AccountTransactionDetailsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _AccountTransactionDetailsPageState();
 }
 
-class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransactionDetailsPage> {
+class _AccountTransactionDetailsPageState
+    extends ConsumerState<AccountTransactionDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -42,7 +44,8 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
 
   @override
   Widget build(BuildContext context) {
-    final transaction = ref.watch(detailedAccountTransactionControllerProvider).transaction;
+    final transaction =
+        ref.watch(detailedAccountTransactionControllerProvider).transaction;
 
     return Scaffold(
       body: SafeArea(
@@ -93,8 +96,8 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
               children: [
                 MovementSummary(
                   title: transaction.description,
-                  icon: '❓',
-                  iconBgColor: const Color.fromRGBO(255, 204, 230, 1).withOpacity(0.2),
+                  icon: '🏦',
+                  iconBgColor: context.color.secondaryLight600.withOpacity(.2),
                   amount: transaction.amount,
                   date: transaction.date,
                   status: MovementStatus.completed,
@@ -103,8 +106,9 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                 BankingInfo(
                   type: BankAccountType.account,
                   last4: transaction.originBranch,
-                  icon: '❓',
-                  category: transaction.category,
+                  icon: '🖥️',
+                  // category: transaction.category,
+                  category: 'Tecnología',
                 ),
                 AppSpacing.vertical.s5,
                 Description(text: transaction.userComments),
