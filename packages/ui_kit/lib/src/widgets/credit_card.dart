@@ -96,6 +96,14 @@ class CreditCard extends StatelessWidget {
                 ],
               ),
             ),
+            Positioned(
+              bottom: 24,
+              right: 24,
+              child: IconSvg.medium(
+                IconAssets.visa,
+                color: context.color.textLight0,
+              ),
+            ),
           ],
         ),
       ),
