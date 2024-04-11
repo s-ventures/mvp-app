@@ -14,10 +14,12 @@ class CardListSliverPinnedHeader extends ConsumerStatefulWidget {
   const CardListSliverPinnedHeader({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _AccountListSliverPinnedHeaderState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _AccountListSliverPinnedHeaderState();
 }
 
-class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPinnedHeader> {
+class _AccountListSliverPinnedHeaderState
+    extends ConsumerState<CardListSliverPinnedHeader> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -80,7 +82,12 @@ class _CardList extends StatelessWidget {
 
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-          child: CustomCard(
+          child: Container(
+            padding: const EdgeInsets.all(AppSpacing.s5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(context.radius.hard),
+              color: context.color.backgroundLight0,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -141,7 +148,9 @@ class _CardList extends StatelessWidget {
                         PopupMenuItem(
                           value: '',
                           onTap: () {
-                            context.pushNamed(AppRoute.dailyBankingCardSettings.name);
+                            context.pushNamed(
+                              AppRoute.dailyBankingCardSettings.name,
+                            );
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -157,10 +166,18 @@ class _CardList extends StatelessWidget {
                   ],
                 ),
                 AppSpacing.vertical.s2,
-                CreditCard(
-                  plan: 'basic',
-                  last4Digits: card.lastFourDigits,
-                ),
+                if (card.id.toInt() == 50)
+                  CreditCard(
+                    plan: CreditCardPlan.basic,
+                    type: CreditCardType.virtual,
+                    last4Digits: card.lastFourDigits,
+                  ),
+                if (card.id.toInt() != 50)
+                  CreditCard(
+                    plan: CreditCardPlan.premium,
+                    type: CreditCardType.virtual,
+                    last4Digits: card.lastFourDigits,
+                  ),
               ],
             ),
           ),
