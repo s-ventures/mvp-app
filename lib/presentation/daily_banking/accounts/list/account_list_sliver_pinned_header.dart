@@ -36,7 +36,7 @@ class _AccountListSliverPinnedHeaderState
       simplifiedAccountsControllerProvider
           .select((value) => value.selectedAccountIndex),
     );
-    final controller = ref.watch(simplifiedAccountsControllerProvider.notifier);
+    final controller = ref.read(simplifiedAccountsControllerProvider.notifier);
 
     return SliverAppBar(
       shadowColor: Colors.grey,
