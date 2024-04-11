@@ -27,7 +27,7 @@ class FilterSimplifiedAccountTransactionsController
       amountTo: state.amountTo,
       dateFrom: state.startDate,
       dateTo: state.endDate,
-      creditDebit: state.creditDebitList.length == 2
+      creditDebit: state.selectedIndexCreditDebit == 0
           ? null
           : state.creditDebitList.firstOrNull,
     );
@@ -78,5 +78,9 @@ class FilterSimplifiedAccountTransactionsController
     }
 
     state = state.copyWith(creditDebitList: types.toList());
+  }
+
+  void setSelecteIndexCreditDebit(int index) {
+    state = state.copyWith(selectedIndexCreditDebit: index);
   }
 }

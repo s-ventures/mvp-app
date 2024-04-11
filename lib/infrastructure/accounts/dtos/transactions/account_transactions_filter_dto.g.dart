@@ -63,6 +63,7 @@ Value? _$JsonConverterFromJson<Json, Value>(
     json == null ? null : fromJson(json as Json);
 
 const _$AccountTransactionCreditDebitDtoEnumMap = {
+  AccountTransactionCreditDebitDto.all: 'ALL',
   AccountTransactionCreditDebitDto.credit: 'CREDIT',
   AccountTransactionCreditDebitDto.debit: 'DEBIT',
 };

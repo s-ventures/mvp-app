@@ -94,6 +94,7 @@ const _$AccountTransactionTypeDtoEnumMap = {
 };
 
 const _$AccountTransactionCreditDebitDtoEnumMap = {
+  AccountTransactionCreditDebitDto.all: 'ALL',
   AccountTransactionCreditDebitDto.credit: 'CREDIT',
   AccountTransactionCreditDebitDto.debit: 'DEBIT',
 };
