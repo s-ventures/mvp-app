@@ -36,6 +36,7 @@ class SimplifiedAccountsController
         setStateSafe(
           () => state.copyWith(
             accounts: accounts,
+            selectedAccountIndex: state.selectedAccountIndex,
           ),
         );
       },
@@ -44,5 +45,9 @@ class SimplifiedAccountsController
 
   void selectAccount(UniqueId accountId) {
     _repository.selectAccount(accountId: accountId.toInt());
+  }
+
+  void setSelectedAccountIndex(int index) {
+    state = state.copyWith(selectedAccountIndex: index);
   }
 }
