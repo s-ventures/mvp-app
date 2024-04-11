@@ -33,15 +33,15 @@ class TransactionsHeader extends ConsumerWidget {
       filterSimplifiedAccountTransactionsControllerProvider
           .select((value) => value.amountTo),
     );
-    final creditDebitList = ref.watch(
+    final creditDebit = ref.watch(
       filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.creditDebitList),
+          .select((value) => value.creditDebit),
     );
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
         (amountFrom != null && amountTo != null) ||
-        creditDebitList.isNotEmpty;
+        creditDebit != null;
 
     return Column(
       children: [

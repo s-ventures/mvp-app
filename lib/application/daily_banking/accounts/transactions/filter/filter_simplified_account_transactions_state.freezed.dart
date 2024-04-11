@@ -22,9 +22,8 @@ mixin _$FilterSimplifiedAccountTransactionsState {
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
-  List<AccountTransactionCreditDebit> get creditDebitList =>
+  AccountTransactionCreditDebit? get creditDebit =>
       throw _privateConstructorUsedError;
-  int get selectedIndexCreditDebit => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterSimplifiedAccountTransactionsStateCopyWith<
@@ -47,8 +46,7 @@ abstract class $FilterSimplifiedAccountTransactionsStateCopyWith<$Res> {
       double? amountFrom,
       double? amountTo,
       String category,
-      List<AccountTransactionCreditDebit> creditDebitList,
-      int selectedIndexCreditDebit});
+      AccountTransactionCreditDebit? creditDebit});
 }
 
 /// @nodoc
@@ -72,8 +70,7 @@ class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
     Object? category = null,
-    Object? creditDebitList = null,
-    Object? selectedIndexCreditDebit = null,
+    Object? creditDebit = freezed,
   }) {
     return _then(_value.copyWith(
       search: null == search
@@ -100,14 +97,10 @@ class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      creditDebitList: null == creditDebitList
-          ? _value.creditDebitList
-          : creditDebitList // ignore: cast_nullable_to_non_nullable
-              as List<AccountTransactionCreditDebit>,
-      selectedIndexCreditDebit: null == selectedIndexCreditDebit
-          ? _value.selectedIndexCreditDebit
-          : selectedIndexCreditDebit // ignore: cast_nullable_to_non_nullable
-              as int,
+      creditDebit: freezed == creditDebit
+          ? _value.creditDebit
+          : creditDebit // ignore: cast_nullable_to_non_nullable
+              as AccountTransactionCreditDebit?,
     ) as $Val);
   }
 }
@@ -128,8 +121,7 @@ abstract class _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<$Res>
       double? amountFrom,
       double? amountTo,
       String category,
-      List<AccountTransactionCreditDebit> creditDebitList,
-      int selectedIndexCreditDebit});
+      AccountTransactionCreditDebit? creditDebit});
 }
 
 /// @nodoc
@@ -151,8 +143,7 @@ class __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
     Object? category = null,
-    Object? creditDebitList = null,
-    Object? selectedIndexCreditDebit = null,
+    Object? creditDebit = freezed,
   }) {
     return _then(_$FilterSimplifiedAccountTransactionsStateImpl(
       search: null == search
@@ -179,14 +170,10 @@ class __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      creditDebitList: null == creditDebitList
-          ? _value._creditDebitList
-          : creditDebitList // ignore: cast_nullable_to_non_nullable
-              as List<AccountTransactionCreditDebit>,
-      selectedIndexCreditDebit: null == selectedIndexCreditDebit
-          ? _value.selectedIndexCreditDebit
-          : selectedIndexCreditDebit // ignore: cast_nullable_to_non_nullable
-              as int,
+      creditDebit: freezed == creditDebit
+          ? _value.creditDebit
+          : creditDebit // ignore: cast_nullable_to_non_nullable
+              as AccountTransactionCreditDebit?,
     ));
   }
 }
@@ -202,9 +189,7 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
       this.amountFrom,
       this.amountTo,
       this.category = 'Entretenimiento',
-      final List<AccountTransactionCreditDebit> creditDebitList = const [],
-      this.selectedIndexCreditDebit = 0})
-      : _creditDebitList = creditDebitList;
+      this.creditDebit});
 
   @override
   @JsonKey()
@@ -220,22 +205,12 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
   @override
   @JsonKey()
   final String category;
-  final List<AccountTransactionCreditDebit> _creditDebitList;
   @override
-  @JsonKey()
-  List<AccountTransactionCreditDebit> get creditDebitList {
-    if (_creditDebitList is EqualUnmodifiableListView) return _creditDebitList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_creditDebitList);
-  }
-
-  @override
-  @JsonKey()
-  final int selectedIndexCreditDebit;
+  final AccountTransactionCreditDebit? creditDebit;
 
   @override
   String toString() {
-    return 'FilterSimplifiedAccountTransactionsState(search: $search, startDate: $startDate, endDate: $endDate, amountFrom: $amountFrom, amountTo: $amountTo, category: $category, creditDebitList: $creditDebitList, selectedIndexCreditDebit: $selectedIndexCreditDebit)';
+    return 'FilterSimplifiedAccountTransactionsState(search: $search, startDate: $startDate, endDate: $endDate, amountFrom: $amountFrom, amountTo: $amountTo, category: $category, creditDebit: $creditDebit)';
   }
 
   @override
@@ -253,24 +228,13 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
                 other.amountTo == amountTo) &&
             (identical(other.category, category) ||
                 other.category == category) &&
-            const DeepCollectionEquality()
-                .equals(other._creditDebitList, _creditDebitList) &&
-            (identical(
-                    other.selectedIndexCreditDebit, selectedIndexCreditDebit) ||
-                other.selectedIndexCreditDebit == selectedIndexCreditDebit));
+            (identical(other.creditDebit, creditDebit) ||
+                other.creditDebit == creditDebit));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      search,
-      startDate,
-      endDate,
-      amountFrom,
-      amountTo,
-      category,
-      const DeepCollectionEquality().hash(_creditDebitList),
-      selectedIndexCreditDebit);
+  int get hashCode => Object.hash(runtimeType, search, startDate, endDate,
+      amountFrom, amountTo, category, creditDebit);
 
   @JsonKey(ignore: true)
   @override
@@ -291,8 +255,7 @@ abstract class _FilterSimplifiedAccountTransactionsState
           final double? amountFrom,
           final double? amountTo,
           final String category,
-          final List<AccountTransactionCreditDebit> creditDebitList,
-          final int selectedIndexCreditDebit}) =
+          final AccountTransactionCreditDebit? creditDebit}) =
       _$FilterSimplifiedAccountTransactionsStateImpl;
 
   @override
@@ -308,9 +271,7 @@ abstract class _FilterSimplifiedAccountTransactionsState
   @override
   String get category;
   @override
-  List<AccountTransactionCreditDebit> get creditDebitList;
-  @override
-  int get selectedIndexCreditDebit;
+  AccountTransactionCreditDebit? get creditDebit;
   @override
   @JsonKey(ignore: true)
   _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<

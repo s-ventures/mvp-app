@@ -16,11 +16,7 @@ class Amount extends ConsumerWidget {
       child: Column(
         children: [
           SegmentedControl<AccountTransactionCreditDebit>(
-            onChanged: (value) {
-              controller
-                ..selectCreditDebit(value)
-                ..setSelecteIndexCreditDebit(value.index);
-            },
+            onChanged: controller.selectCreditDebit,
             values: AccountTransactionCreditDebit.values,
             widgetBuilder: (value) => Text(value.name),
           ),

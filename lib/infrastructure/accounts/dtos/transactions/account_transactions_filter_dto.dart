@@ -32,9 +32,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_credit_debit.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transactions_filter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_credit_debit_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 
@@ -49,7 +47,6 @@ class AccountTransactionsFilterDto extends PaginatedRequest {
     required this.amountTo,
     required this.postingDateFrom,
     required this.postingDateTo,
-    required this.creditDebit,
     super.pageNumber = 0,
     super.pageSize = 10,
   });
@@ -66,7 +63,6 @@ class AccountTransactionsFilterDto extends PaginatedRequest {
       postingDateTo: filter.dateTo,
       amountFrom: filter.amountFrom,
       amountTo: filter.amountTo,
-      creditDebit: filter.creditDebit?.toDto(),
       pageSize: pageSize,
       pageNumber: pageNumber,
     );
@@ -83,7 +79,6 @@ class AccountTransactionsFilterDto extends PaginatedRequest {
   final DateTime? postingDateTo;
   final double? amountFrom;
   final double? amountTo;
-  final AccountTransactionCreditDebitDto? creditDebit;
   @JsonKey(
     includeFromJson: true,
     includeToJson: true,

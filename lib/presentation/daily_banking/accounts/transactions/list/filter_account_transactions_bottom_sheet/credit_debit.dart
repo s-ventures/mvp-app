@@ -9,15 +9,18 @@ class CreditDebit extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final typesValue = ref.watch(filterSimplifiedAccountTransactionsControllerProvider).creditDebitList;
-    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
+    final controller = ref
+        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
+    final creditDebitValue = ref
+        .watch(filterSimplifiedAccountTransactionsControllerProvider)
+        .creditDebit;
 
     return OutlinedList(
       children: [
         ...AccountTransactionCreditDebit.values.map((creditDebit) {
           return CustomCheckboxListTile(
             title: creditDebit.name,
-            value: typesValue.contains(creditDebit),
+            value: creditDebit == creditDebitValue,
             onChecked: (value) => controller.selectCreditDebit(creditDebit),
           );
         }),

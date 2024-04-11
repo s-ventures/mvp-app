@@ -27,9 +27,7 @@ class FilterSimplifiedAccountTransactionsController
       amountTo: state.amountTo,
       dateFrom: state.startDate,
       dateTo: state.endDate,
-      creditDebit: state.selectedIndexCreditDebit == 0
-          ? null
-          : state.creditDebitList.firstOrNull,
+      creditDebit: state.creditDebit,
     );
   }
 
@@ -64,23 +62,6 @@ class FilterSimplifiedAccountTransactionsController
   }
 
   void selectCreditDebit(AccountTransactionCreditDebit? creditDebit) {
-    if (creditDebit == null) {
-      state = state.copyWith(creditDebitList: []);
-      return;
-    }
-
-    final types = state.creditDebitList.toSet();
-
-    if (types.contains(creditDebit)) {
-      types.remove(creditDebit);
-    } else {
-      types.add(creditDebit);
-    }
-
-    state = state.copyWith(creditDebitList: types.toList());
-  }
-
-  void setSelecteIndexCreditDebit(int index) {
-    state = state.copyWith(selectedIndexCreditDebit: index);
+    state = state.copyWith(creditDebit: creditDebit);
   }
 }

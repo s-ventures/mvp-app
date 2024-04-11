@@ -13,7 +13,6 @@ class FilterSimplifiedAccountTransactionsState
     double? amountFrom,
     double? amountTo,
     @Default('Entretenimiento') String category,
-    @Default([]) List<AccountTransactionCreditDebit> creditDebitList,
-    @Default(0) int selectedIndexCreditDebit,
+    AccountTransactionCreditDebit? creditDebit,
   }) = _FilterSimplifiedAccountTransactionsState;
 }

@@ -36,8 +36,6 @@ mixin _$DetailedAccountTransactionDto {
   String? get placeId => throw _privateConstructorUsedError;
   int get accountId => throw _privateConstructorUsedError;
   double get endBalance => throw _privateConstructorUsedError;
-  AccountTransactionCreditDebitDto? get creditDebit =>
-      throw _privateConstructorUsedError;
   String? get detailFields => throw _privateConstructorUsedError;
   bool? get visible => throw _privateConstructorUsedError;
   bool get bankReceipt => throw _privateConstructorUsedError;
@@ -78,7 +76,6 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       String? placeId,
       int accountId,
       double endBalance,
-      AccountTransactionCreditDebitDto? creditDebit,
       String? detailFields,
       bool? visible,
       bool bankReceipt,
@@ -117,7 +114,6 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? placeId = freezed,
     Object? accountId = null,
     Object? endBalance = null,
-    Object? creditDebit = freezed,
     Object? detailFields = freezed,
     Object? visible = freezed,
     Object? bankReceipt = null,
@@ -181,10 +177,6 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      creditDebit: freezed == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebitDto?,
       detailFields: freezed == detailFields
           ? _value.detailFields
           : detailFields // ignore: cast_nullable_to_non_nullable
@@ -248,7 +240,6 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       String? placeId,
       int accountId,
       double endBalance,
-      AccountTransactionCreditDebitDto? creditDebit,
       String? detailFields,
       bool? visible,
       bool bankReceipt,
@@ -286,7 +277,6 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? placeId = freezed,
     Object? accountId = null,
     Object? endBalance = null,
-    Object? creditDebit = freezed,
     Object? detailFields = freezed,
     Object? visible = freezed,
     Object? bankReceipt = null,
@@ -350,10 +340,6 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      creditDebit: freezed == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebitDto?,
       detailFields: freezed == detailFields
           ? _value.detailFields
           : detailFields // ignore: cast_nullable_to_non_nullable
@@ -412,7 +398,6 @@ class _$DetailedAccountTransactionDtoImpl
       required this.placeId,
       required this.accountId,
       required this.endBalance,
-      required this.creditDebit,
       required this.detailFields,
       required this.visible,
       required this.bankReceipt,
@@ -457,8 +442,6 @@ class _$DetailedAccountTransactionDtoImpl
   @override
   final double endBalance;
   @override
-  final AccountTransactionCreditDebitDto? creditDebit;
-  @override
   final String? detailFields;
   @override
   final bool? visible;
@@ -489,7 +472,7 @@ class _$DetailedAccountTransactionDtoImpl
 
   @override
   String toString() {
-    return 'DetailedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userComments: $userComments, userCategory: $userCategory, placeId: $placeId, accountId: $accountId, endBalance: $endBalance, creditDebit: $creditDebit, detailFields: $detailFields, visible: $visible, bankReceipt: $bankReceipt, originBranch: $originBranch, originalAmount: $originalAmount, originalCurrencyCode: $originalCurrencyCode, assignmentDate: $assignmentDate, attachments: $attachments, productType: $productType)';
+    return 'DetailedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userComments: $userComments, userCategory: $userCategory, placeId: $placeId, accountId: $accountId, endBalance: $endBalance, detailFields: $detailFields, visible: $visible, bankReceipt: $bankReceipt, originBranch: $originBranch, originalAmount: $originalAmount, originalCurrencyCode: $originalCurrencyCode, assignmentDate: $assignmentDate, attachments: $attachments, productType: $productType)';
   }
 
   @override
@@ -520,8 +503,6 @@ class _$DetailedAccountTransactionDtoImpl
                 other.accountId == accountId) &&
             (identical(other.endBalance, endBalance) ||
                 other.endBalance == endBalance) &&
-            (identical(other.creditDebit, creditDebit) ||
-                other.creditDebit == creditDebit) &&
             (identical(other.detailFields, detailFields) ||
                 other.detailFields == detailFields) &&
             (identical(other.visible, visible) || other.visible == visible) &&
@@ -558,7 +539,6 @@ class _$DetailedAccountTransactionDtoImpl
         placeId,
         accountId,
         endBalance,
-        creditDebit,
         detailFields,
         visible,
         bankReceipt,
@@ -602,7 +582,6 @@ abstract class _DetailedAccountTransactionDto
           required final String? placeId,
           required final int accountId,
           required final double endBalance,
-          required final AccountTransactionCreditDebitDto? creditDebit,
           required final String? detailFields,
           required final bool? visible,
           required final bool bankReceipt,
@@ -645,8 +624,6 @@ abstract class _DetailedAccountTransactionDto
   int get accountId;
   @override
   double get endBalance;
-  @override
-  AccountTransactionCreditDebitDto? get creditDebit;
   @override
   String? get detailFields;
   @override

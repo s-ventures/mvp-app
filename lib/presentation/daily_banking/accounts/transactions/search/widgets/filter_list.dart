@@ -38,9 +38,9 @@ class _FilterListState extends ConsumerState<FilterList> {
         (value) => value.amountTo,
       ),
     );
-    final creditDebitList = ref.watch(
+    final creditDebit = ref.watch(
       filterSimplifiedAccountTransactionsControllerProvider.select(
-        (value) => value.creditDebitList,
+        (value) => value.creditDebit,
       ),
     );
 
@@ -72,9 +72,9 @@ class _FilterListState extends ConsumerState<FilterList> {
                   ..applyFilters();
               },
             ),
-          if (creditDebitList.isNotEmpty)
+          if (creditDebit != null)
             CreditDebitFilterItem(
-              creditDebitList: creditDebitList,
+              creditDebit: creditDebit,
               onClear: () {
                 controller
                   ..selectCreditDebit(null)

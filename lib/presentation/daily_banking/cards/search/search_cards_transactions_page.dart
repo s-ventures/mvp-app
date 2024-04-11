@@ -67,8 +67,7 @@ class _SearchCardTransactionsPageState
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
                 onPressed: () async {
-                  await controller.resetFilters();
-                  context.pop();
+                  await controller.resetFilters().then((_) => context.pop());
                 },
               ),
               bottom: PreferredSize(

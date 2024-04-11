@@ -33,7 +33,9 @@ class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
       onDataLoaded: (cards) {
         setStateSafe(
           () => state.copyWith(
-              cards: cards, selectedCardIndex: state.selectedCardIndex),
+            cards: cards,
+            selectedCardIndex: state.selectedCardIndex,
+          ),
         );
       },
     );
