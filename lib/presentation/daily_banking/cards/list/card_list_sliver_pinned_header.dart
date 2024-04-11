@@ -14,10 +14,12 @@ class CardListSliverPinnedHeader extends ConsumerStatefulWidget {
   const CardListSliverPinnedHeader({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _AccountListSliverPinnedHeaderState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _AccountListSliverPinnedHeaderState();
 }
 
-class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPinnedHeader> {
+class _AccountListSliverPinnedHeaderState
+    extends ConsumerState<CardListSliverPinnedHeader> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -31,7 +33,11 @@ class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPi
     final accounts = ref.watch(
       simplifiedCardsControllerProvider.select((value) => value.cards),
     );
-    final controller = ref.read(simplifiedCardsControllerProvider.notifier);
+    final selectedCardsIndex = ref.watch(
+      simplifiedCardsControllerProvider
+          .select((value) => value.selectedCardIndex),
+    );
+    final controller = ref.watch(simplifiedCardsControllerProvider.notifier);
 
     return SliverAppBar(
       shadowColor: Colors.grey,
@@ -43,7 +49,16 @@ class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPi
       flexibleSpace: accounts.mapOrNull(
             data: (data) => _CardList(
               cards: data.value,
-              onPageChanged: controller.selectCard,
+              selectedCardIndex: selectedCardsIndex,
+              onPageChanged: ({
+                required UniqueId cardContractId,
+                required UniqueId cardId,
+                required int index,
+              }) {
+                controller
+                  ..setSelectedCardIndex(index)
+                  ..selectCard(cardId: cardId, cardContractId: cardContractId);
+              },
             ),
           ) ??
           const CircularProgressIndicator.adaptive(),
@@ -55,24 +70,31 @@ class _CardList extends StatelessWidget {
   const _CardList({
     required this.cards,
     required this.onPageChanged,
+    required this.selectedCardIndex,
   });
 
   final List<SimplifiedCard> cards;
   final void Function({
     required UniqueId cardContractId,
     required UniqueId cardId,
+    required int index,
   }) onPageChanged;
+  final int selectedCardIndex;
 
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      controller: PageController(viewportFraction: .9),
+      controller: PageController(
+        viewportFraction: .9,
+        initialPage: selectedCardIndex,
+      ),
       itemCount: cards.length,
       onPageChanged: (index) {
         final card = cards[index];
         onPageChanged(
           cardContractId: card.contract.id,
           cardId: card.id,
+          index: index,
         );
       },
       itemBuilder: (context, index) {
@@ -141,7 +163,8 @@ class _CardList extends StatelessWidget {
                         PopupMenuItem(
                           value: '',
                           onTap: () {
-                            context.pushNamed(AppRoute.dailyBankingCardSettings.name);
+                            context.pushNamed(
+                                AppRoute.dailyBankingCardSettings.name);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

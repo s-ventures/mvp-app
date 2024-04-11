@@ -32,7 +32,11 @@ class _AccountListSliverPinnedHeaderState
     final accounts = ref.watch(
       simplifiedAccountsControllerProvider.select((value) => value.accounts),
     );
-    final controller = ref.read(simplifiedAccountsControllerProvider.notifier);
+    final selectedAccountIndex = ref.watch(
+      simplifiedAccountsControllerProvider
+          .select((value) => value.selectedAccountIndex),
+    );
+    final controller = ref.watch(simplifiedAccountsControllerProvider.notifier);
 
     return SliverAppBar(
       shadowColor: Colors.grey,
@@ -44,7 +48,12 @@ class _AccountListSliverPinnedHeaderState
       flexibleSpace: accounts.mapOrNull(
             data: (data) => _AccountList(
               accounts: data.value,
-              onPageChanged: controller.selectAccount,
+              selectedAccountIndex: selectedAccountIndex,
+              onPageChanged: (accountId, index) {
+                controller
+                  ..setSelectedAccountIndex(index)
+                  ..selectAccount(accountId);
+              },
             ),
           ) ??
           const CircularProgressIndicator.adaptive(),
@@ -56,17 +65,22 @@ class _AccountList extends StatelessWidget {
   const _AccountList({
     required this.accounts,
     required this.onPageChanged,
+    required this.selectedAccountIndex,
   });
 
   final List<SimplifiedAccount> accounts;
-  final void Function(UniqueId accountId) onPageChanged;
+  final void Function(UniqueId accountId, int index) onPageChanged;
+  final int selectedAccountIndex;
 
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      controller: PageController(viewportFraction: .9),
+      controller: PageController(
+        viewportFraction: .9,
+        initialPage: selectedAccountIndex,
+      ),
       itemCount: accounts.length,
-      onPageChanged: (index) => onPageChanged(accounts[index].id),
+      onPageChanged: (index) => onPageChanged(accounts[index].id, index),
       itemBuilder: (context, index) {
         final account = accounts[index];
 
