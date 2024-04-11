@@ -96,7 +96,10 @@ class _SearchAccountTransactionsPageState
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async => context.pop(),
+                onPressed: () async {
+                  await controller.resetFilters();
+                  context.pop();
+                },
               ),
               actions: [
                 Stack(

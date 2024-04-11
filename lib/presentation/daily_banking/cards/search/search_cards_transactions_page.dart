@@ -66,7 +66,10 @@ class _SearchCardTransactionsPageState
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async => context.pop(),
+                onPressed: () async {
+                  await controller.resetFilters();
+                  context.pop();
+                },
               ),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(kToolbarHeight),
