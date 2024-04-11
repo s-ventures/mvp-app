@@ -69,6 +69,7 @@ class IconAssets {
   static const String unlock = '$_iconPath/unlock.svg';
   static const String upload = '$_iconPath/upload.svg';
   static const String user = '$_iconPath/user.svg';
+  static const String visa = '$_iconPath/visa.svg';
   static const String volume = '$_iconPath/volume.svg';
   static const String wallet = '$_iconPath/wallet.svg';
   static const String warning = '$_iconPath/warning.svg';
