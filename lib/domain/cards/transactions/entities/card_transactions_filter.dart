@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transaction_credit_debit.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 
 part 'card_transactions_filter.freezed.dart';
@@ -13,5 +14,6 @@ class CardTransactionsFilter with _$CardTransactionsFilter {
     DateTime? dateFrom,
     DateTime? dateTo,
     String? concept,
+    CardTransactionCreditDebit? creditDebit,
   }) = _CardTransactionsFilter;
 }
