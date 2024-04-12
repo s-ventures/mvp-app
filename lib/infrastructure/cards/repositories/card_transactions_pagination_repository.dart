@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transaction_credit_debit.dart';
 import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
@@ -92,9 +93,19 @@ class CardTransactionsPaginationRepository
   // ignore: use_setters_to_change_properties
   void setFilter({
     required String? concept,
+    required double? amountFrom,
+    required double? amountTo,
+    required DateTime? dateFrom,
+    required DateTime? dateTo,
+    required CardTransactionCreditDebit? creditDebit,
   }) {
     _filter = _filter?.copyWith(
       concept: concept,
+      amountFrom: amountFrom,
+      amountTo: amountTo,
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      creditDebit: creditDebit,
     );
   }
 }
