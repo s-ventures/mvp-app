@@ -71,6 +71,8 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
                   context.pushNamed(
                     AppRoute.dailyBankingCardTransactionDetails.name,
                     pathParameters: {
+                      // ignore: flutter_style_todos
+                      // Todo(Jesus): Change hardcoded cardContractId value
                       'cardContractId': '50',
                       'transactionId': transaction.id.getOrCrash(),
                     },

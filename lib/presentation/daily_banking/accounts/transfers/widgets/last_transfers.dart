@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class LastTransfers extends StatelessWidget {
@@ -22,73 +24,99 @@ class LastTransfers extends StatelessWidget {
             children: [
               Container(
                 width: 128,
-                padding: const EdgeInsets.all(AppSpacing.s5),
                 decoration: ShapeDecoration(
-                  color: Colors.white,
+                  color: context.color.backgroundLight0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(context.radius.soft),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextAvatar(
-                      backgroundColor: context.color.neutralLight100,
-                      text: 'MZ',
-                      textStyle: context.textStyle.bodyMediumRegular.copyWith(
-                        color: context.color.textLight900,
-                      ),
+                child: Splash(
+                  borderRadius: BorderRadius.circular(context.radius.soft),
+                  child: Container(
+                    padding: const EdgeInsets.all(AppSpacing.s5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextAvatar(
+                          backgroundColor: context.color.neutralLight100,
+                          text: 'MZ',
+                          textStyle:
+                              context.textStyle.bodyMediumRegular.copyWith(
+                            color: context.color.textLight900,
+                          ),
+                        ),
+                        AppSpacing.vertical.s5,
+                        Text(
+                          'Marc Z.',
+                          style: context.textStyle.bodySmallSemiBold.copyWith(
+                            color: context.color.textLight900,
+                          ),
+                        ),
+                        Text(
+                          (-1654.56).toCurrency(plusSign: false),
+                          style: context.textStyle.bodySmallRegular.copyWith(
+                            color: context.color.textLight600,
+                          ),
+                        ),
+                      ],
                     ),
-                    AppSpacing.vertical.s5,
-                    Text(
-                      'Marc Z.',
-                      style: context.textStyle.bodySmallSemiBold.copyWith(
-                        color: context.color.textLight900,
-                      ),
-                    ),
-                    Text(
-                      (-1654.56).toCurrency(plusSign: false),
-                      style: context.textStyle.bodySmallRegular.copyWith(
-                        color: context.color.textLight600,
-                      ),
-                    ),
-                  ],
+                  ),
+                  onPressed: () => context.pushNamed(
+                    AppRoute.dailyBankingTransfersSentDetails.name,
+                    // pathParameters: {
+                    //   // Todo(Jesus): Change hardcoded transferId value
+                    //   'transferId': '1',
+                    // },
+                  ),
                 ),
               ),
               AppSpacing.horizontal.s5,
               Container(
                 width: 128,
-                padding: const EdgeInsets.all(AppSpacing.s5),
                 decoration: ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(context.radius.soft),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextAvatar(
-                      backgroundColor: context.color.neutralLight100,
-                      text: 'AO',
-                      textStyle: context.textStyle.bodyMediumRegular.copyWith(
-                        color: context.color.textLight900,
-                      ),
+                child: Splash(
+                  borderRadius: BorderRadius.circular(context.radius.soft),
+                  child: Container(
+                    padding: const EdgeInsets.all(AppSpacing.s5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextAvatar(
+                          backgroundColor: context.color.neutralLight100,
+                          text: 'AO',
+                          textStyle:
+                              context.textStyle.bodyMediumRegular.copyWith(
+                            color: context.color.textLight900,
+                          ),
+                        ),
+                        AppSpacing.vertical.s5,
+                        Text(
+                          'Aitor O.',
+                          style: context.textStyle.bodySmallSemiBold.copyWith(
+                            color: context.color.textLight900,
+                          ),
+                        ),
+                        Text(
+                          (-54.78).toCurrency(plusSign: false),
+                          style: context.textStyle.bodySmallRegular.copyWith(
+                            color: context.color.textLight600,
+                          ),
+                        ),
+                      ],
                     ),
-                    AppSpacing.vertical.s5,
-                    Text(
-                      'Aitor O.',
-                      style: context.textStyle.bodySmallSemiBold.copyWith(
-                        color: context.color.textLight900,
-                      ),
-                    ),
-                    Text(
-                      (-54.78).toCurrency(plusSign: false),
-                      style: context.textStyle.bodySmallRegular.copyWith(
-                        color: context.color.textLight600,
-                      ),
-                    ),
-                  ],
+                  ),
+                  onPressed: () => context.pushNamed(
+                    AppRoute.dailyBankingTransfersReceivedDetails.name,
+                    // pathParameters: {
+                    //   // Todo(Jesus): Change hardcoded transferId value
+                    //   'transferId': '2',
+                    // },
+                  ),
                 ),
               ),
               AppSpacing.horizontal.s5,

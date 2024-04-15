@@ -1,34 +1,22 @@
-// import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/actions.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/banking_info.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/description.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/getting_help.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/summary.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/transaction_map.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/voucher.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/banking_info.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/dates.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/description.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/getting_help.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/ordering.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/summary.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/voucher.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CardTransactionDetailsPage extends ConsumerStatefulWidget {
-  const CardTransactionDetailsPage({
-    required this.cardContractId,
-    required this.transactionId,
+class TransferReceivedDetailsPage extends StatelessWidget {
+  const TransferReceivedDetailsPage({
+    // required this.transferId,
     super.key,
   });
 
-  final String cardContractId;
-  final String transactionId;
+  // final String transferId;
 
-  @override
-  ConsumerState<CardTransactionDetailsPage> createState() =>
-      _CardTransactionDetailsPageState();
-}
-
-class _CardTransactionDetailsPageState
-    extends ConsumerState<CardTransactionDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,31 +65,39 @@ class _CardTransactionDetailsPageState
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
-              CardMovementSummary(
-                title: 'Adobe Store',
-                icon: '💳',
-                iconBgColor: context.color.primaryLight100,
-                amount: -25,
+              TransferMovementSummary(
+                title: 'Seguro IMQ',
+                icon: '🏦',
+                iconBgColor: context.color.strokeLigth100,
+                amount: -145,
                 date: DateTime.now(),
                 status: MovementStatus.completed,
               ),
               AppSpacing.vertical.s5,
-              const CardTransactionMap(),
+              const TransferDetailsOrdering(
+                name: 'IMQ',
+                accountNumber: 'ES1234567890123456789012',
+              ),
               AppSpacing.vertical.s5,
-              const CardBankingInfo(
+              const TransferDetailsDate(
+                dateOfPayment: '2/10/2023',
+                dateOfCharged: '2/10/2025',
+              ),
+              AppSpacing.vertical.s5,
+              const TransferDetailsBankingInfo(
                 type: BankAccountType.account,
                 last4: '1234',
                 icon: '🖥️',
-                category: 'Tecnología',
+                category: 'Viajes',
               ),
               AppSpacing.vertical.s5,
-              const CardDescription(text: 'Compra de licencia de Adobe'),
+              const TransferDetailsDescription(
+                text: 'Seguro IMQ',
+              ),
               AppSpacing.vertical.s5,
-              const CardVoucher(),
+              const TransferDetailsVoucher(),
               AppSpacing.vertical.s5,
-              const CardDetailsActions(),
-              AppSpacing.vertical.s5,
-              const CardGettingHelp(),
+              const TransferDetailsGettingHelp(),
             ],
           ),
         ),
