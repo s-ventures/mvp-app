@@ -40,7 +40,7 @@ class AlertBottomSheet {
               right: AppSpacing.s5,
             ),
             decoration: ShapeDecoration(
-              color: context.color.backgroundLight0,
+              color: context.color.backgroundLight200,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(context.radius.hard),
