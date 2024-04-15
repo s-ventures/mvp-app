@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TransferDetailsGettingHelp extends StatelessWidget {
-  const TransferDetailsGettingHelp({super.key});
+class MovementDetailsGettingHelp extends StatelessWidget {
+  const MovementDetailsGettingHelp({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TransferDetailsOrdering extends StatelessWidget {
-  const TransferDetailsOrdering({
+class MovementDetailsOrdering extends StatelessWidget {
+  const MovementDetailsOrdering({
     required this.name,
     required this.accountNumber,
     super.key,

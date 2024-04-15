@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TransferDetailsDescription extends StatelessWidget {
-  const TransferDetailsDescription({required this.text, super.key});
+class MovementDetailsDescription extends StatelessWidget {
+  const MovementDetailsDescription({required this.text, super.key});
 
   final String text;
 

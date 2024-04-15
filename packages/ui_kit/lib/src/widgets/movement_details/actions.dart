@@ -1,13 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/upload_files.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CardDetailsActions extends StatelessWidget {
-  const CardDetailsActions({super.key});
+class MovementDetailsActions extends StatelessWidget {
+  const MovementDetailsActions({
+    required this.onUploadFilesPressed,
+    required this.onCreateExpensePressed,
+    super.key,
+  });
+
+  final VoidCallback onUploadFilesPressed;
+  final VoidCallback onCreateExpensePressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class CardDetailsActions extends StatelessWidget {
         ),
         AppSpacing.vertical.s3,
         GestureDetector(
-          onTap: () => CardUploadFilesBottomSheet.show(context: context),
+          onTap: onUploadFilesPressed,
           child: Text(
             'Subir archivo',
             style: context.textStyle.bodyMediumSemiBold.copyWith(
@@ -39,7 +43,7 @@ class CardDetailsActions extends StatelessWidget {
         ),
         AppSpacing.vertical.s3,
         GestureDetector(
-          onTap: () => context.goNamed(AppRoute.negocio.name),
+          onTap: onCreateExpensePressed,
           child: Text(
             'Crear gasto',
             style: context.textStyle.bodyMediumSemiBold.copyWith(

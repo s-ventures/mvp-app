@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TransferDetailsBeneficiary extends StatelessWidget {
-  const TransferDetailsBeneficiary({
+class MovementDetailsBeneficiary extends StatelessWidget {
+  const MovementDetailsBeneficiary({
     required this.name,
     required this.accountNumber,
     required this.transferType,

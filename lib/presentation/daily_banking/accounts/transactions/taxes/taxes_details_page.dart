@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/widgets/banking_info.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/widgets/certificate.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/widgets/dates.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/widgets/description.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/widgets/getting_help.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/widgets/summary.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/widgets/voucher.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TaxesDetailsPage extends StatelessWidget {
@@ -60,9 +53,9 @@ class TaxesDetailsPage extends StatelessWidget {
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
-              TaxesDetailsMovementSummary(
+              MovementDetailsSummary(
                 title: 'Impuestos',
-                icon: '🏦',
+                iconText: '🏦',
                 iconBgColor: context.color.secondaryLight600.withOpacity(.2),
                 amount: -145,
                 subtitle: 'Referencia mandato',
@@ -91,29 +84,31 @@ class TaxesDetailsPage extends StatelessWidget {
                 ),
               ),
               AppSpacing.vertical.s5,
-              const TaxesDetailsDate(
-                dateOfCharged: '2/10/2023',
-                dateOfPayment: '-',
+              const MovementDetailsDate(
+                titleStartDate: 'Fecha cargo',
+                startDate: '2/10/2023',
+                titleEndDate: 'Périodo impuesto',
+                endDate: '-',
               ),
               AppSpacing.vertical.s5,
-              const TaxesDetailsBankingInfo(
+              const MovementDetailsBankingInfo(
                 type: BankAccountType.account,
                 last4: '1234',
                 icon: '🖥️',
                 category: 'Tecnología',
               ),
               AppSpacing.vertical.s5,
-              const TaxesDetailsDescription(
+              const MovementDetailsDescription(
                 text: 'Seguro IMQ',
               ),
               AppSpacing.vertical.s5,
-              const TaxesDetailsVoucher(),
+              const MovementDetailsVoucher(),
               AppSpacing.vertical.s5,
-              const TaxesDetailsCertificate(
+              const MovementDetailsCertificate(
                 type: CertificateType.debit,
               ),
               AppSpacing.vertical.s5,
-              const TaxesDetailsGettingHelp(),
+              const MovementDetailsGettingHelp(),
             ],
           ),
         ),

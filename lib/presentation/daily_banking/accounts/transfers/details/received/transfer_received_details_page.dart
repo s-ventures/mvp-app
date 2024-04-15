@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/banking_info.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/dates.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/description.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/getting_help.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/ordering.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/summary.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/voucher.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransferReceivedDetailsPage extends StatelessWidget {
   const TransferReceivedDetailsPage({
-    // required this.transferId,
     super.key,
   });
-
-  // final String transferId;
 
   @override
   Widget build(BuildContext context) {
@@ -65,39 +55,41 @@ class TransferReceivedDetailsPage extends StatelessWidget {
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
-              TransferMovementSummary(
+              MovementDetailsSummary(
                 title: 'Seguro IMQ',
-                icon: '🏦',
+                iconText: '🏦',
                 iconBgColor: context.color.strokeLigth100,
                 amount: -145,
                 date: DateTime.now(),
                 status: MovementStatus.completed,
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsOrdering(
+              const MovementDetailsOrdering(
                 name: 'IMQ',
                 accountNumber: 'ES1234567890123456789012',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsDate(
-                dateOfPayment: '2/10/2023',
-                dateOfCharged: '2/10/2025',
+              const MovementDetailsDate(
+                titleStartDate: 'Fecha cargo',
+                startDate: '2/10/2023',
+                titleEndDate: 'Fecha abono',
+                endDate: '2/10/2025',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsBankingInfo(
+              const MovementDetailsBankingInfo(
                 type: BankAccountType.account,
                 last4: '1234',
                 icon: '🖥️',
                 category: 'Viajes',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsDescription(
+              const MovementDetailsDescription(
                 text: 'Seguro IMQ',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsVoucher(),
+              const MovementDetailsVoucher(),
               AppSpacing.vertical.s5,
-              const TransferDetailsGettingHelp(),
+              const MovementDetailsGettingHelp(),
             ],
           ),
         ),

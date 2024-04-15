@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/banking_info.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/beneficiary.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/dates.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/description.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/getting_help.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/summary.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/widgets/voucher.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransferSentDetailsPage extends StatelessWidget {
@@ -65,67 +58,46 @@ class TransferSentDetailsPage extends StatelessWidget {
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
-              TransferMovementSummary(
+              MovementDetailsSummary(
                 title: 'Viaje Málaga',
-                icon: '🏦',
+                iconText: '🏦',
                 iconBgColor: context.color.secondaryLight600.withOpacity(.2),
                 amount: -145,
                 date: DateTime.now(),
                 status: MovementStatus.completed,
               ),
               AppSpacing.vertical.s5,
-              Container(
-                padding: const EdgeInsets.all(AppSpacing.s3),
-                decoration: ShapeDecoration(
-                  color: context.color.neutralLight100,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(context.radius.soft),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Detalles del movimiento ',
-                      style: context.textStyle.bodySmallRegular.copyWith(
-                        color: context.color.textLight900,
-                      ),
-                    ),
-                    Text(
-                      '· Mensual',
-                      style: context.textStyle.bodySmallRegular.copyWith(
-                        color: context.color.textLight600,
-                      ),
-                    ),
-                  ],
-                ),
+              const MovementDetailsInfo(
+                period: 'Mensual',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsBeneficiary(
+              const MovementDetailsBeneficiary(
                 name: 'Shore2shore',
                 accountNumber: 'ES12 1234 1234 1234 1234 1234',
                 transferType: 'Inmediata',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsDate(
-                dateOfPayment: '2/10/2023',
-                dateOfCharged: '2/10/2025',
+              const MovementDetailsDate(
+                titleStartDate: 'Fecha cargo',
+                startDate: '2/10/2023',
+                titleEndDate: 'Fecha abono',
+                endDate: '2/10/2025',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsBankingInfo(
+              const MovementDetailsBankingInfo(
                 type: BankAccountType.account,
                 last4: '1234',
                 icon: '✈️',
                 category: 'Viajes',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsDescription(
+              const MovementDetailsDescription(
                 text: 'Viaje a Málaga',
               ),
               AppSpacing.vertical.s5,
-              const TransferDetailsVoucher(),
+              const MovementDetailsVoucher(),
               AppSpacing.vertical.s5,
-              const TransferDetailsGettingHelp(),
+              const MovementDetailsGettingHelp(),
             ],
           ),
         ),

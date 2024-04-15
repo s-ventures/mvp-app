@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CardTransactionMap extends StatelessWidget {
-  const CardTransactionMap({super.key});
+class MovementDetailsMap extends StatelessWidget {
+  const MovementDetailsMap({
+    required this.location,
+    super.key,
+  });
+
+  final String location;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,7 @@ class CardTransactionMap extends StatelessWidget {
                 horizontal: AppSpacing.s5,
               ),
               title: Text(
-                'Madrid, España',
+                location,
                 style: context.textStyle.bodySmallRegular.copyWith(
                   color: context.color.textLight900,
                 ),

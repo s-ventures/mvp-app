@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TaxesDetailsDate extends StatelessWidget {
-  const TaxesDetailsDate({
-    required this.dateOfPayment,
-    required this.dateOfCharged,
+class MovementDetailsDate extends StatelessWidget {
+  const MovementDetailsDate({
+    required this.titleStartDate,
+    required this.startDate,
+    required this.titleEndDate,
+    required this.endDate,
     super.key,
   });
 
-  final String dateOfPayment;
-  final String dateOfCharged;
+  final String titleStartDate;
+  final String startDate;
+  final String titleEndDate;
+  final String endDate;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +26,14 @@ class TaxesDetailsDate extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Fecha cargo',
+                  titleStartDate,
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight600,
                   ),
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: dateOfCharged,
+                  title: startDate,
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,
@@ -44,14 +48,14 @@ class TaxesDetailsDate extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Périodo impuesto',
+                  titleEndDate,
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight600,
                   ),
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: dateOfPayment,
+                  title: endDate,
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,

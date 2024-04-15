@@ -1,15 +1,8 @@
-// import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/actions.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/banking_info.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/description.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/getting_help.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/summary.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/transaction_map.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/voucher.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/upload_files_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardTransactionDetailsPage extends ConsumerStatefulWidget {
@@ -77,31 +70,42 @@ class _CardTransactionDetailsPageState
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
-              CardMovementSummary(
+              MovementDetailsSummary(
                 title: 'Adobe Store',
-                icon: '💳',
+                iconText: '💳',
                 iconBgColor: context.color.primaryLight100,
                 amount: -25,
                 date: DateTime.now(),
                 status: MovementStatus.completed,
               ),
               AppSpacing.vertical.s5,
-              const CardTransactionMap(),
+              const MovementDetailsMap(
+                location: 'Madrid, España',
+              ),
               AppSpacing.vertical.s5,
-              const CardBankingInfo(
+              const MovementDetailsBankingInfo(
                 type: BankAccountType.account,
                 last4: '1234',
                 icon: '🖥️',
                 category: 'Tecnología',
               ),
               AppSpacing.vertical.s5,
-              const CardDescription(text: 'Compra de licencia de Adobe'),
+              const MovementDetailsDescription(
+                text: 'Compra de licencia de Adobe',
+              ),
               AppSpacing.vertical.s5,
-              const CardVoucher(),
+              const MovementDetailsVoucher(),
               AppSpacing.vertical.s5,
-              const CardDetailsActions(),
+              MovementDetailsActions(
+                onUploadFilesPressed: () {
+                  CardUploadFilesBottomSheet.show(context: context);
+                },
+                onCreateExpensePressed: () {
+                  context.goNamed(AppRoute.negocio.name);
+                },
+              ),
               AppSpacing.vertical.s5,
-              const CardGettingHelp(),
+              const MovementDetailsGettingHelp(),
             ],
           ),
         ),
