@@ -1,6 +1,7 @@
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/insurances/claims_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/claims_filter_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/detailed_claim_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/simplified_claim_dto.dart';
 
 class ClaimsRemoteDataSource {
@@ -18,13 +19,18 @@ class ClaimsRemoteDataSource {
     }
   }
 
-  // Future<DetailedAccountDto> getDetailedAccount({
-  //   required String accountId,
-  // }) {
-  //   try {
-  //     return _restClient.getDetailedAccount(accountId: accountId);
-  //   } catch (_) {
-  //     rethrow;
-  //   }
-  // }
+  Future<DetailedClaimDto> getDetailedClaim({
+    required int insuranceId,
+    required int claimId,
+  }) async {
+    try {
+      final response = await _restClient.getDetailedClaim(
+        insuranceId: insuranceId,
+        claimId: claimId,
+      );
+      return response;
+    } catch (_) {
+      rethrow;
+    }
+  }
 }
