@@ -5,6 +5,7 @@ enum AppRoute {
   dailyBankingAccountDetails('account/:accountId'),
   dailyBankingSearchAccountTransactions('search-account-transactions'),
   dailyBankingAccountTransactionDetails(':accountId/transaction/:transactionId'),
+  dailyBankingAccountTaxesDetails('tax-details'),
   dailyBankingCardSettings('card-settings'),
   dailyBankingSearchCardTransactions('search-card-transactions'),
   dailyBankingCardSettingsLimits('limits'),

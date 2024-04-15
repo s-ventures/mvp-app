@@ -6,6 +6,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/details/a
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/search_account_transactions_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/taxes_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/received/transfer_received_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/sent/transfer_sent_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
@@ -274,9 +275,7 @@ GoRouter router(RouterRef ref) {
                     name: AppRoute.dailyBankingTransfersSentDetails.name,
                     pageBuilder: (context, state) => MaterialPage(
                       key: state.pageKey,
-                      child: TransferSentDetailsPage(
-                          // transferId: state.pathParameters['transferId']!,
-                          ),
+                      child: const TransferSentDetailsPage(),
                     ),
                   ),
 
@@ -286,9 +285,7 @@ GoRouter router(RouterRef ref) {
                     name: AppRoute.dailyBankingTransfersReceivedDetails.name,
                     pageBuilder: (context, state) => MaterialPage(
                       key: state.pageKey,
-                      child: TransferReceivedDetailsPage(
-                          // transferId: state.pathParameters['transferId']!,
-                          ),
+                      child: const TransferReceivedDetailsPage(),
                     ),
                   ),
                 ],
@@ -335,6 +332,16 @@ GoRouter router(RouterRef ref) {
                     ),
                   );
                 },
+              ),
+
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingAccountTaxesDetails.path,
+                name: AppRoute.dailyBankingAccountTaxesDetails.name,
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: const TaxesDetailsPage(),
+                ),
               ),
 
               // Search account transactions

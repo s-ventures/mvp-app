@@ -63,10 +63,6 @@ class LastTransfers extends StatelessWidget {
                   ),
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingTransfersSentDetails.name,
-                    // pathParameters: {
-                    //   // Todo(Jesus): Change hardcoded transferId value
-                    //   'transferId': '1',
-                    // },
                   ),
                 ),
               ),
@@ -112,47 +108,52 @@ class LastTransfers extends StatelessWidget {
                   ),
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingTransfersReceivedDetails.name,
-                    // pathParameters: {
-                    //   // Todo(Jesus): Change hardcoded transferId value
-                    //   'transferId': '2',
-                    // },
                   ),
                 ),
               ),
               AppSpacing.horizontal.s5,
               Container(
                 width: 128,
-                padding: const EdgeInsets.all(AppSpacing.s5),
                 decoration: ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(context.radius.soft),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextAvatar(
-                      backgroundColor: context.color.neutralLight100,
-                      text: 'LA',
-                      textStyle: context.textStyle.bodyMediumRegular.copyWith(
-                        color: context.color.textLight900,
-                      ),
+                child: Splash(
+                  borderRadius: BorderRadius.circular(context.radius.soft),
+                  child: Container(
+                    padding: const EdgeInsets.all(AppSpacing.s5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextAvatar(
+                          backgroundColor: context.color.neutralLight100,
+                          text: 'LA',
+                          textStyle:
+                              context.textStyle.bodyMediumRegular.copyWith(
+                            color: context.color.textLight900,
+                          ),
+                        ),
+                        AppSpacing.vertical.s5,
+                        Text(
+                          'Luna A.',
+                          style: context.textStyle.bodySmallSemiBold.copyWith(
+                            color: context.color.textLight900,
+                          ),
+                        ),
+                        Text(
+                          (-435.96).toCurrency(plusSign: false),
+                          style: context.textStyle.bodySmallRegular.copyWith(
+                            color: context.color.textLight600,
+                          ),
+                        ),
+                      ],
                     ),
-                    AppSpacing.vertical.s5,
-                    Text(
-                      'Luna A.',
-                      style: context.textStyle.bodySmallSemiBold.copyWith(
-                        color: context.color.textLight900,
-                      ),
-                    ),
-                    Text(
-                      (-435.96).toCurrency(plusSign: false),
-                      style: context.textStyle.bodySmallRegular.copyWith(
-                        color: context.color.textLight600,
-                      ),
-                    ),
-                  ],
+                  ),
+                  onPressed: () => context.pushNamed(
+                    AppRoute.dailyBankingAccountTaxesDetails.name,
+                  ),
                 ),
               ),
               AppSpacing.horizontal.s5,
