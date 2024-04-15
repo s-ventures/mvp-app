@@ -86,7 +86,7 @@ class ClaimsFilterDto extends PaginatedRequest {
   factory ClaimsFilterDto.fromJson(Map<String, dynamic> json) =>
       _$ClaimsFilterDtoFromJson(json);
 
-  final String? claimId;
+  final int? claimId;
   final List<int>? insuranceId;
   final int? year;
   final String? dossier;

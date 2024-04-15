@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FilterSimplifiedClaimsState {
-  String? get claimId => throw _privateConstructorUsedError;
+  int? get claimId => throw _privateConstructorUsedError;
   List<int>? get insuranceIds => throw _privateConstructorUsedError;
   int? get year => throw _privateConstructorUsedError;
   String? get dossier => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $FilterSimplifiedClaimsStateCopyWith<$Res> {
           FilterSimplifiedClaimsState>;
   @useResult
   $Res call(
-      {String? claimId,
+      {int? claimId,
       List<int>? insuranceIds,
       int? year,
       String? dossier,
@@ -103,7 +103,7 @@ class _$FilterSimplifiedClaimsStateCopyWithImpl<$Res,
       claimId: freezed == claimId
           ? _value.claimId
           : claimId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       insuranceIds: freezed == insuranceIds
           ? _value.insuranceIds
           : insuranceIds // ignore: cast_nullable_to_non_nullable
@@ -182,7 +182,7 @@ abstract class _$$FilterSimplifiedClaimsStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? claimId,
+      {int? claimId,
       List<int>? insuranceIds,
       int? year,
       String? dossier,
@@ -236,7 +236,7 @@ class __$$FilterSimplifiedClaimsStateImplCopyWithImpl<$Res>
       claimId: freezed == claimId
           ? _value.claimId
           : claimId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       insuranceIds: freezed == insuranceIds
           ? _value._insuranceIds
           : insuranceIds // ignore: cast_nullable_to_non_nullable
@@ -330,7 +330,7 @@ class _$FilterSimplifiedClaimsStateImpl
       : _insuranceIds = insuranceIds;
 
   @override
-  final String? claimId;
+  final int? claimId;
   final List<int>? _insuranceIds;
   @override
   List<int>? get insuranceIds {
@@ -445,7 +445,7 @@ class _$FilterSimplifiedClaimsStateImpl
 abstract class _FilterSimplifiedClaimsState
     implements FilterSimplifiedClaimsState {
   const factory _FilterSimplifiedClaimsState(
-      {final String? claimId,
+      {final int? claimId,
       final List<int>? insuranceIds,
       final int? year,
       final String? dossier,
@@ -464,7 +464,7 @@ abstract class _FilterSimplifiedClaimsState
       final String? agentTelephone}) = _$FilterSimplifiedClaimsStateImpl;
 
   @override
-  String? get claimId;
+  int? get claimId;
   @override
   List<int>? get insuranceIds;
   @override

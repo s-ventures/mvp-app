@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ClaimsFilter {
-  String? get claimId => throw _privateConstructorUsedError;
+  int? get claimId => throw _privateConstructorUsedError;
   List<int>? get insuranceIds => throw _privateConstructorUsedError;
   int? get year => throw _privateConstructorUsedError;
   String? get dossier => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $ClaimsFilterCopyWith<$Res> {
       _$ClaimsFilterCopyWithImpl<$Res, ClaimsFilter>;
   @useResult
   $Res call(
-      {String? claimId,
+      {int? claimId,
       List<int>? insuranceIds,
       int? year,
       String? dossier,
@@ -100,7 +100,7 @@ class _$ClaimsFilterCopyWithImpl<$Res, $Val extends ClaimsFilter>
       claimId: freezed == claimId
           ? _value.claimId
           : claimId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       insuranceIds: freezed == insuranceIds
           ? _value.insuranceIds
           : insuranceIds // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ abstract class _$$ClaimsFilterImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? claimId,
+      {int? claimId,
       List<int>? insuranceIds,
       int? year,
       String? dossier,
@@ -230,7 +230,7 @@ class __$$ClaimsFilterImplCopyWithImpl<$Res>
       claimId: freezed == claimId
           ? _value.claimId
           : claimId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       insuranceIds: freezed == insuranceIds
           ? _value._insuranceIds
           : insuranceIds // ignore: cast_nullable_to_non_nullable
@@ -323,7 +323,7 @@ class _$ClaimsFilterImpl implements _ClaimsFilter {
       : _insuranceIds = insuranceIds;
 
   @override
-  final String? claimId;
+  final int? claimId;
   final List<int>? _insuranceIds;
   @override
   List<int>? get insuranceIds {
@@ -436,7 +436,7 @@ class _$ClaimsFilterImpl implements _ClaimsFilter {
 
 abstract class _ClaimsFilter implements ClaimsFilter {
   const factory _ClaimsFilter(
-      {final String? claimId,
+      {final int? claimId,
       final List<int>? insuranceIds,
       final int? year,
       final String? dossier,
@@ -455,7 +455,7 @@ abstract class _ClaimsFilter implements ClaimsFilter {
       final String? agentTelephone}) = _$ClaimsFilterImpl;
 
   @override
-  String? get claimId;
+  int? get claimId;
   @override
   List<int>? get insuranceIds;
   @override

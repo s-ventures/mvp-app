@@ -40,7 +40,7 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
   }
 
   Future<void> updateFilter({
-    required String? claimId,
+    required int? claimId,
     required List<int>? insuranceIds,
     required int? year,
     required String? dossier,

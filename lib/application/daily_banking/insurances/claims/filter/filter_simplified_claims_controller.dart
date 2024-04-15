@@ -44,7 +44,7 @@ class FilterSimplifiedClaimsController
     await applyFilters();
   }
 
-  void setClaimId(String claimId) {
+  void setClaimId(int claimId) {
     state = state.copyWith(claimId: claimId);
   }
 

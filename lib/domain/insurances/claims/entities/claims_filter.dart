@@ -5,7 +5,7 @@ part 'claims_filter.freezed.dart';
 @freezed
 class ClaimsFilter with _$ClaimsFilter {
   const factory ClaimsFilter({
-    String? claimId,
+    int? claimId,
     List<int>? insuranceIds,
     int? year,
     String? dossier,

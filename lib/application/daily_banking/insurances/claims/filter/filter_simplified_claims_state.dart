@@ -5,7 +5,7 @@ part 'filter_simplified_claims_state.freezed.dart';
 @freezed
 class FilterSimplifiedClaimsState with _$FilterSimplifiedClaimsState {
   const factory FilterSimplifiedClaimsState({
-    String? claimId,
+    int? claimId,
     List<int>? insuranceIds,
     int? year,
     String? dossier,

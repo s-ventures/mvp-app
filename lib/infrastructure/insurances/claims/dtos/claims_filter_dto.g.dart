@@ -8,7 +8,7 @@ part of 'claims_filter_dto.dart';
 
 ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) =>
     ClaimsFilterDto(
-      claimId: json['claimId'] as String?,
+      claimId: json['claimId'] as int?,
       insuranceId: (json['insuranceId'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
