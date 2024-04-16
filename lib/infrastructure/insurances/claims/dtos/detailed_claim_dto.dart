@@ -17,6 +17,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/detailed_claim.dart';
 
 part 'detailed_claim_dto.freezed.dart';
@@ -53,7 +54,7 @@ extension DetailedClaimDtoX on DetailedClaimDto {
       year: year,
       dossier: dossier,
       createDate: createDate,
-      status: status,
+      status: ClaimStatusType.fromString(status),
       riskType: riskType,
       reason: reason,
       riskLocation: riskLocation,

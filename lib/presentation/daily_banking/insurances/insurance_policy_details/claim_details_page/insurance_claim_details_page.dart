@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/detailed/detailed_claim_controller.dart';
+import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
-import 'package:manifiesto_mvp_app/presentation/core/extensions/string_initials_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsuranceClaimDetailsPage extends ConsumerStatefulWidget {
@@ -72,11 +72,12 @@ class _InsuranceClaimDetailsPageState
               padding: const EdgeInsets.all(16),
               children: [
                 InsurancePolicyListTile(
-                    leadingEmoji: '🖥️',
-                    leadingBackgroundColor: const Color(0xFFE0E0E0),
-                    title: claim.riskType,
-                    number: claim.insuranceId.getOrCrash(),
-                    category: claim.riskType),
+                  leadingEmoji: '🖥️',
+                  leadingBackgroundColor: const Color(0xFFE0E0E0),
+                  title: claim.reason,
+                  number: claim.insuranceId.getOrCrash(),
+                  category: claim.riskType,
+                ),
                 AppSpacing.vertical.s5,
                 ListTile(
                   contentPadding: const EdgeInsets.only(
@@ -180,8 +181,9 @@ class _InsuranceClaimDetailsPageState
                   trailing: Chip(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                    backgroundColor:
-                        context.color.statusSuccess.withOpacity(0.15),
+                    backgroundColor: claim.status == ClaimStatusType.open
+                        ? context.color.statusWarning.withOpacity(0.15)
+                        : context.color.statusSuccess.withOpacity(0.15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(context.radius.hard),
                       side: const BorderSide(
@@ -189,9 +191,11 @@ class _InsuranceClaimDetailsPageState
                       ),
                     ),
                     label: Text(
-                      claim.status,
+                      claim.status.name,
                       style: context.textStyle.bodyMediumSemiBold.copyWith(
-                        color: context.color.statusSuccess,
+                        color: claim.status == ClaimStatusType.open
+                            ? context.color.statusWarning
+                            : context.color.statusSuccess,
                       ),
                     ),
                   ),
@@ -215,7 +219,7 @@ class _InsuranceClaimDetailsPageState
                         ),
                       ),
                       subtitle: Text(
-                        claim.riskLocation,
+                        '---',
                         style: context.textStyle.bodyMediumRegular.copyWith(
                           color: context.color.textLight900,
                         ),

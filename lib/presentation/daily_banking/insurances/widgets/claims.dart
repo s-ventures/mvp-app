@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/simplified/simplified_claims_controller.dart';
+import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_claims_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/router.dart';
@@ -116,9 +117,11 @@ class _ClaimsList extends StatelessWidget {
             leadingEmoji: '🖥️',
             leadingBackgroundColor: const Color(0xFFE0E0E0),
             number: claim.id.getOrCrash(),
-            status: claim.status,
-            statusColor: context.color.statusWarning,
-            title: claim.riskType,
+            status: claim.status.name,
+            statusColor: claim.status == ClaimStatusType.open
+                ? context.color.statusWarning
+                : context.color.statusSuccess,
+            title: claim.reason,
             onTap: () => context.pushNamed(
               AppRoute.dailyBankingInsuranceClaimDetails.name,
               extra: InsuranceClaimDetailsRouteArgs(

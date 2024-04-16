@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimplifiedClaim {
   UniqueId get id => throw _privateConstructorUsedError;
   int get insuranceId => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+  ClaimStatusType get status => throw _privateConstructorUsedError;
   String get riskType => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $SimplifiedClaimCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       int insuranceId,
-      String status,
+      ClaimStatusType status,
       String riskType,
       String reason});
 }
@@ -72,7 +72,7 @@ class _$SimplifiedClaimCopyWithImpl<$Res, $Val extends SimplifiedClaim>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusType,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$$SimplifiedClaimImplCopyWith<$Res>
   $Res call(
       {UniqueId id,
       int insuranceId,
-      String status,
+      ClaimStatusType status,
       String riskType,
       String reason});
 }
@@ -130,7 +130,7 @@ class __$$SimplifiedClaimImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusType,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class _$SimplifiedClaimImpl implements _SimplifiedClaim {
   @override
   final int insuranceId;
   @override
-  final String status;
+  final ClaimStatusType status;
   @override
   final String riskType;
   @override
@@ -199,7 +199,7 @@ abstract class _SimplifiedClaim implements SimplifiedClaim {
   const factory _SimplifiedClaim(
       {required final UniqueId id,
       required final int insuranceId,
-      required final String status,
+      required final ClaimStatusType status,
       required final String riskType,
       required final String reason}) = _$SimplifiedClaimImpl;
 
@@ -208,7 +208,7 @@ abstract class _SimplifiedClaim implements SimplifiedClaim {
   @override
   int get insuranceId;
   @override
-  String get status;
+  ClaimStatusType get status;
   @override
   String get riskType;
   @override

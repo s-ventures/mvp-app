@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
 
 part 'detailed_claim.freezed.dart';
 
@@ -11,7 +12,7 @@ class DetailedClaim with _$DetailedClaim {
     required int year,
     required String dossier,
     required DateTime createDate,
-    required String status,
+    required ClaimStatusType status,
     required String riskType,
     required String reason,
     required String riskLocation,

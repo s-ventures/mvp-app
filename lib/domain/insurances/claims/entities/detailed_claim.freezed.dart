@@ -21,7 +21,7 @@ mixin _$DetailedClaim {
   int get year => throw _privateConstructorUsedError;
   String get dossier => throw _privateConstructorUsedError;
   DateTime get createDate => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+  ClaimStatusType get status => throw _privateConstructorUsedError;
   String get riskType => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
   String get riskLocation => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $DetailedClaimCopyWith<$Res> {
       int year,
       String dossier,
       DateTime createDate,
-      String status,
+      ClaimStatusType status,
       String riskType,
       String reason,
       String riskLocation,
@@ -111,7 +111,7 @@ class _$DetailedClaimCopyWithImpl<$Res, $Val extends DetailedClaim>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusType,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ abstract class _$$DetailedClaimImplCopyWith<$Res>
       int year,
       String dossier,
       DateTime createDate,
-      String status,
+      ClaimStatusType status,
       String riskType,
       String reason,
       String riskLocation,
@@ -223,7 +223,7 @@ class __$$DetailedClaimImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusType,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -290,7 +290,7 @@ class _$DetailedClaimImpl implements _DetailedClaim {
   @override
   final DateTime createDate;
   @override
-  final String status;
+  final ClaimStatusType status;
   @override
   final String riskType;
   @override
@@ -375,7 +375,7 @@ abstract class _DetailedClaim implements DetailedClaim {
       required final int year,
       required final String dossier,
       required final DateTime createDate,
-      required final String status,
+      required final ClaimStatusType status,
       required final String riskType,
       required final String reason,
       required final String riskLocation,
@@ -396,7 +396,7 @@ abstract class _DetailedClaim implements DetailedClaim {
   @override
   DateTime get createDate;
   @override
-  String get status;
+  ClaimStatusType get status;
   @override
   String get riskType;
   @override
