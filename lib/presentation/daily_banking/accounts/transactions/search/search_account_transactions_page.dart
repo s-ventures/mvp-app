@@ -146,8 +146,9 @@ class _SearchAccountTransactionsPageState
                     ),
                     if (isFilterApplied)
                       const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: AppSpacing.s5),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: AppSpacing.s5,
+                        ),
                         child: FilterList(),
                       ),
                   ],
@@ -161,7 +162,6 @@ class _SearchAccountTransactionsPageState
             SliverPadding(
               padding: const EdgeInsets.symmetric(
                 horizontal: AppSpacing.s5,
-                vertical: AppSpacing.s5,
               ),
               sliver: AccountTransactionList(
                 onTransactionPressed: (transaction) {
@@ -173,6 +173,16 @@ class _SearchAccountTransactionsPageState
                     },
                   );
                 },
+              ),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.all(AppSpacing.s5),
+              sliver: SliverToBoxAdapter(
+                child: RecentCategories(
+                  // Todo: Pass the categories from the provider
+                  // categories: categories,
+                  onCategoryPressed: print,
+                ),
               ),
             ),
           ],
