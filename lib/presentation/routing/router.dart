@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/analitica/analitica_page.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/contacts_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/add/add_money_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/details/account_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
@@ -80,6 +81,16 @@ GoRouter router(RouterRef ref) {
             routes: [
               //
               // ACCOUNTS
+              // Add money
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingAddMoney.path,
+                name: AppRoute.dailyBankingAddMoney.name,
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: const AddMoneyPage(),
+                ),
+              ),
               // Send money
               GoRoute(
                 parentNavigatorKey: _rootNavigatorKey,

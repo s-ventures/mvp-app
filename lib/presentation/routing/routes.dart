@@ -2,6 +2,7 @@ enum AppRoute {
   auth('/auth'),
   authWebview('auth-webview'),
   dailyBanking('/daily-banking'),
+  dailyBankingAddMoney('add-money'),
   dailyBankingAccountDetails('account/:accountId'),
   dailyBankingSearchAccountTransactions('search-account-transactions'),
   dailyBankingAccountTransactionDetails(':accountId/transaction/:transactionId'),
