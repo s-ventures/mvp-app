@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified_card_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/card_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/cards_repository.dart';
@@ -32,9 +33,10 @@ class CardTransactionsPaginationRepository
       // No card has been selected. Select first card
       if (cardRecordOption.isNone()) {
         _filter = CardTransactionsFilter(
-          // // TODO(sergio): hardcoded card id
+          // TODO(sergio): hardcoded card id
           cardContractIds: [UniqueId.fromUniqueString(1068.toString())],
           cardIds: [UniqueId.fromUniqueString(50.toString())],
+          operationType: TransactionOperationType.all,
         );
       }
 
@@ -51,6 +53,7 @@ class CardTransactionsPaginationRepository
           _filter = CardTransactionsFilter(
             cardContractIds: [cardContractId],
             cardIds: [cardId],
+            operationType: TransactionOperationType.all,
           );
         }
         // Filter has been set. Update filter with selected card
@@ -92,9 +95,19 @@ class CardTransactionsPaginationRepository
   // ignore: use_setters_to_change_properties
   void setFilter({
     required String? concept,
+    required double? amountFrom,
+    required double? amountTo,
+    required DateTime? dateFrom,
+    required DateTime? dateTo,
+    TransactionOperationType operationType = TransactionOperationType.all,
   }) {
     _filter = _filter?.copyWith(
       concept: concept,
+      amountFrom: amountFrom,
+      amountTo: amountTo,
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      operationType: operationType,
     );
   }
 }

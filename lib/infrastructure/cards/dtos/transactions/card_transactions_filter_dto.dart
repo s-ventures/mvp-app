@@ -28,6 +28,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transactions_filter.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_operation_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 
@@ -37,6 +39,7 @@ part 'card_transactions_filter_dto.g.dart';
 class CardTransactionsFilterDto extends PaginatedRequest {
   CardTransactionsFilterDto({
     required this.cardContractId,
+    required this.operationType,
     required this.cardId,
     required this.amountFrom,
     required this.amountTo,
@@ -55,6 +58,8 @@ class CardTransactionsFilterDto extends PaginatedRequest {
     return CardTransactionsFilterDto(
       cardContractId: filter.cardContractIds.map((e) => e.toInt()).toList(),
       cardId: filter.cardIds.map((e) => e.toInt()).toList(),
+      operationType:
+          filter.operationType.toDto(filter.amountFrom, filter.amountTo),
       postingDateFrom: filter.dateFrom,
       postingDateTo: filter.dateTo,
       amountFrom: filter.amountFrom,
@@ -80,6 +85,7 @@ class CardTransactionsFilterDto extends PaginatedRequest {
 
   final List<int> cardContractId;
   final List<int> cardId;
+  final TransactionOperationTypeDto operationType;
   @DateConverter()
   final DateTime? postingDateFrom;
   @DateConverter()
@@ -90,15 +96,15 @@ class CardTransactionsFilterDto extends PaginatedRequest {
   @JsonKey(
     includeFromJson: true,
     includeToJson: true,
-    name: 'sortingTarget',
+    name: 'sortBy',
   )
-  final String _sortingTarget = 'POSTING_DATE';
+  final String _sortBy = 'POSTING_DATE';
   @JsonKey(
     includeFromJson: true,
     includeToJson: true,
-    name: 'sortingOrder',
+    name: 'sortOrder',
   )
-  final String _sortingOrder = 'DESCENDANT';
+  final String _sortOrder = 'DESCENDING';
 
   @override
   Map<String, dynamic> toJson() => _$CardTransactionsFilterDtoToJson(this);

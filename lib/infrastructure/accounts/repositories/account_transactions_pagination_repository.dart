@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_credit_debit.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/simplified_account_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/account_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/accounts_repository.dart';
@@ -35,6 +35,7 @@ class AccountTransactionsPaginationRepository extends PaginationMapRepository<
         _filter = AccountTransactionsFilter(
           // TODO(sergio): hardcoded account id
           accountIds: [UniqueId.fromUniqueString(1066.toString())],
+          operationType: TransactionOperationType.all,
         );
       }
 
@@ -47,6 +48,7 @@ class AccountTransactionsPaginationRepository extends PaginationMapRepository<
         if (_filter == null) {
           _filter = AccountTransactionsFilter(
             accountIds: [accountId],
+            operationType: TransactionOperationType.all,
           );
         }
         // Filter has been set. Update filter with selected account
@@ -90,7 +92,7 @@ class AccountTransactionsPaginationRepository extends PaginationMapRepository<
     required double? amountTo,
     required DateTime? dateFrom,
     required DateTime? dateTo,
-    required AccountTransactionCreditDebit? creditDebit,
+    TransactionOperationType operationType = TransactionOperationType.all,
   }) {
     _filter = _filter?.copyWith(
       description: description,
@@ -98,7 +100,7 @@ class AccountTransactionsPaginationRepository extends PaginationMapRepository<
       amountTo: amountTo,
       dateFrom: dateFrom,
       dateTo: dateTo,
-      creditDebit: creditDebit,
+      operationType: operationType,
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_state.dart';
 import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified_card_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/card_transactions_pagination_repository.dart';
 
 final simplifiedCardTransactionsControllerProvider = StateNotifierProvider<
@@ -45,9 +46,19 @@ class SimplifiedCardTransactionsController
 
   Future<void> updateFilter({
     required String? concept,
+    required double? amountFrom,
+    required double? amountTo,
+    required DateTime? dateFrom,
+    required DateTime? dateTo,
+    TransactionOperationType operationType = TransactionOperationType.all,
   }) async {
     _repository.setFilter(
       concept: concept,
+      amountFrom: amountFrom,
+      amountTo: amountTo,
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      operationType: operationType,
     );
     await refresh();
   }
