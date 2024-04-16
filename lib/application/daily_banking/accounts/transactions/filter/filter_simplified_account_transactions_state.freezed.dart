@@ -22,8 +22,7 @@ mixin _$FilterSimplifiedAccountTransactionsState {
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
-  AccountTransactionCreditDebit? get creditDebit =>
-      throw _privateConstructorUsedError;
+  OperationType get operationType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterSimplifiedAccountTransactionsStateCopyWith<
@@ -46,7 +45,7 @@ abstract class $FilterSimplifiedAccountTransactionsStateCopyWith<$Res> {
       double? amountFrom,
       double? amountTo,
       String category,
-      AccountTransactionCreditDebit? creditDebit});
+      OperationType operationType});
 }
 
 /// @nodoc
@@ -70,7 +69,7 @@ class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
     Object? category = null,
-    Object? creditDebit = freezed,
+    Object? operationType = null,
   }) {
     return _then(_value.copyWith(
       search: null == search
@@ -97,10 +96,10 @@ class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      creditDebit: freezed == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebit?,
+      operationType: null == operationType
+          ? _value.operationType
+          : operationType // ignore: cast_nullable_to_non_nullable
+              as OperationType,
     ) as $Val);
   }
 }
@@ -121,7 +120,7 @@ abstract class _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<$Res>
       double? amountFrom,
       double? amountTo,
       String category,
-      AccountTransactionCreditDebit? creditDebit});
+      OperationType operationType});
 }
 
 /// @nodoc
@@ -143,7 +142,7 @@ class __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
     Object? category = null,
-    Object? creditDebit = freezed,
+    Object? operationType = null,
   }) {
     return _then(_$FilterSimplifiedAccountTransactionsStateImpl(
       search: null == search
@@ -170,10 +169,10 @@ class __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      creditDebit: freezed == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as AccountTransactionCreditDebit?,
+      operationType: null == operationType
+          ? _value.operationType
+          : operationType // ignore: cast_nullable_to_non_nullable
+              as OperationType,
     ));
   }
 }
@@ -189,7 +188,7 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
       this.amountFrom,
       this.amountTo,
       this.category = 'Entretenimiento',
-      this.creditDebit});
+      this.operationType = OperationType.all});
 
   @override
   @JsonKey()
@@ -206,11 +205,12 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
   @JsonKey()
   final String category;
   @override
-  final AccountTransactionCreditDebit? creditDebit;
+  @JsonKey()
+  final OperationType operationType;
 
   @override
   String toString() {
-    return 'FilterSimplifiedAccountTransactionsState(search: $search, startDate: $startDate, endDate: $endDate, amountFrom: $amountFrom, amountTo: $amountTo, category: $category, creditDebit: $creditDebit)';
+    return 'FilterSimplifiedAccountTransactionsState(search: $search, startDate: $startDate, endDate: $endDate, amountFrom: $amountFrom, amountTo: $amountTo, category: $category, operationType: $operationType)';
   }
 
   @override
@@ -228,13 +228,13 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
                 other.amountTo == amountTo) &&
             (identical(other.category, category) ||
                 other.category == category) &&
-            (identical(other.creditDebit, creditDebit) ||
-                other.creditDebit == creditDebit));
+            (identical(other.operationType, operationType) ||
+                other.operationType == operationType));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, search, startDate, endDate,
-      amountFrom, amountTo, category, creditDebit);
+      amountFrom, amountTo, category, operationType);
 
   @JsonKey(ignore: true)
   @override
@@ -255,7 +255,7 @@ abstract class _FilterSimplifiedAccountTransactionsState
           final double? amountFrom,
           final double? amountTo,
           final String category,
-          final AccountTransactionCreditDebit? creditDebit}) =
+          final OperationType operationType}) =
       _$FilterSimplifiedAccountTransactionsStateImpl;
 
   @override
@@ -271,7 +271,7 @@ abstract class _FilterSimplifiedAccountTransactionsState
   @override
   String get category;
   @override
-  AccountTransactionCreditDebit? get creditDebit;
+  OperationType get operationType;
   @override
   @JsonKey(ignore: true)
   _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<
