@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DetailedClaim {
   UniqueId get id => throw _privateConstructorUsedError;
-  int get insuranceId => throw _privateConstructorUsedError;
+  UniqueId get insuranceId => throw _privateConstructorUsedError;
   int get year => throw _privateConstructorUsedError;
   String get dossier => throw _privateConstructorUsedError;
   DateTime get createDate => throw _privateConstructorUsedError;
@@ -25,8 +25,8 @@ mixin _$DetailedClaim {
   String get riskType => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
   String get riskLocation => throw _privateConstructorUsedError;
-  DateTime get processStartDate => throw _privateConstructorUsedError;
-  DateTime get processEndDate => throw _privateConstructorUsedError;
+  DateTime? get processStartDate => throw _privateConstructorUsedError;
+  DateTime? get processEndDate => throw _privateConstructorUsedError;
   String get agentName => throw _privateConstructorUsedError;
   String get agentEmail => throw _privateConstructorUsedError;
   String get agentTelephone => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $DetailedClaimCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      int insuranceId,
+      UniqueId insuranceId,
       int year,
       String dossier,
       DateTime createDate,
@@ -52,8 +52,8 @@ abstract class $DetailedClaimCopyWith<$Res> {
       String riskType,
       String reason,
       String riskLocation,
-      DateTime processStartDate,
-      DateTime processEndDate,
+      DateTime? processStartDate,
+      DateTime? processEndDate,
       String agentName,
       String agentEmail,
       String agentTelephone});
@@ -81,8 +81,8 @@ class _$DetailedClaimCopyWithImpl<$Res, $Val extends DetailedClaim>
     Object? riskType = null,
     Object? reason = null,
     Object? riskLocation = null,
-    Object? processStartDate = null,
-    Object? processEndDate = null,
+    Object? processStartDate = freezed,
+    Object? processEndDate = freezed,
     Object? agentName = null,
     Object? agentEmail = null,
     Object? agentTelephone = null,
@@ -95,7 +95,7 @@ class _$DetailedClaimCopyWithImpl<$Res, $Val extends DetailedClaim>
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
@@ -124,14 +124,14 @@ class _$DetailedClaimCopyWithImpl<$Res, $Val extends DetailedClaim>
           ? _value.riskLocation
           : riskLocation // ignore: cast_nullable_to_non_nullable
               as String,
-      processStartDate: null == processStartDate
+      processStartDate: freezed == processStartDate
           ? _value.processStartDate
           : processStartDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      processEndDate: null == processEndDate
+              as DateTime?,
+      processEndDate: freezed == processEndDate
           ? _value.processEndDate
           : processEndDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       agentName: null == agentName
           ? _value.agentName
           : agentName // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ abstract class _$$DetailedClaimImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
-      int insuranceId,
+      UniqueId insuranceId,
       int year,
       String dossier,
       DateTime createDate,
@@ -166,8 +166,8 @@ abstract class _$$DetailedClaimImplCopyWith<$Res>
       String riskType,
       String reason,
       String riskLocation,
-      DateTime processStartDate,
-      DateTime processEndDate,
+      DateTime? processStartDate,
+      DateTime? processEndDate,
       String agentName,
       String agentEmail,
       String agentTelephone});
@@ -193,8 +193,8 @@ class __$$DetailedClaimImplCopyWithImpl<$Res>
     Object? riskType = null,
     Object? reason = null,
     Object? riskLocation = null,
-    Object? processStartDate = null,
-    Object? processEndDate = null,
+    Object? processStartDate = freezed,
+    Object? processEndDate = freezed,
     Object? agentName = null,
     Object? agentEmail = null,
     Object? agentTelephone = null,
@@ -207,7 +207,7 @@ class __$$DetailedClaimImplCopyWithImpl<$Res>
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
@@ -236,14 +236,14 @@ class __$$DetailedClaimImplCopyWithImpl<$Res>
           ? _value.riskLocation
           : riskLocation // ignore: cast_nullable_to_non_nullable
               as String,
-      processStartDate: null == processStartDate
+      processStartDate: freezed == processStartDate
           ? _value.processStartDate
           : processStartDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      processEndDate: null == processEndDate
+              as DateTime?,
+      processEndDate: freezed == processEndDate
           ? _value.processEndDate
           : processEndDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       agentName: null == agentName
           ? _value.agentName
           : agentName // ignore: cast_nullable_to_non_nullable
@@ -282,7 +282,7 @@ class _$DetailedClaimImpl implements _DetailedClaim {
   @override
   final UniqueId id;
   @override
-  final int insuranceId;
+  final UniqueId insuranceId;
   @override
   final int year;
   @override
@@ -298,9 +298,9 @@ class _$DetailedClaimImpl implements _DetailedClaim {
   @override
   final String riskLocation;
   @override
-  final DateTime processStartDate;
+  final DateTime? processStartDate;
   @override
-  final DateTime processEndDate;
+  final DateTime? processEndDate;
   @override
   final String agentName;
   @override
@@ -371,7 +371,7 @@ class _$DetailedClaimImpl implements _DetailedClaim {
 abstract class _DetailedClaim implements DetailedClaim {
   const factory _DetailedClaim(
       {required final UniqueId id,
-      required final int insuranceId,
+      required final UniqueId insuranceId,
       required final int year,
       required final String dossier,
       required final DateTime createDate,
@@ -379,8 +379,8 @@ abstract class _DetailedClaim implements DetailedClaim {
       required final String riskType,
       required final String reason,
       required final String riskLocation,
-      required final DateTime processStartDate,
-      required final DateTime processEndDate,
+      required final DateTime? processStartDate,
+      required final DateTime? processEndDate,
       required final String agentName,
       required final String agentEmail,
       required final String agentTelephone}) = _$DetailedClaimImpl;
@@ -388,7 +388,7 @@ abstract class _DetailedClaim implements DetailedClaim {
   @override
   UniqueId get id;
   @override
-  int get insuranceId;
+  UniqueId get insuranceId;
   @override
   int get year;
   @override
@@ -404,9 +404,9 @@ abstract class _DetailedClaim implements DetailedClaim {
   @override
   String get riskLocation;
   @override
-  DateTime get processStartDate;
+  DateTime? get processStartDate;
   @override
-  DateTime get processEndDate;
+  DateTime? get processEndDate;
   @override
   String get agentName;
   @override

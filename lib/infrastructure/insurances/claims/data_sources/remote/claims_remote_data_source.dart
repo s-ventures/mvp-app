@@ -20,13 +20,13 @@ class ClaimsRemoteDataSource {
   }
 
   Future<DetailedClaimDto> getDetailedClaim({
-    required int insuranceId,
     required int claimId,
+    required int insuranceId,
   }) async {
     try {
       final response = await _restClient.getDetailedClaim(
-        insuranceId: insuranceId,
         claimId: claimId,
+        insuranceId: insuranceId,
       );
       return response;
     } catch (_) {

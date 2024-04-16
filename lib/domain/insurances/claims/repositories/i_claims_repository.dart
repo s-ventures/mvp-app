@@ -15,7 +15,7 @@ abstract class IClaimsRepository {
   });
 
   Future<Either<DetailedClaimFailure, DetailedClaim>> getDetailedClaim({
-    required int insuranceId,
     required int claimId,
+    required int insuranceId,
   });
 }

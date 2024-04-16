@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/detailed/detailed_claim_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/simplified/simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_claims_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -25,15 +25,6 @@ class _ClaimsState extends ConsumerState<Claims> {
         ref.read(simplifiedClaimsControllerProvider.notifier).init(),
       );
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(
-        ref.read(detailedClaimControllerProvider.notifier).init(
-              1073,
-              3,
-            ),
-      );
-    });
     super.initState();
   }
 
@@ -42,8 +33,6 @@ class _ClaimsState extends ConsumerState<Claims> {
     final claims = ref.watch(
       simplifiedClaimsControllerProvider.select((value) => value.claims),
     );
-
-    // final claim = ref.watch(detailedClaimControllerProvider).claim;
 
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.s5),
@@ -108,10 +97,7 @@ class _ClaimsState extends ConsumerState<Claims> {
 }
 
 class _ClaimsList extends StatelessWidget {
-  const _ClaimsList({
-    required this.claims,
-    key,
-  });
+  const _ClaimsList({required this.claims});
 
   final List<SimplifiedClaim> claims;
 
@@ -133,8 +119,13 @@ class _ClaimsList extends StatelessWidget {
             status: claim.status,
             statusColor: context.color.statusWarning,
             title: claim.riskType,
-            onTap: () => context
-                .pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
+            onTap: () => context.pushNamed(
+              AppRoute.dailyBankingInsuranceClaimDetails.name,
+              extra: InsuranceClaimDetailsRouteArgs(
+                claimId: claim.id.toInt(),
+                insuranceId: claim.insuranceId,
+              ),
+            ),
           ),
         );
       },

@@ -34,8 +34,8 @@ class DetailedClaimDto with _$DetailedClaimDto {
     required String riskType,
     required String reason,
     required String riskLocation,
-    required DateTime processStartDate,
-    required DateTime processEndDate,
+    required DateTime? processStartDate,
+    required DateTime? processEndDate,
     required String agentName,
     required String agentEmail,
     required String agentTelephone,
@@ -49,7 +49,7 @@ extension DetailedClaimDtoX on DetailedClaimDto {
   DetailedClaim toDomain() {
     return DetailedClaim(
       id: UniqueId.fromUniqueString(claimId.toString()),
-      insuranceId: insuranceId,
+      insuranceId: UniqueId.fromUniqueString(insuranceId.toString()),
       year: year,
       dossier: dossier,
       createDate: createDate,

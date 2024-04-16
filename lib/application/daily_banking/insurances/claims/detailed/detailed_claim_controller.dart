@@ -13,7 +13,7 @@ class DetailedClaimController extends StateNotifier<DetailedClaimState> {
 
   final ClaimsRepository _repository;
 
-  Future<void> init(int insuranceId, int claimId) async {
+  Future<void> init({required int insuranceId, required int claimId}) async {
     try {
       final transactionOrFailure = await _repository.getDetailedClaim(
         insuranceId: insuranceId,

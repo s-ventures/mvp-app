@@ -29,8 +29,8 @@ mixin _$DetailedClaimDto {
   String get riskType => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
   String get riskLocation => throw _privateConstructorUsedError;
-  DateTime get processStartDate => throw _privateConstructorUsedError;
-  DateTime get processEndDate => throw _privateConstructorUsedError;
+  DateTime? get processStartDate => throw _privateConstructorUsedError;
+  DateTime? get processEndDate => throw _privateConstructorUsedError;
   String get agentName => throw _privateConstructorUsedError;
   String get agentEmail => throw _privateConstructorUsedError;
   String get agentTelephone => throw _privateConstructorUsedError;
@@ -57,8 +57,8 @@ abstract class $DetailedClaimDtoCopyWith<$Res> {
       String riskType,
       String reason,
       String riskLocation,
-      DateTime processStartDate,
-      DateTime processEndDate,
+      DateTime? processStartDate,
+      DateTime? processEndDate,
       String agentName,
       String agentEmail,
       String agentTelephone});
@@ -86,8 +86,8 @@ class _$DetailedClaimDtoCopyWithImpl<$Res, $Val extends DetailedClaimDto>
     Object? riskType = null,
     Object? reason = null,
     Object? riskLocation = null,
-    Object? processStartDate = null,
-    Object? processEndDate = null,
+    Object? processStartDate = freezed,
+    Object? processEndDate = freezed,
     Object? agentName = null,
     Object? agentEmail = null,
     Object? agentTelephone = null,
@@ -129,14 +129,14 @@ class _$DetailedClaimDtoCopyWithImpl<$Res, $Val extends DetailedClaimDto>
           ? _value.riskLocation
           : riskLocation // ignore: cast_nullable_to_non_nullable
               as String,
-      processStartDate: null == processStartDate
+      processStartDate: freezed == processStartDate
           ? _value.processStartDate
           : processStartDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      processEndDate: null == processEndDate
+              as DateTime?,
+      processEndDate: freezed == processEndDate
           ? _value.processEndDate
           : processEndDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       agentName: null == agentName
           ? _value.agentName
           : agentName // ignore: cast_nullable_to_non_nullable
@@ -171,8 +171,8 @@ abstract class _$$DetailedClaimDtoImplCopyWith<$Res>
       String riskType,
       String reason,
       String riskLocation,
-      DateTime processStartDate,
-      DateTime processEndDate,
+      DateTime? processStartDate,
+      DateTime? processEndDate,
       String agentName,
       String agentEmail,
       String agentTelephone});
@@ -198,8 +198,8 @@ class __$$DetailedClaimDtoImplCopyWithImpl<$Res>
     Object? riskType = null,
     Object? reason = null,
     Object? riskLocation = null,
-    Object? processStartDate = null,
-    Object? processEndDate = null,
+    Object? processStartDate = freezed,
+    Object? processEndDate = freezed,
     Object? agentName = null,
     Object? agentEmail = null,
     Object? agentTelephone = null,
@@ -241,14 +241,14 @@ class __$$DetailedClaimDtoImplCopyWithImpl<$Res>
           ? _value.riskLocation
           : riskLocation // ignore: cast_nullable_to_non_nullable
               as String,
-      processStartDate: null == processStartDate
+      processStartDate: freezed == processStartDate
           ? _value.processStartDate
           : processStartDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      processEndDate: null == processEndDate
+              as DateTime?,
+      processEndDate: freezed == processEndDate
           ? _value.processEndDate
           : processEndDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       agentName: null == agentName
           ? _value.agentName
           : agentName // ignore: cast_nullable_to_non_nullable
@@ -306,9 +306,9 @@ class _$DetailedClaimDtoImpl implements _DetailedClaimDto {
   @override
   final String riskLocation;
   @override
-  final DateTime processStartDate;
+  final DateTime? processStartDate;
   @override
-  final DateTime processEndDate;
+  final DateTime? processEndDate;
   @override
   final String agentName;
   @override
@@ -396,8 +396,8 @@ abstract class _DetailedClaimDto implements DetailedClaimDto {
       required final String riskType,
       required final String reason,
       required final String riskLocation,
-      required final DateTime processStartDate,
-      required final DateTime processEndDate,
+      required final DateTime? processStartDate,
+      required final DateTime? processEndDate,
       required final String agentName,
       required final String agentEmail,
       required final String agentTelephone}) = _$DetailedClaimDtoImpl;
@@ -424,9 +424,9 @@ abstract class _DetailedClaimDto implements DetailedClaimDto {
   @override
   String get riskLocation;
   @override
-  DateTime get processStartDate;
+  DateTime? get processStartDate;
   @override
-  DateTime get processEndDate;
+  DateTime? get processEndDate;
   @override
   String get agentName;
   @override

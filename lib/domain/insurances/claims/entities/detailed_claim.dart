@@ -7,7 +7,7 @@ part 'detailed_claim.freezed.dart';
 class DetailedClaim with _$DetailedClaim {
   const factory DetailedClaim({
     required UniqueId id,
-    required int insuranceId,
+    required UniqueId insuranceId,
     required int year,
     required String dossier,
     required DateTime createDate,
@@ -15,8 +15,8 @@ class DetailedClaim with _$DetailedClaim {
     required String riskType,
     required String reason,
     required String riskLocation,
-    required DateTime processStartDate,
-    required DateTime processEndDate,
+    required DateTime? processStartDate,
+    required DateTime? processEndDate,
     required String agentName,
     required String agentEmail,
     required String agentTelephone,
