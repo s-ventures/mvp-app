@@ -11,6 +11,7 @@ export 'credit_card.dart';
 export 'custom_app_bar.dart';
 export 'custom_card.dart';
 export 'custom_chip.dart';
+export 'custom_divider.dart';
 export 'custom_dropdown.dart';
 export 'custom_popup_menu.dart';
 export 'daily_banking/category_list_tile.dart';

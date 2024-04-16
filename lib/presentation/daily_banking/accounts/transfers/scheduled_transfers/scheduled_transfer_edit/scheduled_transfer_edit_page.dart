@@ -32,7 +32,7 @@ class ScheduledTransferEditPage extends StatelessWidget {
                 Column(
                   children: [
                     const CurrencyInput(),
-                    const SizedBox(height: AppSpacing.s3),
+                    AppSpacing.vertical.s3,
                     Text(
                       'Sin comisión de transferencia',
                       style: context.textStyle.bodyMediumRegular.copyWith(
@@ -47,7 +47,8 @@ class ScheduledTransferEditPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(context.radius.hard),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [
@@ -96,9 +97,9 @@ class ScheduledTransferEditPage extends StatelessWidget {
       ),
       bottomNavigationBar: SafeArea(
         child: Container(
-          height: 101,
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(
@@ -112,7 +113,10 @@ class ScheduledTransferEditPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Programado diariamente', style: context.textStyle.bodyMediumRegular),
+                    Text(
+                      'Programado diariamente',
+                      style: context.textStyle.bodyMediumRegular,
+                    ),
                     AppSpacing.horizontal.s2,
                     Text(
                       '· Desde hoy',

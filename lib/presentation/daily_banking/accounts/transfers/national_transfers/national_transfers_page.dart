@@ -38,7 +38,7 @@ class NationalTransfersPage extends StatelessWidget {
                 Column(
                   children: [
                     const CurrencyInput(),
-                    const SizedBox(height: AppSpacing.s3),
+                    AppSpacing.vertical.s3,
                     Row(
                       children: [
                         Text(
@@ -62,7 +62,8 @@ class NationalTransfersPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(context.radius.hard),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [
@@ -90,10 +91,10 @@ class NationalTransfersPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: SafeArea(
-        child: Container(
-          height: 101,
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(
@@ -107,7 +108,10 @@ class NationalTransfersPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Programado diariamente', style: context.textStyle.bodyMediumRegular),
+                    Text(
+                      'Programado diariamente',
+                      style: context.textStyle.bodyMediumRegular,
+                    ),
                     AppSpacing.horizontal.s2,
                     Text(
                       '· Desde hoy',
@@ -136,7 +140,9 @@ class NationalTransfersPage extends StatelessWidget {
                     child: Button(
                       title: 'Enviar dinero',
                       size: ButtonSize.small,
-                      onPressed: () => context.pushNamed(AppRoute.dailyBankingNationalTransferResume.name),
+                      onPressed: () => context.pushNamed(
+                        AppRoute.dailyBankingNationalTransferResume.name,
+                      ),
                       expand: true,
                     ),
                   ),

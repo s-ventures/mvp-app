@@ -39,8 +39,8 @@ class CustomRadioListTile extends StatelessWidget {
             showRadio ? null : MaterialStateProperty.all(Colors.transparent),
         splashRadius: 0,
         secondary: leadingEmoji != null
-            ? TextAvatar(
-                text: leadingEmoji!,
+            ? IconWithContainer(
+                text: leadingEmoji,
                 backgroundColor: leadingBackgroundColor!,
               )
             : null,

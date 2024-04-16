@@ -37,7 +37,7 @@ class InternationalTransfersPage extends StatelessWidget {
                 Column(
                   children: [
                     const CurrencyInput(),
-                    const SizedBox(height: AppSpacing.s3),
+                    AppSpacing.vertical.s3,
                     Row(
                       children: [
                         Text(
@@ -61,7 +61,8 @@ class InternationalTransfersPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(context.radius.hard),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [
@@ -103,7 +104,8 @@ class InternationalTransfersPage extends StatelessWidget {
                 child: Button(
                   title: 'Enviar dinero',
                   size: ButtonSize.small,
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingInternationalTransferResume.name),
+                  onPressed: () => context.pushNamed(
+                      AppRoute.dailyBankingInternationalTransferResume.name),
                   expand: true,
                 ),
               ),

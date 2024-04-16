@@ -129,9 +129,9 @@ class NationalTransferResumePage extends StatelessWidget {
       ),
       bottomNavigationBar: SafeArea(
         child: Container(
-          height: 101,
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(
@@ -145,7 +145,10 @@ class NationalTransferResumePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Programado diariamente', style: context.textStyle.bodyMediumRegular),
+                    Text(
+                      'Programado diariamente',
+                      style: context.textStyle.bodyMediumRegular,
+                    ),
                     AppSpacing.horizontal.s2,
                     Text(
                       '· Desde hoy',
@@ -161,7 +164,9 @@ class NationalTransferResumePage extends StatelessWidget {
                 title: 'Confirmar',
                 size: ButtonSize.small,
                 expand: true,
-                onPressed: () async => context.pushNamed(AppRoute.dailyBankingNationalTransferSignature.name),
+                onPressed: () async => context.pushNamed(
+                  AppRoute.dailyBankingNationalTransferSignature.name,
+                ),
               ),
             ],
           ),

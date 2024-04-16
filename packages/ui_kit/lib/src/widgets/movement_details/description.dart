@@ -28,7 +28,7 @@ class MovementDetailsDescription extends StatelessWidget {
           children: [
             Expanded(
               child: SizedBox(
-                height: 90,
+                height: 88,
                 child: CustomCard(
                   outlined: true,
                   child: Text(

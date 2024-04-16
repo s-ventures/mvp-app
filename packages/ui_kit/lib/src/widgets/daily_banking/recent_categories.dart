@@ -23,7 +23,7 @@ class RecentCategories extends StatelessWidget {
             color: context.color.textLight300,
           ),
         ),
-        const SizedBox(height: AppSpacing.s3),
+        AppSpacing.vertical.s3,
         Container(
           padding: const EdgeInsets.all(AppSpacing.s4),
           decoration: ShapeDecoration(
@@ -77,25 +77,11 @@ class CategoryChip extends StatelessWidget {
       onTap: onPressed,
       child: Column(
         children: [
-          Container(
-            height: 40,
-            width: 40,
-            decoration: ShapeDecoration(
-              color: backgroundColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(context.radius.soft),
-              ),
-            ),
-            child: Center(
-              child: Text(
-                emoji,
-                style: context.textStyle.bodySmallSemiBold.copyWith(
-                  color: context.color.textLight900,
-                ),
-              ),
-            ),
+          IconWithContainer(
+            text: emoji,
+            backgroundColor: backgroundColor,
           ),
-          const SizedBox(height: AppSpacing.s1),
+          AppSpacing.vertical.s1,
           SizedBox(
             width: 44,
             child: Center(

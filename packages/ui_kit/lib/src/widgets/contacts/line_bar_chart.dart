@@ -33,7 +33,7 @@ class LineBarChart extends StatelessWidget {
                   color: context.color.statusSuccess,
                   borderRadius: BorderRadius.circular(context.radius.soft),
                 ),
-                height: 4,
+                height: AppSpacing.s2,
               ),
             ),
             AppSpacing.horizontal.s2,
@@ -44,7 +44,7 @@ class LineBarChart extends StatelessWidget {
                   color: context.color.statusWarning,
                   borderRadius: BorderRadius.circular(context.radius.soft),
                 ),
-                height: 4,
+                height: AppSpacing.s2,
               ),
             ),
             AppSpacing.horizontal.s2,
@@ -55,7 +55,7 @@ class LineBarChart extends StatelessWidget {
                   color: context.color.statusError,
                   borderRadius: BorderRadius.circular(context.radius.soft),
                 ),
-                height: 4,
+                height: AppSpacing.s2,
               ),
             ),
           ],
@@ -107,8 +107,8 @@ class _Value extends StatelessWidget {
         Row(
           children: [
             Container(
-              width: 6,
-              height: 6,
+              width: AppSpacing.s3,
+              height: AppSpacing.s3,
               decoration: BoxDecoration(
                 color: color,
                 shape: BoxShape.circle,

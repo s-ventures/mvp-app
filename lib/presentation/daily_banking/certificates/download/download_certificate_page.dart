@@ -75,12 +75,12 @@ class CertificatesAndDocumentsDownload extends StatelessWidget {
             ),
             AppSpacing.vertical.s5,
             Container(
+              height: 328,
               padding: const EdgeInsets.all(AppSpacing.s5),
               decoration: BoxDecoration(
                 color: context.color.backgroundLight0,
                 borderRadius: BorderRadius.circular(context.radius.soft),
               ),
-              height: 400,
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: Scrollbar(
                 child: SingleChildScrollView(

@@ -56,10 +56,7 @@ class _ScheduledTransferCardState extends State<ScheduledTransferCard> {
                   ),
                 ),
               ),
-              Divider(
-                color: context.color.strokeLigth100,
-                height: 1,
-              ),
+              const CustomDivider(),
               Padding(
                 padding: const EdgeInsets.all(AppSpacing.s5),
                 child: Column(
@@ -89,7 +86,8 @@ class _ScheduledTransferCardState extends State<ScheduledTransferCard> {
                         children: [
                           Text(
                             'Diariamente',
-                            style: context.textStyle.bodyMediumSemiBold.copyWith(
+                            style:
+                                context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight900,
                             ),
                           ),

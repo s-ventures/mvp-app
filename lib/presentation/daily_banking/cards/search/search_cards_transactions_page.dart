@@ -72,12 +72,8 @@ class _SearchCardTransactionsPageState
               ),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(kToolbarHeight),
-                child: Column(
-                  children: [
-                    TransactionSearchBar(
-                      controller: _controller,
-                    ),
-                  ],
+                child: TransactionSearchBar(
+                  controller: _controller,
                 ),
               ),
             ),
@@ -88,19 +84,10 @@ class _SearchCardTransactionsPageState
             SliverPadding(
               padding: const EdgeInsets.symmetric(
                 horizontal: AppSpacing.s5,
+                vertical: AppSpacing.s5,
               ),
               sliver: CardTransactionsList(
                 onTransactionPressed: (transaction) {},
-              ),
-            ),
-            const SliverPadding(
-              padding: EdgeInsets.all(AppSpacing.s5),
-              sliver: SliverToBoxAdapter(
-                child: RecentCategories(
-                  // Todo: Pass the categories from the provider
-                  // categories: categories,
-                  onCategoryPressed: print,
-                ),
               ),
             ),
           ],
