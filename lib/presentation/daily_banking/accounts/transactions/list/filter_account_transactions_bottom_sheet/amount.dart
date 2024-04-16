@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class Amount extends ConsumerWidget {
@@ -15,9 +15,9 @@ class Amount extends ConsumerWidget {
     return CustomCard(
       child: Column(
         children: [
-          SegmentedControl<OperationType>(
+          SegmentedControl<TransactionOperationType>(
             onChanged: controller.setOperationType,
-            values: OperationType.values,
+            values: TransactionOperationType.values,
             widgetBuilder: (value) => Text(value.name),
           ),
           AppSpacing.vertical.s4,

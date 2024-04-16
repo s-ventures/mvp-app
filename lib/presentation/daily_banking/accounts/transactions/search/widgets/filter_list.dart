@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/amount_range_filter_item.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/credit_debit_filter_item.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/date_range_filter_item.dart';
@@ -73,12 +73,12 @@ class _FilterListState extends ConsumerState<FilterList> {
                   ..applyFilters();
               },
             ),
-          if (operationType != OperationType.all)
+          if (operationType != TransactionOperationType.all)
             CreditDebitFilterItem(
               creditDebit: operationType,
               onClear: () {
                 controller
-                  ..setOperationType(OperationType.all)
+                  ..setOperationType(TransactionOperationType.all)
                   ..applyFilters();
               },
             ),

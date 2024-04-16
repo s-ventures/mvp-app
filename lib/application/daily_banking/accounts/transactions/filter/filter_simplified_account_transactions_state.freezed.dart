@@ -22,7 +22,8 @@ mixin _$FilterSimplifiedAccountTransactionsState {
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
-  OperationType get operationType => throw _privateConstructorUsedError;
+  TransactionOperationType get operationType =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterSimplifiedAccountTransactionsStateCopyWith<
@@ -45,7 +46,7 @@ abstract class $FilterSimplifiedAccountTransactionsStateCopyWith<$Res> {
       double? amountFrom,
       double? amountTo,
       String category,
-      OperationType operationType});
+      TransactionOperationType operationType});
 }
 
 /// @nodoc
@@ -99,7 +100,7 @@ class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
       operationType: null == operationType
           ? _value.operationType
           : operationType // ignore: cast_nullable_to_non_nullable
-              as OperationType,
+              as TransactionOperationType,
     ) as $Val);
   }
 }
@@ -120,7 +121,7 @@ abstract class _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<$Res>
       double? amountFrom,
       double? amountTo,
       String category,
-      OperationType operationType});
+      TransactionOperationType operationType});
 }
 
 /// @nodoc
@@ -172,7 +173,7 @@ class __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
       operationType: null == operationType
           ? _value.operationType
           : operationType // ignore: cast_nullable_to_non_nullable
-              as OperationType,
+              as TransactionOperationType,
     ));
   }
 }
@@ -188,7 +189,7 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
       this.amountFrom,
       this.amountTo,
       this.category = 'Entretenimiento',
-      this.operationType = OperationType.all});
+      this.operationType = TransactionOperationType.all});
 
   @override
   @JsonKey()
@@ -206,7 +207,7 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
   final String category;
   @override
   @JsonKey()
-  final OperationType operationType;
+  final TransactionOperationType operationType;
 
   @override
   String toString() {
@@ -255,7 +256,7 @@ abstract class _FilterSimplifiedAccountTransactionsState
           final double? amountFrom,
           final double? amountTo,
           final String category,
-          final OperationType operationType}) =
+          final TransactionOperationType operationType}) =
       _$FilterSimplifiedAccountTransactionsStateImpl;
 
   @override
@@ -271,7 +272,7 @@ abstract class _FilterSimplifiedAccountTransactionsState
   @override
   String get category;
   @override
-  OperationType get operationType;
+  TransactionOperationType get operationType;
   @override
   @JsonKey(ignore: true)
   _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<

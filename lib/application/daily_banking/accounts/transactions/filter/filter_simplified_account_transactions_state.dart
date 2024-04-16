@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 
 part 'filter_simplified_account_transactions_state.freezed.dart';
 
@@ -13,6 +13,7 @@ class FilterSimplifiedAccountTransactionsState
     double? amountFrom,
     double? amountTo,
     @Default('Entretenimiento') String category,
-    @Default(OperationType.all) OperationType operationType,
+    @Default(TransactionOperationType.all)
+    TransactionOperationType operationType,
   }) = _FilterSimplifiedAccountTransactionsState;
 }

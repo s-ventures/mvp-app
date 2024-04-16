@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/filter/filter_simplified_card_transactions_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transaction_credit_debit.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 
 final filterSimplifiedCardTransactionsControllerProvider =
     StateNotifierProvider<FilterSimplifiedCardTransactionsController,
@@ -27,7 +27,7 @@ class FilterSimplifiedCardTransactionsController
       amountTo: state.amountTo,
       dateFrom: state.startDate,
       dateTo: state.endDate,
-      creditDebit: state.creditDebit,
+      operationType: state.operationType,
     );
   }
 
@@ -61,7 +61,7 @@ class FilterSimplifiedCardTransactionsController
     state = state.copyWith(category: category);
   }
 
-  void selectCreditDebit(CardTransactionCreditDebit? creditDebit) {
-    state = state.copyWith(creditDebit: creditDebit);
+  void setOperationType(TransactionOperationType operationType) {
+    state = state.copyWith(operationType: operationType);
   }
 }

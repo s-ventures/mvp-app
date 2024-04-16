@@ -18,13 +18,13 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CardTransactionsFilter {
   List<UniqueId> get cardContractIds => throw _privateConstructorUsedError;
   List<UniqueId> get cardIds => throw _privateConstructorUsedError;
+  TransactionOperationType get operationType =>
+      throw _privateConstructorUsedError;
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
   DateTime? get dateFrom => throw _privateConstructorUsedError;
   DateTime? get dateTo => throw _privateConstructorUsedError;
   String? get concept => throw _privateConstructorUsedError;
-  CardTransactionCreditDebit? get creditDebit =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CardTransactionsFilterCopyWith<CardTransactionsFilter> get copyWith =>
@@ -40,12 +40,12 @@ abstract class $CardTransactionsFilterCopyWith<$Res> {
   $Res call(
       {List<UniqueId> cardContractIds,
       List<UniqueId> cardIds,
+      TransactionOperationType operationType,
       double? amountFrom,
       double? amountTo,
       DateTime? dateFrom,
       DateTime? dateTo,
-      String? concept,
-      CardTransactionCreditDebit? creditDebit});
+      String? concept});
 }
 
 /// @nodoc
@@ -64,12 +64,12 @@ class _$CardTransactionsFilterCopyWithImpl<$Res,
   $Res call({
     Object? cardContractIds = null,
     Object? cardIds = null,
+    Object? operationType = null,
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
     Object? dateFrom = freezed,
     Object? dateTo = freezed,
     Object? concept = freezed,
-    Object? creditDebit = freezed,
   }) {
     return _then(_value.copyWith(
       cardContractIds: null == cardContractIds
@@ -80,6 +80,10 @@ class _$CardTransactionsFilterCopyWithImpl<$Res,
           ? _value.cardIds
           : cardIds // ignore: cast_nullable_to_non_nullable
               as List<UniqueId>,
+      operationType: null == operationType
+          ? _value.operationType
+          : operationType // ignore: cast_nullable_to_non_nullable
+              as TransactionOperationType,
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
@@ -100,10 +104,6 @@ class _$CardTransactionsFilterCopyWithImpl<$Res,
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String?,
-      creditDebit: freezed == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as CardTransactionCreditDebit?,
     ) as $Val);
   }
 }
@@ -120,12 +120,12 @@ abstract class _$$CardTransactionsFilterImplCopyWith<$Res>
   $Res call(
       {List<UniqueId> cardContractIds,
       List<UniqueId> cardIds,
+      TransactionOperationType operationType,
       double? amountFrom,
       double? amountTo,
       DateTime? dateFrom,
       DateTime? dateTo,
-      String? concept,
-      CardTransactionCreditDebit? creditDebit});
+      String? concept});
 }
 
 /// @nodoc
@@ -143,12 +143,12 @@ class __$$CardTransactionsFilterImplCopyWithImpl<$Res>
   $Res call({
     Object? cardContractIds = null,
     Object? cardIds = null,
+    Object? operationType = null,
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
     Object? dateFrom = freezed,
     Object? dateTo = freezed,
     Object? concept = freezed,
-    Object? creditDebit = freezed,
   }) {
     return _then(_$CardTransactionsFilterImpl(
       cardContractIds: null == cardContractIds
@@ -159,6 +159,10 @@ class __$$CardTransactionsFilterImplCopyWithImpl<$Res>
           ? _value._cardIds
           : cardIds // ignore: cast_nullable_to_non_nullable
               as List<UniqueId>,
+      operationType: null == operationType
+          ? _value.operationType
+          : operationType // ignore: cast_nullable_to_non_nullable
+              as TransactionOperationType,
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
@@ -179,10 +183,6 @@ class __$$CardTransactionsFilterImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String?,
-      creditDebit: freezed == creditDebit
-          ? _value.creditDebit
-          : creditDebit // ignore: cast_nullable_to_non_nullable
-              as CardTransactionCreditDebit?,
     ));
   }
 }
@@ -193,12 +193,12 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
   const _$CardTransactionsFilterImpl(
       {required final List<UniqueId> cardContractIds,
       required final List<UniqueId> cardIds,
+      required this.operationType,
       this.amountFrom,
       this.amountTo,
       this.dateFrom,
       this.dateTo,
-      this.concept,
-      this.creditDebit})
+      this.concept})
       : _cardContractIds = cardContractIds,
         _cardIds = cardIds;
 
@@ -219,6 +219,8 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
   }
 
   @override
+  final TransactionOperationType operationType;
+  @override
   final double? amountFrom;
   @override
   final double? amountTo;
@@ -228,12 +230,10 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
   final DateTime? dateTo;
   @override
   final String? concept;
-  @override
-  final CardTransactionCreditDebit? creditDebit;
 
   @override
   String toString() {
-    return 'CardTransactionsFilter(cardContractIds: $cardContractIds, cardIds: $cardIds, amountFrom: $amountFrom, amountTo: $amountTo, dateFrom: $dateFrom, dateTo: $dateTo, concept: $concept, creditDebit: $creditDebit)';
+    return 'CardTransactionsFilter(cardContractIds: $cardContractIds, cardIds: $cardIds, operationType: $operationType, amountFrom: $amountFrom, amountTo: $amountTo, dateFrom: $dateFrom, dateTo: $dateTo, concept: $concept)';
   }
 
   @override
@@ -244,6 +244,8 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
             const DeepCollectionEquality()
                 .equals(other._cardContractIds, _cardContractIds) &&
             const DeepCollectionEquality().equals(other._cardIds, _cardIds) &&
+            (identical(other.operationType, operationType) ||
+                other.operationType == operationType) &&
             (identical(other.amountFrom, amountFrom) ||
                 other.amountFrom == amountFrom) &&
             (identical(other.amountTo, amountTo) ||
@@ -251,9 +253,7 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
             (identical(other.dateFrom, dateFrom) ||
                 other.dateFrom == dateFrom) &&
             (identical(other.dateTo, dateTo) || other.dateTo == dateTo) &&
-            (identical(other.concept, concept) || other.concept == concept) &&
-            (identical(other.creditDebit, creditDebit) ||
-                other.creditDebit == creditDebit));
+            (identical(other.concept, concept) || other.concept == concept));
   }
 
   @override
@@ -261,12 +261,12 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
       runtimeType,
       const DeepCollectionEquality().hash(_cardContractIds),
       const DeepCollectionEquality().hash(_cardIds),
+      operationType,
       amountFrom,
       amountTo,
       dateFrom,
       dateTo,
-      concept,
-      creditDebit);
+      concept);
 
   @JsonKey(ignore: true)
   @override
@@ -278,20 +278,21 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
 
 abstract class _CardTransactionsFilter implements CardTransactionsFilter {
   const factory _CardTransactionsFilter(
-          {required final List<UniqueId> cardContractIds,
-          required final List<UniqueId> cardIds,
-          final double? amountFrom,
-          final double? amountTo,
-          final DateTime? dateFrom,
-          final DateTime? dateTo,
-          final String? concept,
-          final CardTransactionCreditDebit? creditDebit}) =
-      _$CardTransactionsFilterImpl;
+      {required final List<UniqueId> cardContractIds,
+      required final List<UniqueId> cardIds,
+      required final TransactionOperationType operationType,
+      final double? amountFrom,
+      final double? amountTo,
+      final DateTime? dateFrom,
+      final DateTime? dateTo,
+      final String? concept}) = _$CardTransactionsFilterImpl;
 
   @override
   List<UniqueId> get cardContractIds;
   @override
   List<UniqueId> get cardIds;
+  @override
+  TransactionOperationType get operationType;
   @override
   double? get amountFrom;
   @override
@@ -302,8 +303,6 @@ abstract class _CardTransactionsFilter implements CardTransactionsFilter {
   DateTime? get dateTo;
   @override
   String? get concept;
-  @override
-  CardTransactionCreditDebit? get creditDebit;
   @override
   @JsonKey(ignore: true)
   _$$CardTransactionsFilterImplCopyWith<_$CardTransactionsFilterImpl>

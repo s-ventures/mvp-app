@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AccountTransactionsFilter {
   List<UniqueId> get accountIds => throw _privateConstructorUsedError;
-  OperationType get operationType => throw _privateConstructorUsedError;
+  TransactionOperationType get operationType =>
+      throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   DateTime? get dateFrom => throw _privateConstructorUsedError;
   DateTime? get dateTo => throw _privateConstructorUsedError;
@@ -37,7 +38,7 @@ abstract class $AccountTransactionsFilterCopyWith<$Res> {
   @useResult
   $Res call(
       {List<UniqueId> accountIds,
-      OperationType operationType,
+      TransactionOperationType operationType,
       String? description,
       DateTime? dateFrom,
       DateTime? dateTo,
@@ -75,7 +76,7 @@ class _$AccountTransactionsFilterCopyWithImpl<$Res,
       operationType: null == operationType
           ? _value.operationType
           : operationType // ignore: cast_nullable_to_non_nullable
-              as OperationType,
+              as TransactionOperationType,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -111,7 +112,7 @@ abstract class _$$AccountTransactionsFilterImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<UniqueId> accountIds,
-      OperationType operationType,
+      TransactionOperationType operationType,
       String? description,
       DateTime? dateFrom,
       DateTime? dateTo,
@@ -148,7 +149,7 @@ class __$$AccountTransactionsFilterImplCopyWithImpl<$Res>
       operationType: null == operationType
           ? _value.operationType
           : operationType // ignore: cast_nullable_to_non_nullable
-              as OperationType,
+              as TransactionOperationType,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -195,7 +196,7 @@ class _$AccountTransactionsFilterImpl implements _AccountTransactionsFilter {
   }
 
   @override
-  final OperationType operationType;
+  final TransactionOperationType operationType;
   @override
   final String? description;
   @override
@@ -254,7 +255,7 @@ class _$AccountTransactionsFilterImpl implements _AccountTransactionsFilter {
 abstract class _AccountTransactionsFilter implements AccountTransactionsFilter {
   const factory _AccountTransactionsFilter(
       {required final List<UniqueId> accountIds,
-      required final OperationType operationType,
+      required final TransactionOperationType operationType,
       final String? description,
       final DateTime? dateFrom,
       final DateTime? dateTo,
@@ -264,7 +265,7 @@ abstract class _AccountTransactionsFilter implements AccountTransactionsFilter {
   @override
   List<UniqueId> get accountIds;
   @override
-  OperationType get operationType;
+  TransactionOperationType get operationType;
   @override
   String? get description;
   @override

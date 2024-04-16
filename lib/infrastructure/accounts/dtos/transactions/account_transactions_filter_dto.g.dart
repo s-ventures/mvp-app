@@ -11,8 +11,8 @@ AccountTransactionsFilterDto _$AccountTransactionsFilterDtoFromJson(
     AccountTransactionsFilterDto(
       accountId:
           (json['accountId'] as List<dynamic>).map((e) => e as int).toList(),
-      operationType:
-          $enumDecode(_$OperationTypeDtoEnumMap, json['operationType']),
+      operationType: $enumDecode(
+          _$TransactionOperationTypeDtoEnumMap, json['operationType']),
       description: json['description'] as String?,
       amountFrom: (json['amountFrom'] as num?)?.toDouble(),
       amountTo: (json['amountTo'] as num?)?.toDouble(),
@@ -30,7 +30,8 @@ Map<String, dynamic> _$AccountTransactionsFilterDtoToJson(
     'pageSize': instance.pageSize,
     'pageNumber': instance.pageNumber,
     'accountId': instance.accountId,
-    'operationType': _$OperationTypeDtoEnumMap[instance.operationType]!,
+    'operationType':
+        _$TransactionOperationTypeDtoEnumMap[instance.operationType]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -55,11 +56,11 @@ Map<String, dynamic> _$AccountTransactionsFilterDtoToJson(
   return val;
 }
 
-const _$OperationTypeDtoEnumMap = {
-  OperationTypeDto.timeline: 'TIMELINE',
-  OperationTypeDto.credit: 'CREDIT',
-  OperationTypeDto.debit: 'DEBIT',
-  OperationTypeDto.creditDebit: 'CREDIT_DEBIT',
+const _$TransactionOperationTypeDtoEnumMap = {
+  TransactionOperationTypeDto.timeline: 'TIMELINE',
+  TransactionOperationTypeDto.credit: 'CREDIT',
+  TransactionOperationTypeDto.debit: 'DEBIT',
+  TransactionOperationTypeDto.creditDebit: 'CREDIT_DEBIT',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

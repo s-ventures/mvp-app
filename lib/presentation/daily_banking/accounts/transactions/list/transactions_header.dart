@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/filter_account_transactions_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/filter_list.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -42,7 +42,7 @@ class TransactionsHeader extends ConsumerWidget {
     final isFilterApplied = stateDate != null ||
         endDate != null ||
         (amountFrom != null && amountTo != null) ||
-        operationType != OperationType.all;
+        operationType != TransactionOperationType.all;
 
     return Column(
       children: [

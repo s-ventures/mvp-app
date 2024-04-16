@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CreditDebitFilterItem extends StatelessWidget {
@@ -9,7 +9,7 @@ class CreditDebitFilterItem extends StatelessWidget {
     super.key,
   });
 
-  final OperationType creditDebit;
+  final TransactionOperationType creditDebit;
   final VoidCallback onClear;
 
   @override

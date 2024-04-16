@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 
 final filterSimplifiedAccountTransactionsControllerProvider =
     StateNotifierProvider<FilterSimplifiedAccountTransactionsController,
@@ -61,7 +61,7 @@ class FilterSimplifiedAccountTransactionsController
     state = state.copyWith(category: category);
   }
 
-  void setOperationType(OperationType operationType) {
+  void setOperationType(TransactionOperationType operationType) {
     state = state.copyWith(operationType: operationType);
   }
 }

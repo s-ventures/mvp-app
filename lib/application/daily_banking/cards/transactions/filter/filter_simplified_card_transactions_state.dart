@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transaction_credit_debit.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 
 part 'filter_simplified_card_transactions_state.freezed.dart';
 
@@ -13,6 +13,7 @@ class FilterSimplifiedCardTransactionsState
     double? amountFrom,
     double? amountTo,
     @Default('Entretenimiento') String category,
-    CardTransactionCreditDebit? creditDebit,
+    @Default(TransactionOperationType.all)
+    TransactionOperationType operationType,
   }) = _FilterSimplifiedCardTransactionsState;
 }
