@@ -16,6 +16,7 @@ export 'custom_popup_menu.dart';
 export 'daily_banking/category_list_tile.dart';
 export 'daily_banking/insurance_claim_list_tile.dart';
 export 'daily_banking/insurance_policy_list_tile.dart';
+export 'daily_banking/recent_categories.dart';
 export 'daily_banking/transaction_list_tile.dart';
 export 'dates/date_range_list_tile.dart';
 export 'fake_search_bar.dart';
