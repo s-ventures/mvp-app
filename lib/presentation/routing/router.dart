@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/analitica/analitica_page.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/contacts_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/add/add_money_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/details/account_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/search_account_transactions_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/taxes_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/received/transfer_received_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/sent/transfer_sent_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_resume/international_transfer_resume_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_signature/international_transfer_signature_page.dart';
@@ -26,9 +30,15 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/search/searc
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_alias/card_settings_alias_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_limits/card_settings_limits_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/card_transaction_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/certificates_and_documents_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/download/download_certificate_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/otp/otp_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/payment/payment_certificate_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/request/request_certificate_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/daily_banking_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/claims_list/claims_list_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/claim_details_page/claim_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/claim_details_page/insurance_claim_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/insurance_policy_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies_list/policies_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/erp_page.dart';
@@ -71,6 +81,16 @@ GoRouter router(RouterRef ref) {
             routes: [
               //
               // ACCOUNTS
+              // Add money
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingAddMoney.path,
+                name: AppRoute.dailyBankingAddMoney.name,
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: const AddMoneyPage(),
+                ),
+              ),
               // Send money
               GoRoute(
                 parentNavigatorKey: _rootNavigatorKey,
@@ -102,10 +122,8 @@ GoRouter router(RouterRef ref) {
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute
-                                .dailyBankingNationalTransferSignature.path,
-                            name: AppRoute
-                                .dailyBankingNationalTransferSignature.name,
+                            path: AppRoute.dailyBankingNationalTransferSignature.path,
+                            name: AppRoute.dailyBankingNationalTransferSignature.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const NationalTransferSignaturePage(),
@@ -113,16 +131,11 @@ GoRouter router(RouterRef ref) {
                             routes: [
                               GoRoute(
                                 parentNavigatorKey: _rootNavigatorKey,
-                                path: AppRoute
-                                    .dailyBankingNationalTransferCertificate
-                                    .path,
-                                name: AppRoute
-                                    .dailyBankingNationalTransferCertificate
-                                    .name,
+                                path: AppRoute.dailyBankingNationalTransferCertificate.path,
+                                name: AppRoute.dailyBankingNationalTransferCertificate.name,
                                 pageBuilder: (context, state) => MaterialPage(
                                   key: state.pageKey,
-                                  child:
-                                      const NationalTransferCertificatePage(),
+                                  child: const NationalTransferCertificatePage(),
                                 ),
                               ),
                             ],
@@ -143,10 +156,8 @@ GoRouter router(RouterRef ref) {
                     routes: [
                       GoRoute(
                         parentNavigatorKey: _rootNavigatorKey,
-                        path: AppRoute
-                            .dailyBankingInternationalTransferResume.path,
-                        name: AppRoute
-                            .dailyBankingInternationalTransferResume.name,
+                        path: AppRoute.dailyBankingInternationalTransferResume.path,
+                        name: AppRoute.dailyBankingInternationalTransferResume.name,
                         pageBuilder: (context, state) => MaterialPage(
                           key: state.pageKey,
                           child: const InternationalTransferResumePage(),
@@ -154,12 +165,8 @@ GoRouter router(RouterRef ref) {
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute
-                                .dailyBankingInternationalTransferSignature
-                                .path,
-                            name: AppRoute
-                                .dailyBankingInternationalTransferSignature
-                                .name,
+                            path: AppRoute.dailyBankingInternationalTransferSignature.path,
+                            name: AppRoute.dailyBankingInternationalTransferSignature.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const InternationalTransferSignaturePage(),
@@ -167,16 +174,11 @@ GoRouter router(RouterRef ref) {
                             routes: [
                               GoRoute(
                                 parentNavigatorKey: _rootNavigatorKey,
-                                path: AppRoute
-                                    .dailyBankingInternationalTransferCertificate
-                                    .path,
-                                name: AppRoute
-                                    .dailyBankingInternationalTransferCertificate
-                                    .name,
+                                path: AppRoute.dailyBankingInternationalTransferCertificate.path,
+                                name: AppRoute.dailyBankingInternationalTransferCertificate.name,
                                 pageBuilder: (context, state) => MaterialPage(
                                   key: state.pageKey,
-                                  child:
-                                      const InternationalTransferCertificatePage(),
+                                  child: const InternationalTransferCertificatePage(),
                                 ),
                               ),
                             ],
@@ -197,10 +199,8 @@ GoRouter router(RouterRef ref) {
                     routes: [
                       GoRoute(
                         parentNavigatorKey: _rootNavigatorKey,
-                        path:
-                            AppRoute.dailyBankingScheduledTransferDetails.path,
-                        name:
-                            AppRoute.dailyBankingScheduledTransferDetails.name,
+                        path: AppRoute.dailyBankingScheduledTransferDetails.path,
+                        name: AppRoute.dailyBankingScheduledTransferDetails.name,
                         pageBuilder: (context, state) => MaterialPage(
                           key: state.pageKey,
                           child: const ScheduledTransferDetailsPage(),
@@ -208,10 +208,8 @@ GoRouter router(RouterRef ref) {
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path:
-                                AppRoute.dailyBankingScheduledTransferEdit.path,
-                            name:
-                                AppRoute.dailyBankingScheduledTransferEdit.name,
+                            path: AppRoute.dailyBankingScheduledTransferEdit.path,
+                            name: AppRoute.dailyBankingScheduledTransferEdit.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const ScheduledTransferEditPage(),
@@ -219,10 +217,8 @@ GoRouter router(RouterRef ref) {
                           ),
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute
-                                .dailyBankingScheduledTransferSignature.path,
-                            name: AppRoute
-                                .dailyBankingScheduledTransferSignature.name,
+                            path: AppRoute.dailyBankingScheduledTransferSignature.path,
+                            name: AppRoute.dailyBankingScheduledTransferSignature.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
                               child: const ScheduledTransferSignaturePage(),
@@ -263,6 +259,26 @@ GoRouter router(RouterRef ref) {
                         ],
                       ),
                     ],
+                  ),
+
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: AppRoute.dailyBankingTransfersSentDetails.path,
+                    name: AppRoute.dailyBankingTransfersSentDetails.name,
+                    pageBuilder: (context, state) => MaterialPage(
+                      key: state.pageKey,
+                      child: const TransferSentDetailsPage(),
+                    ),
+                  ),
+
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: AppRoute.dailyBankingTransfersReceivedDetails.path,
+                    name: AppRoute.dailyBankingTransfersReceivedDetails.name,
+                    pageBuilder: (context, state) => MaterialPage(
+                      key: state.pageKey,
+                      child: const TransferReceivedDetailsPage(),
+                    ),
                   ),
                 ],
               ),
@@ -308,6 +324,16 @@ GoRouter router(RouterRef ref) {
                     ),
                   );
                 },
+              ),
+
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingAccountTaxesDetails.path,
+                name: AppRoute.dailyBankingAccountTaxesDetails.name,
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: const TaxesDetailsPage(),
+                ),
               ),
 
               // Search account transactions
@@ -364,6 +390,23 @@ GoRouter router(RouterRef ref) {
                   ),
                 ],
               ),
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingCardTransactionDetails.path,
+                name: AppRoute.dailyBankingCardTransactionDetails.name,
+                pageBuilder: (context, state) {
+                  final cardContractId = state.pathParameters['cardContractId']!;
+                  final transactionId = state.pathParameters['transactionId']!;
+
+                  return MaterialPage(
+                    key: state.pageKey,
+                    child: CardTransactionDetailsPage(
+                      cardContractId: cardContractId,
+                      transactionId: transactionId,
+                    ),
+                  );
+                },
+              ),
 
               //
               // INSURANCES
@@ -399,10 +442,72 @@ GoRouter router(RouterRef ref) {
                     parentNavigatorKey: _rootNavigatorKey,
                     path: AppRoute.dailyBankingInsuranceClaimDetails.path,
                     name: AppRoute.dailyBankingInsuranceClaimDetails.name,
+                    pageBuilder: (context, state) {
+                      final args =
+                          state.extra! as InsuranceClaimDetailsRouteArgs;
+                      return MaterialPage(
+                        key: state.pageKey,
+                        child: InsuranceClaimDetailsPage(
+                          claimId: args.claimId,
+                          insuranceId: args.insuranceId,
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+
+              // Certificates and documents
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingCertsAndDocuments.path,
+                name: AppRoute.dailyBankingCertsAndDocuments.name,
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: const CertificatesAndDocumentsPage(),
+                ),
+                routes: [
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: AppRoute.dailyBankingCertsAndDocumentsRequest.path,
+                    name: AppRoute.dailyBankingCertsAndDocumentsRequest.name,
                     pageBuilder: (context, state) => MaterialPage(
                       key: state.pageKey,
-                      child: const ClaimDetailsPage(),
+                      child: const CertificatesAndDocumentsRequestPage(),
                     ),
+                    routes: [
+                      GoRoute(
+                        parentNavigatorKey: _rootNavigatorKey,
+                        path: AppRoute.dailyBankingCertsAndDocumentsRequestPayment.path,
+                        name: AppRoute.dailyBankingCertsAndDocumentsRequestPayment.name,
+                        pageBuilder: (context, state) => MaterialPage(
+                          key: state.pageKey,
+                          child: const CertificatesAndDocumentsRequestPaymentPage(),
+                        ),
+                        routes: [
+                          GoRoute(
+                            parentNavigatorKey: _rootNavigatorKey,
+                            path: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOTP.path,
+                            name: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOTP.name,
+                            pageBuilder: (context, state) => MaterialPage(
+                              key: state.pageKey,
+                              child: const CertificatesAndDocumentsRequestPaymentOTPPage(),
+                            ),
+                            routes: [
+                              GoRoute(
+                                parentNavigatorKey: _rootNavigatorKey,
+                                path: AppRoute.dailyBankingCertsAndDocumentsRequestDownload.path,
+                                name: AppRoute.dailyBankingCertsAndDocumentsRequestDownload.name,
+                                pageBuilder: (context, state) => MaterialPage(
+                                  key: state.pageKey,
+                                  child: const CertificatesAndDocumentsDownload(),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -477,3 +582,13 @@ GoRouter router(RouterRef ref) {
 /// Route observer to use with RouteAware
 final RouteObserver<ModalRoute<void>> routeObserver =
     RouteObserver<ModalRoute<void>>();
+
+class InsuranceClaimDetailsRouteArgs {
+  const InsuranceClaimDetailsRouteArgs({
+    required this.claimId,
+    required this.insuranceId,
+  });
+
+  final int claimId;
+  final int insuranceId;
+}

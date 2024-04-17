@@ -145,6 +145,9 @@ class _AccountList extends StatelessWidget {
                             IconSvg.small(IconAssets.document),
                           ],
                         ),
+                        onTap: () => context.pushNamed(
+                          AppRoute.dailyBankingCertsAndDocuments.name,
+                        ),
                       ),
                     ],
                   ),

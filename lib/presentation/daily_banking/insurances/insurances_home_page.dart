@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/claims.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/policies.dart';
 
-class Insurances extends StatelessWidget {
-  const Insurances({super.key});
+class InsurancesHomePage extends StatelessWidget {
+  const InsurancesHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,14 @@ class Insurances extends StatelessWidget {
             SliverOverlapInjector(
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
             ),
-            const SliverToBoxAdapter(child: Policies()),
-            const SliverToBoxAdapter(child: Claims()),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  const Policies(),
+                  const Claims(),
+                ],
+              ),
+            ),
           ],
         );
       },

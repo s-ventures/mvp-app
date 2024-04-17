@@ -4,12 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/banking_info.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/certificate.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/description.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/getting_help.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/summary.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/voucher.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
@@ -94,16 +88,23 @@ class _AccountTransactionDetailsPageState
             data: (transaction) => ListView(
               padding: const EdgeInsets.all(AppSpacing.s5),
               children: [
-                MovementSummary(
+                MovementDetailsSummary(
                   title: transaction.description,
-                  icon: '🏦',
+                  iconText: '🏦',
                   iconBgColor: context.color.secondaryLight600.withOpacity(.2),
                   amount: transaction.amount,
                   date: transaction.date,
                   status: MovementStatus.completed,
                 ),
                 AppSpacing.vertical.s5,
-                BankingInfo(
+                const MovementDetailsDate(
+                  titleStartDate: 'Fecha pago',
+                  startDate: '2/10/2023',
+                  titleEndDate: 'Fecha cargo',
+                  endDate: '2/10/2025',
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsBankingInfo(
                   type: BankAccountType.account,
                   last4: transaction.originBranch,
                   icon: '🖥️',
@@ -111,15 +112,17 @@ class _AccountTransactionDetailsPageState
                   category: 'Tecnología',
                 ),
                 AppSpacing.vertical.s5,
-                Description(text: transaction.userComments),
+                MovementDetailsDescription(
+                  text: transaction.userComments,
+                ),
                 AppSpacing.vertical.s5,
-                const Voucher(),
+                const MovementDetailsVoucher(),
                 AppSpacing.vertical.s5,
-                const Certificate(
+                const MovementDetailsCertificate(
                   type: CertificateType.debit,
                 ),
                 AppSpacing.vertical.s5,
-                const GettingHelp(),
+                const MovementDetailsGettingHelp(),
               ],
             ),
             error: (error, _) => Center(

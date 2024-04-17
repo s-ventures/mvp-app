@@ -30,7 +30,7 @@ class _AccountListSliverPinnedHeaderState
 
   @override
   Widget build(BuildContext context) {
-    final accounts = ref.watch(
+    final cards = ref.watch(
       simplifiedCardsControllerProvider.select((value) => value.cards),
     );
     final selectedCardsIndex = ref.watch(
@@ -46,7 +46,7 @@ class _AccountListSliverPinnedHeaderState
       surfaceTintColor: context.color.backgroundLight200,
       backgroundColor: context.color.backgroundLight200,
       toolbarHeight: 250,
-      flexibleSpace: accounts.mapOrNull(
+      flexibleSpace: cards.mapOrNull(
             data: (data) => _CardList(
               cards: data.value,
               selectedCardIndex: selectedCardsIndex,
@@ -189,13 +189,13 @@ class _CardList extends StatelessWidget {
                 if (card.id.toInt() == 50)
                   CreditCard(
                     plan: CreditCardPlan.basic,
-                    type: CreditCardType.virtual,
+                    type: CreditCardType.physical,
                     last4Digits: card.lastFourDigits,
                   ),
                 if (card.id.toInt() != 50)
                   CreditCard(
                     plan: CreditCardPlan.premium,
-                    type: CreditCardType.virtual,
+                    type: CreditCardType.physical,
                     last4Digits: card.lastFourDigits,
                   ),
               ],

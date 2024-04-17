@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class GettingHelp extends StatelessWidget {
-  const GettingHelp({super.key});
+class MovementDetailsGettingHelp extends StatelessWidget {
+  const MovementDetailsGettingHelp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +12,10 @@ class GettingHelp extends StatelessWidget {
           borderRadius: BorderRadius.circular(context.radius.soft),
           onPressed: () async {},
           child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.s4,
+              vertical: AppSpacing.s2,
+            ),
             leading: IconWithContainer(
               icon: IconAssets.info,
               size: IconWithContainerSize.medium,

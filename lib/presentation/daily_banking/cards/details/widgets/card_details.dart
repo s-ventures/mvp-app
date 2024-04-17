@@ -19,7 +19,9 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(ref.read(detailedCardControllerProvider.notifier).init(widget.cardId));
+      unawaited(
+        ref.read(detailedCardControllerProvider.notifier).init(widget.cardId),
+      );
     });
     super.initState();
   }
@@ -78,7 +80,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                       ),
                     ),
                     Text(
-                      ''.padLeft(3, '**** '),
+                      card.cardEncryptedNumber.padLeft(3, '**** '),
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -134,7 +136,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                       ),
                     ),
                     Text(
-                      card.cardEncryptedNumber,
+                      card.cvv,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),

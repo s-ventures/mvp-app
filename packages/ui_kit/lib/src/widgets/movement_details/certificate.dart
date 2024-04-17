@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Voucher extends StatelessWidget {
-  const Voucher({super.key});
+enum CertificateType {
+  credit('abono'),
+  debit('adeudo');
+
+  const CertificateType(this.name);
+  final String name;
+}
+
+class MovementDetailsCertificate extends StatelessWidget {
+  const MovementDetailsCertificate({required this.type, super.key});
+
+  final CertificateType type;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +20,7 @@ class Voucher extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Comprobante',
+          'Certificado',
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -27,18 +37,18 @@ class Voucher extends StatelessWidget {
                   vertical: AppSpacing.s2,
                 ),
                 leading: IconWithContainer(
-                  icon: IconAssets.file,
+                  icon: IconAssets.document,
                   size: IconWithContainerSize.medium,
                   backgroundColor: context.color.neutralLight100,
                 ),
                 title: Text(
-                  'Comprobante',
+                  'Solicitar certificado de ${type.name}',
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight900,
                   ),
                 ),
                 trailing: IconSvg.small(
-                  IconAssets.download,
+                  IconAssets.chevronRight,
                   color: context.color.iconLight900,
                 ),
               ),
