@@ -64,9 +64,21 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
                 ),
               ),
             ),
-            const SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: AppSpacing.s5),
-              sliver: CardTransactionsList(),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
+              sliver: CardTransactionsList(
+                onTransactionPressed: (transaction) {
+                  context.pushNamed(
+                    AppRoute.dailyBankingCardTransactionDetails.name,
+                    pathParameters: {
+                      // ignore: flutter_style_todos
+                      // Todo(Jesus): Change hardcoded cardContractId value
+                      'cardContractId': '50',
+                      'transactionId': transaction.id.getOrCrash(),
+                    },
+                  );
+                },
+              ),
             ),
             AppSpacing.vertical.s5.sliver,
           ],

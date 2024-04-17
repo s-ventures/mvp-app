@@ -88,10 +88,19 @@ class _SearchCardTransactionsPageState
             SliverPadding(
               padding: const EdgeInsets.symmetric(
                 horizontal: AppSpacing.s5,
-                vertical: AppSpacing.s5,
               ),
               sliver: CardTransactionsList(
                 onTransactionPressed: (transaction) {},
+              ),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.all(AppSpacing.s5),
+              sliver: SliverToBoxAdapter(
+                child: RecentCategories(
+                  // Todo: Pass the categories from the provider
+                  // categories: categories,
+                  onCategoryPressed: print,
+                ),
               ),
             ),
           ],

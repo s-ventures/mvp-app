@@ -30,81 +30,102 @@ class CreditCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(context.radius.soft),
-          color: plan == CreditCardPlan.basic
+          color: plan == CreditCardPlan.basic && type == CreditCardType.virtual
               ? context.color.secondaryLight600
-              : const Color(0xFF2A2929),
+              : plan == CreditCardPlan.premium && type == CreditCardType.virtual
+                  ? const Color(0xFF2A2929)
+                  : null,
         ),
-        child: Stack(
-          children: [
-            Positioned(
-              top: 24,
-              left: 24,
-              child: IconSvg.medium(
-                IconAssets.logotype,
-                color: context.color.textLight0,
+        child: Container(
+          clipBehavior: Clip.hardEdge,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(context.radius.soft),
+          ),
+          child: Stack(
+            children: [
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: plan == CreditCardPlan.basic &&
+                        type == CreditCardType.physical
+                    ? const CardSvg.basic()
+                    : plan == CreditCardPlan.premium &&
+                            type == CreditCardType.physical
+                        ? const CardSvg.premium()
+                        : const SizedBox.shrink(),
               ),
-            ),
-            if (type == CreditCardType.virtual)
               Positioned(
                 top: 24,
-                right: 24,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 1,
-                  ),
-                  decoration: BoxDecoration(
-                    color: context.color.backgroundLight0.withOpacity(.3),
-                    borderRadius: BorderRadius.circular(context.radius.hard),
-                  ),
-                  child: Text(
-                    type == CreditCardType.virtual ? 'Virtual' : 'Physical',
-                    style: context.textStyle.bodyMediumRegular.copyWith(
-                      color: context.color.textLight0,
+                left: 24,
+                child: IconSvg.medium(
+                  IconAssets.logotype,
+                  color: context.color.textLight0,
+                ),
+              ),
+              if (type == CreditCardType.virtual)
+                Positioned(
+                  top: 24,
+                  right: 24,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 1,
+                    ),
+                    decoration: BoxDecoration(
+                      color: context.color.backgroundLight0.withOpacity(.3),
+                      borderRadius: BorderRadius.circular(context.radius.hard),
+                    ),
+                    child: Text(
+                      type == CreditCardType.virtual ? 'Virtual' : 'Physical',
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight0,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            Positioned(
-              bottom: 24,
-              left: 24,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  RichText(
-                    text: TextSpan(
-                      text: 'soon ',
-                      style: context.textStyle.bodyMediumBold.copyWith(
+              Positioned(
+                bottom: 24,
+                left: 24,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                        text: 'soon ',
+                        style: context.textStyle.bodyMediumBold.copyWith(
+                          color: context.color.textLight0,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: plan.name,
+                            style: context.textStyle.bodyMediumRegular.copyWith(
+                              color: context.color.textLight0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      '•• $last4Digits',
+                      style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight0,
                       ),
-                      children: [
-                        TextSpan(
-                          text: plan.name,
-                          style: context.textStyle.bodyMediumRegular.copyWith(
-                            color: context.color.textLight0,
-                          ),
-                        ),
-                      ],
                     ),
-                  ),
-                  Text(
-                    '•• $last4Digits',
-                    style: context.textStyle.bodyMediumRegular.copyWith(
-                      color: context.color.textLight0,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Positioned(
-              bottom: 24,
-              right: 24,
-              child: IconSvg.medium(
-                IconAssets.visa,
-                color: context.color.textLight0,
+              Positioned(
+                bottom: 24,
+                right: 24,
+                child: IconSvg.medium(
+                  IconAssets.visa,
+                  color: context.color.textLight0,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

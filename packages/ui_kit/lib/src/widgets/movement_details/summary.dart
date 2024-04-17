@@ -11,39 +11,51 @@ enum MovementStatus {
   final String name;
 }
 
-class MovementSummary extends StatelessWidget {
-  const MovementSummary({
+class MovementDetailsSummary extends StatelessWidget {
+  const MovementDetailsSummary({
     required this.title,
-    required this.icon,
-    required this.iconBgColor,
     required this.amount,
-    required this.date,
+    required this.iconBgColor,
     required this.status,
+    this.iconSvg,
+    this.iconText,
+    this.date,
+    this.subtitle,
     super.key,
   });
 
   final String title;
-  final String icon;
+  final String? subtitle;
+  final String? iconSvg;
+  final String? iconText;
   final Color iconBgColor;
   final double amount;
-  final DateTime date;
+  final DateTime? date;
   final MovementStatus status;
 
   @override
   Widget build(BuildContext context) {
+    assert(
+      date != null || subtitle != null,
+      'date or subtitle must be provided',
+    );
+    assert(
+      date == null || subtitle == null,
+      'date and subtitle cannot be provided at the same time',
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title, style: context.textStyle.h6),
         AppSpacing.vertical.s3,
         CustomCard(
+          outlined: true,
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconWithContainer(
-                width: 48,
-                height: 48,
-                text: icon,
+                icon: iconSvg,
+                text: iconText,
                 backgroundColor: iconBgColor,
               ),
               AppSpacing.horizontal.s5,
@@ -57,17 +69,22 @@ class MovementSummary extends StatelessWidget {
                       letterSpacing: 0.15,
                     ),
                   ),
+                  AppSpacing.vertical.s2,
                   Text(
-                    DateFormat('dd MMM · HH:mm').format(date),
+                    date != null
+                        ? DateFormat('dd MMM · HH:mm').format(date!)
+                        : subtitle ?? '',
                     style: context.textStyle.bodySmallRegular.copyWith(
                       color: context.color.textLight600,
+                      fontSize: 12,
                     ),
                   ),
                 ],
               ),
               const Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 decoration: BoxDecoration(
                   color: status == MovementStatus.completed
                       ? context.color.statusSuccess.withOpacity(0.1)

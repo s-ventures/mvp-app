@@ -189,13 +189,13 @@ class _CardList extends StatelessWidget {
                 if (card.id.toInt() == 50)
                   CreditCard(
                     plan: CreditCardPlan.basic,
-                    type: CreditCardType.virtual,
+                    type: CreditCardType.physical,
                     last4Digits: card.lastFourDigits,
                   ),
                 if (card.id.toInt() != 50)
                   CreditCard(
                     plan: CreditCardPlan.premium,
-                    type: CreditCardType.virtual,
+                    type: CreditCardType.physical,
                     last4Digits: card.lastFourDigits,
                   ),
               ],

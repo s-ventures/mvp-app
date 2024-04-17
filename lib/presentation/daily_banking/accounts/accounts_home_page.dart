@@ -62,7 +62,9 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                       icon: IconAssets.plus,
                       type: ButtonType.outlined,
                       label: 'Añadir dinero',
-                      onPressed: () async {},
+                      onPressed: () => context.pushNamed(
+                        AppRoute.dailyBankingAddMoney.name,
+                      ),
                     ),
                     IconOverTextButton(
                       icon: IconAssets.transfer,
