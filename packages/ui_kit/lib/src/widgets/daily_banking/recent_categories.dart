@@ -4,7 +4,7 @@ import 'package:ui_kit/ui_kit.dart';
 class RecentCategories extends StatelessWidget {
   const RecentCategories({
     required this.onCategoryPressed,
-    // Todo: Remove this when the categories are dynamic
+    // TODO(jesus): Remove this when the categories are dynamic
     this.categories = arrCategories,
     super.key,
   });

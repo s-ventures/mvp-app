@@ -81,7 +81,9 @@ class _InsuranceClaimDetailsPageState
                 AppSpacing.vertical.s5,
                 ListTile(
                   contentPadding: const EdgeInsets.only(
-                      left: AppSpacing.s5, right: AppSpacing.s5),
+                    left: AppSpacing.s5,
+                    right: AppSpacing.s5,
+                  ),
                   title: Text(
                     'Número de expediente',
                     style: context.textStyle.bodyMediumRegular.copyWith(
@@ -102,7 +104,9 @@ class _InsuranceClaimDetailsPageState
                 AppSpacing.vertical.s3,
                 ListTile(
                   contentPadding: const EdgeInsets.only(
-                      left: AppSpacing.s5, right: AppSpacing.s4),
+                    left: AppSpacing.s5,
+                    right: AppSpacing.s4,
+                  ),
                   title: Text(
                     'Fecha apertura',
                     style: context.textStyle.bodyMediumRegular.copyWith(
@@ -124,7 +128,9 @@ class _InsuranceClaimDetailsPageState
                 AppSpacing.vertical.s3,
                 ListTile(
                   contentPadding: const EdgeInsets.only(
-                      left: AppSpacing.s5, right: AppSpacing.s4),
+                    left: AppSpacing.s5,
+                    right: AppSpacing.s4,
+                  ),
                   title: Text(
                     'Fecha inicio tramitación',
                     style: context.textStyle.bodyMediumRegular.copyWith(
@@ -146,7 +152,9 @@ class _InsuranceClaimDetailsPageState
                 AppSpacing.vertical.s3,
                 ListTile(
                   contentPadding: const EdgeInsets.only(
-                      left: AppSpacing.s5, right: AppSpacing.s4),
+                    left: AppSpacing.s5,
+                    right: AppSpacing.s4,
+                  ),
                   title: Text(
                     'Fecha fin de tramitación',
                     style: context.textStyle.bodyMediumRegular.copyWith(
@@ -255,7 +263,9 @@ class _InsuranceClaimDetailsPageState
                 AppSpacing.vertical.s3,
                 ListTile(
                   contentPadding: const EdgeInsets.only(
-                      left: AppSpacing.s5, right: AppSpacing.s4),
+                    left: AppSpacing.s5,
+                    right: AppSpacing.s4,
+                  ),
                   leading: IconWithContainer(
                     text: claim.agentName.initials,
                     backgroundColor: context.color.backgroundLight200,

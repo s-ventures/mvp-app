@@ -180,7 +180,7 @@ class _SearchAccountTransactionsPageState
               padding: EdgeInsets.all(AppSpacing.s5),
               sliver: SliverToBoxAdapter(
                 child: RecentCategories(
-                  // Todo: Pass the categories from the provider
+                  // TODO(jesus): Pass the categories from the provider
                   // categories: categories,
                   onCategoryPressed: print,
                 ),
