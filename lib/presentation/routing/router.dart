@@ -38,7 +38,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/payme
 import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/request/request_certificate_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/daily_banking_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/claims_list/claims_list_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/claim_details_page/claim_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/claim_details_page/insurance_claim_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/insurance_policy_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies_list/policies_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/erp_page.dart';
@@ -442,10 +442,17 @@ GoRouter router(RouterRef ref) {
                     parentNavigatorKey: _rootNavigatorKey,
                     path: AppRoute.dailyBankingInsuranceClaimDetails.path,
                     name: AppRoute.dailyBankingInsuranceClaimDetails.name,
-                    pageBuilder: (context, state) => MaterialPage(
-                      key: state.pageKey,
-                      child: const ClaimDetailsPage(),
-                    ),
+                    pageBuilder: (context, state) {
+                      final args =
+                          state.extra! as InsuranceClaimDetailsRouteArgs;
+                      return MaterialPage(
+                        key: state.pageKey,
+                        child: InsuranceClaimDetailsPage(
+                          claimId: args.claimId,
+                          insuranceId: args.insuranceId,
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -573,4 +580,15 @@ GoRouter router(RouterRef ref) {
 }
 
 /// Route observer to use with RouteAware
-final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
+final RouteObserver<ModalRoute<void>> routeObserver =
+    RouteObserver<ModalRoute<void>>();
+
+class InsuranceClaimDetailsRouteArgs {
+  const InsuranceClaimDetailsRouteArgs({
+    required this.claimId,
+    required this.insuranceId,
+  });
+
+  final int claimId;
+  final int insuranceId;
+}
