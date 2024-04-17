@@ -6,6 +6,9 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/details/a
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/search_account_transactions_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/taxes_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/received/transfer_received_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/sent/transfer_sent_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_resume/international_transfer_resume_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_signature/international_transfer_signature_page.dart';
@@ -26,6 +29,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/search/searc
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_alias/card_settings_alias_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_limits/card_settings_limits_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/card_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/daily_banking_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/claims_list/claims_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/claim_details_page/claim_details_page.dart';
@@ -264,6 +268,26 @@ GoRouter router(RouterRef ref) {
                       ),
                     ],
                   ),
+
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: AppRoute.dailyBankingTransfersSentDetails.path,
+                    name: AppRoute.dailyBankingTransfersSentDetails.name,
+                    pageBuilder: (context, state) => MaterialPage(
+                      key: state.pageKey,
+                      child: const TransferSentDetailsPage(),
+                    ),
+                  ),
+
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: AppRoute.dailyBankingTransfersReceivedDetails.path,
+                    name: AppRoute.dailyBankingTransfersReceivedDetails.name,
+                    pageBuilder: (context, state) => MaterialPage(
+                      key: state.pageKey,
+                      child: const TransferReceivedDetailsPage(),
+                    ),
+                  ),
                 ],
               ),
 
@@ -308,6 +332,16 @@ GoRouter router(RouterRef ref) {
                     ),
                   );
                 },
+              ),
+
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingAccountTaxesDetails.path,
+                name: AppRoute.dailyBankingAccountTaxesDetails.name,
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: const TaxesDetailsPage(),
+                ),
               ),
 
               // Search account transactions
@@ -363,6 +397,24 @@ GoRouter router(RouterRef ref) {
                     ),
                   ),
                 ],
+              ),
+              GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: AppRoute.dailyBankingCardTransactionDetails.path,
+                name: AppRoute.dailyBankingCardTransactionDetails.name,
+                pageBuilder: (context, state) {
+                  final cardContractId =
+                      state.pathParameters['cardContractId']!;
+                  final transactionId = state.pathParameters['transactionId']!;
+
+                  return MaterialPage(
+                    key: state.pageKey,
+                    child: CardTransactionDetailsPage(
+                      cardContractId: cardContractId,
+                      transactionId: transactionId,
+                    ),
+                  );
+                },
               ),
 
               //

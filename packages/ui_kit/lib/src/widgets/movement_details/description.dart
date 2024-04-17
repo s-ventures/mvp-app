@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Description extends StatelessWidget {
-  const Description({required this.text, super.key});
+class MovementDetailsDescription extends StatelessWidget {
+  const MovementDetailsDescription({required this.text, super.key});
 
   final String text;
 
@@ -30,6 +30,7 @@ class Description extends StatelessWidget {
               child: SizedBox(
                 height: 90,
                 child: CustomCard(
+                  outlined: true,
                   child: Text(
                     text,
                     style: context.textStyle.bodySmallRegular.copyWith(

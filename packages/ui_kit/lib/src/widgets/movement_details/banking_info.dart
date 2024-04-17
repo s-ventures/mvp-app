@@ -9,8 +9,8 @@ enum BankAccountType {
   final String name;
 }
 
-class BankingInfo extends StatelessWidget {
-  const BankingInfo({
+class MovementDetailsBankingInfo extends StatelessWidget {
+  const MovementDetailsBankingInfo({
     required this.type,
     required this.last4,
     required this.icon,
@@ -36,6 +36,7 @@ class BankingInfo extends StatelessWidget {
         ),
         AppSpacing.vertical.s3,
         CustomCard(
+          outlined: true,
           child: Column(
             children: [
               Row(
