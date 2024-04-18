@@ -12,7 +12,7 @@ class CardSettingsLimitsPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Límites de tarjeta',
                 leading: Button(
@@ -29,7 +29,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
               Expanded(
                 child: ListView(
                   shrinkWrap: true,
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   children: [
                     CustomCard(
                       outlined: true,
@@ -38,7 +39,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                         children: [
                           Text(
                             'Límite de pago diario',
-                            style: context.textStyle.bodyMediumSemiBold.copyWith(
+                            style:
+                                context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight600,
                             ),
                           ),
@@ -58,8 +60,12 @@ class CardSettingsLimitsPage extends StatelessWidget {
                                 child: TextInput(
                                   size: TextInputSize.extraSmall,
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(context.radius.soft),
-                                    borderSide: BorderSide(color: context.color.strokeLigth200),
+                                    borderRadius: BorderRadius.circular(
+                                      context.radius.soft,
+                                    ),
+                                    borderSide: BorderSide(
+                                      color: context.color.strokeLigth200,
+                                    ),
                                   ),
                                   initialValue: 9000.toString(),
                                   fillColor: context.color.neutralLight100,
@@ -72,7 +78,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                           AppSpacing.vertical.s5,
                           Text(
                             'Límite de pago mensual',
-                            style: context.textStyle.bodyMediumSemiBold.copyWith(
+                            style:
+                                context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight600,
                             ),
                           ),
@@ -92,8 +99,12 @@ class CardSettingsLimitsPage extends StatelessWidget {
                                 child: TextInput(
                                   size: TextInputSize.extraSmall,
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(context.radius.soft),
-                                    borderSide: BorderSide(color: context.color.strokeLigth200),
+                                    borderRadius: BorderRadius.circular(
+                                      context.radius.soft,
+                                    ),
+                                    borderSide: BorderSide(
+                                      color: context.color.strokeLigth200,
+                                    ),
                                   ),
                                   initialValue: 7000.toString(),
                                   fillColor: context.color.neutralLight100,
@@ -106,7 +117,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                           AppSpacing.vertical.s5,
                           Text(
                             'Límite de pago online',
-                            style: context.textStyle.bodyMediumSemiBold.copyWith(
+                            style:
+                                context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight600,
                             ),
                           ),
@@ -126,8 +138,12 @@ class CardSettingsLimitsPage extends StatelessWidget {
                                 child: TextInput(
                                   size: TextInputSize.extraSmall,
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(context.radius.soft),
-                                    borderSide: BorderSide(color: context.color.strokeLigth200),
+                                    borderRadius: BorderRadius.circular(
+                                      context.radius.soft,
+                                    ),
+                                    borderSide: BorderSide(
+                                      color: context.color.strokeLigth200,
+                                    ),
                                   ),
                                   initialValue: 5000.toString(),
                                   fillColor: context.color.neutralLight100,
@@ -140,7 +156,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                           AppSpacing.vertical.s5,
                           Text(
                             'Límite de retira de cajero',
-                            style: context.textStyle.bodyMediumSemiBold.copyWith(
+                            style:
+                                context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight600,
                             ),
                           ),
@@ -161,8 +178,12 @@ class CardSettingsLimitsPage extends StatelessWidget {
                                   enabled: false,
                                   size: TextInputSize.extraSmall,
                                   enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(context.radius.soft),
-                                    borderSide: BorderSide(color: context.color.strokeLigth200),
+                                    borderRadius: BorderRadius.circular(
+                                      context.radius.soft,
+                                    ),
+                                    borderSide: BorderSide(
+                                      color: context.color.strokeLigth200,
+                                    ),
                                   ),
                                   initialValue: 3000.toString(),
                                   fillColor: context.color.neutralLight100,

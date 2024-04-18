@@ -30,10 +30,12 @@ class SecurityMonitorFacade implements ISecurityMonitor {
       await CleafyPlugin.initWithConfiguration(config);
     } on MissingConfigException {
       _logger.warning(
-          'Cleafy adapter did not initialize due to missing configuration');
+        'Cleafy adapter did not initialize due to missing configuration',
+      );
     } on MissingConfigVariableException catch (e) {
       _logger.warning(
-          'Cleafy adapter did not initialize due to missing configuration variable ${e.variableName}');
+        'Cleafy adapter did not initialize due to missing configuration variable ${e.variableName}',
+      );
     }
   }
 }

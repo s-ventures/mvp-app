@@ -15,7 +15,7 @@ class InternationalTransfersPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Transferencia internacional',
               leading: Button(
@@ -61,7 +61,8 @@ class InternationalTransfersPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(context.radius.hard),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [
@@ -103,7 +104,9 @@ class InternationalTransfersPage extends StatelessWidget {
                 child: Button(
                   title: 'Enviar dinero',
                   size: ButtonSize.small,
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingInternationalTransferResume.name),
+                  onPressed: () => context.pushNamed(
+                    AppRoute.dailyBankingInternationalTransferResume.name,
+                  ),
                   expand: true,
                 ),
               ),

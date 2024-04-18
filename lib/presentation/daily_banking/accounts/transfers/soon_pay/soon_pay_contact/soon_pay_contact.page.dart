@@ -12,7 +12,7 @@ class SoonPayContactPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Thomas Magnum',
               leading: Button(
@@ -51,7 +51,8 @@ class SoonPayContactPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(context.radius.hard),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [
@@ -96,7 +97,8 @@ class SoonPayContactPage extends StatelessWidget {
                 child: Button(
                   title: 'Enviar dinero',
                   size: ButtonSize.small,
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingSoonPayOTP.name),
+                  onPressed: () =>
+                      context.pushNamed(AppRoute.dailyBankingSoonPayOTP.name),
                   expand: true,
                 ),
               ),

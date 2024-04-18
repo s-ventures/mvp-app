@@ -12,7 +12,7 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Alba García',
               leading: Button(
@@ -26,7 +26,9 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
                   icon: IconAssets.edit,
                   type: ButtonType.outlined,
                   size: ButtonSize.extraSmall,
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingScheduledTransferEdit.name),
+                  onPressed: () => context.pushNamed(
+                    AppRoute.dailyBankingScheduledTransferEdit.name,
+                  ),
                 ),
               ],
             ),
@@ -46,11 +48,15 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: AppSpacing.s3, horizontal: AppSpacing.s5),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: AppSpacing.s3,
+                      horizontal: AppSpacing.s5,
+                    ),
                     decoration: ShapeDecoration(
                       color: context.color.neutralLight100,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(context.radius.soft),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.soft),
                       ),
                     ),
                     child: Row(
@@ -86,11 +92,14 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
                             context: context,
                             icon: IconAssets.check,
                             title: '¿Quieres activar el pago periódico?',
-                            message: 'Se activará tu pago periódico de ${25.00.toCurrency(plusSign: false)}',
+                            message:
+                                'Se activará tu pago periódico de ${25.00.toCurrency(plusSign: false)}',
                             buttonOkText: 'Activar',
                             buttonCancelText: 'Cancelar',
-                            onOkPressed: () async =>
-                                context.pushNamed(AppRoute.dailyBankingScheduledTransferSignature.name),
+                            onOkPressed: () async => context.pushNamed(
+                              AppRoute
+                                  .dailyBankingScheduledTransferSignature.name,
+                            ),
                           ),
                         ),
                       ),
@@ -100,14 +109,16 @@ class ScheduledTransferDetailsPage extends StatelessWidget {
                           icon: IconAssets.trash,
                           title: 'Eliminar',
                           size: ButtonSize.extraSmall,
-                          background: context.color.statusError.withOpacity(.15),
+                          background:
+                              context.color.statusError.withOpacity(.15),
                           foreground: context.color.statusError,
                           onPressed: () async => AlertBottomSheet.show(
                             context: context,
                             icon: IconAssets.trash,
                             title: '¿Quieres eliminar el pago periódico?',
                             buttonOkText: 'Eliminar',
-                            buttonOkBackground: context.color.statusError.withOpacity(.15),
+                            buttonOkBackground:
+                                context.color.statusError.withOpacity(.15),
                             buttonOkForeground: context.color.statusError,
                             buttonCancelText: 'Cancelar',
                           ),

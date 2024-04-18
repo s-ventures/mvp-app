@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/banking_aggregation/banking_aggregation_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/banking_aggregation_facade.dart';
@@ -23,5 +24,16 @@ class BankingAggregationController
         AsyncData.new,
       ),
     );
+  }
+
+  bool tryParseCredentialsId(String url) {
+    final uri = Uri.parse(url);
+    final credentialsId = uri.queryParameters['credentialsId'] ?? '';
+    if (credentialsId.isNotEmpty) {
+      debugPrint('Credentials ID: $credentialsId');
+      return false;
+    } else {
+      return true;
+    }
   }
 }

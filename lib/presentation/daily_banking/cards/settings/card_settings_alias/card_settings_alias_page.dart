@@ -12,7 +12,7 @@ class CardSettingsAliasPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Alias de tu tarjeta',
                 leading: Button(
@@ -28,7 +28,8 @@ class CardSettingsAliasPage extends StatelessWidget {
             children: [
               Expanded(
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   children: [
                     CustomCard(
                       child: Column(
@@ -36,7 +37,8 @@ class CardSettingsAliasPage extends StatelessWidget {
                         children: [
                           Text(
                             'Inserte el alias de su tarjeta',
-                            style: context.textStyle.bodyMediumSemiBold.copyWith(
+                            style:
+                                context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight600,
                             ),
                           ),

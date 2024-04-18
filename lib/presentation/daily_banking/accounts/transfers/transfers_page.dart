@@ -15,7 +15,7 @@ class TransfersPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Nueva transferencia',
                 leading: Button(

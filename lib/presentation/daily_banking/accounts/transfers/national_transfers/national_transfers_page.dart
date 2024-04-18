@@ -16,7 +16,7 @@ class NationalTransfersPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Transferencia nacional',
               leading: Button(
@@ -62,7 +62,8 @@ class NationalTransfersPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(context.radius.hard),
+                        borderRadius:
+                            BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [
@@ -107,7 +108,10 @@ class NationalTransfersPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Programado diariamente', style: context.textStyle.bodyMediumRegular),
+                    Text(
+                      'Programado diariamente',
+                      style: context.textStyle.bodyMediumRegular,
+                    ),
                     AppSpacing.horizontal.s2,
                     Text(
                       '· Desde hoy',
@@ -136,7 +140,9 @@ class NationalTransfersPage extends StatelessWidget {
                     child: Button(
                       title: 'Enviar dinero',
                       size: ButtonSize.small,
-                      onPressed: () => context.pushNamed(AppRoute.dailyBankingNationalTransferResume.name),
+                      onPressed: () => context.pushNamed(
+                        AppRoute.dailyBankingNationalTransferResume.name,
+                      ),
                       expand: true,
                     ),
                   ),

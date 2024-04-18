@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/banking_aggregation/banking_aggregation_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class AccountListPage extends ConsumerWidget {
   const AccountListPage({super.key});
@@ -13,7 +16,25 @@ class AccountListPage extends ConsumerWidget {
         ref.read(bankingAggregationControllerProvider.notifier);
     ref.watch(bankingAggregationControllerProvider).aggregationServiceUrl.when(
           data: (url) {
-            int a;
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              context.pushNamed(
+                AppRoute.webView.name,
+                extra: WebViewPageRouteParams(
+                  title: 'Agregar cuenta',
+                  url: url,
+                  onNavigationRequest: (request) {
+                    final navigate = bankingAggregationController
+                        .tryParseCredentialsId(request.url);
+                    if (navigate) {
+                      return NavigationDecision.navigate;
+                    } else {
+                      context.pop();
+                      return NavigationDecision.prevent;
+                    }
+                  },
+                ),
+              );
+            });
           },
           error: (error, stackTrace) {},
           loading: () {},
@@ -24,7 +45,7 @@ class AccountListPage extends ConsumerWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Cuentas',
                 leading: Button(

@@ -12,7 +12,7 @@ class InternationalTransferSignaturePage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Firma de operación',
               leading: Button(
@@ -49,7 +49,10 @@ class InternationalTransferSignaturePage extends StatelessWidget {
                   AppSpacing.vertical.s5,
                   Row(
                     children: [
-                      Text('¿No recibes el código?', style: context.textStyle.bodyMediumRegular),
+                      Text(
+                        '¿No recibes el código?',
+                        style: context.textStyle.bodyMediumRegular,
+                      ),
                       TextButton(
                         onPressed: () {},
                         child: Text(
@@ -77,10 +80,14 @@ class InternationalTransferSignaturePage extends StatelessWidget {
             onPressed: () async => AlertBottomSheet.show(
               context: context,
               icon: IconAssets.check,
-              title: 'Has enviado ${56.00.toCurrency(plusSign: false)} a Shore2Shore',
-              message: 'El pago se ha realizado correctamente. Puedes ver los detalles en tu historial de pagos.',
+              title:
+                  'Has enviado ${56.00.toCurrency(plusSign: false)} a Shore2Shore',
+              message:
+                  'El pago se ha realizado correctamente. Puedes ver los detalles en tu historial de pagos.',
               buttonOkText: 'Continuar',
-              onOkPressed: () => context.pushNamed(AppRoute.dailyBankingInternationalTransferCertificate.name),
+              onOkPressed: () => context.pushNamed(
+                AppRoute.dailyBankingInternationalTransferCertificate.name,
+              ),
             ),
           ),
         ),

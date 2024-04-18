@@ -14,7 +14,7 @@ class ScheduledTransfersPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Transferencias programadas',
               leading: Button(
@@ -68,7 +68,8 @@ class ScheduledTransfersPage extends StatelessWidget {
           title: 'Nueva',
           icon: IconAssets.plus,
           size: ButtonSize.small,
-          onPressed: () async => context.pushNamed(AppRoute.dailyBankingNationalTransfers.name),
+          onPressed: () async =>
+              context.pushNamed(AppRoute.dailyBankingNationalTransfers.name),
         ),
       ),
     );

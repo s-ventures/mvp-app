@@ -11,7 +11,7 @@ class ScheduledTransferSignaturePage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Pago periódico',
               leading: Button(
@@ -48,7 +48,10 @@ class ScheduledTransferSignaturePage extends StatelessWidget {
                   AppSpacing.vertical.s5,
                   Row(
                     children: [
-                      Text('¿No recibes el código?', style: context.textStyle.bodyMediumRegular),
+                      Text(
+                        '¿No recibes el código?',
+                        style: context.textStyle.bodyMediumRegular,
+                      ),
                       TextButton(
                         onPressed: () {},
                         child: Text(
