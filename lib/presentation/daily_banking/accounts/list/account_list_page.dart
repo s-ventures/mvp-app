@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/banking_aggregation/banking_aggregation_controller.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class AccountListPage extends StatelessWidget {
+class AccountListPage extends ConsumerWidget {
   const AccountListPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bankingAggregationController =
+        ref.read(bankingAggregationControllerProvider.notifier);
+    ref.watch(bankingAggregationControllerProvider).aggregationServiceUrl.when(
+          data: (url) {
+            int a;
+          },
+          error: (error, stackTrace) {},
+          loading: () {},
+        );
+
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -25,7 +37,8 @@ class AccountListPage extends StatelessWidget {
                   Button(
                     icon: IconAssets.plus,
                     size: ButtonSize.extraSmall,
-                    onPressed: () async {},
+                    onPressed:
+                        bankingAggregationController.getAggregationServiceUrl,
                   ),
                 ],
               ),
