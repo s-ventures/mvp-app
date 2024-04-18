@@ -90,7 +90,7 @@ class _SearchAccountTransactionsPageState
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Buscar',
               leading: Button(

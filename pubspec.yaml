@@ -33,7 +33,7 @@ dependencies:
   ui_kit:
     path: ./packages/ui_kit
   uuid: ^3.0.7
-  webview_flutter: 2.8.0
+  webview_flutter: ^4.7.0
   wolt_modal_sheet: ^0.4.1
 
 dev_dependencies:

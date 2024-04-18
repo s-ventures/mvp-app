@@ -1,20 +1,17 @@
-enum ClaimStatusType {
-  open('En curso', 'OPEN'),
-  close('Cerrado', 'CLOSE');
+import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/claim_status_type_dto.dart';
 
-  const ClaimStatusType(this.name, this.type);
+enum ClaimStatusType {
+  open('En curso'),
+  close('Cerrado');
+
+  const ClaimStatusType(this.name);
 
   final String name;
-  final String type;
+}
 
-  static ClaimStatusType fromString(String type) {
-    switch (type) {
-      case 'OPEN':
-        return ClaimStatusType.open;
-      case 'CLOSE':
-        return ClaimStatusType.close;
-      default:
-        throw ArgumentError('Invalid claim status type: $type');
-    }
-  }
+extension ClaimStatusTypeX on ClaimStatusType {
+  ClaimStatusTypeDto toDto() => switch (this) {
+        ClaimStatusType.open => ClaimStatusTypeDto.open,
+        ClaimStatusType.close => ClaimStatusTypeDto.close,
+      };
 }
