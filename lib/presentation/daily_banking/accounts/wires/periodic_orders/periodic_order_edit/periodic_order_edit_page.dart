@@ -113,8 +113,10 @@ class PeriodicOrderEditPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Programado diariamente',
-                        style: context.textStyle.bodyMediumRegular),
+                    Text(
+                      'Programado diariamente',
+                      style: context.textStyle.bodyMediumRegular,
+                    ),
                     AppSpacing.horizontal.s2,
                     Text(
                       '· Desde hoy',

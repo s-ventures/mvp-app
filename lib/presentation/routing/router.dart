@@ -43,8 +43,10 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insuran
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies_list/policies_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/erp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protecccion/proteccion_page.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/widgets/scaffold_with_bottom_nav_bar.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/widgets/web_view_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'router.g.dart';
@@ -60,6 +62,21 @@ GoRouter router(RouterRef ref) {
     initialLocation: AppRoute.dailyBanking.path,
     navigatorKey: _rootNavigatorKey,
     routes: [
+      // WebView
+      GoRoute(
+        path: AppRoute.webView.path,
+        name: AppRoute.webView.name,
+        pageBuilder: (context, state) {
+          final params = state.extra! as WebViewPageRouteParams;
+          return MaterialPage(
+            key: state.pageKey,
+            child: WebViewPage(
+              url: params.url,
+              onNavigationRequest: params.onNavigationRequest,
+            ),
+          );
+        },
+      ),
       // // Auth
       // authRouter,
 
@@ -468,13 +485,13 @@ GoRouter router(RouterRef ref) {
                     path: AppRoute.dailyBankingInsuranceClaimDetails.path,
                     name: AppRoute.dailyBankingInsuranceClaimDetails.name,
                     pageBuilder: (context, state) {
-                      final args =
-                          state.extra! as InsuranceClaimDetailsRouteArgs;
+                      final params =
+                          state.extra! as InsuranceClaimDetailsRouteParams;
                       return MaterialPage(
                         key: state.pageKey,
                         child: InsuranceClaimDetailsPage(
-                          claimId: args.claimId,
-                          insuranceId: args.insuranceId,
+                          claimId: params.claimId,
+                          insuranceId: params.insuranceId,
                         ),
                       );
                     },
@@ -620,13 +637,3 @@ GoRouter router(RouterRef ref) {
 /// Route observer to use with RouteAware
 final RouteObserver<ModalRoute<void>> routeObserver =
     RouteObserver<ModalRoute<void>>();
-
-class InsuranceClaimDetailsRouteArgs {
-  const InsuranceClaimDetailsRouteArgs({
-    required this.claimId,
-    required this.insuranceId,
-  });
-
-  final int claimId;
-  final int insuranceId;
-}

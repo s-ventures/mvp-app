@@ -7,14 +7,14 @@ import 'package:manifiesto_mvp_app/domain/security/repositories/monitoring/i_sec
 import 'package:manifiesto_mvp_app/infrastructure/security/config/cleafy_app_config.dart';
 
 final securityMonitoringRepositoryProvider = Provider(
-  (ref) => SecurityMonitorCleafyAdapter(
+  (ref) => SecurityMonitorFacade(
     cleafyConfig: CleafyAppConfig(),
     logger: ref.watch(appLoggerProvider),
   ),
 );
 
-class SecurityMonitorCleafyAdapter implements ISecurityMonitor {
-  SecurityMonitorCleafyAdapter({
+class SecurityMonitorFacade implements ISecurityMonitor {
+  SecurityMonitorFacade({
     required CleafyAppConfig cleafyConfig,
     required AppLogger logger,
   })  : _cleafyConfig = cleafyConfig,
@@ -29,9 +29,13 @@ class SecurityMonitorCleafyAdapter implements ISecurityMonitor {
       final config = _cleafyConfig.get();
       await CleafyPlugin.initWithConfiguration(config);
     } on MissingConfigException {
-      _logger.warning('Cleafy adapter did not initialize due to missing configuration');
+      _logger.warning(
+        'Cleafy adapter did not initialize due to missing configuration',
+      );
     } on MissingConfigVariableException catch (e) {
-      _logger.warning('Cleafy adapter did not initialize due to missing configuration variable ${e.variableName}');
+      _logger.warning(
+        'Cleafy adapter did not initialize due to missing configuration variable ${e.variableName}',
+      );
     }
   }
 }

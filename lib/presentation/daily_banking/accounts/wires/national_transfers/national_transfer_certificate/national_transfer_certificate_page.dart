@@ -12,7 +12,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Transferencia nacional',
               leading: Button(
@@ -56,7 +56,8 @@ class NationalTransferCertificatePage extends StatelessWidget {
                           children: [
                             Text(
                               'Anular transferencia',
-                              style: context.textStyle.bodyMediumRegular.copyWith(
+                              style:
+                                  context.textStyle.bodyMediumRegular.copyWith(
                                 color: context.color.statusError,
                               ),
                             ),
@@ -84,7 +85,12 @@ class NationalTransferCertificatePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Center(child: Text(56.00.toCurrency(plusSign: false), style: context.textStyle.h4)),
+                  Center(
+                    child: Text(
+                      56.00.toCurrency(plusSign: false),
+                      style: context.textStyle.h4,
+                    ),
+                  ),
                   AppSpacing.vertical.s3,
                   Container(
                     padding: const EdgeInsets.all(AppSpacing.s3),
@@ -95,7 +101,10 @@ class NationalTransferCertificatePage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Diariamente', style: context.textStyle.bodySmallRegular),
+                        Text(
+                          'Diariamente',
+                          style: context.textStyle.bodySmallRegular,
+                        ),
                         AppSpacing.horizontal.s3,
                         Text(
                           '· Desde 12/01/2024',
@@ -224,7 +233,8 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   title: 'Descargar',
                   size: ButtonSize.small,
                   expand: true,
-                  onPressed: () async => context.goNamed(AppRoute.dailyBanking.name),
+                  onPressed: () async =>
+                      context.goNamed(AppRoute.dailyBanking.name),
                 ),
               ),
               AppSpacing.horizontal.s3,

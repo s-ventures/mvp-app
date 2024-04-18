@@ -27,7 +27,8 @@ class PeriodicOrderDetailsPage extends StatelessWidget {
                   type: ButtonType.outlined,
                   size: ButtonSize.extraSmall,
                   onPressed: () => context.pushNamed(
-                      AppRoute.dailyBankingScheduledTransferEdit.name),
+                    AppRoute.dailyBankingScheduledTransferEdit.name,
+                  ),
                 ),
               ],
             ),
@@ -48,7 +49,9 @@ class PeriodicOrderDetailsPage extends StatelessWidget {
                   AppSpacing.vertical.s5,
                   Container(
                     padding: const EdgeInsets.symmetric(
-                        vertical: AppSpacing.s3, horizontal: AppSpacing.s5),
+                      vertical: AppSpacing.s3,
+                      horizontal: AppSpacing.s5,
+                    ),
                     decoration: ShapeDecoration(
                       color: context.color.neutralLight100,
                       shape: RoundedRectangleBorder(
@@ -93,8 +96,10 @@ class PeriodicOrderDetailsPage extends StatelessWidget {
                                 'Se activará tu pago periódico de ${25.00.toCurrency(plusSign: false)}',
                             buttonOkText: 'Activar',
                             buttonCancelText: 'Cancelar',
-                            onOkPressed: () async => context.pushNamed(AppRoute
-                                .dailyBankingScheduledTransferSignature.name),
+                            onOkPressed: () async => context.pushNamed(
+                              AppRoute
+                                  .dailyBankingScheduledTransferSignature.name,
+                            ),
                           ),
                         ),
                       ),

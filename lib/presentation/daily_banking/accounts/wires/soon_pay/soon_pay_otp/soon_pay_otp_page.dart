@@ -12,7 +12,7 @@ class SoonPayOTPPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Firma de operación',
               leading: Button(
@@ -49,7 +49,10 @@ class SoonPayOTPPage extends StatelessWidget {
                   AppSpacing.vertical.s5,
                   Row(
                     children: [
-                      Text('¿No recibes el código?', style: context.textStyle.bodyMediumRegular),
+                      Text(
+                        '¿No recibes el código?',
+                        style: context.textStyle.bodyMediumRegular,
+                      ),
                       TextButton(
                         onPressed: () {},
                         child: Text(
@@ -78,9 +81,11 @@ class SoonPayOTPPage extends StatelessWidget {
               context: context,
               icon: IconAssets.send,
               title: 'Envío realizado',
-              message: 'Se han enviado ${50.00.toCurrency(plusSign: false)} a Thomas Magnum',
+              message:
+                  'Se han enviado ${50.00.toCurrency(plusSign: false)} a Thomas Magnum',
               buttonOkText: 'Continuar',
-              onOkPressed: () => context.pushNamed(AppRoute.dailyBankingTransfers.name),
+              onOkPressed: () =>
+                  context.pushNamed(AppRoute.dailyBankingTransfers.name),
             ),
           ),
         ),

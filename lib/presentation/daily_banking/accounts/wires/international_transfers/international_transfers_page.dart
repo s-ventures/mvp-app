@@ -105,7 +105,8 @@ class InternationalTransfersPage extends StatelessWidget {
                   title: 'Enviar dinero',
                   size: ButtonSize.small,
                   onPressed: () => context.pushNamed(
-                      AppRoute.dailyBankingInternationalTransferResume.name),
+                    AppRoute.dailyBankingInternationalTransferResume.name,
+                  ),
                   expand: true,
                 ),
               ),

@@ -48,8 +48,10 @@ class PeriodicOrderSignaturePage extends StatelessWidget {
                   AppSpacing.vertical.s5,
                   Row(
                     children: [
-                      Text('¿No recibes el código?',
-                          style: context.textStyle.bodyMediumRegular),
+                      Text(
+                        '¿No recibes el código?',
+                        style: context.textStyle.bodyMediumRegular,
+                      ),
                       TextButton(
                         onPressed: () {},
                         child: Text(

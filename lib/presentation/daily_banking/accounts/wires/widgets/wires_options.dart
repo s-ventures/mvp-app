@@ -51,7 +51,8 @@ class WiresOptions extends StatelessWidget {
                 ),
                 trailing: IconSvg.small(IconAssets.chevronRight),
                 onTap: () => context.pushNamed(
-                    AppRoute.dailyBankingInternationalTransfers.name),
+                  AppRoute.dailyBankingInternationalTransfers.name,
+                ),
               ),
             ),
             Splash(

@@ -29,7 +29,8 @@ class FilterPeriodicOrdersAmount extends ConsumerWidget {
             child: TextInput(
               initialValue: amountRange.start.toInt().toString(),
               controller: TextEditingController(
-                  text: amountRange.start.toInt().toString()),
+                text: amountRange.start.toInt().toString(),
+              ),
               keyboardType: TextInputType.number,
               size: TextInputSize.extraSmall,
               enabledBorder: OutlineInputBorder(
@@ -42,7 +43,8 @@ class FilterPeriodicOrdersAmount extends ConsumerWidget {
               onChanged: (value) {
                 if (value.isNotEmpty) {
                   setAmountRange(
-                      RangeValues(double.parse(value), amountRange.end));
+                    RangeValues(double.parse(value), amountRange.end),
+                  );
                 }
               },
             ),
@@ -63,7 +65,8 @@ class FilterPeriodicOrdersAmount extends ConsumerWidget {
             child: TextInput(
               initialValue: amountRange.end.toInt().toString(),
               controller: TextEditingController(
-                  text: amountRange.end.toInt().toString()),
+                text: amountRange.end.toInt().toString(),
+              ),
               keyboardType: TextInputType.number,
               size: TextInputSize.extraSmall,
               enabledBorder: OutlineInputBorder(
@@ -76,7 +79,8 @@ class FilterPeriodicOrdersAmount extends ConsumerWidget {
               onChanged: (value) {
                 if (value.isNotEmpty) {
                   setAmountRange(
-                      RangeValues(amountRange.start, double.parse(value)));
+                    RangeValues(amountRange.start, double.parse(value)),
+                  );
                 }
               },
             ),

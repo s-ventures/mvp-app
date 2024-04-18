@@ -1,18 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/banking_aggregation/banking_aggregation_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-class AccountListPage extends StatelessWidget {
+class AccountListPage extends ConsumerWidget {
   const AccountListPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bankingAggregationController =
+        ref.read(bankingAggregationControllerProvider.notifier);
+    ref.watch(bankingAggregationControllerProvider).aggregationServiceUrl.when(
+          data: (url) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              context.pushNamed(
+                AppRoute.webView.name,
+                extra: WebViewPageRouteParams(
+                  title: 'Agregar cuenta',
+                  url: url,
+                  onNavigationRequest: (request) {
+                    final navigate = bankingAggregationController
+                        .tryParseCredentialsId(request.url);
+                    if (navigate) {
+                      return NavigationDecision.navigate;
+                    } else {
+                      context.pop();
+                      return NavigationDecision.prevent;
+                    }
+                  },
+                ),
+              );
+            });
+          },
+          error: (error, stackTrace) {},
+          loading: () {},
+        );
+
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Cuentas',
                 leading: Button(
@@ -25,7 +58,8 @@ class AccountListPage extends StatelessWidget {
                   Button(
                     icon: IconAssets.plus,
                     size: ButtonSize.extraSmall,
-                    onPressed: () async {},
+                    onPressed:
+                        bankingAggregationController.getAggregationServiceUrl,
                   ),
                 ],
               ),

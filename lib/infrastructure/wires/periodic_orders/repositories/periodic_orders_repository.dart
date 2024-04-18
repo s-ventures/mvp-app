@@ -12,7 +12,8 @@ import 'package:manifiesto_mvp_app/infrastructure/wires/periodic_orders/dtos/sim
 final periodicOrdersRepositoryProvider = Provider<PeriodicOrdersRepository>(
   (ref) => PeriodicOrdersRepository(
     remoteDataSource: PeriodicOrdersRemoteDataSource(
-        ref.watch(periodicOrdersRestClientProvider)),
+      ref.watch(periodicOrdersRestClientProvider),
+    ),
   ),
 );
 

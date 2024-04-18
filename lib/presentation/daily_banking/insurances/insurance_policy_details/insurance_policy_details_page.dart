@@ -16,7 +16,7 @@ class InsurancePolicyDetailsPage extends StatelessWidget {
           body: NestedScrollView(
             headerSliverBuilder: (context, value) {
               return [
-                CustomAppBar(
+                CustomAppBar.sliver(
                   floating: true,
                   pinned: true,
                   centerTitle: true,

@@ -108,8 +108,10 @@ class NationalTransfersPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Programado diariamente',
-                        style: context.textStyle.bodyMediumRegular),
+                    Text(
+                      'Programado diariamente',
+                      style: context.textStyle.bodyMediumRegular,
+                    ),
                     AppSpacing.horizontal.s2,
                     Text(
                       '· Desde hoy',
@@ -139,7 +141,8 @@ class NationalTransfersPage extends StatelessWidget {
                       title: 'Enviar dinero',
                       size: ButtonSize.small,
                       onPressed: () => context.pushNamed(
-                          AppRoute.dailyBankingNationalTransferResume.name),
+                        AppRoute.dailyBankingNationalTransferResume.name,
+                      ),
                       expand: true,
                     ),
                   ),

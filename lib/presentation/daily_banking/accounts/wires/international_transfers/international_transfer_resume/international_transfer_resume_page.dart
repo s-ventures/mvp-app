@@ -12,7 +12,7 @@ class InternationalTransferResumePage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Firma de operación',
               leading: Button(
@@ -134,7 +134,9 @@ class InternationalTransferResumePage extends StatelessWidget {
             title: 'Confirmar',
             size: ButtonSize.small,
             expand: true,
-            onPressed: () async => context.pushNamed(AppRoute.dailyBankingInternationalTransferSignature.name),
+            onPressed: () async => context.pushNamed(
+              AppRoute.dailyBankingInternationalTransferSignature.name,
+            ),
           ),
         ),
       ),

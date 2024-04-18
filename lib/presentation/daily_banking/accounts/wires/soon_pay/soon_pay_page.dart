@@ -12,7 +12,7 @@ class SoonPayPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'soonPay',
               leading: Button(
