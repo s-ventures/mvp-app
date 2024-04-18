@@ -8,24 +8,24 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/acco
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/search_account_transactions_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/taxes_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/received/transfer_received_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/details/sent/transfer_sent_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_resume/international_transfer_resume_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfer_signature/international_transfer_signature_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/international_transfers/international_transfers_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/national_transfers/national_transfer_certificate/national_transfer_certificate_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/national_transfers/national_transfer_resume/national_transfer_resume_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/national_transfers/national_transfer_signature/national_transfer_signature_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/national_transfers/national_transfers_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_details/scheduled_transfer_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_edit/scheduled_transfer_edit_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/scheduled_transfers/scheduled_transfer_signature/scheduled_transfer_signature_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_contact/soon_pay_contact.page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_otp/soon_pay_otp_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/soon_pay/soon_pay_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transfers/transfers_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/received/transfer_received_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/sent/transfer_sent_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_resume/international_transfer_resume_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_signature/international_transfer_signature_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfers_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfer_certificate/national_transfer_certificate_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfer_resume/national_transfer_resume_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfer_signature/national_transfer_signature_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfers_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_details/periodic_order_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_edit/periodic_order_edit_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_signature/periodic_order_signature_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_orders_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_contact/soon_pay_contact.page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_otp/soon_pay_otp_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/wires_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/search/search_cards_transactions_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_alias/card_settings_alias_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/settings/card_settings_limits/card_settings_limits_page.dart';
@@ -115,7 +115,7 @@ GoRouter router(RouterRef ref) {
                 name: AppRoute.dailyBankingTransfers.name,
                 pageBuilder: (context, state) => MaterialPage(
                   key: state.pageKey,
-                  child: const TransfersPage(),
+                  child: const WiresPage(),
                 ),
                 routes: [
                   // National bank transfers
@@ -229,7 +229,7 @@ GoRouter router(RouterRef ref) {
                     name: AppRoute.dailyBankingScheduledTransfers.name,
                     pageBuilder: (context, state) => MaterialPage(
                       key: state.pageKey,
-                      child: const ScheduledTransfersPage(),
+                      child: const PeriodicOrdersPage(),
                     ),
                     routes: [
                       GoRoute(
@@ -240,7 +240,7 @@ GoRouter router(RouterRef ref) {
                             AppRoute.dailyBankingScheduledTransferDetails.name,
                         pageBuilder: (context, state) => MaterialPage(
                           key: state.pageKey,
-                          child: const ScheduledTransferDetailsPage(),
+                          child: const PeriodicOrderDetailsPage(),
                         ),
                         routes: [
                           GoRoute(
@@ -251,7 +251,7 @@ GoRouter router(RouterRef ref) {
                                 AppRoute.dailyBankingScheduledTransferEdit.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
-                              child: const ScheduledTransferEditPage(),
+                              child: const PeriodicOrderEditPage(),
                             ),
                           ),
                           GoRoute(
@@ -262,7 +262,7 @@ GoRouter router(RouterRef ref) {
                                 .dailyBankingScheduledTransferSignature.name,
                             pageBuilder: (context, state) => MaterialPage(
                               key: state.pageKey,
-                              child: const ScheduledTransferSignaturePage(),
+                              child: const PeriodicOrderSignaturePage(),
                             ),
                           ),
                         ],

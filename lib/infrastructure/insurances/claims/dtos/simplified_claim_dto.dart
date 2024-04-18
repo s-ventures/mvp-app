@@ -8,9 +8,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
-
+import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/claim_status_type_dto.dart';
 part 'simplified_claim_dto.freezed.dart';
 part 'simplified_claim_dto.g.dart';
 
@@ -19,7 +18,7 @@ class SimplifiedClaimDto with _$SimplifiedClaimDto {
   const factory SimplifiedClaimDto({
     required int claimId,
     required int insuranceId,
-    required String status,
+    required ClaimStatusTypeDto status,
     required String riskType,
     required String reason,
   }) = _SimplifiedClaimDto;
@@ -33,7 +32,7 @@ extension SimplifiedClaimDtoX on SimplifiedClaimDto {
     return SimplifiedClaim(
       id: UniqueId.fromUniqueString(claimId.toString()),
       insuranceId: insuranceId,
-      status: ClaimStatusType.fromString(status),
+      status: status.toDomain(),
       riskType: riskType,
       reason: reason,
     );

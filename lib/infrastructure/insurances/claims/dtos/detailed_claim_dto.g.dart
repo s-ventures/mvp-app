@@ -14,7 +14,7 @@ _$DetailedClaimDtoImpl _$$DetailedClaimDtoImplFromJson(
       year: json['year'] as int,
       dossier: json['dossier'] as String,
       createDate: DateTime.parse(json['createDate'] as String),
-      status: json['status'] as String,
+      status: $enumDecode(_$ClaimStatusTypeDtoEnumMap, json['status']),
       riskType: json['riskType'] as String,
       reason: json['reason'] as String,
       riskLocation: json['riskLocation'] as String,
@@ -37,7 +37,7 @@ Map<String, dynamic> _$$DetailedClaimDtoImplToJson(
       'year': instance.year,
       'dossier': instance.dossier,
       'createDate': instance.createDate.toIso8601String(),
-      'status': instance.status,
+      'status': _$ClaimStatusTypeDtoEnumMap[instance.status]!,
       'riskType': instance.riskType,
       'reason': instance.reason,
       'riskLocation': instance.riskLocation,
@@ -47,3 +47,8 @@ Map<String, dynamic> _$$DetailedClaimDtoImplToJson(
       'agentEmail': instance.agentEmail,
       'agentTelephone': instance.agentTelephone,
     };
+
+const _$ClaimStatusTypeDtoEnumMap = {
+  ClaimStatusTypeDto.open: 'OPEN',
+  ClaimStatusTypeDto.close: 'CLOSE',
+};
