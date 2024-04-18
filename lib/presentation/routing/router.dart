@@ -42,6 +42,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insuran
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/insurance_policy_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies_list/policies_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/erp_page.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/improve/improve_protection_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/protection_page.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/widgets/scaffold_with_bottom_nav_bar.dart';
@@ -590,6 +591,17 @@ GoRouter router(RouterRef ref) {
               key: state.pageKey,
               child: const ProtectionPage(),
             ),
+            routes: [
+              // Improve protection
+              GoRoute(
+                path: AppRoute.pretectionImprove.path,
+                name: AppRoute.pretectionImprove.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const ImproveProtectionPage(),
+                ),
+              ),
+            ],
           ),
         ],
       ),

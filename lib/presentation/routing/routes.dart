@@ -6,14 +6,16 @@ enum AppRoute {
   dailyBankingAccountDetails('account/:accountId'),
   dailyBankingSearchAccountTransactions('search-account-transactions'),
   dailyBankingAccountTransactionDetails(
-      ':accountId/transaction/:transactionId'),
+    ':accountId/transaction/:transactionId',
+  ),
   dailyBankingAccountTaxesDetails('tax-details'),
   dailyBankingCardSettings('card-settings'),
   dailyBankingSearchCardTransactions('search-card-transactions'),
   dailyBankingCardSettingsLimits('limits'),
   dailyBankingCardSettingsAlias('alias'),
   dailyBankingCardTransactionDetails(
-      'cards/:cardContractId/transaction/:transactionId'),
+    'cards/:cardContractId/transaction/:transactionId',
+  ),
   dailyBankingAggregatedAccounts('aggregated-accounts'),
   dailyBankingInsurancePoliciesList('policies-list'),
   dailyBankingInsuranceClaimsList('claims-list'),
@@ -45,7 +47,8 @@ enum AppRoute {
   negocio('/negocio'),
   agenda('/agenda'),
   analitica('/analitica'),
-  protection('/protection');
+  protection('/protection'),
+  pretectionImprove('improve');
 
   const AppRoute(this.path);
 

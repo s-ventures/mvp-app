@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CoverageProtection extends StatelessWidget {
@@ -51,7 +53,7 @@ class CoverageProtection extends StatelessWidget {
             title: 'Mejorar',
             size: ButtonSize.small,
             expand: true,
-            onPressed: () async {},
+            onPressed: () => context.pushNamed(AppRoute.pretectionImprove.name),
           ),
         ],
       ),
