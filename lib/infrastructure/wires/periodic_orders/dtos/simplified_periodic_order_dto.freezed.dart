@@ -30,6 +30,9 @@ mixin _$SimplifiedPeriodicOrderDto {
   String get currencyCode => throw _privateConstructorUsedError;
   PeriodicOrderStatusTypeDto? get status => throw _privateConstructorUsedError;
   String? get concept => throw _privateConstructorUsedError;
+  PeriodicOrderFrecuencyTypeDto? get frecuency =>
+      throw _privateConstructorUsedError;
+  DateTime? get startDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +56,9 @@ abstract class $SimplifiedPeriodicOrderDtoCopyWith<$Res> {
       double amount,
       String currencyCode,
       PeriodicOrderStatusTypeDto? status,
-      String? concept});
+      String? concept,
+      PeriodicOrderFrecuencyTypeDto? frecuency,
+      DateTime? startDate});
 }
 
 /// @nodoc
@@ -79,6 +84,8 @@ class _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res,
     Object? currencyCode = null,
     Object? status = freezed,
     Object? concept = freezed,
+    Object? frecuency = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_value.copyWith(
       periodicTransferId: null == periodicTransferId
@@ -117,6 +124,14 @@ class _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res,
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String?,
+      frecuency: freezed == frecuency
+          ? _value.frecuency
+          : frecuency // ignore: cast_nullable_to_non_nullable
+              as PeriodicOrderFrecuencyTypeDto?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -139,7 +154,9 @@ abstract class _$$SimplifiedPeriodicOrderDtoImplCopyWith<$Res>
       double amount,
       String currencyCode,
       PeriodicOrderStatusTypeDto? status,
-      String? concept});
+      String? concept,
+      PeriodicOrderFrecuencyTypeDto? frecuency,
+      DateTime? startDate});
 }
 
 /// @nodoc
@@ -164,6 +181,8 @@ class __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl<$Res>
     Object? currencyCode = null,
     Object? status = freezed,
     Object? concept = freezed,
+    Object? frecuency = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_$SimplifiedPeriodicOrderDtoImpl(
       periodicTransferId: null == periodicTransferId
@@ -202,6 +221,14 @@ class __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String?,
+      frecuency: freezed == frecuency
+          ? _value.frecuency
+          : frecuency // ignore: cast_nullable_to_non_nullable
+              as PeriodicOrderFrecuencyTypeDto?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -218,7 +245,9 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
       required this.amount,
       required this.currencyCode,
       required this.status,
-      required this.concept});
+      required this.concept,
+      required this.frecuency,
+      required this.startDate});
 
   factory _$SimplifiedPeriodicOrderDtoImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -242,10 +271,14 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
   final PeriodicOrderStatusTypeDto? status;
   @override
   final String? concept;
+  @override
+  final PeriodicOrderFrecuencyTypeDto? frecuency;
+  @override
+  final DateTime? startDate;
 
   @override
   String toString() {
-    return 'SimplifiedPeriodicOrderDto(periodicTransferId: $periodicTransferId, accountId: $accountId, customerId: $customerId, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, amount: $amount, currencyCode: $currencyCode, status: $status, concept: $concept)';
+    return 'SimplifiedPeriodicOrderDto(periodicTransferId: $periodicTransferId, accountId: $accountId, customerId: $customerId, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, amount: $amount, currencyCode: $currencyCode, status: $status, concept: $concept, frecuency: $frecuency, startDate: $startDate)';
   }
 
   @override
@@ -267,7 +300,11 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
             (identical(other.currencyCode, currencyCode) ||
                 other.currencyCode == currencyCode) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.concept, concept) || other.concept == concept));
+            (identical(other.concept, concept) || other.concept == concept) &&
+            (identical(other.frecuency, frecuency) ||
+                other.frecuency == frecuency) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate));
   }
 
   @JsonKey(ignore: true)
@@ -282,7 +319,9 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
       amount,
       currencyCode,
       status,
-      concept);
+      concept,
+      frecuency,
+      startDate);
 
   @JsonKey(ignore: true)
   @override
@@ -310,7 +349,9 @@ abstract class _SimplifiedPeriodicOrderDto
       required final double amount,
       required final String currencyCode,
       required final PeriodicOrderStatusTypeDto? status,
-      required final String? concept}) = _$SimplifiedPeriodicOrderDtoImpl;
+      required final String? concept,
+      required final PeriodicOrderFrecuencyTypeDto? frecuency,
+      required final DateTime? startDate}) = _$SimplifiedPeriodicOrderDtoImpl;
 
   factory _SimplifiedPeriodicOrderDto.fromJson(Map<String, dynamic> json) =
       _$SimplifiedPeriodicOrderDtoImpl.fromJson;
@@ -333,6 +374,10 @@ abstract class _SimplifiedPeriodicOrderDto
   PeriodicOrderStatusTypeDto? get status;
   @override
   String? get concept;
+  @override
+  PeriodicOrderFrecuencyTypeDto? get frecuency;
+  @override
+  DateTime? get startDate;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedPeriodicOrderDtoImplCopyWith<_$SimplifiedPeriodicOrderDtoImpl>

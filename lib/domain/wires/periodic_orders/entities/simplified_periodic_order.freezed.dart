@@ -25,6 +25,9 @@ mixin _$SimplifiedPeriodicOrder {
   String get currencyCode => throw _privateConstructorUsedError;
   PeriodicOrderStatusType? get status => throw _privateConstructorUsedError;
   String? get concept => throw _privateConstructorUsedError;
+  PeriodicOrderFrecuencyType? get frecuency =>
+      throw _privateConstructorUsedError;
+  DateTime? get startDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedPeriodicOrderCopyWith<SimplifiedPeriodicOrder> get copyWith =>
@@ -46,7 +49,9 @@ abstract class $SimplifiedPeriodicOrderCopyWith<$Res> {
       double amount,
       String currencyCode,
       PeriodicOrderStatusType? status,
-      String? concept});
+      String? concept,
+      PeriodicOrderFrecuencyType? frecuency,
+      DateTime? startDate});
 }
 
 /// @nodoc
@@ -72,6 +77,8 @@ class _$SimplifiedPeriodicOrderCopyWithImpl<$Res,
     Object? currencyCode = null,
     Object? status = freezed,
     Object? concept = freezed,
+    Object? frecuency = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -110,6 +117,14 @@ class _$SimplifiedPeriodicOrderCopyWithImpl<$Res,
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String?,
+      frecuency: freezed == frecuency
+          ? _value.frecuency
+          : frecuency // ignore: cast_nullable_to_non_nullable
+              as PeriodicOrderFrecuencyType?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -132,7 +147,9 @@ abstract class _$$SimplifiedPeriodicOrderImplCopyWith<$Res>
       double amount,
       String currencyCode,
       PeriodicOrderStatusType? status,
-      String? concept});
+      String? concept,
+      PeriodicOrderFrecuencyType? frecuency,
+      DateTime? startDate});
 }
 
 /// @nodoc
@@ -157,6 +174,8 @@ class __$$SimplifiedPeriodicOrderImplCopyWithImpl<$Res>
     Object? currencyCode = null,
     Object? status = freezed,
     Object? concept = freezed,
+    Object? frecuency = freezed,
+    Object? startDate = freezed,
   }) {
     return _then(_$SimplifiedPeriodicOrderImpl(
       id: null == id
@@ -195,6 +214,14 @@ class __$$SimplifiedPeriodicOrderImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String?,
+      frecuency: freezed == frecuency
+          ? _value.frecuency
+          : frecuency // ignore: cast_nullable_to_non_nullable
+              as PeriodicOrderFrecuencyType?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -211,7 +238,9 @@ class _$SimplifiedPeriodicOrderImpl implements _SimplifiedPeriodicOrder {
       required this.amount,
       required this.currencyCode,
       required this.status,
-      required this.concept});
+      required this.concept,
+      required this.frecuency,
+      required this.startDate});
 
   @override
   final UniqueId id;
@@ -231,10 +260,14 @@ class _$SimplifiedPeriodicOrderImpl implements _SimplifiedPeriodicOrder {
   final PeriodicOrderStatusType? status;
   @override
   final String? concept;
+  @override
+  final PeriodicOrderFrecuencyType? frecuency;
+  @override
+  final DateTime? startDate;
 
   @override
   String toString() {
-    return 'SimplifiedPeriodicOrder(id: $id, accountId: $accountId, customerId: $customerId, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, amount: $amount, currencyCode: $currencyCode, status: $status, concept: $concept)';
+    return 'SimplifiedPeriodicOrder(id: $id, accountId: $accountId, customerId: $customerId, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, amount: $amount, currencyCode: $currencyCode, status: $status, concept: $concept, frecuency: $frecuency, startDate: $startDate)';
   }
 
   @override
@@ -255,7 +288,11 @@ class _$SimplifiedPeriodicOrderImpl implements _SimplifiedPeriodicOrder {
             (identical(other.currencyCode, currencyCode) ||
                 other.currencyCode == currencyCode) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.concept, concept) || other.concept == concept));
+            (identical(other.concept, concept) || other.concept == concept) &&
+            (identical(other.frecuency, frecuency) ||
+                other.frecuency == frecuency) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate));
   }
 
   @override
@@ -269,7 +306,9 @@ class _$SimplifiedPeriodicOrderImpl implements _SimplifiedPeriodicOrder {
       amount,
       currencyCode,
       status,
-      concept);
+      concept,
+      frecuency,
+      startDate);
 
   @JsonKey(ignore: true)
   @override
@@ -289,7 +328,9 @@ abstract class _SimplifiedPeriodicOrder implements SimplifiedPeriodicOrder {
       required final double amount,
       required final String currencyCode,
       required final PeriodicOrderStatusType? status,
-      required final String? concept}) = _$SimplifiedPeriodicOrderImpl;
+      required final String? concept,
+      required final PeriodicOrderFrecuencyType? frecuency,
+      required final DateTime? startDate}) = _$SimplifiedPeriodicOrderImpl;
 
   @override
   UniqueId get id;
@@ -309,6 +350,10 @@ abstract class _SimplifiedPeriodicOrder implements SimplifiedPeriodicOrder {
   PeriodicOrderStatusType? get status;
   @override
   String? get concept;
+  @override
+  PeriodicOrderFrecuencyType? get frecuency;
+  @override
+  DateTime? get startDate;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedPeriodicOrderImplCopyWith<_$SimplifiedPeriodicOrderImpl>

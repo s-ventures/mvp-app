@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/simplified_periodic_order.dart';
+import 'package:manifiesto_mvp_app/infrastructure/wires/periodic_orders/dtos/periodic_order_frecuency_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/periodic_orders/dtos/periodic_order_status_type_dto.dart';
 
 part 'simplified_periodic_order_dto.freezed.dart';
@@ -18,6 +19,8 @@ class SimplifiedPeriodicOrderDto with _$SimplifiedPeriodicOrderDto {
     required String currencyCode,
     required PeriodicOrderStatusTypeDto? status,
     required String? concept,
+    required PeriodicOrderFrecuencyTypeDto? frecuency,
+    required DateTime? startDate,
   }) = _SimplifiedPeriodicOrderDto;
 
   factory SimplifiedPeriodicOrderDto.fromJson(Map<String, dynamic> json) =>
@@ -36,6 +39,8 @@ extension SimplifiedPeriodicOrderDtoX on SimplifiedPeriodicOrderDto {
       currencyCode: currencyCode,
       status: status?.toDomain(),
       concept: concept ?? '',
+      frecuency: frecuency?.toDomain(),
+      startDate: startDate,
     );
   }
 }

@@ -14,11 +14,10 @@ class PeriodicOrdersPage extends ConsumerStatefulWidget {
   const PeriodicOrdersPage({super.key});
 
   @override
-  ConsumerState<PeriodicOrdersPage> createState() =>
-      _ScheduledTransfersPageState();
+  ConsumerState<PeriodicOrdersPage> createState() => _PeriodicOrdersPageState();
 }
 
-class _ScheduledTransfersPageState extends ConsumerState<PeriodicOrdersPage> {
+class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
