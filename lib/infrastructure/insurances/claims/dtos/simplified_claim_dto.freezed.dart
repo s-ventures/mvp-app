@@ -22,7 +22,7 @@ SimplifiedClaimDto _$SimplifiedClaimDtoFromJson(Map<String, dynamic> json) {
 mixin _$SimplifiedClaimDto {
   int get claimId => throw _privateConstructorUsedError;
   int get insuranceId => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+  ClaimStatusTypeDto get status => throw _privateConstructorUsedError;
   String get riskType => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
 
@@ -41,7 +41,7 @@ abstract class $SimplifiedClaimDtoCopyWith<$Res> {
   $Res call(
       {int claimId,
       int insuranceId,
-      String status,
+      ClaimStatusTypeDto status,
       String riskType,
       String reason});
 }
@@ -77,7 +77,7 @@ class _$SimplifiedClaimDtoCopyWithImpl<$Res, $Val extends SimplifiedClaimDto>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusTypeDto,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$SimplifiedClaimDtoImplCopyWith<$Res>
   $Res call(
       {int claimId,
       int insuranceId,
-      String status,
+      ClaimStatusTypeDto status,
       String riskType,
       String reason});
 }
@@ -135,7 +135,7 @@ class __$$SimplifiedClaimDtoImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusTypeDto,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class _$SimplifiedClaimDtoImpl implements _SimplifiedClaimDto {
   @override
   final int insuranceId;
   @override
-  final String status;
+  final ClaimStatusTypeDto status;
   @override
   final String riskType;
   @override
@@ -215,7 +215,7 @@ abstract class _SimplifiedClaimDto implements SimplifiedClaimDto {
   const factory _SimplifiedClaimDto(
       {required final int claimId,
       required final int insuranceId,
-      required final String status,
+      required final ClaimStatusTypeDto status,
       required final String riskType,
       required final String reason}) = _$SimplifiedClaimDtoImpl;
 
@@ -227,7 +227,7 @@ abstract class _SimplifiedClaimDto implements SimplifiedClaimDto {
   @override
   int get insuranceId;
   @override
-  String get status;
+  ClaimStatusTypeDto get status;
   @override
   String get riskType;
   @override
