@@ -1,15 +1,44 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/simplified/simplified_claims_controller.dart';
+import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_claims_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Claims extends StatelessWidget {
+class Claims extends ConsumerStatefulWidget {
   const Claims({super.key});
 
   @override
+  ConsumerState<Claims> createState() => _ClaimsState();
+}
+
+class _ClaimsState extends ConsumerState<Claims> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(simplifiedClaimsControllerProvider.notifier).init(),
+      );
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final claims = ref.watch(
+      simplifiedClaimsControllerProvider.select((value) => value.claims),
+    );
+
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.s5),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -56,27 +85,53 @@ class Claims extends StatelessWidget {
             ],
           ),
           AppSpacing.vertical.s3,
-          InsuranceClaimListTile(
-            leadingEmoji: '🖥️',
-            leadingBackgroundColor: const Color(0xFFE0E0E0),
-            number: '123456',
-            status: 'En curso',
-            statusColor: context.color.statusWarning,
-            title: 'Protección de la actividad de tu negocio',
-            onTap: () {},
-          ),
-          AppSpacing.vertical.s3,
-          InsuranceClaimListTile(
-            leadingEmoji: '🛍️',
-            leadingBackgroundColor: const Color(0xFFFEDEF4),
-            number: '123456',
-            status: 'En curso',
-            statusColor: context.color.statusWarning,
-            title: 'Protección de la actividad de tu negocio',
-            onTap: () {},
-          ),
+          claims.mapOrNull(
+                data: (data) => _ClaimsList(
+                  claims: data.value,
+                ),
+              ) ??
+              const Center(child: CircularProgressIndicator.adaptive()),
         ],
       ),
+    );
+  }
+}
+
+class _ClaimsList extends StatelessWidget {
+  const _ClaimsList({required this.claims});
+
+  final List<SimplifiedClaim> claims;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      padding: EdgeInsets.zero,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: claims.length,
+      itemBuilder: (context, index) {
+        final claim = claims[index];
+        return Padding(
+          padding: const EdgeInsets.only(bottom: AppSpacing.s3),
+          child: InsuranceClaimListTile(
+            leadingEmoji: '🖥️',
+            leadingBackgroundColor: const Color(0xFFE0E0E0),
+            number: claim.id.getOrCrash(),
+            status: claim.status.name,
+            statusColor: claim.status == ClaimStatusType.open
+                ? context.color.statusWarning
+                : context.color.statusSuccess,
+            title: claim.reason,
+            onTap: () => context.pushNamed(
+              AppRoute.dailyBankingInsuranceClaimDetails.name,
+              extra: InsuranceClaimDetailsRouteArgs(
+                claimId: claim.id.toInt(),
+                insuranceId: claim.insuranceId,
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

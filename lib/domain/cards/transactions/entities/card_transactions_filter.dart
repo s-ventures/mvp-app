@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 
 part 'card_transactions_filter.freezed.dart';
@@ -8,6 +9,7 @@ class CardTransactionsFilter with _$CardTransactionsFilter {
   const factory CardTransactionsFilter({
     required List<UniqueId> cardContractIds,
     required List<UniqueId> cardIds,
+    required TransactionOperationType operationType,
     double? amountFrom,
     double? amountTo,
     DateTime? dateFrom,

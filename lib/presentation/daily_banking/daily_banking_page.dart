@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/accounts_home_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/cards_home_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurances_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurances_home_page.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DailyBankingPage extends StatelessWidget {
@@ -16,7 +16,8 @@ class DailyBankingPage extends StatelessWidget {
           headerSliverBuilder: (context, value) {
             return [
               SliverOverlapAbsorber(
-                handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                handle:
+                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: CustomAppBar(
                   centerTitle: true,
                   pinned: true,
@@ -50,7 +51,7 @@ class DailyBankingPage extends StatelessWidget {
             children: [
               AccountsHomePage(),
               CardsHomePage(),
-              Insurances(),
+              InsurancesHomePage(),
             ],
           ),
         ),

@@ -30,7 +30,7 @@ class _AccountListSliverPinnedHeaderState
 
   @override
   Widget build(BuildContext context) {
-    final accounts = ref.watch(
+    final cards = ref.watch(
       simplifiedCardsControllerProvider.select((value) => value.cards),
     );
     final selectedCardsIndex = ref.watch(
@@ -46,7 +46,7 @@ class _AccountListSliverPinnedHeaderState
       surfaceTintColor: context.color.backgroundLight200,
       backgroundColor: context.color.backgroundLight200,
       toolbarHeight: 250,
-      flexibleSpace: accounts.mapOrNull(
+      flexibleSpace: cards.mapOrNull(
             data: (data) => _CardList(
               cards: data.value,
               selectedCardIndex: selectedCardsIndex,

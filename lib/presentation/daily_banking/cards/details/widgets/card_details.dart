@@ -19,9 +19,9 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(ref
-          .read(detailedCardControllerProvider.notifier)
-          .init(widget.cardId));
+      unawaited(
+        ref.read(detailedCardControllerProvider.notifier).init(widget.cardId),
+      );
     });
     super.initState();
   }
