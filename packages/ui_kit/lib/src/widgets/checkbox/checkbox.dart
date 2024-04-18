@@ -6,7 +6,7 @@ enum CheckboxSize { small, medium, large }
 
 enum CheckboxType { rectangle, circle }
 
-enum CheckboxColor { primary, secondary }
+enum CheckboxColor { primary, secondary, tertiary, neutral }
 
 class CustomCheckbox extends StatelessWidget {
   const CustomCheckbox({
@@ -95,8 +95,12 @@ class CustomCheckbox extends StatelessWidget {
 
     return InkWell(
       splashColor: activeColor == CheckboxColor.primary
-          ? context.color.secondaryLight600.withOpacity(0.3)
-          : context.color.primaryLight600.withOpacity(0.3),
+          ? context.color.primaryLight100
+          : activeColor == CheckboxColor.secondary
+              ? context.color.secondaryLight100
+              : activeColor == CheckboxColor.tertiary
+                  ? context.color.tertiaryLight200
+                  : context.color.strokeLigth200,
       borderRadius: type == CheckboxType.circle
           ? BorderRadius.circular(100)
           : BorderRadius.circular(
@@ -114,12 +118,37 @@ class CustomCheckbox extends StatelessWidget {
           height: boxSize,
           decoration: ShapeDecoration(
             color: isChecked && activeColor == CheckboxColor.primary
-                ? context.color.secondaryLight600
+                ? context.color.primary
                 : isChecked && activeColor == CheckboxColor.secondary
-                    ? context.color.statusInfo
-                    : context.color.backgroundLight0,
+                    ? context.color.secondary
+                    : isChecked && activeColor == CheckboxColor.tertiary
+                        ? context.color.tertiary
+                        : context.color.backgroundLight0,
             shape: type == CheckboxType.circle
-                ? const CircleBorder()
+                ? CircleBorder(
+                    side: BorderSide(
+                      color: isChecked && activeColor == CheckboxColor.primary
+                          ? context.color.primary
+                          : isChecked && activeColor == CheckboxColor.secondary
+                              ? context.color.secondary
+                              : isChecked &&
+                                      activeColor == CheckboxColor.tertiary
+                                  ? context.color.tertiary
+                                  : !isChecked &&
+                                          activeColor == CheckboxColor.primary
+                                      ? context.color.primaryLight100
+                                      : !isChecked &&
+                                              activeColor ==
+                                                  CheckboxColor.secondary
+                                          ? context.color.secondaryLight100
+                                          : !isChecked &&
+                                                  activeColor ==
+                                                      CheckboxColor.tertiary
+                                              ? context.color.tertiaryLight200
+                                              : context.color.strokeLigth200,
+                      width: 2,
+                    ),
+                  )
                 : RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       size == CheckboxSize.small
@@ -130,10 +159,24 @@ class CustomCheckbox extends StatelessWidget {
                     ),
                     side: BorderSide(
                       color: isChecked && activeColor == CheckboxColor.primary
-                          ? context.color.secondaryLight600
+                          ? context.color.primary
                           : isChecked && activeColor == CheckboxColor.secondary
-                              ? context.color.statusInfo
-                              : context.color.strokeLigth200,
+                              ? context.color.secondary
+                              : isChecked &&
+                                      activeColor == CheckboxColor.tertiary
+                                  ? context.color.tertiary
+                                  : !isChecked &&
+                                          activeColor == CheckboxColor.primary
+                                      ? context.color.primaryLight100
+                                      : !isChecked &&
+                                              activeColor ==
+                                                  CheckboxColor.secondary
+                                          ? context.color.secondaryLight100
+                                          : !isChecked &&
+                                                  activeColor ==
+                                                      CheckboxColor.tertiary
+                                              ? context.color.tertiaryLight200
+                                              : context.color.strokeLigth200,
                       width: 2,
                     ),
                   ),

@@ -13,6 +13,7 @@ export 'custom_card.dart';
 export 'custom_chip.dart';
 export 'custom_divider.dart';
 export 'custom_dropdown.dart';
+export 'custom_line_bars_chart.dart';
 export 'custom_popup_menu.dart';
 export 'daily_banking/category_list_tile.dart';
 export 'daily_banking/insurance_claim_list_tile.dart';
