@@ -47,6 +47,11 @@ import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/c
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/policy_details/claims_tab/details/claims_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/policy_details/policy_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/improve/improve_protection_page.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/insurances/accidents/accidents_insurance.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/insurances/commerce/commerce_insurance.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/insurances/cybersecurity/cybersecurity_insurance.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/insurances/health/health_insurance.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/insurances/responsibility/responsibility_insurance.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/protection_page.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -613,10 +618,49 @@ GoRouter router(RouterRef ref) {
               child: const ProtectionPage(),
             ),
             routes: [
-              // Improve protection
               GoRoute(
-                path: AppRoute.pretectionImprove.path,
-                name: AppRoute.pretectionImprove.name,
+                path: AppRoute.protectionInsuranceAccident.path,
+                name: AppRoute.protectionInsuranceAccident.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const AccidentsInsurancePage(),
+                ),
+              ),
+              GoRoute(
+                path: AppRoute.protectionInsuranceCommerce.path,
+                name: AppRoute.protectionInsuranceCommerce.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const CommerceInsurancePage(),
+                ),
+              ),
+              GoRoute(
+                path: AppRoute.protectionInsuranceCybersecurity.path,
+                name: AppRoute.protectionInsuranceCybersecurity.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const CybersecurityInsurancePage(),
+                ),
+              ),
+              GoRoute(
+                path: AppRoute.protectionInsuranceHealth.path,
+                name: AppRoute.protectionInsuranceHealth.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const HealthInsurancePage(),
+                ),
+              ),
+              GoRoute(
+                path: AppRoute.protectionInsuranceResponsibility.path,
+                name: AppRoute.protectionInsuranceResponsibility.name,
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: const ResponsibilityInsurancePage(),
+                ),
+              ),
+              GoRoute(
+                path: AppRoute.protectionImprove.path,
+                name: AppRoute.protectionImprove.name,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
                   child: const ImproveProtectionPage(),

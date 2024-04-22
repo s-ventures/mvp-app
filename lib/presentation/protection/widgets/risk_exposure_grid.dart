@@ -1,22 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-const List<Map<String, dynamic>> riskExposureList = [
+List<Map<String, dynamic>> riskExposureList = [
   {
     'title': 'Protege tus activos',
     'value': 0.25,
+    'path': AppRoute.protectionInsuranceCommerce.name,
   },
   {
     'title': 'Protege tu responsabilidad',
     'value': 0.5,
+    'path': AppRoute.protectionInsuranceResponsibility.name,
   },
   {
     'title': 'Protege la salud',
     'value': 0.75,
+    'path': AppRoute.protectionInsuranceHealth.name,
   },
   {
     'title': 'Protege tus ingresos',
     'value': 1.00,
+    'path': AppRoute.protectionInsuranceAccident.name,
+  },
+  {
+    'title': 'Protege tu ciberseguridad',
+    'value': 1.00,
+    'path': AppRoute.protectionInsuranceCybersecurity.name,
   },
 ];
 
@@ -81,7 +92,9 @@ class RiskExposureGrid extends StatelessWidget {
               ),
               const Spacer(),
               GestureDetector(
-                onTap: () async {},
+                onTap: () async => context.pushNamed(
+                  riskExposure['path'] as String,
+                ),
                 child: Row(
                   children: [
                     Text(

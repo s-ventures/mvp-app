@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-const List<Map<String, dynamic>> riskExposureList = [
+List<Map<String, dynamic>> riskExposureList = [
   {
     'title': 'Protege tus activos',
+    'path': AppRoute.protectionInsuranceCommerce.name,
     'items': [
       {
         'label': 'Local comercial',
@@ -21,6 +25,7 @@ const List<Map<String, dynamic>> riskExposureList = [
   },
   {
     'title': 'Protege tu responsabilidad',
+    'path': AppRoute.protectionInsuranceResponsibility.name,
     'items': [
       {
         'label': 'Daños a terceros',
@@ -38,6 +43,7 @@ const List<Map<String, dynamic>> riskExposureList = [
   },
   {
     'title': 'Protege la salud',
+    'path': AppRoute.protectionInsuranceHealth.name,
     'items': [
       {
         'label': 'Salud colaboradores',
@@ -51,6 +57,7 @@ const List<Map<String, dynamic>> riskExposureList = [
   },
   {
     'title': 'Protege tus ingresos',
+    'path': AppRoute.protectionInsuranceAccident.name,
     'items': [
       {
         'label': 'Paralización de la actividad',
@@ -59,6 +66,20 @@ const List<Map<String, dynamic>> riskExposureList = [
       {
         'label': 'Impagos clientes',
         'active': true,
+      },
+    ],
+  },
+  {
+    'title': 'Protege tu ciberseguridad',
+    'path': AppRoute.protectionInsuranceCybersecurity.name,
+    'items': [
+      {
+        'label': 'Ciberataques',
+        'active': false,
+      },
+      {
+        'label': 'Robo de datos',
+        'active': false,
       },
     ],
   },
@@ -92,20 +113,27 @@ class RiskExposureList extends StatelessWidget {
                       color: context.color.textLight900,
                     ),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        'Mejorar',
-                        style: context.textStyle.buttonTabBar.copyWith(
-                          color: context.color.textLight600,
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(
+                        riskExposure['path'] as String,
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          'Mejorar',
+                          style: context.textStyle.buttonTabBar.copyWith(
+                            color: context.color.textLight600,
+                          ),
                         ),
-                      ),
-                      AppSpacing.horizontal.s2,
-                      IconSvg.small(
-                        IconAssets.chevronRight,
-                        color: context.color.iconLight600,
-                      ),
-                    ],
+                        AppSpacing.horizontal.s2,
+                        IconSvg.small(
+                          IconAssets.chevronRight,
+                          color: context.color.iconLight600,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

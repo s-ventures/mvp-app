@@ -35,7 +35,6 @@ class ContractedProductsPolicyDetailsTab extends StatelessWidget {
                   title: 'Protección de la actividad de tu negocio',
                   type: PolicyAndClaimsType.policy,
                   date: DateFormat('dd/MM/yyyy').format(DateTime.now()),
-                  onPressed: null,
                 ),
                 AppSpacing.vertical.s5,
                 DateRangeListTile.disabled(

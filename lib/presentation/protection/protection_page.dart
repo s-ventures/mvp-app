@@ -23,7 +23,7 @@ class _ProtectionPageState extends State<ProtectionPage> {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 type: CustomAppBarType.logo,
                 leading: Button(
@@ -44,7 +44,7 @@ class _ProtectionPageState extends State<ProtectionPage> {
             ];
           },
           body: ListView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
               Container(
                 padding: const EdgeInsets.all(AppSpacing.s4),

@@ -53,7 +53,7 @@ class CoverageProtection extends StatelessWidget {
             title: 'Mejorar',
             size: ButtonSize.small,
             expand: true,
-            onPressed: () => context.pushNamed(AppRoute.pretectionImprove.name),
+            onPressed: () => context.pushNamed(AppRoute.protectionImprove.name),
           ),
         ],
       ),
