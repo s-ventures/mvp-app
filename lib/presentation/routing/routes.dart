@@ -48,7 +48,11 @@ enum AppRoute {
   agenda('/agenda'),
   analitica('/analitica'),
   protection('/protection'),
-  pretectionImprove('improve');
+  pretectionImprove('improve'),
+  protectionContractedProducts('contracted-products'),
+  protectionContractedProductsPolicyDetails('policy-details'),
+  protectionContractedProductsClaimDetails('claim-details'),
+  protectionContractedProductsAddNew('add-new');
 
   const AppRoute(this.path);
 

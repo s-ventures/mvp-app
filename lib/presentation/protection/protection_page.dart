@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/protection_coverage.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/risk_exposure_grid.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/risk_exposure_list.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class ProtectionPage extends StatefulWidget {
@@ -83,6 +85,9 @@ class _ProtectionPageState extends State<ProtectionPage> {
               AppSpacing.vertical.s5,
               Splash(
                 borderRadius: BorderRadius.circular(context.radius.soft),
+                onPressed: () => context.pushNamed(
+                  AppRoute.protectionContractedProducts.name,
+                ),
                 child: ListTile(
                   dense: true,
                   contentPadding: const EdgeInsets.symmetric(
