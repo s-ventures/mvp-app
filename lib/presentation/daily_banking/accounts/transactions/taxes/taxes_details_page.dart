@@ -12,7 +12,7 @@ class TaxesDetailsPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Detalles de movimiento',
                 leading: Button(

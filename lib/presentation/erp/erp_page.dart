@@ -13,7 +13,7 @@ class ErpPage extends StatelessWidget {
         body: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 floating: true,
                 pinned: true,

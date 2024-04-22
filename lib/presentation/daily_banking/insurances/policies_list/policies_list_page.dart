@@ -14,7 +14,7 @@ class InsurancePoliciesListPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Listado de pólizas',
                 leading: Button(
@@ -43,7 +43,8 @@ class InsurancePoliciesListPage extends StatelessWidget {
                 number: '123456',
                 category: DateFormat('dd/MM/yyyy').format(DateTime.now()),
                 title: 'Seguro de comercio',
-                onTap: () => context.goNamed(AppRoute.dailyBankingInsuranceDetails.name),
+                onTap: () =>
+                    context.goNamed(AppRoute.dailyBankingInsuranceDetails.name),
               ),
             ],
           ),

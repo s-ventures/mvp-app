@@ -12,7 +12,7 @@ class CertificatesAndDocumentsDownload extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Certificado de titularidad',
               leading: Button(

@@ -13,7 +13,7 @@ class CertificatesAndDocumentsPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Certificados',
                 leading: Button(

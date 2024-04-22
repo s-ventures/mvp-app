@@ -52,7 +52,8 @@ enum AppRoute {
   protectionContractedProducts('contracted-products'),
   protectionContractedProductsPolicyDetails('policy-details'),
   protectionContractedProductsClaimDetails('claim-details'),
-  protectionContractedProductsAddNew('add-new');
+  protectionContractedProductsAddNew('add-new'),
+  webView('/web-view');
 
   const AppRoute(this.path);
 
