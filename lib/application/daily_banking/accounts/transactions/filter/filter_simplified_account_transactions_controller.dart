@@ -4,7 +4,8 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactio
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 
 final filterSimplifiedAccountTransactionsControllerProvider =
-    StateNotifierProvider<FilterSimplifiedAccountTransactionsController,
+    StateNotifierProvider.autoDispose<
+        FilterSimplifiedAccountTransactionsController,
         FilterSimplifiedAccountTransactionsState>(
   (ref) => FilterSimplifiedAccountTransactionsController(
     ref.read(simplifiedAccountTransactionsControllerProvider.notifier),

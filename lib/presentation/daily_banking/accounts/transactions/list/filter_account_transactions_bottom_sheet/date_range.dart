@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DateRange extends ConsumerWidget {
-  const DateRange({super.key});
+  const DateRange({
+    required this.startDate,
+    required this.endDate,
+    required this.setStartDate,
+    required this.setEndDate,
+    super.key,
+  });
+
+  final DateTime? startDate;
+  final DateTime? endDate;
+  final ValueChanged<DateTime> setStartDate;
+  final ValueChanged<DateTime> setEndDate;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final startDate = ref
-        .watch(filterSimplifiedAccountTransactionsControllerProvider)
-        .startDate;
-    final endDate = ref
-        .watch(filterSimplifiedAccountTransactionsControllerProvider)
-        .endDate;
-
-    final setStartDate = ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
-        .setStartDate;
-    final setEndDate = ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
-        .setEndDate;
-
     return CustomCard(
       child: Row(
         children: [
