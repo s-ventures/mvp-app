@@ -221,6 +221,7 @@ class FilterAccountTransactionsBottomSheet {
                   Amount(
                     amountFrom: amountFrom,
                     amountTo: amountTo,
+                    operationType: operationType,
                     setAmountFrom: (double value) => setAmountFrom(value),
                     setAmountTo: (double value) => setAmountTo(value),
                     setOperationType: (TransactionOperationType value) =>

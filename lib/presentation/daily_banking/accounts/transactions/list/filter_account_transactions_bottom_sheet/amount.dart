@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Amount extends ConsumerWidget {
+class Amount extends StatelessWidget {
   const Amount({
     required this.amountFrom,
     required this.amountTo,
+    required this.operationType,
     required this.setAmountFrom,
     required this.setAmountTo,
     required this.setOperationType,
@@ -15,16 +15,22 @@ class Amount extends ConsumerWidget {
 
   final double? amountFrom;
   final double? amountTo;
+  final TransactionOperationType? operationType;
   final ValueChanged<double> setAmountFrom;
   final ValueChanged<double> setAmountTo;
   final ValueChanged<TransactionOperationType> setOperationType;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
+    final amountFromController = TextEditingController(
+        text: amountFrom?.toStringAsFixed(2).replaceAll('.', ','));
+    final amountToController = TextEditingController(
+        text: amountTo?.toStringAsFixed(2).replaceAll('.', ','));
     return CustomCard(
       child: Column(
         children: [
           SegmentedControl<TransactionOperationType>(
+            initialValue: operationType ?? TransactionOperationType.all,
             onChanged: setOperationType,
             values: TransactionOperationType.values,
             widgetBuilder: (value) => Text(value.name),
@@ -45,6 +51,7 @@ class Amount extends ConsumerWidget {
                     AppSpacing.vertical.s2,
                     // TODO(jesus): Create a custom widget for this
                     TextInput(
+                      controller: amountFromController,
                       size: TextInputSize.extraSmall,
                       textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
@@ -52,6 +59,7 @@ class Amount extends ConsumerWidget {
                         final parsedValue = double.tryParse(value);
                         if (parsedValue != null) {
                           setAmountFrom(parsedValue);
+                          amountFromController.text = value;
                         }
                       },
                       fillColor: context.color.neutralLight100,
@@ -77,12 +85,14 @@ class Amount extends ConsumerWidget {
                     AppSpacing.vertical.s2,
                     // TODO(jesus): Create a custom widget for this
                     TextInput(
+                      controller: amountToController,
                       size: TextInputSize.extraSmall,
                       textAlign: TextAlign.center,
                       onChanged: (value) {
                         final parsedValue = double.tryParse(value);
                         if (parsedValue != null) {
                           setAmountTo(parsedValue);
+                          amountToController.text = value;
                         }
                       },
                       fillColor: context.color.neutralLight100,
