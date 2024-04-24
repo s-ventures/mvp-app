@@ -113,6 +113,16 @@ class _SearchAccountTransactionsPageState
                           context: context,
                           onApply: controller.applyFilters,
                           onReset: controller.resetFilters,
+                          stateDate: stateDate,
+                          endDate: endDate,
+                          amountFrom: amountFrom,
+                          amountTo: amountTo,
+                          operationType: operationType,
+                          setStartDate: controller.setStartDate,
+                          setEndDate: controller.setEndDate,
+                          setAmountFrom: controller.setAmountFrom,
+                          setAmountTo: controller.setAmountTo,
+                          setTransactionType: controller.setOperationType,
                         );
                       },
                     ),
@@ -146,11 +156,34 @@ class _SearchAccountTransactionsPageState
                       controller: _controller,
                     ),
                     if (isFilterApplied)
-                      const Padding(
-                        padding: EdgeInsets.symmetric(
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
                           horizontal: AppSpacing.s5,
                         ),
-                        child: FilterList(),
+                        child: FilterList(
+                          stateDate: stateDate,
+                          endDate: endDate,
+                          amountFrom: amountFrom,
+                          amountTo: amountTo,
+                          operationType: operationType,
+                          onClearDateRange: () {
+                            controller
+                              ..setStartDate(null)
+                              ..setEndDate(null)
+                              ..applyFilters();
+                          },
+                          onClearAmountRange: () {
+                            controller
+                              ..setAmountFrom(null)
+                              ..setAmountTo(null)
+                              ..applyFilters();
+                          },
+                          onClearCreditDebit: () {
+                            controller
+                              ..setOperationType(TransactionOperationType.all)
+                              ..applyFilters();
+                          },
+                        ),
                       ),
                   ],
                 ),
