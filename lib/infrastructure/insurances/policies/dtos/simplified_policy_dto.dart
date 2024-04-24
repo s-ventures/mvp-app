@@ -6,8 +6,8 @@
 //     }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/policies/entities/simplified_policy.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/policies/dtos/policy_status_type_dto.dart';
 
 part 'simplified_policy_dto.freezed.dart';
 part 'simplified_policy_dto.g.dart';
@@ -17,7 +17,8 @@ class SimplifiedPolicyDto with _$SimplifiedPolicyDto {
   const factory SimplifiedPolicyDto({
     required int insuranceId,
     required String policy,
-    required PolicyStatusTypeDto status,
+    required String
+        status, //TODO: Change to enum PolicyStatusTypeDto when BE is ready
     required String description,
   }) = _SimplifiedPolicyDto;
 
@@ -28,9 +29,9 @@ class SimplifiedPolicyDto with _$SimplifiedPolicyDto {
 extension SimplifiedPolicyDtoX on SimplifiedPolicyDto {
   SimplifiedPolicy toDomain() {
     return SimplifiedPolicy(
+      id: UniqueId.fromUniqueString(policy),
       insuranceId: insuranceId,
-      policy: policy,
-      status: status.toDomain(),
+      status: status,
       description: description,
     );
   }

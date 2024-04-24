@@ -11,7 +11,7 @@ _$SimplifiedPolicyDtoImpl _$$SimplifiedPolicyDtoImplFromJson(
     _$SimplifiedPolicyDtoImpl(
       insuranceId: json['insuranceId'] as int,
       policy: json['policy'] as String,
-      status: $enumDecode(_$PolicyStatusTypeDtoEnumMap, json['status']),
+      status: json['status'] as String,
       description: json['description'] as String,
     );
 
@@ -20,12 +20,6 @@ Map<String, dynamic> _$$SimplifiedPolicyDtoImplToJson(
     <String, dynamic>{
       'insuranceId': instance.insuranceId,
       'policy': instance.policy,
-      'status': _$PolicyStatusTypeDtoEnumMap[instance.status]!,
+      'status': instance.status,
       'description': instance.description,
     };
-
-const _$PolicyStatusTypeDtoEnumMap = {
-  PolicyStatusTypeDto.active: 'ACTIVE',
-  PolicyStatusTypeDto.closed: 'CLOSED',
-  PolicyStatusTypeDto.canceled: 'CANCELED',
-};

@@ -76,7 +76,9 @@ class _InsuranceClaimDetailsPageState
                   leadingBackgroundColor: const Color(0xFFE0E0E0),
                   title: claim.reason,
                   number: claim.insuranceId.getOrCrash(),
-                  category: claim.riskType,
+                  status: claim.riskType,
+                  statusColor: context.color.statusSuccess,
+                  category: '',
                 ),
                 AppSpacing.vertical.s5,
                 ListTile(

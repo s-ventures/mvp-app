@@ -18,10 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PoliciesFilter {
   List<int>? get insuranceIds => throw _privateConstructorUsedError;
   String? get policy => throw _privateConstructorUsedError;
-  PolicyStatusType? get status => throw _privateConstructorUsedError;
   String? get certificateNumber => throw _privateConstructorUsedError;
   DateTime? get createDateFrom => throw _privateConstructorUsedError;
   DateTime? get createDateTo => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
@@ -45,10 +45,10 @@ abstract class $PoliciesFilterCopyWith<$Res> {
   $Res call(
       {List<int>? insuranceIds,
       String? policy,
-      PolicyStatusType? status,
       String? certificateNumber,
       DateTime? createDateFrom,
       DateTime? createDateTo,
+      String? status,
       String? description,
       double? amountFrom,
       double? amountTo,
@@ -73,10 +73,10 @@ class _$PoliciesFilterCopyWithImpl<$Res, $Val extends PoliciesFilter>
   $Res call({
     Object? insuranceIds = freezed,
     Object? policy = freezed,
-    Object? status = freezed,
     Object? certificateNumber = freezed,
     Object? createDateFrom = freezed,
     Object? createDateTo = freezed,
+    Object? status = freezed,
     Object? description = freezed,
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
@@ -94,10 +94,6 @@ class _$PoliciesFilterCopyWithImpl<$Res, $Val extends PoliciesFilter>
           ? _value.policy
           : policy // ignore: cast_nullable_to_non_nullable
               as String?,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as PolicyStatusType?,
       certificateNumber: freezed == certificateNumber
           ? _value.certificateNumber
           : certificateNumber // ignore: cast_nullable_to_non_nullable
@@ -110,6 +106,10 @@ class _$PoliciesFilterCopyWithImpl<$Res, $Val extends PoliciesFilter>
           ? _value.createDateTo
           : createDateTo // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -153,10 +153,10 @@ abstract class _$$PoliciesFilterImplCopyWith<$Res>
   $Res call(
       {List<int>? insuranceIds,
       String? policy,
-      PolicyStatusType? status,
       String? certificateNumber,
       DateTime? createDateFrom,
       DateTime? createDateTo,
+      String? status,
       String? description,
       double? amountFrom,
       double? amountTo,
@@ -179,10 +179,10 @@ class __$$PoliciesFilterImplCopyWithImpl<$Res>
   $Res call({
     Object? insuranceIds = freezed,
     Object? policy = freezed,
-    Object? status = freezed,
     Object? certificateNumber = freezed,
     Object? createDateFrom = freezed,
     Object? createDateTo = freezed,
+    Object? status = freezed,
     Object? description = freezed,
     Object? amountFrom = freezed,
     Object? amountTo = freezed,
@@ -200,10 +200,6 @@ class __$$PoliciesFilterImplCopyWithImpl<$Res>
           ? _value.policy
           : policy // ignore: cast_nullable_to_non_nullable
               as String?,
-      status: freezed == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as PolicyStatusType?,
       certificateNumber: freezed == certificateNumber
           ? _value.certificateNumber
           : certificateNumber // ignore: cast_nullable_to_non_nullable
@@ -216,6 +212,10 @@ class __$$PoliciesFilterImplCopyWithImpl<$Res>
           ? _value.createDateTo
           : createDateTo // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -254,10 +254,10 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
   const _$PoliciesFilterImpl(
       {final List<int>? insuranceIds,
       this.policy,
-      this.status,
       this.certificateNumber,
       this.createDateFrom,
       this.createDateTo,
+      this.status,
       this.description,
       this.amountFrom,
       this.amountTo,
@@ -280,13 +280,13 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
   @override
   final String? policy;
   @override
-  final PolicyStatusType? status;
-  @override
   final String? certificateNumber;
   @override
   final DateTime? createDateFrom;
   @override
   final DateTime? createDateTo;
+  @override
+  final String? status;
   @override
   final String? description;
   @override
@@ -304,7 +304,7 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
 
   @override
   String toString() {
-    return 'PoliciesFilter(insuranceIds: $insuranceIds, policy: $policy, status: $status, certificateNumber: $certificateNumber, createDateFrom: $createDateFrom, createDateTo: $createDateTo, description: $description, amountFrom: $amountFrom, amountTo: $amountTo, lastInvoiceAmountFrom: $lastInvoiceAmountFrom, lastInvoiceAmountTo: $lastInvoiceAmountTo, paymentPeriodicity: $paymentPeriodicity, iaasBranch: $iaasBranch)';
+    return 'PoliciesFilter(insuranceIds: $insuranceIds, policy: $policy, certificateNumber: $certificateNumber, createDateFrom: $createDateFrom, createDateTo: $createDateTo, status: $status, description: $description, amountFrom: $amountFrom, amountTo: $amountTo, lastInvoiceAmountFrom: $lastInvoiceAmountFrom, lastInvoiceAmountTo: $lastInvoiceAmountTo, paymentPeriodicity: $paymentPeriodicity, iaasBranch: $iaasBranch)';
   }
 
   @override
@@ -315,13 +315,13 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
             const DeepCollectionEquality()
                 .equals(other._insuranceIds, _insuranceIds) &&
             (identical(other.policy, policy) || other.policy == policy) &&
-            (identical(other.status, status) || other.status == status) &&
             (identical(other.certificateNumber, certificateNumber) ||
                 other.certificateNumber == certificateNumber) &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
             (identical(other.createDateTo, createDateTo) ||
                 other.createDateTo == createDateTo) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.amountFrom, amountFrom) ||
@@ -343,10 +343,10 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
       runtimeType,
       const DeepCollectionEquality().hash(_insuranceIds),
       policy,
-      status,
       certificateNumber,
       createDateFrom,
       createDateTo,
+      status,
       description,
       amountFrom,
       amountTo,
@@ -367,10 +367,10 @@ abstract class _PoliciesFilter implements PoliciesFilter {
   const factory _PoliciesFilter(
       {final List<int>? insuranceIds,
       final String? policy,
-      final PolicyStatusType? status,
       final String? certificateNumber,
       final DateTime? createDateFrom,
       final DateTime? createDateTo,
+      final String? status,
       final String? description,
       final double? amountFrom,
       final double? amountTo,
@@ -384,13 +384,13 @@ abstract class _PoliciesFilter implements PoliciesFilter {
   @override
   String? get policy;
   @override
-  PolicyStatusType? get status;
-  @override
   String? get certificateNumber;
   @override
   DateTime? get createDateFrom;
   @override
   DateTime? get createDateTo;
+  @override
+  String? get status;
   @override
   String? get description;
   @override

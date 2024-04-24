@@ -23,11 +23,9 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/policies/entities/policies_filter.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/policies/entities/policy_payment_periodicity.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/policies/entities/policy_status_type.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 import 'package:manifiesto_mvp_app/infrastructure/insurances/policies/dtos/policy_payment_periodicity_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/policies/dtos/policy_status_type_dto.dart';
 
 part 'policies_filter_dto.g.dart';
 
@@ -62,7 +60,7 @@ class PoliciesFilterDto extends PaginatedRequest {
       certificateNumber: filter.certificateNumber,
       createDateFrom: filter.createDateFrom,
       createDateTo: filter.createDateTo,
-      status: filter.status?.toDto(),
+      status: filter.status,
       description: filter.description,
       amountFrom: filter.amountFrom,
       amountTo: filter.amountTo,
@@ -85,7 +83,7 @@ class PoliciesFilterDto extends PaginatedRequest {
   final DateTime? createDateFrom;
   @DateConverter()
   final DateTime? createDateTo;
-  final PolicyStatusTypeDto? status;
+  final String? status;
   final String? description;
   final double? amountFrom;
   final double? amountTo;

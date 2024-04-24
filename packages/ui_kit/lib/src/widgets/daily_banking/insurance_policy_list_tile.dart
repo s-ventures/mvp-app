@@ -6,6 +6,8 @@ class InsurancePolicyListTile extends StatelessWidget {
     required this.leadingEmoji,
     required this.leadingBackgroundColor,
     required this.number,
+    required this.status,
+    required this.statusColor,
     required this.category,
     required this.title,
     this.onTap,
@@ -15,6 +17,8 @@ class InsurancePolicyListTile extends StatelessWidget {
   final String leadingEmoji;
   final Color leadingBackgroundColor;
   final String number;
+  final String status;
+  final Color statusColor;
   final String category;
   final String title;
   final VoidCallback? onTap;
@@ -49,11 +53,24 @@ class InsurancePolicyListTile extends StatelessWidget {
                           ),
                         ),
                         AppSpacing.vertical.s2,
-                        Text(
-                          category,
-                          style: context.textStyle.buttonTabBar.copyWith(
-                            color: context.color.textLight600,
-                          ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                color: statusColor,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            AppSpacing.horizontal.s2,
+                            Text(
+                              status,
+                              style: context.textStyle.buttonTabBar.copyWith(
+                                color: context.color.textLight600,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

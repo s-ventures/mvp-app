@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedPolicy {
+  UniqueId get id => throw _privateConstructorUsedError;
   int get insuranceId => throw _privateConstructorUsedError;
-  String get policy => throw _privateConstructorUsedError;
-  PolicyStatusType get status => throw _privateConstructorUsedError;
+  String get status =>
+      throw _privateConstructorUsedError; //TODO: Change to enum PolicyStatusType when BE is ready
   String get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,11 +33,7 @@ abstract class $SimplifiedPolicyCopyWith<$Res> {
           SimplifiedPolicy value, $Res Function(SimplifiedPolicy) then) =
       _$SimplifiedPolicyCopyWithImpl<$Res, SimplifiedPolicy>;
   @useResult
-  $Res call(
-      {int insuranceId,
-      String policy,
-      PolicyStatusType status,
-      String description});
+  $Res call({UniqueId id, int insuranceId, String status, String description});
 }
 
 /// @nodoc
@@ -52,24 +49,24 @@ class _$SimplifiedPolicyCopyWithImpl<$Res, $Val extends SimplifiedPolicy>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? insuranceId = null,
-    Object? policy = null,
     Object? status = null,
     Object? description = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
               as int,
-      policy: null == policy
-          ? _value.policy
-          : policy // ignore: cast_nullable_to_non_nullable
-              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PolicyStatusType,
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -86,11 +83,7 @@ abstract class _$$SimplifiedPolicyImplCopyWith<$Res>
       __$$SimplifiedPolicyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int insuranceId,
-      String policy,
-      PolicyStatusType status,
-      String description});
+  $Res call({UniqueId id, int insuranceId, String status, String description});
 }
 
 /// @nodoc
@@ -104,24 +97,24 @@ class __$$SimplifiedPolicyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? insuranceId = null,
-    Object? policy = null,
     Object? status = null,
     Object? description = null,
   }) {
     return _then(_$SimplifiedPolicyImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
               as int,
-      policy: null == policy
-          ? _value.policy
-          : policy // ignore: cast_nullable_to_non_nullable
-              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PolicyStatusType,
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -134,23 +127,24 @@ class __$$SimplifiedPolicyImplCopyWithImpl<$Res>
 
 class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
   const _$SimplifiedPolicyImpl(
-      {required this.insuranceId,
-      required this.policy,
+      {required this.id,
+      required this.insuranceId,
       required this.status,
       required this.description});
 
   @override
+  final UniqueId id;
+  @override
   final int insuranceId;
   @override
-  final String policy;
-  @override
-  final PolicyStatusType status;
+  final String status;
+//TODO: Change to enum PolicyStatusType when BE is ready
   @override
   final String description;
 
   @override
   String toString() {
-    return 'SimplifiedPolicy(insuranceId: $insuranceId, policy: $policy, status: $status, description: $description)';
+    return 'SimplifiedPolicy(id: $id, insuranceId: $insuranceId, status: $status, description: $description)';
   }
 
   @override
@@ -158,9 +152,9 @@ class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedPolicyImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.insuranceId, insuranceId) ||
                 other.insuranceId == insuranceId) &&
-            (identical(other.policy, policy) || other.policy == policy) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -168,7 +162,7 @@ class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, insuranceId, policy, status, description);
+      Object.hash(runtimeType, id, insuranceId, status, description);
 
   @JsonKey(ignore: true)
   @override
@@ -180,18 +174,18 @@ class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
 
 abstract class _SimplifiedPolicy implements SimplifiedPolicy {
   const factory _SimplifiedPolicy(
-      {required final int insuranceId,
-      required final String policy,
-      required final PolicyStatusType status,
+      {required final UniqueId id,
+      required final int insuranceId,
+      required final String status,
       required final String description}) = _$SimplifiedPolicyImpl;
 
   @override
+  UniqueId get id;
+  @override
   int get insuranceId;
   @override
-  String get policy;
-  @override
-  PolicyStatusType get status;
-  @override
+  String get status;
+  @override //TODO: Change to enum PolicyStatusType when BE is ready
   String get description;
   @override
   @JsonKey(ignore: true)

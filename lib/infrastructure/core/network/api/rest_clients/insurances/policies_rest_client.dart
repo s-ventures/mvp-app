@@ -16,7 +16,7 @@ final policiesRestClientProvider = Provider<PoliciesRestClient>(
 abstract class PoliciesRestClient {
   factory PoliciesRestClient(Dio dio) = _PoliciesRestClient;
 
-  @GET('/insurance/policies/v1/query')
+  @GET('/insurance/policies/v1/query/policies')
   Future<PaginatedResponse<SimplifiedPolicyDto>> getSimplifiedPolicies({
     @Query('') required PoliciesFilterDto filter,
   });

@@ -41,6 +41,8 @@ class InsurancePoliciesListPage extends StatelessWidget {
                 leadingEmoji: '🖥️',
                 leadingBackgroundColor: const Color(0xFFE0E0E0),
                 number: '123456',
+                status: 'En Vigor',
+                statusColor: context.color.statusSuccess,
                 category: DateFormat('dd/MM/yyyy').format(DateTime.now()),
                 title: 'Seguro de comercio',
                 onTap: () =>

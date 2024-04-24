@@ -22,7 +22,8 @@ SimplifiedPolicyDto _$SimplifiedPolicyDtoFromJson(Map<String, dynamic> json) {
 mixin _$SimplifiedPolicyDto {
   int get insuranceId => throw _privateConstructorUsedError;
   String get policy => throw _privateConstructorUsedError;
-  PolicyStatusTypeDto get status => throw _privateConstructorUsedError;
+  String get status =>
+      throw _privateConstructorUsedError; //TODO: Change to enum PolicyStatusTypeDto when BE is ready
   String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,10 +39,7 @@ abstract class $SimplifiedPolicyDtoCopyWith<$Res> {
       _$SimplifiedPolicyDtoCopyWithImpl<$Res, SimplifiedPolicyDto>;
   @useResult
   $Res call(
-      {int insuranceId,
-      String policy,
-      PolicyStatusTypeDto status,
-      String description});
+      {int insuranceId, String policy, String status, String description});
 }
 
 /// @nodoc
@@ -74,7 +72,7 @@ class _$SimplifiedPolicyDtoCopyWithImpl<$Res, $Val extends SimplifiedPolicyDto>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PolicyStatusTypeDto,
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -92,10 +90,7 @@ abstract class _$$SimplifiedPolicyDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int insuranceId,
-      String policy,
-      PolicyStatusTypeDto status,
-      String description});
+      {int insuranceId, String policy, String status, String description});
 }
 
 /// @nodoc
@@ -126,7 +121,7 @@ class __$$SimplifiedPolicyDtoImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PolicyStatusTypeDto,
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -152,7 +147,8 @@ class _$SimplifiedPolicyDtoImpl implements _SimplifiedPolicyDto {
   @override
   final String policy;
   @override
-  final PolicyStatusTypeDto status;
+  final String status;
+//TODO: Change to enum PolicyStatusTypeDto when BE is ready
   @override
   final String description;
 
@@ -198,7 +194,7 @@ abstract class _SimplifiedPolicyDto implements SimplifiedPolicyDto {
   const factory _SimplifiedPolicyDto(
       {required final int insuranceId,
       required final String policy,
-      required final PolicyStatusTypeDto status,
+      required final String status,
       required final String description}) = _$SimplifiedPolicyDtoImpl;
 
   factory _SimplifiedPolicyDto.fromJson(Map<String, dynamic> json) =
@@ -209,8 +205,8 @@ abstract class _SimplifiedPolicyDto implements SimplifiedPolicyDto {
   @override
   String get policy;
   @override
-  PolicyStatusTypeDto get status;
-  @override
+  String get status;
+  @override //TODO: Change to enum PolicyStatusTypeDto when BE is ready
   String get description;
   @override
   @JsonKey(ignore: true)

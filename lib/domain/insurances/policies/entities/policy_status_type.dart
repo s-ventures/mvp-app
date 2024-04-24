@@ -1,19 +1,21 @@
-import 'package:manifiesto_mvp_app/infrastructure/insurances/policies/dtos/policy_status_type_dto.dart';
+// [ EN VIGOR, ..] -> Still to be defined by Core
 
-enum PolicyStatusType {
-  active('En vigor'),
-  closed('Caducada'),
-  canceled('Cancelada');
+// import 'package:manifiesto_mvp_app/infrastructure/insurances/policies/dtos/policy_status_type_dto.dart';
 
-  const PolicyStatusType(this.name);
+// enum PolicyStatusType {
+//   active('En vigor'),
+//   closed('Caducada'),
+//   canceled('Cancelada');
 
-  final String name;
-}
+//   const PolicyStatusType(this.name);
 
-extension PolicyStatusTypeX on PolicyStatusType {
-  PolicyStatusTypeDto toDto() => switch (this) {
-        PolicyStatusType.active => PolicyStatusTypeDto.active,
-        PolicyStatusType.closed => PolicyStatusTypeDto.closed,
-        PolicyStatusType.canceled => PolicyStatusTypeDto.canceled,
-      };
-}
+//   final String name;
+// }
+
+// extension PolicyStatusTypeX on PolicyStatusType {
+//   PolicyStatusTypeDto toDto() => switch (this) {
+//         PolicyStatusType.active => PolicyStatusTypeDto.active,
+//         PolicyStatusType.closed => PolicyStatusTypeDto.closed,
+//         PolicyStatusType.canceled => PolicyStatusTypeDto.canceled,
+//       };
+// }

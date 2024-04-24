@@ -17,7 +17,7 @@ PoliciesFilterDto _$PoliciesFilterDtoFromJson(Map<String, dynamic> json) =>
           json['createDateFrom'], const DateConverter().fromJson),
       createDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['createDateTo'], const DateConverter().fromJson),
-      status: $enumDecodeNullable(_$PolicyStatusTypeDtoEnumMap, json['status']),
+      status: json['status'] as String?,
       description: json['description'] as String?,
       amountFrom: (json['amountFrom'] as num?)?.toDouble(),
       amountTo: (json['amountTo'] as num?)?.toDouble(),
@@ -54,7 +54,7 @@ Map<String, dynamic> _$PoliciesFilterDtoToJson(PoliciesFilterDto instance) {
       'createDateTo',
       _$JsonConverterToJson<String, DateTime>(
           instance.createDateTo, const DateConverter().toJson));
-  writeNotNull('status', _$PolicyStatusTypeDtoEnumMap[instance.status]);
+  writeNotNull('status', instance.status);
   writeNotNull('description', instance.description);
   writeNotNull('amountFrom', instance.amountFrom);
   writeNotNull('amountTo', instance.amountTo);
@@ -71,12 +71,6 @@ Value? _$JsonConverterFromJson<Json, Value>(
   Value? Function(Json json) fromJson,
 ) =>
     json == null ? null : fromJson(json as Json);
-
-const _$PolicyStatusTypeDtoEnumMap = {
-  PolicyStatusTypeDto.active: 'ACTIVE',
-  PolicyStatusTypeDto.closed: 'CLOSED',
-  PolicyStatusTypeDto.canceled: 'CANCELED',
-};
 
 const _$PolicyPaymentPeriodicityDtoEnumMap = {
   PolicyPaymentPeriodicityDto.monthly: 'MONTHLY',

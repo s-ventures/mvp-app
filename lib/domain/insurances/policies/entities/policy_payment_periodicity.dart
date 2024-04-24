@@ -1,7 +1,7 @@
 import 'package:manifiesto_mvp_app/infrastructure/insurances/policies/dtos/policy_payment_periodicity_dto.dart';
 
 enum PolicyPaymentPeriodicity {
-  monthly('Mensualmente'),
+  monthly('Mensual'),
   quarterly('Trimestral'),
   annual('Anual');
 

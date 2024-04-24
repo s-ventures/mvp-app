@@ -33,7 +33,7 @@ class _PoliciesRestClient implements PoliciesRestClient {
     )
             .compose(
               _dio.options,
-              '/insurance/policies/v1/query',
+              '/insurance/policies/v1/query/policies',
               queryParameters: queryParameters,
               data: _data,
             )
