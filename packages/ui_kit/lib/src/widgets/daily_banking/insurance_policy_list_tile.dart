@@ -60,20 +60,9 @@ class InsurancePolicyListTile extends StatelessWidget {
                     AppSpacing.vertical.s5,
                     Row(
                       children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: leadingBackgroundColor,
-                            borderRadius:
-                                BorderRadius.circular(context.radius.soft),
-                          ),
-                          child: Center(
-                            child: Text(
-                              leadingEmoji,
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                          ),
+                        IconWithContainer(
+                          text: leadingEmoji,
+                          backgroundColor: leadingBackgroundColor,
                         ),
                         AppSpacing.horizontal.s5,
                         Flexible(

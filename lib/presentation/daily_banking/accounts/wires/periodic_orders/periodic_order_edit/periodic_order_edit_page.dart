@@ -32,7 +32,7 @@ class PeriodicOrderEditPage extends StatelessWidget {
                 Column(
                   children: [
                     const CurrencyInput(),
-                    const SizedBox(height: AppSpacing.s3),
+                    AppSpacing.vertical.s3,
                     Text(
                       'Sin comisión de transferencia',
                       style: context.textStyle.bodyMediumRegular.copyWith(
@@ -97,9 +97,9 @@ class PeriodicOrderEditPage extends StatelessWidget {
       ),
       bottomNavigationBar: SafeArea(
         child: Container(
-          height: 101,
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(

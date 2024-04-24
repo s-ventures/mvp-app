@@ -29,15 +29,12 @@ class CertificateTaxes extends StatelessWidget {
               color: context.color.strokeLigth100,
               borderRadius: BorderRadius.circular(context.radius.soft),
             ),
-            child: Column(
-              children: [
-                Text(
-                  'Comisión de certificado',
-                  style: context.textStyle.bodySmallRegular.copyWith(
-                    color: context.color.textLight600,
-                  ),
-                ),
-              ],
+            child: Text(
+              'Comisión de certificado',
+              textAlign: TextAlign.center,
+              style: context.textStyle.bodySmallRegular.copyWith(
+                color: context.color.textLight600,
+              ),
             ),
           ),
         ],

@@ -28,19 +28,9 @@ class CategoryListTile extends StatelessWidget {
           child: ListTile(
             shape: RoundedRectangleBorder(borderRadius: borderRadius),
             onTap: onTap,
-            leading: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: leadingBackgroundColor,
-                borderRadius: BorderRadius.circular(context.radius.soft),
-              ),
-              child: Center(
-                child: Text(
-                  leadingEmoji,
-                  style: const TextStyle(fontSize: 20),
-                ),
-              ),
+            leading: IconWithContainer(
+              text: leadingEmoji,
+              backgroundColor: leadingBackgroundColor,
             ),
             title: Text(
               title,
