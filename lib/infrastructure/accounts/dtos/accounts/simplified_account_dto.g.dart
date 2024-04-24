@@ -10,10 +10,10 @@ _$SimplifiedAccountDtoImpl _$$SimplifiedAccountDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$SimplifiedAccountDtoImpl(
       accountId: json['accountId'] as int,
-      entity: json['entity'] as String,
-      number: json['number'] as String,
+      entity: json['entity'] as String?,
+      number: json['number'] as String?,
       status: $enumDecode(_$AccountStatusDtoEnumMap, json['status']),
-      createDate: json['createDate'] as String,
+      createDate: json['createDate'] as String?,
       currencyCode: json['currencyCode'] as String,
       balance:
           AccountBalanceDto.fromJson(json['balance'] as Map<String, dynamic>),

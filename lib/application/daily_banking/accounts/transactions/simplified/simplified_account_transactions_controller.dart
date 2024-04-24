@@ -59,6 +59,7 @@ class SimplifiedAccountTransactionsController
       amountTo: amountTo,
       dateFrom: dateFrom,
       dateTo: dateTo,
+      operationType: operationType,
     );
     await refresh();
   }

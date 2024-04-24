@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class DateRange extends ConsumerWidget {
-  const DateRange({super.key});
+class DateRange extends StatefulWidget {
+  const DateRange({
+    required this.startDate,
+    required this.endDate,
+    required this.setStartDate,
+    required this.setEndDate,
+    super.key,
+  });
+
+  final DateTime? startDate;
+  final DateTime? endDate;
+  final ValueChanged<DateTime> setStartDate;
+  final ValueChanged<DateTime> setEndDate;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final startDate = ref
-        .watch(filterSimplifiedAccountTransactionsControllerProvider)
-        .startDate;
-    final endDate = ref
-        .watch(filterSimplifiedAccountTransactionsControllerProvider)
-        .endDate;
+  State<DateRange> createState() => _DateRangeState();
+}
 
-    final setStartDate = ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
-        .setStartDate;
-    final setEndDate = ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
-        .setEndDate;
-
+class _DateRangeState extends State<DateRange> {
+  DateTime? startDateSelected;
+  DateTime? endDateSelected;
+  @override
+  Widget build(BuildContext context) {
     return CustomCard(
       child: Row(
         children: [
@@ -38,13 +40,15 @@ class DateRange extends ConsumerWidget {
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: startDate?.formatToDayMonthYear() ?? '',
+                  title: startDateSelected != null
+                      ? startDateSelected.formatToDayMonthYear()
+                      : widget.startDate?.formatToDayMonthYear() ?? '',
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,
                   expand: true,
                   onPressed: () async {
-                    final startDateSelected = await showDatePicker(
+                    startDateSelected = await showDatePicker(
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(2000),
@@ -52,7 +56,8 @@ class DateRange extends ConsumerWidget {
                     );
 
                     if (startDateSelected != null) {
-                      setStartDate(startDateSelected);
+                      widget.setStartDate(startDateSelected!);
+                      setState(() {});
                     }
                   },
                 ),
@@ -72,13 +77,15 @@ class DateRange extends ConsumerWidget {
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: endDate?.formatToDayMonthYear() ?? '',
+                  title: endDateSelected != null
+                      ? endDateSelected.formatToDayMonthYear()
+                      : widget.endDate?.formatToDayMonthYear() ?? '',
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,
                   expand: true,
                   onPressed: () async {
-                    final endDateSelected = await showDatePicker(
+                    endDateSelected = await showDatePicker(
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(2000),
@@ -86,7 +93,8 @@ class DateRange extends ConsumerWidget {
                     );
 
                     if (endDateSelected != null) {
-                      setEndDate(endDateSelected);
+                      widget.setEndDate(endDateSelected!);
+                      setState(() {});
                     }
                   },
                 ),

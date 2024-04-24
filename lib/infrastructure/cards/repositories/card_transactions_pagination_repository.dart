@@ -99,7 +99,7 @@ class CardTransactionsPaginationRepository
     required double? amountTo,
     required DateTime? dateFrom,
     required DateTime? dateTo,
-    TransactionOperationType operationType = TransactionOperationType.all,
+    required TransactionOperationType operationType,
   }) {
     _filter = _filter?.copyWith(
       concept: concept,
