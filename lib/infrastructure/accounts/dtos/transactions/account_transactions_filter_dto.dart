@@ -29,8 +29,6 @@
 //   "originalCurrencyCode": "string"
 // }
 
-// ignore_for_file: invalid_annotation_target
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
