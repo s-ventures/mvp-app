@@ -39,7 +39,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Transferencias programadas',
               leading: Button(

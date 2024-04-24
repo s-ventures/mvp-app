@@ -34,8 +34,12 @@ _$DetailedAccountTransactionDtoImpl
               const DateConverter().fromJson(json['assignmentDate'] as String),
           attachments: (json['attachments'] as List<dynamic>?)
               ?.map((e) =>
-                  MovementAttachmentDto.fromJson(e as Map<String, dynamic>))
+                  TransactionAttachmentDto.fromJson(e as Map<String, dynamic>))
               .toList(),
+          extendedDetails:
+              _$JsonConverterFromJson<Map<String, dynamic>, ExtendedDetailsDto>(
+                  json['extendedDetails'],
+                  const ExtendedDetailsConverter().fromJson),
           productType:
               $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
         );
@@ -64,6 +68,10 @@ Map<String, dynamic> _$$DetailedAccountTransactionDtoImplToJson(
       'originalCurrencyCode': instance.originalCurrencyCode,
       'assignmentDate': const DateConverter().toJson(instance.assignmentDate),
       'attachments': instance.attachments?.map((e) => e.toJson()).toList(),
+      'extendedDetails':
+          _$JsonConverterToJson<Map<String, dynamic>, ExtendedDetailsDto>(
+              instance.extendedDetails,
+              const ExtendedDetailsConverter().toJson),
       'productType': _$ProductTypeDtoEnumMap[instance.productType]!,
     };
 
@@ -89,9 +97,21 @@ const _$AccountTransactionTypeDtoEnumMap = {
   AccountTransactionTypeDto.periodicTransfer: 'PERIODIC_TRANSFER',
 };
 
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
 const _$ProductTypeDtoEnumMap = {
   ProductTypeDto.accounts: 'ACCOUNTS',
   ProductTypeDto.cards: 'CARDS',
   ProductTypeDto.aggregatedAccounts: 'AGGREGATED_ACCOUNTS',
   ProductTypeDto.unknown: 'UNKNOWN',
 };
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

@@ -44,8 +44,10 @@ mixin _$DetailedAccountTransactionDto {
   String get originalCurrencyCode => throw _privateConstructorUsedError;
   @DateConverter()
   DateTime get assignmentDate => throw _privateConstructorUsedError;
-  List<MovementAttachmentDto>? get attachments =>
-      throw _privateConstructorUsedError; // required Map<String, dynamic> extendedDetails,
+  List<TransactionAttachmentDto>? get attachments =>
+      throw _privateConstructorUsedError;
+  @ExtendedDetailsConverter()
+  ExtendedDetailsDto? get extendedDetails => throw _privateConstructorUsedError;
   ProductTypeDto get productType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -83,7 +85,8 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       double originalAmount,
       String originalCurrencyCode,
       @DateConverter() DateTime assignmentDate,
-      List<MovementAttachmentDto>? attachments,
+      List<TransactionAttachmentDto>? attachments,
+      @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
 }
 
@@ -122,6 +125,7 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? originalCurrencyCode = null,
     Object? assignmentDate = null,
     Object? attachments = freezed,
+    Object? extendedDetails = freezed,
     Object? productType = null,
   }) {
     return _then(_value.copyWith(
@@ -208,7 +212,11 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
       attachments: freezed == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<MovementAttachmentDto>?,
+              as List<TransactionAttachmentDto>?,
+      extendedDetails: freezed == extendedDetails
+          ? _value.extendedDetails
+          : extendedDetails // ignore: cast_nullable_to_non_nullable
+              as ExtendedDetailsDto?,
       productType: null == productType
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
@@ -247,7 +255,8 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       double originalAmount,
       String originalCurrencyCode,
       @DateConverter() DateTime assignmentDate,
-      List<MovementAttachmentDto>? attachments,
+      List<TransactionAttachmentDto>? attachments,
+      @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
 }
 
@@ -285,6 +294,7 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? originalCurrencyCode = null,
     Object? assignmentDate = null,
     Object? attachments = freezed,
+    Object? extendedDetails = freezed,
     Object? productType = null,
   }) {
     return _then(_$DetailedAccountTransactionDtoImpl(
@@ -371,7 +381,11 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
       attachments: freezed == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<MovementAttachmentDto>?,
+              as List<TransactionAttachmentDto>?,
+      extendedDetails: freezed == extendedDetails
+          ? _value.extendedDetails
+          : extendedDetails // ignore: cast_nullable_to_non_nullable
+              as ExtendedDetailsDto?,
       productType: null == productType
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
@@ -405,7 +419,8 @@ class _$DetailedAccountTransactionDtoImpl
       required this.originalAmount,
       required this.originalCurrencyCode,
       @DateConverter() required this.assignmentDate,
-      required final List<MovementAttachmentDto>? attachments,
+      required final List<TransactionAttachmentDto>? attachments,
+      @ExtendedDetailsConverter() required this.extendedDetails,
       required this.productType})
       : _attachments = attachments;
 
@@ -456,9 +471,9 @@ class _$DetailedAccountTransactionDtoImpl
   @override
   @DateConverter()
   final DateTime assignmentDate;
-  final List<MovementAttachmentDto>? _attachments;
+  final List<TransactionAttachmentDto>? _attachments;
   @override
-  List<MovementAttachmentDto>? get attachments {
+  List<TransactionAttachmentDto>? get attachments {
     final value = _attachments;
     if (value == null) return null;
     if (_attachments is EqualUnmodifiableListView) return _attachments;
@@ -466,13 +481,15 @@ class _$DetailedAccountTransactionDtoImpl
     return EqualUnmodifiableListView(value);
   }
 
-// required Map<String, dynamic> extendedDetails,
+  @override
+  @ExtendedDetailsConverter()
+  final ExtendedDetailsDto? extendedDetails;
   @override
   final ProductTypeDto productType;
 
   @override
   String toString() {
-    return 'DetailedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userComments: $userComments, userCategory: $userCategory, placeId: $placeId, accountId: $accountId, endBalance: $endBalance, detailFields: $detailFields, visible: $visible, bankReceipt: $bankReceipt, originBranch: $originBranch, originalAmount: $originalAmount, originalCurrencyCode: $originalCurrencyCode, assignmentDate: $assignmentDate, attachments: $attachments, productType: $productType)';
+    return 'DetailedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userComments: $userComments, userCategory: $userCategory, placeId: $placeId, accountId: $accountId, endBalance: $endBalance, detailFields: $detailFields, visible: $visible, bankReceipt: $bankReceipt, originBranch: $originBranch, originalAmount: $originalAmount, originalCurrencyCode: $originalCurrencyCode, assignmentDate: $assignmentDate, attachments: $attachments, extendedDetails: $extendedDetails, productType: $productType)';
   }
 
   @override
@@ -518,6 +535,8 @@ class _$DetailedAccountTransactionDtoImpl
                 other.assignmentDate == assignmentDate) &&
             const DeepCollectionEquality()
                 .equals(other._attachments, _attachments) &&
+            (identical(other.extendedDetails, extendedDetails) ||
+                other.extendedDetails == extendedDetails) &&
             (identical(other.productType, productType) ||
                 other.productType == productType));
   }
@@ -547,6 +566,7 @@ class _$DetailedAccountTransactionDtoImpl
         originalCurrencyCode,
         assignmentDate,
         const DeepCollectionEquality().hash(_attachments),
+        extendedDetails,
         productType
       ]);
 
@@ -589,7 +609,9 @@ abstract class _DetailedAccountTransactionDto
           required final double originalAmount,
           required final String originalCurrencyCode,
           @DateConverter() required final DateTime assignmentDate,
-          required final List<MovementAttachmentDto>? attachments,
+          required final List<TransactionAttachmentDto>? attachments,
+          @ExtendedDetailsConverter()
+          required final ExtendedDetailsDto? extendedDetails,
           required final ProductTypeDto productType}) =
       _$DetailedAccountTransactionDtoImpl;
 
@@ -640,8 +662,11 @@ abstract class _DetailedAccountTransactionDto
   @DateConverter()
   DateTime get assignmentDate;
   @override
-  List<MovementAttachmentDto>? get attachments;
-  @override // required Map<String, dynamic> extendedDetails,
+  List<TransactionAttachmentDto>? get attachments;
+  @override
+  @ExtendedDetailsConverter()
+  ExtendedDetailsDto? get extendedDetails;
+  @override
   ProductTypeDto get productType;
   @override
   @JsonKey(ignore: true)
