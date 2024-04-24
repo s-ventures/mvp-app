@@ -11,7 +11,7 @@ _$SimplifiedClaimDtoImpl _$$SimplifiedClaimDtoImplFromJson(
     _$SimplifiedClaimDtoImpl(
       claimId: json['claimId'] as int,
       insuranceId: json['insuranceId'] as int,
-      status: json['status'] as String,
+      status: $enumDecode(_$ClaimStatusTypeDtoEnumMap, json['status']),
       riskType: json['riskType'] as String,
       reason: json['reason'] as String,
     );
@@ -21,7 +21,12 @@ Map<String, dynamic> _$$SimplifiedClaimDtoImplToJson(
     <String, dynamic>{
       'claimId': instance.claimId,
       'insuranceId': instance.insuranceId,
-      'status': instance.status,
+      'status': _$ClaimStatusTypeDtoEnumMap[instance.status]!,
       'riskType': instance.riskType,
       'reason': instance.reason,
     };
+
+const _$ClaimStatusTypeDtoEnumMap = {
+  ClaimStatusTypeDto.open: 'OPEN',
+  ClaimStatusTypeDto.close: 'CLOSE',
+};

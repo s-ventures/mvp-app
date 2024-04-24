@@ -13,7 +13,7 @@ class CertificatesAndDocumentsRequestPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Solicitar certificado',
               leading: Button(

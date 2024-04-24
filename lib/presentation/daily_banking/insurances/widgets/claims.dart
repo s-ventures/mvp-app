@@ -7,7 +7,7 @@ import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/s
 import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_claims_bottom_sheet.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -124,7 +124,7 @@ class _ClaimsList extends StatelessWidget {
             title: claim.reason,
             onTap: () => context.pushNamed(
               AppRoute.dailyBankingInsuranceClaimDetails.name,
-              extra: InsuranceClaimDetailsRouteArgs(
+              extra: InsuranceClaimDetailsRouteParams(
                 claimId: claim.id.toInt(),
                 insuranceId: claim.insuranceId,
               ),

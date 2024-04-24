@@ -18,7 +18,7 @@ class _ContactsPageState extends ConsumerState<Contacts> {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               type: CustomAppBarType.logo,
               leading: Button(

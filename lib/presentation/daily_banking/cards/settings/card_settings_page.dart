@@ -14,7 +14,7 @@ class CardSettingsPage extends StatelessWidget {
         body: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 floating: true,
                 pinned: true,
                 centerTitle: true,
@@ -35,7 +35,9 @@ class CardSettingsPage extends StatelessWidget {
                 children: [
                   Splash(
                     borderRadius: BorderRadius.circular(context.radius.soft),
-                    onPressed: () => context.pushNamed(AppRoute.dailyBankingCardSettingsLimits.name),
+                    onPressed: () => context.pushNamed(
+                      AppRoute.dailyBankingCardSettingsLimits.name,
+                    ),
                     child: ListTile(
                       title: Text(
                         'Límites de tarjeta',
@@ -57,7 +59,8 @@ class CardSettingsPage extends StatelessWidget {
                 children: [
                   Splash(
                     borderRadius: BorderRadius.circular(context.radius.soft),
-                    onPressed: () => context.pushNamed(AppRoute.dailyBankingCardSettingsAlias.name),
+                    onPressed: () => context
+                        .pushNamed(AppRoute.dailyBankingCardSettingsAlias.name),
                     child: ListTile(
                       title: Text(
                         'Editar alias',

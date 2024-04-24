@@ -25,7 +25,7 @@ mixin _$DetailedClaimDto {
   int get year => throw _privateConstructorUsedError;
   String get dossier => throw _privateConstructorUsedError;
   DateTime get createDate => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+  ClaimStatusTypeDto get status => throw _privateConstructorUsedError;
   String get riskType => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
   String get riskLocation => throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ abstract class $DetailedClaimDtoCopyWith<$Res> {
       int year,
       String dossier,
       DateTime createDate,
-      String status,
+      ClaimStatusTypeDto status,
       String riskType,
       String reason,
       String riskLocation,
@@ -116,7 +116,7 @@ class _$DetailedClaimDtoCopyWithImpl<$Res, $Val extends DetailedClaimDto>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusTypeDto,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ abstract class _$$DetailedClaimDtoImplCopyWith<$Res>
       int year,
       String dossier,
       DateTime createDate,
-      String status,
+      ClaimStatusTypeDto status,
       String riskType,
       String reason,
       String riskLocation,
@@ -228,7 +228,7 @@ class __$$DetailedClaimDtoImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ClaimStatusTypeDto,
       riskType: null == riskType
           ? _value.riskType
           : riskType // ignore: cast_nullable_to_non_nullable
@@ -298,7 +298,7 @@ class _$DetailedClaimDtoImpl implements _DetailedClaimDto {
   @override
   final DateTime createDate;
   @override
-  final String status;
+  final ClaimStatusTypeDto status;
   @override
   final String riskType;
   @override
@@ -392,7 +392,7 @@ abstract class _DetailedClaimDto implements DetailedClaimDto {
       required final int year,
       required final String dossier,
       required final DateTime createDate,
-      required final String status,
+      required final ClaimStatusTypeDto status,
       required final String riskType,
       required final String reason,
       required final String riskLocation,
@@ -416,7 +416,7 @@ abstract class _DetailedClaimDto implements DetailedClaimDto {
   @override
   DateTime get createDate;
   @override
-  String get status;
+  ClaimStatusTypeDto get status;
   @override
   String get riskType;
   @override
