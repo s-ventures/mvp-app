@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class ClaimsSection extends StatelessWidget {
-  const ClaimsSection({super.key});
+class ClaimsTab extends StatelessWidget {
+  const ClaimsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,8 @@ class ClaimsSection extends StatelessWidget {
           title: 'Protección de la actividad de tu negocio',
           status: 'En curso',
           statusColor: context.color.statusWarning,
-          onTap: () => context.pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
+          onTap: () => context
+              .pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
         ),
         AppSpacing.vertical.s5,
         InsuranceClaimListTile(
@@ -28,7 +29,8 @@ class ClaimsSection extends StatelessWidget {
           title: 'Protección de la actividad de tu negocio',
           status: 'En curso',
           statusColor: context.color.statusWarning,
-          onTap: () => context.pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
+          onTap: () => context
+              .pushNamed(AppRoute.dailyBankingInsuranceClaimDetails.name),
         ),
       ],
     );

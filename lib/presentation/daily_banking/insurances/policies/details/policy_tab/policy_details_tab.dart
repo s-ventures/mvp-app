@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/business_insurance.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/coverage_included.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/policy_billing.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/business_insurance.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/coverage_included.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/policy_billing.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class PolicyDetailsSection extends StatelessWidget {
-  const PolicyDetailsSection({super.key});
+class PolicyDetailsTab extends StatelessWidget {
+  const PolicyDetailsTab({super.key});
 
   @override
   Widget build(BuildContext context) {

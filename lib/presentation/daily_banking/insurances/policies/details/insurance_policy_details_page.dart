@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/claims_section/claims_section.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/policy_details_section.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/claims_tab/claims_tab.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/policy_details_tab.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsurancePolicyDetailsPage extends StatelessWidget {
@@ -46,8 +46,8 @@ class InsurancePolicyDetailsPage extends StatelessWidget {
             },
             body: const TabBarView(
               children: [
-                PolicyDetailsSection(),
-                ClaimsSection(),
+                PolicyDetailsTab(),
+                ClaimsTab(),
               ],
             ),
           ),
