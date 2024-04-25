@@ -29,10 +29,10 @@ part 'simplified_account_dto.g.dart';
 class SimplifiedAccountDto with _$SimplifiedAccountDto {
   const factory SimplifiedAccountDto({
     required int accountId,
-    required String entity,
-    required String number,
+    required String? entity,
+    required String? number,
     required AccountStatusDto status,
-    required String createDate,
+    required String? createDate,
     required String currencyCode,
     required AccountBalanceDto balance,
   }) = _SimplifiedAccountDto;
@@ -45,7 +45,7 @@ extension SimplifiedAccountDtoX on SimplifiedAccountDto {
   SimplifiedAccount toDomain() {
     return SimplifiedAccount(
       id: UniqueId.fromUniqueString(accountId.toString()),
-      entity: entity,
+      entity: entity ?? '',
       status: status.toDomain(),
       currencyCode: currencyCode,
       balance: balance.toDomain(),

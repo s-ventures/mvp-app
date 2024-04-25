@@ -34,11 +34,7 @@ class MovementDetailsMap extends StatelessWidget {
               ),
             ),
           ),
-          const Divider(
-            height: 0,
-            thickness: 0,
-            color: Color(0xFFE5E5E5),
-          ),
+          const CustomDivider(),
           SizedBox(
             height: AppSpacing.s8,
             child: ListTile(

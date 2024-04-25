@@ -129,9 +129,9 @@ class NationalTransferResumePage extends StatelessWidget {
       ),
       bottomNavigationBar: SafeArea(
         child: Container(
-          height: 101,
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(

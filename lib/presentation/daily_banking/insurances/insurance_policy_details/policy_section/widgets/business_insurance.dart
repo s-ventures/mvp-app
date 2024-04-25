@@ -12,20 +12,9 @@ class BusinessInsurance extends StatelessWidget {
           borderRadius: BorderRadius.circular(context.radius.soft),
           onPressed: () async {},
           child: ListTile(
-            leading: Container(
-              width: 40,
-              height: 40,
-              padding: const EdgeInsets.all(AppSpacing.s3),
-              decoration: ShapeDecoration(
-                color: context.color.backgroundLight200,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(context.radius.soft),
-                ),
-              ),
-              child: IconSvg.small(
-                IconAssets.security,
-                color: context.color.iconLight900,
-              ),
+            leading: IconWithContainer(
+              icon: IconAssets.security,
+              backgroundColor: context.color.backgroundLight200,
             ),
             title: Text(
               'Seguro de comercios',

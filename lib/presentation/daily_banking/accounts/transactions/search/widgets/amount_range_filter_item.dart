@@ -3,9 +3,9 @@ import 'package:ui_kit/ui_kit.dart';
 
 class AmountRangeFilterItem extends StatelessWidget {
   const AmountRangeFilterItem({
-    required this.amountFrom,
-    required this.amountTo,
     required this.onClear,
+    this.amountFrom = 0.0,
+    this.amountTo = 0.0,
     super.key,
   });
 

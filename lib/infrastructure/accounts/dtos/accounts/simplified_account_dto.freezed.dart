@@ -21,10 +21,10 @@ SimplifiedAccountDto _$SimplifiedAccountDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SimplifiedAccountDto {
   int get accountId => throw _privateConstructorUsedError;
-  String get entity => throw _privateConstructorUsedError;
-  String get number => throw _privateConstructorUsedError;
+  String? get entity => throw _privateConstructorUsedError;
+  String? get number => throw _privateConstructorUsedError;
   AccountStatusDto get status => throw _privateConstructorUsedError;
-  String get createDate => throw _privateConstructorUsedError;
+  String? get createDate => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
   AccountBalanceDto get balance => throw _privateConstructorUsedError;
 
@@ -42,10 +42,10 @@ abstract class $SimplifiedAccountDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {int accountId,
-      String entity,
-      String number,
+      String? entity,
+      String? number,
       AccountStatusDto status,
-      String createDate,
+      String? createDate,
       String currencyCode,
       AccountBalanceDto balance});
 
@@ -67,10 +67,10 @@ class _$SimplifiedAccountDtoCopyWithImpl<$Res,
   @override
   $Res call({
     Object? accountId = null,
-    Object? entity = null,
-    Object? number = null,
+    Object? entity = freezed,
+    Object? number = freezed,
     Object? status = null,
-    Object? createDate = null,
+    Object? createDate = freezed,
     Object? currencyCode = null,
     Object? balance = null,
   }) {
@@ -79,22 +79,22 @@ class _$SimplifiedAccountDtoCopyWithImpl<$Res,
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      entity: null == entity
+      entity: freezed == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
-      number: null == number
+              as String?,
+      number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as AccountStatusDto,
-      createDate: null == createDate
+      createDate: freezed == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       currencyCode: null == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
@@ -125,10 +125,10 @@ abstract class _$$SimplifiedAccountDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {int accountId,
-      String entity,
-      String number,
+      String? entity,
+      String? number,
       AccountStatusDto status,
-      String createDate,
+      String? createDate,
       String currencyCode,
       AccountBalanceDto balance});
 
@@ -148,10 +148,10 @@ class __$$SimplifiedAccountDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? accountId = null,
-    Object? entity = null,
-    Object? number = null,
+    Object? entity = freezed,
+    Object? number = freezed,
     Object? status = null,
-    Object? createDate = null,
+    Object? createDate = freezed,
     Object? currencyCode = null,
     Object? balance = null,
   }) {
@@ -160,22 +160,22 @@ class __$$SimplifiedAccountDtoImplCopyWithImpl<$Res>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as int,
-      entity: null == entity
+      entity: freezed == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
-      number: null == number
+              as String?,
+      number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as AccountStatusDto,
-      createDate: null == createDate
+      createDate: freezed == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       currencyCode: null == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
@@ -206,13 +206,13 @@ class _$SimplifiedAccountDtoImpl implements _SimplifiedAccountDto {
   @override
   final int accountId;
   @override
-  final String entity;
+  final String? entity;
   @override
-  final String number;
+  final String? number;
   @override
   final AccountStatusDto status;
   @override
-  final String createDate;
+  final String? createDate;
   @override
   final String currencyCode;
   @override
@@ -264,10 +264,10 @@ class _$SimplifiedAccountDtoImpl implements _SimplifiedAccountDto {
 abstract class _SimplifiedAccountDto implements SimplifiedAccountDto {
   const factory _SimplifiedAccountDto(
       {required final int accountId,
-      required final String entity,
-      required final String number,
+      required final String? entity,
+      required final String? number,
       required final AccountStatusDto status,
-      required final String createDate,
+      required final String? createDate,
       required final String currencyCode,
       required final AccountBalanceDto balance}) = _$SimplifiedAccountDtoImpl;
 
@@ -277,13 +277,13 @@ abstract class _SimplifiedAccountDto implements SimplifiedAccountDto {
   @override
   int get accountId;
   @override
-  String get entity;
+  String? get entity;
   @override
-  String get number;
+  String? get number;
   @override
   AccountStatusDto get status;
   @override
-  String get createDate;
+  String? get createDate;
   @override
   String get currencyCode;
   @override

@@ -6,8 +6,8 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transacti
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/filter_list.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TransactionsHeader extends ConsumerWidget {
-  const TransactionsHeader({
+class AccountTransactionsHeader extends ConsumerWidget {
+  const AccountTransactionsHeader({
     required this.onPressed,
     super.key,
   });
@@ -67,6 +67,16 @@ class TransactionsHeader extends ConsumerWidget {
                       context: context,
                       onApply: controller.applyFilters,
                       onReset: controller.resetFilters,
+                      stateDate: stateDate,
+                      endDate: endDate,
+                      amountFrom: amountFrom,
+                      amountTo: amountTo,
+                      operationType: operationType,
+                      setStartDate: controller.setStartDate,
+                      setEndDate: controller.setEndDate,
+                      setAmountFrom: controller.setAmountFrom,
+                      setAmountTo: controller.setAmountTo,
+                      setTransactionType: controller.setOperationType,
                     );
                   },
                 ),
@@ -94,9 +104,32 @@ class TransactionsHeader extends ConsumerWidget {
         AppSpacing.vertical.s3,
         FakeSearchBar(onPressed: onPressed),
         if (isFilterApplied)
-          const Padding(
-            padding: EdgeInsets.only(top: AppSpacing.s2),
-            child: FilterList(),
+          Padding(
+            padding: const EdgeInsets.only(top: AppSpacing.s2),
+            child: FilterList(
+              stateDate: stateDate,
+              endDate: endDate,
+              amountFrom: amountFrom,
+              amountTo: amountTo,
+              operationType: operationType,
+              onClearDateRange: () {
+                controller
+                  ..setStartDate(null)
+                  ..setEndDate(null)
+                  ..applyFilters();
+              },
+              onClearAmountRange: () {
+                controller
+                  ..setAmountFrom(null)
+                  ..setAmountTo(null)
+                  ..applyFilters();
+              },
+              onClearCreditDebit: () {
+                controller
+                  ..setOperationType(TransactionOperationType.all)
+                  ..applyFilters();
+              },
+            ),
           ),
         AppSpacing.vertical.s3,
       ],

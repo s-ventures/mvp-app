@@ -16,7 +16,7 @@ class NationalTransfersPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Transferencia nacional',
               leading: Button(
@@ -38,7 +38,7 @@ class NationalTransfersPage extends StatelessWidget {
                 Column(
                   children: [
                     const CurrencyInput(),
-                    const SizedBox(height: AppSpacing.s3),
+                    AppSpacing.vertical.s3,
                     Row(
                       children: [
                         Text(
@@ -91,10 +91,10 @@ class NationalTransfersPage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: SafeArea(
-        child: Container(
-          height: 101,
+        child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(

@@ -83,6 +83,7 @@ class PeriodicOrdersFilterDto extends PaginatedRequest {
 
   factory PeriodicOrdersFilterDto.fromJson(Map<String, dynamic> json) =>
       _$PeriodicOrdersFilterDtoFromJson(json);
+
   final int? periodicTransferId;
   final List<int>? accountId;
   final String? beneficiaryAccount;

@@ -202,7 +202,7 @@ class _SliverAppBar extends StatelessWidget {
           : Text(title ?? ''),
       actions: [
         ...actions ?? [],
-        const SizedBox(width: AppSpacing.s4),
+        AppSpacing.horizontal.s4,
       ],
       centerTitle: centerTitle,
       surfaceTintColor: context.color.backgroundLight200,
