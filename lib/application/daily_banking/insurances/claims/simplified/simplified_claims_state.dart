@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
 
 part 'simplified_claims_state.freezed.dart';
 

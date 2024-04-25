@@ -1,7 +1,7 @@
 // [ OPEN, CLOSE ] -> Still to be defined
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ClaimStatusTypeDto {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/business_insurance.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/coverage_included.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/policy_billing.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurance_policy_details/policy_section/widgets/business_insurance.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurance_policy_details/policy_section/widgets/coverage_included.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurance_policy_details/policy_section/widgets/policy_billing.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -21,7 +21,8 @@ class PolicyDetailsSection extends StatelessWidget {
           number: '123456',
           category: DateFormat('dd/MM/yyyy').format(DateTime.now()),
           title: 'Seguro de comercio',
-          onTap: () => context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
+          onTap: () =>
+              context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
         ),
         AppSpacing.vertical.s5,
         DateRangeListTile.disabled(

@@ -17,8 +17,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/detailed_claim.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/claim_status_type_dto.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/detailed_claim.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/claim_status_type_dto.dart';
 part 'detailed_claim_dto.freezed.dart';
 part 'detailed_claim_dto.g.dart';
 

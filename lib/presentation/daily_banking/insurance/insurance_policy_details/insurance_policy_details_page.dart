@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/claims_section/claims_section.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/policy_details_section.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurance_policy_details/claims_section/claims_section.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurance_policy_details/policy_section/policy_details_section.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsurancePolicyDetailsPage extends StatelessWidget {

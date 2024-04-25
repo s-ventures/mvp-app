@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claims_filter.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claims_filter.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/repositories/claims_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/repositories/claims_repository.dart';
 
 final claimsPaginationRepositoryProvider = Provider<ClaimsPaginationRepository>(
   (ref) => ClaimsPaginationRepository(

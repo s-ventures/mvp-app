@@ -25,7 +25,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claims_filter.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claims_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 

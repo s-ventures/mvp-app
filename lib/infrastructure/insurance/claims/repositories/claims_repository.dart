@@ -1,16 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claims_filter.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/detailed_claim.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/failures/detailed_claim_failure.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/failures/simplified_claim_failure.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/repositories/i_claims_repository.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claims_filter.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/detailed_claim.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/failures/detailed_claim_failure.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/failures/simplified_claim_failure.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/repositories/i_claims_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/insurances/claims_rest_client.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/data_sources/remote/claims_remote_data_source.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/claims_filter_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/detailed_claim_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/simplified_claim_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/data_sources/remote/claims_remote_data_source.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/claims_filter_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/detailed_claim_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/simplified_claim_dto.dart';
 
 final claimsRepositoryProvider = Provider<ClaimsRepository>(
   (ref) => ClaimsRepository(

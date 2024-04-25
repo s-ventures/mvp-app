@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
 
 part 'simplified_claim.freezed.dart';
 

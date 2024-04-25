@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_policies_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/filter_policies_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 

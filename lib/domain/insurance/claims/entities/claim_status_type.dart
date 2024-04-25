@@ -1,4 +1,4 @@
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/dtos/claim_status_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/claim_status_type_dto.dart';
 
 enum ClaimStatusType {
   open('En curso'),

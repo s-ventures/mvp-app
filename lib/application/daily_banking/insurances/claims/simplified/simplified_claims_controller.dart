@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/simplified/simplified_claims_state.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurances/claims/repositories/claims_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/repositories/claims_pagination_repository.dart';
 
 final simplifiedClaimsControllerProvider =
     StateNotifierProvider<SimplifiedClaimsController, SimplifiedClaimsState>(

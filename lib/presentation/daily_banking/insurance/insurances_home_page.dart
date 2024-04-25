@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/claims.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/policies.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/claims.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/policies.dart';
 
 class InsurancesHomePage extends StatelessWidget {
   const InsurancesHomePage({super.key});

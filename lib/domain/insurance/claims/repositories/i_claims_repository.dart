@@ -1,9 +1,9 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/claims_filter.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/detailed_claim.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/entities/simplified_claim.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/failures/detailed_claim_failure.dart';
-import 'package:manifiesto_mvp_app/domain/insurances/claims/failures/simplified_claim_failure.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claims_filter.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/detailed_claim.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/failures/detailed_claim_failure.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/failures/simplified_claim_failure.dart';
 
 abstract class IClaimsRepository {
   Future<Either<SimplifiedClaimFailure, List<SimplifiedClaim>>>
