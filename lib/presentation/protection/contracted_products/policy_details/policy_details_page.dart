@@ -19,7 +19,7 @@ class ContractedProductsPolicyDetails extends StatelessWidget {
                 handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                   context,
                 ),
-                sliver: CustomAppBar(
+                sliver: CustomAppBar.sliver(
                   centerTitle: true,
                   pinned: true,
                   title: 'Detalles de la póliza',

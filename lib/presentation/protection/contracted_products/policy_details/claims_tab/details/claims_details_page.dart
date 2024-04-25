@@ -15,7 +15,7 @@ class ClaimsDetailsPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Detalles del siniestro',
               leading: Button(

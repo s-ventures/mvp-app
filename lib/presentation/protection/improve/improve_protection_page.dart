@@ -18,7 +18,7 @@ class ImproveProtectionPage extends StatelessWidget {
                 handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                   context,
                 ),
-                sliver: CustomAppBar(
+                sliver: CustomAppBar.sliver(
                   centerTitle: true,
                   pinned: true,
                   type: CustomAppBarType.logo,
