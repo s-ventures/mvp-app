@@ -13,7 +13,9 @@ _$DetailedPolicyDtoImpl _$$DetailedPolicyDtoImplFromJson(
       policy: json['policy'] as String,
       certificateNumber: json['certificateNumber'] as String,
       createDate: DateTime.parse(json['createDate'] as String),
-      endDate: DateTime.parse(json['endDate'] as String),
+      endDate: json['endDate'] == null
+          ? null
+          : DateTime.parse(json['endDate'] as String),
       status: json['status'] as String,
       description: json['description'] as String,
       amount: (json['amount'] as num).toDouble(),
@@ -29,7 +31,7 @@ Map<String, dynamic> _$$DetailedPolicyDtoImplToJson(
       'policy': instance.policy,
       'certificateNumber': instance.certificateNumber,
       'createDate': instance.createDate.toIso8601String(),
-      'endDate': instance.endDate.toIso8601String(),
+      'endDate': instance.endDate?.toIso8601String(),
       'status': instance.status,
       'description': instance.description,
       'amount': instance.amount,

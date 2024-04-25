@@ -11,7 +11,7 @@ class DetailedPolicy with _$DetailedPolicy {
     required UniqueId insuranceId,
     required String certificateNumber,
     required DateTime createDate,
-    required DateTime endDate,
+    required DateTime? endDate,
     required String
         status, //TODO: Change to enum PolicyStatusType when BE is ready
     required String description,

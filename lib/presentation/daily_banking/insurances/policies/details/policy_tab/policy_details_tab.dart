@@ -1,56 +1,94 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/insurances/policies/detailed/detailed_policy_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/business_insurance.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/coverage_included.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/policy_billing.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class PolicyDetailsTab extends StatelessWidget {
-  const PolicyDetailsTab({super.key});
+class PolicyDetailsTab extends ConsumerStatefulWidget {
+  const PolicyDetailsTab({
+    required this.insuranceId,
+    required this.policyId,
+    super.key,
+  });
+
+  final int insuranceId;
+  final String policyId;
+
+  @override
+  ConsumerState<PolicyDetailsTab> createState() => _PolicyDetailsTabState();
+}
+
+class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(detailedPolicyControllerProvider.notifier).init(
+              insuranceId: widget.insuranceId,
+              policyId: widget.policyId,
+            ),
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.all(AppSpacing.s5),
-      children: [
-        InsurancePolicyListTile(
-          leadingEmoji: '🖥️',
-          leadingBackgroundColor: const Color(0xFFE0E0E0),
-          number: '123456',
-          category: DateFormat('dd/MM/yyyy').format(DateTime.now()),
-          status: 'En Vigor',
-          statusColor: context.color.statusSuccess,
-          title: 'Seguro de comercio',
-          onTap: () =>
-              context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
-        ),
-        AppSpacing.vertical.s5,
-        DateRangeListTile.disabled(
-          startDateTitle: 'Emisión',
-          startDate: DateFormat('dd/MM/yyyy').format(
-            DateTime.now().subtract(
-              const Duration(days: 30),
-            ),
+    final policy = ref.watch(detailedPolicyControllerProvider).policy;
+
+    return policy.when(
+      data: (policy) => ListView(
+        padding: const EdgeInsets.all(AppSpacing.s5),
+        children: [
+          InsurancePolicyListTile(
+            leadingEmoji:
+                '🖥️', //TODO: Pending to receive category and use the icon based on it
+            leadingBackgroundColor: const Color(0xFFE0E0E0),
+            number: policy.id.getOrCrash(),
+            category: '',
+            status: policy.status,
+            statusColor: context.color.statusSuccess,
+            title: policy.description,
+            onTap: () =>
+                context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
           ),
-          endDateTitle: 'Vencimiento',
-          endDate: DateFormat('dd/MM/yyyy').format(DateTime.now()),
-        ),
-        AppSpacing.vertical.s5,
-        const PolicyBilling(),
-        AppSpacing.vertical.s5,
-        Text(
-          'Póliza',
-          style: context.textStyle.bodyMediumSemiBold.copyWith(
-            color: context.color.textLight600,
+          AppSpacing.vertical.s5,
+          DateRangeListTile.disabled(
+            startDateTitle: 'Emisión',
+            startDate: policy.createDate.formatToDayMonthYear() ?? '---',
+            endDateTitle: 'Vencimiento',
+            endDate: policy.endDate.formatToDayMonthYear() ?? '---',
+          ),
+          AppSpacing.vertical.s5,
+          PolicyBilling(
+            amount: policy.amount,
+            lastInvoiceAmount: policy.lastInvoiceAmount,
+            paymentPeriodicity: policy.paymentPeriodicity,
+          ),
+          AppSpacing.vertical.s5,
+          const CoverageIncluded(),
+          AppSpacing.vertical.s5,
+          const BusinessInsurance(),
+        ],
+      ),
+      error: (error, _) => Center(
+        child: Text(
+          error.toString(),
+          style: context.textStyle.bodySmallRegular.copyWith(
+            color: context.color.error,
           ),
         ),
-        AppSpacing.vertical.s3,
-        const CoverageIncluded(),
-        AppSpacing.vertical.s5,
-        const BusinessInsurance(),
-      ],
+      ),
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }

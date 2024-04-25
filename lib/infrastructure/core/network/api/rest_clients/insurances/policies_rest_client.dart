@@ -22,7 +22,7 @@ abstract class PoliciesRestClient {
     @Query('') required PoliciesFilterDto filter,
   });
 
-  @GET('/insurance/claims/v1/detailed/{insuranceId}/policy/{policy}')
+  @GET('/insurance/policies/v1/detailed/{insuranceId}/policy/{policy}')
   Future<DetailedPolicyDto> getDetailedPolicy({
     @Path('insuranceId') required int insuranceId,
     @Path('policy') required String policy,

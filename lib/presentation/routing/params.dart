@@ -28,3 +28,13 @@ class InsuranceClaimDetailsRouteParams {
   final int claimId;
   final int insuranceId;
 }
+
+class InsurancePolicyDetailsRouteParams {
+  const InsurancePolicyDetailsRouteParams({
+    required this.insuranceId,
+    required this.policyId,
+  });
+
+  final int insuranceId;
+  final String policyId;
+}

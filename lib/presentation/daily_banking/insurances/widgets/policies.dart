@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurances/policies/simplified/simplified_policies_controller.dart';
 import 'package:manifiesto_mvp_app/domain/insurances/policies/entities/simplified_policy.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/widgets/filter_policies_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -96,8 +97,13 @@ class _PoliciesList extends StatelessWidget {
             statusColor: context.color.statusSuccess,
             category: '',
             title: policy.description,
-            onTap: () =>
-                context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
+            onTap: () => context.pushNamed(
+              AppRoute.dailyBankingInsuranceDetails.name,
+              extra: InsurancePolicyDetailsRouteParams(
+                insuranceId: policy.insuranceId,
+                policyId: policy.id.getOrCrash(),
+              ),
+            ),
           ),
         );
       },

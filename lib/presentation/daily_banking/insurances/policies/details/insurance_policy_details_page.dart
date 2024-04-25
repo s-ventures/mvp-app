@@ -5,7 +5,14 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policie
 import 'package:ui_kit/ui_kit.dart';
 
 class InsurancePolicyDetailsPage extends StatelessWidget {
-  const InsurancePolicyDetailsPage({super.key});
+  const InsurancePolicyDetailsPage({
+    required this.insuranceId,
+    required this.policyId,
+    super.key,
+  });
+
+  final int insuranceId;
+  final String policyId;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +51,13 @@ class InsurancePolicyDetailsPage extends StatelessWidget {
                 ),
               ];
             },
-            body: const TabBarView(
+            body: TabBarView(
               children: [
-                PolicyDetailsTab(),
-                ClaimsTab(),
+                PolicyDetailsTab(
+                  insuranceId: insuranceId,
+                  policyId: policyId,
+                ),
+                const ClaimsTab(),
               ],
             ),
           ),

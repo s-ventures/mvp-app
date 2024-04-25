@@ -24,7 +24,7 @@ mixin _$DetailedPolicyDto {
   String get policy => throw _privateConstructorUsedError;
   String get certificateNumber => throw _privateConstructorUsedError;
   DateTime get createDate => throw _privateConstructorUsedError;
-  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime? get endDate => throw _privateConstructorUsedError;
   String get status =>
       throw _privateConstructorUsedError; //TODO: Change to enum PolicyStatusType when BE is ready
   String get description => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $DetailedPolicyDtoCopyWith<$Res> {
       String policy,
       String certificateNumber,
       DateTime createDate,
-      DateTime endDate,
+      DateTime? endDate,
       String status,
       String description,
       double amount,
@@ -75,7 +75,7 @@ class _$DetailedPolicyDtoCopyWithImpl<$Res, $Val extends DetailedPolicyDto>
     Object? policy = null,
     Object? certificateNumber = null,
     Object? createDate = null,
-    Object? endDate = null,
+    Object? endDate = freezed,
     Object? status = null,
     Object? description = null,
     Object? amount = null,
@@ -99,10 +99,10 @@ class _$DetailedPolicyDtoCopyWithImpl<$Res, $Val extends DetailedPolicyDto>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endDate: null == endDate
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,7 @@ abstract class _$$DetailedPolicyDtoImplCopyWith<$Res>
       String policy,
       String certificateNumber,
       DateTime createDate,
-      DateTime endDate,
+      DateTime? endDate,
       String status,
       String description,
       double amount,
@@ -163,7 +163,7 @@ class __$$DetailedPolicyDtoImplCopyWithImpl<$Res>
     Object? policy = null,
     Object? certificateNumber = null,
     Object? createDate = null,
-    Object? endDate = null,
+    Object? endDate = freezed,
     Object? status = null,
     Object? description = null,
     Object? amount = null,
@@ -187,10 +187,10 @@ class __$$DetailedPolicyDtoImplCopyWithImpl<$Res>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endDate: null == endDate
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -242,7 +242,7 @@ class _$DetailedPolicyDtoImpl implements _DetailedPolicyDto {
   @override
   final DateTime createDate;
   @override
-  final DateTime endDate;
+  final DateTime? endDate;
   @override
   final String status;
 //TODO: Change to enum PolicyStatusType when BE is ready
@@ -319,7 +319,7 @@ abstract class _DetailedPolicyDto implements DetailedPolicyDto {
           required final String policy,
           required final String certificateNumber,
           required final DateTime createDate,
-          required final DateTime endDate,
+          required final DateTime? endDate,
           required final String status,
           required final String description,
           required final double amount,
@@ -339,7 +339,7 @@ abstract class _DetailedPolicyDto implements DetailedPolicyDto {
   @override
   DateTime get createDate;
   @override
-  DateTime get endDate;
+  DateTime? get endDate;
   @override
   String get status;
   @override //TODO: Change to enum PolicyStatusType when BE is ready

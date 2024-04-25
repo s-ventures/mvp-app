@@ -475,10 +475,17 @@ GoRouter router(RouterRef ref) {
                 parentNavigatorKey: _rootNavigatorKey,
                 path: AppRoute.dailyBankingInsuranceDetails.path,
                 name: AppRoute.dailyBankingInsuranceDetails.name,
-                pageBuilder: (context, state) => MaterialPage(
-                  key: state.pageKey,
-                  child: const InsurancePolicyDetailsPage(),
-                ),
+                pageBuilder: (context, state) {
+                  final params =
+                      state.extra! as InsurancePolicyDetailsRouteParams;
+                  return MaterialPage(
+                    key: state.pageKey,
+                    child: InsurancePolicyDetailsPage(
+                      insuranceId: params.insuranceId,
+                      policyId: params.policyId,
+                    ),
+                  );
+                },
                 routes: [
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
