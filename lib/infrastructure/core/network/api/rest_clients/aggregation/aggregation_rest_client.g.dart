@@ -19,13 +19,13 @@ class _AggregationRestClient implements AggregationRestClient {
   String? baseUrl;
 
   @override
-  Future<AggregationUrlDto> getAggregationServiceUrl() async {
+  Future<TinkFlowLinkDto> getAggregationServiceUrl() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<AggregationUrlDto>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<TinkFlowLinkDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -41,7 +41,7 @@ class _AggregationRestClient implements AggregationRestClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AggregationUrlDto.fromJson(_result.data!);
+    final value = TinkFlowLinkDto.fromJson(_result.data!);
     return value;
   }
 

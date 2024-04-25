@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/infrastructure/aggregation/dtos/aggregation_url_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/aggregation/dtos/tink_flow_link_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/dio_provider.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -15,5 +15,5 @@ abstract class AggregationRestClient {
   factory AggregationRestClient(Dio dio) = _AggregationRestClient;
 
   @GET('/accounts/v1/integrations/tink/get-link')
-  Future<AggregationUrlDto> getAggregationServiceUrl();
+  Future<TinkFlowLinkDto> getAggregationServiceUrl();
 }
