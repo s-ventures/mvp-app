@@ -4,31 +4,31 @@ import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/simplifi
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_status_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_type_dto.dart';
 
-//  {
-//       "type": "BASE",
-//       "senderReference": "string",
-//       "senderBank": "string",
-//       "accountId": 0,
-//       "orderDate": "2024-04-19",
-//       "valueDate": "2024-04-19",
-//       "concept": "string",
-//       "settlementAmount": 0,
-//       "settlementCurrencyCode": "string",
-//       "foreignExchange": 0,
-//       "exchangeValue": 0,
-//       "detailOfCharges": "SHA",
-//       "instructedAmount": 0,
-//       "instructedCurrencyCode": "string",
-//       "status": "SENT",
-//       "movementNumber": "string",
-//       "concept2": "string",
-//       "movementId": 0,
-//       "sentTransferId": 0,
-//       "routingNumber": "string",
-//       "beneficiaryBank": "string",
-//       "beneficiaryName": "string",
-//       "transferDate": "2024-04-19"
-//     }
+// {
+//     "type": "TRANSFER",
+//     "baasTransferId": "string",
+//     "senderBank": "string",
+//     "accountId": 0,
+//     "orderDate": "2024-04-25",
+//     "valueDate": "2024-04-25",
+//     "concept": "string",
+//     "settlementAmount": 0,
+//     "settlementCurrencyCode": "string",
+//     "foreignExchange": 0,
+//     "exchangeValue": 0,
+//     "detailOfCharges": "SHA",
+//     "instructedAmount": 0,
+//     "instructedCurrencyCode": "string",
+//     "status": "SENT",
+//     "baasMovementId": "string",
+//     "concept2": "string",
+//     "movementId": 0,
+//     "sentTransferId": 0,
+//     "routingNumber": "string",
+//     "beneficiaryBank": "string",
+//     "beneficiaryName": "string",
+//     "transferDate": "2024-04-25"
+//   }
 
 part 'simplified_sent_transfer_dto.freezed.dart';
 part 'simplified_sent_transfer_dto.g.dart';
@@ -36,14 +36,12 @@ part 'simplified_sent_transfer_dto.g.dart';
 @freezed
 class SimplifiedSentTransferDto with _$SimplifiedSentTransferDto {
   const factory SimplifiedSentTransferDto({
-    required int? sentTransferId,
-    required int accountId,
-    required int? movementId,
-    required SentTransferTypeDto? type,
-    required String? senderReference,
+    required SentTransferTypeDto type,
+    required String? baasTransferId,
     required String? senderBank,
+    required int accountId,
     required DateTime orderDate,
-    required DateTime valueDate,
+    required DateTime? valueDate,
     required String concept,
     required double? settlementAmount,
     required String? settlementCurrencyCode,
@@ -53,8 +51,10 @@ class SimplifiedSentTransferDto with _$SimplifiedSentTransferDto {
     required double instructedAmount,
     required String instructedCurrencyCode,
     required SentTransferStatusTypeDto status,
-    required String movementNumber,
+    required String baasMovementId,
     required String? concept2,
+    required int? movementId,
+    required int? sentTransferId,
     required String? routingNumber,
     required String? beneficiaryBank,
     required String beneficiaryName,

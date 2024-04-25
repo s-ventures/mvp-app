@@ -97,9 +97,13 @@ Map<String, dynamic> _$SentTransfersFilterDtoToJson(
 }
 
 const _$SentTransferTypeDtoEnumMap = {
-  SentTransferTypeDto.bases: 'BASES',
-  SentTransferTypeDto.inmediatas: 'INMEDIATAS',
-  SentTransferTypeDto.urgentes: 'URGENTES',
+  SentTransferTypeDto.transfer: 'TRANSFER',
+  SentTransferTypeDto.between_my_accounts: 'BETWEEN_MY_ACCOUNTS',
+  SentTransferTypeDto.inmediate: 'INMEDIATE',
+  SentTransferTypeDto.urgent: 'URGENT',
+  SentTransferTypeDto.sepa: 'SEPA',
+  SentTransferTypeDto.internal: 'INTERNAL',
+  SentTransferTypeDto.international: 'INTERNATIONAL',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

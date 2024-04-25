@@ -46,17 +46,17 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
         SizedBox(
           height: 128,
           child: sentTransfers.when(
-            data: (sentTransfers) {
+            data: (lastSentTransfers) {
               return ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: sentTransfers.length,
+                itemCount: lastSentTransfers.length,
                 itemBuilder: (context, index) {
-                  final sentTransfer = sentTransfers[index];
+                  final sentTransfer = lastSentTransfers[index];
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: AppSpacing.s5),
+                    padding: const EdgeInsets.only(right: AppSpacing.s5),
                     child: LastSentTransferCard(
                       sentTransfer: sentTransfer,
                     ),
