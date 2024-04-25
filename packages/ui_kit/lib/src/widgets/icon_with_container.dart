@@ -16,6 +16,7 @@ class IconWithContainer extends StatelessWidget {
     this.subIcon,
     this.backgroundColor = Colors.white,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
+    this.outlined = false,
   });
 
   final double height;
@@ -28,6 +29,7 @@ class IconWithContainer extends StatelessWidget {
   final String? subIcon;
   final Color backgroundColor;
   final BorderRadius borderRadius;
+  final bool outlined;
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +40,16 @@ class IconWithContainer extends StatelessWidget {
           width: width,
           height: height,
           padding: padding,
-          decoration: BoxDecoration(
+          decoration: ShapeDecoration(
             color: backgroundColor,
-            borderRadius: borderRadius,
+            shape: RoundedRectangleBorder(
+              borderRadius: borderRadius,
+              side: outlined
+                  ? BorderSide(
+                      color: context.color.strokeLigth100,
+                    )
+                  : BorderSide.none,
+            ),
           ),
           child: Center(
             child: icon != null

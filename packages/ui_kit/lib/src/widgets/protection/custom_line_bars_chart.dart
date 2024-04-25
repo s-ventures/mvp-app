@@ -3,30 +3,30 @@ import 'package:ui_kit/ui_kit.dart';
 
 class CustomLineBarsChart extends StatelessWidget {
   const CustomLineBarsChart({
-    required this.bars,
+    required this.children,
     super.key,
   });
 
-  final List<Widget> bars;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
-    final barsWithSpacing = <Widget>[];
-    for (var i = 0; i < bars.length; i++) {
+    final childrenWithSpacing = <Widget>[];
+    for (var i = 0; i < children.length; i++) {
       if (i != 0) {
-        barsWithSpacing.add(AppSpacing.horizontal.s2);
+        childrenWithSpacing.add(AppSpacing.horizontal.s2);
       }
-      barsWithSpacing.add(bars[i]);
+      childrenWithSpacing.add(children[i]);
     }
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: barsWithSpacing,
+      children: childrenWithSpacing,
     );
   }
 }
 
-enum CustomLineBarColor { critical, warning, success, neutral }
+enum CustomLineBarColor { critical, warning, success, neutral, primary }
 
 class CustomLineBarChart extends StatelessWidget {
   const CustomLineBarChart({
@@ -48,24 +48,24 @@ class CustomLineBarChart extends StatelessWidget {
           borderRadius: BorderRadius.circular(context.radius.soft),
           color: !active && CustomLineBarColor.neutral == color
               ? context.color.strokeLigth100
-              : !active && CustomLineBarColor.success == color
-                  ? context.color.statusSuccess.withOpacity(.1)
-                  : !active && CustomLineBarColor.warning == color
-                      ? context.color.statusWarning.withOpacity(.1)
-                      : !active && CustomLineBarColor.critical == color
-                          ? context.color.statusError.withOpacity(.1)
-                          : active && CustomLineBarColor.neutral == color
-                              ? context.color.strokeLigth100
-                              : active && CustomLineBarColor.success == color
-                                  ? context.color.statusSuccess
-                                  : active &&
-                                          CustomLineBarColor.warning == color
-                                      ? context.color.statusWarning
-                                      : active &&
-                                              CustomLineBarColor.critical ==
-                                                  color
-                                          ? context.color.statusError
-                                          : context.color.backgroundLight0,
+              : !active && CustomLineBarColor.primary == color
+                  ? context.color.primary.withOpacity(.1)
+                  : !active && CustomLineBarColor.success == color
+                      ? context.color.statusSuccess.withOpacity(.1)
+                      : !active && CustomLineBarColor.warning == color
+                          ? context.color.statusWarning.withOpacity(.1)
+                          : !active && CustomLineBarColor.critical == color
+                              ? context.color.statusError.withOpacity(.1)
+                              : active && CustomLineBarColor.neutral == color
+                                  ? context.color.strokeLigth100
+                                  : active && CustomLineBarColor.primary == color
+                                      ? context.color.primary
+                                      : active && CustomLineBarColor.success == color
+                                          ? context.color.statusSuccess
+                                          : active && CustomLineBarColor.warning == color
+                                              ? context.color.statusWarning : active && CustomLineBarColor.critical == color
+                                                  ? context.color.statusError
+                                                  : context.color.backgroundLight0,
         ),
         height: height,
       ),

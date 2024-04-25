@@ -23,10 +23,13 @@ class ContactRankingListTile extends StatefulWidget {
 
 class _ContactRankingListTileState extends State<ContactRankingListTile>
     with SingleTickerProviderStateMixin {
-  static final Animatable<double> _easeInTween =
-      CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0, end: 0.5);
+  static final Animatable<double> _easeInTween = CurveTween(
+    curve: Curves.easeIn,
+  );
+  static final Animatable<double> _halfTween = Tween<double>(
+    begin: 0,
+    end: 0.5,
+  );
 
   late AnimationController _controller;
   late Animation<double> _iconTurns;

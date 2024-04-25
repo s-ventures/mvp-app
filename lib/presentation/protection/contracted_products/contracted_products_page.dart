@@ -14,7 +14,7 @@ class ContractedProductsPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 title: 'Productos contratados',
                 leading: Button(
