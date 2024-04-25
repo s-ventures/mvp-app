@@ -1,20 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/banking_aggregation/banking_aggregation_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/banking_aggregation_facade.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_state.dart';
+import 'package:manifiesto_mvp_app/infrastructure/aggregation/repositories/aggregation_facade.dart';
 
-final bankingAggregationControllerProvider = StateNotifierProvider<
-    BankingAggregationController, BankingAggregationState>(
-  (ref) =>
-      BankingAggregationController(ref.watch(bankingAggregationFacadeProvider)),
+final aggregationControllerProvider =
+    StateNotifierProvider<AggregationController, AggregationState>(
+  (ref) => AggregationController(ref.watch(aggregationFacadeProvider)),
 );
 
-class BankingAggregationController
-    extends StateNotifier<BankingAggregationState> {
-  BankingAggregationController(this._facade)
-      : super(const BankingAggregationState());
+class AggregationController extends StateNotifier<AggregationState> {
+  AggregationController(this._facade) : super(const AggregationState());
 
-  final BankingAggregationFacade _facade;
+  final AggregationFacade _facade;
 
   Future<void> getAggregationServiceUrl() async {
     final urlOption = await _facade.aggregationServiceUrl;

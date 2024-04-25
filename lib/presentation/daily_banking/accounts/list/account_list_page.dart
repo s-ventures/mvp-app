@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/banking_aggregation/banking_aggregation_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -12,9 +12,9 @@ class AccountListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bankingAggregationController =
-        ref.read(bankingAggregationControllerProvider.notifier);
-    ref.watch(bankingAggregationControllerProvider).aggregationServiceUrl.when(
+    final aggregationController =
+        ref.read(aggregationControllerProvider.notifier);
+    ref.watch(aggregationControllerProvider).aggregationServiceUrl.when(
           data: (url) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               context.pushNamed(
@@ -23,7 +23,7 @@ class AccountListPage extends ConsumerWidget {
                   title: 'Agregar cuenta',
                   url: url,
                   onNavigationRequest: (request) {
-                    final navigate = bankingAggregationController
+                    final navigate = aggregationController
                         .tryParseCredentialsId(request.url);
                     if (navigate) {
                       return NavigationDecision.navigate;
@@ -58,8 +58,7 @@ class AccountListPage extends ConsumerWidget {
                   Button(
                     icon: IconAssets.plus,
                     size: ButtonSize.extraSmall,
-                    onPressed:
-                        bankingAggregationController.getAggregationServiceUrl,
+                    onPressed: aggregationController.getAggregationServiceUrl,
                   ),
                 ],
               ),

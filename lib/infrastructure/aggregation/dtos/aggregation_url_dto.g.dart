@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'banking_aggregation_url_dto.dart';
+part of 'aggregation_url_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BankingAggregationUrlDtoImpl _$$BankingAggregationUrlDtoImplFromJson(
+_$AggregationUrlDtoImpl _$$AggregationUrlDtoImplFromJson(
         Map<String, dynamic> json) =>
-    _$BankingAggregationUrlDtoImpl(
+    _$AggregationUrlDtoImpl(
       fullLink: json['fullLink'] as String,
     );
 
-Map<String, dynamic> _$$BankingAggregationUrlDtoImplToJson(
-        _$BankingAggregationUrlDtoImpl instance) =>
+Map<String, dynamic> _$$AggregationUrlDtoImplToJson(
+        _$AggregationUrlDtoImpl instance) =>
     <String, dynamic>{
       'fullLink': instance.fullLink,
     };

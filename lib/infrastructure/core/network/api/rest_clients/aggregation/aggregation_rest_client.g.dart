@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'banking_aggregation_rest_client.dart';
+part of 'aggregation_rest_client.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'banking_aggregation_rest_client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _BankingAggregationRestClient implements BankingAggregationRestClient {
-  _BankingAggregationRestClient(
+class _AggregationRestClient implements AggregationRestClient {
+  _AggregationRestClient(
     this._dio, {
     this.baseUrl,
   });
@@ -19,13 +19,13 @@ class _BankingAggregationRestClient implements BankingAggregationRestClient {
   String? baseUrl;
 
   @override
-  Future<BankingAggregationUrlDto> getAggregationServiceUrl() async {
+  Future<AggregationUrlDto> getAggregationServiceUrl() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<BankingAggregationUrlDto>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<AggregationUrlDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -41,7 +41,7 @@ class _BankingAggregationRestClient implements BankingAggregationRestClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = BankingAggregationUrlDto.fromJson(_result.data!);
+    final value = AggregationUrlDto.fromJson(_result.data!);
     return value;
   }
 
