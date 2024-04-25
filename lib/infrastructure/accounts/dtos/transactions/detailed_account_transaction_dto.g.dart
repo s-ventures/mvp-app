@@ -36,10 +36,9 @@ _$DetailedAccountTransactionDtoImpl
               ?.map((e) =>
                   TransactionAttachmentDto.fromJson(e as Map<String, dynamic>))
               .toList(),
-          extendedDetails:
-              _$JsonConverterFromJson<Map<String, dynamic>, ExtendedDetailsDto>(
-                  json['extendedDetails'],
-                  const ExtendedDetailsConverter().fromJson),
+          extendedDetails: _$JsonConverterFromJson<Map<String, dynamic>,
+                  ExtendedDetailsDto?>(json['extendedDetails'],
+              const ExtendedDetailsConverter().fromJson),
           productType:
               $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
         );
@@ -69,9 +68,7 @@ Map<String, dynamic> _$$DetailedAccountTransactionDtoImplToJson(
       'assignmentDate': const DateConverter().toJson(instance.assignmentDate),
       'attachments': instance.attachments?.map((e) => e.toJson()).toList(),
       'extendedDetails':
-          _$JsonConverterToJson<Map<String, dynamic>, ExtendedDetailsDto>(
-              instance.extendedDetails,
-              const ExtendedDetailsConverter().toJson),
+          const ExtendedDetailsConverter().toJson(instance.extendedDetails),
       'productType': _$ProductTypeDtoEnumMap[instance.productType]!,
     };
 
@@ -109,9 +106,3 @@ const _$ProductTypeDtoEnumMap = {
   ProductTypeDto.aggregatedAccounts: 'AGGREGATED_ACCOUNTS',
   ProductTypeDto.unknown: 'UNKNOWN',
 };
-
-Json? _$JsonConverterToJson<Json, Value>(
-  Value? value,
-  Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
