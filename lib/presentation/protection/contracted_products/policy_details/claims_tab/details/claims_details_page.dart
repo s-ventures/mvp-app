@@ -15,7 +15,7 @@ class ClaimsDetailsPage extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               title: 'Detalles del siniestro',
               leading: Button(
@@ -47,9 +47,6 @@ class ClaimsDetailsPage extends StatelessWidget {
               title: 'Protección de la actividad de tu negocio',
               type: PolicyAndClaimsType.policy,
               date: DateFormat('dd/MM/yyyy').format(DateTime.now()),
-              onPressed: () => context.pushNamed(
-                AppRoute.dailyBankingInsuranceClaimDetails.name,
-              ),
             ),
             AppSpacing.vertical.s5,
             const ClaimDetailsListTile(
