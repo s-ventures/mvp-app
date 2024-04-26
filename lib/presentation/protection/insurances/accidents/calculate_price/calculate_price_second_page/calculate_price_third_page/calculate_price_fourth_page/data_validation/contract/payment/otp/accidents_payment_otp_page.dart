@@ -8,46 +8,14 @@ class AccidentsInsurancePaymentOtpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, value) {
-          return [
-            CustomAppBar.sliver(
-              centerTitle: true,
-              title: 'Confirmación',
-              leading: Button(
-                icon: IconAssets.chevronLeft,
-                type: ButtonType.outlined,
-                size: ButtonSize.extraSmall,
-                onPressed: () async => context.pop(),
-              ),
-              actions: [
-                Button(
-                  icon: IconAssets.headPhones,
-                  type: ButtonType.outlined,
-                  size: ButtonSize.extraSmall,
-                  onPressed: () async {},
-                ),
-              ],
-            ),
-          ];
-        },
-        body: ListView(
-          padding: const EdgeInsets.all(AppSpacing.s5),
-          children: [],
-        ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
-          child: Button(
-            title: 'Siguiente',
-            size: ButtonSize.small,
-            onPressed: () => context.pushNamed(
-              AppRoute.protectionInsuranceAccidentContracted.name,
-            ),
-          ),
-        ),
+    return OtpPage(
+      title: 'Código de confirmación',
+      message:
+          'Para continuar, introduce la contraseña que acabamos de enviarte al teléfono acabado en "63"',
+      onPressedBack: () async => context.pop(),
+      onPressedResend: () async {},
+      onPressedConfirm: () async => context.pushNamed(
+        AppRoute.protectionInsuranceAccidentContracted.name,
       ),
     );
   }

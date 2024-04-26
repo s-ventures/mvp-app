@@ -85,7 +85,7 @@ class CommerceInsurancePage extends StatelessWidget {
           body: ListView(
             padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
-              const TotalCoverage(0.5),
+              const CurrentCoverage(0.5),
               AppSpacing.vertical.s5,
               ProtectionCustomCheckboxListTile(
                 title: 'Seguro de Comercios',

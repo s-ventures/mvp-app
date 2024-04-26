@@ -55,7 +55,7 @@ class ResponsibilitySection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const TotalCoverage(0.5),
+                const CurrentCoverage(0.5),
                 AppSpacing.vertical.s5,
                 Text(
                   'Seguros recomendados',

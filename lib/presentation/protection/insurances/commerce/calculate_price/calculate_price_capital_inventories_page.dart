@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/policy_details/claims_tab/details/widgets/claim_details_list_tile.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/calculate_price_steps.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/help_with_the_quotation.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -37,32 +38,10 @@ class CommerceInsuranceCalculatePriceFirstStepPage extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Capitales relativos a existencias',
-                  style: context.textStyle.bodyMediumSemiBold.copyWith(
-                    color: context.color.textLight900,
-                  ),
-                ),
-                Text(
-                  '1/2',
-                  style: context.textStyle.bodyMediumRegular.copyWith(
-                    color: context.color.textLight600,
-                  ),
-                ),
-              ],
-            ),
-            AppSpacing.vertical.s5,
-            const CustomLineBarsChart(
-              children: [
-                CustomLineBarChart(
-                  color: CustomLineBarColor.primary,
-                  active: true,
-                ),
-                CustomLineBarChart(),
-              ],
+            const CalculatePriceSteps(
+              title: 'Capitales relativos a existencias',
+              currentStep: 1,
+              totalSteps: 2,
             ),
             AppSpacing.vertical.s6,
             ClaimDetailsListTile(

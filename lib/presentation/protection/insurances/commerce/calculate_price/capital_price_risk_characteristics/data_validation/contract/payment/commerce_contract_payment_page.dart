@@ -124,7 +124,7 @@ class _InsuranceCommerceContractPaymentPageState
             ),
             AppSpacing.vertical.s6,
             Text(
-              'Fecha de efecto',
+              'Contractual',
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),

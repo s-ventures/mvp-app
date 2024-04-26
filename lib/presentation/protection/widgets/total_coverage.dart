@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TotalCoverage extends StatelessWidget {
-  const TotalCoverage(
+class CurrentCoverage extends StatelessWidget {
+  const CurrentCoverage(
     this.percent, {
     super.key,
   });
@@ -18,7 +18,7 @@ class TotalCoverage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Cobertura total',
+                'Cobertura actual',
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),

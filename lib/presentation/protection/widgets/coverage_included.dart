@@ -78,12 +78,20 @@ class ProtectionCoverageIncluded extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    CustomCheckbox.small(
-                      onChecked: (value) {},
-                      isChecked: true,
-                      type: CheckboxType.circle,
-                      activeColor: CheckboxColor.tertiary,
+                    Container(
+                      width: AppSpacing.s5,
+                      height: AppSpacing.s5,
+                      padding: const EdgeInsets.all(AppSpacing.s2),
+                      decoration: BoxDecoration(
+                        color: context.color.tertiaryLight500,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: IconSvg.small(
+                        IconAssets.check,
+                        color: context.color.iconLight0,
+                      ),
                     ),
+                    AppSpacing.horizontal.s3,
                     Expanded(
                       child: Text(
                         coverage,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/calculate_price_steps.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/custom_grid_tile.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/help_with_the_quotation.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -37,35 +38,10 @@ class CommerceInsuranceCalculatePriceSecondStepPage extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Características de riesgo',
-                  style: context.textStyle.bodyMediumSemiBold.copyWith(
-                    color: context.color.textLight900,
-                  ),
-                ),
-                Text(
-                  '2/2',
-                  style: context.textStyle.bodyMediumRegular.copyWith(
-                    color: context.color.textLight600,
-                  ),
-                ),
-              ],
-            ),
-            AppSpacing.vertical.s5,
-            const CustomLineBarsChart(
-              children: [
-                CustomLineBarChart(
-                  color: CustomLineBarColor.primary,
-                  active: true,
-                ),
-                CustomLineBarChart(
-                  color: CustomLineBarColor.primary,
-                  active: true,
-                ),
-              ],
+            const CalculatePriceSteps(
+              title: 'Características de riesgo',
+              currentStep: 1,
+              totalSteps: 2,
             ),
             AppSpacing.vertical.s6,
             Text(
