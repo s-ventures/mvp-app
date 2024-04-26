@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverage_included.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverages.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/icon_title_info.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -80,7 +80,8 @@ class InsuranceCommerceContractedPage extends StatelessWidget {
               ),
             ),
             AppSpacing.vertical.s3,
-            const ProtectionCoverageIncluded(
+            const Coverages(
+              title: 'Coberturas incluidas',
               coveragesIncluded: [
                 'Siniestros y averías generales',
                 'Asistencia Informática',
@@ -95,7 +96,8 @@ class InsuranceCommerceContractedPage extends StatelessWidget {
               ],
             ),
             AppSpacing.vertical.s3,
-            const ProtectionCoverageIncluded(
+            const Coverages(
+              title: 'Coberturas añadidas',
               coveragesIncluded: [
                 'Accidentes corporales',
               ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverage_included.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverages.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/custom_card_radio_option.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/help_with_the_quotation.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -147,7 +147,8 @@ class AccidentsInsurancePaymentPage extends StatelessWidget {
               ),
             ),
             AppSpacing.vertical.s3,
-            const ProtectionCoverageIncluded(
+            const Coverages(
+              title: 'Coberturas incluidas',
               coveragesIncluded: [
                 'Fallecimiento por accidente',
                 'Invalidez por accidente',
@@ -155,7 +156,8 @@ class AccidentsInsurancePaymentPage extends StatelessWidget {
               ],
             ),
             AppSpacing.vertical.s3,
-            const ProtectionCoverageIncluded(
+            const Coverages(
+              title: 'Coberturas añadidas',
               coveragesIncluded: [
                 'Renta mensual por fallecimiento accidental',
                 'Renta mensual por invalidez permanente absoluta accidental'

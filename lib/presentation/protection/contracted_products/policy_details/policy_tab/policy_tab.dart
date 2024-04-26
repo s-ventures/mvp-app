@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverage_included.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverages.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/policy_and_claims_list_tile.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/policy_billing.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -119,8 +119,10 @@ class ContractedProductsPolicyDetailsTab extends StatelessWidget {
                   ],
                 ),
                 AppSpacing.vertical.s5,
-                const ProtectionCoverageIncluded(
-                    coveragesIncludedWithDescription: coverageIncluded),
+                const Coverages(
+                  title: 'Coberturas incluidas',
+                  coveragesIncludedWithDescription: coverageIncluded,
+                ),
                 AppSpacing.vertical.s5,
                 OutlinedList(
                   children: [

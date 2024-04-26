@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverage_included.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverages.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/custom_checkbox_list_tile.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/total_coverage.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -86,7 +86,8 @@ class ResponsibilitySection extends StatelessWidget {
                   checkboxColor: CheckboxColor.secondary,
                 ),
                 AppSpacing.vertical.s5,
-                const ProtectionCoverageIncluded(
+                const Coverages(
+                  title: 'Coberturas incluidas',
                   coveragesIncludedWithDescription: coverageIncluded,
                 ),
                 AppSpacing.vertical.s5,

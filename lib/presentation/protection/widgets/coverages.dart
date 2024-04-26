@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverage_bottom_sheet.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class ProtectionCoverageIncluded extends StatelessWidget {
-  const ProtectionCoverageIncluded({
+class Coverages extends StatelessWidget {
+  const Coverages({
+    required this.title,
     this.coveragesIncludedWithDescription,
     this.coveragesIncluded,
     super.key,
   });
 
+  final String title;
   final List<Map<String, String>>? coveragesIncludedWithDescription;
   final List<String>? coveragesIncluded;
 
@@ -20,7 +22,7 @@ class ProtectionCoverageIncluded extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Coberturas incluidas',
+            title,
             style: context.textStyle.bodyMediumSemiBold.copyWith(
               color: context.color.textLight900,
             ),
