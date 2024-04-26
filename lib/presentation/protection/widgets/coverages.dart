@@ -76,7 +76,7 @@ class Coverages extends StatelessWidget {
             ...coveragesIncluded!.map(
               (String coverage) => Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: AppSpacing.s1,
+                  vertical: AppSpacing.s2,
                 ),
                 child: Row(
                   children: [

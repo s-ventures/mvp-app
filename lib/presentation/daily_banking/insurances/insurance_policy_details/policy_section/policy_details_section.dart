@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/business_insurance.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/coverage_included.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurance_policy_details/policy_section/widgets/policy_billing.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverages.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -21,7 +22,8 @@ class PolicyDetailsSection extends StatelessWidget {
           number: '123456',
           category: DateFormat('dd/MM/yyyy').format(DateTime.now()),
           title: 'Seguro de comercio',
-          onTap: () => context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
+          onTap: () =>
+              context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
         ),
         AppSpacing.vertical.s5,
         DateRangeListTile.disabled(
@@ -37,14 +39,21 @@ class PolicyDetailsSection extends StatelessWidget {
         AppSpacing.vertical.s5,
         const PolicyBilling(),
         AppSpacing.vertical.s5,
-        Text(
-          'Póliza',
-          style: context.textStyle.bodyMediumSemiBold.copyWith(
-            color: context.color.textLight600,
-          ),
+        const Coverages(
+          title: 'Coberturas incluidas',
+          coveragesIncluded: [
+            'Siniestros y averias generales',
+            'Asistencia Informática',
+            'Robo con y sin violencia',
+            'Daños Eléctricos',
+            'Avería de Maquinaria',
+            'Roturas de cristales',
+            'Daños Estéticos',
+            'Responsabilidad Civil',
+            'Pérdida de Beneficios diaria',
+            'Desalojo Forzoso',
+          ],
         ),
-        AppSpacing.vertical.s3,
-        const CoverageIncluded(),
         AppSpacing.vertical.s5,
         const BusinessInsurance(),
       ],
