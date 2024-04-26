@@ -2,13 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurances/policies/detailed/detailed_policy_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/business_insurance.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/coverage_included.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/widgets/policy_billing.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class PolicyDetailsTab extends ConsumerStatefulWidget {
@@ -56,8 +54,6 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
             status: policy.status,
             statusColor: context.color.statusSuccess,
             title: policy.description,
-            onTap: () =>
-                context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
           ),
           AppSpacing.vertical.s5,
           DateRangeListTile.disabled(

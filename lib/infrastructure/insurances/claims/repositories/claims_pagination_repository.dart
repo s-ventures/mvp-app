@@ -17,14 +17,13 @@ class ClaimsPaginationRepository
   );
   final ClaimsRepository _claimsRepository;
   ClaimsFilter? _filter;
+  ClaimsFilter? get filter => _filter;
 
   @override
   Future<List<SimplifiedClaim>> fetchPage({
     required int page,
     required int pageSize,
   }) async {
-    final filter = _filter;
-
     final claims = await _claimsRepository.getSimplifiedClaims(
       filter: filter ?? const ClaimsFilter(),
       page: page,
@@ -40,7 +39,6 @@ class ClaimsPaginationRepository
   void updateFilter({
     required int? claimId,
     required List<int>? insuranceIds,
-    required int? year,
     required String? dossier,
     required DateTime? createDateFrom,
     required DateTime? createDateTo,
@@ -56,10 +54,9 @@ class ClaimsPaginationRepository
     required String? agentEmail,
     required String? agentTelephone,
   }) {
-    _filter = _filter?.copyWith(
+    _filter = (_filter ?? const ClaimsFilter()).copyWith(
       claimId: claimId,
       insuranceIds: insuranceIds,
-      year: year,
       dossier: dossier,
       createDateFrom: createDateFrom,
       createDateTo: createDateTo,

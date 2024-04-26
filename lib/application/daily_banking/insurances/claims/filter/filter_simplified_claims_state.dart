@@ -7,7 +7,6 @@ class FilterSimplifiedClaimsState with _$FilterSimplifiedClaimsState {
   const factory FilterSimplifiedClaimsState({
     int? claimId,
     List<int>? insuranceIds,
-    int? year,
     String? dossier,
     DateTime? createDateFrom,
     DateTime? createDateTo,

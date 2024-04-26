@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/filter/filter_simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/claims_tab/claims_tab.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/policies/details/policy_tab/policy_details_tab.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class InsurancePolicyDetailsPage extends StatelessWidget {
+class InsurancePolicyDetailsPage extends ConsumerStatefulWidget {
   const InsurancePolicyDetailsPage({
     required this.insuranceId,
     required this.policyId,
@@ -13,6 +17,28 @@ class InsurancePolicyDetailsPage extends StatelessWidget {
 
   final int insuranceId;
   final String policyId;
+
+  @override
+  ConsumerState<InsurancePolicyDetailsPage> createState() =>
+      _InsurancePolicyDetailsPageState();
+}
+
+class _InsurancePolicyDetailsPageState
+    extends ConsumerState<InsurancePolicyDetailsPage> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref
+          .read(filterSimplifiedClaimsControllerProvider.notifier)
+          .setInsuranceIds([widget.insuranceId]);
+      unawaited(
+        ref
+            .read(filterSimplifiedClaimsControllerProvider.notifier)
+            .applyFilters(),
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +80,8 @@ class InsurancePolicyDetailsPage extends StatelessWidget {
             body: TabBarView(
               children: [
                 PolicyDetailsTab(
-                  insuranceId: insuranceId,
-                  policyId: policyId,
+                  insuranceId: widget.insuranceId,
+                  policyId: widget.policyId,
                 ),
                 const ClaimsTab(),
               ],
