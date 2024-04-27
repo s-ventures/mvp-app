@@ -1,23 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movement_attachment_dto.dart';
+part of 'transaction_attachment_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MovementAttachmentDtoImpl _$$MovementAttachmentDtoImplFromJson(
+_$TransactionAttachmentDtoImpl _$$TransactionAttachmentDtoImplFromJson(
         Map<String, dynamic> json) =>
-    _$MovementAttachmentDtoImpl(
-      movementAttachmentId: json['movementAttachmentId'] as int,
+    _$TransactionAttachmentDtoImpl(
+      transactionAttachmentId: json['transactionAttachmentId'] as int,
       movementId: json['movementId'] as int,
       fileId: json['fileId'] as int,
     );
 
-Map<String, dynamic> _$$MovementAttachmentDtoImplToJson(
-        _$MovementAttachmentDtoImpl instance) =>
+Map<String, dynamic> _$$TransactionAttachmentDtoImplToJson(
+        _$TransactionAttachmentDtoImpl instance) =>
     <String, dynamic>{
-      'movementAttachmentId': instance.movementAttachmentId,
+      'transactionAttachmentId': instance.transactionAttachmentId,
       'movementId': instance.movementId,
       'fileId': instance.fileId,
     };

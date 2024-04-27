@@ -10,12 +10,12 @@ enum TransactionOperationType {
   final String name;
 }
 
-extension OperationTypeX on TransactionOperationType {
+extension TransactionOperationTypeX on TransactionOperationType {
   TransactionOperationTypeDto toDto(double? amountFrom, double? amountTo) =>
       switch (this) {
         TransactionOperationType.all => amountFrom != null || amountTo != null
-            ? TransactionOperationTypeDto.creditDebit
-            : TransactionOperationTypeDto.timeline,
+            ? TransactionOperationTypeDto.timeline
+            : TransactionOperationTypeDto.creditDebit,
         TransactionOperationType.credit => TransactionOperationTypeDto.credit,
         TransactionOperationType.debit => TransactionOperationTypeDto.debit,
       };

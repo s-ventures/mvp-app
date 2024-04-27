@@ -8,7 +8,7 @@ part 'simplified_claim.freezed.dart';
 class SimplifiedClaim with _$SimplifiedClaim {
   const factory SimplifiedClaim({
     required UniqueId id,
-    required int insuranceId,
+    required UniqueId insuranceId,
     required ClaimStatusType status,
     required String riskType,
     required String reason,

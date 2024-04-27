@@ -21,6 +21,8 @@ class PolicyDetailsSection extends StatelessWidget {
           leadingBackgroundColor: const Color(0xFFE0E0E0),
           number: '123456',
           category: DateFormat('dd/MM/yyyy').format(DateTime.now()),
+          status: 'En Vigor',
+          statusColor: context.color.statusSuccess,
           title: 'Seguro de comercio',
           onTap: () =>
               context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),

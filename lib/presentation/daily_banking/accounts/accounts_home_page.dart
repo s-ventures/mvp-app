@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_sliver_pinned_header.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/account_transaction_list.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/transactions_header.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/account_transactions_header.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -22,6 +23,9 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   @override
   void initState() {
     super.initState();
+    ref
+        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
+        .resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
@@ -89,7 +93,7 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
               sliver: SliverToBoxAdapter(
-                child: TransactionsHeader(
+                child: AccountTransactionsHeader(
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingSearchAccountTransactions.name,
                   ),

@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/filter/filter_simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/transactions_header.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/list/card_list_sliver_pinned_header.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_header.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_list.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -25,6 +26,9 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
   @override
   void initState() {
     super.initState();
+    ref
+        .read(filterSimplifiedCardTransactionsControllerProvider.notifier)
+        .resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
@@ -57,7 +61,7 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
               sliver: SliverToBoxAdapter(
-                child: TransactionsHeader(
+                child: CardTransactionsHeader(
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingSearchCardTransactions.name,
                   ),

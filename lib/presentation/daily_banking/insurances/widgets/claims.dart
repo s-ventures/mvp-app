@@ -126,7 +126,7 @@ class _ClaimsList extends StatelessWidget {
               AppRoute.dailyBankingInsuranceClaimDetails.name,
               extra: InsuranceClaimDetailsRouteParams(
                 claimId: claim.id.toInt(),
-                insuranceId: claim.insuranceId,
+                insuranceId: claim.insuranceId.toInt(),
               ),
             ),
           ),

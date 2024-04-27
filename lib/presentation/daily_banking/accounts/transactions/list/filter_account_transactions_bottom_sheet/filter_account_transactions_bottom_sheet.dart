@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/amount.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category_list.dart';
@@ -12,6 +13,16 @@ class FilterAccountTransactionsBottomSheet {
     required BuildContext context,
     required Future<void> Function() onApply,
     required Future<void> Function() onReset,
+    required ValueChanged<DateTime> setStartDate,
+    required ValueChanged<DateTime> setEndDate,
+    required ValueChanged<double> setAmountFrom,
+    required ValueChanged<double> setAmountTo,
+    required ValueChanged<TransactionOperationType> setTransactionType,
+    required DateTime? stateDate,
+    required DateTime? endDate,
+    required double? amountFrom,
+    required double? amountTo,
+    required TransactionOperationType? operationType,
   }) {
     final pageIndexNotifier = ValueNotifier(0);
 
@@ -26,7 +37,22 @@ class FilterAccountTransactionsBottomSheet {
         onReset().then((_) => context.pop());
       },
       pageListBuilder: (modalSheetContext) => [
-        _buildFilters(modalSheetContext, pageIndexNotifier, onApply, onReset),
+        _buildFilters(
+          modalSheetContext,
+          pageIndexNotifier,
+          onApply,
+          onReset,
+          setStartDate,
+          setEndDate,
+          setAmountFrom,
+          setAmountTo,
+          setTransactionType,
+          stateDate,
+          endDate,
+          amountFrom,
+          amountTo,
+          operationType,
+        ),
         _buildCategories(modalSheetContext, pageIndexNotifier),
       ],
     );
@@ -106,6 +132,16 @@ class FilterAccountTransactionsBottomSheet {
     ValueNotifier<int> pageIndexNotifier,
     Future<void> Function() onApply,
     Future<void> Function() onReset,
+    ValueChanged<DateTime> setStartDate,
+    ValueChanged<DateTime> setEndDate,
+    ValueChanged<double> setAmountFrom,
+    ValueChanged<double> setAmountTo,
+    ValueChanged<TransactionOperationType> setTransactionType,
+    DateTime? stateDate,
+    DateTime? endDate,
+    double? amountFrom,
+    double? amountTo,
+    TransactionOperationType? operationType,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
@@ -168,7 +204,12 @@ class FilterAccountTransactionsBottomSheet {
                     ),
                   ),
                   AppSpacing.vertical.s2,
-                  const DateRange(),
+                  DateRange(
+                    startDate: stateDate,
+                    endDate: endDate,
+                    setStartDate: (DateTime value) => setStartDate(value),
+                    setEndDate: (DateTime value) => setEndDate(value),
+                  ),
                   AppSpacing.vertical.s6,
                   Text(
                     'Importe',
@@ -177,7 +218,15 @@ class FilterAccountTransactionsBottomSheet {
                     ),
                   ),
                   AppSpacing.vertical.s2,
-                  const Amount(),
+                  Amount(
+                    amountFrom: amountFrom,
+                    amountTo: amountTo,
+                    operationType: operationType,
+                    setAmountFrom: (double value) => setAmountFrom(value),
+                    setAmountTo: (double value) => setAmountTo(value),
+                    setOperationType: (TransactionOperationType value) =>
+                        setTransactionType(value),
+                  ),
                   AppSpacing.vertical.s6,
                   Text(
                     'Categoría',
