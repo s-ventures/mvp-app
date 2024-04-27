@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'simplified_claim.dart';
+part of 'simplified_policy.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,36 +15,32 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SimplifiedClaim {
+mixin _$SimplifiedPolicy {
   UniqueId get id => throw _privateConstructorUsedError;
   UniqueId get insuranceId => throw _privateConstructorUsedError;
-  ClaimStatusType get status => throw _privateConstructorUsedError;
-  String get riskType => throw _privateConstructorUsedError;
-  String get reason => throw _privateConstructorUsedError;
+  String get status =>
+      throw _privateConstructorUsedError; //TODO: Change to enum PolicyStatusType when BE is ready
+  String get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedClaimCopyWith<SimplifiedClaim> get copyWith =>
+  $SimplifiedPolicyCopyWith<SimplifiedPolicy> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SimplifiedClaimCopyWith<$Res> {
-  factory $SimplifiedClaimCopyWith(
-          SimplifiedClaim value, $Res Function(SimplifiedClaim) then) =
-      _$SimplifiedClaimCopyWithImpl<$Res, SimplifiedClaim>;
+abstract class $SimplifiedPolicyCopyWith<$Res> {
+  factory $SimplifiedPolicyCopyWith(
+          SimplifiedPolicy value, $Res Function(SimplifiedPolicy) then) =
+      _$SimplifiedPolicyCopyWithImpl<$Res, SimplifiedPolicy>;
   @useResult
   $Res call(
-      {UniqueId id,
-      UniqueId insuranceId,
-      ClaimStatusType status,
-      String riskType,
-      String reason});
+      {UniqueId id, UniqueId insuranceId, String status, String description});
 }
 
 /// @nodoc
-class _$SimplifiedClaimCopyWithImpl<$Res, $Val extends SimplifiedClaim>
-    implements $SimplifiedClaimCopyWith<$Res> {
-  _$SimplifiedClaimCopyWithImpl(this._value, this._then);
+class _$SimplifiedPolicyCopyWithImpl<$Res, $Val extends SimplifiedPolicy>
+    implements $SimplifiedPolicyCopyWith<$Res> {
+  _$SimplifiedPolicyCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -57,8 +53,7 @@ class _$SimplifiedClaimCopyWithImpl<$Res, $Val extends SimplifiedClaim>
     Object? id = null,
     Object? insuranceId = null,
     Object? status = null,
-    Object? riskType = null,
-    Object? reason = null,
+    Object? description = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -72,41 +67,33 @@ class _$SimplifiedClaimCopyWithImpl<$Res, $Val extends SimplifiedClaim>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as ClaimStatusType,
-      riskType: null == riskType
-          ? _value.riskType
-          : riskType // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: null == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$SimplifiedClaimImplCopyWith<$Res>
-    implements $SimplifiedClaimCopyWith<$Res> {
-  factory _$$SimplifiedClaimImplCopyWith(_$SimplifiedClaimImpl value,
-          $Res Function(_$SimplifiedClaimImpl) then) =
-      __$$SimplifiedClaimImplCopyWithImpl<$Res>;
+abstract class _$$SimplifiedPolicyImplCopyWith<$Res>
+    implements $SimplifiedPolicyCopyWith<$Res> {
+  factory _$$SimplifiedPolicyImplCopyWith(_$SimplifiedPolicyImpl value,
+          $Res Function(_$SimplifiedPolicyImpl) then) =
+      __$$SimplifiedPolicyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {UniqueId id,
-      UniqueId insuranceId,
-      ClaimStatusType status,
-      String riskType,
-      String reason});
+      {UniqueId id, UniqueId insuranceId, String status, String description});
 }
 
 /// @nodoc
-class __$$SimplifiedClaimImplCopyWithImpl<$Res>
-    extends _$SimplifiedClaimCopyWithImpl<$Res, _$SimplifiedClaimImpl>
-    implements _$$SimplifiedClaimImplCopyWith<$Res> {
-  __$$SimplifiedClaimImplCopyWithImpl(
-      _$SimplifiedClaimImpl _value, $Res Function(_$SimplifiedClaimImpl) _then)
+class __$$SimplifiedPolicyImplCopyWithImpl<$Res>
+    extends _$SimplifiedPolicyCopyWithImpl<$Res, _$SimplifiedPolicyImpl>
+    implements _$$SimplifiedPolicyImplCopyWith<$Res> {
+  __$$SimplifiedPolicyImplCopyWithImpl(_$SimplifiedPolicyImpl _value,
+      $Res Function(_$SimplifiedPolicyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,10 +102,9 @@ class __$$SimplifiedClaimImplCopyWithImpl<$Res>
     Object? id = null,
     Object? insuranceId = null,
     Object? status = null,
-    Object? riskType = null,
-    Object? reason = null,
+    Object? description = null,
   }) {
-    return _then(_$SimplifiedClaimImpl(
+    return _then(_$SimplifiedPolicyImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -130,14 +116,10 @@ class __$$SimplifiedClaimImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as ClaimStatusType,
-      riskType: null == riskType
-          ? _value.riskType
-          : riskType // ignore: cast_nullable_to_non_nullable
               as String,
-      reason: null == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -145,76 +127,70 @@ class __$$SimplifiedClaimImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SimplifiedClaimImpl implements _SimplifiedClaim {
-  const _$SimplifiedClaimImpl(
+class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
+  const _$SimplifiedPolicyImpl(
       {required this.id,
       required this.insuranceId,
       required this.status,
-      required this.riskType,
-      required this.reason});
+      required this.description});
 
   @override
   final UniqueId id;
   @override
   final UniqueId insuranceId;
   @override
-  final ClaimStatusType status;
+  final String status;
+//TODO: Change to enum PolicyStatusType when BE is ready
   @override
-  final String riskType;
-  @override
-  final String reason;
+  final String description;
 
   @override
   String toString() {
-    return 'SimplifiedClaim(id: $id, insuranceId: $insuranceId, status: $status, riskType: $riskType, reason: $reason)';
+    return 'SimplifiedPolicy(id: $id, insuranceId: $insuranceId, status: $status, description: $description)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SimplifiedClaimImpl &&
+            other is _$SimplifiedPolicyImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.insuranceId, insuranceId) ||
                 other.insuranceId == insuranceId) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.riskType, riskType) ||
-                other.riskType == riskType) &&
-            (identical(other.reason, reason) || other.reason == reason));
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, insuranceId, status, riskType, reason);
+      Object.hash(runtimeType, id, insuranceId, status, description);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedClaimImplCopyWith<_$SimplifiedClaimImpl> get copyWith =>
-      __$$SimplifiedClaimImplCopyWithImpl<_$SimplifiedClaimImpl>(
+  _$$SimplifiedPolicyImplCopyWith<_$SimplifiedPolicyImpl> get copyWith =>
+      __$$SimplifiedPolicyImplCopyWithImpl<_$SimplifiedPolicyImpl>(
           this, _$identity);
 }
 
-abstract class _SimplifiedClaim implements SimplifiedClaim {
-  const factory _SimplifiedClaim(
+abstract class _SimplifiedPolicy implements SimplifiedPolicy {
+  const factory _SimplifiedPolicy(
       {required final UniqueId id,
       required final UniqueId insuranceId,
-      required final ClaimStatusType status,
-      required final String riskType,
-      required final String reason}) = _$SimplifiedClaimImpl;
+      required final String status,
+      required final String description}) = _$SimplifiedPolicyImpl;
 
   @override
   UniqueId get id;
   @override
   UniqueId get insuranceId;
   @override
-  ClaimStatusType get status;
-  @override
-  String get riskType;
-  @override
-  String get reason;
+  String get status;
+  @override //TODO: Change to enum PolicyStatusType when BE is ready
+  String get description;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedClaimImplCopyWith<_$SimplifiedClaimImpl> get copyWith =>
+  _$$SimplifiedPolicyImplCopyWith<_$SimplifiedPolicyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

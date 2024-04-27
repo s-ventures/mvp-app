@@ -31,7 +31,7 @@ extension SimplifiedClaimDtoX on SimplifiedClaimDto {
   SimplifiedClaim toDomain() {
     return SimplifiedClaim(
       id: UniqueId.fromUniqueString(claimId.toString()),
-      insuranceId: insuranceId,
+      insuranceId: UniqueId.fromUniqueString(insuranceId.toString()),
       status: status.toDomain(),
       riskType: riskType,
       reason: reason,
