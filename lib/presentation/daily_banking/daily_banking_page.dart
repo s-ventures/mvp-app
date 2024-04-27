@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/accounts_home_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/cards_home_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurances/insurances_home_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurances_home_page.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DailyBankingPage extends StatelessWidget {

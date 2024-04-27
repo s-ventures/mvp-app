@@ -38,7 +38,7 @@ class CustomCardRadioOption extends StatelessWidget {
   final String fromDate;
   final String value;
   final String groupValue;
-  final Function(String) onPressed;
+  final void Function(String) onPressed;
 
   @override
   Widget build(BuildContext context) {

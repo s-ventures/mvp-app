@@ -9,13 +9,16 @@ import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/transfer_out_dto.dart';
 
 class ExtendedDetailsConverter
-    implements JsonConverter<ExtendedDetailsDto, Map<String, dynamic>> {
+    implements JsonConverter<ExtendedDetailsDto?, Map<String, dynamic>> {
   const ExtendedDetailsConverter();
 
   @override
-  ExtendedDetailsDto fromJson(Map<String, dynamic> json) {
-    final type = AccountTransactionTypeDto.values
-        .byName(json['transactionType'] as String);
+  ExtendedDetailsDto? fromJson(Map<String, dynamic> json) {
+    final typeString = json['transactionType'] as String?;
+    if (typeString == null) {
+      return null;
+    }
+    final type = AccountTransactionTypeDto.values.byName(typeString);
 
     return switch (type) {
       AccountTransactionTypeDto.transferIn => TransferInDto.fromJson(json),
@@ -30,5 +33,6 @@ class ExtendedDetailsConverter
   }
 
   @override
-  Map<String, dynamic> toJson(ExtendedDetailsDto object) => object.toJson();
+  Map<String, dynamic> toJson(ExtendedDetailsDto? object) =>
+      object?.toJson() ?? {};
 }
