@@ -53,10 +53,35 @@ enum AppRoute {
   protectionContractedProductsPolicyDetails('policy-details'),
   protectionContractedProductsClaimDetails('claim-details'),
   protectionContractedProductsAddNew('add-new'),
+  // Commerce Insurance
   protectionInsuranceCommerce('commercial-insurance'),
+  protectionInsuranceCommerceCalculatePriceFirstStep(
+    'calculate-price/first-step',
+  ),
+  protectionInsuranceCommerceCalculatePriceSecondStep('second-step'),
+  protectionInsuranceCommerceCalculatePriceDataValidation('data-validation'),
+  protectionInsuranceCommerceCalculatePriceDataValidationEdit('edit'),
+  protectionInsuranceCommerceContract('contract'),
+  protectionInsuranceCommerceContractPayment('payment'),
+  protectionInsuranceCommerceContractPaymentOtp('otp'),
+  protectionInsuranceCommerceContracted('contracted'),
+  // Accidents Insurance
   protectionInsuranceAccident('accident-insurance'),
+  protectionInsuranceAccidentCalculatePriceFirstStep('calculate-price'),
+  protectionInsuranceAccidentCalculatePriceSecondStep('second-step'),
+  protectionInsuranceAccidentCalculatePriceThirdStep('third-step'),
+  protectionInsuranceAccidentCalculatePriceFourthStep('fourth-step'),
+  protectionInsuranceAccidentCalculatePriceDataValidation('data-validation'),
+  protectionInsuranceAccidentCalculatePriceDataValidationEdit('edit'),
+  protectionInsuranceAccidentContract('contract'),
+  protectionInsuranceAccidentContractPayment('payment'),
+  protectionInsuranceAccidentContractPaymentOtp('otp'),
+  protectionInsuranceAccidentContracted('contracted'),
+  // Cybersecurity Insurance
   protectionInsuranceCybersecurity('cybersecurity-insurance'),
+  // Responsibility Insurance
   protectionInsuranceResponsibility('responsibility-insurance'),
+  // Health Insurance
   protectionInsuranceHealth('health-insurance'),
   webView('/web-view');
 

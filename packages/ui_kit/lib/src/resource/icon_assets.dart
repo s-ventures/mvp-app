@@ -1,3 +1,6 @@
+/// Todo: Replace png-svg to svg, request to Iran
+/// fire-hose, fire-hydrant, security-cam, smoke-detector, sprinkler, siren, window
+
 class IconAssets {
   const IconAssets._();
 
@@ -22,15 +25,19 @@ class IconAssets {
   static const String chevronUp = '$_iconPath/chevron-up.svg';
   static const String copy = '$_iconPath/copy.svg';
   static const String document = '$_iconPath/document.svg';
+  static const String door = '$_iconPath/door.svg';
   static const String download = '$_iconPath/download.svg';
   static const String edit = '$_iconPath/edit.svg';
   static const String ellipsisVertical = '$_iconPath/ellipsis-vertical.svg';
   static const String enlarge = '$_iconPath/enlarge.svg';
   static const String euro = '$_iconPath/euro.svg';
+  static const String extinguisher = '$_iconPath/extinguisher.svg';
   static const String eye = '$_iconPath/eye.svg';
   static const String eyeSlash = '$_iconPath/eye-slash.svg';
   static const String file = '$_iconPath/file.svg';
   static const String filter = '$_iconPath/filter.svg';
+  static const String fireHose = '$_iconPath/fire-hose.svg';
+  static const String fireHydrant = '$_iconPath/fire-hydrant.svg';
   static const String global = '$_iconPath/global.svg';
   static const String gripLines = '$_iconPath/grip-lines.svg';
   static const String gripSolid = '$_iconPath/grip-solid.svg';
@@ -46,6 +53,7 @@ class IconAssets {
   static const String mapfre = '$_iconPath/mapfre.svg';
   static const String marker = '$_iconPath/marker.svg';
   static const String micro = '$_iconPath/micro.svg';
+  static const String minus = '$_iconPath/minus.svg';
   static const String mobile = '$_iconPath/mobile.svg';
   static const String note = '$_iconPath/note.svg';
   static const String openLock = '$_iconPath/open-lock.svg';
@@ -56,13 +64,17 @@ class IconAssets {
   static const String save = '$_iconPath/save.svg';
   static const String scan = '$_iconPath/scan.svg';
   static const String search = '$_iconPath/search.svg';
+  static const String securityCam = '$_iconPath/security-cam.svg';
   static const String security = '$_iconPath/security.svg';
   static const String send = '$_iconPath/send.svg';
   static const String settings = '$_iconPath/settings.svg';
   static const String share = '$_iconPath/share.svg';
+  static const String siren = '$_iconPath/siren.svg';
+  static const String smokeDetector = '$_iconPath/smoke-detector.svg';
   static const String soon = '$_iconPath/soon.svg';
   static const String sort = '$_iconPath/sort.svg';
   static const String sortline = '$_iconPath/sortline.svg';
+  static const String sprinkler = '$_iconPath/sprinkler.svg';
   static const String star = '$_iconPath/star.svg';
   static const String support = '$_iconPath/support.svg';
   static const String table = '$_iconPath/table.svg';
@@ -76,5 +88,6 @@ class IconAssets {
   static const String wallet = '$_iconPath/wallet.svg';
   static const String warning = '$_iconPath/warning.svg';
   static const String wifi = '$_iconPath/wifi.svg';
+  static const String window = '$_iconPath/window.svg';
   static const String xMark = '$_iconPath/x-mark.svg';
 }

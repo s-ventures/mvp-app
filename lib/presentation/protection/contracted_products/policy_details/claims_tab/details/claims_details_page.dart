@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/policy_details/claims_tab/details/widgets/claim_details_list_tile.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/policy_and_claims_list_tile.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class ClaimsDetailsPage extends StatelessWidget {
@@ -47,9 +46,6 @@ class ClaimsDetailsPage extends StatelessWidget {
               title: 'Protección de la actividad de tu negocio',
               type: PolicyAndClaimsType.policy,
               date: DateFormat('dd/MM/yyyy').format(DateTime.now()),
-              onPressed: () => context.pushNamed(
-                AppRoute.dailyBankingInsuranceClaimDetails.name,
-              ),
             ),
             AppSpacing.vertical.s5,
             const ClaimDetailsListTile(

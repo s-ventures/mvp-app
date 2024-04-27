@@ -141,7 +141,7 @@ class RiskExposureList extends StatelessWidget {
               ...itemsWidgets,
               AppSpacing.vertical.s5,
               CustomLineBarsChart(
-                bars: [
+                children: [
                   ..._getCustomLineBarChartList(
                     itemsWidgets: itemsWidgets,
                     riskExposure: riskExposure,

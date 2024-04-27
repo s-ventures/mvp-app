@@ -1,7 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverage_included.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverages.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/custom_checkbox_list_tile.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/total_coverage.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+const List<Map<String, String>> coverageIncluded = [
+  {
+    'title': 'Defensa y Fianzas',
+    'description':
+        'Anim mollit ad ut fugiat sit aute ullamco incididunt aute. Minim anim laborum nisi minim dolor laborum exercitation est anim excepteur laboris et deserunt commodo. Qui voluptate incididunt ullamco mollit pariatur laborum aute qui commodo. Anim adipisicing officia magna enim mollit quis ullamco occaecat aliqua aliqua nulla deserunt et et. Aute irure exercitation aute ad eiusmod tempor est dolor officia irure.',
+  },
+  {
+    'title':
+        'Seguridad de los sistemas informáticos y datos de caracter personal',
+    'description':
+        'Anim do nisi dolore consectetur magna in magna excepteur dolore enim. Aute nostrud consequat est esse adipisicing id incididunt proident incididunt consectetur. Nostrud qui aliqua proident reprehenderit ipsum cillum eiusmod duis voluptate ex ad. Irure ullamco ut magna ipsum.',
+  },
+  {
+    'title': 'Intrusión de terceros',
+    'description':
+        'Laborum duis eu officia eu aliqua adipisicing et anim consequat quis ullamco in aliqua labore. Duis eu ipsum est commodo et. Sint laborum commodo labore veniam incididunt do non. Anim duis et aliqua ex ea ipsum ad enim est non consequat eu. Enim voluptate occaecat cillum minim ullamco. Qui non culpa ad ad velit Lorem laboris.',
+  },
+  {
+    'title': 'Garantía de protección de datos',
+    'description':
+        'Irure esse Lorem cillum fugiat ut dolor proident sunt laboris in. Duis mollit commodo consectetur excepteur. Consectetur consequat deserunt excepteur voluptate enim commodo fugiat consequat quis consequat sunt sint.',
+  },
+  {
+    'title': 'Responsabilidad civil por transmisión de virus o malware',
+    'description':
+        'Ipsum incididunt ad mollit duis elit sint excepteur dolor. Ex aliquip cupidatat ut occaecat. Cupidatat cillum laborum labore ea qui non consectetur consequat incididunt. Est aliquip eu sunt consectetur commodo dolore. Est ipsum elit Lorem magna ea aliquip quis dolor laboris ipsum enim ullamco nulla incididunt. Culpa occaecat non sint fugiat mollit ipsum do tempor.',
+  },
+  {
+    'title':
+        'Responsabilidad por publicación de contenidos en medios corporativos',
+    'description':
+        'Magna magna velit ullamco est quis minim enim enim. Esse cillum cupidatat proident velit nulla consectetur officia sit. Laborum do quis officia ipsum elit adipisicing. Fugiat excepteur cupidatat quis sit elit.',
+  },
+];
 
 class ResponsibilitySection extends StatelessWidget {
   const ResponsibilitySection({super.key});
@@ -13,48 +49,13 @@ class ResponsibilitySection extends StatelessWidget {
         SliverPinnedOverlapInjector(
           handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
         ),
-        AppSpacing.vertical.s3.sliver,
         SliverPadding(
           padding: const EdgeInsets.all(AppSpacing.s5),
           sliver: SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CustomCard(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Cobertura total',
-                            style: context.textStyle.buttonTabBar.copyWith(
-                              color: context.color.textLight600,
-                            ),
-                          ),
-                          Text(
-                            '50%',
-                            style: context.textStyle.buttonTabBar.copyWith(
-                              color: context.color.textLight600,
-                            ),
-                          ),
-                        ],
-                      ),
-                      AppSpacing.vertical.s5,
-                      LinearProgressIndicator(
-                        minHeight: 6,
-                        value: 0.5,
-                        backgroundColor:
-                            context.color.statusWarning.withOpacity(.1),
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          context.color.statusWarning,
-                        ),
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
-                      ),
-                    ],
-                  ),
-                ),
+                const CurrentCoverage(0.5),
                 AppSpacing.vertical.s5,
                 Text(
                   'Seguros recomendados',
@@ -85,15 +86,9 @@ class ResponsibilitySection extends StatelessWidget {
                   checkboxColor: CheckboxColor.secondary,
                 ),
                 AppSpacing.vertical.s5,
-                const ProtectionCoverageIncluded(
-                  coveragesIncluded: [
-                    'Defensa y Fianzas',
-                    'Seguridad de los sistemas informáticos y datos de caracter personal',
-                    'Intrusión de terceros',
-                    'Garantía de protección de datos',
-                    'Responsabilidad civil por transmisión de virus o malware',
-                    'Responsabilidad por publicación de contenidos en medios corporativos',
-                  ],
+                const Coverages(
+                  title: 'Coberturas incluidas',
+                  coveragesIncludedWithDescription: coverageIncluded,
                 ),
                 AppSpacing.vertical.s5,
                 Button(

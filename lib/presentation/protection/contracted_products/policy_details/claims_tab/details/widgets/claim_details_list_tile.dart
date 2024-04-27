@@ -5,6 +5,7 @@ enum ClaimDetailsType {
   text,
   status,
   date,
+  currency,
 }
 
 enum ClaimDetailsStatus {
@@ -59,18 +60,21 @@ class ClaimDetailsListTile extends StatelessWidget {
               ? context.color.backgroundLight0
               : trailingType == ClaimDetailsType.date
                   ? context.color.strokeLigth100
-                  : trailingType == ClaimDetailsType.status
-                      ? trailingStatus == ClaimDetailsStatus.completed
-                          ? context.color.statusSuccess.withOpacity(.1)
-                          : trailingStatus == ClaimDetailsStatus.inProgress
-                              ? context.color.statusInfo.withOpacity(.1)
-                              : trailingStatus == ClaimDetailsStatus.pending
-                                  ? context.color.strokeLigth100
-                                  : context.color.backgroundLight0
-                      : context.color.backgroundLight0,
+                  : trailingType == ClaimDetailsType.currency
+                      ? context.color.strokeLigth100
+                      : trailingType == ClaimDetailsType.status
+                          ? trailingStatus == ClaimDetailsStatus.completed
+                              ? context.color.statusSuccess.withOpacity(.1)
+                              : trailingStatus == ClaimDetailsStatus.inProgress
+                                  ? context.color.statusInfo.withOpacity(.1)
+                                  : trailingStatus == ClaimDetailsStatus.pending
+                                      ? context.color.strokeLigth100
+                                      : context.color.backgroundLight0
+                          : context.color.backgroundLight0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              trailingType == ClaimDetailsType.date
+              trailingType == ClaimDetailsType.date ||
+                      trailingType == ClaimDetailsType.currency
                   ? context.radius.soft
                   : context.radius.hard,
             ),
@@ -81,7 +85,8 @@ class ClaimDetailsListTile extends StatelessWidget {
           style: context.textStyle.bodyMediumRegular.copyWith(
             color: trailingType == ClaimDetailsType.text
                 ? context.color.textLight600
-                : trailingType == ClaimDetailsType.date
+                : trailingType == ClaimDetailsType.date ||
+                        trailingType == ClaimDetailsType.currency
                     ? context.color.textLight900
                     : trailingType == ClaimDetailsType.status
                         ? trailingStatus == ClaimDetailsStatus.completed
