@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/banking_aggregation/banking_aggregation_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -12,9 +12,9 @@ class AccountListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bankingAggregationController =
-        ref.read(bankingAggregationControllerProvider.notifier);
-    ref.watch(bankingAggregationControllerProvider).aggregationServiceUrl.when(
+    final aggregationController =
+        ref.read(aggregationControllerProvider.notifier);
+    ref.watch(aggregationControllerProvider).aggregationServiceUrl.when(
           data: (url) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               context.pushNamed(
@@ -23,7 +23,7 @@ class AccountListPage extends ConsumerWidget {
                   title: 'Agregar cuenta',
                   url: url,
                   onNavigationRequest: (request) {
-                    final navigate = bankingAggregationController
+                    final navigate = !aggregationController
                         .tryParseCredentialsId(request.url);
                     if (navigate) {
                       return NavigationDecision.navigate;
@@ -41,169 +41,205 @@ class AccountListPage extends ConsumerWidget {
         );
 
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, value) {
-          return [
-            CustomAppBar.sliver(
-              centerTitle: true,
-              title: 'Cuentas',
-              leading: Button(
-                icon: IconAssets.arrowLeft,
-                type: ButtonType.outlined,
-                size: ButtonSize.extraSmall,
-                onPressed: () async => context.pop(),
-              ),
-              actions: [
-                Button(
-                  icon: IconAssets.plus,
+      body: SafeArea(
+        child: NestedScrollView(
+          headerSliverBuilder: (context, value) {
+            return [
+              CustomAppBar.sliver(
+                centerTitle: true,
+                title: 'Cuentas',
+                leading: Button(
+                  icon: IconAssets.arrowLeft,
+                  type: ButtonType.outlined,
                   size: ButtonSize.extraSmall,
-                  onPressed:
-                      bankingAggregationController.getAggregationServiceUrl,
+                  onPressed: () async => context.pop(),
                 ),
-              ],
-            ),
-          ];
-        },
-        body: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                padding: const EdgeInsets.all(16),
-                children: [
-                  CustomCard(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            IconWithContainer(
-                              icon: IconAssets.euro,
-                              backgroundColor: context.color.neutralLight100,
-                            ),
-                            AppSpacing.horizontal.s3,
-                            Text(
-                              'Total',
-                              style:
-                                  context.textStyle.bodySmallRegular.copyWith(
-                                color: context.color.textLight900,
+                actions: [
+                  Button(
+                    icon: IconAssets.plus,
+                    size: ButtonSize.extraSmall,
+                    onPressed: aggregationController.getAggregationServiceUrl,
+                  ),
+                ],
+              ),
+            ];
+          },
+          body: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.all(16),
+                  children: [
+                    CustomCard(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  IconWithContainer(
+                                    icon: IconAssets.euro,
+                                    backgroundColor:
+                                        context.color.neutralLight100,
+                                  ),
+                                  AppSpacing.horizontal.s3,
+                                  Text(
+                                    'Total',
+                                    style: context.textStyle.bodySmallRegular
+                                        .copyWith(
+                                      color: context.color.textLight900,
+                                    ),
+                                  ),
+                                ],
                               ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                789.00.toCurrency(plusSign: false),
+                                style:
+                                    context.textStyle.bodySmallRegular.copyWith(
+                                  color: context.color.textLight900,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    AppSpacing.vertical.s6,
+                    Text(
+                      'Cuentas',
+                      style: context.textStyle.bodyMediumSemiBold.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    AppSpacing.vertical.s3,
+                    OutlinedList(
+                      children: [
+                        Splash(
+                          borderRadius:
+                              BorderRadius.circular(context.radius.soft),
+                          child: Padding(
+                            padding: const EdgeInsets.all(AppSpacing.s5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        IconWithContainer(
+                                          icon: IconAssets.soon,
+                                          backgroundColor:
+                                              context.color.secondaryLight600,
+                                          foreground:
+                                              context.color.neutralLight0,
+                                          subIcon: IconAssets.check,
+                                        ),
+                                        AppSpacing.horizontal.s3,
+                                        Text(
+                                          'soon',
+                                          style: context
+                                              .textStyle.bodySmallRegular
+                                              .copyWith(
+                                            color: context.color.textLight900,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      456.00.toCurrency(plusSign: false),
+                                      style: context.textStyle.bodySmallRegular
+                                          .copyWith(
+                                        color: context.color.textLight900,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        Text(
-                          789.00.toCurrency(plusSign: false),
-                          style: context.textStyle.bodySmallRegular.copyWith(
-                            color: context.color.textLight900,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  AppSpacing.vertical.s6,
-                  Text(
-                    'Cuentas',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
-                      color: context.color.textLight600,
+                    AppSpacing.vertical.s3,
+                    OutlinedList(
+                      children: [
+                        Splash(
+                          borderRadius:
+                              BorderRadius.circular(context.radius.soft),
+                          child: Padding(
+                            padding: const EdgeInsets.all(AppSpacing.s5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        IconWithContainer(
+                                          icon: IconAssets.santander,
+                                          backgroundColor:
+                                              context.color.statusError,
+                                          foreground:
+                                              context.color.neutralLight0,
+                                        ),
+                                        AppSpacing.horizontal.s3,
+                                        Text(
+                                          'Santander',
+                                          style: context
+                                              .textStyle.bodySmallRegular
+                                              .copyWith(
+                                            color: context.color.textLight900,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      333.00.toCurrency(plusSign: false),
+                                      style: context.textStyle.bodySmallRegular
+                                          .copyWith(
+                                        color: context.color.textLight900,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  AppSpacing.vertical.s3,
-                  OutlinedList(
-                    children: [
-                      Splash(
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
-                        child: Padding(
-                          padding: const EdgeInsets.all(AppSpacing.s5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  IconWithContainer(
-                                    icon: IconAssets.soon,
-                                    backgroundColor:
-                                        context.color.secondaryLight600,
-                                    foreground: context.color.neutralLight0,
-                                    subIcon: IconAssets.check,
-                                  ),
-                                  AppSpacing.horizontal.s3,
-                                  Text(
-                                    'soon',
-                                    style: context.textStyle.bodySmallRegular
-                                        .copyWith(
-                                      color: context.color.textLight900,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                456.00.toCurrency(plusSign: false),
-                                style:
-                                    context.textStyle.bodySmallRegular.copyWith(
-                                  color: context.color.textLight900,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  AppSpacing.vertical.s3,
-                  OutlinedList(
-                    children: [
-                      Splash(
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
-                        child: Padding(
-                          padding: const EdgeInsets.all(AppSpacing.s5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  IconWithContainer(
-                                    icon: IconAssets.santander,
-                                    backgroundColor: context.color.statusError,
-                                    foreground: context.color.neutralLight0,
-                                  ),
-                                  AppSpacing.horizontal.s3,
-                                  Text(
-                                    'Santander',
-                                    style: context.textStyle.bodySmallRegular
-                                        .copyWith(
-                                      color: context.color.textLight900,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                333.00.toCurrency(plusSign: false),
-                                style:
-                                    context.textStyle.bodySmallRegular.copyWith(
-                                  color: context.color.textLight900,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Button(
-            title: 'Seleccionar cuenta',
-            size: ButtonSize.small,
-            expand: true,
-            onPressed: () async => context.pop(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Button(
+                  title: 'Seleccionar cuenta',
+                  size: ButtonSize.small,
+                  expand: true,
+                  onPressed: () async => context.pop(),
+                ),
+              ),
+            ],
           ),
         ),
       ),
