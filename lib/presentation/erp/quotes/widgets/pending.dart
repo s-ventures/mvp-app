@@ -40,6 +40,7 @@ class _PendingState extends State<Pending> {
         if (_type == SwitchViewType.list)
           ListView.separated(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: 6,
             padding: EdgeInsets.zero,
             separatorBuilder: (context, index) => const Divider(),
@@ -62,6 +63,7 @@ class _PendingState extends State<Pending> {
         else
           GridView.builder(
             shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: AppSpacing.s5,

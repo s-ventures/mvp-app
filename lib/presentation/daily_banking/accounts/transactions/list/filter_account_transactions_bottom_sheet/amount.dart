@@ -23,9 +23,11 @@ class Amount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final amountFromController = TextEditingController(
-        text: amountFrom?.toStringAsFixed(2).replaceAll('.', ','));
+      text: amountFrom?.toStringAsFixed(2).replaceAll('.', ','),
+    );
     final amountToController = TextEditingController(
-        text: amountTo?.toStringAsFixed(2).replaceAll('.', ','));
+      text: amountTo?.toStringAsFixed(2).replaceAll('.', ','),
+    );
     return CustomCard(
       child: Column(
         children: [

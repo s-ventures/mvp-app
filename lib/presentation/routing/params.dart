@@ -36,5 +36,5 @@ class InsurancePolicyDetailsRouteParams {
   });
 
   final int insuranceId;
-  final String policyId;
+  final int policyId;
 }

@@ -24,55 +24,50 @@ class SoonPayOTPPage extends StatelessWidget {
             ),
           ];
         },
-        body: Column(
+        body: ListView(
+          padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
-            Padding(
-              padding: const EdgeInsets.all(AppSpacing.s5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    'Código de confirmación de pago',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
-                      color: context.color.textLight600,
+            Text(
+              'Código de confirmación de pago',
+              style: context.textStyle.bodyMediumSemiBold.copyWith(
+                color: context.color.textLight600,
+              ),
+            ),
+            AppSpacing.vertical.s3,
+            Text(
+              'Ingresa el código de confirmación que has recibido por SMS para confirmar el pago.',
+              style: context.textStyle.bodyMediumRegular,
+            ),
+            AppSpacing.vertical.s5,
+            const Placeholder(
+              fallbackHeight: 80,
+            ),
+            AppSpacing.vertical.s5,
+            Row(
+              children: [
+                Text(
+                  '¿No recibes el código?',
+                  style: context.textStyle.bodyMediumRegular,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Reenviar',
+                    style: context.textStyle.bodyMediumRegular.copyWith(
+                      color: context.color.statusInfo,
                     ),
                   ),
-                  AppSpacing.vertical.s3,
-                  Text(
-                    'Ingresa el código de confirmación que has recibido por SMS para confirmar el pago.',
-                    style: context.textStyle.bodyMediumRegular,
-                  ),
-                  AppSpacing.vertical.s5,
-                  const Placeholder(
-                    fallbackHeight: 80,
-                  ),
-                  AppSpacing.vertical.s5,
-                  Row(
-                    children: [
-                      Text(
-                        '¿No recibes el código?',
-                        style: context.textStyle.bodyMediumRegular,
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Reenviar',
-                          style: context.textStyle.bodyMediumRegular.copyWith(
-                            color: context.color.statusInfo,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSpacing.s5,
+          ),
           child: Button(
             title: 'Confirmar',
             size: ButtonSize.small,
@@ -84,8 +79,9 @@ class SoonPayOTPPage extends StatelessWidget {
               message:
                   'Se han enviado ${50.00.toCurrency(plusSign: false)} a Thomas Magnum',
               buttonOkText: 'Continuar',
-              onOkPressed: () =>
-                  context.pushNamed(AppRoute.dailyBankingTransfers.name),
+              onOkPressed: () => context.pushNamed(
+                AppRoute.dailyBankingTransfers.name,
+              ),
             ),
           ),
         ),

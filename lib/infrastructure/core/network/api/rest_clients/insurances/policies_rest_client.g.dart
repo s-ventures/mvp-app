@@ -52,7 +52,7 @@ class _PoliciesRestClient implements PoliciesRestClient {
   @override
   Future<DetailedPolicyDto> getDetailedPolicy({
     required int insuranceId,
-    required String policy,
+    required int policy,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

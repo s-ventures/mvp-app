@@ -1,6 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/widgets/custom_divider.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DropownValueModel<T> {
