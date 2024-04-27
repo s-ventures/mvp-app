@@ -89,7 +89,7 @@ class _PoliciesList extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: AppSpacing.s3),
           child: InsurancePolicyListTile(
             leadingEmoji:
-                '🖥️', //TODO: Pending to receive category and use the icon based on it
+                '🖥️', // TODO(jesus): Pending to receive category and use the icon based on it
             leadingBackgroundColor: const Color(0xFFE0E0E0),
             number: policy.id.getOrCrash(),
             status: policy.status,

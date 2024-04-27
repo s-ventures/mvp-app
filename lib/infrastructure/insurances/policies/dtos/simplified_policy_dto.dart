@@ -18,7 +18,7 @@ class SimplifiedPolicyDto with _$SimplifiedPolicyDto {
     required int insuranceId,
     required String policy,
     required String
-        status, //TODO: Change to enum PolicyStatusTypeDto when BE is ready
+        status, // TODO(georgeta): Change to enum PolicyStatusTypeDto when BE is ready
     required String description,
   }) = _SimplifiedPolicyDto;
 
@@ -30,7 +30,7 @@ extension SimplifiedPolicyDtoX on SimplifiedPolicyDto {
   SimplifiedPolicy toDomain() {
     return SimplifiedPolicy(
       id: UniqueId.fromUniqueString(policy),
-      insuranceId: insuranceId,
+      insuranceId: UniqueId.fromUniqueString(insuranceId.toString()),
       status: status,
       description: description,
     );

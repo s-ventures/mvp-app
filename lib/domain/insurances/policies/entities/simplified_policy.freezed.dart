@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SimplifiedPolicy {
   UniqueId get id => throw _privateConstructorUsedError;
-  int get insuranceId => throw _privateConstructorUsedError;
+  UniqueId get insuranceId => throw _privateConstructorUsedError;
   String get status =>
       throw _privateConstructorUsedError; //TODO: Change to enum PolicyStatusType when BE is ready
   String get description => throw _privateConstructorUsedError;
@@ -33,7 +33,8 @@ abstract class $SimplifiedPolicyCopyWith<$Res> {
           SimplifiedPolicy value, $Res Function(SimplifiedPolicy) then) =
       _$SimplifiedPolicyCopyWithImpl<$Res, SimplifiedPolicy>;
   @useResult
-  $Res call({UniqueId id, int insuranceId, String status, String description});
+  $Res call(
+      {UniqueId id, UniqueId insuranceId, String status, String description});
 }
 
 /// @nodoc
@@ -62,7 +63,7 @@ class _$SimplifiedPolicyCopyWithImpl<$Res, $Val extends SimplifiedPolicy>
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -83,7 +84,8 @@ abstract class _$$SimplifiedPolicyImplCopyWith<$Res>
       __$$SimplifiedPolicyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, int insuranceId, String status, String description});
+  $Res call(
+      {UniqueId id, UniqueId insuranceId, String status, String description});
 }
 
 /// @nodoc
@@ -110,7 +112,7 @@ class __$$SimplifiedPolicyImplCopyWithImpl<$Res>
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -135,7 +137,7 @@ class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
   @override
   final UniqueId id;
   @override
-  final int insuranceId;
+  final UniqueId insuranceId;
   @override
   final String status;
 //TODO: Change to enum PolicyStatusType when BE is ready
@@ -175,14 +177,14 @@ class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
 abstract class _SimplifiedPolicy implements SimplifiedPolicy {
   const factory _SimplifiedPolicy(
       {required final UniqueId id,
-      required final int insuranceId,
+      required final UniqueId insuranceId,
       required final String status,
       required final String description}) = _$SimplifiedPolicyImpl;
 
   @override
   UniqueId get id;
   @override
-  int get insuranceId;
+  UniqueId get insuranceId;
   @override
   String get status;
   @override //TODO: Change to enum PolicyStatusType when BE is ready

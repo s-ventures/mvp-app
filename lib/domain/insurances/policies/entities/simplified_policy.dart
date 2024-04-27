@@ -7,9 +7,9 @@ part 'simplified_policy.freezed.dart';
 class SimplifiedPolicy with _$SimplifiedPolicy {
   const factory SimplifiedPolicy({
     required UniqueId id,
-    required int insuranceId,
+    required UniqueId insuranceId,
     required String
-        status, //TODO: Change to enum PolicyStatusType when BE is ready
+        status, // TODO(georgeta): Change to enum PolicyStatusType when BE is ready
     required String description,
   }) = _SimplifiedPolicy;
 }
