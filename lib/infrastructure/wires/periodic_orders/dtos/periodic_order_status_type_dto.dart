@@ -1,3 +1,4 @@
+//TODO: These will be just 2 states, to be confirmed by BFMF
 // [ SENT, RECEIVED, CANCELLED, PENDING, REJECTED ]
 
 import 'package:json_annotation/json_annotation.dart';
