@@ -41,6 +41,7 @@ export 'movement_details/ordering.dart';
 export 'movement_details/summary.dart';
 export 'movement_details/transaction_map.dart';
 export 'movement_details/voucher.dart';
+export 'protection/custom_line_bars_chart.dart';
 export 'radio/radio_list_tile.dart';
 export 'segmented_control.dart';
 export 'sliver_pinned_overlap_injector.dart';

@@ -43,6 +43,7 @@ class IconAssets {
   static const String lock = '$_iconPath/lock.svg';
   static const String logotype = '$_iconPath/logotype.svg';
   static const String mail = '$_iconPath/mail.svg';
+  static const String mapfre = '$_iconPath/mapfre.svg';
   static const String marker = '$_iconPath/marker.svg';
   static const String micro = '$_iconPath/micro.svg';
   static const String mobile = '$_iconPath/mobile.svg';
@@ -63,6 +64,7 @@ class IconAssets {
   static const String sort = '$_iconPath/sort.svg';
   static const String sortline = '$_iconPath/sortline.svg';
   static const String star = '$_iconPath/star.svg';
+  static const String support = '$_iconPath/support.svg';
   static const String table = '$_iconPath/table.svg';
   static const String transfer = '$_iconPath/transfer.svg';
   static const String trash = '$_iconPath/trash.svg';

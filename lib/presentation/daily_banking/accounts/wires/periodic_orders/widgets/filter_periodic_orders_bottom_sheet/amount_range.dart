@@ -23,66 +23,77 @@ class FilterPeriodicOrdersAmount extends ConsumerWidget {
       outlined: true,
       child: Row(
         children: [
-          SizedBox(
-            width: 72,
-            height: 32,
-            child: TextInput(
-              initialValue: amountRange.start.toInt().toString(),
-              controller: TextEditingController(
-                text: amountRange.start.toInt().toString(),
-              ),
-              keyboardType: TextInputType.number,
-              size: TextInputSize.extraSmall,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(context.radius.soft),
-                borderSide: BorderSide(color: context.color.strokeLigth200),
-              ),
-              fillColor: Colors.white,
-              suffixText: '€',
-              maxLines: 1,
-              onChanged: (value) {
-                if (value.isNotEmpty) {
-                  setAmountRange(
-                    RangeValues(double.parse(value), amountRange.end),
-                  );
-                }
-              },
-            ),
-          ),
-          AppSpacing.horizontal.s2,
           Flexible(
-            child: RangeSlider(
-              values: amountRange,
-              max: _maxAmount,
-              divisions: _maxAmount.toInt(),
-              onChanged: setAmountRange,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Desde',
+                  style: context.textStyle.bodySmallRegular.copyWith(
+                    color: context.color.textLight600,
+                  ),
+                ),
+                AppSpacing.vertical.s2,
+                TextInput(
+                  initialValue: amountRange.start.toInt().toString(),
+                  controller: TextEditingController(
+                    text: amountRange.start.toInt().toString(),
+                  ),
+                  keyboardType: TextInputType.number,
+                  size: TextInputSize.extraSmall,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(context.radius.soft),
+                    borderSide: BorderSide(color: context.color.strokeLigth200),
+                  ),
+                  fillColor: Colors.white,
+                  suffixText: '€',
+                  maxLines: 1,
+                  onChanged: (value) {
+                    if (value.isNotEmpty) {
+                      setAmountRange(
+                        RangeValues(double.parse(value), amountRange.end),
+                      );
+                    }
+                  },
+                ),
+              ],
             ),
           ),
-          AppSpacing.horizontal.s2,
-          SizedBox(
-            width: 72,
-            height: 32,
-            child: TextInput(
-              initialValue: amountRange.end.toInt().toString(),
-              controller: TextEditingController(
-                text: amountRange.end.toInt().toString(),
-              ),
-              keyboardType: TextInputType.number,
-              size: TextInputSize.extraSmall,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(context.radius.soft),
-                borderSide: BorderSide(color: context.color.strokeLigth200),
-              ),
-              fillColor: Colors.white,
-              suffixText: '€',
-              maxLines: 1,
-              onChanged: (value) {
-                if (value.isNotEmpty) {
-                  setAmountRange(
-                    RangeValues(amountRange.start, double.parse(value)),
-                  );
-                }
-              },
+          AppSpacing.horizontal.s5,
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Hasta',
+                  style: context.textStyle.bodySmallRegular.copyWith(
+                    color: context.color.textLight600,
+                  ),
+                ),
+                AppSpacing.vertical.s2,
+                TextInput(
+                  initialValue: amountRange.end.toInt().toString(),
+                  controller: TextEditingController(
+                    text: amountRange.end.toInt().toString(),
+                  ),
+                  keyboardType: TextInputType.number,
+                  size: TextInputSize.extraSmall,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(context.radius.soft),
+                    borderSide: BorderSide(color: context.color.strokeLigth200),
+                  ),
+                  fillColor: Colors.white,
+                  suffixText: '€',
+                  maxLines: 1,
+                  onChanged: (value) {
+                    if (value.isNotEmpty) {
+                      setAmountRange(
+                        RangeValues(amountRange.start, double.parse(value)),
+                      );
+                    }
+                  },
+                ),
+              ],
             ),
           ),
         ],

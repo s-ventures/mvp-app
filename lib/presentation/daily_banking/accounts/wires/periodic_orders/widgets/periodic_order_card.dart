@@ -58,10 +58,7 @@ class PeriodicOrderCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Divider(
-                color: context.color.strokeLigth100,
-                height: 1,
-              ),
+              const CustomDivider(),
               Padding(
                 padding: const EdgeInsets.all(AppSpacing.s5),
                 child: Column(

@@ -37,7 +37,7 @@ class InternationalTransfersPage extends StatelessWidget {
                 Column(
                   children: [
                     const CurrencyInput(),
-                    const SizedBox(height: AppSpacing.s3),
+                    AppSpacing.vertical.s3,
                     Row(
                       children: [
                         Text(

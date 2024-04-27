@@ -37,9 +37,9 @@ class ScaffoldWithBottomNavBar extends ConsumerWidget {
     } else if (index == 3) {
       context.goNamed(AppRoute.analitica.name);
     } else if (index == 4) {
-      context.goNamed(AppRoute.proteccion.name);
+      context.goNamed(AppRoute.protection.name);
     } else if (index == 5) {
-      context.goNamed(AppRoute.proteccion.name);
+      context.goNamed(AppRoute.protection.name);
     }
   }
 

@@ -19,7 +19,7 @@ class Splash extends StatelessWidget {
       child: Ink(
         child: InkWell(
           borderRadius: borderRadius,
-          onTap: () => onPressed?.call(),
+          onTap: onPressed != null ? () => onPressed!.call() : null,
           child: child,
         ),
       ),
