@@ -32,7 +32,7 @@ class _AggregationRestClient implements AggregationRestClient {
     )
             .compose(
               _dio.options,
-              '/accounts/v1/integrations/tink/get-link',
+              '/aggregation/v1/aggregation/get-link',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -42,6 +42,37 @@ class _AggregationRestClient implements AggregationRestClient {
               baseUrl,
             ))));
     final value = TinkFlowLinkDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<RegistrationProcessStatusDto>> registerCredentials(
+      {required String credentialsId}) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<RegistrationProcessStatusDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/aggregation/v1/aggregation/register/${credentialsId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) =>
+            RegistrationProcessStatusDto.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

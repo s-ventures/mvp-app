@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+TinkFlowLinkDto _$TinkFlowLinkDtoFromJson(Map<String, dynamic> json) {
+  return _TinkFlowLinkDto.fromJson(json);
+}
+
 /// @nodoc
 mixin _$TinkFlowLinkDto {
   String get connectionType => throw _privateConstructorUsedError;
@@ -24,6 +28,7 @@ mixin _$TinkFlowLinkDto {
   String get authorizationCode => throw _privateConstructorUsedError;
   String get fullLink => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TinkFlowLinkDtoCopyWith<TinkFlowLinkDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -170,7 +175,7 @@ class __$$TinkFlowLinkDtoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$TinkFlowLinkDtoImpl implements _TinkFlowLinkDto {
   const _$TinkFlowLinkDtoImpl(
       {required this.connectionType,
@@ -180,6 +185,9 @@ class _$TinkFlowLinkDtoImpl implements _TinkFlowLinkDto {
       required this.locale,
       required this.authorizationCode,
       required this.fullLink});
+
+  factory _$TinkFlowLinkDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TinkFlowLinkDtoImplFromJson(json);
 
   @override
   final String connectionType;
@@ -220,6 +228,7 @@ class _$TinkFlowLinkDtoImpl implements _TinkFlowLinkDto {
                 other.fullLink == fullLink));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, connectionType, redirectUri,
       clientId, market, locale, authorizationCode, fullLink);
@@ -230,6 +239,13 @@ class _$TinkFlowLinkDtoImpl implements _TinkFlowLinkDto {
   _$$TinkFlowLinkDtoImplCopyWith<_$TinkFlowLinkDtoImpl> get copyWith =>
       __$$TinkFlowLinkDtoImplCopyWithImpl<_$TinkFlowLinkDtoImpl>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TinkFlowLinkDtoImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _TinkFlowLinkDto implements TinkFlowLinkDto {
@@ -241,6 +257,9 @@ abstract class _TinkFlowLinkDto implements TinkFlowLinkDto {
       required final String locale,
       required final String authorizationCode,
       required final String fullLink}) = _$TinkFlowLinkDtoImpl;
+
+  factory _TinkFlowLinkDto.fromJson(Map<String, dynamic> json) =
+      _$TinkFlowLinkDtoImpl.fromJson;
 
   @override
   String get connectionType;

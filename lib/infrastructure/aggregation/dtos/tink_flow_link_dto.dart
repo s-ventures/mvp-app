@@ -11,6 +11,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'tink_flow_link_dto.freezed.dart';
+part 'tink_flow_link_dto.g.dart';
 
 @freezed
 class TinkFlowLinkDto with _$TinkFlowLinkDto {
@@ -23,4 +24,7 @@ class TinkFlowLinkDto with _$TinkFlowLinkDto {
     required String authorizationCode,
     required String fullLink,
   }) = _TinkFlowLinkDto;
+
+  factory TinkFlowLinkDto.fromJson(Map<String, dynamic> json) =>
+      _$TinkFlowLinkDtoFromJson(json);
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/aggregation/repositories/aggregation_facade.dart';
@@ -27,10 +26,10 @@ class AggregationController extends StateNotifier<AggregationState> {
     final uri = Uri.parse(url);
     final credentialsId = uri.queryParameters['credentialsId'] ?? '';
     if (credentialsId.isNotEmpty) {
-      debugPrint('Credentials ID: $credentialsId');
-      return false;
-    } else {
+      _facade.registerCredentials(credentialsId);
       return true;
+    } else {
+      return false;
     }
   }
 }

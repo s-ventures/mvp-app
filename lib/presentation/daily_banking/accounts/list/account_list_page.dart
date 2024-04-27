@@ -23,7 +23,7 @@ class AccountListPage extends ConsumerWidget {
                   title: 'Agregar cuenta',
                   url: url,
                   onNavigationRequest: (request) {
-                    final navigate = aggregationController
+                    final navigate = !aggregationController
                         .tryParseCredentialsId(request.url);
                     if (navigate) {
                       return NavigationDecision.navigate;
