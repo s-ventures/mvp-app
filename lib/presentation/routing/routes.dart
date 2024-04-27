@@ -47,7 +47,17 @@ enum AppRoute {
   negocio('/negocio'),
   agenda('/agenda'),
   analitica('/analitica'),
-  proteccion('/proteccion'),
+  protection('/protection'),
+  protectionImprove('improve'),
+  protectionContractedProducts('contracted-products'),
+  protectionContractedProductsPolicyDetails('policy-details'),
+  protectionContractedProductsClaimDetails('claim-details'),
+  protectionContractedProductsAddNew('add-new'),
+  protectionInsuranceCommerce('commercial-insurance'),
+  protectionInsuranceAccident('accident-insurance'),
+  protectionInsuranceCybersecurity('cybersecurity-insurance'),
+  protectionInsuranceResponsibility('responsibility-insurance'),
+  protectionInsuranceHealth('health-insurance'),
   webView('/web-view');
 
   const AppRoute(this.path);

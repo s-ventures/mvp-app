@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/insurances/claims/simplified/simplified_claims_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/filter_claims_bottom_sheet.dart';
@@ -126,7 +126,7 @@ class _ClaimsList extends StatelessWidget {
               AppRoute.dailyBankingInsuranceClaimDetails.name,
               extra: InsuranceClaimDetailsRouteParams(
                 claimId: claim.id.toInt(),
-                insuranceId: claim.insuranceId,
+                insuranceId: claim.insuranceId.toInt(),
               ),
             ),
           ),

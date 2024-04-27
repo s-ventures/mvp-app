@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SimplifiedClaim {
   UniqueId get id => throw _privateConstructorUsedError;
-  int get insuranceId => throw _privateConstructorUsedError;
+  UniqueId get insuranceId => throw _privateConstructorUsedError;
   ClaimStatusType get status => throw _privateConstructorUsedError;
   String get riskType => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $SimplifiedClaimCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      int insuranceId,
+      UniqueId insuranceId,
       ClaimStatusType status,
       String riskType,
       String reason});
@@ -68,7 +68,7 @@ class _$SimplifiedClaimCopyWithImpl<$Res, $Val extends SimplifiedClaim>
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ abstract class _$$SimplifiedClaimImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
-      int insuranceId,
+      UniqueId insuranceId,
       ClaimStatusType status,
       String riskType,
       String reason});
@@ -126,7 +126,7 @@ class __$$SimplifiedClaimImplCopyWithImpl<$Res>
       insuranceId: null == insuranceId
           ? _value.insuranceId
           : insuranceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as UniqueId,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -156,7 +156,7 @@ class _$SimplifiedClaimImpl implements _SimplifiedClaim {
   @override
   final UniqueId id;
   @override
-  final int insuranceId;
+  final UniqueId insuranceId;
   @override
   final ClaimStatusType status;
   @override
@@ -198,7 +198,7 @@ class _$SimplifiedClaimImpl implements _SimplifiedClaim {
 abstract class _SimplifiedClaim implements SimplifiedClaim {
   const factory _SimplifiedClaim(
       {required final UniqueId id,
-      required final int insuranceId,
+      required final UniqueId insuranceId,
       required final ClaimStatusType status,
       required final String riskType,
       required final String reason}) = _$SimplifiedClaimImpl;
@@ -206,7 +206,7 @@ abstract class _SimplifiedClaim implements SimplifiedClaim {
   @override
   UniqueId get id;
   @override
-  int get insuranceId;
+  UniqueId get insuranceId;
   @override
   ClaimStatusType get status;
   @override
