@@ -7,7 +7,6 @@ class ClaimsFilter with _$ClaimsFilter {
   const factory ClaimsFilter({
     int? claimId,
     List<int>? insuranceIds,
-    int? year,
     String? dossier,
     DateTime? createDateFrom,
     DateTime? createDateTo,

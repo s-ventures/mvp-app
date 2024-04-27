@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FilterSimplifiedClaimsState {
   int? get claimId => throw _privateConstructorUsedError;
   List<int>? get insuranceIds => throw _privateConstructorUsedError;
-  int? get year => throw _privateConstructorUsedError;
   String? get dossier => throw _privateConstructorUsedError;
   DateTime? get createDateFrom => throw _privateConstructorUsedError;
   DateTime? get createDateTo => throw _privateConstructorUsedError;
@@ -50,7 +49,6 @@ abstract class $FilterSimplifiedClaimsStateCopyWith<$Res> {
   $Res call(
       {int? claimId,
       List<int>? insuranceIds,
-      int? year,
       String? dossier,
       DateTime? createDateFrom,
       DateTime? createDateTo,
@@ -83,7 +81,6 @@ class _$FilterSimplifiedClaimsStateCopyWithImpl<$Res,
   $Res call({
     Object? claimId = freezed,
     Object? insuranceIds = freezed,
-    Object? year = freezed,
     Object? dossier = freezed,
     Object? createDateFrom = freezed,
     Object? createDateTo = freezed,
@@ -108,10 +105,6 @@ class _$FilterSimplifiedClaimsStateCopyWithImpl<$Res,
           ? _value.insuranceIds
           : insuranceIds // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      year: freezed == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int?,
       dossier: freezed == dossier
           ? _value.dossier
           : dossier // ignore: cast_nullable_to_non_nullable
@@ -184,7 +177,6 @@ abstract class _$$FilterSimplifiedClaimsStateImplCopyWith<$Res>
   $Res call(
       {int? claimId,
       List<int>? insuranceIds,
-      int? year,
       String? dossier,
       DateTime? createDateFrom,
       DateTime? createDateTo,
@@ -216,7 +208,6 @@ class __$$FilterSimplifiedClaimsStateImplCopyWithImpl<$Res>
   $Res call({
     Object? claimId = freezed,
     Object? insuranceIds = freezed,
-    Object? year = freezed,
     Object? dossier = freezed,
     Object? createDateFrom = freezed,
     Object? createDateTo = freezed,
@@ -241,10 +232,6 @@ class __$$FilterSimplifiedClaimsStateImplCopyWithImpl<$Res>
           ? _value._insuranceIds
           : insuranceIds // ignore: cast_nullable_to_non_nullable
               as List<int>?,
-      year: freezed == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
-              as int?,
       dossier: freezed == dossier
           ? _value.dossier
           : dossier // ignore: cast_nullable_to_non_nullable
@@ -312,7 +299,6 @@ class _$FilterSimplifiedClaimsStateImpl
   const _$FilterSimplifiedClaimsStateImpl(
       {this.claimId,
       final List<int>? insuranceIds,
-      this.year,
       this.dossier,
       this.createDateFrom,
       this.createDateTo,
@@ -341,8 +327,6 @@ class _$FilterSimplifiedClaimsStateImpl
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  final int? year;
   @override
   final String? dossier;
   @override
@@ -374,7 +358,7 @@ class _$FilterSimplifiedClaimsStateImpl
 
   @override
   String toString() {
-    return 'FilterSimplifiedClaimsState(claimId: $claimId, insuranceIds: $insuranceIds, year: $year, dossier: $dossier, createDateFrom: $createDateFrom, createDateTo: $createDateTo, status: $status, riskType: $riskType, reason: $reason, riskLocation: $riskLocation, processStartDateFrom: $processStartDateFrom, processStartDateTo: $processStartDateTo, processEndDateFrom: $processEndDateFrom, processEndDateTo: $processEndDateTo, agentName: $agentName, agentEmail: $agentEmail, agentTelephone: $agentTelephone)';
+    return 'FilterSimplifiedClaimsState(claimId: $claimId, insuranceIds: $insuranceIds, dossier: $dossier, createDateFrom: $createDateFrom, createDateTo: $createDateTo, status: $status, riskType: $riskType, reason: $reason, riskLocation: $riskLocation, processStartDateFrom: $processStartDateFrom, processStartDateTo: $processStartDateTo, processEndDateFrom: $processEndDateFrom, processEndDateTo: $processEndDateTo, agentName: $agentName, agentEmail: $agentEmail, agentTelephone: $agentTelephone)';
   }
 
   @override
@@ -385,7 +369,6 @@ class _$FilterSimplifiedClaimsStateImpl
             (identical(other.claimId, claimId) || other.claimId == claimId) &&
             const DeepCollectionEquality()
                 .equals(other._insuranceIds, _insuranceIds) &&
-            (identical(other.year, year) || other.year == year) &&
             (identical(other.dossier, dossier) || other.dossier == dossier) &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
@@ -418,7 +401,6 @@ class _$FilterSimplifiedClaimsStateImpl
       runtimeType,
       claimId,
       const DeepCollectionEquality().hash(_insuranceIds),
-      year,
       dossier,
       createDateFrom,
       createDateTo,
@@ -447,7 +429,6 @@ abstract class _FilterSimplifiedClaimsState
   const factory _FilterSimplifiedClaimsState(
       {final int? claimId,
       final List<int>? insuranceIds,
-      final int? year,
       final String? dossier,
       final DateTime? createDateFrom,
       final DateTime? createDateTo,
@@ -467,8 +448,6 @@ abstract class _FilterSimplifiedClaimsState
   int? get claimId;
   @override
   List<int>? get insuranceIds;
-  @override
-  int? get year;
   @override
   String? get dossier;
   @override

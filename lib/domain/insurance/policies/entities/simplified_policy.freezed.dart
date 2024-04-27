@@ -19,7 +19,7 @@ mixin _$SimplifiedPolicy {
   UniqueId get id => throw _privateConstructorUsedError;
   UniqueId get insuranceId => throw _privateConstructorUsedError;
   String get status =>
-      throw _privateConstructorUsedError; //TODO: Change to enum PolicyStatusType when BE is ready
+      throw _privateConstructorUsedError; // TODO(georgeta): Change to enum PolicyStatusType when BE is ready
   String get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -140,7 +140,7 @@ class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
   final UniqueId insuranceId;
   @override
   final String status;
-//TODO: Change to enum PolicyStatusType when BE is ready
+// TODO(georgeta): Change to enum PolicyStatusType when BE is ready
   @override
   final String description;
 
@@ -187,7 +187,7 @@ abstract class _SimplifiedPolicy implements SimplifiedPolicy {
   UniqueId get insuranceId;
   @override
   String get status;
-  @override //TODO: Change to enum PolicyStatusType when BE is ready
+  @override // TODO(georgeta): Change to enum PolicyStatusType when BE is ready
   String get description;
   @override
   @JsonKey(ignore: true)

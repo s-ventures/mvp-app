@@ -37,7 +37,7 @@ class InsuranceCommerceContractedPage extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
-            IconTitleInfoMessage(
+            const IconTitleInfoMessage(
               icon: IconAssets.check,
               title: 'Seguro contratado',
               message:

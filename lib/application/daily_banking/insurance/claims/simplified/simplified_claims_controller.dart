@@ -5,8 +5,8 @@ import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/si
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/repositories/claims_pagination_repository.dart';
 
-final simplifiedClaimsControllerProvider =
-    StateNotifierProvider<SimplifiedClaimsController, SimplifiedClaimsState>(
+final simplifiedClaimsControllerProvider = StateNotifierProvider.autoDispose<
+    SimplifiedClaimsController, SimplifiedClaimsState>(
   (ref) => SimplifiedClaimsController(
     ref.watch(claimsPaginationRepositoryProvider),
   ),
@@ -42,7 +42,6 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
   Future<void> updateFilter({
     required int? claimId,
     required List<int>? insuranceIds,
-    required int? year,
     required String? dossier,
     required DateTime? createDateFrom,
     required DateTime? createDateTo,
@@ -61,7 +60,6 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
     _repository.updateFilter(
       claimId: claimId,
       insuranceIds: insuranceIds,
-      year: year,
       dossier: dossier,
       createDateFrom: createDateFrom,
       createDateTo: createDateTo,

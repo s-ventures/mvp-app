@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/simplified/simplified_policies_controller.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/simplified_policy.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/filter_policies_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -89,15 +90,20 @@ class _PoliciesList extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: AppSpacing.s3),
           child: InsurancePolicyListTile(
             leadingEmoji:
-                '🖥️', // TODO(jesus): Pending to receive category and use the icon based on it
+                '🖥️', // TODO(georgeta): Pending to receive category and use the icon based on it
             leadingBackgroundColor: const Color(0xFFE0E0E0),
             number: policy.id.getOrCrash(),
             status: policy.status,
             statusColor: context.color.statusSuccess,
             category: '',
             title: policy.description,
-            onTap: () =>
-                context.pushNamed(AppRoute.dailyBankingInsuranceDetails.name),
+            onTap: () => context.pushNamed(
+              AppRoute.dailyBankingInsuranceDetails.name,
+              extra: InsurancePolicyDetailsRouteParams(
+                insuranceId: policy.insuranceId.toInt(),
+                policyId: policy.id.toInt(),
+              ),
+            ),
           ),
         );
       },

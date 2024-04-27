@@ -1,6 +1,3 @@
-/// Todo: Replace png-svg to svg, request to Iran
-/// fire-hose, fire-hydrant, security-cam, smoke-detector, sprinkler, siren, window
-
 class IconAssets {
   const IconAssets._();
 

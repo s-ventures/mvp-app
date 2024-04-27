@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/policy_payment_periodicity.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class PolicyBilling extends StatelessWidget {
-  const PolicyBilling({super.key});
+  const PolicyBilling({
+    required this.amount,
+    required this.lastInvoiceAmount,
+    required this.paymentPeriodicity,
+    super.key,
+  });
+
+  final double? amount;
+  final double? lastInvoiceAmount;
+  final PolicyPaymentPeriodicity? paymentPeriodicity;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +26,7 @@ class PolicyBilling extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            2640.00.toCurrency(plusSign: false),
+            amount?.toCurrency(plusSign: false) ?? '---',
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight900,
             ),
@@ -34,7 +44,7 @@ class PolicyBilling extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            220.00.toCurrency(plusSign: false),
+            lastInvoiceAmount?.toCurrency(plusSign: false) ?? '---',
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight900,
             ),
@@ -52,7 +62,7 @@ class PolicyBilling extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            'Mensualmente',
+            paymentPeriodicity?.name ?? '---',
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight900,
             ),

@@ -33,7 +33,6 @@ class AccidentsInsuranceDataValidationEditPage extends StatelessWidget {
         },
         body: ListView(
           padding: const EdgeInsets.all(AppSpacing.s5),
-          children: [],
         ),
       ),
     );

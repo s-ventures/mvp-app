@@ -160,7 +160,7 @@ class AccidentsInsurancePaymentPage extends StatelessWidget {
               title: 'Coberturas añadidas',
               coveragesIncluded: [
                 'Renta mensual por fallecimiento accidental',
-                'Renta mensual por invalidez permanente absoluta accidental'
+                'Renta mensual por invalidez permanente absoluta accidental',
               ],
             ),
             AppSpacing.vertical.s5,

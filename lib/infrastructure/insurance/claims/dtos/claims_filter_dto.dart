@@ -5,7 +5,6 @@
 //   "insuranceId": [
 //     0
 //   ],
-//   "year": 0,
 //   "dossier": "string",
 //   "createDateFrom": "2024-04-12",
 //   "createDateTo": "2024-04-12",
@@ -36,7 +35,6 @@ class ClaimsFilterDto extends PaginatedRequest {
   ClaimsFilterDto({
     this.claimId,
     this.insuranceId,
-    this.year,
     this.dossier,
     this.createDateFrom,
     this.createDateTo,
@@ -63,7 +61,6 @@ class ClaimsFilterDto extends PaginatedRequest {
     return ClaimsFilterDto(
       claimId: filter.claimId,
       insuranceId: filter.insuranceIds,
-      year: filter.year,
       dossier: filter.dossier,
       createDateFrom: filter.createDateFrom,
       createDateTo: filter.createDateTo,
@@ -88,7 +85,6 @@ class ClaimsFilterDto extends PaginatedRequest {
 
   final int? claimId;
   final List<int>? insuranceId;
-  final int? year;
   final String? dossier;
   @DateConverter()
   final DateTime? createDateFrom;

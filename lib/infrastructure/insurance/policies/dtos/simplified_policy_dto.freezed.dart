@@ -23,7 +23,7 @@ mixin _$SimplifiedPolicyDto {
   int get insuranceId => throw _privateConstructorUsedError;
   String get policy => throw _privateConstructorUsedError;
   String get status =>
-      throw _privateConstructorUsedError; //TODO: Change to enum PolicyStatusTypeDto when BE is ready
+      throw _privateConstructorUsedError; // TODO(georgeta): Change to enum PolicyStatusTypeDto when BE is ready
   String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -148,7 +148,7 @@ class _$SimplifiedPolicyDtoImpl implements _SimplifiedPolicyDto {
   final String policy;
   @override
   final String status;
-//TODO: Change to enum PolicyStatusTypeDto when BE is ready
+// TODO(georgeta): Change to enum PolicyStatusTypeDto when BE is ready
   @override
   final String description;
 
@@ -206,7 +206,7 @@ abstract class _SimplifiedPolicyDto implements SimplifiedPolicyDto {
   String get policy;
   @override
   String get status;
-  @override //TODO: Change to enum PolicyStatusTypeDto when BE is ready
+  @override // TODO(georgeta): Change to enum PolicyStatusTypeDto when BE is ready
   String get description;
   @override
   @JsonKey(ignore: true)

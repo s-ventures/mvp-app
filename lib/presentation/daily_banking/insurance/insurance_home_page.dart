@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/claims.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/policies.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/claims.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/list/policies.dart';
 
-class InsurancesHomePage extends StatelessWidget {
-  const InsurancesHomePage({super.key});
+class InsuranceHomePage extends StatelessWidget {
+  const InsuranceHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

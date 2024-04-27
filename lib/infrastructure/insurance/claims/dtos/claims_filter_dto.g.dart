@@ -12,7 +12,6 @@ ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) =>
       insuranceId: (json['insuranceId'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
-      year: json['year'] as int?,
       dossier: json['dossier'] as String?,
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['createDateFrom'], const DateConverter().fromJson),
@@ -51,7 +50,6 @@ Map<String, dynamic> _$ClaimsFilterDtoToJson(ClaimsFilterDto instance) {
 
   writeNotNull('claimId', instance.claimId);
   writeNotNull('insuranceId', instance.insuranceId);
-  writeNotNull('year', instance.year);
   writeNotNull('dossier', instance.dossier);
   writeNotNull(
       'createDateFrom',

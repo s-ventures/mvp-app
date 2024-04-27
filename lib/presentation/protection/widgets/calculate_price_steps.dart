@@ -48,9 +48,3 @@ class CalculatePriceSteps extends StatelessWidget {
     );
   }
 }
-
-            // CustomLineBarChart(
-            //   color: CustomLineBarColor.primary,
-            //   active: true,
-            // ),
-            // CustomLineBarChart(),

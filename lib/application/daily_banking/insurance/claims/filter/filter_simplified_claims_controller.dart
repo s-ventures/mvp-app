@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/filter/filter_simplified_claims_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_controller.dart';
 
-final filterSimplifiedClaimsControllerProvider = StateNotifierProvider<
-    FilterSimplifiedClaimsController, FilterSimplifiedClaimsState>(
+final filterSimplifiedClaimsControllerProvider = StateNotifierProvider
+    .autoDispose<FilterSimplifiedClaimsController, FilterSimplifiedClaimsState>(
   (ref) => FilterSimplifiedClaimsController(
     ref.read(simplifiedClaimsControllerProvider.notifier),
   ),
@@ -21,7 +21,6 @@ class FilterSimplifiedClaimsController
     await _simplifiedClaimsController.updateFilter(
       claimId: state.claimId,
       insuranceIds: state.insuranceIds,
-      year: state.year,
       dossier: state.dossier,
       createDateFrom: state.createDateFrom,
       createDateTo: state.createDateTo,
@@ -50,10 +49,6 @@ class FilterSimplifiedClaimsController
 
   void setInsuranceIds(List<int> insuranceIds) {
     state = state.copyWith(insuranceIds: insuranceIds);
-  }
-
-  void setYear(int year) {
-    state = state.copyWith(year: year);
   }
 
   void setDossier(String dossier) {
