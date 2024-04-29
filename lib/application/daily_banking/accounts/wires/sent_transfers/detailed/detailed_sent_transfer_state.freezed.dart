@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedSentTransferState {
-  AsyncValue<DetailedSentTransfer> get senttranfer =>
+  AsyncValue<DetailedSentTransfer> get sentTransfer =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +30,7 @@ abstract class $DetailedSentTransferStateCopyWith<$Res> {
           $Res Function(DetailedSentTransferState) then) =
       _$DetailedSentTransferStateCopyWithImpl<$Res, DetailedSentTransferState>;
   @useResult
-  $Res call({AsyncValue<DetailedSentTransfer> senttranfer});
+  $Res call({AsyncValue<DetailedSentTransfer> sentTransfer});
 }
 
 /// @nodoc
@@ -47,12 +47,12 @@ class _$DetailedSentTransferStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? senttranfer = null,
+    Object? sentTransfer = null,
   }) {
     return _then(_value.copyWith(
-      senttranfer: null == senttranfer
-          ? _value.senttranfer
-          : senttranfer // ignore: cast_nullable_to_non_nullable
+      sentTransfer: null == sentTransfer
+          ? _value.sentTransfer
+          : sentTransfer // ignore: cast_nullable_to_non_nullable
               as AsyncValue<DetailedSentTransfer>,
     ) as $Val);
   }
@@ -67,7 +67,7 @@ abstract class _$$DetailedSentTransferStateImplCopyWith<$Res>
       __$$DetailedSentTransferStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<DetailedSentTransfer> senttranfer});
+  $Res call({AsyncValue<DetailedSentTransfer> sentTransfer});
 }
 
 /// @nodoc
@@ -83,12 +83,12 @@ class __$$DetailedSentTransferStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? senttranfer = null,
+    Object? sentTransfer = null,
   }) {
     return _then(_$DetailedSentTransferStateImpl(
-      senttranfer: null == senttranfer
-          ? _value.senttranfer
-          : senttranfer // ignore: cast_nullable_to_non_nullable
+      sentTransfer: null == sentTransfer
+          ? _value.sentTransfer
+          : sentTransfer // ignore: cast_nullable_to_non_nullable
               as AsyncValue<DetailedSentTransfer>,
     ));
   }
@@ -98,15 +98,15 @@ class __$$DetailedSentTransferStateImplCopyWithImpl<$Res>
 
 class _$DetailedSentTransferStateImpl implements _DetailedSentTransferState {
   const _$DetailedSentTransferStateImpl(
-      {this.senttranfer = const AsyncLoading<DetailedSentTransfer>()});
+      {this.sentTransfer = const AsyncLoading<DetailedSentTransfer>()});
 
   @override
   @JsonKey()
-  final AsyncValue<DetailedSentTransfer> senttranfer;
+  final AsyncValue<DetailedSentTransfer> sentTransfer;
 
   @override
   String toString() {
-    return 'DetailedSentTransferState(senttranfer: $senttranfer)';
+    return 'DetailedSentTransferState(sentTransfer: $sentTransfer)';
   }
 
   @override
@@ -114,12 +114,12 @@ class _$DetailedSentTransferStateImpl implements _DetailedSentTransferState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedSentTransferStateImpl &&
-            (identical(other.senttranfer, senttranfer) ||
-                other.senttranfer == senttranfer));
+            (identical(other.sentTransfer, sentTransfer) ||
+                other.sentTransfer == sentTransfer));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, senttranfer);
+  int get hashCode => Object.hash(runtimeType, sentTransfer);
 
   @JsonKey(ignore: true)
   @override
@@ -131,11 +131,11 @@ class _$DetailedSentTransferStateImpl implements _DetailedSentTransferState {
 
 abstract class _DetailedSentTransferState implements DetailedSentTransferState {
   const factory _DetailedSentTransferState(
-          {final AsyncValue<DetailedSentTransfer> senttranfer}) =
+          {final AsyncValue<DetailedSentTransfer> sentTransfer}) =
       _$DetailedSentTransferStateImpl;
 
   @override
-  AsyncValue<DetailedSentTransfer> get senttranfer;
+  AsyncValue<DetailedSentTransfer> get sentTransfer;
   @override
   @JsonKey(ignore: true)
   _$$DetailedSentTransferStateImplCopyWith<_$DetailedSentTransferStateImpl>

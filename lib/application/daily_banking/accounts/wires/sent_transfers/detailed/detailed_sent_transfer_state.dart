@@ -8,6 +8,6 @@ part 'detailed_sent_transfer_state.freezed.dart';
 class DetailedSentTransferState with _$DetailedSentTransferState {
   const factory DetailedSentTransferState({
     @Default(AsyncLoading<DetailedSentTransfer>())
-    AsyncValue<DetailedSentTransfer> senttranfer,
+    AsyncValue<DetailedSentTransfer> sentTransfer,
   }) = _DetailedSentTransferState;
 }

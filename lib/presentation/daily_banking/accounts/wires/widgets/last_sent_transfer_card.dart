@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/simplified_sent_transfer.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -62,7 +63,10 @@ class LastSentTransferCard extends StatelessWidget {
           ),
         ),
         onPressed: () => context.pushNamed(
-          AppRoute.dailyBankingAccountTaxesDetails.name,
+          AppRoute.dailyBankingTransfersSentDetails.name,
+          extra: TransferSentDetailsRouteParams(
+            sentTransferId: sentTransfer.id.toInt(),
+          ),
         ),
       ),
     );

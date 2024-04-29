@@ -24,12 +24,13 @@ class DetailedSentTransferController
 
       setStateSafe(
         () => transactionOrFailure.fold(
-          (l) => state.copyWith(senttranfer: AsyncError(l, StackTrace.current)),
-          (r) => state.copyWith(senttranfer: AsyncData(r)),
+          (l) =>
+              state.copyWith(sentTransfer: AsyncError(l, StackTrace.current)),
+          (r) => state.copyWith(sentTransfer: AsyncData(r)),
         ),
       );
     } catch (e) {
-      state = state.copyWith(senttranfer: AsyncError(e, StackTrace.current));
+      state = state.copyWith(sentTransfer: AsyncError(e, StackTrace.current));
     }
   }
 }
