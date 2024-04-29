@@ -58,7 +58,15 @@ class _InsurancePolicyDetailsPageState
                     icon: IconAssets.chevronLeft,
                     type: ButtonType.outlined,
                     size: ButtonSize.extraSmall,
-                    onPressed: () async => context.pop(),
+                    onPressed: () async {
+                      unawaited(
+                        ref
+                            .read(filterSimplifiedClaimsControllerProvider
+                                .notifier)
+                            .resetFilters(),
+                      );
+                      context.pop();
+                    },
                   ),
                   actions: [
                     Button(

@@ -56,7 +56,6 @@ class Amount extends StatelessWidget {
                       controller: amountFromController,
                       size: TextInputSize.extraSmall,
                       textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
                       onChanged: (value) {
                         final parsedValue = double.tryParse(value);
                         if (parsedValue != null) {
