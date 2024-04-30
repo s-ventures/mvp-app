@@ -28,17 +28,17 @@ enum AccountTransactionTypeDto {
 
 extension AccountTransactionTypeDtoX on AccountTransactionTypeDto {
   AccountTransactionType toDomain() => switch (this) {
-        // Income
-        AccountTransactionTypeDto.cashIncome ||
-        AccountTransactionTypeDto.checkIncome ||
         AccountTransactionTypeDto.transferIn =>
-          AccountTransactionType.income,
+          AccountTransactionType.transferIn,
+        AccountTransactionTypeDto.tax => AccountTransactionType.tax,
+        AccountTransactionTypeDto.debit => AccountTransactionType.debit,
+        AccountTransactionTypeDto.directDebit =>
+          AccountTransactionType.directDebit,
+        AccountTransactionTypeDto.card => AccountTransactionType.card,
+        AccountTransactionTypeDto.transferOut =>
+          AccountTransactionType.transferOut,
 
-        // Expense
-        AccountTransactionTypeDto.tax ||
-        AccountTransactionTypeDto.debit ||
-        AccountTransactionTypeDto.directDebit ||
-        AccountTransactionTypeDto.card ||
+        // Other
         AccountTransactionTypeDto.cashWithdrawal ||
         AccountTransactionTypeDto.checkIssue ||
         AccountTransactionTypeDto.feesAndCommissions ||
@@ -47,12 +47,10 @@ extension AccountTransactionTypeDtoX on AccountTransactionTypeDto {
         AccountTransactionTypeDto.loanPayment ||
         AccountTransactionTypeDto.loanAmortization ||
         AccountTransactionTypeDto.periodicTransfer ||
-        AccountTransactionTypeDto.transferOut =>
-          AccountTransactionType.expense,
-
-        // Other
-        AccountTransactionTypeDto.other ||
+        AccountTransactionTypeDto.cashIncome ||
+        AccountTransactionTypeDto.checkIncome ||
         AccountTransactionTypeDto.accounts ||
+        AccountTransactionTypeDto.other ||
         AccountTransactionTypeDto.transfer =>
           AccountTransactionType.other,
       };

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details/extended_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 
 part 'detailed_account_transaction.freezed.dart';
@@ -16,5 +17,6 @@ class DetailedAccountTransaction with _$DetailedAccountTransaction {
     required String detailFields,
     required String userComments,
     required bool bankReceipt,
+    required ExtendedTransactionDetails? details,
   }) = _DetailedAccountTransaction;
 }

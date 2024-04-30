@@ -33,10 +33,14 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details/tax_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details/transfer_out_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/tax_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/transfer_out_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
@@ -89,6 +93,27 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
       detailFields: detailFields ?? '',
       userComments: userComments ?? '',
       bankReceipt: bankReceipt,
+      details: extendedDetails == null
+          ? null
+          : () {
+              switch (extendedDetails.runtimeType) {
+                case TransferOutDto:
+                  final transferOutDto = extendedDetails! as TransferOutDto;
+                  return TransferOutTransactionDetails(
+                    senderReference: UniqueId.fromUniqueString(
+                      transferOutDto.senderReference,
+                    ),
+                  );
+                case TaxDto:
+                  final taxDto = extendedDetails! as TaxDto;
+                  return TaxTransactionDetails(
+                    id: UniqueId.fromUniqueString(taxDto.taxId.toString()),
+                    issuerName: taxDto.issuerName,
+                    accruaDate: taxDto.accrualDate,
+                    paymentDate: taxDto.paymentDate,
+                  );
+              }
+            }(),
     );
   }
 }

@@ -26,6 +26,7 @@ mixin _$DetailedAccountTransaction {
   String get detailFields => throw _privateConstructorUsedError;
   String get userComments => throw _privateConstructorUsedError;
   bool get bankReceipt => throw _privateConstructorUsedError;
+  ExtendedTransactionDetails? get details => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedAccountTransactionCopyWith<DetailedAccountTransaction>
@@ -49,7 +50,8 @@ abstract class $DetailedAccountTransactionCopyWith<$Res> {
       String category,
       String detailFields,
       String userComments,
-      bool bankReceipt});
+      bool bankReceipt,
+      ExtendedTransactionDetails? details});
 }
 
 /// @nodoc
@@ -76,6 +78,7 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
     Object? detailFields = null,
     Object? userComments = null,
     Object? bankReceipt = null,
+    Object? details = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -118,6 +121,10 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool,
+      details: freezed == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as ExtendedTransactionDetails?,
     ) as $Val);
   }
 }
@@ -141,7 +148,8 @@ abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
       String category,
       String detailFields,
       String userComments,
-      bool bankReceipt});
+      bool bankReceipt,
+      ExtendedTransactionDetails? details});
 }
 
 /// @nodoc
@@ -167,6 +175,7 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
     Object? detailFields = null,
     Object? userComments = null,
     Object? bankReceipt = null,
+    Object? details = freezed,
   }) {
     return _then(_$DetailedAccountTransactionImpl(
       id: null == id
@@ -209,6 +218,10 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool,
+      details: freezed == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as ExtendedTransactionDetails?,
     ));
   }
 }
@@ -226,7 +239,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       required this.category,
       required this.detailFields,
       required this.userComments,
-      required this.bankReceipt});
+      required this.bankReceipt,
+      required this.details});
 
   @override
   final UniqueId id;
@@ -248,10 +262,12 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   final String userComments;
   @override
   final bool bankReceipt;
+  @override
+  final ExtendedTransactionDetails? details;
 
   @override
   String toString() {
-    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, date: $date, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt)';
+    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, date: $date, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt, details: $details)';
   }
 
   @override
@@ -275,7 +291,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
             (identical(other.userComments, userComments) ||
                 other.userComments == userComments) &&
             (identical(other.bankReceipt, bankReceipt) ||
-                other.bankReceipt == bankReceipt));
+                other.bankReceipt == bankReceipt) &&
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
@@ -290,7 +307,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       category,
       detailFields,
       userComments,
-      bankReceipt);
+      bankReceipt,
+      details);
 
   @JsonKey(ignore: true)
   @override
@@ -303,16 +321,18 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
 abstract class _DetailedAccountTransaction
     implements DetailedAccountTransaction {
   const factory _DetailedAccountTransaction(
-      {required final UniqueId id,
-      required final String description,
-      required final double amount,
-      required final double endBalance,
-      required final DateTime date,
-      required final String originBranch,
-      required final String category,
-      required final String detailFields,
-      required final String userComments,
-      required final bool bankReceipt}) = _$DetailedAccountTransactionImpl;
+          {required final UniqueId id,
+          required final String description,
+          required final double amount,
+          required final double endBalance,
+          required final DateTime date,
+          required final String originBranch,
+          required final String category,
+          required final String detailFields,
+          required final String userComments,
+          required final bool bankReceipt,
+          required final ExtendedTransactionDetails? details}) =
+      _$DetailedAccountTransactionImpl;
 
   @override
   UniqueId get id;
@@ -334,6 +354,8 @@ abstract class _DetailedAccountTransaction
   String get userComments;
   @override
   bool get bankReceipt;
+  @override
+  ExtendedTransactionDetails? get details;
   @override
   @JsonKey(ignore: true)
   _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl>

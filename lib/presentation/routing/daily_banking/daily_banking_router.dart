@@ -296,14 +296,14 @@ class DailyBankingRouter {
           path: AppRoute.dailyBankingAccountTransactionDetails.path,
           name: AppRoute.dailyBankingAccountTransactionDetails.name,
           pageBuilder: (context, state) {
-            final transactionId = state.pathParameters['transactionId']!;
-            final accountId = state.pathParameters['accountId']!;
+            final params = state.extra! as TransactionDetailsRouteParams;
 
             return MaterialPage(
               key: state.pageKey,
               child: AccountTransactionDetailsPage(
-                transactionId: transactionId,
-                accountId: accountId,
+                transactionId: params.transactionId,
+                accountId: params.accountId,
+                type: params.type,
               ),
             );
           },

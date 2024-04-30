@@ -1,4 +1,4 @@
-extension StringInitials on String {
+extension StringX on String {
   String get initials {
     final stringList = this;
     if (stringList.isEmpty) return '';
