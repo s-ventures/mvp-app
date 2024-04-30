@@ -49,7 +49,7 @@ class TaxDetails extends StatelessWidget {
         AppSpacing.vertical.s5,
         MovementDetailsDate(
           titleStartDate: 'Fecha de cargo',
-          startDate: details.accruaDate.formatToDayMonthYear(),
+          startDate: details.accrualDate.formatToDayMonthYear(),
           titleEndDate: 'Periodo impuesto',
           endDate: details.paymentDate.formatToDayMonthYear(),
         ),

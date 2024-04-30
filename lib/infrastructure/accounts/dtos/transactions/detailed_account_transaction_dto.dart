@@ -109,7 +109,7 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                   return TaxTransactionDetails(
                     id: UniqueId.fromUniqueString(taxDto.taxId.toString()),
                     issuerName: taxDto.issuerName,
-                    accruaDate: taxDto.accrualDate,
+                    accrualDate: taxDto.accrualDate,
                     paymentDate: taxDto.paymentDate,
                   );
               }

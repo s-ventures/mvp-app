@@ -5,12 +5,12 @@ class TaxTransactionDetails extends ExtendedTransactionDetails {
   TaxTransactionDetails({
     required this.id,
     required this.issuerName,
-    required this.accruaDate,
+    required this.accrualDate,
     required this.paymentDate,
   });
 
   final UniqueId id;
   final String issuerName;
-  final DateTime accruaDate;
+  final DateTime accrualDate;
   final DateTime paymentDate;
 }
