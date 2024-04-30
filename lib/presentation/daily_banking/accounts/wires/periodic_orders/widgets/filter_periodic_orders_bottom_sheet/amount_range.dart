@@ -41,10 +41,6 @@ class FilterPeriodicOrdersAmount extends ConsumerWidget {
                   ),
                   keyboardType: TextInputType.number,
                   size: TextInputSize.extraSmall,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(context.radius.soft),
-                    borderSide: BorderSide(color: context.color.strokeLigth200),
-                  ),
                   fillColor: Colors.white,
                   suffixText: '€',
                   maxLines: 1,
@@ -78,10 +74,6 @@ class FilterPeriodicOrdersAmount extends ConsumerWidget {
                   ),
                   keyboardType: TextInputType.number,
                   size: TextInputSize.extraSmall,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(context.radius.soft),
-                    borderSide: BorderSide(color: context.color.strokeLigth200),
-                  ),
                   fillColor: Colors.white,
                   suffixText: '€',
                   maxLines: 1,

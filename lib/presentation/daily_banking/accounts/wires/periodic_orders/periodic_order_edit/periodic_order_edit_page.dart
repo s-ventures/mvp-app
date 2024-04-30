@@ -71,26 +71,11 @@ class PeriodicOrderEditPage extends StatelessWidget {
               ],
             ),
             AppSpacing.vertical.s5,
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.s5,
-                vertical: AppSpacing.s3,
-              ),
-              decoration: BoxDecoration(
-                color: context.color.backgroundLight0,
-                borderRadius: BorderRadius.circular(context.radius.soft),
-              ),
-              child: TextInput(
-                hintText: 'Concepto',
-                fillColor: context.color.backgroundLight0,
-                alignLabelWithHint: true,
-                controller: TextEditingController(text: 'Pago periódico'),
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                labelText: 'Concepto',
-                border: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                contentPadding: EdgeInsets.zero,
-              ),
+            TextInput(
+              hintText: 'Concepto',
+              labelText: 'Concepto',
+              controller: TextEditingController(text: 'Pago periódico'),
+              enabledBorder: false,
             ),
           ],
         ),
