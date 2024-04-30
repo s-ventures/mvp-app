@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
-import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details/tax_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/tax_transaction_details.dart';
 import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 

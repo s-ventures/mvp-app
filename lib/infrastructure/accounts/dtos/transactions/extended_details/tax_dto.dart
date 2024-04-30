@@ -21,7 +21,7 @@
 // },
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 
 part 'tax_dto.g.dart';

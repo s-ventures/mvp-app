@@ -33,14 +33,14 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
-import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details/tax_transaction_details.dart';
-import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details/transfer_out_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/tax_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/transfer_out_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_converter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/tax_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/transfer_out_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/extended_details_converter.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/extended_details_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/tax_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/transfer_out_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';

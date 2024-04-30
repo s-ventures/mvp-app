@@ -1,4 +1,4 @@
-import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details/extended_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/extended_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 
 class TransferOutTransactionDetails extends ExtendedTransactionDetails {
