@@ -7,6 +7,7 @@ export 'checkbox/checkbox_list_tile.dart';
 export 'contacts/contact_list_tile.dart';
 export 'contacts/contact_ranking_list_tile.dart';
 export 'contacts/line_bar_chart.dart';
+export 'contacts/new_contact_bottom_sheet.dart';
 export 'credit_card.dart';
 export 'custom_app_bar.dart';
 export 'custom_card.dart';

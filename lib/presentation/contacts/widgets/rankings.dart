@@ -17,24 +17,23 @@ class Rankings extends StatelessWidget {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: Row(
-                children: [
-                  Text(
-                    'Rankings ',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
+            SegmentedControl(
+              values: const ['Impagos', 'Ingresos'],
+              initialValue: 'Impagos',
+              onChanged: print,
+              widgetBuilder: (String value) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    value,
+                    style: context.textStyle.buttonTabBar.copyWith(
                       color: context.color.textLight600,
                     ),
                   ),
-                  Text(
-                    'impagos',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
-                      color: context.color.statusInfo,
-                    ),
-                  ),
-                ],
-              ),
+                );
+              },
             ),
             SizedBox(
               width: 72,
@@ -47,7 +46,7 @@ class Rankings extends StatelessWidget {
                 elevation: 1,
                 dropdownColor: context.color.backgroundLight0,
                 icon: IconSvg.small(
-                  IconAssets.sort,
+                  IconAssets.sortline,
                   color: context.color.textLight600,
                 ),
                 isExpanded: true,

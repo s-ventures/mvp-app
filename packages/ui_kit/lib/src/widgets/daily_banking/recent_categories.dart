@@ -44,7 +44,7 @@ class RecentCategories extends StatelessWidget {
                     emoji: entry.value['emoji'] as String,
                     backgroundColor: entry.value['backgroundColor'] as Color,
                     onPressed: () => onCategoryPressed(
-                      entry.value['value'] as String,
+                      entry.value['value']! as String,
                     ),
                   ),
                 );
