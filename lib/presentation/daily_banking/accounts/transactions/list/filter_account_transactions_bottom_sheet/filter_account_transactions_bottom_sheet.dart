@@ -146,7 +146,8 @@ class FilterAccountTransactionsBottomSheet {
       SliverWoltModalSheetPage(
         hasSabGradient: false,
         stickyActionBar: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(
+              right: AppSpacing.s5, bottom: AppSpacing.s5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -188,10 +189,10 @@ class FilterAccountTransactionsBottomSheet {
         mainContentSlivers: [
           SliverPadding(
             padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 16,
-              bottom: 80,
+              left: AppSpacing.s5,
+              right: AppSpacing.s5,
+              top: AppSpacing.s6,
+              bottom: 100,
             ),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
@@ -210,7 +211,7 @@ class FilterAccountTransactionsBottomSheet {
                     setStartDate: (DateTime value) => setStartDate(value),
                     setEndDate: (DateTime value) => setEndDate(value),
                   ),
-                  AppSpacing.vertical.s6,
+                  AppSpacing.vertical.s5,
                   Text(
                     'Importe',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
@@ -227,7 +228,7 @@ class FilterAccountTransactionsBottomSheet {
                     setOperationType: (TransactionOperationType value) =>
                         setTransactionType(value),
                   ),
-                  AppSpacing.vertical.s6,
+                  AppSpacing.vertical.s5,
                   Text(
                     'Categoría',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(

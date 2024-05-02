@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/filter/filter_simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/simplified_periodic_order.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/filter_list_periodic_orders.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/filter_periodic_orders_bottom_sheet/filter_periodic_orders_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/periodic_order_card.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -34,6 +36,34 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
       simplifiedPeriodicOrdersControllerProvider
           .select((value) => value.periodicOrders),
     );
+
+    final controller =
+        ref.read(filterSimplifiedPeriodicOrdersControllerProvider.notifier);
+    final startDate = ref.watch(
+      filterSimplifiedPeriodicOrdersControllerProvider
+          .select((value) => value.startDate),
+    );
+    final endDate = ref.watch(
+      filterSimplifiedPeriodicOrdersControllerProvider
+          .select((value) => value.endDate),
+    );
+    final amountFrom = ref.watch(
+      filterSimplifiedPeriodicOrdersControllerProvider
+          .select((value) => value.amountFrom),
+    );
+    final amountTo = ref.watch(
+      filterSimplifiedPeriodicOrdersControllerProvider
+          .select((value) => value.amountTo),
+    );
+    final frecuency = ref.watch(
+      filterSimplifiedPeriodicOrdersControllerProvider
+          .select((value) => value.frecuency),
+    );
+
+    final isFilterApplied = startDate != null ||
+        endDate != null ||
+        (amountFrom != null && amountTo != null) ||
+        frecuency != null;
 
     return Scaffold(
       body: NestedScrollView(
@@ -72,16 +102,71 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
                       size: ButtonSize.extraSmall,
                       onPressed: () => FilterPeriodicOrdersBottomSheet.show(
                         context: context,
-                        onApply: () async {},
-                        onReset: () async {},
+                        onApply: controller.applyFilters,
+                        onReset: controller.resetFilters,
+                        setStartDate: controller.setStartDate,
+                        setEndDate: controller.setEndDate,
+                        setAmountFrom: controller.setAmountFrom,
+                        setAmountTo: controller.setAmountTo,
+                        setFrecuencyTo: controller.setFrecuencyTo,
+                        startDate: startDate,
+                        endDate: endDate,
+                        amountFrom: amountFrom,
+                        amountTo: amountTo,
+                        frecuency: frecuency,
                       ),
                     ),
+                    if (isFilterApplied)
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.s2,
+                            vertical: AppSpacing.s1,
+                          ),
+                          width: AppSpacing.s3,
+                          height: AppSpacing.s3,
+                          decoration: BoxDecoration(
+                            color: context.color.statusError,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ],
             ),
             AppSpacing.vertical.s3,
             const FakeSearchBar(),
+            if (isFilterApplied)
+              Padding(
+                padding: const EdgeInsets.only(top: AppSpacing.s2),
+                child: FilterListPeriodicOrders(
+                  stateDate: startDate,
+                  endDate: endDate,
+                  amountFrom: amountFrom,
+                  amountTo: amountTo,
+                  frecuency: frecuency,
+                  onClearDateRange: () {
+                    controller
+                      ..setStartDate(null)
+                      ..setEndDate(null)
+                      ..applyFilters();
+                  },
+                  onClearAmountRange: () {
+                    controller
+                      ..setAmountFrom(null)
+                      ..setAmountTo(null)
+                      ..applyFilters();
+                  },
+                  onClearFrecuency: () {
+                    controller
+                      ..setFrecuencyTo(frecuency)
+                      ..applyFilters();
+                  },
+                ),
+              ),
             AppSpacing.vertical.s5,
             periodicOrders.mapOrNull(
                   data: (data) =>
