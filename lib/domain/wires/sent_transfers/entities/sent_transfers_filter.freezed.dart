@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SentTransfersFilter {
   SentTransferType? get type => throw _privateConstructorUsedError;
+  String? get baasTransferId => throw _privateConstructorUsedError;
   DateTime? get orderDateFrom => throw _privateConstructorUsedError;
   DateTime? get orderDateTo => throw _privateConstructorUsedError;
   DateTime? get valueDateFrom => throw _privateConstructorUsedError;
@@ -31,6 +32,7 @@ mixin _$SentTransfersFilter {
   int? get instructedAmountFrom => throw _privateConstructorUsedError;
   int? get instructedAmountTo => throw _privateConstructorUsedError;
   SentTransferStatusType? get status => throw _privateConstructorUsedError;
+  String? get baasMovementId => throw _privateConstructorUsedError;
   String? get concept2 => throw _privateConstructorUsedError;
   UniqueId? get sentTransferId => throw _privateConstructorUsedError;
   String? get beneficiaryName => throw _privateConstructorUsedError;
@@ -50,6 +52,7 @@ abstract class $SentTransfersFilterCopyWith<$Res> {
   @useResult
   $Res call(
       {SentTransferType? type,
+      String? baasTransferId,
       DateTime? orderDateFrom,
       DateTime? orderDateTo,
       DateTime? valueDateFrom,
@@ -64,6 +67,7 @@ abstract class $SentTransfersFilterCopyWith<$Res> {
       int? instructedAmountFrom,
       int? instructedAmountTo,
       SentTransferStatusType? status,
+      String? baasMovementId,
       String? concept2,
       UniqueId? sentTransferId,
       String? beneficiaryName,
@@ -85,6 +89,7 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
   @override
   $Res call({
     Object? type = freezed,
+    Object? baasTransferId = freezed,
     Object? orderDateFrom = freezed,
     Object? orderDateTo = freezed,
     Object? valueDateFrom = freezed,
@@ -99,6 +104,7 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
     Object? instructedAmountFrom = freezed,
     Object? instructedAmountTo = freezed,
     Object? status = freezed,
+    Object? baasMovementId = freezed,
     Object? concept2 = freezed,
     Object? sentTransferId = freezed,
     Object? beneficiaryName = freezed,
@@ -110,6 +116,10 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as SentTransferType?,
+      baasTransferId: freezed == baasTransferId
+          ? _value.baasTransferId
+          : baasTransferId // ignore: cast_nullable_to_non_nullable
+              as String?,
       orderDateFrom: freezed == orderDateFrom
           ? _value.orderDateFrom
           : orderDateFrom // ignore: cast_nullable_to_non_nullable
@@ -166,6 +176,10 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SentTransferStatusType?,
+      baasMovementId: freezed == baasMovementId
+          ? _value.baasMovementId
+          : baasMovementId // ignore: cast_nullable_to_non_nullable
+              as String?,
       concept2: freezed == concept2
           ? _value.concept2
           : concept2 // ignore: cast_nullable_to_non_nullable
@@ -200,6 +214,7 @@ abstract class _$$SentTransfersFilterImplCopyWith<$Res>
   @useResult
   $Res call(
       {SentTransferType? type,
+      String? baasTransferId,
       DateTime? orderDateFrom,
       DateTime? orderDateTo,
       DateTime? valueDateFrom,
@@ -214,6 +229,7 @@ abstract class _$$SentTransfersFilterImplCopyWith<$Res>
       int? instructedAmountFrom,
       int? instructedAmountTo,
       SentTransferStatusType? status,
+      String? baasMovementId,
       String? concept2,
       UniqueId? sentTransferId,
       String? beneficiaryName,
@@ -233,6 +249,7 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = freezed,
+    Object? baasTransferId = freezed,
     Object? orderDateFrom = freezed,
     Object? orderDateTo = freezed,
     Object? valueDateFrom = freezed,
@@ -247,6 +264,7 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
     Object? instructedAmountFrom = freezed,
     Object? instructedAmountTo = freezed,
     Object? status = freezed,
+    Object? baasMovementId = freezed,
     Object? concept2 = freezed,
     Object? sentTransferId = freezed,
     Object? beneficiaryName = freezed,
@@ -258,6 +276,10 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as SentTransferType?,
+      baasTransferId: freezed == baasTransferId
+          ? _value.baasTransferId
+          : baasTransferId // ignore: cast_nullable_to_non_nullable
+              as String?,
       orderDateFrom: freezed == orderDateFrom
           ? _value.orderDateFrom
           : orderDateFrom // ignore: cast_nullable_to_non_nullable
@@ -314,6 +336,10 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SentTransferStatusType?,
+      baasMovementId: freezed == baasMovementId
+          ? _value.baasMovementId
+          : baasMovementId // ignore: cast_nullable_to_non_nullable
+              as String?,
       concept2: freezed == concept2
           ? _value.concept2
           : concept2 // ignore: cast_nullable_to_non_nullable
@@ -343,6 +369,7 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
 class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   const _$SentTransfersFilterImpl(
       {this.type,
+      this.baasTransferId,
       this.orderDateFrom,
       this.orderDateTo,
       this.valueDateFrom,
@@ -357,6 +384,7 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
       this.instructedAmountFrom,
       this.instructedAmountTo,
       this.status,
+      this.baasMovementId,
       this.concept2,
       this.sentTransferId,
       this.beneficiaryName,
@@ -365,6 +393,8 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
 
   @override
   final SentTransferType? type;
+  @override
+  final String? baasTransferId;
   @override
   final DateTime? orderDateFrom;
   @override
@@ -394,6 +424,8 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   @override
   final SentTransferStatusType? status;
   @override
+  final String? baasMovementId;
+  @override
   final String? concept2;
   @override
   final UniqueId? sentTransferId;
@@ -406,7 +438,7 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
 
   @override
   String toString() {
-    return 'SentTransfersFilter(type: $type, orderDateFrom: $orderDateFrom, orderDateTo: $orderDateTo, valueDateFrom: $valueDateFrom, valueDateTo: $valueDateTo, concept: $concept, settlementAmountFrom: $settlementAmountFrom, settlementAmountTo: $settlementAmountTo, foreignExchangeFrom: $foreignExchangeFrom, foreignExchangeTo: $foreignExchangeTo, exchangeValueFrom: $exchangeValueFrom, exchangeValueTo: $exchangeValueTo, instructedAmountFrom: $instructedAmountFrom, instructedAmountTo: $instructedAmountTo, status: $status, concept2: $concept2, sentTransferId: $sentTransferId, beneficiaryName: $beneficiaryName, transferDateFrom: $transferDateFrom, transferDateTo: $transferDateTo)';
+    return 'SentTransfersFilter(type: $type, baasTransferId: $baasTransferId, orderDateFrom: $orderDateFrom, orderDateTo: $orderDateTo, valueDateFrom: $valueDateFrom, valueDateTo: $valueDateTo, concept: $concept, settlementAmountFrom: $settlementAmountFrom, settlementAmountTo: $settlementAmountTo, foreignExchangeFrom: $foreignExchangeFrom, foreignExchangeTo: $foreignExchangeTo, exchangeValueFrom: $exchangeValueFrom, exchangeValueTo: $exchangeValueTo, instructedAmountFrom: $instructedAmountFrom, instructedAmountTo: $instructedAmountTo, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, sentTransferId: $sentTransferId, beneficiaryName: $beneficiaryName, transferDateFrom: $transferDateFrom, transferDateTo: $transferDateTo)';
   }
 
   @override
@@ -415,6 +447,8 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
         (other.runtimeType == runtimeType &&
             other is _$SentTransfersFilterImpl &&
             (identical(other.type, type) || other.type == type) &&
+            (identical(other.baasTransferId, baasTransferId) ||
+                other.baasTransferId == baasTransferId) &&
             (identical(other.orderDateFrom, orderDateFrom) ||
                 other.orderDateFrom == orderDateFrom) &&
             (identical(other.orderDateTo, orderDateTo) ||
@@ -441,6 +475,8 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
             (identical(other.instructedAmountTo, instructedAmountTo) ||
                 other.instructedAmountTo == instructedAmountTo) &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.baasMovementId, baasMovementId) ||
+                other.baasMovementId == baasMovementId) &&
             (identical(other.concept2, concept2) ||
                 other.concept2 == concept2) &&
             (identical(other.sentTransferId, sentTransferId) ||
@@ -457,6 +493,7 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   int get hashCode => Object.hashAll([
         runtimeType,
         type,
+        baasTransferId,
         orderDateFrom,
         orderDateTo,
         valueDateFrom,
@@ -471,6 +508,7 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
         instructedAmountFrom,
         instructedAmountTo,
         status,
+        baasMovementId,
         concept2,
         sentTransferId,
         beneficiaryName,
@@ -489,6 +527,7 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
 abstract class _SentTransfersFilter implements SentTransfersFilter {
   const factory _SentTransfersFilter(
       {final SentTransferType? type,
+      final String? baasTransferId,
       final DateTime? orderDateFrom,
       final DateTime? orderDateTo,
       final DateTime? valueDateFrom,
@@ -503,6 +542,7 @@ abstract class _SentTransfersFilter implements SentTransfersFilter {
       final int? instructedAmountFrom,
       final int? instructedAmountTo,
       final SentTransferStatusType? status,
+      final String? baasMovementId,
       final String? concept2,
       final UniqueId? sentTransferId,
       final String? beneficiaryName,
@@ -511,6 +551,8 @@ abstract class _SentTransfersFilter implements SentTransfersFilter {
 
   @override
   SentTransferType? get type;
+  @override
+  String? get baasTransferId;
   @override
   DateTime? get orderDateFrom;
   @override
@@ -539,6 +581,8 @@ abstract class _SentTransfersFilter implements SentTransfersFilter {
   int? get instructedAmountTo;
   @override
   SentTransferStatusType? get status;
+  @override
+  String? get baasMovementId;
   @override
   String? get concept2;
   @override

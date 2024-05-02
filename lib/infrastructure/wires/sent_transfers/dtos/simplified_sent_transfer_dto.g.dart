@@ -22,13 +22,18 @@ _$SimplifiedSentTransferDtoImpl _$$SimplifiedSentTransferDtoImplFromJson(
       settlementCurrencyCode: json['settlementCurrencyCode'] as String?,
       foreignExchange: (json['foreignExchange'] as num?)?.toDouble(),
       exchangeValue: (json['exchangeValue'] as num?)?.toDouble(),
-      detailOfCharges: json['detailOfCharges'] as String?,
-      instructedAmount: (json['instructedAmount'] as num).toDouble(),
-      instructedCurrencyCode: json['instructedCurrencyCode'] as String,
+      detailOfCharges: $enumDecodeNullable(
+          _$SentTransferDetailOfChargesDtoEnumMap, json['detailOfCharges']),
+      instructedAmount: (json['instructedAmount'] as num?)?.toDouble(),
+      instructedCurrencyCode: json['instructedCurrencyCode'] as String?,
       status: $enumDecode(_$SentTransferStatusTypeDtoEnumMap, json['status']),
-      baasMovementId: json['baasMovementId'] as String,
+      baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
       movementId: json['movementId'] as int?,
+      executionDate: json['executionDate'] == null
+          ? null
+          : DateTime.parse(json['executionDate'] as String),
+      senderAccount: json['senderAccount'] as String?,
       sentTransferId: json['sentTransferId'] as int?,
       routingNumber: json['routingNumber'] as String?,
       beneficiaryBank: json['beneficiaryBank'] as String?,
@@ -36,6 +41,7 @@ _$SimplifiedSentTransferDtoImpl _$$SimplifiedSentTransferDtoImplFromJson(
       transferDate: json['transferDate'] == null
           ? null
           : DateTime.parse(json['transferDate'] as String),
+      referenceDC: json['referenceDC'] as String?,
     );
 
 Map<String, dynamic> _$$SimplifiedSentTransferDtoImplToJson(
@@ -52,18 +58,22 @@ Map<String, dynamic> _$$SimplifiedSentTransferDtoImplToJson(
       'settlementCurrencyCode': instance.settlementCurrencyCode,
       'foreignExchange': instance.foreignExchange,
       'exchangeValue': instance.exchangeValue,
-      'detailOfCharges': instance.detailOfCharges,
+      'detailOfCharges':
+          _$SentTransferDetailOfChargesDtoEnumMap[instance.detailOfCharges],
       'instructedAmount': instance.instructedAmount,
       'instructedCurrencyCode': instance.instructedCurrencyCode,
       'status': _$SentTransferStatusTypeDtoEnumMap[instance.status]!,
       'baasMovementId': instance.baasMovementId,
       'concept2': instance.concept2,
       'movementId': instance.movementId,
+      'executionDate': instance.executionDate?.toIso8601String(),
+      'senderAccount': instance.senderAccount,
       'sentTransferId': instance.sentTransferId,
       'routingNumber': instance.routingNumber,
       'beneficiaryBank': instance.beneficiaryBank,
       'beneficiaryName': instance.beneficiaryName,
       'transferDate': instance.transferDate?.toIso8601String(),
+      'referenceDC': instance.referenceDC,
     };
 
 const _$SentTransferTypeDtoEnumMap = {
@@ -74,6 +84,12 @@ const _$SentTransferTypeDtoEnumMap = {
   SentTransferTypeDto.sepa: 'SEPA',
   SentTransferTypeDto.internal: 'INTERNAL',
   SentTransferTypeDto.international: 'INTERNATIONAL',
+};
+
+const _$SentTransferDetailOfChargesDtoEnumMap = {
+  SentTransferDetailOfChargesDto.sha: 'SHA',
+  SentTransferDetailOfChargesDto.our: 'OUR',
+  SentTransferDetailOfChargesDto.ben: 'BEN',
 };
 
 const _$SentTransferStatusTypeDtoEnumMap = {

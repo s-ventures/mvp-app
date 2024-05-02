@@ -51,7 +51,6 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
-                physics: const NeverScrollableScrollPhysics(),
                 itemCount: lastSentTransfers.length,
                 itemBuilder: (context, index) {
                   final sentTransfer = lastSentTransfers[index];

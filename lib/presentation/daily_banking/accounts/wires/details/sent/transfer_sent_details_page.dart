@@ -91,7 +91,7 @@ class _TransferSentDetailsPageState
                   iconBgColor: context.color.secondaryLight600.withOpacity(.2),
                   amount: sentTransfer.instructedAmount,
                   date: sentTransfer.orderDate,
-                  //TODO: ¿Deberíamos usar el sentTransfer.status?
+                  //TODO: Al eliminarse los status ¿Eliminamos el status de la pantalla?
                   status: MovementStatus.completed,
                 ),
                 AppSpacing.vertical.s5,

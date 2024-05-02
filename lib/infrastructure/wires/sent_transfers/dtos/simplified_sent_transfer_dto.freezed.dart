@@ -32,18 +32,22 @@ mixin _$SimplifiedSentTransferDto {
   String? get settlementCurrencyCode => throw _privateConstructorUsedError;
   double? get foreignExchange => throw _privateConstructorUsedError;
   double? get exchangeValue => throw _privateConstructorUsedError;
-  String? get detailOfCharges => throw _privateConstructorUsedError;
-  double get instructedAmount => throw _privateConstructorUsedError;
-  String get instructedCurrencyCode => throw _privateConstructorUsedError;
+  SentTransferDetailOfChargesDto? get detailOfCharges =>
+      throw _privateConstructorUsedError;
+  double? get instructedAmount => throw _privateConstructorUsedError;
+  String? get instructedCurrencyCode => throw _privateConstructorUsedError;
   SentTransferStatusTypeDto get status => throw _privateConstructorUsedError;
-  String get baasMovementId => throw _privateConstructorUsedError;
+  String? get baasMovementId => throw _privateConstructorUsedError;
   String? get concept2 => throw _privateConstructorUsedError;
   int? get movementId => throw _privateConstructorUsedError;
+  DateTime? get executionDate => throw _privateConstructorUsedError;
+  String? get senderAccount => throw _privateConstructorUsedError;
   int? get sentTransferId => throw _privateConstructorUsedError;
   String? get routingNumber => throw _privateConstructorUsedError;
   String? get beneficiaryBank => throw _privateConstructorUsedError;
   String get beneficiaryName => throw _privateConstructorUsedError;
   DateTime? get transferDate => throw _privateConstructorUsedError;
+  String? get referenceDC => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,18 +73,21 @@ abstract class $SimplifiedSentTransferDtoCopyWith<$Res> {
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
-      String? detailOfCharges,
-      double instructedAmount,
-      String instructedCurrencyCode,
+      SentTransferDetailOfChargesDto? detailOfCharges,
+      double? instructedAmount,
+      String? instructedCurrencyCode,
       SentTransferStatusTypeDto status,
-      String baasMovementId,
+      String? baasMovementId,
       String? concept2,
       int? movementId,
+      DateTime? executionDate,
+      String? senderAccount,
       int? sentTransferId,
       String? routingNumber,
       String? beneficiaryBank,
       String beneficiaryName,
-      DateTime? transferDate});
+      DateTime? transferDate,
+      String? referenceDC});
 }
 
 /// @nodoc
@@ -109,17 +116,20 @@ class _$SimplifiedSentTransferDtoCopyWithImpl<$Res,
     Object? foreignExchange = freezed,
     Object? exchangeValue = freezed,
     Object? detailOfCharges = freezed,
-    Object? instructedAmount = null,
-    Object? instructedCurrencyCode = null,
+    Object? instructedAmount = freezed,
+    Object? instructedCurrencyCode = freezed,
     Object? status = null,
-    Object? baasMovementId = null,
+    Object? baasMovementId = freezed,
     Object? concept2 = freezed,
     Object? movementId = freezed,
+    Object? executionDate = freezed,
+    Object? senderAccount = freezed,
     Object? sentTransferId = freezed,
     Object? routingNumber = freezed,
     Object? beneficiaryBank = freezed,
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
+    Object? referenceDC = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -169,23 +179,23 @@ class _$SimplifiedSentTransferDtoCopyWithImpl<$Res,
       detailOfCharges: freezed == detailOfCharges
           ? _value.detailOfCharges
           : detailOfCharges // ignore: cast_nullable_to_non_nullable
-              as String?,
-      instructedAmount: null == instructedAmount
+              as SentTransferDetailOfChargesDto?,
+      instructedAmount: freezed == instructedAmount
           ? _value.instructedAmount
           : instructedAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      instructedCurrencyCode: null == instructedCurrencyCode
+              as double?,
+      instructedCurrencyCode: freezed == instructedCurrencyCode
           ? _value.instructedCurrencyCode
           : instructedCurrencyCode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SentTransferStatusTypeDto,
-      baasMovementId: null == baasMovementId
+      baasMovementId: freezed == baasMovementId
           ? _value.baasMovementId
           : baasMovementId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       concept2: freezed == concept2
           ? _value.concept2
           : concept2 // ignore: cast_nullable_to_non_nullable
@@ -194,6 +204,14 @@ class _$SimplifiedSentTransferDtoCopyWithImpl<$Res,
           ? _value.movementId
           : movementId // ignore: cast_nullable_to_non_nullable
               as int?,
+      executionDate: freezed == executionDate
+          ? _value.executionDate
+          : executionDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      senderAccount: freezed == senderAccount
+          ? _value.senderAccount
+          : senderAccount // ignore: cast_nullable_to_non_nullable
+              as String?,
       sentTransferId: freezed == sentTransferId
           ? _value.sentTransferId
           : sentTransferId // ignore: cast_nullable_to_non_nullable
@@ -214,6 +232,10 @@ class _$SimplifiedSentTransferDtoCopyWithImpl<$Res,
           ? _value.transferDate
           : transferDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      referenceDC: freezed == referenceDC
+          ? _value.referenceDC
+          : referenceDC // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -239,18 +261,21 @@ abstract class _$$SimplifiedSentTransferDtoImplCopyWith<$Res>
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
-      String? detailOfCharges,
-      double instructedAmount,
-      String instructedCurrencyCode,
+      SentTransferDetailOfChargesDto? detailOfCharges,
+      double? instructedAmount,
+      String? instructedCurrencyCode,
       SentTransferStatusTypeDto status,
-      String baasMovementId,
+      String? baasMovementId,
       String? concept2,
       int? movementId,
+      DateTime? executionDate,
+      String? senderAccount,
       int? sentTransferId,
       String? routingNumber,
       String? beneficiaryBank,
       String beneficiaryName,
-      DateTime? transferDate});
+      DateTime? transferDate,
+      String? referenceDC});
 }
 
 /// @nodoc
@@ -278,17 +303,20 @@ class __$$SimplifiedSentTransferDtoImplCopyWithImpl<$Res>
     Object? foreignExchange = freezed,
     Object? exchangeValue = freezed,
     Object? detailOfCharges = freezed,
-    Object? instructedAmount = null,
-    Object? instructedCurrencyCode = null,
+    Object? instructedAmount = freezed,
+    Object? instructedCurrencyCode = freezed,
     Object? status = null,
-    Object? baasMovementId = null,
+    Object? baasMovementId = freezed,
     Object? concept2 = freezed,
     Object? movementId = freezed,
+    Object? executionDate = freezed,
+    Object? senderAccount = freezed,
     Object? sentTransferId = freezed,
     Object? routingNumber = freezed,
     Object? beneficiaryBank = freezed,
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
+    Object? referenceDC = freezed,
   }) {
     return _then(_$SimplifiedSentTransferDtoImpl(
       type: null == type
@@ -338,23 +366,23 @@ class __$$SimplifiedSentTransferDtoImplCopyWithImpl<$Res>
       detailOfCharges: freezed == detailOfCharges
           ? _value.detailOfCharges
           : detailOfCharges // ignore: cast_nullable_to_non_nullable
-              as String?,
-      instructedAmount: null == instructedAmount
+              as SentTransferDetailOfChargesDto?,
+      instructedAmount: freezed == instructedAmount
           ? _value.instructedAmount
           : instructedAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      instructedCurrencyCode: null == instructedCurrencyCode
+              as double?,
+      instructedCurrencyCode: freezed == instructedCurrencyCode
           ? _value.instructedCurrencyCode
           : instructedCurrencyCode // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as SentTransferStatusTypeDto,
-      baasMovementId: null == baasMovementId
+      baasMovementId: freezed == baasMovementId
           ? _value.baasMovementId
           : baasMovementId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       concept2: freezed == concept2
           ? _value.concept2
           : concept2 // ignore: cast_nullable_to_non_nullable
@@ -363,6 +391,14 @@ class __$$SimplifiedSentTransferDtoImplCopyWithImpl<$Res>
           ? _value.movementId
           : movementId // ignore: cast_nullable_to_non_nullable
               as int?,
+      executionDate: freezed == executionDate
+          ? _value.executionDate
+          : executionDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      senderAccount: freezed == senderAccount
+          ? _value.senderAccount
+          : senderAccount // ignore: cast_nullable_to_non_nullable
+              as String?,
       sentTransferId: freezed == sentTransferId
           ? _value.sentTransferId
           : sentTransferId // ignore: cast_nullable_to_non_nullable
@@ -383,6 +419,10 @@ class __$$SimplifiedSentTransferDtoImplCopyWithImpl<$Res>
           ? _value.transferDate
           : transferDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      referenceDC: freezed == referenceDC
+          ? _value.referenceDC
+          : referenceDC // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -409,11 +449,14 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
       required this.baasMovementId,
       required this.concept2,
       required this.movementId,
+      required this.executionDate,
+      required this.senderAccount,
       required this.sentTransferId,
       required this.routingNumber,
       required this.beneficiaryBank,
       required this.beneficiaryName,
-      required this.transferDate});
+      required this.transferDate,
+      required this.referenceDC});
 
   factory _$SimplifiedSentTransferDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$SimplifiedSentTransferDtoImplFromJson(json);
@@ -441,19 +484,23 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
   @override
   final double? exchangeValue;
   @override
-  final String? detailOfCharges;
+  final SentTransferDetailOfChargesDto? detailOfCharges;
   @override
-  final double instructedAmount;
+  final double? instructedAmount;
   @override
-  final String instructedCurrencyCode;
+  final String? instructedCurrencyCode;
   @override
   final SentTransferStatusTypeDto status;
   @override
-  final String baasMovementId;
+  final String? baasMovementId;
   @override
   final String? concept2;
   @override
   final int? movementId;
+  @override
+  final DateTime? executionDate;
+  @override
+  final String? senderAccount;
   @override
   final int? sentTransferId;
   @override
@@ -464,10 +511,12 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
   final String beneficiaryName;
   @override
   final DateTime? transferDate;
+  @override
+  final String? referenceDC;
 
   @override
   String toString() {
-    return 'SimplifiedSentTransferDto(type: $type, baasTransferId: $baasTransferId, senderBank: $senderBank, accountId: $accountId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailOfCharges: $detailOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, sentTransferId: $sentTransferId, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryName: $beneficiaryName, transferDate: $transferDate)';
+    return 'SimplifiedSentTransferDto(type: $type, baasTransferId: $baasTransferId, senderBank: $senderBank, accountId: $accountId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailOfCharges: $detailOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, executionDate: $executionDate, senderAccount: $senderAccount, sentTransferId: $sentTransferId, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryName: $beneficiaryName, transferDate: $transferDate, referenceDC: $referenceDC)';
   }
 
   @override
@@ -508,6 +557,10 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
                 other.concept2 == concept2) &&
             (identical(other.movementId, movementId) ||
                 other.movementId == movementId) &&
+            (identical(other.executionDate, executionDate) ||
+                other.executionDate == executionDate) &&
+            (identical(other.senderAccount, senderAccount) ||
+                other.senderAccount == senderAccount) &&
             (identical(other.sentTransferId, sentTransferId) ||
                 other.sentTransferId == sentTransferId) &&
             (identical(other.routingNumber, routingNumber) ||
@@ -517,7 +570,9 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
             (identical(other.beneficiaryName, beneficiaryName) ||
                 other.beneficiaryName == beneficiaryName) &&
             (identical(other.transferDate, transferDate) ||
-                other.transferDate == transferDate));
+                other.transferDate == transferDate) &&
+            (identical(other.referenceDC, referenceDC) ||
+                other.referenceDC == referenceDC));
   }
 
   @JsonKey(ignore: true)
@@ -542,11 +597,14 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
         baasMovementId,
         concept2,
         movementId,
+        executionDate,
+        senderAccount,
         sentTransferId,
         routingNumber,
         beneficiaryBank,
         beneficiaryName,
-        transferDate
+        transferDate,
+        referenceDC
       ]);
 
   @JsonKey(ignore: true)
@@ -577,18 +635,21 @@ abstract class _SimplifiedSentTransferDto implements SimplifiedSentTransferDto {
       required final String? settlementCurrencyCode,
       required final double? foreignExchange,
       required final double? exchangeValue,
-      required final String? detailOfCharges,
-      required final double instructedAmount,
-      required final String instructedCurrencyCode,
+      required final SentTransferDetailOfChargesDto? detailOfCharges,
+      required final double? instructedAmount,
+      required final String? instructedCurrencyCode,
       required final SentTransferStatusTypeDto status,
-      required final String baasMovementId,
+      required final String? baasMovementId,
       required final String? concept2,
       required final int? movementId,
+      required final DateTime? executionDate,
+      required final String? senderAccount,
       required final int? sentTransferId,
       required final String? routingNumber,
       required final String? beneficiaryBank,
       required final String beneficiaryName,
-      required final DateTime? transferDate}) = _$SimplifiedSentTransferDtoImpl;
+      required final DateTime? transferDate,
+      required final String? referenceDC}) = _$SimplifiedSentTransferDtoImpl;
 
   factory _SimplifiedSentTransferDto.fromJson(Map<String, dynamic> json) =
       _$SimplifiedSentTransferDtoImpl.fromJson;
@@ -616,19 +677,23 @@ abstract class _SimplifiedSentTransferDto implements SimplifiedSentTransferDto {
   @override
   double? get exchangeValue;
   @override
-  String? get detailOfCharges;
+  SentTransferDetailOfChargesDto? get detailOfCharges;
   @override
-  double get instructedAmount;
+  double? get instructedAmount;
   @override
-  String get instructedCurrencyCode;
+  String? get instructedCurrencyCode;
   @override
   SentTransferStatusTypeDto get status;
   @override
-  String get baasMovementId;
+  String? get baasMovementId;
   @override
   String? get concept2;
   @override
   int? get movementId;
+  @override
+  DateTime? get executionDate;
+  @override
+  String? get senderAccount;
   @override
   int? get sentTransferId;
   @override
@@ -639,6 +704,8 @@ abstract class _SimplifiedSentTransferDto implements SimplifiedSentTransferDto {
   String get beneficiaryName;
   @override
   DateTime? get transferDate;
+  @override
+  String? get referenceDC;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedSentTransferDtoImplCopyWith<_$SimplifiedSentTransferDtoImpl>
