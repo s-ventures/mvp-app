@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfer_detail_of_charges.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfer_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfer_type.dart';
 
@@ -22,18 +23,21 @@ class DetailedSentTransfer with _$DetailedSentTransfer {
     required String? settlementCurrencyCode,
     required double? foreignExchange,
     required double? exchangeValue,
-    required String? detailsOfCharges,
-    required double instructedAmount,
-    required String instructedCurrencyCode,
+    required SentTransferDetailOfCharges? detailsOfCharges,
+    required double? instructedAmount,
+    required String? instructedCurrencyCode,
     required SentTransferStatusType status,
-    required String baasMovementId,
+    required String? baasMovementId,
     required String? concept2,
     required int? movementId,
+    required DateTime? executionDate,
+    required String? senderAccount,
     required bool periodicTransfer,
     required String? routingNumber,
     required String? beneficiaryBank,
     required String beneficiaryAccount,
     required String beneficiaryName,
     required DateTime? transferDate,
+    required String? referenceDC,
   }) = _DetailedSentTransfer;
 }

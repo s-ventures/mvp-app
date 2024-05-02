@@ -89,15 +89,12 @@ class _TransferSentDetailsPageState
                   title: sentTransfer.concept,
                   iconText: '🏦',
                   iconBgColor: context.color.secondaryLight600.withOpacity(.2),
-                  amount: sentTransfer.instructedAmount,
+                  amount: sentTransfer.settlementAmount != null
+                      ? sentTransfer.settlementAmount! * -1
+                      : 0.0,
                   date: sentTransfer.orderDate,
                   //TODO: Al eliminarse los status ¿Eliminamos el status de la pantalla?
                   status: MovementStatus.completed,
-                ),
-                AppSpacing.vertical.s5,
-                //TODO: Sólo recibimos un bool sobre si es periodica o no, pero no la frecuencia
-                const MovementDetailsInfo(
-                  period: 'Mensual',
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsBeneficiary(
@@ -117,13 +114,14 @@ class _TransferSentDetailsPageState
                 AppSpacing.vertical.s5,
                 MovementDetailsBankingInfo(
                   type: BankAccountType.account,
+                  //TODO: No recibimos el numero de cuenta del emisor, pendiente de añadir y modificar
                   last4: sentTransfer.beneficiaryAccount.lastFourCharacters,
                   icon: '✈️', //TODO: no recibimos el icono
                   category: 'Viajes', //TODO: no recibimos la categoría
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsDescription(
-                  text: sentTransfer.concept2 ?? '',
+                  text: sentTransfer.concept2 ?? sentTransfer.concept,
                 ),
                 AppSpacing.vertical.s5,
                 const MovementDetailsVoucher(),

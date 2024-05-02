@@ -1,12 +1,12 @@
 // {
-//   "type": "TRANSFER",
+//   "type": "BETWEEN_MY_ACCOUNTS",
 //   "baasTransferId": "string",
 //   "bankOperationCode": "CRED",
 //   "senderBank": "string",
 //   "accountId": 0,
 //   "customerId": 0,
-//   "orderDate": "2024-04-29",
-//   "valueDate": "2024-04-29",
+//   "orderDate": "2024-05-02",
+//   "valueDate": "2024-05-02",
 //   "concept": "string",
 //   "settlementAmount": 0,
 //   "settlementCurrencyCode": "string",
@@ -19,18 +19,22 @@
 //   "baasMovementId": "string",
 //   "concept2": "string",
 //   "movementId": 0,
+//   "executionDate": "2024-05-02T13:15:57.082Z",
+//   "senderAccount": "string",
 //   "sentTransferId": 0,
 //   "periodicTransfer": true,
 //   "routingNumber": "string",
 //   "beneficiaryBank": "string",
 //   "beneficiaryAccount": "string",
 //   "beneficiaryName": "string",
-//   "transferDate": "2024-04-29"
+//   "transferDate": "2024-05-02",
+//   "referenceDC": "string"
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/detailed_sent_transfer.dart';
+import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_detail_of_charges_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_status_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_type_dto.dart';
 
@@ -40,7 +44,6 @@ part 'detailed_sent_transfer_dto.g.dart';
 @freezed
 class DetailedSentTransferDto with _$DetailedSentTransferDto {
   const factory DetailedSentTransferDto({
-    required int sentTransferId,
     required SentTransferTypeDto type,
     required String? baasTransferId,
     required String? bankOperationCode,
@@ -54,19 +57,23 @@ class DetailedSentTransferDto with _$DetailedSentTransferDto {
     required String? settlementCurrencyCode,
     required double? foreignExchange,
     required double? exchangeValue,
-    required String? detailsOfCharges,
-    required double instructedAmount,
-    required String instructedCurrencyCode,
+    required SentTransferDetailOfChargesDto? detailsOfCharges,
+    required double? instructedAmount,
+    required String? instructedCurrencyCode,
     required SentTransferStatusTypeDto status,
-    required String baasMovementId,
+    required String? baasMovementId,
     required String? concept2,
     required int? movementId,
+    required DateTime? executionDate,
+    required String? senderAccount,
+    required int sentTransferId,
     required bool periodicTransfer,
     required String? routingNumber,
     required String? beneficiaryBank,
     required String beneficiaryAccount,
     required String beneficiaryName,
     required DateTime? transferDate,
+    required String? referenceDC,
   }) = _DetailedSentTransferDto;
 
   factory DetailedSentTransferDto.fromJson(Map<String, dynamic> json) =>
@@ -90,19 +97,22 @@ extension DetailedSentTransferDtoX on DetailedSentTransferDto {
       settlementCurrencyCode: settlementCurrencyCode,
       foreignExchange: foreignExchange,
       exchangeValue: exchangeValue,
-      detailsOfCharges: detailsOfCharges,
+      detailsOfCharges: detailsOfCharges?.toDomain(),
       instructedAmount: instructedAmount,
       instructedCurrencyCode: instructedCurrencyCode,
       status: status.toDomain(),
       baasMovementId: baasMovementId,
       concept2: concept2,
       movementId: movementId,
+      executionDate: executionDate,
+      senderAccount: senderAccount,
       periodicTransfer: periodicTransfer,
       routingNumber: routingNumber,
       beneficiaryBank: beneficiaryBank,
       beneficiaryAccount: beneficiaryAccount,
       beneficiaryName: beneficiaryName,
       transferDate: transferDate,
+      referenceDC: referenceDC,
     );
   }
 }
