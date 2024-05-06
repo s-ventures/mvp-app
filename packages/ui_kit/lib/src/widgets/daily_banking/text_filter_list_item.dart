@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class AmountRangeFilterItem extends StatelessWidget {
-  const AmountRangeFilterItem({
+class TextFilterListItem extends StatelessWidget {
+  const TextFilterListItem({
+    required this.textFilter,
     required this.onClear,
-    this.amountFrom = 0.0,
-    this.amountTo = 0.0,
     super.key,
   });
 
-  final double amountFrom;
-  final double amountTo;
+  final String textFilter;
   final VoidCallback onClear;
 
   @override
   Widget build(BuildContext context) {
     return CustomChip(
       title: Text(
-        '${amountFrom.toCurrency(plusSign: false)} - ${amountTo.toCurrency(plusSign: false)}',
+        textFilter,
         style: context.textStyle.bodySmallSemiBold.copyWith(
           color: context.color.primaryLight300,
         ),

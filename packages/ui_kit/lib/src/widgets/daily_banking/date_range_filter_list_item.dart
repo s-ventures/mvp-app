@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class DateRangeFilterItem extends StatelessWidget {
-  const DateRangeFilterItem({
+class DateRangeFilterListItem extends StatelessWidget {
+  const DateRangeFilterListItem({
     required this.startDate,
     required this.endDate,
     required this.onClear,

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/detailed/detailed_sent_transfer_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransferSentDetailsPage extends ConsumerStatefulWidget {

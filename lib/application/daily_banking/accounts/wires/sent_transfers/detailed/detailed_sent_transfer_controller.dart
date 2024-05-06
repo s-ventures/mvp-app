@@ -6,7 +6,8 @@ import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/repositor
 final detailedSentTransferControllerProvider = StateNotifierProvider
     .autoDispose<DetailedSentTransferController, DetailedSentTransferState>(
   (ref) => DetailedSentTransferController(
-      ref.watch(sentTransfersRepositoryProvider)),
+    ref.watch(sentTransfersRepositoryProvider),
+  ),
 );
 
 class DetailedSentTransferController

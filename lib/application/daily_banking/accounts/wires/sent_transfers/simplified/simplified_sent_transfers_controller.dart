@@ -51,7 +51,8 @@ class SimplifiedSentTransfersController
     } catch (e) {
       setStateSafe(
         () => state.copyWith(
-            lastSentTransfers: AsyncError(e, StackTrace.current)),
+          lastSentTransfers: AsyncError(e, StackTrace.current),
+        ),
       );
     }
   }

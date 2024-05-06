@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class FilterList extends ConsumerStatefulWidget {
-  const FilterList({
+class FilterListPeriodicOrders extends ConsumerStatefulWidget {
+  const FilterListPeriodicOrders({
     required this.stateDate,
     required this.endDate,
     required this.amountFrom,
     required this.amountTo,
-    required this.operationType,
+    required this.frecuency,
     required this.onClearDateRange,
     required this.onClearAmountRange,
-    required this.onClearCreditDebit,
+    required this.onClearFrecuency,
     super.key,
   });
 
@@ -20,16 +20,18 @@ class FilterList extends ConsumerStatefulWidget {
   final DateTime? endDate;
   final double? amountFrom;
   final double? amountTo;
-  final TransactionOperationType? operationType;
+  final PeriodicOrderFrecuencyType? frecuency;
   final VoidCallback onClearDateRange;
   final VoidCallback onClearAmountRange;
-  final VoidCallback onClearCreditDebit;
+  final VoidCallback onClearFrecuency;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _FilterListState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _FilterListPeriodicOrdersState();
 }
 
-class _FilterListState extends ConsumerState<FilterList> {
+class _FilterListPeriodicOrdersState
+    extends ConsumerState<FilterListPeriodicOrders> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -50,13 +52,13 @@ class _FilterListState extends ConsumerState<FilterList> {
               amountTo: widget.amountTo ?? 0.0,
               onClear: widget.onClearAmountRange,
             ),
-          if (widget.operationType != TransactionOperationType.all)
-            TextFilterListItem(
-              textFilter: widget.operationType != null
-                  ? widget.operationType!.name
-                  : TransactionOperationType.all.name,
-              onClear: widget.onClearCreditDebit,
+          Visibility(
+            visible: widget.frecuency != null,
+            child: TextFilterListItem(
+              textFilter: widget.frecuency!.name,
+              onClear: widget.onClearFrecuency,
             ),
+          ),
         ],
       ),
     );

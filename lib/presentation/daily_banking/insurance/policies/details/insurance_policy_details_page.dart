@@ -61,8 +61,9 @@ class _InsurancePolicyDetailsPageState
                     onPressed: () async {
                       unawaited(
                         ref
-                            .read(filterSimplifiedClaimsControllerProvider
-                                .notifier)
+                            .read(
+                              filterSimplifiedClaimsControllerProvider.notifier,
+                            )
                             .resetFilters(),
                       );
                       context.pop();
