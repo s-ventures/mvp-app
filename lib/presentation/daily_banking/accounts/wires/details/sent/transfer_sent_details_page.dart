@@ -1,17 +1,42 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/detailed/detailed_sent_transfer_controller.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class TransferSentDetailsPage extends StatelessWidget {
+class TransferSentDetailsPage extends ConsumerStatefulWidget {
   const TransferSentDetailsPage({
-    // required this.transferId,
+    required this.sentTransferId,
     super.key,
   });
 
-  // final String transferId;
+  final int sentTransferId;
+
+  @override
+  ConsumerState<TransferSentDetailsPage> createState() =>
+      _TransferSentDetailsPageState();
+}
+
+class _TransferSentDetailsPageState
+    extends ConsumerState<TransferSentDetailsPage> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(detailedSentTransferControllerProvider.notifier).init(
+              sentTransferId: widget.sentTransferId,
+            ),
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final sentTransfer =
+        ref.watch(detailedSentTransferControllerProvider).sentTransfer;
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -30,7 +55,7 @@ class TransferSentDetailsPage extends StatelessWidget {
                   CustomPopupMenuButton(
                     items: [
                       PopupMenuItem(
-                        onTap: () {},
+                        onTap: () {}, //TODO: Implementar funcionalidad
                         child: Row(
                           children: [
                             const Text('Ver mas recibos del emisor'),
@@ -40,7 +65,7 @@ class TransferSentDetailsPage extends StatelessWidget {
                         ),
                       ),
                       PopupMenuItem(
-                        onTap: () {},
+                        onTap: () {}, //TODO: Implementar funcionalidad
                         child: Row(
                           children: [
                             const Text('Recharzar cobro'),
@@ -55,50 +80,65 @@ class TransferSentDetailsPage extends StatelessWidget {
               ),
             ];
           },
-          body: ListView(
-            padding: const EdgeInsets.all(AppSpacing.s5),
-            children: [
-              MovementDetailsSummary(
-                title: 'Viaje Málaga',
-                iconText: '🏦',
-                iconBgColor: context.color.secondaryLight600.withOpacity(.2),
-                amount: -145,
-                date: DateTime.now(),
-                status: MovementStatus.completed,
+          body: sentTransfer.when(
+            data: (sentTransfer) => ListView(
+              padding: const EdgeInsets.all(AppSpacing.s5),
+              children: [
+                MovementDetailsSummary(
+                  title: sentTransfer.concept,
+                  iconText: '🏦',
+                  iconBgColor: context.color.secondaryLight600.withOpacity(.2),
+                  amount: sentTransfer.settlementAmount != null
+                      ? sentTransfer.settlementAmount! * -1
+                      : 0.0,
+                  date: sentTransfer.orderDate,
+                  //TODO: Al eliminarse los status ¿Eliminamos el status de la pantalla?
+                  status: MovementStatus.completed,
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsBeneficiary(
+                  name: sentTransfer.beneficiaryName,
+                  accountNumber: sentTransfer.beneficiaryAccount,
+                  transferType: sentTransfer.type.name,
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsDate(
+                  titleStartDate: 'Fecha cargo',
+                  startDate:
+                      sentTransfer.orderDate.formatToDayMonthYear() ?? '---',
+                  titleEndDate: 'Fecha abono',
+                  endDate:
+                      sentTransfer.valueDate.formatToDayMonthYear() ?? '---',
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsBankingInfo(
+                  type: BankAccountType.account,
+                  //TODO: No recibimos el numero de cuenta del emisor, pendiente de añadir y modificar
+                  last4: sentTransfer.beneficiaryAccount.lastFourCharacters,
+                  icon: '✈️', //TODO: no recibimos el icono
+                  category: 'Viajes', //TODO: no recibimos la categoría
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsDescription(
+                  text: sentTransfer.concept2 ?? sentTransfer.concept,
+                ),
+                AppSpacing.vertical.s5,
+                const MovementDetailsVoucher(),
+                AppSpacing.vertical.s5,
+                const MovementDetailsGettingHelp(),
+              ],
+            ),
+            error: (error, _) => Center(
+              child: Text(
+                error.toString(),
+                style: context.textStyle.bodySmallRegular.copyWith(
+                  color: context.color.error,
+                ),
               ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsInfo(
-                period: 'Mensual',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsBeneficiary(
-                name: 'Shore2shore',
-                accountNumber: 'ES12 1234 1234 1234 1234 1234',
-                transferType: 'Inmediata',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsDate(
-                titleStartDate: 'Fecha cargo',
-                startDate: '2/10/2023',
-                titleEndDate: 'Fecha abono',
-                endDate: '2/10/2025',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsBankingInfo(
-                type: BankAccountType.account,
-                last4: '1234',
-                icon: '✈️',
-                category: 'Viajes',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsDescription(
-                text: 'Viaje a Málaga',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsVoucher(),
-              AppSpacing.vertical.s5,
-              const MovementDetailsGettingHelp(),
-            ],
+            ),
+            loading: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
           ),
         ),
       ),

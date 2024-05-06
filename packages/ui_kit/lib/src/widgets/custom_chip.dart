@@ -13,6 +13,7 @@ class CustomChip extends StatelessWidget {
     this.onTrailingIconPressed,
     this.size = CustomChipSize.small,
     this.backgroundColor,
+    this.selectedColor,
     super.key,
   });
 
@@ -21,6 +22,7 @@ class CustomChip extends StatelessWidget {
   final ValueChanged<bool>? onSelected;
   final VoidCallback? onTrailingIconPressed;
   final Color? backgroundColor;
+  final Color? selectedColor;
   final String? leadingIcon;
   final Color? leadingIconColor;
   final String? trailingIcon;
@@ -76,9 +78,17 @@ class CustomChip extends StatelessWidget {
           : null,
       onDeleted: onTrailingIconPressed,
       backgroundColor: backgroundColor ?? context.color.backgroundLight0,
+      color: MaterialStateProperty.resolveWith<Color?>(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return selectedColor ?? context.color.primaryLight300;
+          }
+          return backgroundColor ?? context.color.backgroundLight0;
+        },
+      ),
       selected: selected,
-      selectedColor: backgroundColor ?? context.color.primaryLight300,
       onSelected: onSelected,
+      selectedColor: selectedColor ?? context.color.primaryLight300,
     );
   }
 }

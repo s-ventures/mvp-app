@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/detailed/detailed_policy_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/business_insurance.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/coverage_included.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/policy_billing.dart';

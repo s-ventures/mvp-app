@@ -10,6 +10,7 @@ SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(
         Map<String, dynamic> json) =>
     SentTransfersFilterDto(
       type: $enumDecodeNullable(_$SentTransferTypeDtoEnumMap, json['type']),
+      baasTransferId: json['baasTransferId'] as String?,
       orderDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['orderDateFrom'], const DateConverter().fromJson),
       orderDateTo: _$JsonConverterFromJson<String, DateTime>(
@@ -29,6 +30,7 @@ SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(
       instructedAmountTo: json['instructedAmountTo'] as int?,
       status: $enumDecodeNullable(
           _$SentTransferStatusTypeDtoEnumMap, json['status']),
+      baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
       sentTransferId: json['sentTransferId'] as int?,
       beneficiaryName: json['beneficiaryName'] as String?,
@@ -54,6 +56,7 @@ Map<String, dynamic> _$SentTransfersFilterDtoToJson(
   }
 
   writeNotNull('type', _$SentTransferTypeDtoEnumMap[instance.type]);
+  writeNotNull('baasTransferId', instance.baasTransferId);
   writeNotNull(
       'orderDateFrom',
       _$JsonConverterToJson<String, DateTime>(
@@ -80,6 +83,7 @@ Map<String, dynamic> _$SentTransfersFilterDtoToJson(
   writeNotNull('instructedAmountFrom', instance.instructedAmountFrom);
   writeNotNull('instructedAmountTo', instance.instructedAmountTo);
   writeNotNull('status', _$SentTransferStatusTypeDtoEnumMap[instance.status]);
+  writeNotNull('baasMovementId', instance.baasMovementId);
   writeNotNull('concept2', instance.concept2);
   writeNotNull('sentTransferId', instance.sentTransferId);
   writeNotNull('beneficiaryName', instance.beneficiaryName);

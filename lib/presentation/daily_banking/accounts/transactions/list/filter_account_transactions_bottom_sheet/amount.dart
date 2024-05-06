@@ -56,7 +56,6 @@ class Amount extends StatelessWidget {
                       controller: amountFromController,
                       size: TextInputSize.extraSmall,
                       textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
                       onChanged: (value) {
                         final parsedValue = double.tryParse(value);
                         if (parsedValue != null) {
@@ -86,22 +85,29 @@ class Amount extends StatelessWidget {
                     ),
                     AppSpacing.vertical.s2,
                     // TODO(jesus): Create a custom widget for this
-                    TextInput(
-                      controller: amountToController,
-                      size: TextInputSize.extraSmall,
-                      textAlign: TextAlign.center,
-                      onChanged: (value) {
-                        final parsedValue = double.tryParse(value);
-                        if (parsedValue != null) {
-                          setAmountTo(parsedValue);
-                          amountToController.text = value;
-                        }
-                      },
-                      fillColor: context.color.neutralLight100,
-                      style: context.textStyle.bodyMediumSemiBold.copyWith(
-                        color: context.color.textLight600,
+                    SizedBox(
+                      height: 36,
+                      child: TextInput(
+                        controller: amountToController,
+                        size: TextInputSize.extraSmall,
+                        textAlign: TextAlign.center,
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: AppSpacing.s2,
+                          horizontal: AppSpacing.s4,
+                        ),
+                        onChanged: (value) {
+                          final parsedValue = double.tryParse(value);
+                          if (parsedValue != null) {
+                            setAmountTo(parsedValue);
+                            amountToController.text = value;
+                          }
+                        },
+                        fillColor: context.color.neutralLight100,
+                        style: context.textStyle.bodyMediumSemiBold.copyWith(
+                          color: context.color.textLight600,
+                        ),
+                        suffixText: '€',
                       ),
-                      suffixText: '€',
                     ),
                   ],
                 ),

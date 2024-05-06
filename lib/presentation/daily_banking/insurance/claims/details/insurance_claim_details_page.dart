@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/detailed/detailed_claim_controller.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
-import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsuranceClaimDetailsPage extends ConsumerStatefulWidget {

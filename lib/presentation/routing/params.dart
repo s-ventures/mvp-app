@@ -32,6 +32,15 @@ class TransactionDetailsRouteParams {
   final AccountTransactionType type;
 }
 
+// Wires
+class TransferSentDetailsRouteParams {
+  const TransferSentDetailsRouteParams({
+    required this.sentTransferId,
+  });
+
+  final int sentTransferId;
+}
+
 // Insurance
 class InsuranceClaimDetailsRouteParams {
   const InsuranceClaimDetailsRouteParams({
