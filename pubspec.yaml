@@ -13,8 +13,6 @@ dependencies:
   dio: ^5.4.0
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
   flutter_riverpod: ^2.4.3
   flutter_secure_storage: ^9.0.0
   fpdart: ^1.1.0
