@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class Rankings extends StatelessWidget {
@@ -24,17 +25,15 @@ class Rankings extends StatelessWidget {
               initialValue: 'Impagos',
               onChanged: print,
               widgetBuilder: (String value) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    value,
-                    style: context.textStyle.buttonTabBar.copyWith(
-                      color: context.color.textLight600,
-                    ),
+                return Text(
+                  value,
+                  style: context.textStyle.buttonTabBar.copyWith(
+                    color: context.color.textLight600,
                   ),
                 );
               },
             ),
+            const Spacer(),
             SizedBox(
               width: 72,
               child: DropdownButton(
@@ -70,11 +69,11 @@ class Rankings extends StatelessWidget {
           contact: 'Dori Doreau',
           amount: 983.00.toCurrency(plusSign: false),
           lineBarChart: const LineBarChart(
-            greenValue: 0.5,
+            greenValue: 789,
             greenLabel: 'Cobrado',
-            yellowValue: 0.3,
+            yellowValue: 95,
             yellowLabel: 'Pendiente',
-            redValue: 0.2,
+            redValue: 16,
             redLabel: 'Pagado',
           ),
         ),
@@ -90,11 +89,11 @@ class Rankings extends StatelessWidget {
           contact: 'Kate Tanner',
           amount: 357.00.toCurrency(plusSign: false),
           lineBarChart: const LineBarChart(
-            greenValue: 0.6,
+            greenValue: 789,
             greenLabel: 'Cobrado',
-            yellowValue: 0.3,
+            yellowValue: 95,
             yellowLabel: 'Pendiente',
-            redValue: 0.1,
+            redValue: 16,
             redLabel: 'Pagado',
           ),
         ),
@@ -110,11 +109,11 @@ class Rankings extends StatelessWidget {
           contact: 'Alba Bosch',
           amount: 234.00.toCurrency(plusSign: false),
           lineBarChart: const LineBarChart(
-            greenValue: 0.3,
+            greenValue: 789,
             greenLabel: 'Cobrado',
-            yellowValue: 0.4,
+            yellowValue: 95,
             yellowLabel: 'Pendiente',
-            redValue: 0.3,
+            redValue: 16,
             redLabel: 'Pagado',
           ),
         ),

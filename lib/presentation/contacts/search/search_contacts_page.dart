@@ -70,7 +70,7 @@ class SearchContactsPage extends StatelessWidget {
                   type: 'Cliente',
                   typeForegroundColor: context.color.customerForeground,
                   typeBackgroundColor: context.color.customerBackground,
-                  onTap: () {},
+                  onPressed: () {},
                 ),
                 ContactListTile(
                   name: 'Thomas Magnum',
@@ -88,7 +88,7 @@ class SearchContactsPage extends StatelessWidget {
                   type: 'Proveedor',
                   typeForegroundColor: context.color.supplierForeground,
                   typeBackgroundColor: context.color.supplierBackground,
-                  onTap: () {},
+                  onPressed: () {},
                 ),
               ],
             ),

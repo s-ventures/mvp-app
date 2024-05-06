@@ -67,7 +67,7 @@ class ContactList extends StatelessWidget {
               type: 'Cliente',
               typeForegroundColor: context.color.customerForeground,
               typeBackgroundColor: context.color.customerBackground,
-              onTap: () {},
+              onPressed: () => context.pushNamed(AppRoute.contactDetails.name),
             ),
             ContactListTile(
               name: 'Thomas Magnum',
@@ -87,7 +87,7 @@ class ContactList extends StatelessWidget {
               type: 'Proveedor',
               typeForegroundColor: context.color.supplierForeground,
               typeBackgroundColor: context.color.supplierBackground,
-              onTap: () {},
+              onPressed: () {},
             ),
           ],
         ),

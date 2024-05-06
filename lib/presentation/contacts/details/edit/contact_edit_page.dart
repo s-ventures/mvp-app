@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class NewContactManualPage extends StatelessWidget {
-  const NewContactManualPage({super.key});
+class ContactEdit extends StatelessWidget {
+  const ContactEdit({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +14,22 @@ class NewContactManualPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Nuevo contacto',
+              title: 'Contacto',
               leading: Button(
                 icon: IconAssets.chevronLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
                 onPressed: () async => context.pop(),
               ),
+              actions: [
+                Button(
+                  icon: IconAssets.save,
+                  size: ButtonSize.extraSmall,
+                  onPressed: () async => context.goNamed(
+                    AppRoute.contactDetails.name,
+                  ),
+                ),
+              ],
             ),
           ];
         },
@@ -215,9 +224,24 @@ class NewContactManualPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.s5),
           child: Button(
-            title: 'Crear',
+            title: 'Eliminar contacto',
             size: ButtonSize.small,
-            onPressed: () => context.pushNamed(AppRoute.contactDetails.name),
+            foreground: context.color.statusError,
+            background: context.color.statusError.withOpacity(.1),
+            onPressed: () async => AlertBottomSheet.show(
+              context: context,
+              icon: IconAssets.trash,
+              title: '¿Estás seguro de que quieres eliminar este contacto?',
+              message: 'Se perderán todos los datos y no podrás recuperarlos',
+              buttonOkText: 'Eliminar contacto',
+              buttonOkBackground: context.color.statusError.withOpacity(.1),
+              buttonOkForeground: context.color.statusError,
+              onOkPressed: () async {
+                context.goNamed(AppRoute.contacts.name);
+              },
+              buttonCancelText: 'Cancelar',
+              onCancelPressed: () => context.pop(),
+            ),
           ),
         ),
       ),

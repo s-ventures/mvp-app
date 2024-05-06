@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/analitica/analitica_page.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/contacts_page.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/new_contacts/from_agenda/from_agenda_page.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/new_contacts/manual/manual_page.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/new_contacts/upload_contacts/upload_contacts_page.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/search/search_contacts_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/erp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/add_product/add_product_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/contracted_products_page.dart';
@@ -36,6 +31,7 @@ import 'package:manifiesto_mvp_app/presentation/protection/insurances/cybersecur
 import 'package:manifiesto_mvp_app/presentation/protection/insurances/health/health_insurance_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/insurances/responsibility/responsibility_insurance_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/protection_page.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/contacts/contacts_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/daily_banking/daily_banking_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -52,6 +48,7 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 GoRouter router(RouterRef ref) {
   // final authRouter = AuthRouter.build();
   final dailyBankingRouter = DailyBankingRouter.build(_rootNavigatorKey);
+  final contactsRouter = ContactsRouter.build(_rootNavigatorKey);
 
   return GoRouter(
     initialLocation: AppRoute.dailyBanking.path,
@@ -83,6 +80,7 @@ GoRouter router(RouterRef ref) {
         },
         routes: [
           dailyBankingRouter,
+          contactsRouter,
 
           // ERP
           GoRoute(
@@ -92,54 +90,6 @@ GoRouter router(RouterRef ref) {
               key: state.pageKey,
               child: const ErpPage(),
             ),
-          ),
-
-          // CONTACTS
-          GoRoute(
-            path: AppRoute.contacts.path,
-            name: AppRoute.contacts.name,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: const Contacts(),
-            ),
-            routes: [
-              GoRoute(
-                parentNavigatorKey: _rootNavigatorKey,
-                path: AppRoute.contactsSearch.path,
-                name: AppRoute.contactsSearch.name,
-                pageBuilder: (context, state) => NoTransitionPage(
-                  key: state.pageKey,
-                  child: const SearchContactsPage(),
-                ),
-              ),
-              GoRoute(
-                parentNavigatorKey: _rootNavigatorKey,
-                path: AppRoute.contactsNewFromManual.path,
-                name: AppRoute.contactsNewFromManual.name,
-                pageBuilder: (context, state) => NoTransitionPage(
-                  key: state.pageKey,
-                  child: const NewContactManualPage(),
-                ),
-              ),
-              GoRoute(
-                parentNavigatorKey: _rootNavigatorKey,
-                path: AppRoute.contactsNewFromAgenda.path,
-                name: AppRoute.contactsNewFromAgenda.name,
-                pageBuilder: (context, state) => NoTransitionPage(
-                  key: state.pageKey,
-                  child: const NewContactFromAgendaPage(),
-                ),
-              ),
-              GoRoute(
-                parentNavigatorKey: _rootNavigatorKey,
-                path: AppRoute.contactsNewFromUpload.path,
-                name: AppRoute.contactsNewFromUpload.name,
-                pageBuilder: (context, state) => NoTransitionPage(
-                  key: state.pageKey,
-                  child: const NewContactFromUploadPage(),
-                ),
-              ),
-            ],
           ),
 
           // ANALYTICS
