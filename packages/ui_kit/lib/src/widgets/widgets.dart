@@ -30,6 +30,7 @@ export 'fake_search_bar.dart';
 export 'icon_over_text_button.dart';
 export 'icon_svg.dart';
 export 'icon_with_container.dart';
+export 'input/amount_input.dart';
 export 'input/currency_input.dart';
 export 'input/text_area.dart';
 export 'input/text_input.dart';

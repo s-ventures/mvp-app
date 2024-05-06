@@ -51,30 +51,16 @@ class Amount extends StatelessWidget {
                       ),
                     ),
                     AppSpacing.vertical.s2,
-                    // TODO(jesus): Create a custom widget for this
-                    SizedBox(
-                      height: 36,
-                      child: TextInput(
-                        controller: amountFromController,
-                        size: TextInputSize.extraSmall,
-                        textAlign: TextAlign.center,
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: AppSpacing.s2,
-                          horizontal: AppSpacing.s4,
-                        ),
-                        onChanged: (value) {
-                          final parsedValue = double.tryParse(value);
-                          if (parsedValue != null) {
-                            setAmountFrom(parsedValue);
-                            amountFromController.text = value;
-                          }
-                        },
-                        fillColor: context.color.neutralLight100,
-                        style: context.textStyle.bodyMediumSemiBold.copyWith(
-                          color: context.color.textLight600,
-                        ),
-                        suffixText: '€',
-                      ),
+                    AmountInput(
+                      controller: amountFromController,
+                      suffixText: '€',
+                      onChanged: (value) {
+                        final parsedValue = double.tryParse(value);
+                        if (parsedValue != null) {
+                          setAmountFrom(parsedValue);
+                          amountFromController.text = value;
+                        }
+                      },
                     ),
                   ],
                 ),
@@ -91,30 +77,16 @@ class Amount extends StatelessWidget {
                       ),
                     ),
                     AppSpacing.vertical.s2,
-                    // TODO(jesus): Create a custom widget for this
-                    SizedBox(
-                      height: 36,
-                      child: TextInput(
-                        controller: amountToController,
-                        size: TextInputSize.extraSmall,
-                        textAlign: TextAlign.center,
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: AppSpacing.s2,
-                          horizontal: AppSpacing.s4,
-                        ),
-                        onChanged: (value) {
-                          final parsedValue = double.tryParse(value);
-                          if (parsedValue != null) {
-                            setAmountTo(parsedValue);
-                            amountToController.text = value;
-                          }
-                        },
-                        fillColor: context.color.neutralLight100,
-                        style: context.textStyle.bodyMediumSemiBold.copyWith(
-                          color: context.color.textLight600,
-                        ),
-                        suffixText: '€',
-                      ),
+                    AmountInput(
+                      controller: amountToController,
+                      suffixText: '€',
+                      onChanged: (value) {
+                        final parsedValue = double.tryParse(value);
+                        if (parsedValue != null) {
+                          setAmountTo(parsedValue);
+                          amountToController.text = value;
+                        }
+                      },
                     ),
                   ],
                 ),
