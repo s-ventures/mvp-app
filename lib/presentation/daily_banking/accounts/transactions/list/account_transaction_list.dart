@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/simplified_account_transaction.dart';
-import 'package:manifiesto_mvp_app/presentation/core/extensions/date_time_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class AccountTransactionList extends ConsumerStatefulWidget {
@@ -84,19 +83,28 @@ class _TransactionList extends StatelessWidget {
             AppSpacing.vertical.s3,
             ...list.asMap().entries.map((entry) {
               final transaction = entry.value;
-              final isFirst = entry.key == 0 || transaction.date != list[entry.key - 1].date;
-              final isLast = entry.key == list.length - 1 || transaction.date != list[entry.key + 1].date;
-              
+              final isFirst = entry.key == 0 ||
+                  transaction.date != list[entry.key - 1].date;
+              final isLast = entry.key == list.length - 1 ||
+                  transaction.date != list[entry.key + 1].date;
+
               final borderRadius = BorderRadius.only(
-                topLeft: isFirst ? Radius.circular(context.radius.soft) : Radius.zero,
-                topRight: isFirst ? Radius.circular(context.radius.soft) : Radius.zero,
-                bottomLeft: isLast ? Radius.circular(context.radius.soft) : Radius.zero,
-                bottomRight: isLast ? Radius.circular(context.radius.soft) : Radius.zero,
+                topLeft: isFirst
+                    ? Radius.circular(context.radius.soft)
+                    : Radius.zero,
+                topRight: isFirst
+                    ? Radius.circular(context.radius.soft)
+                    : Radius.zero,
+                bottomLeft:
+                    isLast ? Radius.circular(context.radius.soft) : Radius.zero,
+                bottomRight:
+                    isLast ? Radius.circular(context.radius.soft) : Radius.zero,
               );
 
               return TransactionListTile(
                 leadingEmoji: '🏦',
-                leadingBackgroundColor: context.color.secondaryLight600.withOpacity(.2),
+                leadingBackgroundColor:
+                    context.color.secondaryLight600.withOpacity(.2),
                 title: transaction.description,
                 amount: transaction.amount,
                 endBalance: transaction.endBalance,

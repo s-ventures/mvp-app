@@ -44,7 +44,6 @@ class ContactDetailsProfileTab extends StatelessWidget {
                 onPressed: () async {},
               ),
             ),
-            AppSpacing.horizontal.s5,
             Expanded(
               child: Button(
                 icon: IconAssets.phone,

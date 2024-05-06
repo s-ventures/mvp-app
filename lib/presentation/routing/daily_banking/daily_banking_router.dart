@@ -248,10 +248,15 @@ class DailyBankingRouter {
               parentNavigatorKey: rootNavigatorKey,
               path: AppRoute.dailyBankingTransfersSentDetails.path,
               name: AppRoute.dailyBankingTransfersSentDetails.name,
-              pageBuilder: (context, state) => MaterialPage(
-                key: state.pageKey,
-                child: const TransferSentDetailsPage(),
-              ),
+              pageBuilder: (context, state) {
+                final params = state.extra! as TransferSentDetailsRouteParams;
+                return MaterialPage(
+                  key: state.pageKey,
+                  child: TransferSentDetailsPage(
+                    sentTransferId: params.sentTransferId,
+                  ),
+                );
+              },
             ),
 
             GoRoute(

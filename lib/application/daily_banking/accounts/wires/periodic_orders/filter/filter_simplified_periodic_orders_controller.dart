@@ -1,24 +1,37 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/filter/filter_simplified_periodic_orders_state.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_controller.dart';
+import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 
-final filterSimplifiedPeriodicOrdersControllerProvider = StateNotifierProvider<
-    FilterSimplifiedPeriodicOrdersController,
-    FilterSimplifiedPeriodicOrdersState>(
-  (ref) => FilterSimplifiedPeriodicOrdersController(),
+final filterSimplifiedPeriodicOrdersControllerProvider =
+    StateNotifierProvider.autoDispose<FilterSimplifiedPeriodicOrdersController,
+        FilterSimplifiedPeriodicOrdersState>(
+  (ref) => FilterSimplifiedPeriodicOrdersController(
+    ref.read(simplifiedPeriodicOrdersControllerProvider.notifier),
+  ),
 );
 
 class FilterSimplifiedPeriodicOrdersController
     extends StateNotifier<FilterSimplifiedPeriodicOrdersState> {
-  FilterSimplifiedPeriodicOrdersController()
-      : super(
-          const FilterSimplifiedPeriodicOrdersState().copyWith(
-            type: FilterSimplifiedPeriodicOrdersType.all,
-          ),
-        );
+  FilterSimplifiedPeriodicOrdersController(
+    this._simplifiedPeriodicOrdersController,
+  ) : super(const FilterSimplifiedPeriodicOrdersState());
 
-  void resetFilters() {
+  final SimplifiedPeriodicOrdersController _simplifiedPeriodicOrdersController;
+
+  Future<void> applyFilters() async {
+    await _simplifiedPeriodicOrdersController.updateFilter(
+      amountFrom: state.amountFrom,
+      amountTo: state.amountTo,
+      dateFrom: state.startDate,
+      dateTo: state.endDate,
+      frecuency: state.frecuency,
+    );
+  }
+
+  Future<void> resetFilters() async {
     state = const FilterSimplifiedPeriodicOrdersState();
+    await applyFilters();
   }
 
   void setStartDate(DateTime? startDate) {
@@ -29,11 +42,15 @@ class FilterSimplifiedPeriodicOrdersController
     state = state.copyWith(endDate: endDate);
   }
 
-  void setAmountRange(RangeValues? range) {
-    state = state.copyWith(amountRange: range);
+  void setAmountFrom(double? amountFrom) {
+    state = state.copyWith(amountFrom: amountFrom);
   }
 
-  void setType(FilterSimplifiedPeriodicOrdersType? type) {
-    state = state.copyWith(type: type);
+  void setAmountTo(double? amountTo) {
+    state = state.copyWith(amountTo: amountTo);
+  }
+
+  void setFrecuencyTo(PeriodicOrderFrecuencyType? frecuency) {
+    state = state.copyWith(frecuency: frecuency);
   }
 }

@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CreditDebitFilterItem extends StatelessWidget {
-  const CreditDebitFilterItem({
-    required this.creditDebit,
+class AmountRangeFilterListItem extends StatelessWidget {
+  const AmountRangeFilterListItem({
     required this.onClear,
+    this.amountFrom = 0.0,
+    this.amountTo = 0.0,
     super.key,
   });
 
-  final TransactionOperationType creditDebit;
+  final double amountFrom;
+  final double amountTo;
   final VoidCallback onClear;
 
   @override
   Widget build(BuildContext context) {
     return CustomChip(
       title: Text(
-        creditDebit.name,
+        '${amountFrom.toCurrency(plusSign: false)} - ${amountTo.toCurrency(plusSign: false)}',
         style: context.textStyle.bodySmallSemiBold.copyWith(
           color: context.color.primaryLight300,
         ),

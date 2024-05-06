@@ -15,4 +15,6 @@ extension StringInitials on String {
     if (stringList.length == 1) return stringList[0];
     return '${stringList[0]} ${stringList[1].isNotEmpty ? '${stringList[1][0].toUpperCase()}.' : ''}';
   }
+
+  String get lastFourCharacters => length >= 4 ? substring(length - 4) : this;
 }

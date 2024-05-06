@@ -1,11 +1,12 @@
 // {
 //   "pageSize": 0,
 //   "pageNumber": 0,
-//   "type": "BASE",
-//   "orderDateFrom": "2024-04-19",
-//   "orderDateTo": "2024-04-19",
-//   "valueDateFrom": "2024-04-19",
-//   "valueDateTo": "2024-04-19",
+//   "type": "BETWEEN_MY_ACCOUNTS",
+//   "baasTransferId": "string",
+//   "orderDateFrom": "2024-05-02",
+//   "orderDateTo": "2024-05-02",
+//   "valueDateFrom": "2024-05-02",
+//   "valueDateTo": "2024-05-02",
 //   "concept": "string",
 //   "settlementAmountFrom": 0,
 //   "settlementAmountTo": 0,
@@ -16,11 +17,12 @@
 //   "instructedAmountFrom": 0,
 //   "instructedAmountTo": 0,
 //   "status": "SENT",
+//   "baasMovementId": "string",
 //   "concept2": "string",
 //   "sentTransferId": 0,
 //   "beneficiaryName": "string",
-//   "transferDateFrom": "2024-04-19",
-//   "transferDateTo": "2024-04-19",
+//   "transferDateFrom": "2024-05-02",
+//   "transferDateTo": "2024-05-02",
 //   "sortingTarget": "POSTING_DATE",
 //   "sortingOrder": "ASCENDANT"
 // }
@@ -42,6 +44,7 @@ part 'sent_transfers_filter_dto.g.dart';
 class SentTransfersFilterDto extends PaginatedRequest {
   SentTransfersFilterDto({
     this.type,
+    this.baasTransferId,
     this.orderDateFrom,
     this.orderDateTo,
     this.valueDateFrom,
@@ -56,6 +59,7 @@ class SentTransfersFilterDto extends PaginatedRequest {
     this.instructedAmountFrom,
     this.instructedAmountTo,
     this.status,
+    this.baasMovementId,
     this.concept2,
     this.sentTransferId,
     this.beneficiaryName,
@@ -72,6 +76,7 @@ class SentTransfersFilterDto extends PaginatedRequest {
   }) {
     return SentTransfersFilterDto(
       type: filter.type?.toDto(),
+      baasTransferId: filter.baasTransferId,
       orderDateFrom: filter.orderDateFrom,
       orderDateTo: filter.orderDateTo,
       valueDateFrom: filter.valueDateFrom,
@@ -86,6 +91,7 @@ class SentTransfersFilterDto extends PaginatedRequest {
       instructedAmountFrom: filter.instructedAmountFrom,
       instructedAmountTo: filter.instructedAmountTo,
       status: filter.status?.toDto(),
+      baasMovementId: filter.baasMovementId,
       concept2: filter.concept2,
       sentTransferId: filter.sentTransferId?.toInt(),
       beneficiaryName: filter.beneficiaryName,
@@ -100,6 +106,7 @@ class SentTransfersFilterDto extends PaginatedRequest {
       _$SentTransfersFilterDtoFromJson(json);
 
   final SentTransferTypeDto? type;
+  final String? baasTransferId;
   @DateConverter()
   final DateTime? orderDateFrom;
   @DateConverter()
@@ -118,6 +125,7 @@ class SentTransfersFilterDto extends PaginatedRequest {
   final int? instructedAmountFrom;
   final int? instructedAmountTo;
   final SentTransferStatusTypeDto? status;
+  final String? baasMovementId;
   final String? concept2;
   final int? sentTransferId;
   final String? beneficiaryName;

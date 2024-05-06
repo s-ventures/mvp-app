@@ -1,5 +1,6 @@
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/wires/sent_transfers_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/detailed_sent_transfer_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfers_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/simplified_sent_transfer_dto.dart';
 
@@ -14,6 +15,19 @@ class SentTransfersRemoteDataSource {
   }) {
     try {
       return _restClient.getSimplifiedSentTransfers(filter: filterDto);
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  Future<DetailedSentTransferDto> getDetailedSentTransfer({
+    required int sentTransferId,
+  }) async {
+    try {
+      final response = await _restClient.getDetailedSentTransfer(
+        sentTransferId: sentTransferId,
+      );
+      return response;
     } catch (_) {
       rethrow;
     }
