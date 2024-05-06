@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transfer_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfer_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfer_type.dart';
 
 part 'sent_transfers_filter.freezed.dart';
@@ -23,7 +23,7 @@ class SentTransfersFilter with _$SentTransfersFilter {
     int? exchangeValueTo,
     int? instructedAmountFrom,
     int? instructedAmountTo,
-    SentTransferStatusType? status,
+    TransferStatusType? status,
     String? baasMovementId,
     String? concept2,
     UniqueId? sentTransferId,

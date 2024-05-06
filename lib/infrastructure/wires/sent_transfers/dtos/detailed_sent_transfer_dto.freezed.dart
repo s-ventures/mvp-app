@@ -34,11 +34,11 @@ mixin _$DetailedSentTransferDto {
   String? get settlementCurrencyCode => throw _privateConstructorUsedError;
   double? get foreignExchange => throw _privateConstructorUsedError;
   double? get exchangeValue => throw _privateConstructorUsedError;
-  SentTransferDetailOfChargesDto? get detailsOfCharges =>
+  TransferDetailOfChargesDto? get detailsOfCharges =>
       throw _privateConstructorUsedError;
   double? get instructedAmount => throw _privateConstructorUsedError;
   String? get instructedCurrencyCode => throw _privateConstructorUsedError;
-  SentTransferStatusTypeDto get status => throw _privateConstructorUsedError;
+  TransferStatusTypeDto get status => throw _privateConstructorUsedError;
   String? get baasMovementId => throw _privateConstructorUsedError;
   String? get concept2 => throw _privateConstructorUsedError;
   int? get movementId => throw _privateConstructorUsedError;
@@ -79,10 +79,10 @@ abstract class $DetailedSentTransferDtoCopyWith<$Res> {
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
-      SentTransferDetailOfChargesDto? detailsOfCharges,
+      TransferDetailOfChargesDto? detailsOfCharges,
       double? instructedAmount,
       String? instructedCurrencyCode,
-      SentTransferStatusTypeDto status,
+      TransferStatusTypeDto status,
       String? baasMovementId,
       String? concept2,
       int? movementId,
@@ -199,7 +199,7 @@ class _$DetailedSentTransferDtoCopyWithImpl<$Res,
       detailsOfCharges: freezed == detailsOfCharges
           ? _value.detailsOfCharges
           : detailsOfCharges // ignore: cast_nullable_to_non_nullable
-              as SentTransferDetailOfChargesDto?,
+              as TransferDetailOfChargesDto?,
       instructedAmount: freezed == instructedAmount
           ? _value.instructedAmount
           : instructedAmount // ignore: cast_nullable_to_non_nullable
@@ -211,7 +211,7 @@ class _$DetailedSentTransferDtoCopyWithImpl<$Res,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SentTransferStatusTypeDto,
+              as TransferStatusTypeDto,
       baasMovementId: freezed == baasMovementId
           ? _value.baasMovementId
           : baasMovementId // ignore: cast_nullable_to_non_nullable
@@ -291,10 +291,10 @@ abstract class _$$DetailedSentTransferDtoImplCopyWith<$Res>
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
-      SentTransferDetailOfChargesDto? detailsOfCharges,
+      TransferDetailOfChargesDto? detailsOfCharges,
       double? instructedAmount,
       String? instructedCurrencyCode,
-      SentTransferStatusTypeDto status,
+      TransferStatusTypeDto status,
       String? baasMovementId,
       String? concept2,
       int? movementId,
@@ -410,7 +410,7 @@ class __$$DetailedSentTransferDtoImplCopyWithImpl<$Res>
       detailsOfCharges: freezed == detailsOfCharges
           ? _value.detailsOfCharges
           : detailsOfCharges // ignore: cast_nullable_to_non_nullable
-              as SentTransferDetailOfChargesDto?,
+              as TransferDetailOfChargesDto?,
       instructedAmount: freezed == instructedAmount
           ? _value.instructedAmount
           : instructedAmount // ignore: cast_nullable_to_non_nullable
@@ -422,7 +422,7 @@ class __$$DetailedSentTransferDtoImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SentTransferStatusTypeDto,
+              as TransferStatusTypeDto,
       baasMovementId: freezed == baasMovementId
           ? _value.baasMovementId
           : baasMovementId // ignore: cast_nullable_to_non_nullable
@@ -544,13 +544,13 @@ class _$DetailedSentTransferDtoImpl implements _DetailedSentTransferDto {
   @override
   final double? exchangeValue;
   @override
-  final SentTransferDetailOfChargesDto? detailsOfCharges;
+  final TransferDetailOfChargesDto? detailsOfCharges;
   @override
   final double? instructedAmount;
   @override
   final String? instructedCurrencyCode;
   @override
-  final SentTransferStatusTypeDto status;
+  final TransferStatusTypeDto status;
   @override
   final String? baasMovementId;
   @override
@@ -713,10 +713,10 @@ abstract class _DetailedSentTransferDto implements DetailedSentTransferDto {
       required final String? settlementCurrencyCode,
       required final double? foreignExchange,
       required final double? exchangeValue,
-      required final SentTransferDetailOfChargesDto? detailsOfCharges,
+      required final TransferDetailOfChargesDto? detailsOfCharges,
       required final double? instructedAmount,
       required final String? instructedCurrencyCode,
-      required final SentTransferStatusTypeDto status,
+      required final TransferStatusTypeDto status,
       required final String? baasMovementId,
       required final String? concept2,
       required final int? movementId,
@@ -761,13 +761,13 @@ abstract class _DetailedSentTransferDto implements DetailedSentTransferDto {
   @override
   double? get exchangeValue;
   @override
-  SentTransferDetailOfChargesDto? get detailsOfCharges;
+  TransferDetailOfChargesDto? get detailsOfCharges;
   @override
   double? get instructedAmount;
   @override
   String? get instructedCurrencyCode;
   @override
-  SentTransferStatusTypeDto get status;
+  TransferStatusTypeDto get status;
   @override
   String? get baasMovementId;
   @override

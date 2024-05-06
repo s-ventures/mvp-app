@@ -25,10 +25,10 @@ _$DetailedSentTransferDtoImpl _$$DetailedSentTransferDtoImplFromJson(
       foreignExchange: (json['foreignExchange'] as num?)?.toDouble(),
       exchangeValue: (json['exchangeValue'] as num?)?.toDouble(),
       detailsOfCharges: $enumDecodeNullable(
-          _$SentTransferDetailOfChargesDtoEnumMap, json['detailsOfCharges']),
+          _$TransferDetailOfChargesDtoEnumMap, json['detailsOfCharges']),
       instructedAmount: (json['instructedAmount'] as num?)?.toDouble(),
       instructedCurrencyCode: json['instructedCurrencyCode'] as String?,
-      status: $enumDecode(_$SentTransferStatusTypeDtoEnumMap, json['status']),
+      status: $enumDecode(_$TransferStatusTypeDtoEnumMap, json['status']),
       baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
       movementId: json['movementId'] as int?,
@@ -65,10 +65,10 @@ Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(
       'foreignExchange': instance.foreignExchange,
       'exchangeValue': instance.exchangeValue,
       'detailsOfCharges':
-          _$SentTransferDetailOfChargesDtoEnumMap[instance.detailsOfCharges],
+          _$TransferDetailOfChargesDtoEnumMap[instance.detailsOfCharges],
       'instructedAmount': instance.instructedAmount,
       'instructedCurrencyCode': instance.instructedCurrencyCode,
-      'status': _$SentTransferStatusTypeDtoEnumMap[instance.status]!,
+      'status': _$TransferStatusTypeDtoEnumMap[instance.status]!,
       'baasMovementId': instance.baasMovementId,
       'concept2': instance.concept2,
       'movementId': instance.movementId,
@@ -94,16 +94,16 @@ const _$SentTransferTypeDtoEnumMap = {
   SentTransferTypeDto.international: 'INTERNATIONAL',
 };
 
-const _$SentTransferDetailOfChargesDtoEnumMap = {
-  SentTransferDetailOfChargesDto.sha: 'SHA',
-  SentTransferDetailOfChargesDto.our: 'OUR',
-  SentTransferDetailOfChargesDto.ben: 'BEN',
+const _$TransferDetailOfChargesDtoEnumMap = {
+  TransferDetailOfChargesDto.sha: 'SHA',
+  TransferDetailOfChargesDto.our: 'OUR',
+  TransferDetailOfChargesDto.ben: 'BEN',
 };
 
-const _$SentTransferStatusTypeDtoEnumMap = {
-  SentTransferStatusTypeDto.sent: 'SENT',
-  SentTransferStatusTypeDto.received: 'RECEIVED',
-  SentTransferStatusTypeDto.cancelled: 'CANCELLED',
-  SentTransferStatusTypeDto.pending: 'PENDING',
-  SentTransferStatusTypeDto.rejected: 'REJECTED',
+const _$TransferStatusTypeDtoEnumMap = {
+  TransferStatusTypeDto.sent: 'SENT',
+  TransferStatusTypeDto.received: 'RECEIVED',
+  TransferStatusTypeDto.cancelled: 'CANCELLED',
+  TransferStatusTypeDto.pending: 'PENDING',
+  TransferStatusTypeDto.rejected: 'REJECTED',
 };
