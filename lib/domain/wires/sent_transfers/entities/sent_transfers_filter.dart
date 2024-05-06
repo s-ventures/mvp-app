@@ -9,6 +9,7 @@ part 'sent_transfers_filter.freezed.dart';
 class SentTransfersFilter with _$SentTransfersFilter {
   const factory SentTransfersFilter({
     SentTransferType? type,
+    String? baasTransferId,
     DateTime? orderDateFrom,
     DateTime? orderDateTo,
     DateTime? valueDateFrom,
@@ -23,6 +24,7 @@ class SentTransfersFilter with _$SentTransfersFilter {
     int? instructedAmountFrom,
     int? instructedAmountTo,
     SentTransferStatusType? status,
+    String? baasMovementId,
     String? concept2,
     UniqueId? sentTransferId,
     String? beneficiaryName,

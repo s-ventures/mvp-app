@@ -47,7 +47,9 @@ class FilterPeriodicOrdersAmount extends StatelessWidget {
                     size: TextInputSize.extraSmall,
                     textAlign: TextAlign.center,
                     contentPadding: const EdgeInsets.symmetric(
-                        vertical: AppSpacing.s1 * 3, horizontal: AppSpacing.s4),
+                      vertical: AppSpacing.s1 * 3,
+                      horizontal: AppSpacing.s4,
+                    ),
                     keyboardType: TextInputType.number,
                     onChanged: (value) {
                       final parsedValue = double.tryParse(value);
@@ -86,7 +88,9 @@ class FilterPeriodicOrdersAmount extends StatelessWidget {
                     size: TextInputSize.extraSmall,
                     textAlign: TextAlign.center,
                     contentPadding: const EdgeInsets.symmetric(
-                        vertical: AppSpacing.s1 * 3, horizontal: AppSpacing.s4),
+                      vertical: AppSpacing.s1 * 3,
+                      horizontal: AppSpacing.s4,
+                    ),
                     keyboardType: TextInputType.number,
                     onChanged: (value) {
                       final parsedValue = double.tryParse(value);

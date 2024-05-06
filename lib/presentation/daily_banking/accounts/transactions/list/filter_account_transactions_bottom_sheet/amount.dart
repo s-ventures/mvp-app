@@ -52,28 +52,22 @@ class Amount extends StatelessWidget {
                     ),
                     AppSpacing.vertical.s2,
                     // TODO(jesus): Create a custom widget for this
-                    SizedBox(
-                      height: 36,
-                      child: TextInput(
-                        controller: amountFromController,
-                        size: TextInputSize.extraSmall,
-                        textAlign: TextAlign.center,
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: AppSpacing.s1 * 3,
-                            horizontal: AppSpacing.s4),
-                        onChanged: (value) {
-                          final parsedValue = double.tryParse(value);
-                          if (parsedValue != null) {
-                            setAmountFrom(parsedValue);
-                            amountFromController.text = value;
-                          }
-                        },
-                        fillColor: context.color.neutralLight100,
-                        style: context.textStyle.bodyMediumSemiBold.copyWith(
-                          color: context.color.textLight600,
-                        ),
-                        suffixText: '€',
+                    TextInput(
+                      controller: amountFromController,
+                      size: TextInputSize.extraSmall,
+                      textAlign: TextAlign.center,
+                      onChanged: (value) {
+                        final parsedValue = double.tryParse(value);
+                        if (parsedValue != null) {
+                          setAmountFrom(parsedValue);
+                          amountFromController.text = value;
+                        }
+                      },
+                      fillColor: context.color.neutralLight100,
+                      style: context.textStyle.bodyMediumSemiBold.copyWith(
+                        color: context.color.textLight600,
                       ),
+                      suffixText: '€',
                     ),
                   ],
                 ),
@@ -98,8 +92,9 @@ class Amount extends StatelessWidget {
                         size: TextInputSize.extraSmall,
                         textAlign: TextAlign.center,
                         contentPadding: const EdgeInsets.symmetric(
-                            vertical: AppSpacing.s1 * 3,
-                            horizontal: AppSpacing.s4),
+                          vertical: AppSpacing.s2,
+                          horizontal: AppSpacing.s4,
+                        ),
                         onChanged: (value) {
                           final parsedValue = double.tryParse(value);
                           if (parsedValue != null) {

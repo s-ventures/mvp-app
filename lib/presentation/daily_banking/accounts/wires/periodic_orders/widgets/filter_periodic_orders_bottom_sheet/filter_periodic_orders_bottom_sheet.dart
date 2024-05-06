@@ -76,7 +76,9 @@ class FilterPeriodicOrdersBottomSheet {
         hasSabGradient: false,
         stickyActionBar: Padding(
           padding: const EdgeInsets.only(
-              right: AppSpacing.s5, bottom: AppSpacing.s5),
+            right: AppSpacing.s5,
+            bottom: AppSpacing.s5,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
