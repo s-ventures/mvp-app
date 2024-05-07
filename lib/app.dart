@@ -29,7 +29,7 @@ class App extends ConsumerWidget {
       theme: appTheme.theme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      onGenerateTitle: (context) => AppLocalizations.of(context).commonAppTitle,
+      onGenerateTitle: (context) => context.loc.commonAppTitle,
       routerConfig: router,
       builder: (context, child) => Builder(
         builder: (context) => ThemeProvider(
