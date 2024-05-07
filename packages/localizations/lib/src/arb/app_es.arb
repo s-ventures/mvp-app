@@ -1,4 +1,36 @@
 {
     "@@locale": "es",
-    "appTitle": "soon"
+    "@_COMMON": {
+        "description": "Common texts"
+    },
+    "commonAppTitle": "soon",
+    "@commonAppTitle": {
+        "description": "App Title"
+    },
+    "@_DAILY_BANKING":{
+        "description": "Daily Banking (Inicio)" 
+    },
+    "dailyBankingAccounts": "Cuentas",
+    "@dailyBankingAccounts": {
+        "description": "Accounts"
+    },
+    "dailyBankingCards": "Tarjetas",
+    "@dailyBankingCards": {
+        "description": "Cards"
+    },
+    "dailyBankingInsurance": "Seguros",
+    "@dailyBankingInsurance": {
+        "description": "Insurance"
+    },
+    "@_ERP":{
+        "description": "ERP (Negocio)" 
+    },
+    "erpQuotations": "Presupuestos",
+    "@erpQuotations": {
+        "description": "Quotations"
+    },
+    "erpInvoices": "Facturas",
+    "@erpInvoices": {
+        "description": "Invoices"
+    }
   }

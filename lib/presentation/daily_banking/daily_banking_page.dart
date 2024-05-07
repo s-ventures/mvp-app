@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/accounts_home_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/cards_home_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurance_home_page.dart';
@@ -36,11 +37,11 @@ class DailyBankingPage extends StatelessWidget {
                       onPressed: () async {},
                     ),
                   ],
-                  bottom: const CustomTabBar(
+                  bottom: CustomTabBar(
                     tabs: [
-                      Tab(text: 'Cuentas'),
-                      Tab(text: 'Tarjetas'),
-                      Tab(text: 'Seguros'),
+                      Tab(text: context.loc.dailyBankingAccounts),
+                      Tab(text: context.loc.dailyBankingCards),
+                      Tab(text: context.loc.dailyBankingInsurance),
                     ],
                   ),
                 ),

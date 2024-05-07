@@ -22,6 +22,8 @@ dependencies:
   http: ^1.1.2
   intl: ^0.18.0
   json_annotation: ^4.6.0
+  localizations:
+    path: ./packages/localizations
   meta: ^1.9.1
   oauth2: ^2.0.2
   retrofit: ^4.0.3

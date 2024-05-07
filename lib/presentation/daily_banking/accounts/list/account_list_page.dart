@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -47,7 +48,7 @@ class AccountListPage extends ConsumerWidget {
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Cuentas',
+                title: context.loc.dailyBankingAccounts,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -113,7 +114,7 @@ class AccountListPage extends ConsumerWidget {
                     ),
                     AppSpacing.vertical.s6,
                     Text(
-                      'Cuentas',
+                      context.loc.dailyBankingAccounts,
                       style: context.textStyle.bodyMediumSemiBold.copyWith(
                         color: context.color.textLight600,
                       ),
