@@ -82,7 +82,7 @@ class InsuranceCommerceContractedPage extends StatelessWidget {
             AppSpacing.vertical.s3,
             const Coverages(
               title: 'Coberturas incluidas',
-              coveragesIncluded: [
+              coverages: [
                 'Siniestros y averías generales',
                 'Asistencia Informática',
                 'Robo con y sin violencia',
@@ -98,7 +98,7 @@ class InsuranceCommerceContractedPage extends StatelessWidget {
             AppSpacing.vertical.s3,
             const Coverages(
               title: 'Coberturas añadidas',
-              coveragesIncluded: [
+              coverages: [
                 'Accidentes corporales',
               ],
             ),
