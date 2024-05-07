@@ -35,6 +35,7 @@ export 'lists/outlined_list.dart';
 export 'movement_details/actions.dart';
 export 'movement_details/banking_info.dart';
 export 'movement_details/beneficiary.dart';
+export 'movement_details/card_actions.dart';
 export 'movement_details/certificate.dart';
 export 'movement_details/dates.dart';
 export 'movement_details/description.dart';

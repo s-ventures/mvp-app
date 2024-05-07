@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class MovementDetailsActions extends StatelessWidget {
-  const MovementDetailsActions({
+class CardMovementDetailsActions extends StatelessWidget {
+  const CardMovementDetailsActions({
     required this.onUploadFilesPressed,
     required this.onCreateExpensePressed,
     super.key,
@@ -19,7 +19,7 @@ class MovementDetailsActions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Adjuntos',
+          'Recibo',
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -29,6 +29,23 @@ class MovementDetailsActions extends StatelessWidget {
           onTap: onUploadFilesPressed,
           child: Text(
             'Subir archivo',
+            style: context.textStyle.bodyMediumSemiBold.copyWith(
+              color: context.color.statusInfo,
+            ),
+          ),
+        ),
+        AppSpacing.vertical.s5,
+        Text(
+          'Gasto',
+          style: context.textStyle.bodyMediumSemiBold.copyWith(
+            color: context.color.textLight600,
+          ),
+        ),
+        AppSpacing.vertical.s3,
+        GestureDetector(
+          onTap: onCreateExpensePressed,
+          child: Text(
+            'Crear gasto',
             style: context.textStyle.bodyMediumSemiBold.copyWith(
               color: context.color.statusInfo,
             ),

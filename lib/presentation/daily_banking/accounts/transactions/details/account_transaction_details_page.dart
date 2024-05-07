@@ -5,7 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_type.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/tax_details.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_card_details.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_debit_details.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_direct_debit_details.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_tax_details.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_transfer_in_details.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_transfer_out_details.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
@@ -68,14 +73,19 @@ class _AccountTransactionDetailsPageState
         },
         body: transaction.when(
           data: (transaction) => switch (widget.type) {
-            AccountTransactionType.tax => TaxDetails(transaction: transaction),
-            AccountTransactionType.transferOut ||
-            AccountTransactionType.debit ||
-            AccountTransactionType.directDebit ||
-            AccountTransactionType.card ||
-            AccountTransactionType.other ||
+            AccountTransactionType.tax =>
+              TransactionTaxDetails(transaction: transaction),
+            AccountTransactionType.card =>
+              TransactionCardDetails(transaction: transaction),
+            AccountTransactionType.debit =>
+              TransactionDebitDetails(transaction: transaction),
+            AccountTransactionType.directDebit =>
+              TransactionDirectDebitDetails(transaction: transaction),
             AccountTransactionType.transferIn =>
-              ListView(
+              TransactionTransferInDetails(transaction: transaction),
+            AccountTransactionType.transferOut =>
+              TransactionTransferOutDetails(transaction: transaction),
+            AccountTransactionType.other => ListView(
                 padding: const EdgeInsets.all(AppSpacing.s5),
                 children: [
                   MovementDetailsSummary(
@@ -84,19 +94,19 @@ class _AccountTransactionDetailsPageState
                     iconBgColor:
                         context.color.secondaryLight600.withOpacity(.2),
                     amount: transaction.amount,
-                    date: transaction.date,
-                    status: MovementStatus.completed,
+                    date: transaction.postingDate,
                   ),
                   AppSpacing.vertical.s5,
-                  const MovementDetailsDate(
+                  MovementDetailsDate(
                     titleStartDate: 'Fecha pago',
-                    startDate: '2/10/2023',
+                    startDate: transaction.postingDate.formatToDayMonthYear(),
                     titleEndDate: 'Fecha cargo',
-                    endDate: '2/10/2025',
+                    endDate: transaction.valueDate.formatToDayMonthYear(),
                   ),
                   AppSpacing.vertical.s5,
                   MovementDetailsBankingInfo(
                     type: BankAccountType.account,
+                    //TODO: Nos falta el numero de cuenta en el DTO
                     last4: transaction.originBranch,
                     icon: '🖥️',
                     // category: transaction.category,
@@ -114,6 +124,7 @@ class _AccountTransactionDetailsPageState
                   ),
                   AppSpacing.vertical.s5,
                   const MovementDetailsGettingHelp(),
+                  AppSpacing.vertical.s5,
                 ],
               ),
           },

@@ -5,7 +5,6 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/details/a
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/search_account_transactions_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/taxes_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/received/transfer_received_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/sent/transfer_sent_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
@@ -313,17 +312,6 @@ class DailyBankingRouter {
             );
           },
         ),
-
-        GoRoute(
-          parentNavigatorKey: rootNavigatorKey,
-          path: AppRoute.dailyBankingAccountTaxesDetails.path,
-          name: AppRoute.dailyBankingAccountTaxesDetails.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const TaxesDetailsPage(),
-          ),
-        ),
-
         // Search account transactions
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,

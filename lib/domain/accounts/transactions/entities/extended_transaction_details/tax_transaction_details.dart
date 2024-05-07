@@ -7,10 +7,14 @@ class TaxTransactionDetails extends ExtendedTransactionDetails {
     required this.issuerName,
     required this.accrualDate,
     required this.paymentDate,
+    required this.reference,
+    required this.documentReference,
   });
 
   final UniqueId id;
   final String issuerName;
   final DateTime accrualDate;
   final DateTime paymentDate;
+  final String reference;
+  final String documentReference;
 }

@@ -5,15 +5,17 @@ class DebitTransactionDetails extends ExtendedTransactionDetails {
   DebitTransactionDetails({
     required this.debitId,
     required this.amount,
-    this.issuer,
-    this.identification,
-    this.dueDate,
-    this.paymentDate,
+    required this.issuer,
+    required this.issuerName,
+    required this.identification,
+    required this.dueDate,
+    required this.paymentDate,
   });
 
   final UniqueId debitId;
   final double amount;
   final String? issuer;
+  final String? issuerName;
   final String? identification;
   final DateTime? dueDate;
   final DateTime? paymentDate;

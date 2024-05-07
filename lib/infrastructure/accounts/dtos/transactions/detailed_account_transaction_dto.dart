@@ -75,7 +75,7 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     required double endBalance,
     required String? detailFields,
     required bool? visible,
-    required bool bankReceipt,
+    required bool? bankReceipt,
     required String originBranch,
     required double originalAmount,
     required String originalCurrencyCode,
@@ -95,13 +95,14 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
       id: UniqueId.fromUniqueString(movementId.toString()),
       category: userCategory ?? analyticsCategory ?? '',
       description: description,
-      date: postingDate,
+      postingDate: postingDate,
+      valueDate: valueDate,
       amount: amount,
       endBalance: endBalance,
       originBranch: originBranch,
       detailFields: detailFields ?? '',
       userComments: userComments ?? '',
-      bankReceipt: bankReceipt,
+      bankReceipt: bankReceipt ?? false,
       details: extendedDetails == null
           ? null
           : () {
@@ -144,6 +145,8 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                     issuerName: taxDto.issuerName,
                     accrualDate: taxDto.accrualDate,
                     paymentDate: taxDto.paymentDate,
+                    reference: taxDto.reference,
+                    documentReference: taxDto.documentReference,
                   );
                 case DebitDto:
                   final debitDto = extendedDetails! as DebitDto;
@@ -152,6 +155,7 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                         UniqueId.fromUniqueString(debitDto.debitId.toString()),
                     amount: debitDto.amount,
                     issuer: debitDto.issuer,
+                    issuerName: debitDto.issuerName,
                     identification: debitDto.identification,
                     dueDate: debitDto.dueDate,
                     paymentDate: debitDto.paymentDate,

@@ -20,7 +20,8 @@ mixin _$DetailedAccountTransaction {
   String get description => throw _privateConstructorUsedError;
   double get amount => throw _privateConstructorUsedError;
   double get endBalance => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get postingDate => throw _privateConstructorUsedError;
+  DateTime get valueDate => throw _privateConstructorUsedError;
   String get originBranch => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get detailFields => throw _privateConstructorUsedError;
@@ -45,7 +46,8 @@ abstract class $DetailedAccountTransactionCopyWith<$Res> {
       String description,
       double amount,
       double endBalance,
-      DateTime date,
+      DateTime postingDate,
+      DateTime valueDate,
       String originBranch,
       String category,
       String detailFields,
@@ -72,7 +74,8 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
     Object? description = null,
     Object? amount = null,
     Object? endBalance = null,
-    Object? date = null,
+    Object? postingDate = null,
+    Object? valueDate = null,
     Object? originBranch = null,
     Object? category = null,
     Object? detailFields = null,
@@ -97,9 +100,13 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      postingDate: null == postingDate
+          ? _value.postingDate
+          : postingDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      valueDate: null == valueDate
+          ? _value.valueDate
+          : valueDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       originBranch: null == originBranch
           ? _value.originBranch
@@ -143,7 +150,8 @@ abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
       String description,
       double amount,
       double endBalance,
-      DateTime date,
+      DateTime postingDate,
+      DateTime valueDate,
       String originBranch,
       String category,
       String detailFields,
@@ -169,7 +177,8 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
     Object? description = null,
     Object? amount = null,
     Object? endBalance = null,
-    Object? date = null,
+    Object? postingDate = null,
+    Object? valueDate = null,
     Object? originBranch = null,
     Object? category = null,
     Object? detailFields = null,
@@ -194,9 +203,13 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      postingDate: null == postingDate
+          ? _value.postingDate
+          : postingDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      valueDate: null == valueDate
+          ? _value.valueDate
+          : valueDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       originBranch: null == originBranch
           ? _value.originBranch
@@ -234,7 +247,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       required this.description,
       required this.amount,
       required this.endBalance,
-      required this.date,
+      required this.postingDate,
+      required this.valueDate,
       required this.originBranch,
       required this.category,
       required this.detailFields,
@@ -251,7 +265,9 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   @override
   final double endBalance;
   @override
-  final DateTime date;
+  final DateTime postingDate;
+  @override
+  final DateTime valueDate;
   @override
   final String originBranch;
   @override
@@ -267,7 +283,7 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
 
   @override
   String toString() {
-    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, date: $date, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt, details: $details)';
+    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, postingDate: $postingDate, valueDate: $valueDate, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt, details: $details)';
   }
 
   @override
@@ -281,7 +297,10 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.endBalance, endBalance) ||
                 other.endBalance == endBalance) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.postingDate, postingDate) ||
+                other.postingDate == postingDate) &&
+            (identical(other.valueDate, valueDate) ||
+                other.valueDate == valueDate) &&
             (identical(other.originBranch, originBranch) ||
                 other.originBranch == originBranch) &&
             (identical(other.category, category) ||
@@ -302,7 +321,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       description,
       amount,
       endBalance,
-      date,
+      postingDate,
+      valueDate,
       originBranch,
       category,
       detailFields,
@@ -325,7 +345,8 @@ abstract class _DetailedAccountTransaction
           required final String description,
           required final double amount,
           required final double endBalance,
-          required final DateTime date,
+          required final DateTime postingDate,
+          required final DateTime valueDate,
           required final String originBranch,
           required final String category,
           required final String detailFields,
@@ -343,7 +364,9 @@ abstract class _DetailedAccountTransaction
   @override
   double get endBalance;
   @override
-  DateTime get date;
+  DateTime get postingDate;
+  @override
+  DateTime get valueDate;
   @override
   String get originBranch;
   @override

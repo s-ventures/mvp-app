@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
-class CardUploadFilesBottomSheet {
+class UploadFilesBottomSheet {
   static Future<void> show({required BuildContext context}) {
     final pageIndexNotifier = ValueNotifier(0);
 
