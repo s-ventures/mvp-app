@@ -1,15 +1,27 @@
 {
-    "@@locale": "ca",
-    "@_COMMON": {
-    },
-    "commonAppTitle": "soon",
-    "@_DAILY_BANKING":{
-    },
-    "dailyBankingAccounts": "Comptes",
-    "dailyBankingCards": "Targetes",
-    "dailyBankingInsurance": "Assegurances",
-    "@_ERP":{
-    },
-    "erpQuotations": "Pressupostos",
-    "erpInvoices": "Factures"
+  "@@locale": "ca",
+  "commonAppTitle": "soon",
+  "@commonAppTitle": {
+    "description": "App Title"
+  },
+  "dailyBankingAccounts": "Comptes",
+  "@dailyBankingAccounts": {
+    "description": "Accounts"
+  },
+  "dailyBankingCards": "Targetes",
+  "@dailyBankingCards": {
+    "description": "Cards"
+  },
+  "dailyBankingInsurance": "Assegurances",
+  "@dailyBankingInsurance": {
+    "description": "Insurance"
+  },
+  "erpQuotations": "Pressupostos",
+  "@erpQuotations": {
+    "description": "Quotations"
+  },
+  "erpInvoices": "Factures",
+  "@erpInvoices": {
+    "description": "Invoices"
   }
+}
