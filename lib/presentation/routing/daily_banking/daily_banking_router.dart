@@ -182,19 +182,31 @@ class DailyBankingRouter {
                   parentNavigatorKey: rootNavigatorKey,
                   path: AppRoute.dailyBankingScheduledTransferDetails.path,
                   name: AppRoute.dailyBankingScheduledTransferDetails.name,
-                  pageBuilder: (context, state) => MaterialPage(
-                    key: state.pageKey,
-                    child: const PeriodicOrderDetailsPage(),
-                  ),
+                  pageBuilder: (context, state) {
+                    final params =
+                        state.extra! as PeriodicOrderDetailsRouteParams;
+                    return MaterialPage(
+                      key: state.pageKey,
+                      child: PeriodicOrderDetailsPage(
+                        periodicOrderId: params.periodicOrderId,
+                      ),
+                    );
+                  },
                   routes: [
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
                       path: AppRoute.dailyBankingScheduledTransferEdit.path,
                       name: AppRoute.dailyBankingScheduledTransferEdit.name,
-                      pageBuilder: (context, state) => MaterialPage(
-                        key: state.pageKey,
-                        child: const PeriodicOrderEditPage(),
-                      ),
+                      pageBuilder: (context, state) {
+                        final params =
+                            state.extra! as PeriodicOrderDetailsRouteParams;
+                        return MaterialPage(
+                          key: state.pageKey,
+                          child: PeriodicOrderEditPage(
+                            periodicOrderId: params.periodicOrderId,
+                          ),
+                        );
+                      },
                     ),
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,

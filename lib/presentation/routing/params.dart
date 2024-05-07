@@ -28,6 +28,14 @@ class TransferSentDetailsRouteParams {
   final int sentTransferId;
 }
 
+class PeriodicOrderDetailsRouteParams {
+  const PeriodicOrderDetailsRouteParams({
+    required this.periodicOrderId,
+  });
+
+  final int periodicOrderId;
+}
+
 // Insurance
 class InsuranceClaimDetailsRouteParams {
   const InsuranceClaimDetailsRouteParams({
