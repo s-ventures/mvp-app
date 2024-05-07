@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/card_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/detailed_card_transaction.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -16,7 +16,7 @@ class TransactionCardDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final details = transaction.details! as CardTransactionDetails;
+    final details = transaction.details! as DetailedCardTransaction;
     return ListView(
       padding: const EdgeInsets.all(AppSpacing.s5),
       children: [

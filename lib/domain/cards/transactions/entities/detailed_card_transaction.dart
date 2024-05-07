@@ -1,8 +1,8 @@
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/extended_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 
-class CardTransactionDetails extends ExtendedTransactionDetails {
-  CardTransactionDetails({
+class DetailedCardTransaction extends ExtendedTransactionDetails {
+  DetailedCardTransaction({
     required this.movementId,
     required this.amount,
     required this.postingDate,

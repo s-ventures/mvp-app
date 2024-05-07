@@ -2,11 +2,11 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/debit_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/direct_debit_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/tax_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/transfer_in_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/transfer_out_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/dtos/transactions/detailed_card_transaction_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/extension/enum_extension.dart';
 
 class ExtendedDetailsConverter

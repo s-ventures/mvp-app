@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/extended_details_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
 
 part 'direct_debit_dto.g.dart';
 
