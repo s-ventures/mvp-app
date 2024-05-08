@@ -2,17 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverage_bottom_sheet.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+enum CoverageCheckboxColoros {
+  primary,
+  secondary,
+  tertiary,
+}
+
 class Coverages extends StatelessWidget {
   const Coverages({
     required this.title,
-    this.coveragesIncludedWithDescription,
-    this.coveragesIncluded,
+    this.coveragesWithDescription,
+    this.coverages,
+    this.coverageCheckboxColors = CoverageCheckboxColoros.tertiary,
     super.key,
   });
 
   final String title;
-  final List<Map<String, String>>? coveragesIncludedWithDescription;
-  final List<String>? coveragesIncluded;
+  final List<Map<String, String>>? coveragesWithDescription;
+  final List<String>? coverages;
+  final CoverageCheckboxColoros? coverageCheckboxColors;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +36,9 @@ class Coverages extends StatelessWidget {
             ),
           ),
           AppSpacing.vertical.s3,
-          if (coveragesIncludedWithDescription != null &&
-              coveragesIncludedWithDescription!.isNotEmpty) ...[
-            ...coveragesIncludedWithDescription!.map(
+          if (coveragesWithDescription != null &&
+              coveragesWithDescription!.isNotEmpty) ...[
+            ...coveragesWithDescription!.map(
               (Map<String, dynamic> coverage) => GestureDetector(
                 onTap: () => CoverageBottomSheet.show(
                   context: context,
@@ -48,7 +56,16 @@ class Coverages extends StatelessWidget {
                         height: AppSpacing.s5,
                         padding: const EdgeInsets.all(AppSpacing.s2),
                         decoration: BoxDecoration(
-                          color: context.color.tertiaryLight500,
+                          color: coverageCheckboxColors ==
+                                  CoverageCheckboxColoros.primary
+                              ? context.color.primaryLight600
+                              : coverageCheckboxColors ==
+                                      CoverageCheckboxColoros.secondary
+                                  ? context.color.secondaryLight600
+                                  : coverageCheckboxColors ==
+                                          CoverageCheckboxColoros.tertiary
+                                      ? context.color.tertiaryLight500
+                                      : context.color.strokeLigth100,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: IconSvg.small(
@@ -72,8 +89,8 @@ class Coverages extends StatelessWidget {
               ),
             ) as Iterable<Widget>,
           ],
-          if (coveragesIncluded != null && coveragesIncluded!.isNotEmpty) ...[
-            ...coveragesIncluded!.map(
+          if (coverages != null && coverages!.isNotEmpty) ...[
+            ...coverages!.map(
               (String coverage) => Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: AppSpacing.s2,
@@ -85,7 +102,16 @@ class Coverages extends StatelessWidget {
                       height: AppSpacing.s5,
                       padding: const EdgeInsets.all(AppSpacing.s2),
                       decoration: BoxDecoration(
-                        color: context.color.tertiaryLight500,
+                        color: coverageCheckboxColors ==
+                                CoverageCheckboxColoros.primary
+                            ? context.color.primaryLight600
+                            : coverageCheckboxColors ==
+                                    CoverageCheckboxColoros.secondary
+                                ? context.color.secondaryLight600
+                                : coverageCheckboxColors ==
+                                        CoverageCheckboxColoros.tertiary
+                                    ? context.color.tertiaryLight500
+                                    : context.color.strokeLigth100,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: IconSvg.small(
