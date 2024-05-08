@@ -39,4 +39,15 @@ class SimplifiedPoliciesController
       },
     );
   }
+
+  Future<void> updateFilter({
+    required DateTime? createDateFrom,
+    required DateTime? createDateTo,
+  }) async {
+    _repository.updateFilter(
+      createDateFrom: createDateFrom,
+      createDateTo: createDateTo,
+    );
+    await refresh();
+  }
 }
