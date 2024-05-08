@@ -1,0 +1,27 @@
+{
+  "@@locale": "ca",
+  "commonAppTitle": "soon",
+  "@commonAppTitle": {
+    "description": "App Title"
+  },
+  "dailyBankingAccounts": "Comptes",
+  "@dailyBankingAccounts": {
+    "description": "Accounts"
+  },
+  "dailyBankingCards": "Targetes",
+  "@dailyBankingCards": {
+    "description": "Cards"
+  },
+  "dailyBankingInsurance": "Assegurances",
+  "@dailyBankingInsurance": {
+    "description": "Insurance"
+  },
+  "erpQuotations": "Pressupostos",
+  "@erpQuotations": {
+    "description": "Quotations"
+  },
+  "erpInvoices": "Factures",
+  "@erpInvoices": {
+    "description": "Invoices"
+  }
+}
