@@ -18,14 +18,13 @@ class PoliciesPaginationRepository
   );
   final PoliciesRepository _policiesRepository;
   PoliciesFilter? _filter;
+  PoliciesFilter? get filter => _filter;
 
   @override
   Future<List<SimplifiedPolicy>> fetchPage({
     required int page,
     required int pageSize,
   }) async {
-    final filter = _filter;
-
     final policies = await _policiesRepository.getSimplifiedPolicies(
       filter: filter ?? const PoliciesFilter(),
       page: page,
@@ -35,6 +34,16 @@ class PoliciesPaginationRepository
     return policies.fold(
       (l) => <SimplifiedPolicy>[],
       (r) => r,
+    );
+  }
+
+  void updateFilter({
+    required DateTime? createDateFrom,
+    required DateTime? createDateTo,
+  }) {
+    _filter = (_filter ?? const PoliciesFilter()).copyWith(
+      createDateFrom: createDateFrom,
+      createDateTo: createDateTo,
     );
   }
 }

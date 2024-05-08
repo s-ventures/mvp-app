@@ -22,7 +22,6 @@
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/policies_filter.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/policy_payment_periodicity.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 import 'package:manifiesto_mvp_app/infrastructure/insurance/policies/dtos/policy_payment_periodicity_dto.dart';
@@ -55,19 +54,8 @@ class PoliciesFilterDto extends PaginatedRequest {
     int pageNumber = 0,
   }) {
     return PoliciesFilterDto(
-      insuranceId: filter.insuranceIds,
-      policy: filter.policy,
-      certificateNumber: filter.certificateNumber,
       createDateFrom: filter.createDateFrom,
       createDateTo: filter.createDateTo,
-      status: filter.status,
-      description: filter.description,
-      amountFrom: filter.amountFrom,
-      amountTo: filter.amountTo,
-      lastInvoiceAmountFrom: filter.lastInvoiceAmountFrom,
-      lastInvoiceAmountTo: filter.lastInvoiceAmountTo,
-      paymentPeriodicity: filter.paymentPeriodicity?.toDto(),
-      iaasBranch: filter.iaasBranch,
       pageNumber: pageNumber,
       pageSize: pageSize,
     );

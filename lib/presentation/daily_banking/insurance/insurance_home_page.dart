@@ -3,9 +3,14 @@ import 'package:flutter/widgets.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/claims.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/list/policies.dart';
 
-class InsuranceHomePage extends StatelessWidget {
+class InsuranceHomePage extends StatefulWidget {
   const InsuranceHomePage({super.key});
 
+  @override
+  State<InsuranceHomePage> createState() => _InsuranceHomePageState();
+}
+
+class _InsuranceHomePageState extends State<InsuranceHomePage> {
   @override
   Widget build(BuildContext context) {
     return Builder(
