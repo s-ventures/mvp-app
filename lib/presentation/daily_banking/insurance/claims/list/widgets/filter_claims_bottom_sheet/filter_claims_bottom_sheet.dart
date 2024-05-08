@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_claims_bottom_sheet/claim_status_filter.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class FilterClaimsBottomSheet {
-  static Future<void> show({required BuildContext context}) {
+  static Future<void> show({
+    required BuildContext context,
+    required Future<void> Function() onApply,
+    required Future<void> Function() onReset,
+    required ValueChanged<DateTime> setStartDate,
+    required ValueChanged<DateTime> setEndDate,
+    required ValueChanged<ClaimStatusType> setStatusTo,
+    required DateTime? startDate,
+    required DateTime? endDate,
+    required ClaimStatusType? status,
+  }) {
     final pageIndexNotifier = ValueNotifier(0);
 
     return WoltModalSheet.show(
@@ -19,7 +29,18 @@ class FilterClaimsBottomSheet {
       maxPageHeight: 0.99,
       onModalDismissedWithBarrierTap: () => context.pop(),
       pageListBuilder: (modalSheetContext) => [
-        _buildFilters(modalSheetContext, pageIndexNotifier),
+        _buildFilters(
+          modalSheetContext,
+          pageIndexNotifier,
+          onApply,
+          onReset,
+          setStartDate,
+          setEndDate,
+          setStatusTo,
+          startDate,
+          endDate,
+          status,
+        ),
         _buildCategories(modalSheetContext, pageIndexNotifier),
       ],
     );
@@ -28,13 +49,19 @@ class FilterClaimsBottomSheet {
   static SliverWoltModalSheetPage _buildFilters(
     BuildContext context,
     ValueNotifier<int> pageIndexNotifier,
+    Future<void> Function() onApply,
+    Future<void> Function() onReset,
+    ValueChanged<DateTime> setStartDate,
+    ValueChanged<DateTime> setEndDate,
+    ValueChanged<ClaimStatusType> setStatusTo,
+    DateTime? startDate,
+    DateTime? endDate,
+    ClaimStatusType? status,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
         stickyActionBar: Padding(
           padding: const EdgeInsets.only(
-            top: AppSpacing.s5,
-            left: AppSpacing.s5,
             right: AppSpacing.s5,
             bottom: AppSpacing.s7,
           ),
@@ -45,14 +72,16 @@ class FilterClaimsBottomSheet {
                 title: 'Descartar filtros',
                 type: ButtonType.text,
                 size: ButtonSize.small,
-                onPressed: () async {},
+                onPressed: () async {
+                  await onReset().then((_) => context.pop());
+                },
               ),
               Button(
                 title: 'Aplicar',
                 size: ButtonSize.small,
-                onPressed: () async => context.pushNamed(
-                  AppRoute.dailyBankingInsuranceClaimsList.name,
-                ),
+                onPressed: () async {
+                  await onApply().then((_) => context.pop());
+                },
               ),
             ],
           ),
@@ -76,8 +105,8 @@ class FilterClaimsBottomSheet {
             padding: const EdgeInsets.only(
               left: AppSpacing.s5,
               right: AppSpacing.s5,
-              top: AppSpacing.s5,
-              bottom: 96,
+              top: AppSpacing.s6,
+              bottom: 100,
             ),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
@@ -86,27 +115,36 @@ class FilterClaimsBottomSheet {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        'Estado',
+                        style: context.textStyle.bodyMediumSemiBold.copyWith(
+                          color: context.color.textLight600,
+                        ),
+                      ),
+                      AppSpacing.vertical.s2,
+                      ClaimStatusFilter(
+                        status: status,
+                        setStatusTo: (ClaimStatusType value) =>
+                            setStatusTo(value),
+                      ),
+                      AppSpacing.vertical.s5,
+                      Text(
                         'Fecha',
                         style: context.textStyle.bodyMediumSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),
                       ),
                       AppSpacing.vertical.s2,
-                      DateRangeListTile(
-                        startDate: DateFormat('dd/MM/yyyy').format(
-                          DateTime.now().subtract(
-                            const Duration(days: 30),
-                          ),
-                        ),
-                        endDate: DateFormat('dd/MM/yyyy').format(
-                          DateTime.now(),
-                        ),
+                      DateRangeFilter(
+                        startDate: startDate,
+                        endDate: endDate,
+                        setStartDate: (DateTime value) => setStartDate(value),
+                        setEndDate: (DateTime value) => setEndDate(value),
                       ),
                       AppSpacing.vertical.s5,
                     ],
                   ),
                   Text(
-                    'Ramo',
+                    'Categoría',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),

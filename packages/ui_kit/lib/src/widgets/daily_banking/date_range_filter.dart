@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class DateRange extends StatefulWidget {
-  const DateRange({
+class DateRangeFilter extends StatefulWidget {
+  const DateRangeFilter({
     required this.startDate,
     required this.endDate,
     required this.setStartDate,
@@ -16,12 +16,13 @@ class DateRange extends StatefulWidget {
   final ValueChanged<DateTime> setEndDate;
 
   @override
-  State<DateRange> createState() => _DateRangeState();
+  State<DateRangeFilter> createState() => _DateRangeFilterState();
 }
 
-class _DateRangeState extends State<DateRange> {
+class _DateRangeFilterState extends State<DateRangeFilter> {
   DateTime? startDateSelected;
   DateTime? endDateSelected;
+
   @override
   Widget build(BuildContext context) {
     return CustomCard(

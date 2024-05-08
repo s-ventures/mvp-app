@@ -5,28 +5,29 @@
 //   "insuranceId": [
 //     0
 //   ],
+//   "year": 0,
 //   "dossier": "string",
-//   "createDateFrom": "2024-04-12",
-//   "createDateTo": "2024-04-12",
+//   "createDateFrom": "2024-05-08",
+//   "createDateTo": "2024-05-08",
 //   "status": "string",
 //   "riskType": "string",
 //   "reason": "string",
 //   "riskLocation": "string",
-//   "processStartDateFrom": "2024-04-12",
-//   "processStartDateTo": "2024-04-12",
-//   "processEndDateFrom": "2024-04-12",
-//   "processEndDateTo": "2024-04-12",
+//   "processStartDateFrom": "2024-05-08",
+//   "processStartDateTo": "2024-05-08",
+//   "processEndDateFrom": "2024-05-08",
+//   "processEndDateTo": "2024-05-08",
 //   "agentName": "string",
 //   "agentEmail": "string",
 //   "agentTelephone": "string"
 // }
 
-// ignore_for_file: invalid_annotation_target
-
 import 'package:json_annotation/json_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claims_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
+import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/claim_status_type_dto.dart';
 
 part 'claims_filter_dto.g.dart';
 
@@ -35,6 +36,7 @@ class ClaimsFilterDto extends PaginatedRequest {
   ClaimsFilterDto({
     this.claimId,
     this.insuranceId,
+    this.year,
     this.dossier,
     this.createDateFrom,
     this.createDateTo,
@@ -59,22 +61,11 @@ class ClaimsFilterDto extends PaginatedRequest {
     int pageNumber = 0,
   }) {
     return ClaimsFilterDto(
-      claimId: filter.claimId,
       insuranceId: filter.insuranceIds,
-      dossier: filter.dossier,
       createDateFrom: filter.createDateFrom,
       createDateTo: filter.createDateTo,
-      status: filter.status,
+      status: filter.status?.toDto(),
       riskType: filter.riskType,
-      reason: filter.reason,
-      riskLocation: filter.riskLocation,
-      processStartDateFrom: filter.processStartDateFrom,
-      processStartDateTo: filter.processStartDateTo,
-      processEndDateFrom: filter.processEndDateFrom,
-      processEndDateTo: filter.processEndDateTo,
-      agentName: filter.agentName,
-      agentEmail: filter.agentEmail,
-      agentTelephone: filter.agentTelephone,
       pageSize: pageSize,
       pageNumber: pageNumber,
     );
@@ -85,12 +76,13 @@ class ClaimsFilterDto extends PaginatedRequest {
 
   final int? claimId;
   final List<int>? insuranceId;
+  final int? year;
   final String? dossier;
   @DateConverter()
   final DateTime? createDateFrom;
   @DateConverter()
   final DateTime? createDateTo;
-  final String? status;
+  final ClaimStatusTypeDto? status;
   final String? riskType;
   final String? reason;
   final String? riskLocation;

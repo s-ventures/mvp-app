@@ -1,12 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/filter/filter_simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/widgets/filter_claims_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_claims_bottom_sheet/filter_claims_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_list_claims.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -35,6 +36,24 @@ class _ClaimsState extends ConsumerState<Claims> {
       simplifiedClaimsControllerProvider.select((value) => value.claims),
     );
 
+    final controller =
+        ref.read(filterSimplifiedClaimsControllerProvider.notifier);
+    final startDate = ref.watch(
+      filterSimplifiedClaimsControllerProvider
+          .select((value) => value.createDateFrom),
+    );
+    final endDate = ref.watch(
+      filterSimplifiedClaimsControllerProvider
+          .select((value) => value.createDateTo),
+    );
+
+    final status = ref.watch(
+      filterSimplifiedClaimsControllerProvider.select((value) => value.status),
+    );
+
+    final isFilterApplied =
+        startDate != null || endDate != null || status != null;
+
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.s5),
       child: Column(
@@ -50,40 +69,62 @@ class _ClaimsState extends ConsumerState<Claims> {
                   ),
                 ),
               ),
-              Button(
-                icon: IconAssets.filter,
-                type: ButtonType.outlined,
-                size: ButtonSize.extraSmall,
-                onPressed: () async {
-                  await FilterClaimsBottomSheet.show(context: context);
-                },
+              Stack(
+                children: [
+                  Button(
+                    icon: IconAssets.filter,
+                    type: ButtonType.outlined,
+                    size: ButtonSize.extraSmall,
+                    onPressed: () => FilterClaimsBottomSheet.show(
+                      context: context,
+                      onApply: controller.applyFilters,
+                      onReset: controller.resetFilters,
+                      setStartDate: controller.setStartDate,
+                      setEndDate: controller.setEndDate,
+                      setStatusTo: controller.setStatus,
+                      status: status,
+                      startDate: startDate,
+                      endDate: endDate,
+                    ),
+                  ),
+                  if (isFilterApplied)
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.s2,
+                          vertical: AppSpacing.s1,
+                        ),
+                        width: AppSpacing.s3,
+                        height: AppSpacing.s3,
+                        decoration: BoxDecoration(
+                          color: context.color.statusError,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ],
           ),
-          Row(
-            children: [
-              CustomChip(
-                title: Text(
-                  'Todos',
-                  style: context.textStyle.bodySmallSemiBold.copyWith(
-                    color: context.color.primaryLight300,
-                  ),
-                ),
-                onSelected: print,
-              ),
-              AppSpacing.horizontal.s3,
-              CustomChip(
-                title: Text(
-                  'En curso',
-                  style: context.textStyle.bodySmallSemiBold.copyWith(
-                    color: context.color.textLight0,
-                  ),
-                ),
-                selected: true,
-                onSelected: print,
-              ),
-            ],
-          ),
+          if (isFilterApplied)
+            FilterListClaims(
+              startDate: startDate,
+              endDate: endDate,
+              status: status,
+              onClearDateRange: () {
+                controller
+                  ..setStartDate(null)
+                  ..setEndDate(null)
+                  ..applyFilters();
+              },
+              onClearStatus: () {
+                controller
+                  ..setStatus(null)
+                  ..applyFilters();
+              },
+            ),
           AppSpacing.vertical.s3,
           claims.mapOrNull(
                 data: (data) => _ClaimsList(
