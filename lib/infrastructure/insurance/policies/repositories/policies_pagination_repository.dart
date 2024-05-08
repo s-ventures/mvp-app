@@ -18,7 +18,6 @@ class PoliciesPaginationRepository
   );
   final PoliciesRepository _policiesRepository;
   PoliciesFilter? _filter;
-  PoliciesFilter? get filter => _filter;
 
   @override
   Future<List<SimplifiedPolicy>> fetchPage({
@@ -26,7 +25,7 @@ class PoliciesPaginationRepository
     required int pageSize,
   }) async {
     final policies = await _policiesRepository.getSimplifiedPolicies(
-      filter: filter ?? const PoliciesFilter(),
+      filter: _filter ?? const PoliciesFilter(),
       page: page,
       pageSize: pageSize,
       onPaginationInfo: onPaginationInfo,
