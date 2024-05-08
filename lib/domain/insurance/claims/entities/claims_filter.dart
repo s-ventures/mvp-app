@@ -1,25 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
 
 part 'claims_filter.freezed.dart';
 
 @freezed
 class ClaimsFilter with _$ClaimsFilter {
   const factory ClaimsFilter({
-    int? claimId,
     List<int>? insuranceIds,
-    String? dossier,
     DateTime? createDateFrom,
     DateTime? createDateTo,
-    String? status,
+    ClaimStatusType? status,
     String? riskType,
-    String? reason,
-    String? riskLocation,
-    DateTime? processStartDateFrom,
-    DateTime? processStartDateTo,
-    DateTime? processEndDateFrom,
-    DateTime? processEndDateTo,
-    String? agentName,
-    String? agentEmail,
-    String? agentTelephone,
   }) = _ClaimsFilter;
 }

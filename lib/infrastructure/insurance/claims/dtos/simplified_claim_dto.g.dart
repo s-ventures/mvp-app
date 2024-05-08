@@ -28,5 +28,6 @@ Map<String, dynamic> _$$SimplifiedClaimDtoImplToJson(
 
 const _$ClaimStatusTypeDtoEnumMap = {
   ClaimStatusTypeDto.open: 'OPEN',
+  ClaimStatusTypeDto.inProgress: 'IN_PROGRESS',
   ClaimStatusTypeDto.close: 'CLOSE',
 };

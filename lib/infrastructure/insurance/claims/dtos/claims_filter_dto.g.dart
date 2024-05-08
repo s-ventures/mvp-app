@@ -12,12 +12,13 @@ ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) =>
       insuranceId: (json['insuranceId'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
+      year: json['year'] as int?,
       dossier: json['dossier'] as String?,
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['createDateFrom'], const DateConverter().fromJson),
       createDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['createDateTo'], const DateConverter().fromJson),
-      status: json['status'] as String?,
+      status: $enumDecodeNullable(_$ClaimStatusTypeDtoEnumMap, json['status']),
       riskType: json['riskType'] as String?,
       reason: json['reason'] as String?,
       riskLocation: json['riskLocation'] as String?,
@@ -50,6 +51,7 @@ Map<String, dynamic> _$ClaimsFilterDtoToJson(ClaimsFilterDto instance) {
 
   writeNotNull('claimId', instance.claimId);
   writeNotNull('insuranceId', instance.insuranceId);
+  writeNotNull('year', instance.year);
   writeNotNull('dossier', instance.dossier);
   writeNotNull(
       'createDateFrom',
@@ -59,7 +61,7 @@ Map<String, dynamic> _$ClaimsFilterDtoToJson(ClaimsFilterDto instance) {
       'createDateTo',
       _$JsonConverterToJson<String, DateTime>(
           instance.createDateTo, const DateConverter().toJson));
-  writeNotNull('status', instance.status);
+  writeNotNull('status', _$ClaimStatusTypeDtoEnumMap[instance.status]);
   writeNotNull('riskType', instance.riskType);
   writeNotNull('reason', instance.reason);
   writeNotNull('riskLocation', instance.riskLocation);
@@ -90,6 +92,12 @@ Value? _$JsonConverterFromJson<Json, Value>(
   Value? Function(Json json) fromJson,
 ) =>
     json == null ? null : fromJson(json as Json);
+
+const _$ClaimStatusTypeDtoEnumMap = {
+  ClaimStatusTypeDto.open: 'OPEN',
+  ClaimStatusTypeDto.inProgress: 'IN_PROGRESS',
+  ClaimStatusTypeDto.close: 'CLOSE',
+};
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,

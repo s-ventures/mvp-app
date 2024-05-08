@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_state.dart';
+import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/repositories/claims_pagination_repository.dart';
 
@@ -40,40 +41,18 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
   }
 
   Future<void> updateFilter({
-    required int? claimId,
     required List<int>? insuranceIds,
-    required String? dossier,
     required DateTime? createDateFrom,
     required DateTime? createDateTo,
-    required String? status,
+    required ClaimStatusType? status,
     required String? riskType,
-    required String? reason,
-    required String? riskLocation,
-    required DateTime? processStartDateFrom,
-    required DateTime? processStartDateTo,
-    required DateTime? processEndDateFrom,
-    required DateTime? processEndDateTo,
-    required String? agentName,
-    required String? agentEmail,
-    required String? agentTelephone,
   }) async {
     _repository.updateFilter(
-      claimId: claimId,
       insuranceIds: insuranceIds,
-      dossier: dossier,
       createDateFrom: createDateFrom,
       createDateTo: createDateTo,
       status: status,
       riskType: riskType,
-      reason: reason,
-      riskLocation: riskLocation,
-      processStartDateFrom: processStartDateFrom,
-      processStartDateTo: processStartDateTo,
-      processEndDateFrom: processEndDateFrom,
-      processEndDateTo: processEndDateTo,
-      agentName: agentName,
-      agentEmail: agentEmail,
-      agentTelephone: agentTelephone,
     );
     await refresh();
   }
