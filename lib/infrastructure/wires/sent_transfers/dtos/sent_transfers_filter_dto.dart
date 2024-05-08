@@ -30,12 +30,12 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfer_status_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transfer_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfer_type.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/sent_transfers_filter.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transfer_status_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
-import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_status_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_type_dto.dart';
 
 part 'sent_transfers_filter_dto.g.dart';
@@ -124,7 +124,7 @@ class SentTransfersFilterDto extends PaginatedRequest {
   final int? exchangeValueTo;
   final int? instructedAmountFrom;
   final int? instructedAmountTo;
-  final SentTransferStatusTypeDto? status;
+  final TransferStatusTypeDto? status;
   final String? baasMovementId;
   final String? concept2;
   final int? sentTransferId;

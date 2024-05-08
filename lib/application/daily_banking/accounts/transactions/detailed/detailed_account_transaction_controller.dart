@@ -4,18 +4,23 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactio
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/account_transactions_repository.dart';
 
 final detailedAccountTransactionControllerProvider =
-    StateNotifierProvider<DetailedAccountTransactionController, DetailedAccountTransactionState>(
-  (ref) => DetailedAccountTransactionController(ref.watch(accountTransactionsRepositoryProvider)),
+    StateNotifierProvider.autoDispose<DetailedAccountTransactionController,
+        DetailedAccountTransactionState>(
+  (ref) => DetailedAccountTransactionController(
+      ref.watch(accountTransactionsRepositoryProvider)),
 );
 
-class DetailedAccountTransactionController extends StateNotifier<DetailedAccountTransactionState> {
-  DetailedAccountTransactionController(this._repository) : super(const DetailedAccountTransactionState());
+class DetailedAccountTransactionController
+    extends StateNotifier<DetailedAccountTransactionState> {
+  DetailedAccountTransactionController(this._repository)
+      : super(const DetailedAccountTransactionState());
 
   final AccountTransactionsRepository _repository;
 
   Future<void> init(String accountId, String transactionId) async {
     try {
-      final transactionOrFailure = await _repository.getDetailedAccountTransaction(
+      final transactionOrFailure =
+          await _repository.getDetailedAccountTransaction(
         accountId: accountId,
         transactionId: transactionId,
       );

@@ -20,12 +20,14 @@ mixin _$DetailedAccountTransaction {
   String get description => throw _privateConstructorUsedError;
   double get amount => throw _privateConstructorUsedError;
   double get endBalance => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get postingDate => throw _privateConstructorUsedError;
+  DateTime get valueDate => throw _privateConstructorUsedError;
   String get originBranch => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get detailFields => throw _privateConstructorUsedError;
   String get userComments => throw _privateConstructorUsedError;
   bool get bankReceipt => throw _privateConstructorUsedError;
+  ExtendedTransactionDetails? get details => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedAccountTransactionCopyWith<DetailedAccountTransaction>
@@ -44,12 +46,14 @@ abstract class $DetailedAccountTransactionCopyWith<$Res> {
       String description,
       double amount,
       double endBalance,
-      DateTime date,
+      DateTime postingDate,
+      DateTime valueDate,
       String originBranch,
       String category,
       String detailFields,
       String userComments,
-      bool bankReceipt});
+      bool bankReceipt,
+      ExtendedTransactionDetails? details});
 }
 
 /// @nodoc
@@ -70,12 +74,14 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
     Object? description = null,
     Object? amount = null,
     Object? endBalance = null,
-    Object? date = null,
+    Object? postingDate = null,
+    Object? valueDate = null,
     Object? originBranch = null,
     Object? category = null,
     Object? detailFields = null,
     Object? userComments = null,
     Object? bankReceipt = null,
+    Object? details = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -94,9 +100,13 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      postingDate: null == postingDate
+          ? _value.postingDate
+          : postingDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      valueDate: null == valueDate
+          ? _value.valueDate
+          : valueDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       originBranch: null == originBranch
           ? _value.originBranch
@@ -118,6 +128,10 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool,
+      details: freezed == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as ExtendedTransactionDetails?,
     ) as $Val);
   }
 }
@@ -136,12 +150,14 @@ abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
       String description,
       double amount,
       double endBalance,
-      DateTime date,
+      DateTime postingDate,
+      DateTime valueDate,
       String originBranch,
       String category,
       String detailFields,
       String userComments,
-      bool bankReceipt});
+      bool bankReceipt,
+      ExtendedTransactionDetails? details});
 }
 
 /// @nodoc
@@ -161,12 +177,14 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
     Object? description = null,
     Object? amount = null,
     Object? endBalance = null,
-    Object? date = null,
+    Object? postingDate = null,
+    Object? valueDate = null,
     Object? originBranch = null,
     Object? category = null,
     Object? detailFields = null,
     Object? userComments = null,
     Object? bankReceipt = null,
+    Object? details = freezed,
   }) {
     return _then(_$DetailedAccountTransactionImpl(
       id: null == id
@@ -185,9 +203,13 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
               as double,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      postingDate: null == postingDate
+          ? _value.postingDate
+          : postingDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      valueDate: null == valueDate
+          ? _value.valueDate
+          : valueDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       originBranch: null == originBranch
           ? _value.originBranch
@@ -209,6 +231,10 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool,
+      details: freezed == details
+          ? _value.details
+          : details // ignore: cast_nullable_to_non_nullable
+              as ExtendedTransactionDetails?,
     ));
   }
 }
@@ -221,12 +247,14 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       required this.description,
       required this.amount,
       required this.endBalance,
-      required this.date,
+      required this.postingDate,
+      required this.valueDate,
       required this.originBranch,
       required this.category,
       required this.detailFields,
       required this.userComments,
-      required this.bankReceipt});
+      required this.bankReceipt,
+      required this.details});
 
   @override
   final UniqueId id;
@@ -237,7 +265,9 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   @override
   final double endBalance;
   @override
-  final DateTime date;
+  final DateTime postingDate;
+  @override
+  final DateTime valueDate;
   @override
   final String originBranch;
   @override
@@ -248,10 +278,12 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   final String userComments;
   @override
   final bool bankReceipt;
+  @override
+  final ExtendedTransactionDetails? details;
 
   @override
   String toString() {
-    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, date: $date, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt)';
+    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, postingDate: $postingDate, valueDate: $valueDate, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt, details: $details)';
   }
 
   @override
@@ -265,7 +297,10 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.endBalance, endBalance) ||
                 other.endBalance == endBalance) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.postingDate, postingDate) ||
+                other.postingDate == postingDate) &&
+            (identical(other.valueDate, valueDate) ||
+                other.valueDate == valueDate) &&
             (identical(other.originBranch, originBranch) ||
                 other.originBranch == originBranch) &&
             (identical(other.category, category) ||
@@ -275,7 +310,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
             (identical(other.userComments, userComments) ||
                 other.userComments == userComments) &&
             (identical(other.bankReceipt, bankReceipt) ||
-                other.bankReceipt == bankReceipt));
+                other.bankReceipt == bankReceipt) &&
+            (identical(other.details, details) || other.details == details));
   }
 
   @override
@@ -285,12 +321,14 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       description,
       amount,
       endBalance,
-      date,
+      postingDate,
+      valueDate,
       originBranch,
       category,
       detailFields,
       userComments,
-      bankReceipt);
+      bankReceipt,
+      details);
 
   @JsonKey(ignore: true)
   @override
@@ -303,16 +341,19 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
 abstract class _DetailedAccountTransaction
     implements DetailedAccountTransaction {
   const factory _DetailedAccountTransaction(
-      {required final UniqueId id,
-      required final String description,
-      required final double amount,
-      required final double endBalance,
-      required final DateTime date,
-      required final String originBranch,
-      required final String category,
-      required final String detailFields,
-      required final String userComments,
-      required final bool bankReceipt}) = _$DetailedAccountTransactionImpl;
+          {required final UniqueId id,
+          required final String description,
+          required final double amount,
+          required final double endBalance,
+          required final DateTime postingDate,
+          required final DateTime valueDate,
+          required final String originBranch,
+          required final String category,
+          required final String detailFields,
+          required final String userComments,
+          required final bool bankReceipt,
+          required final ExtendedTransactionDetails? details}) =
+      _$DetailedAccountTransactionImpl;
 
   @override
   UniqueId get id;
@@ -323,7 +364,9 @@ abstract class _DetailedAccountTransaction
   @override
   double get endBalance;
   @override
-  DateTime get date;
+  DateTime get postingDate;
+  @override
+  DateTime get valueDate;
   @override
   String get originBranch;
   @override
@@ -334,6 +377,8 @@ abstract class _DetailedAccountTransaction
   String get userComments;
   @override
   bool get bankReceipt;
+  @override
+  ExtendedTransactionDetails? get details;
   @override
   @JsonKey(ignore: true)
   _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl>

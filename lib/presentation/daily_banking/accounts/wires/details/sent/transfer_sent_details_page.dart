@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/detailed/detailed_sent_transfer_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransferSentDetailsPage extends ConsumerStatefulWidget {
@@ -92,23 +94,21 @@ class _TransferSentDetailsPageState
                       ? sentTransfer.settlementAmount! * -1
                       : 0.0,
                   date: sentTransfer.orderDate,
-                  //TODO: Al eliminarse los status ¿Eliminamos el status de la pantalla?
-                  status: MovementStatus.completed,
-                ),
-                AppSpacing.vertical.s5,
-                MovementDetailsBeneficiary(
-                  name: sentTransfer.beneficiaryName,
-                  accountNumber: sentTransfer.beneficiaryAccount,
-                  transferType: sentTransfer.type.name,
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsDate(
                   titleStartDate: 'Fecha cargo',
                   startDate:
-                      sentTransfer.orderDate.formatToDayMonthYear() ?? '---',
+                      sentTransfer.orderDate.formatToDayMonthYear() ?? '-',
                   titleEndDate: 'Fecha abono',
-                  endDate:
-                      sentTransfer.valueDate.formatToDayMonthYear() ?? '---',
+                  endDate: sentTransfer.valueDate.formatToDayMonthYear() ?? '-',
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsBeneficiary(
+                  name: sentTransfer.beneficiaryName,
+                  accountNumber: sentTransfer
+                      .beneficiaryAccount.insertSpaceEveryFourCharacters,
+                  transferType: sentTransfer.type.name,
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsBankingInfo(
@@ -125,7 +125,17 @@ class _TransferSentDetailsPageState
                 AppSpacing.vertical.s5,
                 const MovementDetailsVoucher(),
                 AppSpacing.vertical.s5,
+                MovementDetailsActions(
+                  onUploadFilesPressed: () {
+                    UploadFilesBottomSheet.show(context: context);
+                  },
+                  onCreateExpensePressed: () {
+                    context.goNamed(AppRoute.negocio.name);
+                  },
+                ),
+                AppSpacing.vertical.s5,
                 const MovementDetailsGettingHelp(),
+                AppSpacing.vertical.s5,
               ],
             ),
             error: (error, _) => Center(

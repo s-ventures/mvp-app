@@ -1,12 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/debit_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/direct_debit_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/tax_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/transfer_in_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/extended_details/transfer_out_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/cards/dtos/transactions/detailed_card_transaction_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/debit_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/direct_debit_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/tax_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/transfer_in_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/transfer_out_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/extension/enum_extension.dart';
 
 class ExtendedDetailsConverter
     implements JsonConverter<ExtendedDetailsDto?, Map<String, dynamic>> {
@@ -14,11 +15,12 @@ class ExtendedDetailsConverter
 
   @override
   ExtendedDetailsDto? fromJson(Map<String, dynamic> json) {
-    final typeString = json['transactionType'] as String?;
+    final typeString = json['movementType'] as String?;
     if (typeString == null) {
       return null;
     }
-    final type = AccountTransactionTypeDto.values.byName(typeString);
+    final type =
+        AccountTransactionTypeDto.values.byScreamingCaseName(typeString);
 
     return switch (type) {
       AccountTransactionTypeDto.transferIn => TransferInDto.fromJson(json),

@@ -5,7 +5,6 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/details/a
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/search_account_transactions_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/taxes/taxes_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/received/transfer_received_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/sent/transfer_sent_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
@@ -313,29 +312,18 @@ class DailyBankingRouter {
           path: AppRoute.dailyBankingAccountTransactionDetails.path,
           name: AppRoute.dailyBankingAccountTransactionDetails.name,
           pageBuilder: (context, state) {
-            final transactionId = state.pathParameters['transactionId']!;
-            final accountId = state.pathParameters['accountId']!;
+            final params = state.extra! as AccountTransactionDetailsRouteParams;
 
             return MaterialPage(
               key: state.pageKey,
               child: AccountTransactionDetailsPage(
-                transactionId: transactionId,
-                accountId: accountId,
+                transactionId: params.transactionId,
+                accountId: params.accountId,
+                type: params.type,
               ),
             );
           },
         ),
-
-        GoRoute(
-          parentNavigatorKey: rootNavigatorKey,
-          path: AppRoute.dailyBankingAccountTaxesDetails.path,
-          name: AppRoute.dailyBankingAccountTaxesDetails.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const TaxesDetailsPage(),
-          ),
-        ),
-
         // Search account transactions
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
@@ -396,14 +384,13 @@ class DailyBankingRouter {
           path: AppRoute.dailyBankingCardTransactionDetails.path,
           name: AppRoute.dailyBankingCardTransactionDetails.name,
           pageBuilder: (context, state) {
-            final cardContractId = state.pathParameters['cardContractId']!;
-            final transactionId = state.pathParameters['transactionId']!;
+            final params = state.extra! as CardTransactionDetailsRouteParams;
 
             return MaterialPage(
               key: state.pageKey,
               child: CardTransactionDetailsPage(
-                cardContractId: cardContractId,
-                transactionId: transactionId,
+                cardContractId: params.cardContractId,
+                transactionId: params.transactionId,
               ),
             );
           },

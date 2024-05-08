@@ -26,7 +26,7 @@ _$DetailedAccountTransactionDtoImpl
           endBalance: (json['endBalance'] as num).toDouble(),
           detailFields: json['detailFields'] as String?,
           visible: json['visible'] as bool?,
-          bankReceipt: json['bankReceipt'] as bool,
+          bankReceipt: json['bankReceipt'] as bool?,
           originBranch: json['originBranch'] as String,
           originalAmount: (json['originalAmount'] as num).toDouble(),
           originalCurrencyCode: json['originalCurrencyCode'] as String,

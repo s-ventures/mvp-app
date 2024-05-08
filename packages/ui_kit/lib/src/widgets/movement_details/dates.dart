@@ -11,9 +11,9 @@ class MovementDetailsDate extends StatelessWidget {
   });
 
   final String titleStartDate;
-  final String startDate;
+  final String? startDate;
   final String titleEndDate;
-  final String endDate;
+  final String? endDate;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class MovementDetailsDate extends StatelessWidget {
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: startDate,
+                  title: startDate ?? '-',
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,
@@ -55,7 +55,7 @@ class MovementDetailsDate extends StatelessWidget {
                 ),
                 AppSpacing.vertical.s2,
                 Button(
-                  title: endDate,
+                  title: endDate ?? '-',
                   size: ButtonSize.extraSmall,
                   background: context.color.neutralLight100,
                   foreground: context.color.textLight600,

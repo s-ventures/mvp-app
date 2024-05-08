@@ -1,4 +1,4 @@
-extension StringInitials on String {
+extension StringX on String {
   String get initials {
     final stringList = this;
     if (stringList.isEmpty) return '';
@@ -17,4 +17,10 @@ extension StringInitials on String {
   }
 
   String get lastFourCharacters => length >= 4 ? substring(length - 4) : this;
+
+  String get insertSpaceEveryFourCharacters {
+    return replaceAllMapped(RegExp('.{4}'), (match) {
+      return '${match.group(0)} ';
+    }).trim();
+  }
 }
