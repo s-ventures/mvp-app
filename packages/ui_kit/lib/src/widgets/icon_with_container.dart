@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-enum IconWithContainerSize { small, medium, large }
+enum IconWithContainerSize { extraSmall, small, medium, large }
 
 class IconWithContainer extends StatelessWidget {
   const IconWithContainer({
@@ -43,7 +43,9 @@ class IconWithContainer extends StatelessWidget {
           decoration: ShapeDecoration(
             color: backgroundColor,
             shape: RoundedRectangleBorder(
-              borderRadius: borderRadius,
+              borderRadius: size == IconWithContainerSize.extraSmall
+                  ? BorderRadius.circular(6)
+                  : borderRadius,
               side: outlined
                   ? BorderSide(
                       color: context.color.strokeLigth100,
@@ -58,17 +60,24 @@ class IconWithContainer extends StatelessWidget {
                     color: foreground == Colors.black
                         ? context.color.iconLight900
                         : foreground,
-                    size: size == IconWithContainerSize.small
-                        ? 16
-                        : size == IconWithContainerSize.medium
-                            ? 20
-                            : 24,
+                    size: size == IconWithContainerSize.extraSmall
+                        ? 12
+                        : size == IconWithContainerSize.small
+                            ? 16
+                            : size == IconWithContainerSize.medium
+                                ? 24
+                                : 32,
                   )
                 : Text(
                     text!,
-                    style: context.textStyle.h6.copyWith(
-                      color: foreground,
-                    ),
+                    style: size == IconWithContainerSize.extraSmall
+                        ? context.textStyle.buttonTabBar.copyWith(
+                            color: foreground,
+                            fontSize: 8,
+                          )
+                        : context.textStyle.h6.copyWith(
+                            color: foreground,
+                          ),
                   ),
           ),
         ),

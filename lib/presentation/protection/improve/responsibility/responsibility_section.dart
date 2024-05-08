@@ -88,7 +88,7 @@ class ResponsibilitySection extends StatelessWidget {
                 AppSpacing.vertical.s5,
                 const Coverages(
                   title: 'Coberturas incluidas',
-                  coveragesIncludedWithDescription: coverageIncluded,
+                  coveragesWithDescription: coverageIncluded,
                 ),
                 AppSpacing.vertical.s5,
                 Button(

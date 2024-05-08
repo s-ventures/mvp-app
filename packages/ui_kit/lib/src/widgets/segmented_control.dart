@@ -30,16 +30,18 @@ class _SegmentedControlViewState<T> extends State<SegmentedControl<T>> {
 
   @override
   Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: ShapeBorderClipper(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(context.radius.soft),
-          side: BorderSide(color: context.color.neutralLight200),
+    return IntrinsicWidth(
+      child: ClipPath(
+        clipper: ShapeBorderClipper(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(context.radius.soft),
+            side: BorderSide(color: context.color.neutralLight200),
+          ),
         ),
-      ),
-      child: IntrinsicHeight(
-        child: Row(
-          children: [..._buildChildren(context)],
+        child: IntrinsicHeight(
+          child: Row(
+            children: [..._buildChildren(context)],
+          ),
         ),
       ),
     );

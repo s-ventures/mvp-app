@@ -7,6 +7,7 @@ class CustomRadioListTile extends StatelessWidget {
     required this.value,
     required this.groupValue,
     required this.onChanged,
+    this.subtitle,
     this.leadingEmoji,
     this.leadingBackgroundColor,
     this.showRadio = true,
@@ -16,6 +17,7 @@ class CustomRadioListTile extends StatelessWidget {
   });
 
   final String title;
+  final String? subtitle;
   final dynamic value;
   final dynamic groupValue;
   final String? leadingEmoji;
@@ -31,6 +33,14 @@ class CustomRadioListTile extends StatelessWidget {
       borderRadius: borderRadius ?? BorderRadius.zero,
       child: RadioListTile(
         title: Text(title),
+        subtitle: subtitle != null
+            ? Text(
+                subtitle!,
+                style: context.textStyle.buttonTabBar.copyWith(
+                  color: context.color.textLight600,
+                ),
+              )
+            : null,
         value: value,
         groupValue: groupValue,
         onChanged: (value) => onChanged?.call(value),

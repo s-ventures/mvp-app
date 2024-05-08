@@ -161,7 +161,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
                   },
                   onClearFrecuency: () {
                     controller
-                      ..setFrecuencyTo(frecuency)
+                      ..setFrecuencyTo(null)
                       ..applyFilters();
                   },
                 ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/contacts/search/widgets/filter_contacts_bottom_sheet/filter_contacts_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 enum ContactListFilter { all, fav }
@@ -31,12 +34,18 @@ class ContactList extends StatelessWidget {
               icon: IconAssets.filter,
               type: ButtonType.outlined,
               size: ButtonSize.extraSmall,
-              onPressed: () async {},
+              onPressed: () => FilterContactsBottomSheet.show(
+                context: context,
+                onApply: () async {},
+                onReset: () async {},
+              ),
             ),
           ],
         ),
         AppSpacing.vertical.s3,
-        const FakeSearchBar(),
+        FakeSearchBar(
+          onPressed: () => context.pushNamed(AppRoute.contactsSearch.name),
+        ),
         AppSpacing.vertical.s3,
         OutlinedList(
           children: [
@@ -46,7 +55,9 @@ class ContactList extends StatelessWidget {
                 text: 'JC',
                 foreground: context.color.textLight900,
                 backgroundColor: context.color.neutralLight100,
-                subIcon: filteredBy == ContactListFilter.fav ? IconAssets.star : null,
+                subIcon: filteredBy == ContactListFilter.fav
+                    ? IconAssets.star
+                    : null,
               ),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(context.radius.soft),
@@ -56,7 +67,7 @@ class ContactList extends StatelessWidget {
               type: 'Cliente',
               typeForegroundColor: context.color.customerForeground,
               typeBackgroundColor: context.color.customerBackground,
-              onTap: () {},
+              onPressed: () => context.pushNamed(AppRoute.contactDetails.name),
             ),
             ContactListTile(
               name: 'Thomas Magnum',
@@ -64,7 +75,9 @@ class ContactList extends StatelessWidget {
                 text: 'TM',
                 foreground: context.color.textLight900,
                 backgroundColor: context.color.neutralLight100,
-                subIcon: filteredBy == ContactListFilter.fav ? IconAssets.star : null,
+                subIcon: filteredBy == ContactListFilter.fav
+                    ? IconAssets.star
+                    : null,
               ),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(context.radius.soft),
@@ -74,7 +87,7 @@ class ContactList extends StatelessWidget {
               type: 'Proveedor',
               typeForegroundColor: context.color.supplierForeground,
               typeBackgroundColor: context.color.supplierBackground,
-              onTap: () {},
+              onPressed: () {},
             ),
           ],
         ),

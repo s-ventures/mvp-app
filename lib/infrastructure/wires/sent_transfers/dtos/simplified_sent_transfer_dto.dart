@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/simplified_sent_transfer.dart';
-import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_detail_of_charges_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_status_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transfer_detail_of_charges_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transfer_status_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_type_dto.dart';
 
 // {
@@ -51,10 +51,10 @@ class SimplifiedSentTransferDto with _$SimplifiedSentTransferDto {
     required String? settlementCurrencyCode,
     required double? foreignExchange,
     required double? exchangeValue,
-    required SentTransferDetailOfChargesDto? detailOfCharges,
+    required TransferDetailOfChargesDto? detailOfCharges,
     required double? instructedAmount,
     required String? instructedCurrencyCode,
-    required SentTransferStatusTypeDto status,
+    required TransferStatusTypeDto status,
     required String? baasMovementId,
     required String? concept2,
     required int? movementId,

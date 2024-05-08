@@ -68,19 +68,19 @@ class LineBarChart extends StatelessWidget {
               _Value(
                 label: greenLabel!,
                 color: context.color.statusSuccess,
-                value: greenValue.toString(),
+                value: greenValue!.toCurrency(plusSign: false),
               ),
             if (yellowLabel != null)
               _Value(
                 label: yellowLabel!,
                 color: context.color.statusWarning,
-                value: yellowValue.toString(),
+                value: yellowValue!.toCurrency(plusSign: false),
               ),
             if (redLabel != null)
               _Value(
                 label: redLabel!,
                 color: context.color.statusError,
-                value: redValue.toString(),
+                value: redValue!.toCurrency(plusSign: false),
               ),
           ],
         ),

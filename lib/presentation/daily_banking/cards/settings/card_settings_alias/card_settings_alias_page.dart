@@ -46,6 +46,7 @@ class CardSettingsAliasPage extends StatelessWidget {
                           const TextInput(
                             size: TextInputSize.extraSmall,
                             hintText: 'Ej. Tarjeta personal',
+                            labelText: 'Alias',
                           ),
                           AppSpacing.vertical.s5,
                         ],

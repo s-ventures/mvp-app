@@ -76,7 +76,7 @@ class SoonPayContactPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s7,
             TextInput(
-              hintText: 'Concepto',
+              labelText: 'Concepto',
               fillColor: context.color.backgroundLight0,
             ),
           ],

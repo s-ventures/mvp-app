@@ -52,13 +52,11 @@ class _FilterListPeriodicOrdersState
               amountTo: widget.amountTo ?? 0.0,
               onClear: widget.onClearAmountRange,
             ),
-          Visibility(
-            visible: widget.frecuency != null,
-            child: TextFilterListItem(
+          if (widget.frecuency != null)
+            TextFilterListItem(
               textFilter: widget.frecuency!.name,
               onClear: widget.onClearFrecuency,
             ),
-          ),
         ],
       ),
     );

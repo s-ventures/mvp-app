@@ -31,7 +31,7 @@ mixin _$SentTransfersFilter {
   int? get exchangeValueTo => throw _privateConstructorUsedError;
   int? get instructedAmountFrom => throw _privateConstructorUsedError;
   int? get instructedAmountTo => throw _privateConstructorUsedError;
-  SentTransferStatusType? get status => throw _privateConstructorUsedError;
+  TransferStatusType? get status => throw _privateConstructorUsedError;
   String? get baasMovementId => throw _privateConstructorUsedError;
   String? get concept2 => throw _privateConstructorUsedError;
   UniqueId? get sentTransferId => throw _privateConstructorUsedError;
@@ -66,7 +66,7 @@ abstract class $SentTransfersFilterCopyWith<$Res> {
       int? exchangeValueTo,
       int? instructedAmountFrom,
       int? instructedAmountTo,
-      SentTransferStatusType? status,
+      TransferStatusType? status,
       String? baasMovementId,
       String? concept2,
       UniqueId? sentTransferId,
@@ -175,7 +175,7 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SentTransferStatusType?,
+              as TransferStatusType?,
       baasMovementId: freezed == baasMovementId
           ? _value.baasMovementId
           : baasMovementId // ignore: cast_nullable_to_non_nullable
@@ -228,7 +228,7 @@ abstract class _$$SentTransfersFilterImplCopyWith<$Res>
       int? exchangeValueTo,
       int? instructedAmountFrom,
       int? instructedAmountTo,
-      SentTransferStatusType? status,
+      TransferStatusType? status,
       String? baasMovementId,
       String? concept2,
       UniqueId? sentTransferId,
@@ -335,7 +335,7 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as SentTransferStatusType?,
+              as TransferStatusType?,
       baasMovementId: freezed == baasMovementId
           ? _value.baasMovementId
           : baasMovementId // ignore: cast_nullable_to_non_nullable
@@ -422,7 +422,7 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   @override
   final int? instructedAmountTo;
   @override
-  final SentTransferStatusType? status;
+  final TransferStatusType? status;
   @override
   final String? baasMovementId;
   @override
@@ -541,7 +541,7 @@ abstract class _SentTransfersFilter implements SentTransfersFilter {
       final int? exchangeValueTo,
       final int? instructedAmountFrom,
       final int? instructedAmountTo,
-      final SentTransferStatusType? status,
+      final TransferStatusType? status,
       final String? baasMovementId,
       final String? concept2,
       final UniqueId? sentTransferId,
@@ -580,7 +580,7 @@ abstract class _SentTransfersFilter implements SentTransfersFilter {
   @override
   int? get instructedAmountTo;
   @override
-  SentTransferStatusType? get status;
+  TransferStatusType? get status;
   @override
   String? get baasMovementId;
   @override

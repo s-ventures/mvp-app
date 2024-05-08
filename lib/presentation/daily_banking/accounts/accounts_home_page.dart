@@ -7,6 +7,7 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactio
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_sliver_pinned_header.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/account_transaction_list.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/account_transactions_header.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -109,10 +110,11 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                 onTransactionPressed: (transaction) {
                   context.pushNamed(
                     AppRoute.dailyBankingAccountTransactionDetails.name,
-                    pathParameters: {
-                      'transactionId': transaction.id.getOrCrash(),
-                      'accountId': transaction.accountId.getOrCrash(),
-                    },
+                    extra: AccountTransactionDetailsRouteParams(
+                      transactionId: transaction.id.getOrCrash(),
+                      accountId: transaction.accountId.getOrCrash(),
+                      type: transaction.type,
+                    ),
                   );
                 },
               ),

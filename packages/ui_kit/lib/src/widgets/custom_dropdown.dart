@@ -107,7 +107,6 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.size.height,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(context.radius.soft),
@@ -126,8 +125,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
                 prefixIcon: widget.prefixIcon,
                 floatingLabelBehavior: widget.floatingLabelBehavior,
                 labelText: widget.labelText,
-                contentPadding: const EdgeInsets.only(left: 16),
-                enabledBorder: InputBorder.none,
+                enabledBorder: false,
                 suffixIcon: Align(
                   widthFactor: 1,
                   child: IconSvg(
@@ -145,7 +143,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
           overlayColor: MaterialStateProperty.all(Colors.transparent),
         ),
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.only(top: 8),
+          contentPadding: EdgeInsets.zero,
           border: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(context.radius.soft),
             borderSide: BorderSide.none,

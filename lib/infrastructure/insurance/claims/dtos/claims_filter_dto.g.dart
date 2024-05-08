@@ -95,7 +95,7 @@ Value? _$JsonConverterFromJson<Json, Value>(
 
 const _$ClaimStatusTypeDtoEnumMap = {
   ClaimStatusTypeDto.open: 'OPEN',
-  ClaimStatusTypeDto.in_progress: 'IN_PROGRESS',
+  ClaimStatusTypeDto.inProgress: 'IN_PROGRESS',
   ClaimStatusTypeDto.close: 'CLOSE',
 };
 

@@ -19,7 +19,7 @@ class MovementDetailsActions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Recibo',
+          'Adjuntos',
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -29,23 +29,6 @@ class MovementDetailsActions extends StatelessWidget {
           onTap: onUploadFilesPressed,
           child: Text(
             'Subir archivo',
-            style: context.textStyle.bodyMediumSemiBold.copyWith(
-              color: context.color.statusInfo,
-            ),
-          ),
-        ),
-        AppSpacing.vertical.s5,
-        Text(
-          'Gasto',
-          style: context.textStyle.bodyMediumSemiBold.copyWith(
-            color: context.color.textLight600,
-          ),
-        ),
-        AppSpacing.vertical.s3,
-        GestureDetector(
-          onTap: onCreateExpensePressed,
-          child: Text(
-            'Crear gasto',
             style: context.textStyle.bodyMediumSemiBold.copyWith(
               color: context.color.statusInfo,
             ),

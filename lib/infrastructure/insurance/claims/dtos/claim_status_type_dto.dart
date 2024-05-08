@@ -8,14 +8,14 @@ import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ClaimStatusTypeDto {
   open,
-  in_progress,
+  inProgress,
   close,
 }
 
 extension ClaimStatusTypeDtoX on ClaimStatusTypeDto {
   ClaimStatusType toDomain() => switch (this) {
         ClaimStatusTypeDto.open => ClaimStatusType.open,
-        ClaimStatusTypeDto.in_progress => ClaimStatusType.in_progress,
+        ClaimStatusTypeDto.inProgress => ClaimStatusType.inProgress,
         ClaimStatusTypeDto.close => ClaimStatusType.close,
       };
 }

@@ -46,7 +46,7 @@ class AccidentsInsurancePage extends StatelessWidget {
               AppSpacing.vertical.s5,
               const Coverages(
                 title: 'Coberturas incluidas',
-                coveragesIncludedWithDescription: [
+                coveragesWithDescription: [
                   {
                     'title': 'Cobertura de gastos médicos',
                     'description':

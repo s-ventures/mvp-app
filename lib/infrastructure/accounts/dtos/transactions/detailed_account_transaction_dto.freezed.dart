@@ -38,7 +38,7 @@ mixin _$DetailedAccountTransactionDto {
   double get endBalance => throw _privateConstructorUsedError;
   String? get detailFields => throw _privateConstructorUsedError;
   bool? get visible => throw _privateConstructorUsedError;
-  bool get bankReceipt => throw _privateConstructorUsedError;
+  bool? get bankReceipt => throw _privateConstructorUsedError;
   String get originBranch => throw _privateConstructorUsedError;
   double get originalAmount => throw _privateConstructorUsedError;
   String get originalCurrencyCode => throw _privateConstructorUsedError;
@@ -80,7 +80,7 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       double endBalance,
       String? detailFields,
       bool? visible,
-      bool bankReceipt,
+      bool? bankReceipt,
       String originBranch,
       double originalAmount,
       String originalCurrencyCode,
@@ -119,7 +119,7 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? endBalance = null,
     Object? detailFields = freezed,
     Object? visible = freezed,
-    Object? bankReceipt = null,
+    Object? bankReceipt = freezed,
     Object? originBranch = null,
     Object? originalAmount = null,
     Object? originalCurrencyCode = null,
@@ -189,10 +189,10 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.visible
           : visible // ignore: cast_nullable_to_non_nullable
               as bool?,
-      bankReceipt: null == bankReceipt
+      bankReceipt: freezed == bankReceipt
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       originBranch: null == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
@@ -250,7 +250,7 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       double endBalance,
       String? detailFields,
       bool? visible,
-      bool bankReceipt,
+      bool? bankReceipt,
       String originBranch,
       double originalAmount,
       String originalCurrencyCode,
@@ -288,7 +288,7 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? endBalance = null,
     Object? detailFields = freezed,
     Object? visible = freezed,
-    Object? bankReceipt = null,
+    Object? bankReceipt = freezed,
     Object? originBranch = null,
     Object? originalAmount = null,
     Object? originalCurrencyCode = null,
@@ -358,10 +358,10 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.visible
           : visible // ignore: cast_nullable_to_non_nullable
               as bool?,
-      bankReceipt: null == bankReceipt
+      bankReceipt: freezed == bankReceipt
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       originBranch: null == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
@@ -461,7 +461,7 @@ class _$DetailedAccountTransactionDtoImpl
   @override
   final bool? visible;
   @override
-  final bool bankReceipt;
+  final bool? bankReceipt;
   @override
   final String originBranch;
   @override
@@ -604,7 +604,7 @@ abstract class _DetailedAccountTransactionDto
           required final double endBalance,
           required final String? detailFields,
           required final bool? visible,
-          required final bool bankReceipt,
+          required final bool? bankReceipt,
           required final String originBranch,
           required final double originalAmount,
           required final String originalCurrencyCode,
@@ -651,7 +651,7 @@ abstract class _DetailedAccountTransactionDto
   @override
   bool? get visible;
   @override
-  bool get bankReceipt;
+  bool? get bankReceipt;
   @override
   String get originBranch;
   @override

@@ -28,8 +28,8 @@ SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(
       exchangeValueTo: json['exchangeValueTo'] as int?,
       instructedAmountFrom: json['instructedAmountFrom'] as int?,
       instructedAmountTo: json['instructedAmountTo'] as int?,
-      status: $enumDecodeNullable(
-          _$SentTransferStatusTypeDtoEnumMap, json['status']),
+      status:
+          $enumDecodeNullable(_$TransferStatusTypeDtoEnumMap, json['status']),
       baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
       sentTransferId: json['sentTransferId'] as int?,
@@ -82,7 +82,7 @@ Map<String, dynamic> _$SentTransfersFilterDtoToJson(
   writeNotNull('exchangeValueTo', instance.exchangeValueTo);
   writeNotNull('instructedAmountFrom', instance.instructedAmountFrom);
   writeNotNull('instructedAmountTo', instance.instructedAmountTo);
-  writeNotNull('status', _$SentTransferStatusTypeDtoEnumMap[instance.status]);
+  writeNotNull('status', _$TransferStatusTypeDtoEnumMap[instance.status]);
   writeNotNull('baasMovementId', instance.baasMovementId);
   writeNotNull('concept2', instance.concept2);
   writeNotNull('sentTransferId', instance.sentTransferId);
@@ -116,12 +116,12 @@ Value? _$JsonConverterFromJson<Json, Value>(
 ) =>
     json == null ? null : fromJson(json as Json);
 
-const _$SentTransferStatusTypeDtoEnumMap = {
-  SentTransferStatusTypeDto.sent: 'SENT',
-  SentTransferStatusTypeDto.received: 'RECEIVED',
-  SentTransferStatusTypeDto.cancelled: 'CANCELLED',
-  SentTransferStatusTypeDto.pending: 'PENDING',
-  SentTransferStatusTypeDto.rejected: 'REJECTED',
+const _$TransferStatusTypeDtoEnumMap = {
+  TransferStatusTypeDto.sent: 'SENT',
+  TransferStatusTypeDto.received: 'RECEIVED',
+  TransferStatusTypeDto.cancelled: 'CANCELLED',
+  TransferStatusTypeDto.pending: 'PENDING',
+  TransferStatusTypeDto.rejected: 'REJECTED',
 };
 
 Json? _$JsonConverterToJson<Json, Value>(

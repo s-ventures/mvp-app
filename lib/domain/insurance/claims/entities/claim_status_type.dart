@@ -4,7 +4,7 @@ import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/claim_st
 
 enum ClaimStatusType {
   open('Abierto'),
-  in_progress('En curso'), //TODO: pendiente de ver como se recibe del BFMF
+  inProgress('En curso'), //TODO: pendiente de ver como se recibe del BFMF
   close('Finalizado');
 
   const ClaimStatusType(this.name);
@@ -15,7 +15,7 @@ enum ClaimStatusType {
 extension ClaimStatusTypeX on ClaimStatusType {
   ClaimStatusTypeDto toDto() => switch (this) {
         ClaimStatusType.open => ClaimStatusTypeDto.open,
-        ClaimStatusType.in_progress => ClaimStatusTypeDto.in_progress,
+        ClaimStatusType.inProgress => ClaimStatusTypeDto.inProgress,
         ClaimStatusType.close => ClaimStatusTypeDto.close,
       };
 }
