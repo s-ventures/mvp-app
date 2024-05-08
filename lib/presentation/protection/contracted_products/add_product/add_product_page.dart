@@ -34,17 +34,17 @@ class ContractedProductsAddProductPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              hintText: 'Compañía',
+              labelText: 'Compañía',
               fillColor: context.color.backgroundLight0,
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              hintText: 'Seguro',
+              labelText: 'Seguro',
               fillColor: context.color.backgroundLight0,
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              hintText: 'Fecha de renovación',
+              labelText: 'Fecha de renovación',
               fillColor: context.color.backgroundLight0,
             ),
           ],

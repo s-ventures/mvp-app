@@ -16,14 +16,15 @@ class TransactionSearchBar extends StatelessWidget {
         controller: controller,
         hintText: 'Buscar',
         maxLines: 1,
-        prefixIcon: Container(
-          margin: const EdgeInsets.all(AppSpacing.s5),
-          child: IconSvg.small(
-            IconAssets.search,
-            color: context.color.iconLight600,
-          ),
+        prefixIcon: IconSvg.small(
+          IconAssets.search,
+          color: context.color.iconLight600,
         ),
-        fillColor: Colors.white,
+        prefixConstraints: const BoxConstraints.tightFor(
+          height: 16,
+          width: 24,
+        ),
+        contentPadding: const EdgeInsets.all(AppSpacing.s4),
       ),
     );
   }

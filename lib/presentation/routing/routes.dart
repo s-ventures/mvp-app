@@ -45,7 +45,16 @@ enum AppRoute {
   dailyBankingCertsAndDocumentsRequestPaymentOTP('otp'),
   dailyBankingCertsAndDocumentsRequestDownload('download'),
   negocio('/negocio'),
-  agenda('/agenda'),
+  // Contacts
+  contacts('/contacts'),
+  contactsSearch('search'),
+  contactsNewFromAgenda('new-contact-from-agenda'),
+  contactsNewFromUpload('upload-contacts'),
+  contactsNewFromUploadDocumentsUploaded('document-list'),
+  contactsNewFromManual('new-contact'),
+  contactDetails('contact-details'),
+  contactEdit('contact-edit'),
+
   analitica('/analitica'),
   protection('/protection'),
   protectionImprove('improve'),

@@ -21,7 +21,7 @@ class CreditDebit extends ConsumerWidget {
           return CustomCheckboxListTile(
             title: creditDebit.name,
             value: creditDebit == creditDebitValue,
-            onChecked: (value) => controller.setOperationType(creditDebit),
+            onPressed: (value) => controller.setOperationType(creditDebit),
           );
         }),
       ],

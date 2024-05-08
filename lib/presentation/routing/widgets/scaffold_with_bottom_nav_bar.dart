@@ -33,7 +33,7 @@ class ScaffoldWithBottomNavBar extends ConsumerWidget {
     } else if (index == 1) {
       context.goNamed(AppRoute.negocio.name);
     } else if (index == 2) {
-      context.goNamed(AppRoute.agenda.name);
+      context.goNamed(AppRoute.contacts.name);
     } else if (index == 3) {
       context.goNamed(AppRoute.analitica.name);
     } else if (index == 4) {
