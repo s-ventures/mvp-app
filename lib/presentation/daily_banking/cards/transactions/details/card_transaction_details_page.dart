@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/detailed/detailed_card_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -12,8 +15,8 @@ class CardTransactionDetailsPage extends ConsumerStatefulWidget {
     super.key,
   });
 
-  final String cardContractId;
-  final String transactionId;
+  final int cardContractId;
+  final int transactionId;
 
   @override
   ConsumerState<CardTransactionDetailsPage> createState() =>
@@ -23,7 +26,22 @@ class CardTransactionDetailsPage extends ConsumerStatefulWidget {
 class _CardTransactionDetailsPageState
     extends ConsumerState<CardTransactionDetailsPage> {
   @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(detailedCardTransactionControllerProvider.notifier).init(
+              cardContractId: widget.cardContractId,
+              transactionId: widget.transactionId,
+            ),
+      );
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final transaction =
+        ref.watch(detailedCardTransactionControllerProvider).transaction;
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -67,46 +85,61 @@ class _CardTransactionDetailsPageState
               ),
             ];
           },
-          body: ListView(
-            padding: const EdgeInsets.all(AppSpacing.s5),
-            children: [
-              MovementDetailsSummary(
-                title: 'Adobe Store',
-                iconText: '💳',
-                iconBgColor: context.color.primaryLight100,
-                amount: -25,
-                date: DateTime.now(),
-                status: MovementStatus.completed,
+          body: transaction.when(
+            data: (transaction) => ListView(
+              padding: const EdgeInsets.all(AppSpacing.s5),
+              children: [
+                MovementDetailsSummary(
+                  title: transaction.merchantName,
+                  iconText: '💳',
+                  iconBgColor: context.color.primaryLight100,
+                  amount: transaction.amount,
+                  date: transaction.postingDate,
+                ),
+                AppSpacing.vertical.s5,
+                //TODO: Mapa pendiente de implementar
+                const MovementDetailsMap(
+                  location: 'Madrid, España',
+                ),
+                AppSpacing.vertical.s5,
+                const MovementDetailsBankingInfo(
+                  type: BankAccountType.card,
+                  //TODO: Nos falta el numero de tarjeta en el DTO
+                  last4: '1234',
+                  icon: '🖥️',
+                  category: 'Tecnología',
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsDescription(
+                  text: transaction.description ?? '',
+                ),
+                AppSpacing.vertical.s5,
+                const MovementDetailsVoucher(),
+                AppSpacing.vertical.s5,
+                CardMovementDetailsActions(
+                  onUploadFilesPressed: () {
+                    UploadFilesBottomSheet.show(context: context);
+                  },
+                  onCreateExpensePressed: () {
+                    context.goNamed(AppRoute.negocio.name);
+                  },
+                ),
+                AppSpacing.vertical.s5,
+                const MovementDetailsGettingHelp(),
+                AppSpacing.vertical.s5,
+              ],
+            ),
+            error: (error, _) => Center(
+              child: Text(
+                error.toString(),
+                style: context.textStyle.bodySmallRegular.copyWith(
+                  color: context.color.error,
+                ),
               ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsMap(
-                location: 'Madrid, España',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsBankingInfo(
-                type: BankAccountType.account,
-                last4: '1234',
-                icon: '🖥️',
-                category: 'Tecnología',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsDescription(
-                text: 'Compra de licencia de Adobe',
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsVoucher(),
-              AppSpacing.vertical.s5,
-              MovementDetailsActions(
-                onUploadFilesPressed: () {
-                  UploadFilesBottomSheet.show(context: context);
-                },
-                onCreateExpensePressed: () {
-                  context.goNamed(AppRoute.negocio.name);
-                },
-              ),
-              AppSpacing.vertical.s5,
-              const MovementDetailsGettingHelp(),
-            ],
+            ),
+            loading: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
           ),
         ),
       ),

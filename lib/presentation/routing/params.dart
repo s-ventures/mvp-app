@@ -20,8 +20,8 @@ class WebViewPageRouteParams {
 
 // DAILY BANKING
 // Transaction details
-class TransactionDetailsRouteParams {
-  const TransactionDetailsRouteParams({
+class AccountTransactionDetailsRouteParams {
+  const AccountTransactionDetailsRouteParams({
     required this.transactionId,
     required this.accountId,
     required this.type,
@@ -30,6 +30,16 @@ class TransactionDetailsRouteParams {
   final String transactionId;
   final String accountId;
   final AccountTransactionType type;
+}
+
+class CardTransactionDetailsRouteParams {
+  const CardTransactionDetailsRouteParams({
+    required this.cardContractId,
+    required this.transactionId,
+  });
+
+  final int cardContractId;
+  final int transactionId;
 }
 
 // Wires

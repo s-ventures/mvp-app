@@ -11,9 +11,7 @@ enum AppRoute {
   dailyBankingSearchCardTransactions('search-card-transactions'),
   dailyBankingCardSettingsLimits('limits'),
   dailyBankingCardSettingsAlias('alias'),
-  dailyBankingCardTransactionDetails(
-    'cards/:cardContractId/transaction/:transactionId',
-  ),
+  dailyBankingCardTransactionDetails('card-transaction-details'),
   dailyBankingAggregatedAccounts('aggregated-accounts'),
   dailyBankingInsurancePoliciesList('policies-list'),
   dailyBankingInsuranceClaimsList('claims-list'),

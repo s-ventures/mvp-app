@@ -26,7 +26,6 @@ class TransactionCardDetails extends StatelessWidget {
           iconBgColor: context.color.primaryLight100,
           amount: transaction.amount,
           date: transaction.postingDate,
-          status: MovementStatus.completed,
         ),
         AppSpacing.vertical.s5,
         //TODO: Mapa pendiente de implementar

@@ -1,22 +1,19 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 
-class DetailedCardTransaction extends ExtendedTransactionDetails {
-  DetailedCardTransaction({
-    required this.movementId,
-    required this.amount,
-    required this.postingDate,
-    required this.description,
-    required this.placeId,
-    required this.merchantName,
-    required this.concept,
-  });
+part 'detailed_card_transaction.freezed.dart';
 
-  final UniqueId movementId;
-  final double amount;
-  final DateTime postingDate;
-  final String? description;
-  final String? placeId;
-  final String merchantName;
-  final String concept;
+@freezed
+class DetailedCardTransaction extends ExtendedTransactionDetails
+    with _$DetailedCardTransaction {
+  const factory DetailedCardTransaction({
+    required UniqueId movementId,
+    required double amount,
+    required DateTime postingDate,
+    required String? description,
+    required String? placeId,
+    required String merchantName,
+    required String concept,
+  }) = _DetailedCardTransaction;
 }

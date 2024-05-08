@@ -26,6 +26,8 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/detailed_card_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_attachment_dto.dart';
@@ -82,4 +84,18 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
 
   @override
   Map<String, dynamic> toJson() => _$DetailedCardTransactionDtoToJson(this);
+}
+
+extension DetailedClaimDtoX on DetailedCardTransactionDto {
+  DetailedCardTransaction toDomain() {
+    return DetailedCardTransaction(
+      movementId: UniqueId.fromUniqueString(movementId.toString()),
+      amount: amount,
+      postingDate: postingDate,
+      description: description,
+      placeId: placeId,
+      merchantName: merchantName,
+      concept: concept,
+    );
+  }
 }

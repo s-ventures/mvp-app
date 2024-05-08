@@ -110,7 +110,7 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                 onTransactionPressed: (transaction) {
                   context.pushNamed(
                     AppRoute.dailyBankingAccountTransactionDetails.name,
-                    extra: TransactionDetailsRouteParams(
+                    extra: AccountTransactionDetailsRouteParams(
                       transactionId: transaction.id.getOrCrash(),
                       accountId: transaction.accountId.getOrCrash(),
                       type: transaction.type,

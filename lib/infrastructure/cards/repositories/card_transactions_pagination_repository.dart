@@ -10,7 +10,7 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pa
 final cardTransactionsPaginationRepositoryProvider =
     Provider<CardTransactionsPaginationRepository>(
   (ref) => CardTransactionsPaginationRepository(
-    ref.watch(simplifiedCardTransactionsRepositoryProvider),
+    ref.watch(cardTransactionsRepositoryProvider),
     ref.watch(cardsRepositoryProvider),
   ),
 );
