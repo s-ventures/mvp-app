@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
+import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_attachments_state_notifier.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/account_transactions_repository.dart';
 
@@ -8,8 +9,14 @@ final detailedAccountTransactionControllerProvider =
   (ref) => DetailedAccountTransactionController(ref.watch(accountTransactionsRepositoryProvider)),
 );
 
-class DetailedAccountTransactionController extends StateNotifier<DetailedAccountTransactionState> {
-  DetailedAccountTransactionController(this._repository) : super(const DetailedAccountTransactionState());
+class DetailedAccountTransactionController extends UploadAttachmentsStateNotifier<DetailedAccountTransactionState> {
+  DetailedAccountTransactionController(this._repository)
+      : super(
+          const DetailedAccountTransactionState(),
+          repository: _repository,
+          maxFiles: 3,
+          maxFileSizeMb: 10,
+        );
 
   final AccountTransactionsRepository _repository;
 

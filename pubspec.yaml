@@ -10,6 +10,7 @@ environment:
 dependencies:
   CleafyPlugin:
     path: ./packages/cleafy-plugin
+  async: ^2.11.0
   dio: ^5.4.0
   flutter:
     sdk: flutter

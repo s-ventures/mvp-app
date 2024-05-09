@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DetailedAccountTransactionState {
   AsyncValue<DetailedAccountTransaction> get transaction =>
       throw _privateConstructorUsedError;
+  List<FileAttachment> get attachments => throw _privateConstructorUsedError;
+  SingleAccessValue<UploadFileFailure> get uploadFailure =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedAccountTransactionStateCopyWith<DetailedAccountTransactionState>
@@ -32,7 +35,10 @@ abstract class $DetailedAccountTransactionStateCopyWith<$Res> {
       _$DetailedAccountTransactionStateCopyWithImpl<$Res,
           DetailedAccountTransactionState>;
   @useResult
-  $Res call({AsyncValue<DetailedAccountTransaction> transaction});
+  $Res call(
+      {AsyncValue<DetailedAccountTransaction> transaction,
+      List<FileAttachment> attachments,
+      SingleAccessValue<UploadFileFailure> uploadFailure});
 }
 
 /// @nodoc
@@ -50,12 +56,22 @@ class _$DetailedAccountTransactionStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? transaction = null,
+    Object? attachments = null,
+    Object? uploadFailure = null,
   }) {
     return _then(_value.copyWith(
       transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as AsyncValue<DetailedAccountTransaction>,
+      attachments: null == attachments
+          ? _value.attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
+      uploadFailure: null == uploadFailure
+          ? _value.uploadFailure
+          : uploadFailure // ignore: cast_nullable_to_non_nullable
+              as SingleAccessValue<UploadFileFailure>,
     ) as $Val);
   }
 }
@@ -69,7 +85,10 @@ abstract class _$$DetailedAccountTransactionStateImplCopyWith<$Res>
       __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<DetailedAccountTransaction> transaction});
+  $Res call(
+      {AsyncValue<DetailedAccountTransaction> transaction,
+      List<FileAttachment> attachments,
+      SingleAccessValue<UploadFileFailure> uploadFailure});
 }
 
 /// @nodoc
@@ -86,12 +105,22 @@ class __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? transaction = null,
+    Object? attachments = null,
+    Object? uploadFailure = null,
   }) {
     return _then(_$DetailedAccountTransactionStateImpl(
       transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as AsyncValue<DetailedAccountTransaction>,
+      attachments: null == attachments
+          ? _value._attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
+      uploadFailure: null == uploadFailure
+          ? _value.uploadFailure
+          : uploadFailure // ignore: cast_nullable_to_non_nullable
+              as SingleAccessValue<UploadFileFailure>,
     ));
   }
 }
@@ -99,17 +128,33 @@ class __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DetailedAccountTransactionStateImpl
-    implements _DetailedAccountTransactionState {
+    extends _DetailedAccountTransactionState {
   const _$DetailedAccountTransactionStateImpl(
-      {this.transaction = const AsyncLoading<DetailedAccountTransaction>()});
+      {this.transaction = const AsyncLoading<DetailedAccountTransaction>(),
+      final List<FileAttachment> attachments = const [],
+      this.uploadFailure = const SingleAccessVoid<UploadFileFailure>()})
+      : _attachments = attachments,
+        super._();
 
   @override
   @JsonKey()
   final AsyncValue<DetailedAccountTransaction> transaction;
+  final List<FileAttachment> _attachments;
+  @override
+  @JsonKey()
+  List<FileAttachment> get attachments {
+    if (_attachments is EqualUnmodifiableListView) return _attachments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attachments);
+  }
+
+  @override
+  @JsonKey()
+  final SingleAccessValue<UploadFileFailure> uploadFailure;
 
   @override
   String toString() {
-    return 'DetailedAccountTransactionState(transaction: $transaction)';
+    return 'DetailedAccountTransactionState(transaction: $transaction, attachments: $attachments, uploadFailure: $uploadFailure)';
   }
 
   @override
@@ -118,11 +163,16 @@ class _$DetailedAccountTransactionStateImpl
         (other.runtimeType == runtimeType &&
             other is _$DetailedAccountTransactionStateImpl &&
             (identical(other.transaction, transaction) ||
-                other.transaction == transaction));
+                other.transaction == transaction) &&
+            const DeepCollectionEquality()
+                .equals(other._attachments, _attachments) &&
+            (identical(other.uploadFailure, uploadFailure) ||
+                other.uploadFailure == uploadFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transaction);
+  int get hashCode => Object.hash(runtimeType, transaction,
+      const DeepCollectionEquality().hash(_attachments), uploadFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -134,13 +184,20 @@ class _$DetailedAccountTransactionStateImpl
 }
 
 abstract class _DetailedAccountTransactionState
-    implements DetailedAccountTransactionState {
+    extends DetailedAccountTransactionState implements UploadAttachmentState {
   const factory _DetailedAccountTransactionState(
-          {final AsyncValue<DetailedAccountTransaction> transaction}) =
+          {final AsyncValue<DetailedAccountTransaction> transaction,
+          final List<FileAttachment> attachments,
+          final SingleAccessValue<UploadFileFailure> uploadFailure}) =
       _$DetailedAccountTransactionStateImpl;
+  const _DetailedAccountTransactionState._() : super._();
 
   @override
   AsyncValue<DetailedAccountTransaction> get transaction;
+  @override
+  List<FileAttachment> get attachments;
+  @override
+  SingleAccessValue<UploadFileFailure> get uploadFailure;
   @override
   @JsonKey(ignore: true)
   _$$DetailedAccountTransactionStateImplCopyWith<

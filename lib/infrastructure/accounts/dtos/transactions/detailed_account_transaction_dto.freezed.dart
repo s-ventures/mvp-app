@@ -37,7 +37,8 @@ mixin _$DetailedAccountTransactionDto {
   int get accountId => throw _privateConstructorUsedError;
   double get endBalance => throw _privateConstructorUsedError;
   String? get detailFields => throw _privateConstructorUsedError;
-  bool? get visible => throw _privateConstructorUsedError;
+  bool? get visible =>
+      throw _privateConstructorUsedError; // TODO: Revisar con Back-End si es obligatorio este campo
   bool? get bankReceipt => throw _privateConstructorUsedError;
   String get originBranch => throw _privateConstructorUsedError;
   double get originalAmount => throw _privateConstructorUsedError;
@@ -460,6 +461,7 @@ class _$DetailedAccountTransactionDtoImpl
   final String? detailFields;
   @override
   final bool? visible;
+// TODO: Revisar con Back-End si es obligatorio este campo
   @override
   final bool? bankReceipt;
   @override
@@ -650,7 +652,7 @@ abstract class _DetailedAccountTransactionDto
   String? get detailFields;
   @override
   bool? get visible;
-  @override
+  @override // TODO: Revisar con Back-End si es obligatorio este campo
   bool? get bankReceipt;
   @override
   String get originBranch;

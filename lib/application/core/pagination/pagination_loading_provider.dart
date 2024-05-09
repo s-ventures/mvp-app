@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/core/extensions/stream_extensions.dart';
+import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 

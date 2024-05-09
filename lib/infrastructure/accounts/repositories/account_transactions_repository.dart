@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:async/src/cancelable_operation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transactions_filter.dart';
@@ -6,6 +9,9 @@ import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/simplif
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/failures/detailed_account_transaction_failure.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/failures/simplified_account_transaction_failure.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/repositories/i_account_transactions_repository.dart';
+import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
+import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
+import 'package:manifiesto_mvp_app/domain/upload/repositories/upload_file_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/data_sources/remote/account_transactions_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transactions_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/detailed_account_transaction_dto.dart';
@@ -13,8 +19,7 @@ import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/sim
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_transactions_rest_client.dart';
 
-final accountTransactionsRepositoryProvider =
-    Provider<AccountTransactionsRepository>(
+final accountTransactionsRepositoryProvider = Provider<AccountTransactionsRepository>(
   (ref) => AccountTransactionsRepository(
     remoteDataSource: AccountTransactionsRemoteDataSource(
       ref.watch(accountTransactionsRestClientProvider),
@@ -22,7 +27,7 @@ final accountTransactionsRepositoryProvider =
   ),
 );
 
-class AccountTransactionsRepository implements IAccountTransactionsRepository {
+class AccountTransactionsRepository implements IAccountTransactionsRepository, UploadFileRepository {
   AccountTransactionsRepository({
     required AccountTransactionsRemoteDataSource remoteDataSource,
   }) : _remoteDataSource = remoteDataSource;
@@ -30,9 +35,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
   final AccountTransactionsRemoteDataSource _remoteDataSource;
 
   @override
-  Future<
-          Either<SimplifiedAccountTransactionFailure,
-              Map<DateTime, List<SimplifiedAccountTransaction>>>>
+  Future<Either<SimplifiedAccountTransactionFailure, Map<DateTime, List<SimplifiedAccountTransaction>>>>
       getSimplifiedAccountTransactions({
     required AccountTransactionsFilter filter,
     int page = 0,
@@ -51,8 +54,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
       onPaginationInfo?.call(response.totalPages, response.totalElements);
       return right({
         for (final e in response.data)
-          const DateConverter().fromJson(e.date):
-              e.transactions.map((e) => e.toDomain()).toList(),
+          const DateConverter().fromJson(e.date): e.transactions.map((e) => e.toDomain()).toList(),
       });
     } catch (_) {
       return left(const SimplifiedAccountTransactionFailure.unexpected());
@@ -60,8 +62,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
   }
 
   @override
-  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>>
-      getDetailedAccountTransaction({
+  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>> getDetailedAccountTransaction({
     required String accountId,
     required String transactionId,
   }) async {
@@ -74,5 +75,11 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
     } catch (_) {
       return left(const DetailedAccountTransactionFaillure.unexpected());
     }
+  }
+
+  @override
+  CancelableOperation<Either<UploadFileFailure, FileAttachmentUploaded>> uploadFile(File file) {
+    // TODO: implement uploadFile
+    throw UnimplementedError();
   }
 }
