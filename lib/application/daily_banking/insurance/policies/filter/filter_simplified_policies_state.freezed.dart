@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'policies_filter.dart';
+part of 'filter_simplified_policies_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,31 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$PoliciesFilter {
+mixin _$FilterSimplifiedPoliciesState {
   DateTime? get createDateFrom => throw _privateConstructorUsedError;
   DateTime? get createDateTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PoliciesFilterCopyWith<PoliciesFilter> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FilterSimplifiedPoliciesStateCopyWith<FilterSimplifiedPoliciesState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PoliciesFilterCopyWith<$Res> {
-  factory $PoliciesFilterCopyWith(
-          PoliciesFilter value, $Res Function(PoliciesFilter) then) =
-      _$PoliciesFilterCopyWithImpl<$Res, PoliciesFilter>;
+abstract class $FilterSimplifiedPoliciesStateCopyWith<$Res> {
+  factory $FilterSimplifiedPoliciesStateCopyWith(
+          FilterSimplifiedPoliciesState value,
+          $Res Function(FilterSimplifiedPoliciesState) then) =
+      _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res,
+          FilterSimplifiedPoliciesState>;
   @useResult
   $Res call({DateTime? createDateFrom, DateTime? createDateTo});
 }
 
 /// @nodoc
-class _$PoliciesFilterCopyWithImpl<$Res, $Val extends PoliciesFilter>
-    implements $PoliciesFilterCopyWith<$Res> {
-  _$PoliciesFilterCopyWithImpl(this._value, this._then);
+class _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res,
+        $Val extends FilterSimplifiedPoliciesState>
+    implements $FilterSimplifiedPoliciesStateCopyWith<$Res> {
+  _$FilterSimplifiedPoliciesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,22 +66,25 @@ class _$PoliciesFilterCopyWithImpl<$Res, $Val extends PoliciesFilter>
 }
 
 /// @nodoc
-abstract class _$$PoliciesFilterImplCopyWith<$Res>
-    implements $PoliciesFilterCopyWith<$Res> {
-  factory _$$PoliciesFilterImplCopyWith(_$PoliciesFilterImpl value,
-          $Res Function(_$PoliciesFilterImpl) then) =
-      __$$PoliciesFilterImplCopyWithImpl<$Res>;
+abstract class _$$FilterSimplifiedPoliciesStateImplCopyWith<$Res>
+    implements $FilterSimplifiedPoliciesStateCopyWith<$Res> {
+  factory _$$FilterSimplifiedPoliciesStateImplCopyWith(
+          _$FilterSimplifiedPoliciesStateImpl value,
+          $Res Function(_$FilterSimplifiedPoliciesStateImpl) then) =
+      __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DateTime? createDateFrom, DateTime? createDateTo});
 }
 
 /// @nodoc
-class __$$PoliciesFilterImplCopyWithImpl<$Res>
-    extends _$PoliciesFilterCopyWithImpl<$Res, _$PoliciesFilterImpl>
-    implements _$$PoliciesFilterImplCopyWith<$Res> {
-  __$$PoliciesFilterImplCopyWithImpl(
-      _$PoliciesFilterImpl _value, $Res Function(_$PoliciesFilterImpl) _then)
+class __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<$Res>
+    extends _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res,
+        _$FilterSimplifiedPoliciesStateImpl>
+    implements _$$FilterSimplifiedPoliciesStateImplCopyWith<$Res> {
+  __$$FilterSimplifiedPoliciesStateImplCopyWithImpl(
+      _$FilterSimplifiedPoliciesStateImpl _value,
+      $Res Function(_$FilterSimplifiedPoliciesStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +93,7 @@ class __$$PoliciesFilterImplCopyWithImpl<$Res>
     Object? createDateFrom = freezed,
     Object? createDateTo = freezed,
   }) {
-    return _then(_$PoliciesFilterImpl(
+    return _then(_$FilterSimplifiedPoliciesStateImpl(
       createDateFrom: freezed == createDateFrom
           ? _value.createDateFrom
           : createDateFrom // ignore: cast_nullable_to_non_nullable
@@ -102,8 +108,10 @@ class __$$PoliciesFilterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PoliciesFilterImpl implements _PoliciesFilter {
-  const _$PoliciesFilterImpl({this.createDateFrom, this.createDateTo});
+class _$FilterSimplifiedPoliciesStateImpl
+    implements _FilterSimplifiedPoliciesState {
+  const _$FilterSimplifiedPoliciesStateImpl(
+      {this.createDateFrom, this.createDateTo});
 
   @override
   final DateTime? createDateFrom;
@@ -112,14 +120,14 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
 
   @override
   String toString() {
-    return 'PoliciesFilter(createDateFrom: $createDateFrom, createDateTo: $createDateTo)';
+    return 'FilterSimplifiedPoliciesState(createDateFrom: $createDateFrom, createDateTo: $createDateTo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PoliciesFilterImpl &&
+            other is _$FilterSimplifiedPoliciesStateImpl &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
             (identical(other.createDateTo, createDateTo) ||
@@ -132,15 +140,17 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PoliciesFilterImplCopyWith<_$PoliciesFilterImpl> get copyWith =>
-      __$$PoliciesFilterImplCopyWithImpl<_$PoliciesFilterImpl>(
-          this, _$identity);
+  _$$FilterSimplifiedPoliciesStateImplCopyWith<
+          _$FilterSimplifiedPoliciesStateImpl>
+      get copyWith => __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<
+          _$FilterSimplifiedPoliciesStateImpl>(this, _$identity);
 }
 
-abstract class _PoliciesFilter implements PoliciesFilter {
-  const factory _PoliciesFilter(
+abstract class _FilterSimplifiedPoliciesState
+    implements FilterSimplifiedPoliciesState {
+  const factory _FilterSimplifiedPoliciesState(
       {final DateTime? createDateFrom,
-      final DateTime? createDateTo}) = _$PoliciesFilterImpl;
+      final DateTime? createDateTo}) = _$FilterSimplifiedPoliciesStateImpl;
 
   @override
   DateTime? get createDateFrom;
@@ -148,6 +158,7 @@ abstract class _PoliciesFilter implements PoliciesFilter {
   DateTime? get createDateTo;
   @override
   @JsonKey(ignore: true)
-  _$$PoliciesFilterImplCopyWith<_$PoliciesFilterImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FilterSimplifiedPoliciesStateImplCopyWith<
+          _$FilterSimplifiedPoliciesStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

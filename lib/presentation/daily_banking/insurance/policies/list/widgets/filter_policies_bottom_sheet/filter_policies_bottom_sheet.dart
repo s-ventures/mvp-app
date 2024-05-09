@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class FilterPoliciesBottomSheet {
-  static Future<void> show({required BuildContext context}) {
+  static Future<void> show({
+    required BuildContext context,
+    required Future<void> Function() onApply,
+    required Future<void> Function() onReset,
+    required ValueChanged<DateTime> setStartDate,
+    required ValueChanged<DateTime> setEndDate,
+    required DateTime? startDate,
+    required DateTime? endDate,
+  }) {
     final pageIndexNotifier = ValueNotifier(0);
 
     return WoltModalSheet.show(
@@ -18,7 +25,16 @@ class FilterPoliciesBottomSheet {
       maxPageHeight: 0.99,
       onModalDismissedWithBarrierTap: () => context.pop(),
       pageListBuilder: (modalSheetContext) => [
-        _buildFilters(modalSheetContext, pageIndexNotifier),
+        _buildFilters(
+          modalSheetContext,
+          pageIndexNotifier,
+          onApply,
+          onReset,
+          setStartDate,
+          setEndDate,
+          startDate,
+          endDate,
+        ),
         _buildCategories(modalSheetContext, pageIndexNotifier),
       ],
     );
@@ -27,13 +43,17 @@ class FilterPoliciesBottomSheet {
   static SliverWoltModalSheetPage _buildFilters(
     BuildContext context,
     ValueNotifier<int> pageIndexNotifier,
+    Future<void> Function() onApply,
+    Future<void> Function() onReset,
+    ValueChanged<DateTime> setStartDate,
+    ValueChanged<DateTime> setEndDate,
+    DateTime? startDate,
+    DateTime? endDate,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
         stickyActionBar: Padding(
           padding: const EdgeInsets.only(
-            top: AppSpacing.s5,
-            left: AppSpacing.s5,
             right: AppSpacing.s5,
             bottom: AppSpacing.s7,
           ),
@@ -44,14 +64,16 @@ class FilterPoliciesBottomSheet {
                 title: 'Descartar filtros',
                 type: ButtonType.text,
                 size: ButtonSize.small,
-                onPressed: () async {},
+                onPressed: () async {
+                  await onReset().then((_) => context.pop());
+                },
               ),
               Button(
                 title: 'Aplicar',
                 size: ButtonSize.small,
-                onPressed: () async => context.pushNamed(
-                  AppRoute.dailyBankingInsurancePoliciesList.name,
-                ),
+                onPressed: () async {
+                  await onApply().then((_) => context.pop());
+                },
               ),
             ],
           ),
@@ -76,13 +98,27 @@ class FilterPoliciesBottomSheet {
               left: AppSpacing.s5,
               right: AppSpacing.s5,
               top: AppSpacing.s5,
-              bottom: 96,
+              bottom: 100,
             ),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
                   Text(
-                    'Ramo',
+                    'Fecha',
+                    style: context.textStyle.bodyMediumSemiBold.copyWith(
+                      color: context.color.textLight600,
+                    ),
+                  ),
+                  AppSpacing.vertical.s2,
+                  DateRangeFilter(
+                    startDate: startDate,
+                    endDate: endDate,
+                    setStartDate: (DateTime value) => setStartDate(value),
+                    setEndDate: (DateTime value) => setEndDate(value),
+                  ),
+                  AppSpacing.vertical.s5,
+                  Text(
+                    'Categoría',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
