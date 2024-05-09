@@ -22,7 +22,11 @@ class PolicyDetailsTab extends ConsumerStatefulWidget {
   ConsumerState<PolicyDetailsTab> createState() => _PolicyDetailsTabState();
 }
 
-class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
+class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -38,6 +42,7 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final policy = ref.watch(detailedPolicyControllerProvider).policy;
 
     return policy.when(
