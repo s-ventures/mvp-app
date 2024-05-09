@@ -13,7 +13,7 @@ TransferOutDto _$TransferOutDtoFromJson(Map<String, dynamic> json) =>
       bankOperationCode: json['bankOperationCode'] as String?,
       senderBank: json['senderBank'] as String?,
       accountId: json['accountId'] as int,
-      cusomerId: json['cusomerId'] as int,
+      customerId: json['customerId'] as int,
       orderDate: _$JsonConverterFromJson<String, DateTime>(
           json['orderDate'], const DateConverter().fromJson),
       valueDate: _$JsonConverterFromJson<String, DateTime>(
@@ -71,7 +71,7 @@ Map<String, dynamic> _$TransferOutDtoToJson(TransferOutDto instance) {
   writeNotNull('bankOperationCode', instance.bankOperationCode);
   writeNotNull('senderBank', instance.senderBank);
   val['accountId'] = instance.accountId;
-  val['cusomerId'] = instance.cusomerId;
+  val['customerId'] = instance.customerId;
   writeNotNull(
       'orderDate',
       _$JsonConverterToJson<String, DateTime>(
