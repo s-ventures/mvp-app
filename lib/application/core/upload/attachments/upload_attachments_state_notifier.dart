@@ -71,7 +71,7 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
     _filesUploadSubject.add(filesToUpload.map((e) => File(e.path)).toList());
   }
 
-  Future<void> removeFile(String fileId) async {
+  Future<void> removeFile(int fileId) async {
     final attachments = state.attachments.toList();
     final index = attachments.indexWhere(
       (image) => image.asAttached()?.id == fileId,

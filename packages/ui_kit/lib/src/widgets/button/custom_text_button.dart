@@ -13,12 +13,12 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const borderRadius = BorderRadius.all(Radius.circular(AppSpacing.s3));
+    final borderRadius = BorderRadius.all(Radius.circular(context.radius.soft));
 
     return Material(
       color: Colors.transparent,
       child: Ink(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           borderRadius: borderRadius,
         ),
         child: InkWell(

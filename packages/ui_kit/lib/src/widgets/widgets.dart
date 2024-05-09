@@ -1,5 +1,6 @@
 export 'alert_bottom_sheet.dart';
 export 'button.dart';
+export 'button/custom_text_button.dart';
 export 'button/switch_view.dart';
 export 'card_svg.dart';
 export 'checkbox/checkbox.dart';
@@ -44,7 +45,6 @@ export 'movement_details/issuer_name.dart';
 export 'movement_details/ordering.dart';
 export 'movement_details/summary.dart';
 export 'movement_details/transaction_map.dart';
-export 'movement_details/upload_attachments.dart';
 export 'movement_details/voucher.dart';
 export 'otp_page.dart';
 export 'protection/custom_line_bars_chart.dart';

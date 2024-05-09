@@ -40,21 +40,21 @@ mixin _$UploadFileFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileExceedsMaxSize value) uploadFailed,
+    required TResult Function(_UploadFailed value) uploadFailed,
     required TResult Function(_FileExceedsMaxSize value) fileExceedsMaxSize,
     required TResult Function(_Unexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult? Function(_UploadFailed value)? uploadFailed,
     TResult? Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult? Function(_Unexpected value)? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult Function(_UploadFailed value)? uploadFailed,
     TResult Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
@@ -81,25 +81,25 @@ class _$UploadFileFailureCopyWithImpl<$Res, $Val extends UploadFileFailure>
 }
 
 /// @nodoc
-abstract class _$$FileExceedsMaxSizeImplCopyWith<$Res> {
-  factory _$$FileExceedsMaxSizeImplCopyWith(_$FileExceedsMaxSizeImpl value,
-          $Res Function(_$FileExceedsMaxSizeImpl) then) =
-      __$$FileExceedsMaxSizeImplCopyWithImpl<$Res>;
+abstract class _$$UploadFailedImplCopyWith<$Res> {
+  factory _$$UploadFailedImplCopyWith(
+          _$UploadFailedImpl value, $Res Function(_$UploadFailedImpl) then) =
+      __$$UploadFailedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FileExceedsMaxSizeImplCopyWithImpl<$Res>
-    extends _$UploadFileFailureCopyWithImpl<$Res, _$FileExceedsMaxSizeImpl>
-    implements _$$FileExceedsMaxSizeImplCopyWith<$Res> {
-  __$$FileExceedsMaxSizeImplCopyWithImpl(_$FileExceedsMaxSizeImpl _value,
-      $Res Function(_$FileExceedsMaxSizeImpl) _then)
+class __$$UploadFailedImplCopyWithImpl<$Res>
+    extends _$UploadFileFailureCopyWithImpl<$Res, _$UploadFailedImpl>
+    implements _$$UploadFailedImplCopyWith<$Res> {
+  __$$UploadFailedImplCopyWithImpl(
+      _$UploadFailedImpl _value, $Res Function(_$UploadFailedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
-  const _$FileExceedsMaxSizeImpl();
+class _$UploadFailedImpl implements _UploadFailed {
+  const _$UploadFailedImpl();
 
   @override
   String toString() {
@@ -109,7 +109,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FileExceedsMaxSizeImpl);
+        (other.runtimeType == runtimeType && other is _$UploadFailedImpl);
   }
 
   @override
@@ -152,7 +152,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileExceedsMaxSize value) uploadFailed,
+    required TResult Function(_UploadFailed value) uploadFailed,
     required TResult Function(_FileExceedsMaxSize value) fileExceedsMaxSize,
     required TResult Function(_Unexpected value) unexpected,
   }) {
@@ -162,7 +162,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult? Function(_UploadFailed value)? uploadFailed,
     TResult? Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult? Function(_Unexpected value)? unexpected,
   }) {
@@ -172,7 +172,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult Function(_UploadFailed value)? uploadFailed,
     TResult Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
@@ -184,8 +184,8 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   }
 }
 
-abstract class _FileExceedsMaxSize implements UploadFileFailure {
-  const factory _FileExceedsMaxSize() = _$FileExceedsMaxSizeImpl;
+abstract class _UploadFailed implements UploadFileFailure {
+  const factory _UploadFailed() = _$UploadFailedImpl;
 }
 
 /// @nodoc
@@ -260,7 +260,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileExceedsMaxSize value) uploadFailed,
+    required TResult Function(_UploadFailed value) uploadFailed,
     required TResult Function(_FileExceedsMaxSize value) fileExceedsMaxSize,
     required TResult Function(_Unexpected value) unexpected,
   }) {
@@ -270,7 +270,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult? Function(_UploadFailed value)? uploadFailed,
     TResult? Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult? Function(_Unexpected value)? unexpected,
   }) {
@@ -280,7 +280,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult Function(_UploadFailed value)? uploadFailed,
     TResult Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
@@ -368,7 +368,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileExceedsMaxSize value) uploadFailed,
+    required TResult Function(_UploadFailed value) uploadFailed,
     required TResult Function(_FileExceedsMaxSize value) fileExceedsMaxSize,
     required TResult Function(_Unexpected value) unexpected,
   }) {
@@ -378,7 +378,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult? Function(_UploadFailed value)? uploadFailed,
     TResult? Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult? Function(_Unexpected value)? unexpected,
   }) {
@@ -388,7 +388,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileExceedsMaxSize value)? uploadFailed,
+    TResult Function(_UploadFailed value)? uploadFailed,
     TResult Function(_FileExceedsMaxSize value)? fileExceedsMaxSize,
     TResult Function(_Unexpected value)? unexpected,
     required TResult orElse(),
