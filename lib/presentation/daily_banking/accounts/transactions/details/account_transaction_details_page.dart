@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,12 +18,10 @@ class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
   final String transactionId;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _AccountTransactionDetailsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _AccountTransactionDetailsPageState();
 }
 
-class _AccountTransactionDetailsPageState
-    extends ConsumerState<AccountTransactionDetailsPage> {
+class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransactionDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -38,8 +37,7 @@ class _AccountTransactionDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final transaction =
-        ref.watch(detailedAccountTransactionControllerProvider).transaction;
+    final transaction = ref.watch(detailedAccountTransactionControllerProvider).transaction;
 
     return Scaffold(
       body: SafeArea(
@@ -117,6 +115,12 @@ class _AccountTransactionDetailsPageState
                 ),
                 AppSpacing.vertical.s5,
                 const MovementDetailsVoucher(),
+                AppSpacing.vertical.s5,
+                MovementDetailsUploadAttachments(
+                  onFileSelected: (File file) {
+                    // TODO: Subir archivo
+                  },
+                ),
                 AppSpacing.vertical.s5,
                 const MovementDetailsCertificate(
                   type: CertificateType.debit,

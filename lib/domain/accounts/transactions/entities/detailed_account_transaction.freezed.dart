@@ -25,7 +25,7 @@ mixin _$DetailedAccountTransaction {
   String get category => throw _privateConstructorUsedError;
   String get detailFields => throw _privateConstructorUsedError;
   String get userComments => throw _privateConstructorUsedError;
-  bool get bankReceipt => throw _privateConstructorUsedError;
+  bool? get bankReceipt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedAccountTransactionCopyWith<DetailedAccountTransaction>
@@ -49,7 +49,7 @@ abstract class $DetailedAccountTransactionCopyWith<$Res> {
       String category,
       String detailFields,
       String userComments,
-      bool bankReceipt});
+      bool? bankReceipt});
 }
 
 /// @nodoc
@@ -75,7 +75,7 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
     Object? category = null,
     Object? detailFields = null,
     Object? userComments = null,
-    Object? bankReceipt = null,
+    Object? bankReceipt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -114,10 +114,10 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.userComments
           : userComments // ignore: cast_nullable_to_non_nullable
               as String,
-      bankReceipt: null == bankReceipt
+      bankReceipt: freezed == bankReceipt
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -141,7 +141,7 @@ abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
       String category,
       String detailFields,
       String userComments,
-      bool bankReceipt});
+      bool? bankReceipt});
 }
 
 /// @nodoc
@@ -166,7 +166,7 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
     Object? category = null,
     Object? detailFields = null,
     Object? userComments = null,
-    Object? bankReceipt = null,
+    Object? bankReceipt = freezed,
   }) {
     return _then(_$DetailedAccountTransactionImpl(
       id: null == id
@@ -205,10 +205,10 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.userComments
           : userComments // ignore: cast_nullable_to_non_nullable
               as String,
-      bankReceipt: null == bankReceipt
+      bankReceipt: freezed == bankReceipt
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -247,7 +247,7 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   @override
   final String userComments;
   @override
-  final bool bankReceipt;
+  final bool? bankReceipt;
 
   @override
   String toString() {
@@ -312,7 +312,7 @@ abstract class _DetailedAccountTransaction
       required final String category,
       required final String detailFields,
       required final String userComments,
-      required final bool bankReceipt}) = _$DetailedAccountTransactionImpl;
+      required final bool? bankReceipt}) = _$DetailedAccountTransactionImpl;
 
   @override
   UniqueId get id;
@@ -333,7 +333,7 @@ abstract class _DetailedAccountTransaction
   @override
   String get userComments;
   @override
-  bool get bankReceipt;
+  bool? get bankReceipt;
   @override
   @JsonKey(ignore: true)
   _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl>

@@ -62,7 +62,8 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     required double endBalance,
     required String? detailFields,
     required bool? visible,
-    required bool bankReceipt,
+    // TODO: Revisar con Back-End si es obligatorio este campo
+    required bool? bankReceipt,
     required String originBranch,
     required double originalAmount,
     required String originalCurrencyCode,

@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/details/widgets/upload_files_bottom_sheet.dart';
+
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -16,12 +18,10 @@ class CardTransactionDetailsPage extends ConsumerStatefulWidget {
   final String transactionId;
 
   @override
-  ConsumerState<CardTransactionDetailsPage> createState() =>
-      _CardTransactionDetailsPageState();
+  ConsumerState<CardTransactionDetailsPage> createState() => _CardTransactionDetailsPageState();
 }
 
-class _CardTransactionDetailsPageState
-    extends ConsumerState<CardTransactionDetailsPage> {
+class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +98,12 @@ class _CardTransactionDetailsPageState
               AppSpacing.vertical.s5,
               MovementDetailsActions(
                 onUploadFilesPressed: () {
-                  CardUploadFilesBottomSheet.show(context: context);
+                  UploadAttachmentsBottomSheet.show(
+                    context: context,
+                    onFileSelected: (File file) {
+                      // TODO: Implement this
+                    },
+                  );
                 },
                 onCreateExpensePressed: () {
                   context.goNamed(AppRoute.negocio.name);

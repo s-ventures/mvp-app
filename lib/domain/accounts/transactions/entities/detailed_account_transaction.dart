@@ -15,6 +15,6 @@ class DetailedAccountTransaction with _$DetailedAccountTransaction {
     required String category,
     required String detailFields,
     required String userComments,
-    required bool bankReceipt,
+    required bool? bankReceipt,
   }) = _DetailedAccountTransaction;
 }
