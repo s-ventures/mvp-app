@@ -7,7 +7,7 @@ final detailedAccountTransactionControllerProvider =
     StateNotifierProvider.autoDispose<DetailedAccountTransactionController,
         DetailedAccountTransactionState>(
   (ref) => DetailedAccountTransactionController(
-      ref.watch(accountTransactionsRepositoryProvider)),
+      ref.watch(accountTransactionsRepositoryProvider),),
 );
 
 class DetailedAccountTransactionController

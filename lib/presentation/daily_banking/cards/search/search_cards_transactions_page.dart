@@ -81,19 +81,18 @@ class _SearchCardTransactionsPageState
         },
         body: CustomScrollView(
           slivers: [
-            const SliverPadding(
-              padding: EdgeInsets.all(AppSpacing.s5),
-              sliver: SliverToBoxAdapter(
-                child: RecentCategories(
-                  // TODO(jesus): Pass the categories from the provider
-                  // categories: categories,
-                  onCategoryPressed: print,
-                ),
-              ),
-            ),
+            // const SliverPadding(
+            //   padding: EdgeInsets.all(AppSpacing.s5),
+            //   sliver: SliverToBoxAdapter(
+            //     child: RecentCategories(
+            //       // categories: categories,
+            //       onCategoryPressed: print,
+            //     ),
+            //   ),
+            // ),
             SliverPadding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.s5,
+              padding: const EdgeInsets.all(
+                AppSpacing.s5,
               ),
               sliver: CardTransactionsList(
                 onTransactionPressed: (transaction) {},

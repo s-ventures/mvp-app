@@ -6,7 +6,7 @@ import 'package:ui_kit/ui_kit.dart';
 class NewContactFromAgendaPage extends StatelessWidget {
   const NewContactFromAgendaPage({super.key});
 
-  final String _groupValue = 'Dori Doreau';
+  String get _groupValue => 'Dori Doreau';
 
   @override
   Widget build(BuildContext context) {
