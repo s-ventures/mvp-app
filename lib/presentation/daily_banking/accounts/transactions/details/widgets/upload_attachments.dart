@@ -3,18 +3,20 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/attachment_list_tile.dart';
-import 'package:ui_kit/ui_kit.dart';
 import 'package:manifiesto_mvp_app/presentation/extensions/gutter_extension.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsUploadAttachments extends StatelessWidget {
   const MovementDetailsUploadAttachments({
     required this.onFileSelected,
     required this.attachments,
+    required this.onRemove,
     super.key,
   });
 
   final List<FileAttachment> attachments;
   final void Function(File file)? onFileSelected;
+  final void Function(FileAttachment attachment) onRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class MovementDetailsUploadAttachments extends StatelessWidget {
               .map(
                 (attachment) => AttachmentListTile(
                   attachment: attachment,
-                  onRemove: () {},
+                  onRemove: () => onRemove(attachment),
                 ),
               )
               .toList()

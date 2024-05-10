@@ -40,7 +40,13 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
 
   @override
   Widget build(BuildContext context) {
-    final transaction = ref.watch(detailedAccountTransactionControllerProvider).transaction;
+    final controller = ref.watch(detailedAccountTransactionControllerProvider.notifier);
+    final transaction = ref.watch(
+      detailedAccountTransactionControllerProvider.select((value) => value.transaction),
+    );
+    final attachments = ref.watch(
+      detailedAccountTransactionControllerProvider.select((value) => value.attachments),
+    );
 
     return Scaffold(
       body: SafeArea(
@@ -120,30 +126,9 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                 const MovementDetailsVoucher(),
                 AppSpacing.vertical.s5,
                 MovementDetailsUploadAttachments(
-                  // TODO: MAKE DYNAMIC
-                  attachments: [
-                    FileAttachment.uploaded(
-                      id: 0,
-                      size: 37.2,
-                      timeStamp: DateTime.now(),
-                      fileName: 'my_first.pdf',
-                    ),
-                    FileAttachment.uploading(
-                      id: 0,
-                      size: 23.34,
-                      file: File(''),
-                      fileName: 'my_first.pdf',
-                    ),
-                    const FileAttachment.error(
-                      id: 0,
-                      size: 100,
-                      error: UploadFileFailure.fileExceedsMaxSize(10),
-                      fileName: 'my_first.pdf',
-                    ),
-                  ],
-                  onFileSelected: (File file) {
-                    // TODO: Subir archivo
-                  },
+                  attachments: attachments,
+                  onFileSelected: (file) => controller.addFiles([file]),
+                  onRemove: controller.removeFile,
                 ),
                 AppSpacing.vertical.s5,
                 const MovementDetailsCertificate(

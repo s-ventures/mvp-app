@@ -67,6 +67,8 @@ class AttachmentListTile extends StatelessWidget {
             ),
             title: Text(
               fileName ?? 'Archivo sin nombre',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: context.textStyle.bodySmallSemiBold.copyWith(
                 color: hasError ? context.color.error : context.color.textLight900,
               ),

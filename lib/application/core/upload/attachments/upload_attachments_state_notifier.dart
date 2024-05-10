@@ -68,7 +68,7 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
           FileAttachment.attached(
             id: DateTime.now().millisecondsSinceEpoch,
             file: file,
-            fileName: file.name,
+            fileName: file.shortName(),
             size: fileSizes[i],
           ),
         );
@@ -90,10 +90,10 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
     _filesUploadSubject.add(attachments);
   }
 
-  Future<void> removeFile(int fileId) async {
+  Future<void> removeFile(FileAttachment attachment) async {
     final attachments = state.attachments.toList();
     final index = attachments.indexWhere(
-      (image) => image.asAttached()?.id == fileId,
+      (image) => image.id == attachment.id,
     );
 
     if (index < 0) {
