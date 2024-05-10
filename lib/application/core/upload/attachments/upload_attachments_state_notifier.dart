@@ -9,6 +9,7 @@ import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_exte
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/misc/single_access_data.dart';
 import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_attachments_state.dart';
+import 'package:manifiesto_mvp_app/core/extensions/file_extension.dart';
 import 'package:manifiesto_mvp_app/core/extensions/int_extension.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
@@ -22,10 +23,10 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
     super._state, {
     required UploadFileRepository repository,
     required this.maxFileSizeMb,
-    required this.maxFiles,
+    required this.maxAttachments,
   }) : _attachmentRepository = repository {
     _filesUploadSubject
-        .exhaustMap<FileAttachment>(_prepareImagesToUpload)
+        .exhaustMap<FileAttachment>(_prepareAttachments)
         .asyncMap(_updateUploadedImages)
         .listenSafe(_compositeSubscription);
   }
@@ -33,11 +34,11 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
   final UploadFileRepository _attachmentRepository;
 
   final List<_FileUpload> _files = [];
-  final PublishSubject<List<File>> _filesUploadSubject = PublishSubject();
+  final PublishSubject<List<FileAttachment>> _filesUploadSubject = PublishSubject();
   final CompositeSubscription _compositeSubscription = CompositeSubscription();
 
   final double maxFileSizeMb;
-  final int maxFiles;
+  final int maxAttachments;
 
   Future<void> addFiles(List<File> files) async {
     if (state.attachmentsAreLoading) {
@@ -49,26 +50,44 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
     }
 
     final filesToUpload = files.toList();
+    final attachments = <FileAttachment>[];
+
     final futureFileSizes = await Future.wait(files.map((e) => e.length()));
     final fileSizes = futureFileSizes.map((e) => e.bytesToMegaBytes()).toList();
+
     final exceededSizeFiles = <File>[];
 
     for (var i = 0; i < files.length; i++) {
+      final file = files[i];
+
       if (fileSizes[i] > maxFileSizeMb) {
-        exceededSizeFiles.add(files[i]);
-        filesToUpload.remove(files[i]);
+        exceededSizeFiles.add(file);
+        filesToUpload.remove(file);
+      } else {
+        attachments.add(
+          FileAttachment.attached(
+            id: DateTime.now().millisecondsSinceEpoch,
+            file: file,
+            fileName: file.name,
+            size: fileSizes[i],
+          ),
+        );
       }
     }
 
     if (exceededSizeFiles.isNotEmpty) {
       setStateSafe(
         () => state.updateWith(
-          uploadFailure: SingleAccessData(const UploadFileFailure.fileExceedsMaxSize()),
+          uploadFailure: SingleAccessData(UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb)),
         ) as T,
       );
     }
 
-    _filesUploadSubject.add(filesToUpload.map((e) => File(e.path)).toList());
+    setStateSafe(
+      () => state.updateWith(attachments: attachments) as T,
+    );
+
+    _filesUploadSubject.add(attachments);
   }
 
   Future<void> removeFile(int fileId) async {
@@ -95,6 +114,7 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
       final localId = file.id;
       final uploadId = fileUpload.id;
 
+      // TODO: Review if the IDs match properly with back-end
       return localId != null && uploadId != null && localId == uploadId;
     });
 
@@ -108,57 +128,43 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
     );
   }
 
-  Stream<FileAttachment> _prepareImagesToUpload(List<File> filesToUpload) async* {
-    final totalFiles = state.attachments.length;
-    List<File?> files = filesToUpload.toList();
+  Stream<FileAttachment> _prepareAttachments(List<FileAttachment> attachments) async* {
+    final totalAttachments = state.attachments.length;
+    var attachmentsToUpload = attachments.toList();
 
-    if (totalFiles > maxFiles) {
-      final value = totalFiles - maxFiles;
+    if (totalAttachments > maxAttachments) {
+      final value = totalAttachments - maxAttachments;
       // Get only the ones that fit the max amount
-      files = filesToUpload.getRange(0, filesToUpload.length - value).toList();
+      attachmentsToUpload = attachments.getRange(0, attachments.length - value).toList();
     }
 
-    for (final element in _files) {
-      unawaited(element.operation.cancel());
+    _files.clear();
+    final uploadingAttachments = <FileAttachment>[];
+    for (final attachment in attachmentsToUpload) {
+      final attached = attachment.asAttached();
+      if (attached == null) {
+        continue;
+      }
+
+      final uploading = attachment.toUploading(id: attached.id);
+      uploadingAttachments.add(uploading);
+
+      final fileUpload = _FileUpload(
+        uploading,
+        _attachmentRepository.uploadFile(attached.file),
+      );
+      _files.add(fileUpload);
     }
-
-    _files
-      ..clear()
-      ..addAll(
-        filesToUpload.map(
-          (e) => _FileUpload(
-            DateTime.now().microsecondsSinceEpoch,
-            _attachmentRepository.uploadFile(e),
-          ),
-        ),
-      );
-
-    final stateImages = state.attachments.toList()
-      ..insertAll(
-        0,
-        List.generate(
-          files.length,
-          (index) {
-            final file = files[index];
-            final name = file!.path.split('/').last;
-            return FileAttachment.uploading(
-              fileName: name,
-              id: _files[index].id,
-              file: files[index]!,
-            );
-          },
-        ),
-      );
 
     setStateSafe(
-      () => state.updateWith(attachments: stateImages) as T,
+      () => state.updateWith(attachments: uploadingAttachments) as T,
     );
 
     yield* Stream.fromFutures(
       _files.map(
         (fileUpload) => fileUpload.operation.value.then(
           (result) => result.fold(
-            (error) => FileAttachment.error(id: fileUpload.id, error: error),
+            (error) => fileUpload.attachment.toError(error: error),
             (attachment) => attachment,
           ),
         ),

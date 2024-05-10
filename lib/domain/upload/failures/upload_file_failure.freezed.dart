@@ -19,21 +19,21 @@ mixin _$UploadFileFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() uploadFailed,
-    required TResult Function() fileExceedsMaxSize,
+    required TResult Function(double maxSize) fileExceedsMaxSize,
     required TResult Function() unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uploadFailed,
-    TResult? Function()? fileExceedsMaxSize,
+    TResult? Function(double maxSize)? fileExceedsMaxSize,
     TResult? Function()? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uploadFailed,
-    TResult Function()? fileExceedsMaxSize,
+    TResult Function(double maxSize)? fileExceedsMaxSize,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$UploadFailedImpl implements _UploadFailed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() uploadFailed,
-    required TResult Function() fileExceedsMaxSize,
+    required TResult Function(double maxSize) fileExceedsMaxSize,
     required TResult Function() unexpected,
   }) {
     return uploadFailed();
@@ -129,7 +129,7 @@ class _$UploadFailedImpl implements _UploadFailed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uploadFailed,
-    TResult? Function()? fileExceedsMaxSize,
+    TResult? Function(double maxSize)? fileExceedsMaxSize,
     TResult? Function()? unexpected,
   }) {
     return uploadFailed?.call();
@@ -139,7 +139,7 @@ class _$UploadFailedImpl implements _UploadFailed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uploadFailed,
-    TResult Function()? fileExceedsMaxSize,
+    TResult Function(double maxSize)? fileExceedsMaxSize,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -193,6 +193,8 @@ abstract class _$$FileExceedsMaxSizeImplCopyWith<$Res> {
   factory _$$FileExceedsMaxSizeImplCopyWith(_$FileExceedsMaxSizeImpl value,
           $Res Function(_$FileExceedsMaxSizeImpl) then) =
       __$$FileExceedsMaxSizeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double maxSize});
 }
 
 /// @nodoc
@@ -202,57 +204,82 @@ class __$$FileExceedsMaxSizeImplCopyWithImpl<$Res>
   __$$FileExceedsMaxSizeImplCopyWithImpl(_$FileExceedsMaxSizeImpl _value,
       $Res Function(_$FileExceedsMaxSizeImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? maxSize = null,
+  }) {
+    return _then(_$FileExceedsMaxSizeImpl(
+      null == maxSize
+          ? _value.maxSize
+          : maxSize // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
-  const _$FileExceedsMaxSizeImpl();
+  const _$FileExceedsMaxSizeImpl(this.maxSize);
+
+  @override
+  final double maxSize;
 
   @override
   String toString() {
-    return 'UploadFileFailure.fileExceedsMaxSize()';
+    return 'UploadFileFailure.fileExceedsMaxSize(maxSize: $maxSize)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FileExceedsMaxSizeImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$FileExceedsMaxSizeImpl &&
+            (identical(other.maxSize, maxSize) || other.maxSize == maxSize));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, maxSize);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FileExceedsMaxSizeImplCopyWith<_$FileExceedsMaxSizeImpl> get copyWith =>
+      __$$FileExceedsMaxSizeImplCopyWithImpl<_$FileExceedsMaxSizeImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() uploadFailed,
-    required TResult Function() fileExceedsMaxSize,
+    required TResult Function(double maxSize) fileExceedsMaxSize,
     required TResult Function() unexpected,
   }) {
-    return fileExceedsMaxSize();
+    return fileExceedsMaxSize(maxSize);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uploadFailed,
-    TResult? Function()? fileExceedsMaxSize,
+    TResult? Function(double maxSize)? fileExceedsMaxSize,
     TResult? Function()? unexpected,
   }) {
-    return fileExceedsMaxSize?.call();
+    return fileExceedsMaxSize?.call(maxSize);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uploadFailed,
-    TResult Function()? fileExceedsMaxSize,
+    TResult Function(double maxSize)? fileExceedsMaxSize,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (fileExceedsMaxSize != null) {
-      return fileExceedsMaxSize();
+      return fileExceedsMaxSize(maxSize);
     }
     return orElse();
   }
@@ -293,7 +320,13 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
 }
 
 abstract class _FileExceedsMaxSize implements UploadFileFailure {
-  const factory _FileExceedsMaxSize() = _$FileExceedsMaxSizeImpl;
+  const factory _FileExceedsMaxSize(final double maxSize) =
+      _$FileExceedsMaxSizeImpl;
+
+  double get maxSize;
+  @JsonKey(ignore: true)
+  _$$FileExceedsMaxSizeImplCopyWith<_$FileExceedsMaxSizeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -335,7 +368,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() uploadFailed,
-    required TResult Function() fileExceedsMaxSize,
+    required TResult Function(double maxSize) fileExceedsMaxSize,
     required TResult Function() unexpected,
   }) {
     return unexpected();
@@ -345,7 +378,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? uploadFailed,
-    TResult? Function()? fileExceedsMaxSize,
+    TResult? Function(double maxSize)? fileExceedsMaxSize,
     TResult? Function()? unexpected,
   }) {
     return unexpected?.call();
@@ -355,7 +388,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? uploadFailed,
-    TResult Function()? fileExceedsMaxSize,
+    TResult Function(double maxSize)? fileExceedsMaxSize,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {

@@ -4,13 +4,15 @@ import 'package:manifiesto_mvp_app/core/extensions/double_extension.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class AttachmentMenuItem extends StatelessWidget {
-  const AttachmentMenuItem({
+class AttachmentListItem extends StatelessWidget {
+  const AttachmentListItem({
     required this.attachment,
+    required this.onRemove,
     super.key,
   });
 
   final FileAttachment attachment;
+  final VoidCallback onRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +20,21 @@ class AttachmentMenuItem extends StatelessWidget {
     DateTime? date;
     double? sizeMb;
     Color? textColor;
+    bool isLoading = false;
+    bool hasError = false;
 
     attachment.map(
       initial: (attachment) {},
-      loading: (attachment) {},
+      loading: (attachment) {
+        isLoading = true;
+      },
       attached: (attachment) {
         fileName = attachment.fileName;
       },
       error: (attachment) {
         fileName = attachment.fileName;
+        hasError = true;
       },
-      deleting: (attachment) {},
       uploading: (attachment) {
         fileName = attachment.fileName;
       },
@@ -59,6 +65,7 @@ class AttachmentMenuItem extends StatelessWidget {
               ),
             ),
             subtitle: Text(
+              // TODO: MAKE DYNAMIC
               '${date.formatToDayMonthYear()} - ${sizeMb?.toPrecision(2)} Mb',
               style: context.textStyle.buttonTabBar.copyWith(
                 color: context.color.textLight600,

@@ -14,7 +14,7 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
       : super(
           const DetailedAccountTransactionState(),
           repository: _repository,
-          maxFiles: 3,
+          maxAttachments: 3,
           maxFileSizeMb: 10,
         );
 

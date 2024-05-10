@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/attachment_menu_item.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/attachment_list_item.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:manifiesto_mvp_app/presentation/extensions/gutter_extension.dart';
 
@@ -36,7 +36,12 @@ class MovementDetailsUploadAttachments extends StatelessWidget {
         AppSpacing.vertical.s3,
         if (attachments.isNotEmpty)
           ...attachments
-              .map((attachment) => AttachmentMenuItem(attachment: attachment))
+              .map(
+                (attachment) => AttachmentListItem(
+                  attachment: attachment,
+                  onRemove: () {},
+                ),
+              )
               .toList()
               .separateVertical(AppSpacing.s3),
         if (onFileSelected != null)

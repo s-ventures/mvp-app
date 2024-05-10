@@ -15,32 +15,29 @@ class FileAttachment with _$FileAttachment {
     required int id,
     required File file,
     required String fileName,
-    double? size,
+    required double size,
   }) = FileAttachmentAttached;
 
   const factory FileAttachment.error({
     required int id,
     required UploadFileFailure error,
-    String? fileName,
-    double? size,
+    required double size,
+    required String? fileName,
   }) = FileAttachmentError;
-
-  const factory FileAttachment.deleting({
-    required int id,
-  }) = FileAttachmentDeleting;
 
   const factory FileAttachment.uploading({
     required int id,
     required File file,
     required String fileName,
-    double? size,
+    required double size,
     double? progress,
   }) = FileAttachmentUploading;
 
   const factory FileAttachment.uploaded({
     required int id,
     required String fileName,
-    double? size,
+    required double size,
+    required DateTime createdDate,
   }) = FileAttachmentUploaded;
 
   const FileAttachment._();
@@ -60,26 +57,15 @@ class FileAttachment with _$FileAttachment {
         orElse: () => throw Exception('You can only upload a file that is in attached status'),
       );
 
-  FileAttachment toUploaded({required int id}) => maybeMap(
+  FileAttachment toUploaded({required int id, DateTime? uploadedDate}) => maybeMap(
         uploading: (attachment) => FileAttachment.uploaded(
           id: id,
           size: attachment.size,
+          createdDate: DateTime.now(),
           fileName: attachment.fileName,
         ),
         orElse: () => throw Exception(
           'You can only mark a file as uploaded from the uploading status',
-        ),
-      );
-
-  FileAttachment toDeleting() => maybeMap(
-        attached: (attachment) => FileAttachment.deleting(
-          id: attachment.id,
-        ),
-        uploaded: (attachment) => FileAttachment.deleting(
-          id: attachment.id,
-        ),
-        orElse: () => throw Exception(
-          'You can only delete a file that is uploaded or attached',
         ),
       );
 
@@ -118,11 +104,15 @@ class FileAttachment with _$FileAttachment {
         orElse: () => false,
       );
 
+  bool get isReadyForUpload => maybeMap(
+        attached: (_) => true,
+        orElse: () => false,
+      );
+
   int? get id => mapOrNull<int>(
         attached: (e) => e.id,
         uploading: (e) => e.id,
         uploaded: (e) => e.id,
         error: (e) => e.id,
-        deleting: (e) => e.id,
       );
 }

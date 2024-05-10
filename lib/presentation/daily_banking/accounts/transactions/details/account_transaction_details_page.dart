@@ -120,9 +120,11 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                 AppSpacing.vertical.s5,
                 MovementDetailsUploadAttachments(
                   // TODO: MAKE DYNAMIC
-                  attachments: const [
+                  attachments: [
                     FileAttachment.uploaded(
                       id: 0,
+                      size: 100,
+                      createdDate: DateTime.now(),
                       fileName: 'File name',
                     ),
                   ],
