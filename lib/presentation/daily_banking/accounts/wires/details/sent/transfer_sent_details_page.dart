@@ -57,7 +57,8 @@ class _TransferSentDetailsPageState
                   CustomPopupMenuButton(
                     items: [
                       PopupMenuItem(
-                        onTap: () {}, //TODO: Implementar funcionalidad
+                        onTap:
+                            () {}, // TODO(georgeta): Implementar funcionalidad
                         child: Row(
                           children: [
                             const Text('Ver mas recibos del emisor'),
@@ -67,7 +68,8 @@ class _TransferSentDetailsPageState
                         ),
                       ),
                       PopupMenuItem(
-                        onTap: () {}, //TODO: Implementar funcionalidad
+                        onTap:
+                            () {}, // TODO(georgeta): Implementar funcionalidad
                         child: Row(
                           children: [
                             const Text('Recharzar cobro'),
@@ -113,10 +115,11 @@ class _TransferSentDetailsPageState
                 AppSpacing.vertical.s5,
                 MovementDetailsBankingInfo(
                   type: BankAccountType.account,
-                  //TODO: No recibimos el numero de cuenta del emisor, pendiente de añadir y modificar
+                  // TODO(georgeta): No recibimos el numero de cuenta del emisor, pendiente de añadir y modificar
                   last4: sentTransfer.beneficiaryAccount.lastFourCharacters,
-                  icon: '✈️', //TODO: no recibimos el icono
-                  category: 'Viajes', //TODO: no recibimos la categoría
+                  icon: '✈️', // TODO(georgeta): no recibimos el icono
+                  category:
+                      'Viajes', // TODO(georgeta): no recibimos la categoría
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsDescription(

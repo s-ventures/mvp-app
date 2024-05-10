@@ -106,7 +106,7 @@ class _AccountTransactionDetailsPageState
                   AppSpacing.vertical.s5,
                   MovementDetailsBankingInfo(
                     type: BankAccountType.account,
-                    //TODO: Nos falta el numero de cuenta en el DTO
+                    // TODO(georgeta): Nos falta el numero de cuenta en el DTO
                     last4: transaction.originBranch,
                     icon: '🖥️',
                     // category: transaction.category,

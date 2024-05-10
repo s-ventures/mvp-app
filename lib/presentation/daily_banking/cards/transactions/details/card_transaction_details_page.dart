@@ -97,14 +97,14 @@ class _CardTransactionDetailsPageState
                   date: transaction.postingDate,
                 ),
                 AppSpacing.vertical.s5,
-                //TODO: Mapa pendiente de implementar
+                // TODO(georgeta): Mapa pendiente de implementar
                 const MovementDetailsMap(
                   location: 'Madrid, España',
                 ),
                 AppSpacing.vertical.s5,
                 const MovementDetailsBankingInfo(
                   type: BankAccountType.card,
-                  //TODO: Nos falta el numero de tarjeta en el DTO
+                  // TODO(georgeta): Nos falta el numero de tarjeta en el DTO
                   last4: '1234',
                   icon: '🖥️',
                   category: 'Tecnología',

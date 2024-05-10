@@ -85,7 +85,6 @@ class _SearchCardTransactionsPageState
             //   padding: EdgeInsets.all(AppSpacing.s5),
             //   sliver: SliverToBoxAdapter(
             //     child: RecentCategories(
-            //       // TODO(jesus): Pass the categories from the provider
             //       // categories: categories,
             //       onCategoryPressed: print,
             //     ),
