@@ -104,5 +104,6 @@ void main() {
     );
   });
 
+  // TODO(georgeta): add one test per transaction type
   // group('getDetailedAccountTransaction', () {});
 }
