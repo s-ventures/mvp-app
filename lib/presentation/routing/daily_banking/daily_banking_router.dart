@@ -19,6 +19,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/per
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_edit/periodic_order_edit_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_signature/periodic_order_signature_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_orders_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/sent_transfers_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_contact/soon_pay_contact.page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_otp/soon_pay_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_page.dart';
@@ -255,6 +256,15 @@ class DailyBankingRouter {
               ],
             ),
 
+            GoRoute(
+              parentNavigatorKey: rootNavigatorKey,
+              path: AppRoute.dailyBankingTransfersSent.path,
+              name: AppRoute.dailyBankingTransfersSent.name,
+              pageBuilder: (context, state) => MaterialPage(
+                key: state.pageKey,
+                child: const SentTransfersPage(),
+              ),
+            ),
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
               path: AppRoute.dailyBankingTransfersSentDetails.path,

@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/widgets/last_sent_transfer_card.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/widgets/last_sent_transfer_card.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class LastSentTransfers extends ConsumerStatefulWidget {
@@ -36,11 +38,26 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Últimas transferencias',
-          style: context.textStyle.bodyMediumSemiBold.copyWith(
-            color: context.color.textLight600,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Últimas transferencias',
+              style: context.textStyle.bodyMediumSemiBold.copyWith(
+                color: context.color.textLight600,
+              ),
+            ),
+            Button(
+              title: 'Ver todas',
+              type: ButtonType.text,
+              size: ButtonSize.small,
+              outlineColor: context.color.tertiaryLight800,
+              textColor: const Color(0xFF5494FF),
+              horizontalPadding: 0,
+              onPressed: () =>
+                  context.pushNamed(AppRoute.dailyBankingTransfersSent.name),
+            ),
+          ],
         ),
         AppSpacing.vertical.s3,
         SizedBox(
