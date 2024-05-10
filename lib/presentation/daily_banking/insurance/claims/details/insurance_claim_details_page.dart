@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/detailed/detailed_claim_controller.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/presentation/extension/claims_status_color_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsuranceClaimDetailsPage extends ConsumerStatefulWidget {
@@ -70,14 +70,12 @@ class _InsuranceClaimDetailsPageState
             data: (claim) => ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                InsurancePolicyListTile(
+                InsuranceDetailsListTile(
                   leadingEmoji: '🖥️',
                   leadingBackgroundColor: const Color(0xFFE0E0E0),
                   title: claim.reason,
-                  number: claim.insuranceId.getOrCrash(),
-                  status: claim.riskType,
-                  statusColor: context.color.statusSuccess,
-                  category: '',
+                  subtitle: 'Número de expediente: ${claim.id.getOrCrash()}',
+                  category: claim.riskType,
                 ),
                 AppSpacing.vertical.s5,
                 ListTile(
@@ -86,13 +84,13 @@ class _InsuranceClaimDetailsPageState
                     right: AppSpacing.s5,
                   ),
                   title: Text(
-                    'Número de expediente',
+                    'Número de póliza',
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
                   ),
                   trailing: Text(
-                    claim.id.getOrCrash(),
+                    claim.insuranceId.getOrCrash(),
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -190,9 +188,7 @@ class _InsuranceClaimDetailsPageState
                   trailing: Chip(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                    backgroundColor: claim.status == ClaimStatusType.open
-                        ? context.color.statusWarning.withOpacity(0.15)
-                        : context.color.statusSuccess.withOpacity(0.15),
+                    backgroundColor: claim.status.backgroundColor(context),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(context.radius.hard),
                       side: const BorderSide(
@@ -201,11 +197,8 @@ class _InsuranceClaimDetailsPageState
                     ),
                     label: Text(
                       claim.status.name,
-                      style: context.textStyle.bodyMediumSemiBold.copyWith(
-                        color: claim.status == ClaimStatusType.open
-                            ? context.color.statusWarning
-                            : context.color.statusSuccess,
-                      ),
+                      style: context.textStyle.bodyMediumSemiBold
+                          .copyWith(color: claim.status.textColor(context)),
                     ),
                   ),
                   tileColor: Colors.white,
@@ -214,49 +207,14 @@ class _InsuranceClaimDetailsPageState
                   ),
                 ),
                 AppSpacing.vertical.s5,
-                OutlinedList(
-                  children: [
-                    ListTile(
-                      leading: IconWithContainer(
-                        icon: IconAssets.warning,
-                        backgroundColor: context.color.backgroundLight200,
-                      ),
-                      title: Text(
-                        'Situación de riesgo',
-                        style: context.textStyle.bodyMediumRegular.copyWith(
-                          color: context.color.textLight600,
-                        ),
-                      ),
-                      subtitle: Text(
-                        '---',
-                        style: context.textStyle.bodyMediumRegular.copyWith(
-                          color: context.color.textLight900,
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      leading: IconWithContainer(
-                        icon: IconAssets.invoice,
-                        backgroundColor: context.color.backgroundLight200,
-                      ),
-                      title: Text(
-                        'Causa',
-                        style: context.textStyle.bodyMediumRegular.copyWith(
-                          color: context.color.textLight600,
-                        ),
-                      ),
-                      subtitle: Text(
-                        claim.reason,
-                        style: context.textStyle.bodyMediumRegular.copyWith(
-                          color: context.color.textLight900,
-                        ),
-                      ),
-                    ),
-                  ],
+                //TODO: Mapa pendiente de implementar
+                const MovementDetailsMap(
+                  location: 'Madrid, España',
                 ),
+
                 AppSpacing.vertical.s5,
                 Text(
-                  'Encargado de reparación',
+                  'Persona de contacto',
                   style: context.textStyle.bodyMediumSemiBold.copyWith(
                     color: context.color.textLight600,
                   ),
@@ -269,7 +227,7 @@ class _InsuranceClaimDetailsPageState
                   ),
                   leading: IconWithContainer(
                     text: claim.agentName.initials,
-                    backgroundColor: context.color.backgroundLight200,
+                    backgroundColor: context.color.neutralLight100,
                   ),
                   title: Text(
                     claim.agentName,
@@ -277,14 +235,61 @@ class _InsuranceClaimDetailsPageState
                       color: context.color.textLight600,
                     ),
                   ),
-                  trailing: IconSvg.small(
-                    IconAssets.phone,
-                    color: context.color.iconLight900,
-                  ),
                   tileColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(context.radius.soft),
                   ),
+                ),
+                AppSpacing.vertical.s5,
+                OutlinedList(
+                  children: [
+                    ListTile(
+                      dense: true,
+                      leading: IconWithContainer(
+                        icon: IconAssets.phone,
+                        backgroundColor: context.color.neutralLight100,
+                        foreground: context.color.textLight900,
+                      ),
+                      title: Text(
+                        'Teléfono',
+                        style: context.textStyle.buttonTabBar
+                            .copyWith(color: context.color.textLight600),
+                      ),
+                      subtitle: Text(claim.agentTelephone,
+                          style: context.textStyle.bodySmallRegular),
+                    ),
+                    ListTile(
+                      dense: true,
+                      leading: IconWithContainer(
+                        icon: IconAssets.mail,
+                        backgroundColor: context.color.neutralLight100,
+                        foreground: context.color.textLight900,
+                      ),
+                      title: Text(
+                        'Mail',
+                        style: context.textStyle.buttonTabBar
+                            .copyWith(color: context.color.textLight600),
+                      ),
+                      subtitle: Text(claim.agentEmail,
+                          style: context.textStyle.bodySmallRegular),
+                    ),
+                    ListTile(
+                      dense: true,
+                      leading: IconWithContainer(
+                        icon: IconAssets.marker,
+                        backgroundColor: context.color.neutralLight100,
+                        foreground: context.color.textLight900,
+                      ),
+                      title: Text(
+                        'Ciudad',
+                        style: context.textStyle.buttonTabBar
+                            .copyWith(color: context.color.textLight600),
+                      ),
+                      //TODO: Este campo no nos llega del BFMF
+                      subtitle: Text('Madrid, 28015, España',
+                          style: context.textStyle.bodySmallRegular),
+                    ),
+                  ],
                 ),
               ],
             ),

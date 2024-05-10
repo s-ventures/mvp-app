@@ -21,6 +21,7 @@ export 'daily_banking/category_list_tile.dart';
 export 'daily_banking/date_range_filter.dart';
 export 'daily_banking/date_range_filter_list_item.dart';
 export 'daily_banking/insurance_claim_list_tile.dart';
+export 'daily_banking/insurance_details_list_tile.dart';
 export 'daily_banking/insurance_policy_list_tile.dart';
 export 'daily_banking/recent_categories.dart';
 export 'daily_banking/text_filter_list_item.dart';

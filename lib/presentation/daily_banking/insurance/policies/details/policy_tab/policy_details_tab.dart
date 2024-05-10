@@ -22,7 +22,11 @@ class PolicyDetailsTab extends ConsumerStatefulWidget {
   ConsumerState<PolicyDetailsTab> createState() => _PolicyDetailsTabState();
 }
 
-class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
+class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -38,21 +42,20 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final policy = ref.watch(detailedPolicyControllerProvider).policy;
 
     return policy.when(
       data: (policy) => ListView(
         padding: const EdgeInsets.all(AppSpacing.s5),
         children: [
-          InsurancePolicyListTile(
-            leadingEmoji:
-                '🖥️', // TODO(georgeta): Pending to receive category and use the icon based on it
+          InsuranceDetailsListTile(
             leadingBackgroundColor: const Color(0xFFE0E0E0),
-            number: policy.id.getOrCrash(),
-            category: '',
-            status: policy.status,
-            statusColor: context.color.statusSuccess,
+            // TODO(georgeta): Pending to receive category and use the icon based on it
+            leadingEmoji: '🖥️',
+            category: 'Accidentes',
             title: policy.description,
+            subtitle: 'Número de póliza: ${policy.id.getOrCrash()}',
           ),
           AppSpacing.vertical.s5,
           DateRangeListTile.disabled(
