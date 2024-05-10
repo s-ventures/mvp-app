@@ -207,7 +207,7 @@ class _InsuranceClaimDetailsPageState
                   ),
                 ),
                 AppSpacing.vertical.s5,
-                //TODO: Mapa pendiente de implementar
+                // TODO(sergio): Mapa pendiente de implementar
                 const MovementDetailsMap(
                   location: 'Madrid, España',
                 ),
@@ -255,8 +255,10 @@ class _InsuranceClaimDetailsPageState
                         style: context.textStyle.buttonTabBar
                             .copyWith(color: context.color.textLight600),
                       ),
-                      subtitle: Text(claim.agentTelephone,
-                          style: context.textStyle.bodySmallRegular),
+                      subtitle: Text(
+                        claim.agentTelephone,
+                        style: context.textStyle.bodySmallRegular,
+                      ),
                     ),
                     ListTile(
                       dense: true,
@@ -270,8 +272,10 @@ class _InsuranceClaimDetailsPageState
                         style: context.textStyle.buttonTabBar
                             .copyWith(color: context.color.textLight600),
                       ),
-                      subtitle: Text(claim.agentEmail,
-                          style: context.textStyle.bodySmallRegular),
+                      subtitle: Text(
+                        claim.agentEmail,
+                        style: context.textStyle.bodySmallRegular,
+                      ),
                     ),
                     ListTile(
                       dense: true,
@@ -285,9 +289,11 @@ class _InsuranceClaimDetailsPageState
                         style: context.textStyle.buttonTabBar
                             .copyWith(color: context.color.textLight600),
                       ),
-                      //TODO: Este campo no nos llega del BFMF
-                      subtitle: Text('Madrid, 28015, España',
-                          style: context.textStyle.bodySmallRegular),
+                      // TODO(georgeta): Este campo no nos llega del BFMF
+                      subtitle: Text(
+                        'Madrid, 28015, España',
+                        style: context.textStyle.bodySmallRegular,
+                      ),
                     ),
                   ],
                 ),
