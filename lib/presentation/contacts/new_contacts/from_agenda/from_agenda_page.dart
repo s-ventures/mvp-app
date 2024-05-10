@@ -16,16 +16,16 @@ class NewContactFromAgendaPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              type: CustomAppBarType.logo,
+              title: 'Agenda',
               leading: Button(
-                icon: IconAssets.bell,
+                icon: IconAssets.chevronLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
                 onPressed: () async => context.pop(),
               ),
               actions: [
                 Button(
-                  icon: IconAssets.user,
+                  icon: IconAssets.edit,
                   type: ButtonType.outlined,
                   size: ButtonSize.extraSmall,
                   onPressed: () async {},

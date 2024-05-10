@@ -22,7 +22,7 @@ class FavoriteContactsList extends StatelessWidget {
           Text(
             'Contactos favoritos',
             style: context.textStyle.bodySmallSemiBold.copyWith(
-              color: context.color.textLight300,
+              color: context.color.textLight600,
             ),
           ),
           AppSpacing.vertical.s3,
@@ -96,7 +96,7 @@ class CategoryChip extends StatelessWidget {
                     name,
                     overflow: TextOverflow.ellipsis,
                     style: context.textStyle.buttonTabBar.copyWith(
-                      color: context.color.textLight300,
+                      color: context.color.textLight600,
                     ),
                   ),
                 ),
