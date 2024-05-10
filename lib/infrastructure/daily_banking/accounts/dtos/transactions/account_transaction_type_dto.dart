@@ -1,7 +1,7 @@
 // [ OTHER, ACCOUNTS, TRANSFER, TAX, DEBIT, DIRECT_DEBIT, CARD, CASH_WITHDRAWAL, CASH_INCOME, CHECK_INCOME, CHECK_ISSUE, FEES_AND_COMMISSIONS, BANK_WITHHOLDING, INTEREST_PAYMENT, LOAN_PAYMENT, LOAN_AMORTIZATION, TRANSFER_IN, TRANSFER_OUT, PERIODIC_TRANSFER ]
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transaction_type.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum AccountTransactionTypeDto {

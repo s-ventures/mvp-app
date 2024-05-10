@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/policy_payment_periodicity.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/policy_payment_periodicity.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class PolicyBilling extends StatelessWidget {

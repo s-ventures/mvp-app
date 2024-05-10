@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/filter/filter_simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_controller.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/simplified_claim.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_claims_bottom_sheet/filter_claims_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_list_claims.dart';
 import 'package:manifiesto_mvp_app/presentation/extension/claims_status_color_extension.dart';

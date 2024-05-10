@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_claims_bottom_sheet/claim_status_filter.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';

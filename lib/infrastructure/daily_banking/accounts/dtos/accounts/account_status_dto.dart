@@ -1,7 +1,7 @@
 // [ PENDING_APPROVAL, APPROVED, ACTIVE, CLOSED, CANCELLED ]
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/accounts/entities/account_status.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/account_status.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum AccountStatusDto {

@@ -9,8 +9,8 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/balances/entities/account_balance.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/balances/entities/account_balance.dart';
 
 part 'account_balance_dto.freezed.dart';
 part 'account_balance_dto.g.dart';
@@ -27,7 +27,8 @@ class AccountBalanceDto with _$AccountBalanceDto {
     required double? unpaidBalance,
   }) = _AccountBalanceDto;
 
-  factory AccountBalanceDto.fromJson(Map<String, dynamic> json) => _$AccountBalanceDtoFromJson(json);
+  factory AccountBalanceDto.fromJson(Map<String, dynamic> json) =>
+      _$AccountBalanceDtoFromJson(json);
 }
 
 extension AccountBalanceDtoX on AccountBalanceDto {

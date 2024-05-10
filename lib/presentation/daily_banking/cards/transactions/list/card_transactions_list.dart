@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified_card_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardTransactionsList extends ConsumerStatefulWidget {

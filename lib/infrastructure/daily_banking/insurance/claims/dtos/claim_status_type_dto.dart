@@ -3,7 +3,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claim_status_type.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ClaimStatusTypeDto {

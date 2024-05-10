@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/cards/cards/entities/card_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/card_type.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum CardTypeDto {

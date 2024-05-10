@@ -30,8 +30,8 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_operation_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';

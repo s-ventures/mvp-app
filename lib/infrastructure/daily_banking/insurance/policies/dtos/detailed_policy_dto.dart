@@ -13,7 +13,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/detailed_policy.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/detailed_policy.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/dtos/policy_payment_periodicity_dto.dart';
 
 part 'detailed_policy_dto.freezed.dart';
