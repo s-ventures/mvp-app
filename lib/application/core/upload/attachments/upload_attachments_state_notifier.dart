@@ -50,7 +50,7 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
     }
 
     final filesToUpload = files.toList();
-    final attachments = <FileAttachment>[];
+    final attachments = state.attachments.toList();
 
     final futureFileSizes = await Future.wait(files.map((e) => e.length()));
     final fileSizes = futureFileSizes.map((e) => e.bytesToMegaBytes()).toList();

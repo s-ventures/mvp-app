@@ -1,12 +1,9 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
-import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
-import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/upload_attachments.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -127,7 +124,8 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                 AppSpacing.vertical.s5,
                 MovementDetailsUploadAttachments(
                   attachments: attachments,
-                  onFileSelected: (file) => controller.addFiles([file]),
+                  onFileSelected:
+                      attachments.length < controller.maxAttachments ? (file) => controller.addFiles([file]) : null,
                   onRemove: controller.removeFile,
                 ),
                 AppSpacing.vertical.s5,
