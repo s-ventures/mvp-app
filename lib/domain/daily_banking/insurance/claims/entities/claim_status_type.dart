@@ -3,8 +3,9 @@
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/claim_status_type_dto.dart';
 
 enum ClaimStatusType {
+  // TODO(georgeta): pendiente de ver como se recibe del BFMF
   open('Abierto'),
-  inProgress('En curso'), //TODO: pendiente de ver como se recibe del BFMF
+  inProgress('En curso'),
   close('Finalizado');
 
   const ClaimStatusType(this.name);

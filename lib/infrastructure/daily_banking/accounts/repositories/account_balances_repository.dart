@@ -10,7 +10,8 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/ba
 final accountBalancesRepositoryProvider = Provider<AccountBalancesRepository>(
   (ref) => AccountBalancesRepository(
     remoteDataSource: AccountBalancesRemoteDataSource(
-        ref.watch(accountBalancesRestClientProvider),),
+      ref.watch(accountBalancesRestClientProvider),
+    ),
   ),
 );
 

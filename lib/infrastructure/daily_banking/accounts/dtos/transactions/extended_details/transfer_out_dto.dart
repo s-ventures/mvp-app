@@ -15,7 +15,7 @@ class TransferOutDto extends ExtendedDetailsDto {
     required this.bankOperationCode,
     required this.senderBank,
     required this.accountId,
-    required this.cusomerId,
+    required this.customerId,
     required this.orderDate,
     required this.valueDate,
     required this.concept,
@@ -60,7 +60,7 @@ class TransferOutDto extends ExtendedDetailsDto {
   final String? bankOperationCode;
   final String? senderBank;
   final int accountId;
-  final int cusomerId;
+  final int customerId;
   @DateConverter()
   final DateTime? orderDate;
   @DateConverter()

@@ -164,7 +164,8 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                   final directDebitDto = extendedDetails! as DirectDebitDto;
                   return DirectDebitTransactionDetails(
                     directDebitId: UniqueId.fromUniqueString(
-                        directDebitDto.directDebitId.toString(),),
+                      directDebitDto.directDebitId.toString(),
+                    ),
                     issuer: directDebitDto.issuer,
                     debitReference: directDebitDto.debitReference,
                     returnDate: directDebitDto.returnDate,
@@ -174,7 +175,8 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                       extendedDetails! as DetailedCardTransactionDto;
                   return DetailedCardTransaction(
                     movementId: UniqueId.fromUniqueString(
-                        cardDto.movementId.toString(),),
+                      cardDto.movementId.toString(),
+                    ),
                     amount: cardDto.amount,
                     postingDate: cardDto.postingDate,
                     description: cardDto.description,

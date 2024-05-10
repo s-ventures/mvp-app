@@ -19,7 +19,8 @@ import 'package:rxdart/rxdart.dart';
 final accountsRepositoryProvider = Provider<AccountsRepository>(
   (ref) => AccountsRepository(
     localDataSource: AccountsLocalDataSource(
-        ref.watch(sharedPreferencesLocalStorageProvider),),
+      ref.watch(sharedPreferencesLocalStorageProvider),
+    ),
     remoteDataSource:
         AccountsRemoteDataSource(ref.watch(accountsRestClientProvider)),
   ),
@@ -59,8 +60,9 @@ class AccountsRepository implements IAccountsRepository {
   }
 
   @override
-  Future<Either<SelectAccountFailure, Unit>> selectAccount(
-      {required int accountId,}) async {
+  Future<Either<SelectAccountFailure, Unit>> selectAccount({
+    required int accountId,
+  }) async {
     try {
       final result = await _localDataSource.selectAccount(accountId);
 
@@ -80,11 +82,13 @@ class AccountsRepository implements IAccountsRepository {
   Stream<Option<UniqueId>> watchSelectedAccount() => _selectedAccountId.stream;
 
   @override
-  Future<Either<DetailedAccountFailure, DetailedAccount>> getDetailedAccount(
-      {required int accountId,}) async {
+  Future<Either<DetailedAccountFailure, DetailedAccount>> getDetailedAccount({
+    required int accountId,
+  }) async {
     try {
       final response = await _remoteDataSource.getDetailedAccount(
-          accountId: accountId.toString(),);
+        accountId: accountId.toString(),
+      );
       final account = response.toDomain();
       return right(account);
     } catch (_) {

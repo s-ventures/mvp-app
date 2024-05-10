@@ -32,6 +32,7 @@ class Amount extends StatelessWidget {
       child: Column(
         children: [
           SegmentedControl<TransactionOperationType>(
+            adjustWidthToText: false,
             initialValue: operationType ?? TransactionOperationType.all,
             onChanged: setOperationType,
             values: TransactionOperationType.values,

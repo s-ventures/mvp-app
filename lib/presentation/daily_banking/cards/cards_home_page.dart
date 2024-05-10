@@ -76,7 +76,7 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
                   context.pushNamed(
                     AppRoute.dailyBankingCardTransactionDetails.name,
                     extra: CardTransactionDetailsRouteParams(
-                      //TODO: Remove hardcoded value when 'cardContractId' is send by BFMF
+                      // TODO(georgeta): Remove hardcoded value when 'cardContractId' is send by BFMF
                       cardContractId: 1068,
                       transactionId: transaction.id.toInt(),
                     ),

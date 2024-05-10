@@ -7,7 +7,8 @@ final detailedCardTransactionControllerProvider =
     StateNotifierProvider.autoDispose<DetailedCardTransactionController,
         DetailedCardTransactionState>(
   (ref) => DetailedCardTransactionController(
-      ref.watch(cardTransactionsRepositoryProvider),),
+    ref.watch(cardTransactionsRepositoryProvider),
+  ),
 );
 
 class DetailedCardTransactionController
@@ -17,8 +18,10 @@ class DetailedCardTransactionController
 
   final CardTransactionsRepository _repository;
 
-  Future<void> init(
-      {required int cardContractId, required int transactionId,}) async {
+  Future<void> init({
+    required int cardContractId,
+    required int transactionId,
+  }) async {
     try {
       final transactionOrFailure = await _repository.getDetailedCardTransaction(
         cardContractId: cardContractId,
