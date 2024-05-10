@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:manifiesto_mvp_app/core/extensions/double_extension.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/presentation/extensions/localization/upload_attachments.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class AttachmentListItem extends StatelessWidget {
-  const AttachmentListItem({
+class AttachmentListTile extends StatelessWidget {
+  const AttachmentListTile({
     required this.attachment,
     required this.onRemove,
     super.key,
