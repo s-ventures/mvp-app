@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/detailed/detailed_periodic_order_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/wires/periodic_orders/repositories/periodic_orders_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_repository.dart';
 
 final detailedPeriodicOrderControllerProvider = StateNotifierProvider
     .autoDispose<DetailedPeriodicOrderController, DetailedPeriodicOrderState>(

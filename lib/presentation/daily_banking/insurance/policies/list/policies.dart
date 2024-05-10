@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/filter/filter_simplified_policies_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/simplified/simplified_policies_controller.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/simplified_policy.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/simplified_policy.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/list/widgets/filter_list_policies.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/list/widgets/filter_policies_bottom_sheet/filter_policies_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';

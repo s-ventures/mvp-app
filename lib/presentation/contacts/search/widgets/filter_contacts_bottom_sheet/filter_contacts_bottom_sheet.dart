@@ -181,7 +181,7 @@ class FilterContactsBottomSheet {
                         onSelected: print,
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

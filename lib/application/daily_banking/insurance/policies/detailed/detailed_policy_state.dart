@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/detailed_policy.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/detailed_policy.dart';
 
 part 'detailed_policy_state.freezed.dart';
 

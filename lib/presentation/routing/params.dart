@@ -2,7 +2,7 @@
 // WebView
 import 'dart:async';
 
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transaction_type.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPageRouteParams {
