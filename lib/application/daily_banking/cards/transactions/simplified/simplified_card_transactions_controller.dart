@@ -4,7 +4,7 @@ import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loadin
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_state.dart';
 import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
-import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/card_transactions_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_pagination_repository.dart';
 
 final simplifiedCardTransactionsControllerProvider = StateNotifierProvider<
     SimplifiedCardTransactionsController, SimplifiedCardTransactionsState>(

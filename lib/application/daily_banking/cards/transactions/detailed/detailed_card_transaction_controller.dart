@@ -1,13 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/detailed/detailed_card_transaction_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/card_transactions_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_repository.dart';
 
 final detailedCardTransactionControllerProvider =
     StateNotifierProvider.autoDispose<DetailedCardTransactionController,
         DetailedCardTransactionState>(
   (ref) => DetailedCardTransactionController(
-      ref.watch(cardTransactionsRepositoryProvider),),
+    ref.watch(cardTransactionsRepositoryProvider),
+  ),
 );
 
 class DetailedCardTransactionController
@@ -17,8 +18,10 @@ class DetailedCardTransactionController
 
   final CardTransactionsRepository _repository;
 
-  Future<void> init(
-      {required int cardContractId, required int transactionId,}) async {
+  Future<void> init({
+    required int cardContractId,
+    required int transactionId,
+  }) async {
     try {
       final transactionOrFailure = await _repository.getDetailedCardTransaction(
         cardContractId: cardContractId,

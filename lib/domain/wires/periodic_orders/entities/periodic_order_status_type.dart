@@ -1,4 +1,4 @@
-import 'package:manifiesto_mvp_app/infrastructure/wires/periodic_orders/dtos/periodic_order_status_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/periodic_order_status_type_dto.dart';
 
 enum PeriodicOrderStatusType {
   sent('Enviada'),
