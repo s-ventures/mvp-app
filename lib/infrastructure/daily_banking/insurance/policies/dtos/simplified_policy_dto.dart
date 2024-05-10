@@ -7,7 +7,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/simplified_policy.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/simplified_policy.dart';
 
 part 'simplified_policy_dto.freezed.dart';
 part 'simplified_policy_dto.g.dart';

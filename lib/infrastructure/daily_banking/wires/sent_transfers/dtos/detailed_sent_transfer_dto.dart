@@ -33,7 +33,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/detailed_sent_transfer.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/detailed_sent_transfer.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transfer_detail_of_charges_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transfer_status_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/dtos/sent_transfer_type_dto.dart';

@@ -1,7 +1,7 @@
 // [ DAILY, WEEKLY, MONTHLY ]
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum PeriodicOrderFrecuencyTypeDto {

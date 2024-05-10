@@ -14,8 +14,8 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 

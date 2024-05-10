@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/accounts/entities/detailed_account.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/accounts/entities/simplified_account.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/accounts/failures/detailed_account_failure.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/accounts/failures/select_account_failure.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/accounts/failures/simplified_account_failure.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/accounts/repositories/i_accounts_repository.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/detailed_account.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/detailed_account_failure.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/select_account_failure.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/simplified_account_failure.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/accounts_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/data_sources/local/accounts_local_data_source.dart';
@@ -19,7 +19,8 @@ import 'package:rxdart/rxdart.dart';
 final accountsRepositoryProvider = Provider<AccountsRepository>(
   (ref) => AccountsRepository(
     localDataSource: AccountsLocalDataSource(
-        ref.watch(sharedPreferencesLocalStorageProvider),),
+      ref.watch(sharedPreferencesLocalStorageProvider),
+    ),
     remoteDataSource:
         AccountsRemoteDataSource(ref.watch(accountsRestClientProvider)),
   ),
@@ -59,8 +60,9 @@ class AccountsRepository implements IAccountsRepository {
   }
 
   @override
-  Future<Either<SelectAccountFailure, Unit>> selectAccount(
-      {required int accountId,}) async {
+  Future<Either<SelectAccountFailure, Unit>> selectAccount({
+    required int accountId,
+  }) async {
     try {
       final result = await _localDataSource.selectAccount(accountId);
 
@@ -80,11 +82,13 @@ class AccountsRepository implements IAccountsRepository {
   Stream<Option<UniqueId>> watchSelectedAccount() => _selectedAccountId.stream;
 
   @override
-  Future<Either<DetailedAccountFailure, DetailedAccount>> getDetailedAccount(
-      {required int accountId,}) async {
+  Future<Either<DetailedAccountFailure, DetailedAccount>> getDetailedAccount({
+    required int accountId,
+  }) async {
     try {
       final response = await _remoteDataSource.getDetailedAccount(
-          accountId: accountId.toString(),);
+        accountId: accountId.toString(),
+      );
       final account = response.toDomain();
       return right(account);
     } catch (_) {

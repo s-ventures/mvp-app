@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/card_transactions_filter.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/detailed_card_transaction.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/simplified_card_transaction.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/failures/detailed_card_transaction_failure.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/failures/simplified_card_transaction_failure.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/repositories/i_card_transactions_repository.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/card_transactions_filter.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/detailed_card_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/failures/detailed_card_transaction_failure.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/failures/simplified_card_transaction_failure.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/repositories/i_card_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/cards/card_transactions_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/data_sources/remote/card_transactions_remote_data_source.dart';

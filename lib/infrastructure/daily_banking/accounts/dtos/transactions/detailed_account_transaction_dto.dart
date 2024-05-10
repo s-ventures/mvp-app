@@ -32,14 +32,14 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/debit_transaction_details.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/direct_debit_transaction_details.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/tax_transaction_details.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/transfer_in_transaction_details.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/extended_transaction_details/transfer_out_transaction_details.dart';
-import 'package:manifiesto_mvp_app/domain/cards/transactions/entities/detailed_card_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/detailed_account_transaction.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/debit_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/direct_debit_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/tax_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/transfer_in_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/transfer_out_transaction_details.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/detailed_card_transaction.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';

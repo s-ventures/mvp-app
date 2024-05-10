@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transaction_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transaction_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_card_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_debit_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_direct_debit_details.dart';

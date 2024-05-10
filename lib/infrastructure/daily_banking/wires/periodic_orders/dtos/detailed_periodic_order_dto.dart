@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/detailed_periodic_order.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/detailed_periodic_order.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/periodic_order_frecuency_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/periodic_order_status_type_dto.dart';
 

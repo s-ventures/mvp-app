@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/cards/cards/entities/card_contract.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/card_contract.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 
 part 'card_contract_dto.freezed.dart';
@@ -16,7 +16,8 @@ abstract class CardContractDto with _$CardContractDto {
     required String currencyCode,
   }) = _CardContractDto;
 
-  factory CardContractDto.fromJson(Map<String, dynamic> json) => _$CardContractDtoFromJson(json);
+  factory CardContractDto.fromJson(Map<String, dynamic> json) =>
+      _$CardContractDtoFromJson(json);
 }
 
 extension CardContractDtoX on CardContractDto {

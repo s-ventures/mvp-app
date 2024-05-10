@@ -31,8 +31,8 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/cards/cards/entities/detailed_card.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/detailed_card.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/balances/simplified_card_balance_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/card_contract_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/card_status_dto.dart';

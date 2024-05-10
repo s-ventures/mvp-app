@@ -23,8 +23,8 @@
 // }
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claim_status_type.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/claims/entities/claims_filter.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claim_status_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claims_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/claim_status_type_dto.dart';
