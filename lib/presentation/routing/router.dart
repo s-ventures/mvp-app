@@ -166,6 +166,7 @@ GoRouter router(RouterRef ref) {
                 ],
               ),
               GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
                 path: AppRoute.protectionInsuranceAccident.path,
                 name: AppRoute.protectionInsuranceAccident.name,
                 pageBuilder: (context, state) => NoTransitionPage(
