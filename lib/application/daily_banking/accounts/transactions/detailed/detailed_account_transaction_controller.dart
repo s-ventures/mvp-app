@@ -1,13 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/account_transactions_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_repository.dart';
 
 final detailedAccountTransactionControllerProvider =
     StateNotifierProvider.autoDispose<DetailedAccountTransactionController,
         DetailedAccountTransactionState>(
   (ref) => DetailedAccountTransactionController(
-      ref.watch(accountTransactionsRepositoryProvider),),
+    ref.watch(accountTransactionsRepositoryProvider),
+  ),
 );
 
 class DetailedAccountTransactionController

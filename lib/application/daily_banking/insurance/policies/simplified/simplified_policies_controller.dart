@@ -3,7 +3,7 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/simplified/simplified_policies_state.dart';
 import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/simplified_policy.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurance/policies/repositories/policies_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_pagination_repository.dart';
 
 final simplifiedPoliciesControllerProvider = StateNotifierProvider<
     SimplifiedPoliciesController, SimplifiedPoliciesState>(

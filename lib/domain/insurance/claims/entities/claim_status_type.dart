@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:manifiesto_mvp_app/infrastructure/insurance/claims/dtos/claim_status_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/claim_status_type_dto.dart';
 
 enum ClaimStatusType {
   // TODO(georgeta): pendiente de ver como se recibe del BFMF

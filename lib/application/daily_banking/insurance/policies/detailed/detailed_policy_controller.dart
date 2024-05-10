@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/detailed/detailed_policy_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurance/policies/repositories/policies_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_repository.dart';
 
 final detailedPolicyControllerProvider = StateNotifierProvider.autoDispose<
     DetailedPolicyController, DetailedPolicyState>(

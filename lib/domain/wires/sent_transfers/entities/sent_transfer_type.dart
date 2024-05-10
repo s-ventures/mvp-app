@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/dtos/sent_transfer_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/dtos/sent_transfer_type_dto.dart';
 
 enum SentTransferType {
   transfer('Transferencia'),

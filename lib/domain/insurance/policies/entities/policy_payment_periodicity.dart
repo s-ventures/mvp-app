@@ -1,4 +1,4 @@
-import 'package:manifiesto_mvp_app/infrastructure/insurance/policies/dtos/policy_payment_periodicity_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/dtos/policy_payment_periodicity_dto.dart';
 
 enum PolicyPaymentPeriodicity {
   monthly('Mensual'),
