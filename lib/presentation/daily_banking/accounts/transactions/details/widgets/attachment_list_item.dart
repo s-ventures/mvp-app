@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:manifiesto_mvp_app/core/extensions/double_extension.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/localization/upload_attachments.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class AttachmentListItem extends StatelessWidget {
@@ -17,31 +18,39 @@ class AttachmentListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String? fileName;
-    DateTime? date;
     double? sizeMb;
-    Color? textColor;
-    bool isLoading = false;
-    bool hasError = false;
+    final date = attachment.asUploaded()?.timeStamp;
+    var isLoading = false;
+    var hasError = false;
 
     attachment.map(
       initial: (attachment) {},
-      loading: (attachment) {
-        isLoading = true;
-      },
       attached: (attachment) {
         fileName = attachment.fileName;
+        sizeMb = attachment.size;
       },
       error: (attachment) {
         fileName = attachment.fileName;
+        sizeMb = attachment.size;
         hasError = true;
       },
       uploading: (attachment) {
         fileName = attachment.fileName;
+        sizeMb = attachment.size;
+        isLoading = true;
       },
       uploaded: (attachment) {
         fileName = attachment.fileName;
+        sizeMb = attachment.size;
       },
     );
+
+    var subtitle = '${date != null ? '${date.formatToDayMonthYear()} - ' : ''}${sizeMb?.toPrecision(2)} Mb';
+
+    final error = attachment.asError()?.error;
+    if (error != null) {
+      subtitle = error.localize();
+    }
 
     return OutlinedList(
       children: [
@@ -50,36 +59,39 @@ class AttachmentListItem extends StatelessWidget {
           child: ListTile(
             contentPadding: const EdgeInsets.symmetric(
               horizontal: AppSpacing.s4,
-              vertical: AppSpacing.s2,
             ),
             leading: IconWithContainer(
-              icon: IconAssets.file,
+              icon: hasError ? IconAssets.warning : IconAssets.file,
               size: IconWithContainerSize.medium,
               backgroundColor: context.color.neutralLight100,
+              foreground: hasError ? context.color.error : Colors.black,
             ),
             title: Text(
-              // TODO: REVIEW NULL CASE
-              fileName ?? 'No name',
-              style: context.textStyle.bodySmallRegular.copyWith(
-                color: context.color.textLight900,
+              fileName ?? 'Archivo sin nombre',
+              style: context.textStyle.bodySmallSemiBold.copyWith(
+                color: hasError ? context.color.error : context.color.textLight900,
               ),
             ),
             subtitle: Text(
-              // TODO: MAKE DYNAMIC
-              '${date.formatToDayMonthYear()} - ${sizeMb?.toPrecision(2)} Mb',
+              subtitle,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
               style: context.textStyle.buttonTabBar.copyWith(
-                color: context.color.textLight600,
+                color: hasError ? context.color.error : context.color.textLight600,
               ),
             ),
-            trailing: IconButton(
-              onPressed: () {
-                // TODO: IMPLEMENT REMOVE
-              },
-              icon: Icon(
-                Icons.close,
-                color: context.color.iconLight900,
-              ),
-            ),
+            trailing: isLoading
+                ? const Padding(
+                    padding: EdgeInsets.only(right: AppSpacing.s4),
+                    child: CircularProgressIndicator.adaptive(),
+                  )
+                : IconButton(
+                    onPressed: onRemove,
+                    icon: Icon(
+                      Icons.close,
+                      color: context.color.iconLight900,
+                    ),
+                  ),
           ),
         ),
       ],

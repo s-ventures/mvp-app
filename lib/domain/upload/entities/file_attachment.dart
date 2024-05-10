@@ -9,12 +9,10 @@ part 'file_attachment.freezed.dart';
 class FileAttachment with _$FileAttachment {
   const factory FileAttachment.initial() = FileAttachmentInitial;
 
-  const factory FileAttachment.loading() = FileAttachmentLoading;
-
   const factory FileAttachment.attached({
     required int id,
     required File file,
-    required String fileName,
+    required String? fileName,
     required double size,
   }) = FileAttachmentAttached;
 
@@ -28,23 +26,24 @@ class FileAttachment with _$FileAttachment {
   const factory FileAttachment.uploading({
     required int id,
     required File file,
-    required String fileName,
+    required String? fileName,
     required double size,
     double? progress,
   }) = FileAttachmentUploading;
 
   const factory FileAttachment.uploaded({
     required int id,
-    required String fileName,
+    required String? fileName,
     required double size,
-    required DateTime createdDate,
+    required DateTime timeStamp,
   }) = FileAttachmentUploaded;
 
   const FileAttachment._();
 
-  FileAttachmentUploaded? asUploaded() => mapOrNull(uploaded: (file) => file);
-  FileAttachmentUploading? asUploading() => mapOrNull(uploading: (file) => file);
-  FileAttachmentAttached? asAttached() => mapOrNull(attached: (file) => file);
+  FileAttachmentUploaded? asUploaded() => mapOrNull(uploaded: (attachment) => attachment);
+  FileAttachmentUploading? asUploading() => mapOrNull(uploading: (attachment) => attachment);
+  FileAttachmentAttached? asAttached() => mapOrNull(attached: (attachment) => attachment);
+  FileAttachmentError? asError() => mapOrNull(error: (attachment) => attachment);
 
   FileAttachment toUploading({required int id, double progress = 99}) => maybeMap(
         attached: (attachment) => FileAttachment.uploading(
@@ -61,7 +60,7 @@ class FileAttachment with _$FileAttachment {
         uploading: (attachment) => FileAttachment.uploaded(
           id: id,
           size: attachment.size,
-          createdDate: DateTime.now(),
+          timeStamp: DateTime.now(),
           fileName: attachment.fileName,
         ),
         orElse: () => throw Exception(
@@ -107,6 +106,20 @@ class FileAttachment with _$FileAttachment {
   bool get isReadyForUpload => maybeMap(
         attached: (_) => true,
         orElse: () => false,
+      );
+
+  double? get size => mapOrNull<double>(
+        attached: (e) => e.size,
+        uploading: (e) => e.size,
+        uploaded: (e) => e.size,
+        error: (e) => e.size,
+      );
+
+  String? get fileName => mapOrNull<String>(
+        attached: (e) => e.fileName,
+        uploading: (e) => e.fileName,
+        uploaded: (e) => e.fileName,
+        error: (e) => e.fileName,
       );
 
   int? get id => mapOrNull<int>(

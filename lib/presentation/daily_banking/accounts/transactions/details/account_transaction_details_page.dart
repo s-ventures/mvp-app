@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
+import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/upload_attachments.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -123,9 +124,21 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                   attachments: [
                     FileAttachment.uploaded(
                       id: 0,
+                      size: 37.2,
+                      timeStamp: DateTime.now(),
+                      fileName: 'my_first.pdf',
+                    ),
+                    FileAttachment.uploading(
+                      id: 0,
+                      size: 23.34,
+                      file: File(''),
+                      fileName: 'my_first.pdf',
+                    ),
+                    const FileAttachment.error(
+                      id: 0,
                       size: 100,
-                      createdDate: DateTime.now(),
-                      fileName: 'File name',
+                      error: UploadFileFailure.fileExceedsMaxSize(10),
+                      fileName: 'my_first.pdf',
                     ),
                   ],
                   onFileSelected: (File file) {

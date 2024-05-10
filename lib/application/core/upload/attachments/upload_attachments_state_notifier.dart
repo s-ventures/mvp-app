@@ -114,7 +114,6 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
       final localId = file.id;
       final uploadId = fileUpload.id;
 
-      // TODO: Review if the IDs match properly with back-end
       return localId != null && uploadId != null && localId == uploadId;
     });
 
@@ -165,7 +164,7 @@ class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends St
         (fileUpload) => fileUpload.operation.value.then(
           (result) => result.fold(
             (error) => fileUpload.attachment.toError(error: error),
-            (attachment) => attachment,
+            (attachment) => fileUpload.attachment,
           ),
         ),
       ),
