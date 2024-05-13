@@ -108,19 +108,21 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
       return;
     }
 
-    final result = await deleteAttachment(attachmentId);
-
-    result.fold(
-      (failure) => setStateSafe(
-        () => state.updateWith(uploadFailure: SingleAccessData(failure)) as T,
-      ),
-      (_) {
-        attachments.removeAt(index);
-        setStateSafe(
-          () => state.updateWith(attachments: attachments) as T,
-        );
-      },
-    );
+    // If it was previously uploaded we delete it from the back-end
+    if (attachment.isUploaded) {
+      final result = await deleteAttachment(attachmentId);
+      result.fold(
+        (failure) => setStateSafe(
+          () => state.updateWith(uploadFailure: SingleAccessData(failure)) as T,
+        ),
+        (_) {
+          attachments.removeAt(index);
+          setStateSafe(
+            () => state.updateWith(attachments: attachments) as T,
+          );
+        },
+      );
+    }
   }
 
   Future<void> _updateAttachmentStatus((FileAttachment fileUpload, String newId) args) async {

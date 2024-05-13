@@ -129,6 +129,11 @@ class FileAttachment with _$FileAttachment {
         orElse: () => false,
       );
 
+  bool get isUploaded => maybeMap(
+        uploaded: (_) => true,
+        orElse: () => false,
+      );
+
   int? get size => mapOrNull<int>(
         attached: (e) => e.size,
         uploading: (e) => e.size,
