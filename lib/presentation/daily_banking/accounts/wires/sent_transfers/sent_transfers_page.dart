@@ -33,7 +33,7 @@ class _SentTransfersPageState extends ConsumerState<SentTransfersPage> {
 
     return Scaffold(
       body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
+        headerSliverBuilder: (context, value) {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
@@ -59,6 +59,7 @@ class _SentTransfersPageState extends ConsumerState<SentTransfersPage> {
               data: (sentTransfers) {
                 return ListView.builder(
                   shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.zero,
                   itemCount: sentTransfers.length,
                   itemBuilder: (context, index) {
