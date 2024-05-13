@@ -34,21 +34,21 @@ mixin _$DetailedAccountTransactionDto {
   String? get userComments => throw _privateConstructorUsedError;
   String? get userCategory => throw _privateConstructorUsedError;
   String? get placeId =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo, el back-end está enviando null
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo, el back-end está enviando null
   int? get accountId =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   double? get endBalance => throw _privateConstructorUsedError;
   String? get detailFields => throw _privateConstructorUsedError;
   bool? get visible =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   bool? get bankReceipt =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   String? get originBranch =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   double? get originalAmount =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   String? get originalCurrencyCode =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
   DateTime? get assignmentDate => throw _privateConstructorUsedError;
   List<FileAttachmentDto>? get attachments =>
@@ -459,29 +459,29 @@ class _$DetailedAccountTransactionDtoImpl
   final String? userCategory;
   @override
   final String? placeId;
-// TODO: Hacer non-nullable de nuevo, el back-end está enviando null
+// TODO(migalv): Hacer non-nullable de nuevo, el back-end está enviando null
   @override
   final int? accountId;
-// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   final double? endBalance;
   @override
   final String? detailFields;
   @override
   final bool? visible;
-// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   final bool? bankReceipt;
-// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   final String? originBranch;
-// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   final double? originalAmount;
-// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   final String? originalCurrencyCode;
-// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   @DateConverter()
   final DateTime? assignmentDate;
@@ -656,23 +656,23 @@ abstract class _DetailedAccountTransactionDto
   String? get userCategory;
   @override
   String? get placeId;
-  @override // TODO: Hacer non-nullable de nuevo, el back-end está enviando null
+  @override // TODO(migalv): Hacer non-nullable de nuevo, el back-end está enviando null
   int? get accountId;
-  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   double? get endBalance;
   @override
   String? get detailFields;
   @override
   bool? get visible;
-  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   bool? get bankReceipt;
-  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   String? get originBranch;
-  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   double? get originalAmount;
-  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   String? get originalCurrencyCode;
-  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
   DateTime? get assignmentDate;
   @override

@@ -19,16 +19,16 @@ mixin _$DetailedAccountTransaction {
   UniqueId get id => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get amount =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable, el back-end está enviando null
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable, el back-end está enviando null
   double? get endBalance => throw _privateConstructorUsedError;
   DateTime get date =>
-      throw _privateConstructorUsedError; // TODO: Hacer non-nullable, el back-end está enviando null
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable, el back-end está enviando null
   String? get originBranch => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get detailFields => throw _privateConstructorUsedError;
   String get userComments => throw _privateConstructorUsedError;
   bool? get bankReceipt =>
-      throw _privateConstructorUsedError; // TODO: Hacer required y non-nullable, el back-end está enviando null
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer required y non-nullable, el back-end está enviando null
   UniqueId? get accountId => throw _privateConstructorUsedError;
   List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
@@ -266,12 +266,12 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   final String description;
   @override
   final double amount;
-// TODO: Hacer non-nullable, el back-end está enviando null
+// TODO(migalv): Hacer non-nullable, el back-end está enviando null
   @override
   final double? endBalance;
   @override
   final DateTime date;
-// TODO: Hacer non-nullable, el back-end está enviando null
+// TODO(migalv): Hacer non-nullable, el back-end está enviando null
   @override
   final String? originBranch;
   @override
@@ -282,7 +282,7 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   final String userComments;
   @override
   final bool? bankReceipt;
-// TODO: Hacer required y non-nullable, el back-end está enviando null
+// TODO(migalv): Hacer required y non-nullable, el back-end está enviando null
   @override
   final UniqueId? accountId;
   final List<FileAttachment> _attachments;
@@ -374,11 +374,11 @@ abstract class _DetailedAccountTransaction
   String get description;
   @override
   double get amount;
-  @override // TODO: Hacer non-nullable, el back-end está enviando null
+  @override // TODO(migalv): Hacer non-nullable, el back-end está enviando null
   double? get endBalance;
   @override
   DateTime get date;
-  @override // TODO: Hacer non-nullable, el back-end está enviando null
+  @override // TODO(migalv): Hacer non-nullable, el back-end está enviando null
   String? get originBranch;
   @override
   String get category;
@@ -388,7 +388,7 @@ abstract class _DetailedAccountTransaction
   String get userComments;
   @override
   bool? get bankReceipt;
-  @override // TODO: Hacer required y non-nullable, el back-end está enviando null
+  @override // TODO(migalv): Hacer required y non-nullable, el back-end está enviando null
   UniqueId? get accountId;
   @override
   List<FileAttachment> get attachments;

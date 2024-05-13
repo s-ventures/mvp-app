@@ -83,16 +83,6 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
     required String fileName,
   }) async {
     try {
-      // TODO: REMOVE
-      await Future.delayed(const Duration(seconds: 3));
-      return right(
-        FileAttachmentUploaded(
-          id: DateTime.now().toString(),
-          fileName: fileName,
-          size: file.lengthSync(),
-          timeStamp: DateTime.now(),
-        ),
-      );
       final response = await _remoteDataSource.uploadFileAttachmentForTransaction(
         accountId: accountId,
         transactionId: transactionId,
@@ -100,6 +90,23 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
         fileName: fileName,
       );
       return right(response.toDomain());
+    } catch (_) {
+      return left(const UploadFileFailure.unexpected());
+    }
+  }
+
+  Future<Either<UploadFileFailure, void>> removeAttachmentFromTransaction({
+    required String accountId,
+    required String transactionId,
+    required String attachmentId,
+  }) async {
+    try {
+      await _remoteDataSource.removeAttachmentFromTransaction(
+        accountId: accountId,
+        transactionId: transactionId,
+        fileId: attachmentId,
+      );
+      return right(null);
     } catch (_) {
       return left(const UploadFileFailure.unexpected());
     }

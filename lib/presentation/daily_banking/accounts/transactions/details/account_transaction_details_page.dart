@@ -3,8 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
+import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/upload_attachments.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/localization/upload_attachments.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
@@ -22,6 +26,9 @@ class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
 }
 
 class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransactionDetailsPage> {
+  final PublishSubject<UploadFileFailure> _failureSubject = PublishSubject();
+  final CompositeSubscription _compositeSubscription = CompositeSubscription();
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -32,7 +39,25 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
             ),
       );
     });
+
+    ref.listenManual(
+      detailedAccountTransactionControllerProvider.select((state) => state.uploadFailure),
+      (_, failure) {
+        _handleFailure(failure.getData());
+      },
+    );
+
+    _failureSubject
+        .throttleTime(kSnackBarDisplayDuration)
+        .doOnData(_showToastFailure)
+        .listenSafe(_compositeSubscription);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _compositeSubscription.cancel();
+    super.dispose();
   }
 
   @override
@@ -150,6 +175,22 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
           ),
         ),
       ),
+    );
+  }
+
+  void _handleFailure(UploadFileFailure? failure) {
+    if (failure == null) {
+      return;
+    }
+
+    _failureSubject.add(failure);
+  }
+
+  void _showToastFailure(UploadFileFailure failure) {
+    CustomToast.show(
+      context,
+      content: failure.localize(),
+      type: ToastType.error,
     );
   }
 }

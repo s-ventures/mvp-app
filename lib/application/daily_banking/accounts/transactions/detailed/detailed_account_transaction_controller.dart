@@ -38,7 +38,7 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
           (l) => state.copyWith(transaction: AsyncError(l, StackTrace.current)),
           (r) => state.copyWith(
             transaction: AsyncData(
-              // TODO: Remove this when back-end returns the account id
+              // TODO(migalv): Remove this when back-end returns the account id
               r.copyWith(accountId: UniqueId.fromUniqueString(accountId)),
             ),
           ),
@@ -63,7 +63,6 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
     );
 
     if (accountId == null || transactionId == null) {
-      // TODO: Show error snackbar also
       return CancelableOperation.fromValue(left(const UploadFileFailure.unexpected()));
     }
 
@@ -74,6 +73,28 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
         file: attachment.file,
         fileName: attachment.file.name ?? 'no_name',
       ),
+    );
+  }
+
+  @override
+  @protected
+  Future<Either<UploadFileFailure, void>> deleteAttachment(String attachmentId) async {
+    final accountId = state.transaction.whenOrNull(data: (tx) => tx.accountId?.getOrCrash());
+    final transactionId = state.transaction.whenOrNull(
+      data: (transaction) => transaction.id.value.fold(
+        (l) => null,
+        (r) => r,
+      ),
+    );
+
+    if (accountId == null || transactionId == null) {
+      return left(const UploadFileFailure.unexpected());
+    }
+
+    return _repository.removeAttachmentFromTransaction(
+      accountId: accountId,
+      transactionId: transactionId,
+      attachmentId: attachmentId,
     );
   }
 }

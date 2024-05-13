@@ -93,17 +93,33 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
   Future<void> removeFile(FileAttachment attachment) async {
     final attachments = state.attachments.toList();
     final index = attachments.indexWhere(
-      (image) => image.id == attachment.id,
+      (e) => e.id == attachment.id,
     );
+    final attachmentId = attachment.id;
 
-    if (index < 0) {
+    for (final file in _files) {
+      if (file.attachment.id == attachmentId) {
+        await file.operation.cancel();
+        break;
+      }
+    }
+
+    if (index < 0 || attachmentId == null) {
       return;
     }
 
-    attachments.removeAt(index);
+    final result = await deleteAttachment(attachmentId);
 
-    setStateSafe(
-      () => state.updateWith(attachments: attachments) as T,
+    result.fold(
+      (failure) => setStateSafe(
+        () => state.updateWith(uploadFailure: SingleAccessData(failure)) as T,
+      ),
+      (_) {
+        attachments.removeAt(index);
+        setStateSafe(
+          () => state.updateWith(attachments: attachments) as T,
+        );
+      },
     );
   }
 
@@ -119,8 +135,12 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
       return localId != null && uploadId != null && localId == uploadId;
     });
 
+    if (index < 0) {
+      return;
+    }
+
     // Replace the attachment with the new state
-    attachments.replaceRange(index, index, [fileUpload.toUploadedOrError(id: newId)]);
+    attachments.replaceRange(index, index + 1, [fileUpload.toUploadedOrError(id: newId)]);
 
     setStateSafe(
       () => state.updateWith(attachments: attachments) as T,
@@ -169,7 +189,12 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
       _files.map(
         (fileUpload) => fileUpload.operation.value.then(
           (result) => result.fold(
-            (error) => (fileUpload.attachment.toError(error: error), fileUpload.attachment.id!),
+            (failure) {
+              setStateSafe(
+                () => state.updateWith(uploadFailure: SingleAccessData(failure)) as T,
+              );
+              return (fileUpload.attachment.toError(error: failure), fileUpload.attachment.id!);
+            },
             (attachment) => (fileUpload.attachment, attachment.id!),
           ),
         ),
@@ -180,6 +205,11 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
   @protected
   CancelableOperation<Either<UploadFileFailure, FileAttachmentUploaded>> uploadAttachment(
     FileAttachmentAttached attachment,
+  );
+
+  @protected
+  Future<Either<UploadFileFailure, void>> deleteAttachment(
+    String attachmentId,
   );
 
   @override

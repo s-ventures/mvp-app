@@ -58,21 +58,21 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     required String? userComments,
     required String? userCategory,
     required String? placeId,
-    // TODO: Hacer non-nullable de nuevo, el back-end está enviando null
+    // TODO(migalv): Hacer non-nullable de nuevo, el back-end está enviando null
     required int? accountId,
-    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required double? endBalance,
     required String? detailFields,
     required bool? visible,
-    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required bool? bankReceipt,
-    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required String? originBranch,
-    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required double? originalAmount,
-    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required String? originalCurrencyCode,
-    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     @DateConverter() required DateTime? assignmentDate,
     required List<FileAttachmentDto>? attachments,
     @ExtendedDetailsConverter() required ExtendedDetailsDto? extendedDetails,

@@ -56,3 +56,4 @@ export 'splash.dart';
 export 'tab_bar/custom_tab_bar.dart';
 export 'tab_bar/custom_tab_bar_indicator.dart';
 export 'text_avatar.dart';
+export 'toast/custom_toast.dart';

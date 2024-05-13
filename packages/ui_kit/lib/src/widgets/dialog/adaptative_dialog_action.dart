@@ -31,7 +31,7 @@ class AdaptativeDialogAction extends StatelessWidget {
       );
     } else {
       if (isPrimary) {
-        // TODO: Revisar estilos
+        // TODO(migalv): Revisar estilos - esperando a Iran
         return Button(
           onPressed: onPressed,
           title: text,

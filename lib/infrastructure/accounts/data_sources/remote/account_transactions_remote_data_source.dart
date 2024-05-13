@@ -66,4 +66,20 @@ class AccountTransactionsRemoteDataSource {
       rethrow;
     }
   }
+
+  Future<void> removeAttachmentFromTransaction({
+    required String accountId,
+    required String transactionId,
+    required String fileId,
+  }) async {
+    try {
+      return _restClient.removeFileAttachmentFromTransaction(
+        accountId: accountId,
+        transactionId: transactionId,
+        fileId: fileId,
+      );
+    } catch (_) {
+      rethrow;
+    }
+  }
 }
