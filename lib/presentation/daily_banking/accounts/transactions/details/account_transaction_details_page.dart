@@ -110,7 +110,7 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                 AppSpacing.vertical.s5,
                 MovementDetailsBankingInfo(
                   type: BankAccountType.account,
-                  last4: transaction.originBranch,
+                  last4: transaction.originBranch ?? '1234',
                   icon: '🖥️',
                   // category: transaction.category,
                   category: 'Tecnología',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manifiesto_mvp_app/core/extensions/double_extension.dart';
+import 'package:manifiesto_mvp_app/core/extensions/int_extension.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/presentation/extensions/localization/upload_attachments.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -26,21 +27,21 @@ class AttachmentListTile extends StatelessWidget {
       initial: (attachment) {},
       attached: (attachment) {
         fileName = attachment.fileName;
-        sizeMb = attachment.size;
+        sizeMb = attachment.size.bytesToMegaBytes();
       },
       error: (attachment) {
         fileName = attachment.fileName;
-        sizeMb = attachment.size;
+        sizeMb = attachment.size.bytesToMegaBytes();
         hasError = true;
       },
       uploading: (attachment) {
         fileName = attachment.fileName;
-        sizeMb = attachment.size;
+        sizeMb = attachment.size.bytesToMegaBytes();
         isLoading = true;
       },
       uploaded: (attachment) {
         fileName = attachment.fileName;
-        sizeMb = attachment.size;
+        sizeMb = attachment.size.bytesToMegaBytes();
       },
     );
 
@@ -60,6 +61,7 @@ class AttachmentListTile extends StatelessWidget {
               horizontal: AppSpacing.s4,
             ),
             leading: IconWithContainer(
+              isLoading: isLoading,
               icon: hasError ? IconAssets.warning : IconAssets.file,
               size: IconWithContainerSize.medium,
               backgroundColor: context.color.neutralLight100,
@@ -81,18 +83,13 @@ class AttachmentListTile extends StatelessWidget {
                 color: hasError ? context.color.error : context.color.textLight600,
               ),
             ),
-            trailing: isLoading
-                ? const Padding(
-                    padding: EdgeInsets.only(right: AppSpacing.s4),
-                    child: CircularProgressIndicator.adaptive(),
-                  )
-                : IconButton(
-                    onPressed: onRemove,
-                    icon: Icon(
-                      Icons.close,
-                      color: context.color.iconLight900,
-                    ),
-                  ),
+            trailing: IconButton(
+              onPressed: onRemove,
+              icon: Icon(
+                Icons.close,
+                color: context.color.iconLight900,
+              ),
+            ),
           ),
         ),
       ],

@@ -26,9 +26,9 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 
 part 'detailed_card_transaction_dto.g.dart';
@@ -56,8 +56,7 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
     required this.productType,
   });
 
-  factory DetailedCardTransactionDto.fromJson(Map<String, dynamic> json) =>
-      _$DetailedCardTransactionDtoFromJson(json);
+  factory DetailedCardTransactionDto.fromJson(Map<String, dynamic> json) => _$DetailedCardTransactionDtoFromJson(json);
 
   final int movementId;
   @DateConverter()
@@ -77,7 +76,7 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
   final String concept;
   final String postingTime;
   final int accountMovementId;
-  final List<TransactionAttachmentDto> attachments;
+  final List<FileAttachmentDto> attachments;
   final ProductTypeDto productType;
 
   @override

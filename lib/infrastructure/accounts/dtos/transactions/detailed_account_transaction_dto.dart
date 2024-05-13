@@ -35,10 +35,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 
 part 'detailed_account_transaction_dto.freezed.dart';
@@ -58,17 +58,23 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     required String? userComments,
     required String? userCategory,
     required String? placeId,
-    required int accountId,
-    required double endBalance,
+    // TODO: Hacer non-nullable de nuevo, el back-end está enviando null
+    required int? accountId,
+    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required double? endBalance,
     required String? detailFields,
     required bool? visible,
-    // TODO: Revisar con Back-End si es obligatorio este campo
+    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required bool? bankReceipt,
-    required String originBranch,
-    required double originalAmount,
-    required String originalCurrencyCode,
-    @DateConverter() required DateTime assignmentDate,
-    required List<TransactionAttachmentDto>? attachments,
+    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required String? originBranch,
+    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required double? originalAmount,
+    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required String? originalCurrencyCode,
+    // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    @DateConverter() required DateTime? assignmentDate,
+    required List<FileAttachmentDto>? attachments,
     @ExtendedDetailsConverter() required ExtendedDetailsDto? extendedDetails,
     required ProductTypeDto productType,
   }) = _DetailedAccountTransactionDto;
@@ -90,6 +96,8 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
       detailFields: detailFields ?? '',
       userComments: userComments ?? '',
       bankReceipt: bankReceipt,
+      accountId: accountId == null ? null : UniqueId.fromUniqueString(accountId.toString()),
+      attachments: attachments?.map((a) => a.toDomain()).toList() ?? [],
     );
   }
 }

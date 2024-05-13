@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:async/src/cancelable_operation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/account_transactions_filter.dart';
@@ -11,11 +10,11 @@ import 'package:manifiesto_mvp_app/domain/accounts/transactions/failures/simplif
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/repositories/i_account_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
-import 'package:manifiesto_mvp_app/domain/upload/repositories/upload_file_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/data_sources/remote/account_transactions_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transactions_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/detailed_account_transaction_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/simplified_account_transaction_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_transactions_rest_client.dart';
 
@@ -27,7 +26,7 @@ final accountTransactionsRepositoryProvider = Provider<AccountTransactionsReposi
   ),
 );
 
-class AccountTransactionsRepository implements IAccountTransactionsRepository, UploadFileRepository {
+class AccountTransactionsRepository implements IAccountTransactionsRepository {
   AccountTransactionsRepository({
     required AccountTransactionsRemoteDataSource remoteDataSource,
   }) : _remoteDataSource = remoteDataSource;
@@ -77,9 +76,32 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository, U
     }
   }
 
-  @override
-  CancelableOperation<Either<UploadFileFailure, FileAttachmentUploaded>> uploadFile(File file) {
-    // TODO: implement uploadFile
-    throw UnimplementedError();
+  Future<Either<UploadFileFailure, FileAttachmentUploaded>> attachFileToTransaction({
+    required String accountId,
+    required String transactionId,
+    required File file,
+    required String fileName,
+  }) async {
+    try {
+      // TODO: REMOVE
+      await Future.delayed(const Duration(seconds: 3));
+      return right(
+        FileAttachmentUploaded(
+          id: DateTime.now().toString(),
+          fileName: fileName,
+          size: file.lengthSync(),
+          timeStamp: DateTime.now(),
+        ),
+      );
+      final response = await _remoteDataSource.uploadFileAttachmentForTransaction(
+        accountId: accountId,
+        transactionId: transactionId,
+        file: file,
+        fileName: fileName,
+      );
+      return right(response.toDomain());
+    } catch (_) {
+      return left(const UploadFileFailure.unexpected());
+    }
   }
 }

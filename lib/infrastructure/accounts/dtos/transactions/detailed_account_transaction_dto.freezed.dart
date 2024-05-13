@@ -33,19 +33,25 @@ mixin _$DetailedAccountTransactionDto {
   String? get analyticsCategory => throw _privateConstructorUsedError;
   String? get userComments => throw _privateConstructorUsedError;
   String? get userCategory => throw _privateConstructorUsedError;
-  String? get placeId => throw _privateConstructorUsedError;
-  int get accountId => throw _privateConstructorUsedError;
-  double get endBalance => throw _privateConstructorUsedError;
+  String? get placeId =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo, el back-end está enviando null
+  int? get accountId =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  double? get endBalance => throw _privateConstructorUsedError;
   String? get detailFields => throw _privateConstructorUsedError;
   bool? get visible =>
-      throw _privateConstructorUsedError; // TODO: Revisar con Back-End si es obligatorio este campo
-  bool? get bankReceipt => throw _privateConstructorUsedError;
-  String get originBranch => throw _privateConstructorUsedError;
-  double get originalAmount => throw _privateConstructorUsedError;
-  String get originalCurrencyCode => throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  bool? get bankReceipt =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  String? get originBranch =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  double? get originalAmount =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  String? get originalCurrencyCode =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
-  DateTime get assignmentDate => throw _privateConstructorUsedError;
-  List<TransactionAttachmentDto>? get attachments =>
+  DateTime? get assignmentDate => throw _privateConstructorUsedError;
+  List<FileAttachmentDto>? get attachments =>
       throw _privateConstructorUsedError;
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails => throw _privateConstructorUsedError;
@@ -77,16 +83,16 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       String? userComments,
       String? userCategory,
       String? placeId,
-      int accountId,
-      double endBalance,
+      int? accountId,
+      double? endBalance,
       String? detailFields,
       bool? visible,
       bool? bankReceipt,
-      String originBranch,
-      double originalAmount,
-      String originalCurrencyCode,
-      @DateConverter() DateTime assignmentDate,
-      List<TransactionAttachmentDto>? attachments,
+      String? originBranch,
+      double? originalAmount,
+      String? originalCurrencyCode,
+      @DateConverter() DateTime? assignmentDate,
+      List<FileAttachmentDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
 }
@@ -116,15 +122,15 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? userComments = freezed,
     Object? userCategory = freezed,
     Object? placeId = freezed,
-    Object? accountId = null,
-    Object? endBalance = null,
+    Object? accountId = freezed,
+    Object? endBalance = freezed,
     Object? detailFields = freezed,
     Object? visible = freezed,
     Object? bankReceipt = freezed,
-    Object? originBranch = null,
-    Object? originalAmount = null,
-    Object? originalCurrencyCode = null,
-    Object? assignmentDate = null,
+    Object? originBranch = freezed,
+    Object? originalAmount = freezed,
+    Object? originalCurrencyCode = freezed,
+    Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
     Object? productType = null,
@@ -174,14 +180,14 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountId: null == accountId
+      accountId: freezed == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
-              as int,
-      endBalance: null == endBalance
+              as int?,
+      endBalance: freezed == endBalance
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       detailFields: freezed == detailFields
           ? _value.detailFields
           : detailFields // ignore: cast_nullable_to_non_nullable
@@ -194,26 +200,26 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool?,
-      originBranch: null == originBranch
+      originBranch: freezed == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
-              as String,
-      originalAmount: null == originalAmount
+              as String?,
+      originalAmount: freezed == originalAmount
           ? _value.originalAmount
           : originalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      originalCurrencyCode: null == originalCurrencyCode
+              as double?,
+      originalCurrencyCode: freezed == originalCurrencyCode
           ? _value.originalCurrencyCode
           : originalCurrencyCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      assignmentDate: null == assignmentDate
+              as String?,
+      assignmentDate: freezed == assignmentDate
           ? _value.assignmentDate
           : assignmentDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       attachments: freezed == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<TransactionAttachmentDto>?,
+              as List<FileAttachmentDto>?,
       extendedDetails: freezed == extendedDetails
           ? _value.extendedDetails
           : extendedDetails // ignore: cast_nullable_to_non_nullable
@@ -247,16 +253,16 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       String? userComments,
       String? userCategory,
       String? placeId,
-      int accountId,
-      double endBalance,
+      int? accountId,
+      double? endBalance,
       String? detailFields,
       bool? visible,
       bool? bankReceipt,
-      String originBranch,
-      double originalAmount,
-      String originalCurrencyCode,
-      @DateConverter() DateTime assignmentDate,
-      List<TransactionAttachmentDto>? attachments,
+      String? originBranch,
+      double? originalAmount,
+      String? originalCurrencyCode,
+      @DateConverter() DateTime? assignmentDate,
+      List<FileAttachmentDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
 }
@@ -285,15 +291,15 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? userComments = freezed,
     Object? userCategory = freezed,
     Object? placeId = freezed,
-    Object? accountId = null,
-    Object? endBalance = null,
+    Object? accountId = freezed,
+    Object? endBalance = freezed,
     Object? detailFields = freezed,
     Object? visible = freezed,
     Object? bankReceipt = freezed,
-    Object? originBranch = null,
-    Object? originalAmount = null,
-    Object? originalCurrencyCode = null,
-    Object? assignmentDate = null,
+    Object? originBranch = freezed,
+    Object? originalAmount = freezed,
+    Object? originalCurrencyCode = freezed,
+    Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
     Object? productType = null,
@@ -343,14 +349,14 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountId: null == accountId
+      accountId: freezed == accountId
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
-              as int,
-      endBalance: null == endBalance
+              as int?,
+      endBalance: freezed == endBalance
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       detailFields: freezed == detailFields
           ? _value.detailFields
           : detailFields // ignore: cast_nullable_to_non_nullable
@@ -363,26 +369,26 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool?,
-      originBranch: null == originBranch
+      originBranch: freezed == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
-              as String,
-      originalAmount: null == originalAmount
+              as String?,
+      originalAmount: freezed == originalAmount
           ? _value.originalAmount
           : originalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
-      originalCurrencyCode: null == originalCurrencyCode
+              as double?,
+      originalCurrencyCode: freezed == originalCurrencyCode
           ? _value.originalCurrencyCode
           : originalCurrencyCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      assignmentDate: null == assignmentDate
+              as String?,
+      assignmentDate: freezed == assignmentDate
           ? _value.assignmentDate
           : assignmentDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       attachments: freezed == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<TransactionAttachmentDto>?,
+              as List<FileAttachmentDto>?,
       extendedDetails: freezed == extendedDetails
           ? _value.extendedDetails
           : extendedDetails // ignore: cast_nullable_to_non_nullable
@@ -420,7 +426,7 @@ class _$DetailedAccountTransactionDtoImpl
       required this.originalAmount,
       required this.originalCurrencyCode,
       @DateConverter() required this.assignmentDate,
-      required final List<TransactionAttachmentDto>? attachments,
+      required final List<FileAttachmentDto>? attachments,
       @ExtendedDetailsConverter() required this.extendedDetails,
       required this.productType})
       : _attachments = attachments;
@@ -453,29 +459,35 @@ class _$DetailedAccountTransactionDtoImpl
   final String? userCategory;
   @override
   final String? placeId;
+// TODO: Hacer non-nullable de nuevo, el back-end está enviando null
   @override
-  final int accountId;
+  final int? accountId;
+// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
-  final double endBalance;
+  final double? endBalance;
   @override
   final String? detailFields;
   @override
   final bool? visible;
-// TODO: Revisar con Back-End si es obligatorio este campo
+// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   final bool? bankReceipt;
+// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
-  final String originBranch;
+  final String? originBranch;
+// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
-  final double originalAmount;
+  final double? originalAmount;
+// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
-  final String originalCurrencyCode;
+  final String? originalCurrencyCode;
+// TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   @DateConverter()
-  final DateTime assignmentDate;
-  final List<TransactionAttachmentDto>? _attachments;
+  final DateTime? assignmentDate;
+  final List<FileAttachmentDto>? _attachments;
   @override
-  List<TransactionAttachmentDto>? get attachments {
+  List<FileAttachmentDto>? get attachments {
     final value = _attachments;
     if (value == null) return null;
     if (_attachments is EqualUnmodifiableListView) return _attachments;
@@ -602,16 +614,16 @@ abstract class _DetailedAccountTransactionDto
           required final String? userComments,
           required final String? userCategory,
           required final String? placeId,
-          required final int accountId,
-          required final double endBalance,
+          required final int? accountId,
+          required final double? endBalance,
           required final String? detailFields,
           required final bool? visible,
           required final bool? bankReceipt,
-          required final String originBranch,
-          required final double originalAmount,
-          required final String originalCurrencyCode,
-          @DateConverter() required final DateTime assignmentDate,
-          required final List<TransactionAttachmentDto>? attachments,
+          required final String? originBranch,
+          required final double? originalAmount,
+          required final String? originalCurrencyCode,
+          @DateConverter() required final DateTime? assignmentDate,
+          required final List<FileAttachmentDto>? attachments,
           @ExtendedDetailsConverter()
           required final ExtendedDetailsDto? extendedDetails,
           required final ProductTypeDto productType}) =
@@ -644,27 +656,27 @@ abstract class _DetailedAccountTransactionDto
   String? get userCategory;
   @override
   String? get placeId;
-  @override
-  int get accountId;
-  @override
-  double get endBalance;
+  @override // TODO: Hacer non-nullable de nuevo, el back-end está enviando null
+  int? get accountId;
+  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  double? get endBalance;
   @override
   String? get detailFields;
   @override
   bool? get visible;
-  @override // TODO: Revisar con Back-End si es obligatorio este campo
+  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   bool? get bankReceipt;
-  @override
-  String get originBranch;
-  @override
-  double get originalAmount;
-  @override
-  String get originalCurrencyCode;
-  @override
+  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  String? get originBranch;
+  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  double? get originalAmount;
+  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  String? get originalCurrencyCode;
+  @override // TODO: Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
-  DateTime get assignmentDate;
+  DateTime? get assignmentDate;
   @override
-  List<TransactionAttachmentDto>? get attachments;
+  List<FileAttachmentDto>? get attachments;
   @override
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails;

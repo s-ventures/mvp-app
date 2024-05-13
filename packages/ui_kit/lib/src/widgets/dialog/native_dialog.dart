@@ -20,6 +20,21 @@ class NativeDialog extends StatelessWidget {
   final List<AdaptativeDialogAction>? actions;
   final Object? exception;
 
+  static Future<T?> show<T>(
+    BuildContext context, {
+    required String title,
+    required Widget content,
+    Object? exception,
+    List<AdaptativeDialogAction>? actions,
+  }) =>
+      showDialog<T>(
+        context: context,
+        builder: (context) => NativeDialog(
+          title: title,
+          content: content,
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     final widget = Material(

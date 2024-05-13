@@ -27,8 +27,7 @@ DetailedCardTransactionDto _$DetailedCardTransactionDtoFromJson(
       postingTime: json['postingTime'] as String,
       accountMovementId: json['accountMovementId'] as int,
       attachments: (json['attachments'] as List<dynamic>)
-          .map((e) =>
-              TransactionAttachmentDto.fromJson(e as Map<String, dynamic>))
+          .map((e) => FileAttachmentDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       productType: $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
     );

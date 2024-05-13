@@ -18,14 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DetailedAccountTransaction {
   UniqueId get id => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
-  double get endBalance => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
-  String get originBranch => throw _privateConstructorUsedError;
+  double get amount =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable, el back-end está enviando null
+  double? get endBalance => throw _privateConstructorUsedError;
+  DateTime get date =>
+      throw _privateConstructorUsedError; // TODO: Hacer non-nullable, el back-end está enviando null
+  String? get originBranch => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get detailFields => throw _privateConstructorUsedError;
   String get userComments => throw _privateConstructorUsedError;
-  bool? get bankReceipt => throw _privateConstructorUsedError;
+  bool? get bankReceipt =>
+      throw _privateConstructorUsedError; // TODO: Hacer required y non-nullable, el back-end está enviando null
+  UniqueId? get accountId => throw _privateConstructorUsedError;
+  List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedAccountTransactionCopyWith<DetailedAccountTransaction>
@@ -43,13 +48,15 @@ abstract class $DetailedAccountTransactionCopyWith<$Res> {
       {UniqueId id,
       String description,
       double amount,
-      double endBalance,
+      double? endBalance,
       DateTime date,
-      String originBranch,
+      String? originBranch,
       String category,
       String detailFields,
       String userComments,
-      bool? bankReceipt});
+      bool? bankReceipt,
+      UniqueId? accountId,
+      List<FileAttachment> attachments});
 }
 
 /// @nodoc
@@ -69,13 +76,15 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
     Object? id = null,
     Object? description = null,
     Object? amount = null,
-    Object? endBalance = null,
+    Object? endBalance = freezed,
     Object? date = null,
-    Object? originBranch = null,
+    Object? originBranch = freezed,
     Object? category = null,
     Object? detailFields = null,
     Object? userComments = null,
     Object? bankReceipt = freezed,
+    Object? accountId = freezed,
+    Object? attachments = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -90,18 +99,18 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      endBalance: null == endBalance
+      endBalance: freezed == endBalance
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      originBranch: null == originBranch
+      originBranch: freezed == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -118,6 +127,14 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool?,
+      accountId: freezed == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as UniqueId?,
+      attachments: null == attachments
+          ? _value.attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
     ) as $Val);
   }
 }
@@ -135,13 +152,15 @@ abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
       {UniqueId id,
       String description,
       double amount,
-      double endBalance,
+      double? endBalance,
       DateTime date,
-      String originBranch,
+      String? originBranch,
       String category,
       String detailFields,
       String userComments,
-      bool? bankReceipt});
+      bool? bankReceipt,
+      UniqueId? accountId,
+      List<FileAttachment> attachments});
 }
 
 /// @nodoc
@@ -160,13 +179,15 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
     Object? id = null,
     Object? description = null,
     Object? amount = null,
-    Object? endBalance = null,
+    Object? endBalance = freezed,
     Object? date = null,
-    Object? originBranch = null,
+    Object? originBranch = freezed,
     Object? category = null,
     Object? detailFields = null,
     Object? userComments = null,
     Object? bankReceipt = freezed,
+    Object? accountId = freezed,
+    Object? attachments = null,
   }) {
     return _then(_$DetailedAccountTransactionImpl(
       id: null == id
@@ -181,18 +202,18 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
-      endBalance: null == endBalance
+      endBalance: freezed == endBalance
           ? _value.endBalance
           : endBalance // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      originBranch: null == originBranch
+      originBranch: freezed == originBranch
           ? _value.originBranch
           : originBranch // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -209,6 +230,14 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.bankReceipt
           : bankReceipt // ignore: cast_nullable_to_non_nullable
               as bool?,
+      accountId: freezed == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as UniqueId?,
+      attachments: null == attachments
+          ? _value._attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
     ));
   }
 }
@@ -226,7 +255,10 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       required this.category,
       required this.detailFields,
       required this.userComments,
-      required this.bankReceipt});
+      required this.bankReceipt,
+      this.accountId,
+      final List<FileAttachment> attachments = const []})
+      : _attachments = attachments;
 
   @override
   final UniqueId id;
@@ -234,12 +266,14 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   final String description;
   @override
   final double amount;
+// TODO: Hacer non-nullable, el back-end está enviando null
   @override
-  final double endBalance;
+  final double? endBalance;
   @override
   final DateTime date;
+// TODO: Hacer non-nullable, el back-end está enviando null
   @override
-  final String originBranch;
+  final String? originBranch;
   @override
   final String category;
   @override
@@ -248,10 +282,21 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   final String userComments;
   @override
   final bool? bankReceipt;
+// TODO: Hacer required y non-nullable, el back-end está enviando null
+  @override
+  final UniqueId? accountId;
+  final List<FileAttachment> _attachments;
+  @override
+  @JsonKey()
+  List<FileAttachment> get attachments {
+    if (_attachments is EqualUnmodifiableListView) return _attachments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attachments);
+  }
 
   @override
   String toString() {
-    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, date: $date, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt)';
+    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, date: $date, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt, accountId: $accountId, attachments: $attachments)';
   }
 
   @override
@@ -275,7 +320,11 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
             (identical(other.userComments, userComments) ||
                 other.userComments == userComments) &&
             (identical(other.bankReceipt, bankReceipt) ||
-                other.bankReceipt == bankReceipt));
+                other.bankReceipt == bankReceipt) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            const DeepCollectionEquality()
+                .equals(other._attachments, _attachments));
   }
 
   @override
@@ -290,7 +339,9 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       category,
       detailFields,
       userComments,
-      bankReceipt);
+      bankReceipt,
+      accountId,
+      const DeepCollectionEquality().hash(_attachments));
 
   @JsonKey(ignore: true)
   @override
@@ -303,16 +354,19 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
 abstract class _DetailedAccountTransaction
     implements DetailedAccountTransaction {
   const factory _DetailedAccountTransaction(
-      {required final UniqueId id,
-      required final String description,
-      required final double amount,
-      required final double endBalance,
-      required final DateTime date,
-      required final String originBranch,
-      required final String category,
-      required final String detailFields,
-      required final String userComments,
-      required final bool? bankReceipt}) = _$DetailedAccountTransactionImpl;
+          {required final UniqueId id,
+          required final String description,
+          required final double amount,
+          required final double? endBalance,
+          required final DateTime date,
+          required final String? originBranch,
+          required final String category,
+          required final String detailFields,
+          required final String userComments,
+          required final bool? bankReceipt,
+          final UniqueId? accountId,
+          final List<FileAttachment> attachments}) =
+      _$DetailedAccountTransactionImpl;
 
   @override
   UniqueId get id;
@@ -320,12 +374,12 @@ abstract class _DetailedAccountTransaction
   String get description;
   @override
   double get amount;
-  @override
-  double get endBalance;
+  @override // TODO: Hacer non-nullable, el back-end está enviando null
+  double? get endBalance;
   @override
   DateTime get date;
-  @override
-  String get originBranch;
+  @override // TODO: Hacer non-nullable, el back-end está enviando null
+  String? get originBranch;
   @override
   String get category;
   @override
@@ -334,6 +388,10 @@ abstract class _DetailedAccountTransaction
   String get userComments;
   @override
   bool? get bankReceipt;
+  @override // TODO: Hacer required y non-nullable, el back-end está enviando null
+  UniqueId? get accountId;
+  @override
+  List<FileAttachment> get attachments;
   @override
   @JsonKey(ignore: true)
   _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl>

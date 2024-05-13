@@ -10,31 +10,39 @@ class FileAttachment with _$FileAttachment {
   const factory FileAttachment.initial() = FileAttachmentInitial;
 
   const factory FileAttachment.attached({
-    required int id,
+    required String id,
     required File file,
     required String? fileName,
-    required double size,
+
+    /// File size in bytes
+    required int size,
   }) = FileAttachmentAttached;
 
   const factory FileAttachment.error({
-    required int id,
+    required String id,
     required UploadFileFailure error,
-    required double size,
+
+    /// File size in bytes
+    required int size,
     required String? fileName,
   }) = FileAttachmentError;
 
   const factory FileAttachment.uploading({
-    required int id,
+    required String id,
     required File file,
     required String? fileName,
-    required double size,
+
+    /// File size in bytes
+    required int size,
     double? progress,
   }) = FileAttachmentUploading;
 
   const factory FileAttachment.uploaded({
-    required int id,
+    required String id,
     required String? fileName,
-    required double size,
+
+    /// File size in bytes
+    required int size,
     required DateTime timeStamp,
   }) = FileAttachmentUploaded;
 
@@ -45,7 +53,7 @@ class FileAttachment with _$FileAttachment {
   FileAttachmentAttached? asAttached() => mapOrNull(attached: (attachment) => attachment);
   FileAttachmentError? asError() => mapOrNull(error: (attachment) => attachment);
 
-  FileAttachment toUploading({required int id, double progress = 99}) => maybeMap(
+  FileAttachment toUploading({required String id, double progress = 99}) => maybeMap(
         attached: (attachment) => FileAttachment.uploading(
           id: id,
           size: attachment.size,
@@ -56,13 +64,26 @@ class FileAttachment with _$FileAttachment {
         orElse: () => throw Exception('You can only upload a file that is in attached status'),
       );
 
-  FileAttachment toUploaded({required int id, DateTime? uploadedDate}) => maybeMap(
+  FileAttachment toUploaded({required String id, DateTime? uploadedDate}) => maybeMap(
         uploading: (attachment) => FileAttachment.uploaded(
           id: id,
           size: attachment.size,
           timeStamp: DateTime.now(),
           fileName: attachment.fileName,
         ),
+        orElse: () => throw Exception(
+          'You can only mark a file as uploaded from the uploading status',
+        ),
+      );
+
+  FileAttachment toUploadedOrError({required String id, DateTime? uploadedDate}) => maybeMap(
+        uploading: (attachment) => FileAttachment.uploaded(
+          id: id,
+          size: attachment.size,
+          timeStamp: uploadedDate ?? DateTime.now(),
+          fileName: attachment.fileName,
+        ),
+        error: (attachment) => attachment,
         orElse: () => throw Exception(
           'You can only mark a file as uploaded from the uploading status',
         ),
@@ -108,7 +129,7 @@ class FileAttachment with _$FileAttachment {
         orElse: () => false,
       );
 
-  double? get size => mapOrNull<double>(
+  int? get size => mapOrNull<int>(
         attached: (e) => e.size,
         uploading: (e) => e.size,
         uploaded: (e) => e.size,
@@ -122,7 +143,7 @@ class FileAttachment with _$FileAttachment {
         error: (e) => e.fileName,
       );
 
-  int? get id => mapOrNull<int>(
+  String? get id => mapOrNull<String>(
         attached: (e) => e.id,
         uploading: (e) => e.id,
         uploaded: (e) => e.id,

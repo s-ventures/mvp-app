@@ -81,6 +81,41 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
     return value;
   }
 
+  @override
+  Future<FileAttachmentDto> uploadFileAttachmentForTransaction({
+    required String accountId,
+    required String transactionId,
+    required FileAttachmentUploadRequestDto body,
+    required String contentType,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Content-Type': contentType};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<FileAttachmentDto>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: contentType,
+    )
+            .compose(
+              _dio.options,
+              '/accounts/v1/${accountId}/transactions/${transactionId}/attachments',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = FileAttachmentDto.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
