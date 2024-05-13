@@ -9,6 +9,8 @@ class AccountsLocalDataSource {
 
   final SharedPreferencesLocalStorage _localStorage;
 
-  Future<Either<LocalStorageWriteFailure, Unit>> selectAccount(int accountId) =>
+  Future<Either<LocalStorageWriteFailure, Unit>> saveSelectedAccountId(
+    int accountId,
+  ) =>
       _localStorage.writeInt(_selectedAccountId, accountId);
 }

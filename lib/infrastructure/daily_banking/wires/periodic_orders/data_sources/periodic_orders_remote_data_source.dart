@@ -1,5 +1,5 @@
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/wires/periodic_orders_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/wires/periodic_orders_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/detailed_periodic_order_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/periodic_orders_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/simplified_periodic_order_dto.dart';

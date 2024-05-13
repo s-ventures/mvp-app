@@ -17,8 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Contract {
   UniqueId get id => throw _privateConstructorUsedError;
+  String get productCode => throw _privateConstructorUsedError;
   DateTime get startDate => throw _privateConstructorUsedError;
-  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime? get endDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ContractCopyWith<Contract> get copyWith =>
@@ -30,7 +31,8 @@ abstract class $ContractCopyWith<$Res> {
   factory $ContractCopyWith(Contract value, $Res Function(Contract) then) =
       _$ContractCopyWithImpl<$Res, Contract>;
   @useResult
-  $Res call({UniqueId id, DateTime startDate, DateTime endDate});
+  $Res call(
+      {UniqueId id, String productCode, DateTime startDate, DateTime? endDate});
 }
 
 /// @nodoc
@@ -47,22 +49,27 @@ class _$ContractCopyWithImpl<$Res, $Val extends Contract>
   @override
   $Res call({
     Object? id = null,
+    Object? productCode = null,
     Object? startDate = null,
-    Object? endDate = null,
+    Object? endDate = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      productCode: null == productCode
+          ? _value.productCode
+          : productCode // ignore: cast_nullable_to_non_nullable
+              as String,
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endDate: null == endDate
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -75,7 +82,8 @@ abstract class _$$ContractImplCopyWith<$Res>
       __$$ContractImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, DateTime startDate, DateTime endDate});
+  $Res call(
+      {UniqueId id, String productCode, DateTime startDate, DateTime? endDate});
 }
 
 /// @nodoc
@@ -90,22 +98,27 @@ class __$$ContractImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? productCode = null,
     Object? startDate = null,
-    Object? endDate = null,
+    Object? endDate = freezed,
   }) {
     return _then(_$ContractImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      productCode: null == productCode
+          ? _value.productCode
+          : productCode // ignore: cast_nullable_to_non_nullable
+              as String,
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endDate: null == endDate
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -114,18 +127,23 @@ class __$$ContractImplCopyWithImpl<$Res>
 
 class _$ContractImpl implements _Contract {
   const _$ContractImpl(
-      {required this.id, required this.startDate, required this.endDate});
+      {required this.id,
+      required this.productCode,
+      required this.startDate,
+      required this.endDate});
 
   @override
   final UniqueId id;
   @override
+  final String productCode;
+  @override
   final DateTime startDate;
   @override
-  final DateTime endDate;
+  final DateTime? endDate;
 
   @override
   String toString() {
-    return 'Contract(id: $id, startDate: $startDate, endDate: $endDate)';
+    return 'Contract(id: $id, productCode: $productCode, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
@@ -134,13 +152,16 @@ class _$ContractImpl implements _Contract {
         (other.runtimeType == runtimeType &&
             other is _$ContractImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.productCode, productCode) ||
+                other.productCode == productCode) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, startDate, endDate);
+  int get hashCode =>
+      Object.hash(runtimeType, id, productCode, startDate, endDate);
 
   @JsonKey(ignore: true)
   @override
@@ -152,15 +173,18 @@ class _$ContractImpl implements _Contract {
 abstract class _Contract implements Contract {
   const factory _Contract(
       {required final UniqueId id,
+      required final String productCode,
       required final DateTime startDate,
-      required final DateTime endDate}) = _$ContractImpl;
+      required final DateTime? endDate}) = _$ContractImpl;
 
   @override
   UniqueId get id;
   @override
+  String get productCode;
+  @override
   DateTime get startDate;
   @override
-  DateTime get endDate;
+  DateTime? get endDate;
   @override
   @JsonKey(ignore: true)
   _$$ContractImplCopyWith<_$ContractImpl> get copyWith =>

@@ -8,7 +8,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/failures/sel
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/failures/simplified_card_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/repositories/i_cards_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/cards/cards_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/cards/cards_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/data_sources/local/cards_local_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/data_sources/remote/cards_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/detailed_card_dto.dart';
@@ -92,7 +92,7 @@ class CardsRepository implements ICardsRepository {
     required int cardId,
   }) async {
     try {
-      final result = await _localDataSource.selectCard(cardId);
+      final result = await _localDataSource.saveSelectedCardId(cardId);
 
       if (result.isRight()) {
         _selectedCardId.add(

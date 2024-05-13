@@ -7,7 +7,8 @@ part 'contract.freezed.dart';
 class Contract with _$Contract {
   const factory Contract({
     required UniqueId id,
+    required String productCode,
     required DateTime startDate,
-    required DateTime endDate,
+    required DateTime? endDate,
   }) = _Contract;
 }

@@ -1,4 +1,4 @@
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_balances_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/accounts/account_balances_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/balances/account_balance_dto.dart';
 
 class AccountBalancesRemoteDataSource {

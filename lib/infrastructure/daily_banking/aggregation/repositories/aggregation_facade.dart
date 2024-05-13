@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/aggregation/aggregation/failures/register_credentials_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/aggregation/aggregation/repositories/i_aggregation.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/aggregation/aggregation_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/aggregation/aggregation_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/aggregation/data_sources/remote/aggregation_remote_data_source.dart';
 
 final aggregationFacadeProvider = Provider<AggregationFacade>(

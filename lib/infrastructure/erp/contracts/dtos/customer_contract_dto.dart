@@ -20,6 +20,9 @@ class CustomerContractDto with _$CustomerContractDto {
     required String alias,
     required ContractDto contract,
   }) = _CustomerContractDto;
+
+  factory CustomerContractDto.fromJson(Map<String, dynamic> json) =>
+      _$CustomerContractDtoFromJson(json);
 }
 
 extension CustomerContractDtoX on CustomerContractDto {

@@ -1,5 +1,5 @@
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/insurances/claims_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/insurance/claims_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/claims_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/detailed_claim_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/simplified_claim_dto.dart';

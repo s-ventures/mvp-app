@@ -25,7 +25,7 @@ mixin _$ContractDto {
   @DateConverter()
   DateTime get startDate => throw _privateConstructorUsedError;
   @DateConverter()
-  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime? get endDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $ContractDtoCopyWith<$Res> {
       {int contractId,
       String productCode,
       @DateConverter() DateTime startDate,
-      @DateConverter() DateTime endDate});
+      @DateConverter() DateTime? endDate});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$ContractDtoCopyWithImpl<$Res, $Val extends ContractDto>
     Object? contractId = null,
     Object? productCode = null,
     Object? startDate = null,
-    Object? endDate = null,
+    Object? endDate = freezed,
   }) {
     return _then(_value.copyWith(
       contractId: null == contractId
@@ -77,10 +77,10 @@ class _$ContractDtoCopyWithImpl<$Res, $Val extends ContractDto>
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endDate: null == endDate
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -97,7 +97,7 @@ abstract class _$$ContractDtoImplCopyWith<$Res>
       {int contractId,
       String productCode,
       @DateConverter() DateTime startDate,
-      @DateConverter() DateTime endDate});
+      @DateConverter() DateTime? endDate});
 }
 
 /// @nodoc
@@ -114,7 +114,7 @@ class __$$ContractDtoImplCopyWithImpl<$Res>
     Object? contractId = null,
     Object? productCode = null,
     Object? startDate = null,
-    Object? endDate = null,
+    Object? endDate = freezed,
   }) {
     return _then(_$ContractDtoImpl(
       contractId: null == contractId
@@ -129,10 +129,10 @@ class __$$ContractDtoImplCopyWithImpl<$Res>
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      endDate: null == endDate
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -158,7 +158,7 @@ class _$ContractDtoImpl implements _ContractDto {
   final DateTime startDate;
   @override
   @DateConverter()
-  final DateTime endDate;
+  final DateTime? endDate;
 
   @override
   String toString() {
@@ -203,7 +203,7 @@ abstract class _ContractDto implements ContractDto {
       {required final int contractId,
       required final String productCode,
       @DateConverter() required final DateTime startDate,
-      @DateConverter() required final DateTime endDate}) = _$ContractDtoImpl;
+      @DateConverter() required final DateTime? endDate}) = _$ContractDtoImpl;
 
   factory _ContractDto.fromJson(Map<String, dynamic> json) =
       _$ContractDtoImpl.fromJson;
@@ -217,7 +217,7 @@ abstract class _ContractDto implements ContractDto {
   DateTime get startDate;
   @override
   @DateConverter()
-  DateTime get endDate;
+  DateTime? get endDate;
   @override
   @JsonKey(ignore: true)
   _$$ContractDtoImplCopyWith<_$ContractDtoImpl> get copyWith =>

@@ -2,17 +2,7 @@
 //   "contractId": 0,
 //   "productCode": "string",
 //   "startDate": "2024-05-10",
-//   "endDate": "2024-05-10",
-//   "customerContract": [
-//     {
-//       "customerContractId": 0,
-//       "personId": 0,
-//       "roleType": "HOLDER",
-//       "roleTypeSequence": 0,
-//       "alias": "string",
-//       "contract": "string"
-//     }
-//   ]
+//   "endDate": "2024-05-10"
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -29,7 +19,7 @@ class ContractDto with _$ContractDto {
     required int contractId,
     required String productCode,
     @DateConverter() required DateTime startDate,
-    @DateConverter() required DateTime endDate,
+    @DateConverter() required DateTime? endDate,
   }) = _ContractDto;
 
   factory ContractDto.fromJson(Map<String, dynamic> json) =>
@@ -40,6 +30,7 @@ extension ContractDtoX on ContractDto {
   Contract toDomain() {
     return Contract(
       id: UniqueId.fromUniqueString(contractId.toString()),
+      productCode: productCode,
       startDate: startDate,
       endDate: endDate,
     );

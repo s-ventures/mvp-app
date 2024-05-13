@@ -7,7 +7,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/fa
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/failures/simplified_account_transaction_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/repositories/i_account_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_transactions_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/accounts/account_transactions_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/data_sources/remote/account_transactions_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/account_transactions_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/detailed_account_transaction_dto.dart';

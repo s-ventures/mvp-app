@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+CustomerContractDto _$CustomerContractDtoFromJson(Map<String, dynamic> json) {
+  return _CustomerContractDto.fromJson(json);
+}
+
 /// @nodoc
 mixin _$CustomerContractDto {
   String get alias => throw _privateConstructorUsedError;
   ContractDto get contract => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CustomerContractDtoCopyWith<CustomerContractDto> get copyWith =>
       throw _privateConstructorUsedError;
@@ -114,10 +119,13 @@ class __$$CustomerContractDtoImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$CustomerContractDtoImpl implements _CustomerContractDto {
   const _$CustomerContractDtoImpl(
       {required this.alias, required this.contract});
+
+  factory _$CustomerContractDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CustomerContractDtoImplFromJson(json);
 
   @override
   final String alias;
@@ -139,6 +147,7 @@ class _$CustomerContractDtoImpl implements _CustomerContractDto {
                 other.contract == contract));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, alias, contract);
 
@@ -148,12 +157,22 @@ class _$CustomerContractDtoImpl implements _CustomerContractDto {
   _$$CustomerContractDtoImplCopyWith<_$CustomerContractDtoImpl> get copyWith =>
       __$$CustomerContractDtoImplCopyWithImpl<_$CustomerContractDtoImpl>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CustomerContractDtoImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _CustomerContractDto implements CustomerContractDto {
   const factory _CustomerContractDto(
       {required final String alias,
       required final ContractDto contract}) = _$CustomerContractDtoImpl;
+
+  factory _CustomerContractDto.fromJson(Map<String, dynamic> json) =
+      _$CustomerContractDtoImpl.fromJson;
 
   @override
   String get alias;
