@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/widgets/contact_list.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/widgets/last_sent_transfers.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/widgets/last_sent_transfers.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/widgets/wires_options.dart';
 import 'package:ui_kit/ui_kit.dart';
 
