@@ -83,7 +83,8 @@ class _SearchAccountTransactionsPageState
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
-        (amountFrom != null && amountTo != null) ||
+        amountFrom != null ||
+        amountTo != null ||
         operationType != TransactionOperationType.all;
 
     return Scaffold(

@@ -41,7 +41,8 @@ class CardTransactionsHeader extends ConsumerWidget {
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
-        (amountFrom != null && amountTo != null) ||
+        amountFrom != null ||
+        amountTo != null ||
         operationType != TransactionOperationType.all;
 
     return Column(

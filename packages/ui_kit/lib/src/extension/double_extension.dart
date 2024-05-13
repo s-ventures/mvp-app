@@ -7,6 +7,9 @@ extension DoubleExtension on double {
     bool showDecimals = true,
     bool showSymbol = true,
   }) {
+    if (this == 0.0) {
+      return '0,00 ${showSymbol ? symbol : ''}';
+    }
     final formatter = NumberFormat(
       showDecimals ? '#,###.00' : '#,###',
       'es_ES',

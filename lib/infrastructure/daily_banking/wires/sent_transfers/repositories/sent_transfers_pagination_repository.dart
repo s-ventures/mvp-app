@@ -24,11 +24,9 @@ class SentTransfersPaginationRepository
     required int page,
     required int pageSize,
   }) async {
-    final filter = _filter;
-
     final sentTransfers =
         await _sentTransfersRepository.getSimplifiedSentTransfers(
-      filter: filter ?? const SentTransfersFilter(),
+      filter: _filter ?? const SentTransfersFilter(),
       page: page,
       pageSize: pageSize,
       onPaginationInfo: onPaginationInfo,
@@ -36,6 +34,20 @@ class SentTransfersPaginationRepository
     return sentTransfers.fold(
       (l) => <SimplifiedSentTransfer>[],
       (r) => r,
+    );
+  }
+
+  void updateFilter({
+    required int? amountFrom,
+    required int? amountTo,
+    required DateTime? startDateFrom,
+    required DateTime? startDateTo,
+  }) {
+    _filter = (_filter ?? const SentTransfersFilter()).copyWith(
+      settlementAmountFrom: amountFrom,
+      settlementAmountTo: amountTo,
+      orderDateFrom: startDateFrom,
+      orderDateTo: startDateTo,
     );
   }
 }
