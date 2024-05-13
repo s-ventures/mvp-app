@@ -52,7 +52,7 @@ class PeriodicOrderCard extends StatelessWidget {
                   title: 'Ver detalles',
                   type: ButtonType.text,
                   size: ButtonSize.extraSmall,
-                  foreground: context.color.secondaryLight600,
+                  textColor: context.color.statusInfo,
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingScheduledTransferDetails.name,
                     extra: PeriodicOrderDetailsRouteParams(
