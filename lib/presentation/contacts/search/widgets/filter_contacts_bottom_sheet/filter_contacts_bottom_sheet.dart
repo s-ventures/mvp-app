@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/search/widgets/favorite_contacts_list.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
@@ -86,14 +85,28 @@ class FilterContactsBottomSheet {
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Text(
-                    'Nombre o razón social',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
-                      color: context.color.textLight600,
+                  CustomCheckboxListTile(
+                    dense: true,
+                    tileColor: context.color.backgroundLight0,
+                    borderRadius: BorderRadius.circular(context.radius.soft),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: AppSpacing.s5,
+                      vertical: AppSpacing.s1,
                     ),
+                    title: 'Contactos favoritos',
+                    leading: IconWithContainer(
+                      icon: IconAssets.star,
+                      backgroundColor: context.color.neutralLight100,
+                      borderRadius: BorderRadius.circular(
+                        context.radius.hard,
+                      ),
+                      size: IconWithContainerSize.extraSmall,
+                      width: AppSpacing.s7,
+                      height: AppSpacing.s7,
+                    ),
+                    value: true,
+                    onPressed: print,
                   ),
-                  AppSpacing.vertical.s3,
-                  const FakeSearchBar(),
                   AppSpacing.vertical.s5,
                   Text(
                     'Tipo',
@@ -101,7 +114,7 @@ class FilterContactsBottomSheet {
                       color: context.color.textLight600,
                     ),
                   ),
-                  AppSpacing.vertical.s3,
+                  AppSpacing.vertical.s2,
                   Row(
                     children: [
                       CustomChip(
@@ -128,26 +141,12 @@ class FilterContactsBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Favoritos',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
-                      color: context.color.textLight600,
-                    ),
-                  ),
-                  AppSpacing.vertical.s3,
-                  const FakeSearchBar(),
-                  AppSpacing.vertical.s3,
-                  const FavoriteContactsList(
-                    onPressed: print,
-                    showTitle: false,
-                  ),
-                  AppSpacing.vertical.s5,
-                  Text(
                     'Estado',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
                   ),
-                  AppSpacing.vertical.s3,
+                  AppSpacing.vertical.s2,
                   Row(
                     children: [
                       CustomChip(

@@ -44,6 +44,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
                 onPressed: () async {},
               ),
             ),
+            AppSpacing.horizontal.s5,
             Expanded(
               child: Button(
                 icon: IconAssets.phone,
@@ -61,7 +62,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
           checkboxIcon: IconAssets.star,
           dense: true,
           borderRadius: BorderRadius.circular(
-            context.radius.checkboxSmall,
+            context.radius.hard,
           ),
           onPressed: (value) {},
           controlAffinity: ListTileControlAffinity.leading,
@@ -194,41 +195,45 @@ class ContactDetailsProfileTab extends StatelessWidget {
           ),
         ),
         AppSpacing.vertical.s3,
-        CustomCard(
-          child: Column(
-            children: [
-              ListTile(
-                dense: true,
-                contentPadding: EdgeInsets.zero,
-                title: Text(
-                  'Teléfono',
-                  style: context.textStyle.buttonTabBar.copyWith(
-                    color: context.color.textLight600,
-                  ),
+        OutlinedList(
+          children: [
+            ListTile(
+              dense: true,
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s5,
+              ),
+              title: Text(
+                'Teléfono',
+                style: context.textStyle.bodySmallRegular.copyWith(
+                  color: context.color.textLight900,
                 ),
               ),
-              ListTile(
-                dense: true,
-                contentPadding: EdgeInsets.zero,
-                title: Text(
-                  'SMS',
-                  style: context.textStyle.buttonTabBar.copyWith(
-                    color: context.color.textLight600,
-                  ),
+            ),
+            ListTile(
+              dense: true,
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s5,
+              ),
+              title: Text(
+                'SMS',
+                style: context.textStyle.bodySmallRegular.copyWith(
+                  color: context.color.textLight900,
                 ),
               ),
-              ListTile(
-                dense: true,
-                contentPadding: EdgeInsets.zero,
-                title: Text(
-                  'WhatsApp',
-                  style: context.textStyle.buttonTabBar.copyWith(
-                    color: context.color.textLight600,
-                  ),
+            ),
+            ListTile(
+              dense: true,
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s5,
+              ),
+              title: Text(
+                'WhatsApp',
+                style: context.textStyle.bodySmallRegular.copyWith(
+                  color: context.color.textLight900,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
     );
