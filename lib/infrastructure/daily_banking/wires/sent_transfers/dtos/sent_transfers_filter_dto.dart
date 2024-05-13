@@ -30,8 +30,6 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/core/entities/transfer_status_type.dart';
-import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/sent_transfer_type.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/sent_transfers_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transfer_status_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
@@ -75,28 +73,10 @@ class SentTransfersFilterDto extends PaginatedRequest {
     int pageNumber = 0,
   }) {
     return SentTransfersFilterDto(
-      type: filter.type?.toDto(),
-      baasTransferId: filter.baasTransferId,
       orderDateFrom: filter.orderDateFrom,
       orderDateTo: filter.orderDateTo,
-      valueDateFrom: filter.valueDateFrom,
-      valueDateTo: filter.valueDateTo,
-      concept: filter.concept,
       settlementAmountFrom: filter.settlementAmountFrom,
       settlementAmountTo: filter.settlementAmountTo,
-      foreignExchangeFrom: filter.foreignExchangeFrom,
-      foreignExchangeTo: filter.foreignExchangeTo,
-      exchangeValueFrom: filter.exchangeValueFrom,
-      exchangeValueTo: filter.exchangeValueTo,
-      instructedAmountFrom: filter.instructedAmountFrom,
-      instructedAmountTo: filter.instructedAmountTo,
-      status: filter.status?.toDto(),
-      baasMovementId: filter.baasMovementId,
-      concept2: filter.concept2,
-      sentTransferId: filter.sentTransferId?.toInt(),
-      beneficiaryName: filter.beneficiaryName,
-      transferDateFrom: filter.transferDateFrom,
-      transferDateTo: filter.transferDateTo,
       pageSize: pageSize,
       pageNumber: pageNumber,
     );
