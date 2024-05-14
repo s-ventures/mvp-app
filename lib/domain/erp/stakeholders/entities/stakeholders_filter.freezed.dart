@@ -1,0 +1,338 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'stakeholders_filter.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+/// @nodoc
+mixin _$StakeholdersFilter {
+  UniqueId? get stakeholderId => throw _privateConstructorUsedError;
+  PersonCode? get personCode => throw _privateConstructorUsedError;
+  String? get fullName => throw _privateConstructorUsedError;
+  RelationType? get relationType => throw _privateConstructorUsedError;
+  DateTime? get createDateFrom => throw _privateConstructorUsedError;
+  DateTime? get createDateTo => throw _privateConstructorUsedError;
+  DocumentCode? get documentTypeCode => throw _privateConstructorUsedError;
+  String? get documentNumber => throw _privateConstructorUsedError;
+  String? get additionalInfo => throw _privateConstructorUsedError;
+  bool? get isFavorite => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $StakeholdersFilterCopyWith<StakeholdersFilter> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StakeholdersFilterCopyWith<$Res> {
+  factory $StakeholdersFilterCopyWith(
+          StakeholdersFilter value, $Res Function(StakeholdersFilter) then) =
+      _$StakeholdersFilterCopyWithImpl<$Res, StakeholdersFilter>;
+  @useResult
+  $Res call(
+      {UniqueId? stakeholderId,
+      PersonCode? personCode,
+      String? fullName,
+      RelationType? relationType,
+      DateTime? createDateFrom,
+      DateTime? createDateTo,
+      DocumentCode? documentTypeCode,
+      String? documentNumber,
+      String? additionalInfo,
+      bool? isFavorite});
+}
+
+/// @nodoc
+class _$StakeholdersFilterCopyWithImpl<$Res, $Val extends StakeholdersFilter>
+    implements $StakeholdersFilterCopyWith<$Res> {
+  _$StakeholdersFilterCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? stakeholderId = freezed,
+    Object? personCode = freezed,
+    Object? fullName = freezed,
+    Object? relationType = freezed,
+    Object? createDateFrom = freezed,
+    Object? createDateTo = freezed,
+    Object? documentTypeCode = freezed,
+    Object? documentNumber = freezed,
+    Object? additionalInfo = freezed,
+    Object? isFavorite = freezed,
+  }) {
+    return _then(_value.copyWith(
+      stakeholderId: freezed == stakeholderId
+          ? _value.stakeholderId
+          : stakeholderId // ignore: cast_nullable_to_non_nullable
+              as UniqueId?,
+      personCode: freezed == personCode
+          ? _value.personCode
+          : personCode // ignore: cast_nullable_to_non_nullable
+              as PersonCode?,
+      fullName: freezed == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      relationType: freezed == relationType
+          ? _value.relationType
+          : relationType // ignore: cast_nullable_to_non_nullable
+              as RelationType?,
+      createDateFrom: freezed == createDateFrom
+          ? _value.createDateFrom
+          : createDateFrom // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createDateTo: freezed == createDateTo
+          ? _value.createDateTo
+          : createDateTo // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      documentTypeCode: freezed == documentTypeCode
+          ? _value.documentTypeCode
+          : documentTypeCode // ignore: cast_nullable_to_non_nullable
+              as DocumentCode?,
+      documentNumber: freezed == documentNumber
+          ? _value.documentNumber
+          : documentNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      additionalInfo: freezed == additionalInfo
+          ? _value.additionalInfo
+          : additionalInfo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$StakeholdersFilterImplCopyWith<$Res>
+    implements $StakeholdersFilterCopyWith<$Res> {
+  factory _$$StakeholdersFilterImplCopyWith(_$StakeholdersFilterImpl value,
+          $Res Function(_$StakeholdersFilterImpl) then) =
+      __$$StakeholdersFilterImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {UniqueId? stakeholderId,
+      PersonCode? personCode,
+      String? fullName,
+      RelationType? relationType,
+      DateTime? createDateFrom,
+      DateTime? createDateTo,
+      DocumentCode? documentTypeCode,
+      String? documentNumber,
+      String? additionalInfo,
+      bool? isFavorite});
+}
+
+/// @nodoc
+class __$$StakeholdersFilterImplCopyWithImpl<$Res>
+    extends _$StakeholdersFilterCopyWithImpl<$Res, _$StakeholdersFilterImpl>
+    implements _$$StakeholdersFilterImplCopyWith<$Res> {
+  __$$StakeholdersFilterImplCopyWithImpl(_$StakeholdersFilterImpl _value,
+      $Res Function(_$StakeholdersFilterImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? stakeholderId = freezed,
+    Object? personCode = freezed,
+    Object? fullName = freezed,
+    Object? relationType = freezed,
+    Object? createDateFrom = freezed,
+    Object? createDateTo = freezed,
+    Object? documentTypeCode = freezed,
+    Object? documentNumber = freezed,
+    Object? additionalInfo = freezed,
+    Object? isFavorite = freezed,
+  }) {
+    return _then(_$StakeholdersFilterImpl(
+      stakeholderId: freezed == stakeholderId
+          ? _value.stakeholderId
+          : stakeholderId // ignore: cast_nullable_to_non_nullable
+              as UniqueId?,
+      personCode: freezed == personCode
+          ? _value.personCode
+          : personCode // ignore: cast_nullable_to_non_nullable
+              as PersonCode?,
+      fullName: freezed == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      relationType: freezed == relationType
+          ? _value.relationType
+          : relationType // ignore: cast_nullable_to_non_nullable
+              as RelationType?,
+      createDateFrom: freezed == createDateFrom
+          ? _value.createDateFrom
+          : createDateFrom // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createDateTo: freezed == createDateTo
+          ? _value.createDateTo
+          : createDateTo // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      documentTypeCode: freezed == documentTypeCode
+          ? _value.documentTypeCode
+          : documentTypeCode // ignore: cast_nullable_to_non_nullable
+              as DocumentCode?,
+      documentNumber: freezed == documentNumber
+          ? _value.documentNumber
+          : documentNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      additionalInfo: freezed == additionalInfo
+          ? _value.additionalInfo
+          : additionalInfo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StakeholdersFilterImpl implements _StakeholdersFilter {
+  const _$StakeholdersFilterImpl(
+      {this.stakeholderId,
+      this.personCode,
+      this.fullName,
+      this.relationType,
+      this.createDateFrom,
+      this.createDateTo,
+      this.documentTypeCode,
+      this.documentNumber,
+      this.additionalInfo,
+      this.isFavorite});
+
+  @override
+  final UniqueId? stakeholderId;
+  @override
+  final PersonCode? personCode;
+  @override
+  final String? fullName;
+  @override
+  final RelationType? relationType;
+  @override
+  final DateTime? createDateFrom;
+  @override
+  final DateTime? createDateTo;
+  @override
+  final DocumentCode? documentTypeCode;
+  @override
+  final String? documentNumber;
+  @override
+  final String? additionalInfo;
+  @override
+  final bool? isFavorite;
+
+  @override
+  String toString() {
+    return 'StakeholdersFilter(stakeholderId: $stakeholderId, personCode: $personCode, fullName: $fullName, relationType: $relationType, createDateFrom: $createDateFrom, createDateTo: $createDateTo, documentTypeCode: $documentTypeCode, documentNumber: $documentNumber, additionalInfo: $additionalInfo, isFavorite: $isFavorite)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StakeholdersFilterImpl &&
+            (identical(other.stakeholderId, stakeholderId) ||
+                other.stakeholderId == stakeholderId) &&
+            (identical(other.personCode, personCode) ||
+                other.personCode == personCode) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
+            (identical(other.relationType, relationType) ||
+                other.relationType == relationType) &&
+            (identical(other.createDateFrom, createDateFrom) ||
+                other.createDateFrom == createDateFrom) &&
+            (identical(other.createDateTo, createDateTo) ||
+                other.createDateTo == createDateTo) &&
+            (identical(other.documentTypeCode, documentTypeCode) ||
+                other.documentTypeCode == documentTypeCode) &&
+            (identical(other.documentNumber, documentNumber) ||
+                other.documentNumber == documentNumber) &&
+            (identical(other.additionalInfo, additionalInfo) ||
+                other.additionalInfo == additionalInfo) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      stakeholderId,
+      personCode,
+      fullName,
+      relationType,
+      createDateFrom,
+      createDateTo,
+      documentTypeCode,
+      documentNumber,
+      additionalInfo,
+      isFavorite);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StakeholdersFilterImplCopyWith<_$StakeholdersFilterImpl> get copyWith =>
+      __$$StakeholdersFilterImplCopyWithImpl<_$StakeholdersFilterImpl>(
+          this, _$identity);
+}
+
+abstract class _StakeholdersFilter implements StakeholdersFilter {
+  const factory _StakeholdersFilter(
+      {final UniqueId? stakeholderId,
+      final PersonCode? personCode,
+      final String? fullName,
+      final RelationType? relationType,
+      final DateTime? createDateFrom,
+      final DateTime? createDateTo,
+      final DocumentCode? documentTypeCode,
+      final String? documentNumber,
+      final String? additionalInfo,
+      final bool? isFavorite}) = _$StakeholdersFilterImpl;
+
+  @override
+  UniqueId? get stakeholderId;
+  @override
+  PersonCode? get personCode;
+  @override
+  String? get fullName;
+  @override
+  RelationType? get relationType;
+  @override
+  DateTime? get createDateFrom;
+  @override
+  DateTime? get createDateTo;
+  @override
+  DocumentCode? get documentTypeCode;
+  @override
+  String? get documentNumber;
+  @override
+  String? get additionalInfo;
+  @override
+  bool? get isFavorite;
+  @override
+  @JsonKey(ignore: true)
+  _$$StakeholdersFilterImplCopyWith<_$StakeholdersFilterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

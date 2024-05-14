@@ -1,11 +1,13 @@
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_code_type.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_code.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_type.dart';
 
 abstract class Stakeholder {
   Stakeholder({
     required this.id,
+    required this.personCode,
     required this.fullName,
     required this.languageCode,
     required this.relation,
@@ -21,11 +23,12 @@ abstract class Stakeholder {
   });
 
   final UniqueId id;
+  final PersonCode personCode;
   final String fullName;
-  final LanguageCodeType languageCode;
+  final LanguageCode languageCode;
   final RelationType relation;
   final DateTime createDate;
-  final DocumentCodeType documentCode;
+  final DocumentCode documentCode;
   final String documentNumber;
   final String additionalInfo;
   final bool preferenceTelephone;

@@ -1,0 +1,4 @@
+enum PersonCode {
+  natural,
+  legal,
+}
