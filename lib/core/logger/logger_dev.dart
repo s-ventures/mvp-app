@@ -2,22 +2,22 @@ import 'package:manifiesto_mvp_app/core/logger/app_logger.dart';
 
 class LoggerDev implements AppLogger {
   @override
-  void debug(message) {
-    // TODO: implement debug
+  void debug(String message) {
+    // TODO(migalv): implement debug
   }
 
   @override
-  void error(message, {Object? error, StackTrace? stackTrace}) {
-    // TODO: implement error
+  void error(String message, {Object? error, StackTrace? stackTrace}) {
+    // TODO(migalv): implement error
   }
 
   @override
-  void info(message) {
-    // TODO: implement info
+  void info(String message) {
+    // TODO(migalv): implement info
   }
 
   @override
-  void warning(message) {
-    // TODO: implement warning
+  void warning(String message) {
+    // TODO(migalv): implement warning
   }
 }
