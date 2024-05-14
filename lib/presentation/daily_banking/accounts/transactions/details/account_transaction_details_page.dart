@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
+import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_attachments_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/upload_attachments.dart';
@@ -41,9 +42,9 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
     });
 
     ref.listenManual(
-      detailedAccountTransactionControllerProvider.select((state) => state.uploadFailure),
-      (_, failure) {
-        _handleFailure(failure.getData());
+      detailedAccountTransactionControllerProvider.select((state) => state.uploadEvent),
+      (_, event) {
+        _handleEvent(event.getData());
       },
     );
 
@@ -175,6 +176,25 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
           ),
         ),
       ),
+    );
+  }
+
+  void _handleEvent(UploadEvent? event) {
+    if (event == null) {
+      return;
+    }
+
+    event.when(
+      failure: _handleFailure,
+      deleteFileSuccess: () => _handleSuccess('Documento adjunto eliminado'),
+    );
+  }
+
+  void _handleSuccess(String message) {
+    CustomToast.show(
+      context,
+      content: message,
+      type: ToastType.success,
     );
   }
 

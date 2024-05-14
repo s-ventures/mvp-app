@@ -33,8 +33,8 @@ _$DetailedAccountTransactionDtoImpl
           assignmentDate: _$JsonConverterFromJson<String, DateTime>(
               json['assignmentDate'], const DateConverter().fromJson),
           attachments: (json['attachments'] as List<dynamic>?)
-              ?.map(
-                  (e) => FileAttachmentDto.fromJson(e as Map<String, dynamic>))
+              ?.map((e) =>
+                  FileAttachmentInfoDto.fromJson(e as Map<String, dynamic>))
               .toList(),
           extendedDetails: _$JsonConverterFromJson<Map<String, dynamic>,
                   ExtendedDetailsDto?>(json['extendedDetails'],

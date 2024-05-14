@@ -51,7 +51,7 @@ mixin _$DetailedAccountTransactionDto {
       throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
   DateTime? get assignmentDate => throw _privateConstructorUsedError;
-  List<FileAttachmentDto>? get attachments =>
+  List<FileAttachmentInfoDto>? get attachments =>
       throw _privateConstructorUsedError;
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails => throw _privateConstructorUsedError;
@@ -92,7 +92,7 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       double? originalAmount,
       String? originalCurrencyCode,
       @DateConverter() DateTime? assignmentDate,
-      List<FileAttachmentDto>? attachments,
+      List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
 }
@@ -219,7 +219,7 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
       attachments: freezed == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<FileAttachmentDto>?,
+              as List<FileAttachmentInfoDto>?,
       extendedDetails: freezed == extendedDetails
           ? _value.extendedDetails
           : extendedDetails // ignore: cast_nullable_to_non_nullable
@@ -262,7 +262,7 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       double? originalAmount,
       String? originalCurrencyCode,
       @DateConverter() DateTime? assignmentDate,
-      List<FileAttachmentDto>? attachments,
+      List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
 }
@@ -388,7 +388,7 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
       attachments: freezed == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<FileAttachmentDto>?,
+              as List<FileAttachmentInfoDto>?,
       extendedDetails: freezed == extendedDetails
           ? _value.extendedDetails
           : extendedDetails // ignore: cast_nullable_to_non_nullable
@@ -426,7 +426,7 @@ class _$DetailedAccountTransactionDtoImpl
       required this.originalAmount,
       required this.originalCurrencyCode,
       @DateConverter() required this.assignmentDate,
-      required final List<FileAttachmentDto>? attachments,
+      required final List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() required this.extendedDetails,
       required this.productType})
       : _attachments = attachments;
@@ -485,9 +485,9 @@ class _$DetailedAccountTransactionDtoImpl
   @override
   @DateConverter()
   final DateTime? assignmentDate;
-  final List<FileAttachmentDto>? _attachments;
+  final List<FileAttachmentInfoDto>? _attachments;
   @override
-  List<FileAttachmentDto>? get attachments {
+  List<FileAttachmentInfoDto>? get attachments {
     final value = _attachments;
     if (value == null) return null;
     if (_attachments is EqualUnmodifiableListView) return _attachments;
@@ -623,7 +623,7 @@ abstract class _DetailedAccountTransactionDto
           required final double? originalAmount,
           required final String? originalCurrencyCode,
           @DateConverter() required final DateTime? assignmentDate,
-          required final List<FileAttachmentDto>? attachments,
+          required final List<FileAttachmentInfoDto>? attachments,
           @ExtendedDetailsConverter()
           required final ExtendedDetailsDto? extendedDetails,
           required final ProductTypeDto productType}) =
@@ -676,7 +676,7 @@ abstract class _DetailedAccountTransactionDto
   @DateConverter()
   DateTime? get assignmentDate;
   @override
-  List<FileAttachmentDto>? get attachments;
+  List<FileAttachmentInfoDto>? get attachments;
   @override
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails;

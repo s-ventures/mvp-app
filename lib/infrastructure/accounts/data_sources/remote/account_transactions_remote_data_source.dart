@@ -8,7 +8,6 @@ import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachme
 import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_upload_request_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_transactions_rest_client.dart';
-import 'package:mime/mime.dart';
 
 class AccountTransactionsRemoteDataSource {
   AccountTransactionsRemoteDataSource(this._restClient);
@@ -50,7 +49,6 @@ class AccountTransactionsRemoteDataSource {
     try {
       final imageBytes = await file.readAsBytes();
       final encodedImage = base64.encode(imageBytes);
-      final mime = lookupMimeType(file.path) ?? 'application/octet-stream';
 
       final response = await _restClient.uploadFileAttachmentForTransaction(
         accountId: accountId,
@@ -59,7 +57,6 @@ class AccountTransactionsRemoteDataSource {
           content: encodedImage,
           fileName: fileName,
         ),
-        contentType: mime,
       );
       return response;
     } catch (_) {

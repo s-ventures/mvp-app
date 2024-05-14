@@ -36,6 +36,7 @@ import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detaile
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_info_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
@@ -74,7 +75,7 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     required String? originalCurrencyCode,
     // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     @DateConverter() required DateTime? assignmentDate,
-    required List<FileAttachmentDto>? attachments,
+    required List<FileAttachmentInfoDto>? attachments,
     @ExtendedDetailsConverter() required ExtendedDetailsDto? extendedDetails,
     required ProductTypeDto productType,
   }) = _DetailedAccountTransactionDto;

@@ -35,7 +35,6 @@ abstract class AccountTransactionsRestClient {
     @Path('accountId') required String accountId,
     @Path('transactionId') required String transactionId,
     @Body() required FileAttachmentUploadRequestDto body,
-    @Header('Content-Type') required String contentType,
   });
 
   @DELETE('/accounts/v1/{accountId}/transactions/{transactionId}/attachments/{fileId}')

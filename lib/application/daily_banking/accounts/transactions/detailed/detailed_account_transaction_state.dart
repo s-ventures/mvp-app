@@ -4,7 +4,6 @@ import 'package:manifiesto_mvp_app/application/core/misc/single_access_data.dart
 import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_attachments_state.dart';
 import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
-import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 
 part 'detailed_account_transaction_state.freezed.dart';
 
@@ -14,7 +13,7 @@ class DetailedAccountTransactionState with _$DetailedAccountTransactionState imp
   const factory DetailedAccountTransactionState({
     @Default(AsyncLoading<DetailedAccountTransaction>()) AsyncValue<DetailedAccountTransaction> transaction,
     @Default([]) List<FileAttachment> attachments,
-    @Default(SingleAccessVoid<UploadFileFailure>()) SingleAccessValue<UploadFileFailure> uploadFailure,
+    @Default(SingleAccessVoid<UploadEvent>()) SingleAccessValue<UploadEvent> uploadEvent,
   }) = _DetailedAccountTransactionState;
 
   const DetailedAccountTransactionState._();
@@ -22,11 +21,11 @@ class DetailedAccountTransactionState with _$DetailedAccountTransactionState imp
   @override
   UploadAttachmentState updateWith({
     List<FileAttachment>? attachments,
-    SingleAccessValue<UploadFileFailure>? uploadFailure,
+    SingleAccessValue<UploadEvent>? uploadEvent,
   }) {
     return copyWith(
       attachments: attachments ?? this.attachments,
-      uploadFailure: uploadFailure ?? this.uploadFailure,
+      uploadEvent: uploadEvent ?? this.uploadEvent,
     );
   }
 

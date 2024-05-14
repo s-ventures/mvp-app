@@ -86,12 +86,10 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
     required String accountId,
     required String transactionId,
     required FileAttachmentUploadRequestDto body,
-    required String contentType,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Content-Type': contentType};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
     final _result = await _dio
@@ -99,7 +97,6 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
       method: 'POST',
       headers: _headers,
       extra: _extra,
-      contentType: contentType,
     )
             .compose(
               _dio.options,

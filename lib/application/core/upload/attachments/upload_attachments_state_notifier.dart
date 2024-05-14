@@ -78,7 +78,7 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
     if (exceededSizeFiles.isNotEmpty) {
       setStateSafe(
         () => state.updateWith(
-          uploadFailure: SingleAccessData(UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb)),
+          uploadEvent: SingleAccessData(UploadEvent.failure(UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb))),
         ) as T,
       );
     }
@@ -111,10 +111,15 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
     // If it was previously uploaded we delete it from the back-end
     if (attachment.isUploaded) {
       final result = await deleteAttachment(attachmentId);
-      result.mapLeft(
+      result.fold(
         (failure) => setStateSafe(
-          () => state.updateWith(uploadFailure: SingleAccessData(failure)) as T,
+          () => state.updateWith(uploadEvent: SingleAccessData(UploadEvent.failure(failure))) as T,
         ),
+        (success) {
+          setStateSafe(
+            () => state.updateWith(uploadEvent: SingleAccessData(const UploadEvent.deleteFileSuccess())) as T,
+          );
+        },
       );
       if (result.isLeft()) {
         return;
@@ -195,7 +200,7 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
           (result) => result.fold(
             (failure) {
               setStateSafe(
-                () => state.updateWith(uploadFailure: SingleAccessData(failure)) as T,
+                () => state.updateWith(uploadEvent: SingleAccessData(UploadEvent.failure(failure))) as T,
               );
               return (fileUpload.attachment.toError(error: failure), fileUpload.attachment.id!);
             },

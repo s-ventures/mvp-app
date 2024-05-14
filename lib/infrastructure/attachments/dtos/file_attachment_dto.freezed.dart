@@ -20,11 +20,15 @@ FileAttachmentDto _$FileAttachmentDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FileAttachmentDto {
-  int get fileId => throw _privateConstructorUsedError;
+  int get documentId => throw _privateConstructorUsedError;
   String get fileName => throw _privateConstructorUsedError;
   int get fileLength => throw _privateConstructorUsedError;
   @DateConverter()
   DateTime get createDate => throw _privateConstructorUsedError;
+  int get customerId => throw _privateConstructorUsedError;
+  @DateConverter()
+  DateTime? get deleteDate => throw _privateConstructorUsedError;
+  List<String>? get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,10 +43,13 @@ abstract class $FileAttachmentDtoCopyWith<$Res> {
       _$FileAttachmentDtoCopyWithImpl<$Res, FileAttachmentDto>;
   @useResult
   $Res call(
-      {int fileId,
+      {int documentId,
       String fileName,
       int fileLength,
-      @DateConverter() DateTime createDate});
+      @DateConverter() DateTime createDate,
+      int customerId,
+      @DateConverter() DateTime? deleteDate,
+      List<String>? content});
 }
 
 /// @nodoc
@@ -58,15 +65,18 @@ class _$FileAttachmentDtoCopyWithImpl<$Res, $Val extends FileAttachmentDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fileId = null,
+    Object? documentId = null,
     Object? fileName = null,
     Object? fileLength = null,
     Object? createDate = null,
+    Object? customerId = null,
+    Object? deleteDate = freezed,
+    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
-      fileId: null == fileId
-          ? _value.fileId
-          : fileId // ignore: cast_nullable_to_non_nullable
+      documentId: null == documentId
+          ? _value.documentId
+          : documentId // ignore: cast_nullable_to_non_nullable
               as int,
       fileName: null == fileName
           ? _value.fileName
@@ -80,6 +90,18 @@ class _$FileAttachmentDtoCopyWithImpl<$Res, $Val extends FileAttachmentDto>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      customerId: null == customerId
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as int,
+      deleteDate: freezed == deleteDate
+          ? _value.deleteDate
+          : deleteDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      content: freezed == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -93,10 +115,13 @@ abstract class _$$FileAttachmentDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int fileId,
+      {int documentId,
       String fileName,
       int fileLength,
-      @DateConverter() DateTime createDate});
+      @DateConverter() DateTime createDate,
+      int customerId,
+      @DateConverter() DateTime? deleteDate,
+      List<String>? content});
 }
 
 /// @nodoc
@@ -110,15 +135,18 @@ class __$$FileAttachmentDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fileId = null,
+    Object? documentId = null,
     Object? fileName = null,
     Object? fileLength = null,
     Object? createDate = null,
+    Object? customerId = null,
+    Object? deleteDate = freezed,
+    Object? content = freezed,
   }) {
     return _then(_$FileAttachmentDtoImpl(
-      fileId: null == fileId
-          ? _value.fileId
-          : fileId // ignore: cast_nullable_to_non_nullable
+      documentId: null == documentId
+          ? _value.documentId
+          : documentId // ignore: cast_nullable_to_non_nullable
               as int,
       fileName: null == fileName
           ? _value.fileName
@@ -132,6 +160,18 @@ class __$$FileAttachmentDtoImplCopyWithImpl<$Res>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      customerId: null == customerId
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as int,
+      deleteDate: freezed == deleteDate
+          ? _value.deleteDate
+          : deleteDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      content: freezed == content
+          ? _value._content
+          : content // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -140,16 +180,20 @@ class __$$FileAttachmentDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FileAttachmentDtoImpl implements _FileAttachmentDto {
   const _$FileAttachmentDtoImpl(
-      {required this.fileId,
+      {required this.documentId,
       required this.fileName,
       required this.fileLength,
-      @DateConverter() required this.createDate});
+      @DateConverter() required this.createDate,
+      required this.customerId,
+      @DateConverter() this.deleteDate,
+      final List<String>? content})
+      : _content = content;
 
   factory _$FileAttachmentDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$FileAttachmentDtoImplFromJson(json);
 
   @override
-  final int fileId;
+  final int documentId;
   @override
   final String fileName;
   @override
@@ -157,10 +201,24 @@ class _$FileAttachmentDtoImpl implements _FileAttachmentDto {
   @override
   @DateConverter()
   final DateTime createDate;
+  @override
+  final int customerId;
+  @override
+  @DateConverter()
+  final DateTime? deleteDate;
+  final List<String>? _content;
+  @override
+  List<String>? get content {
+    final value = _content;
+    if (value == null) return null;
+    if (_content is EqualUnmodifiableListView) return _content;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'FileAttachmentDto(fileId: $fileId, fileName: $fileName, fileLength: $fileLength, createDate: $createDate)';
+    return 'FileAttachmentDto(documentId: $documentId, fileName: $fileName, fileLength: $fileLength, createDate: $createDate, customerId: $customerId, deleteDate: $deleteDate, content: $content)';
   }
 
   @override
@@ -168,19 +226,32 @@ class _$FileAttachmentDtoImpl implements _FileAttachmentDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FileAttachmentDtoImpl &&
-            (identical(other.fileId, fileId) || other.fileId == fileId) &&
+            (identical(other.documentId, documentId) ||
+                other.documentId == documentId) &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
             (identical(other.fileLength, fileLength) ||
                 other.fileLength == fileLength) &&
             (identical(other.createDate, createDate) ||
-                other.createDate == createDate));
+                other.createDate == createDate) &&
+            (identical(other.customerId, customerId) ||
+                other.customerId == customerId) &&
+            (identical(other.deleteDate, deleteDate) ||
+                other.deleteDate == deleteDate) &&
+            const DeepCollectionEquality().equals(other._content, _content));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, fileId, fileName, fileLength, createDate);
+  int get hashCode => Object.hash(
+      runtimeType,
+      documentId,
+      fileName,
+      fileLength,
+      createDate,
+      customerId,
+      deleteDate,
+      const DeepCollectionEquality().hash(_content));
 
   @JsonKey(ignore: true)
   @override
@@ -199,17 +270,19 @@ class _$FileAttachmentDtoImpl implements _FileAttachmentDto {
 
 abstract class _FileAttachmentDto implements FileAttachmentDto {
   const factory _FileAttachmentDto(
-          {required final int fileId,
-          required final String fileName,
-          required final int fileLength,
-          @DateConverter() required final DateTime createDate}) =
-      _$FileAttachmentDtoImpl;
+      {required final int documentId,
+      required final String fileName,
+      required final int fileLength,
+      @DateConverter() required final DateTime createDate,
+      required final int customerId,
+      @DateConverter() final DateTime? deleteDate,
+      final List<String>? content}) = _$FileAttachmentDtoImpl;
 
   factory _FileAttachmentDto.fromJson(Map<String, dynamic> json) =
       _$FileAttachmentDtoImpl.fromJson;
 
   @override
-  int get fileId;
+  int get documentId;
   @override
   String get fileName;
   @override
@@ -217,6 +290,13 @@ abstract class _FileAttachmentDto implements FileAttachmentDto {
   @override
   @DateConverter()
   DateTime get createDate;
+  @override
+  int get customerId;
+  @override
+  @DateConverter()
+  DateTime? get deleteDate;
+  @override
+  List<String>? get content;
   @override
   @JsonKey(ignore: true)
   _$$FileAttachmentDtoImplCopyWith<_$FileAttachmentDtoImpl> get copyWith =>

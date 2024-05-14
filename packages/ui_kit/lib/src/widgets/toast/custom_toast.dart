@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_kit/src/extension/theme_extension.dart';
 import 'package:ui_kit/src/theme/constants.dart';
 
 enum ToastType {
@@ -49,6 +50,18 @@ class CustomToast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: Implementar custom toast design
-    return Container();
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      decoration: BoxDecoration(
+        color: context.color.surfaceTint,
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+      ),
+      child: Text(
+        content,
+        style: context.textStyle.bodyMedium?.copyWith(
+          color: context.color.onSurface,
+        ),
+      ),
+    );
   }
 }

@@ -5,6 +5,7 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_attachments_state_notifier.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_state.dart';
 import 'package:manifiesto_mvp_app/core/extensions/file_extension.dart';
+import 'package:manifiesto_mvp_app/core/extensions/list_extension.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
@@ -36,12 +37,24 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
       setStateSafe(
         () => transactionOrFailure.fold(
           (l) => state.copyWith(transaction: AsyncError(l, StackTrace.current)),
-          (r) => state.copyWith(
-            transaction: AsyncData(
-              // TODO(migalv): Remove this when back-end returns the account id
-              r.copyWith(accountId: UniqueId.fromUniqueString(accountId)),
-            ),
-          ),
+          (result) {
+            final txAttachments = result.attachments;
+
+            final attachments = txAttachments.replaceWith(
+              state.attachments,
+              equals: (item, newItem) {
+                return item.id != null && newItem.id != null && item.id == newItem.id;
+              },
+            );
+
+            return state.copyWith(
+              attachments: attachments,
+              transaction: AsyncData(
+                // TODO(migalv): Remove this when back-end returns the account id
+                result.copyWith(accountId: UniqueId.fromUniqueString(accountId)),
+              ),
+            );
+          },
         ),
       );
     } catch (e) {

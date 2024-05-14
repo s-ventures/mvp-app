@@ -2,28 +2,25 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 
-part 'file_attachment_dto.freezed.dart';
-part 'file_attachment_dto.g.dart';
+part 'file_attachment_info_dto.freezed.dart';
+part 'file_attachment_info_dto.g.dart';
 
 @freezed
-class FileAttachmentDto with _$FileAttachmentDto {
-  const factory FileAttachmentDto({
-    required int documentId,
+class FileAttachmentInfoDto with _$FileAttachmentInfoDto {
+  const factory FileAttachmentInfoDto({
+    required int fileId,
     required String fileName,
     required int fileLength,
     @DateConverter() required DateTime createDate,
-    required int customerId,
-    @DateConverter() DateTime? deleteDate,
-    List<String>? content,
-  }) = _FileAttachmentDto;
+  }) = _FileAttachmentInfoDto;
 
-  factory FileAttachmentDto.fromJson(Map<String, dynamic> json) => _$FileAttachmentDtoFromJson(json);
+  factory FileAttachmentInfoDto.fromJson(Map<String, dynamic> json) => _$FileAttachmentInfoDtoFromJson(json);
 }
 
-extension FileAttachmentDtoX on FileAttachmentDto {
+extension FileAttachmentInfoDtoX on FileAttachmentInfoDto {
   FileAttachmentUploaded toDomain() {
     return FileAttachmentUploaded(
-      id: documentId.toString(),
+      id: fileId.toString(),
       fileName: fileName,
       size: fileLength,
       timeStamp: createDate,
