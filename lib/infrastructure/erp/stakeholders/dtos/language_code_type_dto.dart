@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum LanguageCodeTypeDto {

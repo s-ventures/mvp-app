@@ -15,7 +15,8 @@ StakeholdersFilterDto _$StakeholdersFilterDtoFromJson(
       fullName: json['fullName'] as String?,
       languageCodeType: $enumDecodeNullable(
           _$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
-      relationType: $enumDecode(_$RelationTypeDtoEnumMap, json['relationType']),
+      relationType:
+          $enumDecodeNullable(_$RelationTypeDtoEnumMap, json['relationType']),
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['createDateFrom'], const DateConverter().fromJson),
       createDateTo: _$JsonConverterFromJson<String, DateTime>(
@@ -48,7 +49,7 @@ Map<String, dynamic> _$StakeholdersFilterDtoToJson(
   writeNotNull('fullName', instance.fullName);
   writeNotNull('languageCodeType',
       _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
-  val['relationType'] = _$RelationTypeDtoEnumMap[instance.relationType]!;
+  writeNotNull('relationType', _$RelationTypeDtoEnumMap[instance.relationType]);
   writeNotNull(
       'createDateFrom',
       _$JsonConverterToJson<String, DateTime>(

@@ -17,8 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$StakeholdersFilter {
   UniqueId? get stakeholderId => throw _privateConstructorUsedError;
-  PersonTypeCode? get personCode => throw _privateConstructorUsedError;
+  PersonTypeCode? get personTypeCode => throw _privateConstructorUsedError;
   String? get fullName => throw _privateConstructorUsedError;
+  LanguageCodeType? get languageCodeType => throw _privateConstructorUsedError;
   RelationType? get relationType => throw _privateConstructorUsedError;
   DateTime? get createDateFrom => throw _privateConstructorUsedError;
   DateTime? get createDateTo => throw _privateConstructorUsedError;
@@ -40,8 +41,9 @@ abstract class $StakeholdersFilterCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId? stakeholderId,
-      PersonTypeCode? personCode,
+      PersonTypeCode? personTypeCode,
       String? fullName,
+      LanguageCodeType? languageCodeType,
       RelationType? relationType,
       DateTime? createDateFrom,
       DateTime? createDateTo,
@@ -65,8 +67,9 @@ class _$StakeholdersFilterCopyWithImpl<$Res, $Val extends StakeholdersFilter>
   @override
   $Res call({
     Object? stakeholderId = freezed,
-    Object? personCode = freezed,
+    Object? personTypeCode = freezed,
     Object? fullName = freezed,
+    Object? languageCodeType = freezed,
     Object? relationType = freezed,
     Object? createDateFrom = freezed,
     Object? createDateTo = freezed,
@@ -80,14 +83,18 @@ class _$StakeholdersFilterCopyWithImpl<$Res, $Val extends StakeholdersFilter>
           ? _value.stakeholderId
           : stakeholderId // ignore: cast_nullable_to_non_nullable
               as UniqueId?,
-      personCode: freezed == personCode
-          ? _value.personCode
-          : personCode // ignore: cast_nullable_to_non_nullable
+      personTypeCode: freezed == personTypeCode
+          ? _value.personTypeCode
+          : personTypeCode // ignore: cast_nullable_to_non_nullable
               as PersonTypeCode?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
+      languageCodeType: freezed == languageCodeType
+          ? _value.languageCodeType
+          : languageCodeType // ignore: cast_nullable_to_non_nullable
+              as LanguageCodeType?,
       relationType: freezed == relationType
           ? _value.relationType
           : relationType // ignore: cast_nullable_to_non_nullable
@@ -130,8 +137,9 @@ abstract class _$$StakeholdersFilterImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId? stakeholderId,
-      PersonTypeCode? personCode,
+      PersonTypeCode? personTypeCode,
       String? fullName,
+      LanguageCodeType? languageCodeType,
       RelationType? relationType,
       DateTime? createDateFrom,
       DateTime? createDateTo,
@@ -153,8 +161,9 @@ class __$$StakeholdersFilterImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? stakeholderId = freezed,
-    Object? personCode = freezed,
+    Object? personTypeCode = freezed,
     Object? fullName = freezed,
+    Object? languageCodeType = freezed,
     Object? relationType = freezed,
     Object? createDateFrom = freezed,
     Object? createDateTo = freezed,
@@ -168,14 +177,18 @@ class __$$StakeholdersFilterImplCopyWithImpl<$Res>
           ? _value.stakeholderId
           : stakeholderId // ignore: cast_nullable_to_non_nullable
               as UniqueId?,
-      personCode: freezed == personCode
-          ? _value.personCode
-          : personCode // ignore: cast_nullable_to_non_nullable
+      personTypeCode: freezed == personTypeCode
+          ? _value.personTypeCode
+          : personTypeCode // ignore: cast_nullable_to_non_nullable
               as PersonTypeCode?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
+      languageCodeType: freezed == languageCodeType
+          ? _value.languageCodeType
+          : languageCodeType // ignore: cast_nullable_to_non_nullable
+              as LanguageCodeType?,
       relationType: freezed == relationType
           ? _value.relationType
           : relationType // ignore: cast_nullable_to_non_nullable
@@ -213,8 +226,9 @@ class __$$StakeholdersFilterImplCopyWithImpl<$Res>
 class _$StakeholdersFilterImpl implements _StakeholdersFilter {
   const _$StakeholdersFilterImpl(
       {this.stakeholderId,
-      this.personCode,
+      this.personTypeCode,
       this.fullName,
+      this.languageCodeType,
       this.relationType,
       this.createDateFrom,
       this.createDateTo,
@@ -226,9 +240,11 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
   @override
   final UniqueId? stakeholderId;
   @override
-  final PersonTypeCode? personCode;
+  final PersonTypeCode? personTypeCode;
   @override
   final String? fullName;
+  @override
+  final LanguageCodeType? languageCodeType;
   @override
   final RelationType? relationType;
   @override
@@ -246,7 +262,7 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
 
   @override
   String toString() {
-    return 'StakeholdersFilter(stakeholderId: $stakeholderId, personCode: $personCode, fullName: $fullName, relationType: $relationType, createDateFrom: $createDateFrom, createDateTo: $createDateTo, documentTypeCode: $documentTypeCode, documentNumber: $documentNumber, additionalInfo: $additionalInfo, isFavorite: $isFavorite)';
+    return 'StakeholdersFilter(stakeholderId: $stakeholderId, personTypeCode: $personTypeCode, fullName: $fullName, languageCodeType: $languageCodeType, relationType: $relationType, createDateFrom: $createDateFrom, createDateTo: $createDateTo, documentTypeCode: $documentTypeCode, documentNumber: $documentNumber, additionalInfo: $additionalInfo, isFavorite: $isFavorite)';
   }
 
   @override
@@ -256,10 +272,12 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
             other is _$StakeholdersFilterImpl &&
             (identical(other.stakeholderId, stakeholderId) ||
                 other.stakeholderId == stakeholderId) &&
-            (identical(other.personCode, personCode) ||
-                other.personCode == personCode) &&
+            (identical(other.personTypeCode, personTypeCode) ||
+                other.personTypeCode == personTypeCode) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
+            (identical(other.languageCodeType, languageCodeType) ||
+                other.languageCodeType == languageCodeType) &&
             (identical(other.relationType, relationType) ||
                 other.relationType == relationType) &&
             (identical(other.createDateFrom, createDateFrom) ||
@@ -280,8 +298,9 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
   int get hashCode => Object.hash(
       runtimeType,
       stakeholderId,
-      personCode,
+      personTypeCode,
       fullName,
+      languageCodeType,
       relationType,
       createDateFrom,
       createDateTo,
@@ -301,8 +320,9 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
 abstract class _StakeholdersFilter implements StakeholdersFilter {
   const factory _StakeholdersFilter(
       {final UniqueId? stakeholderId,
-      final PersonTypeCode? personCode,
+      final PersonTypeCode? personTypeCode,
       final String? fullName,
+      final LanguageCodeType? languageCodeType,
       final RelationType? relationType,
       final DateTime? createDateFrom,
       final DateTime? createDateTo,
@@ -314,9 +334,11 @@ abstract class _StakeholdersFilter implements StakeholdersFilter {
   @override
   UniqueId? get stakeholderId;
   @override
-  PersonTypeCode? get personCode;
+  PersonTypeCode? get personTypeCode;
   @override
   String? get fullName;
+  @override
+  LanguageCodeType? get languageCodeType;
   @override
   RelationType? get relationType;
   @override

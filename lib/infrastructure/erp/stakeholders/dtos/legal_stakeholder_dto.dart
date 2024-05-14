@@ -1,4 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/legal_stakeholder.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/document_type_code_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/language_code_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/legal_form_code_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/person_type_code_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/relation_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/stakeholder_dto.dart';
 
 part 'legal_stakeholder_dto.g.dart';
@@ -21,13 +28,58 @@ class LegalStakeholderDto extends StakeholderDto {
     required super.preferenceWhatsapp,
     required super.isFavorite,
     required this.legalName,
+    required this.comercialName,
+    required this.constitutionDate,
+    required this.constitutionCountryCode,
+    required this.legalFormCode,
+    required this.nationalityCountryCode,
+    required this.economicActivityCode,
+    required this.typeCode,
+    required this.closureDate,
   });
 
   factory LegalStakeholderDto.fromJson(Map<String, dynamic> json) =>
       _$LegalStakeholderDtoFromJson(json);
 
   final String legalName;
+  final String comercialName;
+  final DateTime constitutionDate;
+  final String constitutionCountryCode;
+  final LegalFormCodeDto legalFormCode;
+  final String nationalityCountryCode;
+  final String economicActivityCode;
+  final String typeCode;
+  final DateTime closureDate;
 
   @override
   Map<String, dynamic> toJson() => _$LegalStakeholderDtoToJson(this);
+}
+
+extension LegalStakeholderDtoX on LegalStakeholderDto {
+  LegalStakeholder toDomain() => LegalStakeholder(
+        id: UniqueId.fromUniqueString(stakeholderId.toString()),
+        personTypeCode: personTypeCode.toDomain(),
+        fullName: fullName ?? '',
+        additionalInfo: additionalInfo ?? '',
+        // TODO(georgeta): comprobar !.
+        createDate: createDate!,
+        documentNumber: documentNumber ?? '',
+        documentCode: documentTypeCode!.toDomain(),
+        languageCode: languageCodeType!.toDomain(),
+        relation: relationType.toDomain(),
+        preferenceTelephone: preferenceTelephone ?? false,
+        preferenceEmail: preferenceMail ?? false,
+        preferenceSms: preferenceSms ?? false,
+        preferenceWhatsapp: preferenceWhatsapp ?? false,
+        isFavorite: isFavorite ?? false,
+        legalName: legalName,
+        comercialName: comercialName,
+        constitutionDate: constitutionDate,
+        constitutionCountryCode: constitutionCountryCode,
+        legalFormCode: legalFormCode.toDomain(),
+        nationalityCountryCode: nationalityCountryCode,
+        economicActivityCode: economicActivityCode,
+        typeCode: typeCode,
+        closureDate: closureDate,
+      );
 }

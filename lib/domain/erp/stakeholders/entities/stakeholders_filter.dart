@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_type_code.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_type.dart';
 
@@ -10,8 +11,9 @@ part 'stakeholders_filter.freezed.dart';
 class StakeholdersFilter with _$StakeholdersFilter {
   const factory StakeholdersFilter({
     UniqueId? stakeholderId,
-    PersonTypeCode? personCode,
+    PersonTypeCode? personTypeCode,
     String? fullName,
+    LanguageCodeType? languageCodeType,
     RelationType? relationType,
     DateTime? createDateFrom,
     DateTime? createDateTo,

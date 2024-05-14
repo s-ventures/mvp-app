@@ -1,6 +1,6 @@
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_type_code.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_type.dart';
 
