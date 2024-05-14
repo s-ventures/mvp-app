@@ -1,5 +1,5 @@
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/legal_form_code.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_code.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 
 class LegalStakeholder extends Stakeholder {
@@ -26,7 +26,7 @@ class LegalStakeholder extends Stakeholder {
     required this.economicActivityCode,
     required this.typeCode,
     required this.closureDate,
-    super.personCode = PersonCode.legal,
+    super.personTypeCode = PersonTypeCode.legal,
   });
 
   final String legalName;

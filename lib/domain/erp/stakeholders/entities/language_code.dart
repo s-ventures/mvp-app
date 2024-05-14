@@ -1,4 +1,4 @@
-enum LanguageCode {
+enum LanguageCodeType {
   spanish,
   catalan,
   basque,

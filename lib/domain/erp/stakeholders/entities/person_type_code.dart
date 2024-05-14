@@ -1,4 +1,4 @@
-enum PersonCode {
+enum PersonTypeCode {
   natural,
   legal,
 }

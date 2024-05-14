@@ -2,7 +2,7 @@ import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/employment_s
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/gender.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/marital_status.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/matrimonial_regime.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_code.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 
 class NaturalStakeholder extends Stakeholder {
@@ -36,7 +36,7 @@ class NaturalStakeholder extends Stakeholder {
     required this.personOcuppationCode,
     required this.sector,
     required this.econimicActivityCode,
-    super.personCode = PersonCode.natural,
+    super.personTypeCode = PersonTypeCode.natural,
   });
 
   final String name;

@@ -1,4 +1,4 @@
-enum DocumentCode {
+enum DocumentTypeCode {
   dni,
   nie,
   nif,

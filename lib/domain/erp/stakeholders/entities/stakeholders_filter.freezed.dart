@@ -17,12 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$StakeholdersFilter {
   UniqueId? get stakeholderId => throw _privateConstructorUsedError;
-  PersonCode? get personCode => throw _privateConstructorUsedError;
+  PersonTypeCode? get personCode => throw _privateConstructorUsedError;
   String? get fullName => throw _privateConstructorUsedError;
   RelationType? get relationType => throw _privateConstructorUsedError;
   DateTime? get createDateFrom => throw _privateConstructorUsedError;
   DateTime? get createDateTo => throw _privateConstructorUsedError;
-  DocumentCode? get documentTypeCode => throw _privateConstructorUsedError;
+  DocumentTypeCode? get documentTypeCode => throw _privateConstructorUsedError;
   String? get documentNumber => throw _privateConstructorUsedError;
   String? get additionalInfo => throw _privateConstructorUsedError;
   bool? get isFavorite => throw _privateConstructorUsedError;
@@ -40,12 +40,12 @@ abstract class $StakeholdersFilterCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId? stakeholderId,
-      PersonCode? personCode,
+      PersonTypeCode? personCode,
       String? fullName,
       RelationType? relationType,
       DateTime? createDateFrom,
       DateTime? createDateTo,
-      DocumentCode? documentTypeCode,
+      DocumentTypeCode? documentTypeCode,
       String? documentNumber,
       String? additionalInfo,
       bool? isFavorite});
@@ -83,7 +83,7 @@ class _$StakeholdersFilterCopyWithImpl<$Res, $Val extends StakeholdersFilter>
       personCode: freezed == personCode
           ? _value.personCode
           : personCode // ignore: cast_nullable_to_non_nullable
-              as PersonCode?,
+              as PersonTypeCode?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -103,7 +103,7 @@ class _$StakeholdersFilterCopyWithImpl<$Res, $Val extends StakeholdersFilter>
       documentTypeCode: freezed == documentTypeCode
           ? _value.documentTypeCode
           : documentTypeCode // ignore: cast_nullable_to_non_nullable
-              as DocumentCode?,
+              as DocumentTypeCode?,
       documentNumber: freezed == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
@@ -130,12 +130,12 @@ abstract class _$$StakeholdersFilterImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId? stakeholderId,
-      PersonCode? personCode,
+      PersonTypeCode? personCode,
       String? fullName,
       RelationType? relationType,
       DateTime? createDateFrom,
       DateTime? createDateTo,
-      DocumentCode? documentTypeCode,
+      DocumentTypeCode? documentTypeCode,
       String? documentNumber,
       String? additionalInfo,
       bool? isFavorite});
@@ -171,7 +171,7 @@ class __$$StakeholdersFilterImplCopyWithImpl<$Res>
       personCode: freezed == personCode
           ? _value.personCode
           : personCode // ignore: cast_nullable_to_non_nullable
-              as PersonCode?,
+              as PersonTypeCode?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -191,7 +191,7 @@ class __$$StakeholdersFilterImplCopyWithImpl<$Res>
       documentTypeCode: freezed == documentTypeCode
           ? _value.documentTypeCode
           : documentTypeCode // ignore: cast_nullable_to_non_nullable
-              as DocumentCode?,
+              as DocumentTypeCode?,
       documentNumber: freezed == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
@@ -226,7 +226,7 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
   @override
   final UniqueId? stakeholderId;
   @override
-  final PersonCode? personCode;
+  final PersonTypeCode? personCode;
   @override
   final String? fullName;
   @override
@@ -236,7 +236,7 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
   @override
   final DateTime? createDateTo;
   @override
-  final DocumentCode? documentTypeCode;
+  final DocumentTypeCode? documentTypeCode;
   @override
   final String? documentNumber;
   @override
@@ -301,12 +301,12 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
 abstract class _StakeholdersFilter implements StakeholdersFilter {
   const factory _StakeholdersFilter(
       {final UniqueId? stakeholderId,
-      final PersonCode? personCode,
+      final PersonTypeCode? personCode,
       final String? fullName,
       final RelationType? relationType,
       final DateTime? createDateFrom,
       final DateTime? createDateTo,
-      final DocumentCode? documentTypeCode,
+      final DocumentTypeCode? documentTypeCode,
       final String? documentNumber,
       final String? additionalInfo,
       final bool? isFavorite}) = _$StakeholdersFilterImpl;
@@ -314,7 +314,7 @@ abstract class _StakeholdersFilter implements StakeholdersFilter {
   @override
   UniqueId? get stakeholderId;
   @override
-  PersonCode? get personCode;
+  PersonTypeCode? get personCode;
   @override
   String? get fullName;
   @override
@@ -324,7 +324,7 @@ abstract class _StakeholdersFilter implements StakeholdersFilter {
   @override
   DateTime? get createDateTo;
   @override
-  DocumentCode? get documentTypeCode;
+  DocumentTypeCode? get documentTypeCode;
   @override
   String? get documentNumber;
   @override
