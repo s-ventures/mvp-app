@@ -79,12 +79,8 @@ class UploadAttachmentsBottomSheet {
           context.pop();
         }
       } on PlatformException catch (e) {
-        if (e.code == 'photo_access_denied' && context.mounted) {
-          GalleryAccessDeniedDialog.show(context);
-          // TODO: Revisar codigo de error
-        } else if (e.code == 'camera_access_denied' && context.mounted) {
-          CameraAccessDeniedDialog.show(context);
-        }
+        // ignore: use_build_context_synchronously
+        return onPermissionsException(context, e);
       }
     }
 
@@ -106,10 +102,8 @@ class UploadAttachmentsBottomSheet {
           context.pop();
         }
       } on PlatformException catch (e) {
-        // TODO: Revisar error al denegar permisos
-        if (e.code == 'file_access_denied' && context.mounted) {
-          FileAccessDeniedDialog.show(context);
-        }
+        // ignore: use_build_context_synchronously
+        return onPermissionsException(context, e);
       }
     }
 
@@ -198,5 +192,22 @@ class UploadAttachmentsBottomSheet {
         ),
       ],
     );
+  }
+
+  static Future<void> onPermissionsException(BuildContext context, PlatformException e) async {
+    if (!context.mounted) {
+      return;
+    }
+
+    switch (e.code) {
+      case 'camera_access_denied':
+      case 'camera_unavailable':
+        return CameraAccessDeniedDialog.show(context);
+      case 'gallery_access_denied':
+        return GalleryAccessDeniedDialog.show(context);
+      case 'permission_denied':
+        return FileAccessDeniedDialog.show(context);
+      default:
+    }
   }
 }
