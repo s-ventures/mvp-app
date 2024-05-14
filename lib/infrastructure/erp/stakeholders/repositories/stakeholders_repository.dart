@@ -1,13 +1,22 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders_filter.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/failures/stakeholder_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/repositories/i_stakeholders_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/stakeholders_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/data_sources/remote/stakeholders_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/legal_stakeholder_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/natural_stakeholder_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/person_type_code_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/stakeholders_filter_dto.dart';
+
+final stakeholdersRepositoryProvider = Provider<StakeholdersRepository>((ref) {
+  return StakeholdersRepository(
+    remoteDataSource:
+        StakeholdersRemoteDataSource(ref.watch(stakeholdersRestClientProvider)),
+  );
+});
 
 class StakeholdersRepository implements IStakeholdersRepository {
   StakeholdersRepository({
