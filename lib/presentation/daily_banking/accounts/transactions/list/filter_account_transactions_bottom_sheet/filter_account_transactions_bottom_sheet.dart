@@ -144,30 +144,34 @@ class FilterAccountTransactionsBottomSheet {
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
-        stickyActionBar: Padding(
-          padding: const EdgeInsets.only(
-            right: AppSpacing.s5,
-            bottom: AppSpacing.s5,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Button(
-                title: 'Descartar filtros',
-                type: ButtonType.text,
-                size: ButtonSize.small,
-                onPressed: () async {
-                  await onReset().then((_) => context.pop());
-                },
-              ),
-              Button(
-                title: 'Aplicar',
-                size: ButtonSize.small,
-                onPressed: () async {
-                  await onApply().then((_) => context.pop());
-                },
-              ),
-            ],
+        stickyActionBar: ColoredBox(
+          color: const Color(0xFFEFEFF0),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              right: AppSpacing.s5,
+              // bottom: AppSpacing.s5,
+              // top: AppSpacing.s5,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Button(
+                  title: 'Descartar filtros',
+                  type: ButtonType.text,
+                  size: ButtonSize.small,
+                  onPressed: () async {
+                    await onReset().then((_) => context.pop());
+                  },
+                ),
+                Button(
+                  title: 'Aplicar',
+                  size: ButtonSize.small,
+                  onPressed: () async {
+                    await onApply().then((_) => context.pop());
+                  },
+                ),
+              ],
+            ),
           ),
         ),
         backgroundColor: context.color.bottomSheetBackground,
@@ -193,7 +197,7 @@ class FilterAccountTransactionsBottomSheet {
               left: AppSpacing.s5,
               right: AppSpacing.s5,
               top: AppSpacing.s6,
-              bottom: 100,
+              bottom: 80,
             ),
             sliver: SliverList(
               delegate: SliverChildListDelegate(
@@ -241,15 +245,6 @@ class FilterAccountTransactionsBottomSheet {
                     categories: categories,
                     onPressed: () => pageIndexNotifier.value = 1,
                   ),
-                  // AppSpacing.vertical.s5,
-                  // Text(
-                  //   'Tipo',
-                  //   style: context.textStyle.bodyMediumSemiBold.copyWith(
-                  //     color: context.color.textLight600,
-                  //   ),
-                  // ),
-                  // AppSpacing.vertical.s2,
-                  // const CreditDebit(),
                 ],
               ),
             ),
