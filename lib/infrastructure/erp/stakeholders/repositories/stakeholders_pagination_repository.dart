@@ -34,7 +34,7 @@ class StakeholdersPaginationRepository
 
   void _listenToSelectedContractChanges() {
     _contractsRepository.watchSelectedContract().listen((contractIdOption) {
-      // No ERP contract has been selected. Select first contract
+      // No ERP contract has been selected.
       if (contractIdOption.isNone()) {
         // TODO(sergio): hardcoded erp contract id
         _erpContractId = 1071.toString();
@@ -43,10 +43,11 @@ class StakeholdersPaginationRepository
 
       // A contract has been previously selected. Update filter and refresh
       else if (contractIdOption.isSome()) {
-        final contractId = contractIdOption.fold(() => null, (a) => a);
-        if (contractId == null) return;
+        final contractId =
+            contractIdOption.fold(() => null, (a) => a)?.getOrElse('');
+        if (contractId?.isEmpty ?? true) return;
 
-        // ...
+        _erpContractId = contractId;
       }
     });
   }
@@ -86,6 +87,18 @@ class StakeholdersPaginationRepository
     String? additionalInfo,
     bool? isFavorite,
   }) {
-    _filter = _filter?.copyWith();
+    _filter = _filter?.copyWith(
+      stakeholderId: stakeholderId,
+      personTypeCode: personTypeCode,
+      fullName: fullName,
+      languageCodeType: languageCodeType,
+      relationType: relationType,
+      createDateFrom: createDateFrom,
+      createDateTo: createDateTo,
+      documentTypeCode: documentTypeCode,
+      documentNumber: documentNumber,
+      additionalInfo: additionalInfo,
+      isFavorite: isFavorite,
+    );
   }
 }
