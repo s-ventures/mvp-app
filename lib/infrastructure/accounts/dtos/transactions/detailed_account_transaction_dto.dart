@@ -32,14 +32,14 @@
 // }
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/dtos/transactions/account_transaction_type_dto.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_info_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_converter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_transaction_details/extended_details_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_converter.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/account_transaction_type_dto.dart';
 
 part 'detailed_account_transaction_dto.freezed.dart';
 part 'detailed_account_transaction_dto.g.dart';
@@ -89,15 +89,17 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
       id: UniqueId.fromUniqueString(movementId.toString()),
       category: userCategory ?? analyticsCategory ?? '',
       description: description,
-      date: postingDate,
+      valueDate: valueDate,
+      postingDate: postingDate,
       amount: amount,
-      endBalance: endBalance,
-      originBranch: originBranch,
+      endBalance: endBalance ?? 0,
+      originBranch: originBranch ?? '',
       detailFields: detailFields ?? '',
       userComments: userComments ?? '',
       bankReceipt: bankReceipt,
-      accountId: accountId == null ? null : UniqueId.fromUniqueString(accountId.toString()),
+      accountId: UniqueId.fromUniqueString(accountId.toString()),
       attachments: attachments?.map((a) => a.toDomain()).toList() ?? [],
+      details: null,
     );
   }
 }

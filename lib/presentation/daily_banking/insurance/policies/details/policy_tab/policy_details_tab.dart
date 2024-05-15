@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/detailed/detailed_policy_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/business_insurance.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/coverage_included.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/policy_billing.dart';
+import 'package:manifiesto_mvp_app/presentation/protection/widgets/coverages.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class PolicyDetailsTab extends ConsumerStatefulWidget {
@@ -22,7 +22,11 @@ class PolicyDetailsTab extends ConsumerStatefulWidget {
   ConsumerState<PolicyDetailsTab> createState() => _PolicyDetailsTabState();
 }
 
-class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
+class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -38,21 +42,20 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final policy = ref.watch(detailedPolicyControllerProvider).policy;
 
     return policy.when(
       data: (policy) => ListView(
         padding: const EdgeInsets.all(AppSpacing.s5),
         children: [
-          InsurancePolicyListTile(
-            leadingEmoji:
-                '🖥️', // TODO(georgeta): Pending to receive category and use the icon based on it
+          InsuranceDetailsListTile(
             leadingBackgroundColor: const Color(0xFFE0E0E0),
-            number: policy.id.getOrCrash(),
-            category: '',
-            status: policy.status,
-            statusColor: context.color.statusSuccess,
+            // TODO(georgeta): Pending to receive category and use the icon based on it
+            leadingEmoji: '🖥️',
+            category: 'Accidentes',
             title: policy.description,
+            subtitle: 'Número de póliza: ${policy.id.getOrCrash()}',
           ),
           AppSpacing.vertical.s5,
           DateRangeListTile.disabled(
@@ -68,7 +71,21 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab> {
             paymentPeriodicity: policy.paymentPeriodicity,
           ),
           AppSpacing.vertical.s5,
-          const CoverageIncluded(),
+          const Coverages(
+            title: 'Coberturas incluidas',
+            coverages: [
+              'Siniestros y averias generales',
+              'Asistencia Informática',
+              'Robo con y sin violencia',
+              'Daños Eléctricos',
+              'Avería de Maquinaria',
+              'Roturas de cristales',
+              'Daños Estéticos',
+              'Responsabilidad Civil',
+              'Pérdida de Beneficios diaria',
+              'Desalojo Forzoso',
+            ],
+          ),
           AppSpacing.vertical.s5,
           const BusinessInsurance(),
         ],

@@ -1,11 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/filter/filter_simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_controller.dart';
-import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/simplified_periodic_order.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/filter_list_periodic_orders.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/filter_periodic_orders_bottom_sheet/filter_periodic_orders_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/periodic_order_card.dart';
@@ -62,7 +61,8 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
 
     final isFilterApplied = startDate != null ||
         endDate != null ||
-        (amountFrom != null && amountTo != null) ||
+        amountFrom != null ||
+        amountTo != null ||
         frecuency != null;
 
     return Scaffold(
@@ -162,7 +162,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
                   },
                   onClearFrecuency: () {
                     controller
-                      ..setFrecuencyTo(frecuency)
+                      ..setFrecuencyTo(null)
                       ..applyFilters();
                   },
                 ),

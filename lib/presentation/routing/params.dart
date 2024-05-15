@@ -2,6 +2,7 @@
 // WebView
 import 'dart:async';
 
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transaction_type.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPageRouteParams {
@@ -18,6 +19,28 @@ class WebViewPageRouteParams {
 }
 
 // DAILY BANKING
+// Transaction details
+class AccountTransactionDetailsRouteParams {
+  const AccountTransactionDetailsRouteParams({
+    required this.transactionId,
+    required this.accountId,
+    required this.type,
+  });
+
+  final String transactionId;
+  final String accountId;
+  final AccountTransactionType type;
+}
+
+class CardTransactionDetailsRouteParams {
+  const CardTransactionDetailsRouteParams({
+    required this.cardContractId,
+    required this.transactionId,
+  });
+
+  final int cardContractId;
+  final int transactionId;
+}
 
 // Wires
 class TransferSentDetailsRouteParams {
@@ -26,6 +49,14 @@ class TransferSentDetailsRouteParams {
   });
 
   final int sentTransferId;
+}
+
+class PeriodicOrderDetailsRouteParams {
+  const PeriodicOrderDetailsRouteParams({
+    required this.periodicOrderId,
+  });
+
+  final int periodicOrderId;
 }
 
 // Insurance

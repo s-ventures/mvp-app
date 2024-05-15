@@ -44,21 +44,20 @@ class TextInputIntoContainer extends StatelessWidget {
           ),
           const Spacer(),
           Expanded(
-            child: SizedBox(
-              height: 32,
-              child: TextInput(
-                fillColor: context.color.strokeLigth100,
-                controller: TextEditingController(
-                  text: initialValue,
-                ),
-                suffixText: suffixText,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.s3,
-                ),
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                onChanged: onChanged,
+            child: TextInput(
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: AppSpacing.s2,
+                horizontal: AppSpacing.s3,
               ),
+              size: TextInputSize.extraSmall,
+              fillColor: context.color.strokeLigth100,
+              controller: TextEditingController(
+                text: initialValue,
+              ),
+              suffixText: suffixText,
+              maxLines: 1,
+              textAlign: TextAlign.center,
+              onChanged: onChanged,
             ),
           ),
         ],

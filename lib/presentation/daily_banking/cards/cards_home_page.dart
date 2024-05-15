@@ -8,6 +8,7 @@ import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/list/card_list_sliver_pinned_header.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_header.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_list.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -74,12 +75,11 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
                 onTransactionPressed: (transaction) {
                   context.pushNamed(
                     AppRoute.dailyBankingCardTransactionDetails.name,
-                    pathParameters: {
-                      // ignore: flutter_style_todos
-                      // Todo(Jesus): Change hardcoded cardContractId value
-                      'cardContractId': '50',
-                      'transactionId': transaction.id.getOrCrash(),
-                    },
+                    extra: CardTransactionDetailsRouteParams(
+                      // TODO(georgeta): Remove hardcoded value when 'cardContractId' is send by BFMF
+                      cardContractId: 1068,
+                      transactionId: transaction.id.toInt(),
+                    ),
                   );
                 },
               ),

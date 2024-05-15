@@ -16,7 +16,7 @@ class MovementDetailsSummary extends StatelessWidget {
     required this.title,
     required this.amount,
     required this.iconBgColor,
-    required this.status,
+    this.status,
     this.iconSvg,
     this.iconText,
     this.date,
@@ -31,7 +31,7 @@ class MovementDetailsSummary extends StatelessWidget {
   final Color iconBgColor;
   final double amount;
   final DateTime? date;
-  final MovementStatus status;
+  final MovementStatus? status;
 
   @override
   Widget build(BuildContext context) {
@@ -82,28 +82,29 @@ class MovementDetailsSummary extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                decoration: BoxDecoration(
-                  color: status == MovementStatus.completed
-                      ? context.color.statusSuccess.withOpacity(0.1)
-                      : status == MovementStatus.pending
-                          ? context.color.statusWarning.withOpacity(0.1)
-                          : context.color.statusError.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(context.radius.soft),
-                ),
-                child: Text(
-                  status.name,
-                  style: context.textStyle.buttonTabBar.copyWith(
+              if (status != null)
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  decoration: BoxDecoration(
                     color: status == MovementStatus.completed
-                        ? context.color.statusSuccess
+                        ? context.color.statusSuccess.withOpacity(0.1)
                         : status == MovementStatus.pending
-                            ? context.color.statusWarning
-                            : context.color.statusError,
+                            ? context.color.statusWarning.withOpacity(0.1)
+                            : context.color.statusError.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(context.radius.soft),
+                  ),
+                  child: Text(
+                    status!.name,
+                    style: context.textStyle.buttonTabBar.copyWith(
+                      color: status == MovementStatus.completed
+                          ? context.color.statusSuccess
+                          : status == MovementStatus.pending
+                              ? context.color.statusWarning
+                              : context.color.statusError,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ),
