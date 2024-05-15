@@ -59,14 +59,6 @@ class CardSettingsLimitsPage extends StatelessWidget {
                               width: 96,
                               child: TextInput(
                                 size: TextInputSize.extraSmall,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    context.radius.soft,
-                                  ),
-                                  borderSide: BorderSide(
-                                    color: context.color.strokeLigth200,
-                                  ),
-                                ),
                                 initialValue: 9000.toString(),
                                 fillColor: context.color.neutralLight100,
                                 suffixText: '€',
@@ -96,14 +88,6 @@ class CardSettingsLimitsPage extends StatelessWidget {
                               width: 96,
                               child: TextInput(
                                 size: TextInputSize.extraSmall,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    context.radius.soft,
-                                  ),
-                                  borderSide: BorderSide(
-                                    color: context.color.strokeLigth200,
-                                  ),
-                                ),
                                 initialValue: 7000.toString(),
                                 fillColor: context.color.neutralLight100,
                                 suffixText: '€',
@@ -133,14 +117,6 @@ class CardSettingsLimitsPage extends StatelessWidget {
                               width: 96,
                               child: TextInput(
                                 size: TextInputSize.extraSmall,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    context.radius.soft,
-                                  ),
-                                  borderSide: BorderSide(
-                                    color: context.color.strokeLigth200,
-                                  ),
-                                ),
                                 initialValue: 5000.toString(),
                                 fillColor: context.color.neutralLight100,
                                 suffixText: '€',
@@ -171,14 +147,6 @@ class CardSettingsLimitsPage extends StatelessWidget {
                               child: TextInput(
                                 enabled: false,
                                 size: TextInputSize.extraSmall,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    context.radius.soft,
-                                  ),
-                                  borderSide: BorderSide(
-                                    color: context.color.strokeLigth200,
-                                  ),
-                                ),
                                 initialValue: 3000.toString(),
                                 fillColor: context.color.neutralLight100,
                                 suffixText: '€',

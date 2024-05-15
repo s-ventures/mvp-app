@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/domain/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class FilterListPeriodicOrders extends ConsumerStatefulWidget {
@@ -52,13 +52,11 @@ class _FilterListPeriodicOrdersState
               amountTo: widget.amountTo ?? 0.0,
               onClear: widget.onClearAmountRange,
             ),
-          Visibility(
-            visible: widget.frecuency != null,
-            child: TextFilterListItem(
+          if (widget.frecuency != null)
+            TextFilterListItem(
               textFilter: widget.frecuency!.name,
               onClear: widget.onClearFrecuency,
             ),
-          ),
         ],
       ),
     );

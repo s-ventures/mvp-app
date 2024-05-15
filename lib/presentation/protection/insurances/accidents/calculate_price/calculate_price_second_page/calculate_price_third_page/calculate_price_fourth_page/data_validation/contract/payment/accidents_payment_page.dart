@@ -149,7 +149,7 @@ class AccidentsInsurancePaymentPage extends StatelessWidget {
             AppSpacing.vertical.s3,
             const Coverages(
               title: 'Coberturas incluidas',
-              coveragesIncluded: [
+              coverages: [
                 'Fallecimiento por accidente',
                 'Invalidez por accidente',
                 'Cobertura especial siniestros',
@@ -158,7 +158,7 @@ class AccidentsInsurancePaymentPage extends StatelessWidget {
             AppSpacing.vertical.s3,
             const Coverages(
               title: 'Coberturas añadidas',
-              coveragesIncluded: [
+              coverages: [
                 'Renta mensual por fallecimiento accidental',
                 'Renta mensual por invalidez permanente absoluta accidental',
               ],

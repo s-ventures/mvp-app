@@ -4,7 +4,6 @@ import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_ty
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/amount.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category_list.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/date_range.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
@@ -207,7 +206,7 @@ class FilterAccountTransactionsBottomSheet {
                     ),
                   ),
                   AppSpacing.vertical.s2,
-                  DateRange(
+                  DateRangeFilter(
                     startDate: stateDate,
                     endDate: endDate,
                     setStartDate: (DateTime value) => setStartDate(value),

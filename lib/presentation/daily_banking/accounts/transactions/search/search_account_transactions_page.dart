@@ -83,7 +83,8 @@ class _SearchAccountTransactionsPageState
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
-        (amountFrom != null && amountTo != null) ||
+        amountFrom != null ||
+        amountTo != null ||
         operationType != TransactionOperationType.all;
 
     return Scaffold(
@@ -193,9 +194,18 @@ class _SearchAccountTransactionsPageState
         },
         body: CustomScrollView(
           slivers: [
+            // const SliverPadding(
+            //   padding: EdgeInsets.all(AppSpacing.s5),
+            //   sliver: SliverToBoxAdapter(
+            //     child: RecentCategories(
+            //       // categories: categories,
+            //       onCategoryPressed: print,
+            //     ),
+            //   ),
+            // ),
             SliverPadding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.s5,
+              padding: const EdgeInsets.all(
+                AppSpacing.s5,
               ),
               sliver: AccountTransactionList(
                 onTransactionPressed: (transaction) {
@@ -207,16 +217,6 @@ class _SearchAccountTransactionsPageState
                     },
                   );
                 },
-              ),
-            ),
-            const SliverPadding(
-              padding: EdgeInsets.all(AppSpacing.s5),
-              sliver: SliverToBoxAdapter(
-                child: RecentCategories(
-                  // TODO(jesus): Pass the categories from the provider
-                  // categories: categories,
-                  onCategoryPressed: print,
-                ),
               ),
             ),
           ],

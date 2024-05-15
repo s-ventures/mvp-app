@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_state.dart';
-import 'package:manifiesto_mvp_app/domain/wires/sent_transfers/entities/simplified_sent_transfer.dart';
-import 'package:manifiesto_mvp_app/infrastructure/wires/sent_transfers/repositories/sent_transfers_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/simplified_sent_transfer.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_pagination_repository.dart';
 
 final simplifiedSentTransfersControllerProvider = StateNotifierProvider<
     SimplifiedSentTransfersController, SimplifiedSentTransfersState>(
@@ -55,5 +55,20 @@ class SimplifiedSentTransfersController
         ),
       );
     }
+  }
+
+  Future<void> updateFilter({
+    required int? amountFrom,
+    required int? amountTo,
+    required DateTime? dateFrom,
+    required DateTime? dateTo,
+  }) async {
+    _repository.updateFilter(
+      amountFrom: amountFrom,
+      amountTo: amountTo,
+      startDateFrom: dateFrom,
+      startDateTo: dateTo,
+    );
+    await refresh();
   }
 }

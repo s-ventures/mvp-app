@@ -38,17 +38,17 @@ class NationalTransferForm extends StatelessWidget {
         ),
         AppSpacing.vertical.s3,
         TextInput(
-          hintText: 'Nombre o razón social',
+          labelText: 'Nombre o razón social',
           fillColor: context.color.backgroundLight0,
         ),
         AppSpacing.vertical.s3,
         TextInput(
-          hintText: 'IBAN',
+          labelText: 'IBAN',
           fillColor: context.color.backgroundLight0,
         ),
         AppSpacing.vertical.s3,
         TextInput(
-          hintText: 'Concepto',
+          labelText: 'Concepto',
           fillColor: context.color.backgroundLight0,
         ),
       ],

@@ -161,7 +161,7 @@ class _InsuranceCommerceContractPaymentPageState
             AppSpacing.vertical.s3,
             const Coverages(
               title: 'Coberturas incluidas',
-              coveragesIncluded: [
+              coverages: [
                 'Siniestros y averías generales',
                 'Asistencia Informática',
                 'Robo con y sin violencia',
@@ -177,7 +177,7 @@ class _InsuranceCommerceContractPaymentPageState
             AppSpacing.vertical.s3,
             const Coverages(
               title: 'Coberturas añadidas',
-              coveragesIncluded: [
+              coverages: [
                 'Accidentes corporales',
               ],
             ),

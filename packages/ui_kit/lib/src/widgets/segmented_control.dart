@@ -7,6 +7,7 @@ class SegmentedControl<T> extends StatefulWidget {
     required this.values,
     required this.widgetBuilder,
     this.initialValue,
+    this.adjustWidthToText = true,
     super.key,
   });
 
@@ -14,6 +15,7 @@ class SegmentedControl<T> extends StatefulWidget {
   final List<T> values;
   final Widget Function(T) widgetBuilder;
   final T? initialValue;
+  final bool adjustWidthToText;
 
   @override
   State<SegmentedControl<T>> createState() => _SegmentedControlViewState<T>();
@@ -30,7 +32,7 @@ class _SegmentedControlViewState<T> extends State<SegmentedControl<T>> {
 
   @override
   Widget build(BuildContext context) {
-    return ClipPath(
+    final Widget child = ClipPath(
       clipper: ShapeBorderClipper(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(context.radius.soft),
@@ -43,6 +45,8 @@ class _SegmentedControlViewState<T> extends State<SegmentedControl<T>> {
         ),
       ),
     );
+
+    return widget.adjustWidthToText ? IntrinsicWidth(child: child) : child;
   }
 
   Iterable<Widget> _buildChildren(BuildContext context) sync* {

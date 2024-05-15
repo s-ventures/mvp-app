@@ -1,20 +1,52 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/detailed/detailed_periodic_order_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class PeriodicOrderDetailsPage extends StatelessWidget {
-  const PeriodicOrderDetailsPage({super.key});
+class PeriodicOrderDetailsPage extends ConsumerStatefulWidget {
+  const PeriodicOrderDetailsPage({
+    required this.periodicOrderId,
+    super.key,
+  });
+
+  final int periodicOrderId;
+
+  @override
+  ConsumerState<PeriodicOrderDetailsPage> createState() =>
+      _PeriodicOrderDetailsPageState();
+}
+
+class _PeriodicOrderDetailsPageState
+    extends ConsumerState<PeriodicOrderDetailsPage> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(detailedPeriodicOrderControllerProvider.notifier).init(
+              periodicOrderId: widget.periodicOrderId,
+            ),
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final periodicOrder =
+        ref.watch(detailedPeriodicOrderControllerProvider).periodicOrder;
+
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Alba García',
+              title: 'Transferencias programadas',
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -28,220 +60,222 @@ class PeriodicOrderDetailsPage extends StatelessWidget {
                   size: ButtonSize.extraSmall,
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingScheduledTransferEdit.name,
+                    extra: PeriodicOrderDetailsRouteParams(
+                      periodicOrderId: widget.periodicOrderId,
+                    ),
                   ),
                 ),
               ],
             ),
           ];
         },
-        body: ListView(
-          padding: const EdgeInsets.all(AppSpacing.s5),
-          children: [
-            CustomCard(
-              child: Column(
-                children: [
-                  Text(
-                    25.00.toCurrency(plusSign: false),
-                    style: context.textStyle.h4.copyWith(
-                      color: context.color.textLight900,
-                    ),
-                  ),
-                  AppSpacing.vertical.s5,
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: AppSpacing.s3,
-                      horizontal: AppSpacing.s5,
-                    ),
-                    decoration: ShapeDecoration(
-                      color: context.color.neutralLight100,
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
+        body: periodicOrder.when(
+          data: (periodicOrder) => ListView(
+            padding: const EdgeInsets.all(AppSpacing.s5),
+            children: [
+              CustomCard(
+                child: Column(
+                  children: [
+                    Text(
+                      periodicOrder.amount.toCurrency(plusSign: false),
+                      style: context.textStyle.h4.copyWith(
+                        color: context.color.textLight900,
                       ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    AppSpacing.vertical.s5,
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: AppSpacing.s3,
+                        horizontal: AppSpacing.s5,
+                      ),
+                      decoration: ShapeDecoration(
+                        color: context.color.neutralLight100,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(context.radius.soft),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            periodicOrder.frecuency.name,
+                            style:
+                                context.textStyle.bodyMediumSemiBold.copyWith(
+                              color: context.color.textLight900,
+                            ),
+                          ),
+                          AppSpacing.horizontal.s3,
+                          Text(
+                            '·  Desde ${periodicOrder.startDate.formatToDayMonthYear()}',
+                            style: context.textStyle.bodyMediumRegular.copyWith(
+                              color: context.color.textLight600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              AppSpacing.vertical.s5,
+              CustomCard(
+                outlined: true,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Beneficiario',
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Text(
+                      periodicOrder.beneficiaryName,
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight900,
+                      ),
+                    ),
+                    AppSpacing.vertical.s5,
+                    Text(
+                      'IBAN',
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Text(
+                      periodicOrder.beneficiaryAccount,
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight900,
+                      ),
+                    ),
+                    AppSpacing.vertical.s5,
+                    Text(
+                      'Importe',
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Row(
                       children: [
                         Text(
-                          'Diariamente',
-                          style: context.textStyle.bodyMediumSemiBold.copyWith(
+                          periodicOrder.amount.toCurrency(plusSign: false),
+                          style: context.textStyle.bodyMediumRegular.copyWith(
                             color: context.color.textLight900,
                           ),
                         ),
-                        AppSpacing.horizontal.s3,
+                        AppSpacing.horizontal.s2,
                         Text(
-                          '·  Desde 12/01/2024',
+                          '(${periodicOrder.currencyCode})',
                           style: context.textStyle.bodyMediumRegular.copyWith(
-                            color: context.color.textLight600,
+                            color: context.color.textLight900,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  AppSpacing.vertical.s5,
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Button(
-                          icon: IconAssets.check,
-                          title: 'Activar',
-                          size: ButtonSize.extraSmall,
-                          type: ButtonType.outlined,
-                          foreground: context.color.textLight600,
-                          onPressed: () async => AlertBottomSheet.show(
-                            context: context,
-                            icon: IconAssets.check,
-                            title: '¿Quieres activar el pago periódico?',
-                            message:
-                                'Se activará tu pago periódico de ${25.00.toCurrency(plusSign: false)}',
-                            buttonOkText: 'Activar',
-                            buttonCancelText: 'Cancelar',
-                            onOkPressed: () async => context.pushNamed(
-                              AppRoute
-                                  .dailyBankingScheduledTransferSignature.name,
-                            ),
-                          ),
-                        ),
+                    AppSpacing.vertical.s5,
+                    Text(
+                      'Concepto',
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
                       ),
-                      AppSpacing.horizontal.s3,
-                      Expanded(
-                        child: Button(
-                          icon: IconAssets.trash,
-                          title: 'Eliminar',
-                          size: ButtonSize.extraSmall,
-                          background:
-                              context.color.statusError.withOpacity(.15),
-                          foreground: context.color.statusError,
-                          onPressed: () async => AlertBottomSheet.show(
-                            context: context,
-                            icon: IconAssets.trash,
-                            title: '¿Quieres eliminar el pago periódico?',
-                            buttonOkText: 'Eliminar',
-                            buttonOkBackground:
-                                context.color.statusError.withOpacity(.15),
-                            buttonOkForeground: context.color.statusError,
-                            buttonCancelText: 'Cancelar',
-                          ),
-                        ),
+                    ),
+                    Text(
+                      periodicOrder.concept != null
+                          ? periodicOrder.concept!
+                          : 'Sin concepto',
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight900,
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    AppSpacing.vertical.s5,
+                    Text(
+                      'Frecuencia',
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Text(
+                      periodicOrder.frecuency.name,
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight900,
+                      ),
+                    ),
+                    AppSpacing.vertical.s5,
+                    Text(
+                      'Comenzó el',
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Text(
+                      periodicOrder.startDate
+                          .formatToTransactionDate()
+                          .toString(),
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight900,
+                      ),
+                    ),
+                    AppSpacing.vertical.s5,
+                    Text(
+                      'Próximo pago',
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Text(
+                      periodicOrder.endDate != null
+                          ? periodicOrder.endDate
+                              .formatToTransactionDate()
+                              .toString()
+                          : '-',
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight900,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            AppSpacing.vertical.s5,
-            CustomCard(
-              outlined: true,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              AppSpacing.vertical.s7,
+              Row(
                 children: [
-                  Text(
-                    'Concepto',
-                    style: context.textStyle.bodySmallRegular.copyWith(
-                      color: context.color.textLight600,
-                    ),
-                  ),
-                  AppSpacing.vertical.s2,
-                  Text(
-                    'Pago periódico',
-                    style: context.textStyle.bodyMediumRegular.copyWith(
-                      color: context.color.textLight900,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            AppSpacing.vertical.s5,
-            CustomCard(
-              outlined: true,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Frecuencia',
-                    style: context.textStyle.bodySmallRegular.copyWith(
-                      color: context.color.textLight600,
-                    ),
-                  ),
-                  Text(
-                    'Diariamente',
-                    style: context.textStyle.bodyMediumRegular.copyWith(
-                      color: context.color.textLight900,
-                    ),
-                  ),
-                  AppSpacing.vertical.s5,
-                  Text(
-                    'Comenzó el',
-                    style: context.textStyle.bodySmallRegular.copyWith(
-                      color: context.color.textLight600,
-                    ),
-                  ),
-                  Text(
-                    '18 ene 2024',
-                    style: context.textStyle.bodyMediumRegular.copyWith(
-                      color: context.color.textLight900,
-                    ),
-                  ),
-                  AppSpacing.vertical.s5,
-                  Text(
-                    'Próximo pago',
-                    style: context.textStyle.bodySmallRegular.copyWith(
-                      color: context.color.textLight600,
-                    ),
-                  ),
-                  Text(
-                    '19 ene 2024',
-                    style: context.textStyle.bodyMediumRegular.copyWith(
-                      color: context.color.textLight900,
+                  Expanded(
+                    child: Button(
+                      title: 'Eliminar transferencia',
+                      size: ButtonSize.small,
+                      background: context.color.statusError.withOpacity(
+                        .15,
+                      ),
+                      foreground: context.color.statusError,
+                      onPressed: () async => AlertBottomSheet.show(
+                        context: context,
+                        icon: IconAssets.trash,
+                        title: '¿Quieres eliminar el pago periódico?',
+                        buttonOkText: 'Eliminar',
+                        buttonOkBackground:
+                            context.color.statusError.withOpacity(
+                          .15,
+                        ),
+                        buttonOkForeground: context.color.statusError,
+                        buttonCancelText: 'Cancelar',
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            AppSpacing.vertical.s5,
-            Text(
-              'Historial de pagos',
-              style: context.textStyle.bodyMediumSemiBold.copyWith(
-                color: context.color.textLight600,
+            ],
+          ),
+          error: (error, _) => Center(
+            child: Text(
+              error.toString(),
+              style: context.textStyle.bodySmallRegular.copyWith(
+                color: context.color.error,
               ),
             ),
-            AppSpacing.vertical.s3,
-            ListTile(
-              dense: true,
-              tileColor: context.color.backgroundLight0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(context.radius.soft),
-                side: const BorderSide(
-                  color: Colors.white,
-                ),
-              ),
-              leading: IconWithContainer(
-                text: '🏥',
-                subIcon: IconAssets.bank,
-                backgroundColor: Colors.cyan[50]!,
-              ),
-              title: Text(
-                'Alba García',
-                style: context.textStyle.bodyMediumSemiBold.copyWith(
-                  color: context.color.textLight900,
-                ),
-              ),
-              subtitle: Text(
-                'Hoy',
-                style: context.textStyle.bodySmallRegular.copyWith(
-                  color: context.color.textLight600,
-                ),
-              ),
-              trailing: Text(
-                25.00.toCurrency(plusSign: false),
-                style: context.textStyle.bodyMediumRegular.copyWith(
-                  color: context.color.textLight600,
-                  fontSize: 20,
-                ),
-              ),
-              onTap: () => {},
-            ),
-          ],
+          ),
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
+          ),
         ),
       ),
     );

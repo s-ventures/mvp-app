@@ -105,7 +105,10 @@ class _ContactRankingListTileState extends State<ContactRankingListTile>
             ),
             trailing: RotationTransition(
               turns: _iconTurns,
-              child: IconSvg.small(IconAssets.chevronDown),
+              child: IconSvg.small(
+                IconAssets.chevronDown,
+                color: context.color.iconLight600,
+              ),
             ),
           ),
         ),

@@ -2,9 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/cards/simplified/simplified_cards_state.dart';
-import 'package:manifiesto_mvp_app/domain/cards/cards/entities/simplified_card.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/infrastructure/cards/repositories/cards_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_pagination_repository.dart';
 
 final simplifiedCardsControllerProvider =
     StateNotifierProvider<SimplifiedCardsController, SimplifiedCardsState>(

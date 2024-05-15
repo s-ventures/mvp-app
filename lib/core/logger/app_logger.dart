@@ -27,7 +27,7 @@ abstract class AppLogger {
   // TODO(migalv): Add docs
   void warning(String message);
 
-  // TODO(migalv): Add docs
+  // TODO(miguel): Add docs
   void error(
     String message, {
     Object? error,

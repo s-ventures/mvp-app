@@ -9,15 +9,19 @@ import 'package:manifiesto_mvp_app/core/extensions/list_extension.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/account_transactions_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_repository.dart';
 import 'package:meta/meta.dart';
 
 final detailedAccountTransactionControllerProvider =
-    StateNotifierProvider<DetailedAccountTransactionController, DetailedAccountTransactionState>(
-  (ref) => DetailedAccountTransactionController(ref.watch(accountTransactionsRepositoryProvider)),
+    StateNotifierProvider.autoDispose<DetailedAccountTransactionController,
+        DetailedAccountTransactionState>(
+  (ref) => DetailedAccountTransactionController(
+    ref.watch(accountTransactionsRepositoryProvider),
+  ),
 );
 
-class DetailedAccountTransactionController extends UploadAttachmentsStateNotifier<DetailedAccountTransactionState> {
+class DetailedAccountTransactionController
+    extends UploadAttachmentsStateNotifier<DetailedAccountTransactionState> {
   DetailedAccountTransactionController(this._repository)
       : super(
           const DetailedAccountTransactionState(),
@@ -29,7 +33,8 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
 
   Future<void> init(String accountId, String transactionId) async {
     try {
-      final transactionOrFailure = await _repository.getDetailedAccountTransaction(
+      final transactionOrFailure =
+          await _repository.getDetailedAccountTransaction(
         accountId: accountId,
         transactionId: transactionId,
       );
@@ -43,7 +48,9 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
             final attachments = txAttachments.replaceWith(
               state.attachments,
               equals: (item, newItem) {
-                return item.id != null && newItem.id != null && item.id == newItem.id;
+                return item.id != null &&
+                    newItem.id != null &&
+                    item.id == newItem.id;
               },
             );
 
@@ -51,7 +58,9 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
               attachments: attachments,
               transaction: AsyncData(
                 // TODO(migalv): Remove this when back-end returns the account id
-                result.copyWith(accountId: UniqueId.fromUniqueString(accountId)),
+                result.copyWith(
+                  accountId: UniqueId.fromUniqueString(accountId),
+                ),
               ),
             );
           },
@@ -64,10 +73,12 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
 
   @override
   @protected
-  CancelableOperation<Either<UploadFileFailure, FileAttachmentUploaded>> uploadAttachment(
+  CancelableOperation<Either<UploadFileFailure, FileAttachmentUploaded>>
+      uploadAttachment(
     FileAttachmentAttached attachment,
   ) {
-    final accountId = state.transaction.whenOrNull(data: (tx) => tx.accountId?.getOrCrash());
+    final accountId =
+        state.transaction.whenOrNull(data: (tx) => tx.accountId.getOrCrash());
     final transactionId = state.transaction.whenOrNull(
       data: (transaction) => transaction.id.value.fold(
         (l) => null,
@@ -76,7 +87,9 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
     );
 
     if (accountId == null || transactionId == null) {
-      return CancelableOperation.fromValue(left(const UploadFileFailure.unexpected()));
+      return CancelableOperation.fromValue(
+        left(const UploadFileFailure.unexpected()),
+      );
     }
 
     return CancelableOperation.fromFuture(
@@ -91,8 +104,11 @@ class DetailedAccountTransactionController extends UploadAttachmentsStateNotifie
 
   @override
   @protected
-  Future<Either<UploadFileFailure, void>> deleteAttachment(String attachmentId) async {
-    final accountId = state.transaction.whenOrNull(data: (tx) => tx.accountId?.getOrCrash());
+  Future<Either<UploadFileFailure, void>> deleteAttachment(
+    String attachmentId,
+  ) async {
+    final accountId =
+        state.transaction.whenOrNull(data: (tx) => tx.accountId.getOrCrash());
     final transactionId = state.transaction.whenOrNull(
       data: (transaction) => transaction.id.value.fold(
         (l) => null,

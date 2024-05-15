@@ -2,8 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/simplified/simplified_policies_state.dart';
-import 'package:manifiesto_mvp_app/domain/insurance/policies/entities/simplified_policy.dart';
-import 'package:manifiesto_mvp_app/infrastructure/insurance/policies/repositories/policies_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/simplified_policy.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_pagination_repository.dart';
 
 final simplifiedPoliciesControllerProvider = StateNotifierProvider<
     SimplifiedPoliciesController, SimplifiedPoliciesState>(
@@ -38,5 +38,16 @@ class SimplifiedPoliciesController
         );
       },
     );
+  }
+
+  Future<void> updateFilter({
+    required DateTime? createDateFrom,
+    required DateTime? createDateTo,
+  }) async {
+    _repository.updateFilter(
+      createDateFrom: createDateFrom,
+      createDateTo: createDateTo,
+    );
+    await refresh();
   }
 }

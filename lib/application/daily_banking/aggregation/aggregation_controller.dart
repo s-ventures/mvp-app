@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/aggregation/repositories/aggregation_facade.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/aggregation/repositories/aggregation_facade.dart';
 
 final aggregationControllerProvider =
     StateNotifierProvider<AggregationController, AggregationState>(
