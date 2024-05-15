@@ -1,6 +1,6 @@
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/cards/cards_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/cards/cards_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/detailed_card_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/simplified_card_dto.dart';
 

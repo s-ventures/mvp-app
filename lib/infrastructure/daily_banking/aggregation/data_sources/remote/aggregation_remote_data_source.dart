@@ -1,4 +1,4 @@
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/aggregation/aggregation_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/aggregation/aggregation_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/aggregation/dtos/status_dto.dart';
 
 class AggregationRemoteDataSource {

@@ -6,7 +6,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entit
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/failures/detailed_policy_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/failures/simplified_policy_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/repositories/i_policies_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/insurances/policies_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/insurance/policies_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/data_sources/policies_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/dtos/detailed_policy_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/dtos/policies_filter_dto.dart';

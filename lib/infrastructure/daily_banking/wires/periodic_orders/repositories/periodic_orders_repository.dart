@@ -6,7 +6,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/en
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/failures/detailed_periodic_order_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/failures/simplified_periodic_order_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/repositories/i_periodic_orders_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/wires/periodic_orders_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/wires/periodic_orders_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/data_sources/periodic_orders_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/detailed_periodic_order_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/periodic_orders_filter_dto.dart';
