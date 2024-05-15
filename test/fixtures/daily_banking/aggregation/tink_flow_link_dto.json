@@ -1,0 +1,9 @@
+{
+    "connectionType": "transactions",
+    "redirectUri": "https://console.tink.com/callback",
+    "clientId": "f51edbabac0b4b1dbfc4be547b680349",
+    "market": "ES",
+    "locale": "es_ES",
+    "authorizationCode": "df2488d83ffc4b8baa5e0b79c57bdc6f",
+    "fullLink": "https://link.tink.com/1.0/transactions/connect-accounts/?client_id=f51edbabac0b4b1dbfc4be547b680349&redirect_uri=https://console.tink.com/callback&market=ES&locale=es_ES&authorization_code=df2488d83ffc4b8baa5e0b79c57bdc6f"
+}

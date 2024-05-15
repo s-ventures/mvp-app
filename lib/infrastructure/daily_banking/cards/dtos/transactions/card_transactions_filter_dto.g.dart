@@ -22,8 +22,8 @@ CardTransactionsFilterDto _$CardTransactionsFilterDtoFromJson(
       postingDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['postingDateTo'], const DateConverter().fromJson),
       concept: json['concept'] as String?,
-      pageSize: json['pageSize'] as int,
-      pageNumber: json['pageNumber'] as int,
+      pageSize: json['pageSize'] as int? ?? 10,
+      pageNumber: json['pageNumber'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$CardTransactionsFilterDtoToJson(
