@@ -46,8 +46,8 @@ class CardTransactionsFilterDto extends PaginatedRequest {
     required this.postingDateFrom,
     required this.postingDateTo,
     required this.concept,
-    required super.pageSize,
-    required super.pageNumber,
+    super.pageSize = 10,
+    super.pageNumber = 0,
   });
 
   factory CardTransactionsFilterDto.fromDomain({

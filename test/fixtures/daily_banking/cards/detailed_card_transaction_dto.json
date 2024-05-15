@@ -1,0 +1,16 @@
+{
+    "movementId": 64,
+    "postingDate": "2024-03-24",
+    "valueDate": "2024-03-27",
+    "amount": -600.0,
+    "currencyCode": "EUR",
+    "description": "Pago compra online",
+    "cardId": 50,
+    "responseCode": "7689988",
+    "merchantName": "EL CORTE INGLES",
+    "concept": "457799",
+    "postingTime": "00:00:00",
+    "accountMovementId": 1013215,
+    "attachments": [],
+    "productType": "CARDS"
+}

@@ -1,0 +1,16 @@
+{
+    "cardId": 50,
+    "brand": "VISA",
+    "cardType": "DEBIT",
+    "cardName": "Julio Martinez Rodriguez",
+    "status": "ACTIVE",
+    "cardEncryptedNumber": "1234",
+    "cardContract": {
+        "cardContractId": 1068,
+        "accountId": 1066,
+        "createDate": "2024-02-14",
+        "endDate": null,
+        "currencyCode": "EUR",
+        "aggregated": false
+    }
+}
