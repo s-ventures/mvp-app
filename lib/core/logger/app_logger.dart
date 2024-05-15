@@ -18,18 +18,18 @@ abstract class AppLogger {
     }
   }
 
-  // TODO(miguel): Add docs
-  void debug(dynamic message);
+  // TODO(migalv): Add docs
+  void debug(String message);
 
-  // TODO(miguel): Add docs
-  void info(dynamic message);
+  // TODO(migalv): Add docs
+  void info(String message);
 
-  // TODO(miguel): Add docs
-  void warning(dynamic message);
+  // TODO(migalv): Add docs
+  void warning(String message);
 
   // TODO(miguel): Add docs
   void error(
-    dynamic message, {
+    String message, {
     Object? error,
     StackTrace? stackTrace,
   });

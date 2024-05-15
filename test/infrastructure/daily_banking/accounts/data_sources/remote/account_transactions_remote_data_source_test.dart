@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_operation_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/accounts/account_transactions_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/accounts/account_transactions_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/data_sources/remote/account_transactions_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/date_account_transactions_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/account_transactions_filter_dto.dart';

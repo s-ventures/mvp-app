@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_upload_request_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/dio_provider.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/date_account_transactions_dto.dart';
@@ -29,5 +31,21 @@ abstract class AccountTransactionsRestClient {
   Future<DetailedAccountTransactionDto> getDetailedAccountTransaction({
     @Path('accountId') required String accountId,
     @Path('transactionId') required String transactionId,
+  });
+
+  @POST('/accounts/v1/{accountId}/transactions/{transactionId}/attachments')
+  Future<FileAttachmentDto> uploadFileAttachmentForTransaction({
+    @Path('accountId') required String accountId,
+    @Path('transactionId') required String transactionId,
+    @Body() required FileAttachmentUploadRequestDto body,
+  });
+
+  @DELETE(
+    '/accounts/v1/{accountId}/transactions/{transactionId}/attachments/{fileId}',
+  )
+  Future<void> removeFileAttachmentFromTransaction({
+    @Path('accountId') required String accountId,
+    @Path('transactionId') required String transactionId,
+    @Path('fileId') required String fileId,
   });
 }

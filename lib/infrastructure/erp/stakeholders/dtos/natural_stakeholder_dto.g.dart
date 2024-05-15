@@ -28,6 +28,24 @@ NaturalStakeholderDto _$NaturalStakeholderDtoFromJson(
       preferenceWhatsapp: json['preferenceWhatsapp'] as bool?,
       isFavorite: json['isFavorite'] as bool?,
       name: json['name'] as String,
+      surname1: json['surname1'] as String,
+      surname2: json['surname2'] as String,
+      birthDate: DateTime.parse(json['birthDate'] as String),
+      birthCountryCode: json['birthCountryCode'] as String,
+      nationalityCountryCode: json['nationalityCountryCode'] as String,
+      residenceCountryCode: json['residenceCountryCode'] as String,
+      residenceIndicator: json['residenceIndicator'] as bool,
+      gender: $enumDecode(_$GenderDtoEnumMap, json['gender']),
+      maritalStatus:
+          $enumDecode(_$MaritalStatusDtoEnumMap, json['maritalStatus']),
+      matrimonialRegime:
+          $enumDecode(_$MatrimonialRegimeDtoEnumMap, json['matrimonialRegime']),
+      deathDate: DateTime.parse(json['deathDate'] as String),
+      employmentStatus:
+          $enumDecode(_$EmploymentStatusDtoEnumMap, json['employmentStatus']),
+      personOcuppationCode: json['personOcuppationCode'] as String,
+      sector: json['sector'] as String,
+      econimicActivityCode: json['econimicActivityCode'] as String,
     );
 
 Map<String, dynamic> _$NaturalStakeholderDtoToJson(
@@ -60,6 +78,23 @@ Map<String, dynamic> _$NaturalStakeholderDtoToJson(
   writeNotNull('preferenceWhatsapp', instance.preferenceWhatsapp);
   writeNotNull('isFavorite', instance.isFavorite);
   val['name'] = instance.name;
+  val['surname1'] = instance.surname1;
+  val['surname2'] = instance.surname2;
+  val['birthDate'] = instance.birthDate.toIso8601String();
+  val['birthCountryCode'] = instance.birthCountryCode;
+  val['nationalityCountryCode'] = instance.nationalityCountryCode;
+  val['residenceCountryCode'] = instance.residenceCountryCode;
+  val['residenceIndicator'] = instance.residenceIndicator;
+  val['gender'] = _$GenderDtoEnumMap[instance.gender]!;
+  val['maritalStatus'] = _$MaritalStatusDtoEnumMap[instance.maritalStatus]!;
+  val['matrimonialRegime'] =
+      _$MatrimonialRegimeDtoEnumMap[instance.matrimonialRegime]!;
+  val['deathDate'] = instance.deathDate.toIso8601String();
+  val['employmentStatus'] =
+      _$EmploymentStatusDtoEnumMap[instance.employmentStatus]!;
+  val['personOcuppationCode'] = instance.personOcuppationCode;
+  val['sector'] = instance.sector;
+  val['econimicActivityCode'] = instance.econimicActivityCode;
   return val;
 }
 
@@ -93,6 +128,31 @@ const _$DocumentTypeCodeDtoEnumMap = {
   DocumentTypeCodeDto.nie: 'NIE',
   DocumentTypeCodeDto.nif: 'NIF',
   DocumentTypeCodeDto.passport: 'PASSPORT',
+};
+
+const _$GenderDtoEnumMap = {
+  GenderDto.male: 'MALE',
+  GenderDto.female: 'FEMALE',
+};
+
+const _$MaritalStatusDtoEnumMap = {
+  MaritalStatusDto.single: 'SINGLE',
+  MaritalStatusDto.married: 'MARRIED',
+  MaritalStatusDto.divorced: 'DIVORCED',
+};
+
+const _$MatrimonialRegimeDtoEnumMap = {
+  MatrimonialRegimeDto.maritalPartnership: 'MARITAL_PARTNERSHIP',
+  MatrimonialRegimeDto.separationProperty: 'SEPARATION_PROPERTY',
+  MatrimonialRegimeDto.participationRegime: 'PARTICIPATION_REGIME',
+};
+
+const _$EmploymentStatusDtoEnumMap = {
+  EmploymentStatusDto.unEmployed: 'UN_EMPLOYED',
+  EmploymentStatusDto.freelancer: 'FREELANCER',
+  EmploymentStatusDto.worker: 'WORKER',
+  EmploymentStatusDto.retiree: 'RETIREE',
+  EmploymentStatusDto.other: 'OTHER',
 };
 
 Json? _$JsonConverterToJson<Json, Value>(

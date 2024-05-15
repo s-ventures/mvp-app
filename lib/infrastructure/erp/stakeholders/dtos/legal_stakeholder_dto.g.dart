@@ -27,6 +27,15 @@ LegalStakeholderDto _$LegalStakeholderDtoFromJson(Map<String, dynamic> json) =>
       preferenceWhatsapp: json['preferenceWhatsapp'] as bool?,
       isFavorite: json['isFavorite'] as bool?,
       legalName: json['legalName'] as String,
+      comercialName: json['comercialName'] as String,
+      constitutionDate: DateTime.parse(json['constitutionDate'] as String),
+      constitutionCountryCode: json['constitutionCountryCode'] as String,
+      legalFormCode:
+          $enumDecode(_$LegalFormCodeDtoEnumMap, json['legalFormCode']),
+      nationalityCountryCode: json['nationalityCountryCode'] as String,
+      economicActivityCode: json['economicActivityCode'] as String,
+      typeCode: json['typeCode'] as String,
+      closureDate: DateTime.parse(json['closureDate'] as String),
     );
 
 Map<String, dynamic> _$LegalStakeholderDtoToJson(LegalStakeholderDto instance) {
@@ -58,6 +67,14 @@ Map<String, dynamic> _$LegalStakeholderDtoToJson(LegalStakeholderDto instance) {
   writeNotNull('preferenceWhatsapp', instance.preferenceWhatsapp);
   writeNotNull('isFavorite', instance.isFavorite);
   val['legalName'] = instance.legalName;
+  val['comercialName'] = instance.comercialName;
+  val['constitutionDate'] = instance.constitutionDate.toIso8601String();
+  val['constitutionCountryCode'] = instance.constitutionCountryCode;
+  val['legalFormCode'] = _$LegalFormCodeDtoEnumMap[instance.legalFormCode]!;
+  val['nationalityCountryCode'] = instance.nationalityCountryCode;
+  val['economicActivityCode'] = instance.economicActivityCode;
+  val['typeCode'] = instance.typeCode;
+  val['closureDate'] = instance.closureDate.toIso8601String();
   return val;
 }
 
@@ -91,6 +108,17 @@ const _$DocumentTypeCodeDtoEnumMap = {
   DocumentTypeCodeDto.nie: 'NIE',
   DocumentTypeCodeDto.nif: 'NIF',
   DocumentTypeCodeDto.passport: 'PASSPORT',
+};
+
+const _$LegalFormCodeDtoEnumMap = {
+  LegalFormCodeDto.nonProfit: 'NON_PROFIT',
+  LegalFormCodeDto.partnership: 'PARTNERSHIP',
+  LegalFormCodeDto.limitedPartnership: 'LIMITED_PARTNERSHIP',
+  LegalFormCodeDto.jointProperty: 'JOINT_PROPERTY',
+  LegalFormCodeDto.cooperative: 'COOPERATIVE',
+  LegalFormCodeDto.limitedLiabilityCompany: 'LIMITED_LIABILITY_COMPANY',
+  LegalFormCodeDto.corporation: 'CORPORATION',
+  LegalFormCodeDto.other: 'OTHER',
 };
 
 Json? _$JsonConverterToJson<Json, Value>(
