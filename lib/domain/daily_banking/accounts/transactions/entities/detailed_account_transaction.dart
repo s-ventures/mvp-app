@@ -21,6 +21,6 @@ class DetailedAccountTransaction with _$DetailedAccountTransaction {
     required bool? bankReceipt,
     required ExtendedTransactionDetails? details,
     required UniqueId accountId,
-    @Default([]) required List<FileAttachment> attachments,
+    @Default([]) List<FileAttachment> attachments,
   }) = _DetailedAccountTransaction;
 }
