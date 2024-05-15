@@ -1,0 +1,17 @@
+{
+    "type": "BETWEEN_MY_ACCOUNTS",
+    "baasTransferId": "306969338960",
+    "accountId": 1180,
+    "customerId": 214,
+    "orderDate": "2023-10-16",
+    "concept": "TRANSF. A SU FAVOR",
+    "settlementAmount": 1.0,
+    "settlementCurrencyCode": "EUR",
+    "status": "SENT",
+    "movementId": 1167,
+    "executionDate": "0001-01-01T00:00:00",
+    "sentTransferId": 99,
+    "periodicTransfer": false,
+    "beneficiaryAccount": "ES1921030166330031000256",
+    "beneficiaryName": "NOMBRE APELLIDO UNO APELLIDO DOS"
+}
