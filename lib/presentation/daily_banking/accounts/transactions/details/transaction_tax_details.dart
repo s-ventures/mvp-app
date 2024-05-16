@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/tax_transaction_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
@@ -30,9 +31,11 @@ class TransactionTaxDetails extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         MovementDetailsDate(
-          titleStartDate: 'Fecha de cargo',
+          titleStartDate:
+              context.loc.dailyBankingTaxesMovementDetailsChargeDate,
           startDate: details.accrualDate.formatToDayMonthYear(),
-          titleEndDate: 'Periodo impuesto',
+          titleEndDate:
+              context.loc.dailyBankingTaxesMovementDetailsPeriodImposed,
           endDate: details.paymentDate.formatToDayMonthYear(),
         ),
         AppSpacing.vertical.s5,
@@ -42,7 +45,7 @@ class TransactionTaxDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Nombre emisor',
+                context.loc.dailyBankingTaxesMovementDetailsNameIssuer,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -54,7 +57,7 @@ class TransactionTaxDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                'Referencia de mandato',
+                context.loc.dailyBankingTaxesMovementDetailsMandateReference,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -66,7 +69,7 @@ class TransactionTaxDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                'Identificador',
+                context.loc.dailyBankingTaxesMovementDetailsIdentifier,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),

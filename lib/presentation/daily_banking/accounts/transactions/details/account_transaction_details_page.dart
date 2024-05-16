@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transaction_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_card_details.dart';
@@ -56,7 +57,7 @@ class _AccountTransactionDetailsPageState
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Detalles de movimiento',
+              title: context.loc.commonMovementDetails,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -98,9 +99,11 @@ class _AccountTransactionDetailsPageState
                   ),
                   AppSpacing.vertical.s5,
                   MovementDetailsDate(
-                    titleStartDate: 'Fecha pago',
+                    titleStartDate:
+                        context.loc.dailyBankingDebitMovementDetailsPaymentDate,
                     startDate: transaction.postingDate.formatToDayMonthYear(),
-                    titleEndDate: 'Fecha cargo',
+                    titleEndDate:
+                        context.loc.dailyBankingDebitMovementDetailsChargeDate,
                     endDate: transaction.valueDate.formatToDayMonthYear(),
                   ),
                   AppSpacing.vertical.s5,

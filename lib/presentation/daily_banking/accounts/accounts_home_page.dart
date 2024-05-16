@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/account_list_sliver_pinned_header.dart';
@@ -66,7 +67,7 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                     IconOverTextButton(
                       icon: IconAssets.plus,
                       type: ButtonType.outlined,
-                      label: 'Añadir dinero',
+                      label: context.loc.dailyBankingAccountsAddMoney,
                       onPressed: () => context.pushNamed(
                         AppRoute.dailyBankingAddMoney.name,
                       ),
@@ -74,14 +75,15 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                     IconOverTextButton(
                       icon: IconAssets.transfer,
                       type: ButtonType.filled,
-                      label: 'Enviar dinero',
-                      onPressed: () => context
-                          .pushNamed(AppRoute.dailyBankingTransfers.name),
+                      label: context.loc.dailyBankingAccountsSendMoney,
+                      onPressed: () => context.pushNamed(
+                        AppRoute.dailyBankingTransfers.name,
+                      ),
                     ),
                     IconOverTextButton(
                       icon: IconAssets.calendar,
                       type: ButtonType.outlined,
-                      label: 'Programado',
+                      label: context.loc.dailyBankingAccountsSchedule,
                       onPressed: () => context.pushNamed(
                         AppRoute.dailyBankingScheduledTransfers.name,
                       ),

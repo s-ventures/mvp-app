@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 enum CreditCardPlan {
@@ -78,7 +79,9 @@ class CreditCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(context.radius.hard),
                     ),
                     child: Text(
-                      type == CreditCardType.virtual ? 'Virtual' : 'Physical',
+                      type == CreditCardType.virtual
+                          ? context.loc.dailyBankingCardsVirtual
+                          : context.loc.dailyBankingCardsPhysical,
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight0,
                       ),
@@ -99,7 +102,9 @@ class CreditCard extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: plan.name,
+                            text: plan == CreditCardPlan.basic
+                                ? context.loc.dailyBankingCardsBasic
+                                : context.loc.dailyBankingCardsPremium,
                             style: context.textStyle.bodyMediumRegular.copyWith(
                               color: context.color.textLight0,
                             ),

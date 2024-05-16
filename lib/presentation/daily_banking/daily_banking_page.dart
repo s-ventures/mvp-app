@@ -41,7 +41,7 @@ class DailyBankingPage extends StatelessWidget {
                     tabs: [
                       Tab(text: context.loc.dailyBankingAccounts),
                       Tab(text: context.loc.dailyBankingCards),
-                      Tab(text: context.loc.dailyBankingInsurance),
+                      Tab(text: context.loc.dailyBankingInsurances),
                     ],
                   ),
                 ),

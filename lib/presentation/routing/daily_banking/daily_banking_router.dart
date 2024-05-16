@@ -8,16 +8,16 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transacti
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/received/transfer_received_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/sent/transfer_sent_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_otp/international_transfer_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_resume/international_transfer_resume_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_signature/international_transfer_signature_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfers_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfer_certificate/national_transfer_certificate_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfer_otp/national_transfer_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfer_resume/national_transfer_resume_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfer_signature/national_transfer_signature_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/national_transfers_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_details/periodic_order_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_edit/periodic_order_edit_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_signature/periodic_order_signature_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_otp/periodic_order_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_orders_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_contact/soon_pay_contact.page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_otp/soon_pay_otp_page.dart';
@@ -98,7 +98,7 @@ class DailyBankingRouter {
                       name: AppRoute.dailyBankingNationalTransferSignature.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
-                        child: const NationalTransferSignaturePage(),
+                        child: const NationalTransferOtpPage(),
                       ),
                       routes: [
                         GoRoute(
@@ -145,7 +145,7 @@ class DailyBankingRouter {
                           .dailyBankingInternationalTransferSignature.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
-                        child: const InternationalTransferSignaturePage(),
+                        child: const InternationalTransferOtpPage(),
                       ),
                       routes: [
                         GoRoute(
@@ -215,7 +215,7 @@ class DailyBankingRouter {
                           AppRoute.dailyBankingScheduledTransferSignature.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
-                        child: const PeriodicOrderSignaturePage(),
+                        child: const PeriodicOrderOtpPage(),
                       ),
                     ),
                   ],
@@ -247,7 +247,7 @@ class DailyBankingRouter {
                       name: AppRoute.dailyBankingSoonPayOTP.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
-                        child: const SoonPayOTPPage(),
+                        child: const SoonPayOtpPage(),
                       ),
                     ),
                   ],

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/detailed/detailed_card_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -49,7 +50,7 @@ class _CardTransactionDetailsPageState
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Detalles de movimiento',
+                title: context.loc.commonMovementDetails,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -63,7 +64,7 @@ class _CardTransactionDetailsPageState
                         onTap: () {},
                         child: Row(
                           children: [
-                            const Text('Ver mas recibos del emisor'),
+                            Text(context.loc.commonSeeMoreReceipts),
                             const Spacer(),
                             IconSvg.small(IconAssets.invoice),
                           ],
@@ -73,7 +74,7 @@ class _CardTransactionDetailsPageState
                         onTap: () {},
                         child: Row(
                           children: [
-                            const Text('Recharzar cobro'),
+                            Text(context.loc.commonRefuseCollection),
                             const Spacer(),
                             IconSvg.small(IconAssets.xMark),
                           ],

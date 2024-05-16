@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/filter/filter_simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/search_bar.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_list.dart';
@@ -61,7 +62,7 @@ class _SearchCardTransactionsPageState
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Buscar',
+              title: context.loc.commonSearch,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,

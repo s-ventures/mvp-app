@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsVoucher extends StatelessWidget {
@@ -10,7 +11,7 @@ class MovementDetailsVoucher extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Comprobante',
+          context.loc.commonVoucher,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -32,7 +33,7 @@ class MovementDetailsVoucher extends StatelessWidget {
                   backgroundColor: context.color.neutralLight100,
                 ),
                 title: Text(
-                  'Comprobante',
+                  context.loc.commonVoucher,
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight900,
                   ),

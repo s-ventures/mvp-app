@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/widgets/schedule_repeat_options_list.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
@@ -38,7 +39,7 @@ class ScheduleTransferBottomSheet {
       leadingNavBarWidget: Transform.translate(
         offset: const Offset(16, 24),
         child: Text(
-          'Programar',
+          context.loc.dailyBankingNationalTransfersScheduledModalTitle,
           style: context.textStyle.h6,
         ),
       ),
@@ -52,8 +53,9 @@ class ScheduleTransferBottomSheet {
       ),
       mainContentSlivers: [
         SliverPadding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+          padding: const EdgeInsets.all(
+            AppSpacing.s5,
+          ),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -73,7 +75,8 @@ class ScheduleTransferBottomSheet {
                             BorderRadius.circular(context.radius.soft),
                       ),
                       title: Text(
-                        'Fecha de inicio',
+                        context.loc
+                            .dailyBankingNationalTransfersScheduledModalStartDate,
                         style: context.textStyle.bodySmallSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -113,7 +116,8 @@ class ScheduleTransferBottomSheet {
                             BorderRadius.circular(context.radius.soft),
                       ),
                       title: Text(
-                        'Repetir',
+                        context.loc
+                            .dailyBankingNationalTransfersScheduledModalRepeat,
                         style: context.textStyle.bodySmallSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -130,6 +134,16 @@ class ScheduleTransferBottomSheet {
                       },
                     ),
                   ),
+                ),
+                AppSpacing.vertical.s5,
+                Button(
+                  title: context
+                      .loc.dailyBankingNationalTransfersScheduledModalButton,
+                  size: ButtonSize.small,
+                  expand: true,
+                  onPressed: () async {
+                    context.pop();
+                  },
                 ),
               ],
             ),

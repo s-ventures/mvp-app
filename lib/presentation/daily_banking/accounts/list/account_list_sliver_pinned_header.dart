@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/accounts/simplified/simplified_accounts_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
@@ -120,7 +121,9 @@ class _AccountList extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text('Ver detalles'),
+                            Text(
+                              context.loc.dailyBankingAccountsMenuSeeDetails,
+                            ),
                             AppSpacing.horizontal.s6,
                             IconSvg.small(IconAssets.bank),
                           ],
@@ -130,7 +133,7 @@ class _AccountList extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text('Pagar un impuesto'),
+                            Text(context.loc.dailyBankingAccountsMenuPayTax),
                             AppSpacing.horizontal.s6,
                             IconSvg.small(IconAssets.invoice),
                           ],
@@ -140,7 +143,9 @@ class _AccountList extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text('Certificados y documentos'),
+                            Text(
+                              context.loc.dailyBankingAccountsMenuCertsAndDocs,
+                            ),
                             AppSpacing.horizontal.s6,
                             IconSvg.small(IconAssets.document),
                           ],
@@ -158,11 +163,12 @@ class _AccountList extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Saldo disponible ',
+                    context.loc.dailyBankingAccountsAvailableBalance,
                     style: context.textStyle.bodySmallRegular.copyWith(
                       color: context.color.textLight600,
                     ),
                   ),
+                  AppSpacing.horizontal.s3,
                   Text(
                     account.balance.availableBalance
                         .toCurrency(plusSign: false),

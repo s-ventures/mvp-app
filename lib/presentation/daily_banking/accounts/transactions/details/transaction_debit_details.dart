@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/debit_transaction_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
@@ -30,9 +31,10 @@ class TransactionDebitDetails extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         MovementDetailsDate(
-          titleStartDate: 'Fecha pago',
+          titleStartDate:
+              context.loc.dailyBankingDebitMovementDetailsPaymentDate,
           startDate: details.paymentDate.formatToDayMonthYear(),
-          titleEndDate: 'Fecha cargo',
+          titleEndDate: context.loc.dailyBankingDebitMovementDetailsChargeDate,
           endDate: details.dueDate.formatToDayMonthYear(),
         ),
         AppSpacing.vertical.s5,
@@ -42,7 +44,7 @@ class TransactionDebitDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Nombre emisor',
+                context.loc.dailyBankingDebitMovementDetailsNameIssuer,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -54,7 +56,7 @@ class TransactionDebitDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                'Referencia mandato',
+                context.loc.dailyBankingDebitMovementDetailsMandatoryReference,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -66,7 +68,7 @@ class TransactionDebitDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                'Identificador',
+                context.loc.dailyBankingDebitMovementDetailsIdentifier,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claim_status_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -46,7 +47,14 @@ class _ClaimStatusFilterState extends State<ClaimStatusFilter> {
                 padding: const EdgeInsets.only(right: AppSpacing.s3),
                 child: CustomChip(
                   title: Text(
-                    claimStatus.name,
+                    claimStatus == ClaimStatusType.open
+                        ? context
+                            .loc.dailyBankingInsurancesClaimsFilterStatusOpen
+                        : claimStatus == ClaimStatusType.inProgress
+                            ? context.loc
+                                .dailyBankingInsurancesClaimsFilterStatusInProgress
+                            : context.loc
+                                .dailyBankingInsurancesClaimsFilterStatusFinished,
                     style: context.textStyle.buttonExtraSmall.copyWith(
                       color: selectedIndex == index
                           ? context.color.textLight0

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsActions extends StatelessWidget {
@@ -19,7 +20,7 @@ class MovementDetailsActions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Adjuntos',
+          context.loc.commonAttachments,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -28,7 +29,7 @@ class MovementDetailsActions extends StatelessWidget {
         GestureDetector(
           onTap: onUploadFilesPressed,
           child: Text(
-            'Subir archivo',
+            context.loc.commonAddFile,
             style: context.textStyle.bodyMediumSemiBold.copyWith(
               color: context.color.statusInfo,
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/widgets/international_transfer_form.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -17,7 +18,7 @@ class InternationalTransfersPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Transferencia internacional',
+              title: context.loc.dailyBankingInternationalTransfers,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -41,7 +42,7 @@ class InternationalTransfersPage extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Comisión de transferencia',
+                          context.loc.commonTransferFee,
                           style: context.textStyle.bodyMediumRegular,
                         ),
                         AppSpacing.horizontal.s3,
@@ -72,7 +73,7 @@ class InternationalTransfersPage extends StatelessWidget {
                           ),
                           AppSpacing.horizontal.s5,
                           Text(
-                            'Cuenta soon',
+                            context.loc.commonAccountName('soon'),
                             style: context.textStyle.bodyMediumRegular,
                           ),
                           AppSpacing.horizontal.s5,
@@ -102,7 +103,8 @@ class InternationalTransfersPage extends StatelessWidget {
               AppSpacing.horizontal.s3,
               Expanded(
                 child: Button(
-                  title: 'Enviar dinero',
+                  title: context
+                      .loc.dailyBankingInternationalTransfersButtonSendMoney,
                   size: ButtonSize.small,
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingInternationalTransferResume.name,

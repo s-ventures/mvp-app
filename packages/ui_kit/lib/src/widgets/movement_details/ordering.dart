@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsOrdering extends StatelessWidget {
@@ -28,7 +29,7 @@ class MovementDetailsOrdering extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Ordenante',
+            context.loc.dailyBankingTransfersReceivedMovementDetailsSender,
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight600,
             ),
@@ -42,7 +43,8 @@ class MovementDetailsOrdering extends StatelessWidget {
           ),
           AppSpacing.vertical.s6,
           Text(
-            'Cuenta ordenante',
+            context
+                .loc.dailyBankingTransfersReceivedMovementDetailsSendersAccount,
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight600,
             ),

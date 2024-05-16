@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/widgets/last_sent_transfer_card.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -37,7 +38,7 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Últimas transferencias',
+          context.loc.dailyBankingNewTransfersLastTransfers,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/widgets/certificate_taxes.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -15,7 +16,7 @@ class CertificatesAndDocumentsRequestPaymentPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Pago certificado',
+              title: context.loc.dailyBankingAccountsCertificatesPaymentTitle,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -33,7 +34,7 @@ class CertificatesAndDocumentsRequestPaymentPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s5,
             Text(
-              'Método de pago',
+              context.loc.dailyBankingAccountsCertificatesPaymentMethod,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
@@ -77,7 +78,7 @@ class CertificatesAndDocumentsRequestPaymentPage extends StatelessWidget {
             horizontal: AppSpacing.s5,
           ),
           child: Button(
-            title: 'Pagar certificado',
+            title: context.loc.dailyBankingAccountsCertificatesPaymentButton,
             expand: true,
             size: ButtonSize.small,
             onPressed: () async => context.goNamed(

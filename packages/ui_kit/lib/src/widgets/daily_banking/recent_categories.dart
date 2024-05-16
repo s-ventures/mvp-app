@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class RecentCategories extends StatelessWidget {
@@ -18,7 +19,7 @@ class RecentCategories extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Categorías recientes',
+          context.loc.dailyBankingAccountsFiltersRecentCategories,
           style: context.textStyle.bodySmallSemiBold.copyWith(
             color: context.color.textLight300,
           ),

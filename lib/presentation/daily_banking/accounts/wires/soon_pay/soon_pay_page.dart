@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/widgets/soon_pay_contacts_list.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class SoonPayPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'soonPay',
+              title: context.loc.dailyBankingSoonPay,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class NationalTransferResumePage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Firma de operación',
+              title: context.loc.dailyBankingNationalTransfersOtpTitle,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -32,7 +33,7 @@ class NationalTransferResumePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Titular',
+                    context.loc.commonHolder,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -45,7 +46,7 @@ class NationalTransferResumePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'IBAN',
+                    context.loc.commonIban,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -58,7 +59,7 @@ class NationalTransferResumePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Importe',
+                    context.loc.commonAmount,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -71,7 +72,7 @@ class NationalTransferResumePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Comisión de transferencia',
+                    context.loc.dailyBankingNationalTransfersTransferFee,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -84,7 +85,7 @@ class NationalTransferResumePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Concepto',
+                    context.loc.commonConcept,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -97,7 +98,7 @@ class NationalTransferResumePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Fecha de envío',
+                    context.loc.commonDateDispatch,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -110,7 +111,7 @@ class NationalTransferResumePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Llegada estimada',
+                    context.loc.commonDateEstimatedArrival,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -146,12 +147,19 @@ class NationalTransferResumePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Programado diariamente',
+                      '${context.loc.commonProgrammed} ${context.loc.commonFrequencyDaily.toLowerCase()}',
                       style: context.textStyle.bodyMediumRegular,
                     ),
-                    AppSpacing.horizontal.s2,
                     Text(
-                      '· Desde hoy',
+                      ' · ',
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Text(
+                      context.loc.commonDateSinceDate(
+                        DateTime.now().formatToTransactionDate()!,
+                      ),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -161,7 +169,7 @@ class NationalTransferResumePage extends StatelessWidget {
               ),
               AppSpacing.vertical.s5,
               Button(
-                title: 'Confirmar',
+                title: context.loc.dailyBankingNationalTransfersResumeButton,
                 size: ButtonSize.small,
                 expand: true,
                 onPressed: () async => context.pushNamed(

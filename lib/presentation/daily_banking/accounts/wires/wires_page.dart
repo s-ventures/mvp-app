@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/widgets/contact_list.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/widgets/last_sent_transfers.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/widgets/wires_options.dart';
@@ -17,7 +18,7 @@ class WiresPage extends StatelessWidget {
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Nueva transferencia',
+                title: context.loc.dailyBankingNewTransfers,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -34,8 +35,8 @@ class WiresPage extends StatelessWidget {
               AppSpacing.vertical.s5,
               const LastSentTransfers(),
               AppSpacing.vertical.s5,
-              const ContactList(
-                title: 'Contactos favoritos',
+              ContactList(
+                title: context.loc.dailyBankingNewTransfersFavoriteContacts,
                 filteredBy: ContactListFilter.fav,
               ),
             ],

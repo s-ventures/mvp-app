@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardMovementDetailsActions extends StatelessWidget {
@@ -19,7 +20,7 @@ class CardMovementDetailsActions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Recibo',
+          context.loc.dailyBankingCardMovementDetailsReceipt,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -28,7 +29,7 @@ class CardMovementDetailsActions extends StatelessWidget {
         GestureDetector(
           onTap: onUploadFilesPressed,
           child: Text(
-            'Subir archivo',
+            context.loc.dailyBankingCardMovementDetailsUploadFile,
             style: context.textStyle.bodyMediumSemiBold.copyWith(
               color: context.color.statusInfo,
             ),
@@ -36,7 +37,7 @@ class CardMovementDetailsActions extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         Text(
-          'Gasto',
+          context.loc.dailyBankingCardMovementDetailsExpense,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -45,7 +46,7 @@ class CardMovementDetailsActions extends StatelessWidget {
         GestureDetector(
           onTap: onCreateExpensePressed,
           child: Text(
-            'Crear gasto',
+            context.loc.dailyBankingCardMovementDetailsCreateExpense,
             style: context.textStyle.bodyMediumSemiBold.copyWith(
               color: context.color.statusInfo,
             ),

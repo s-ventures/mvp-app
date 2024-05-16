@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,22 +15,13 @@ class SoonPayContactPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Thomas Magnum',
+              title: context.loc.dailyBankingSoonPay,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
                 onPressed: () async => context.pop(),
               ),
-              actions: [
-                Button(
-                  title: 'TM',
-                  size: ButtonSize.extraSmall,
-                  background: context.color.backgroundLight0,
-                  foreground: context.color.textLight900,
-                  onPressed: () async {},
-                ),
-              ],
             ),
           ];
         },
@@ -76,7 +68,7 @@ class SoonPayContactPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s7,
             TextInput(
-              labelText: 'Concepto',
+              labelText: context.loc.commonConcept,
               fillColor: context.color.backgroundLight0,
             ),
           ],
@@ -95,7 +87,7 @@ class SoonPayContactPage extends StatelessWidget {
               AppSpacing.horizontal.s3,
               Expanded(
                 child: Button(
-                  title: 'Enviar dinero',
+                  title: context.loc.dailyBankingSoonPaySendMoney,
                   size: ButtonSize.small,
                   onPressed: () =>
                       context.pushNamed(AppRoute.dailyBankingSoonPayOTP.name),

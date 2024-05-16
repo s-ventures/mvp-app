@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class FilterPeriodicOrdersAmount extends StatelessWidget {
@@ -33,7 +34,7 @@ class FilterPeriodicOrdersAmount extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Desde',
+                  context.loc.commonAmountFrom,
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight600,
                   ),
@@ -59,7 +60,7 @@ class FilterPeriodicOrdersAmount extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hasta',
+                  context.loc.commonAmountTo,
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight600,
                   ),

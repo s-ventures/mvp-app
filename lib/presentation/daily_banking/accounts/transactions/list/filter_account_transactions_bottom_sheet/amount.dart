@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -46,7 +47,7 @@ class Amount extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Desde',
+                      context.loc.commonFrom,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -72,7 +73,7 @@ class Amount extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hasta',
+                      context.loc.commonTo,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),

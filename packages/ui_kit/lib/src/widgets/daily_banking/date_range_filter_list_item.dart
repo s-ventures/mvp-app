@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DateRangeFilterListItem extends StatelessWidget {
@@ -23,11 +24,12 @@ class DateRangeFilterListItem extends StatelessWidget {
       if (startDate != null) {
         if (startDate.formatToDayMonthYear() ==
             DateTime.now().formatToDayMonthYear()) {
-          start = 'Hoy';
+          start = context.loc.commonDateToday;
         }
         start = startDate.formatToDayMonthYear()!;
         separator = endDate != null ? ' - ' : '';
-        start = endDate == null ? 'Desde $start' : start;
+        start =
+            endDate == null ? '${context.loc.commonDateSince} $start' : start;
       } else {
         start = '';
         separator = '';
@@ -37,9 +39,9 @@ class DateRangeFilterListItem extends StatelessWidget {
         end = endDate.formatToDayMonthYear()!;
         if (endDate.formatToDayMonthYear() ==
             DateTime.now().formatToDayMonthYear()) {
-          end = 'Hoy';
+          end = context.loc.commonDateToday;
         }
-        end = startDate == null ? 'Hasta $end' : end;
+        end = startDate == null ? '${context.loc.commonDateUntil} $end' : end;
       } else {
         end = '';
       }

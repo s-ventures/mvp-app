@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransferReceivedDetailsPage extends StatelessWidget {
@@ -16,7 +17,7 @@ class TransferReceivedDetailsPage extends StatelessWidget {
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Detalles de movimiento',
+                title: context.loc.commonMovementDetails,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -30,7 +31,7 @@ class TransferReceivedDetailsPage extends StatelessWidget {
                         onTap: () {},
                         child: Row(
                           children: [
-                            const Text('Ver mas recibos del emisor'),
+                            Text(context.loc.commonSeeMoreReceipts),
                             const Spacer(),
                             IconSvg.small(IconAssets.invoice),
                           ],
@@ -40,7 +41,7 @@ class TransferReceivedDetailsPage extends StatelessWidget {
                         onTap: () {},
                         child: Row(
                           children: [
-                            const Text('Recharzar cobro'),
+                            Text(context.loc.commonRefuseCollection),
                             const Spacer(),
                             IconSvg.small(IconAssets.xMark),
                           ],
@@ -69,10 +70,12 @@ class TransferReceivedDetailsPage extends StatelessWidget {
                 accountNumber: 'ES1234567890123456789012',
               ),
               AppSpacing.vertical.s5,
-              const MovementDetailsDate(
-                titleStartDate: 'Fecha cargo',
+              MovementDetailsDate(
+                titleStartDate: context
+                    .loc.dailyBankingTransfersReceivedMovementDetailsChargeDate,
                 startDate: '2/10/2023',
-                titleEndDate: 'Fecha abono',
+                titleEndDate: context
+                    .loc.dailyBankingTransfersReceivedMovementDetailsCreditDate,
                 endDate: '2/10/2025',
               ),
               AppSpacing.vertical.s5,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
@@ -33,7 +34,7 @@ class UploadFilesBottomSheet {
         leadingNavBarWidget: Transform.translate(
           offset: const Offset(16, 24),
           child: Text(
-            'Subir archivos',
+            context.loc.dailyBankingCardMovementDetailsUploadFileModalTitle,
             style: context.textStyle.h6,
           ),
         ),
@@ -64,7 +65,10 @@ class UploadFilesBottomSheet {
                           topRight: Radius.circular(context.radius.soft),
                         ),
                         child: ListTile(
-                          title: const Text('Escanear'),
+                          title: Text(
+                            context.loc
+                                .dailyBankingCardMovementDetailsUploadFileModalScan,
+                          ),
                           leading: IconWithContainer(
                             icon: IconAssets.scan,
                             backgroundColor: context.color.neutralLight100,
@@ -74,7 +78,8 @@ class UploadFilesBottomSheet {
                       ),
                       Splash(
                         child: ListTile(
-                          title: const Text('Fotos'),
+                          title: Text(context.loc
+                              .dailyBankingCardMovementDetailsUploadFileModalGalery,),
                           leading: IconWithContainer(
                             icon: IconAssets.camera,
                             backgroundColor: context.color.neutralLight100,
@@ -88,7 +93,8 @@ class UploadFilesBottomSheet {
                           bottomRight: Radius.circular(context.radius.soft),
                         ),
                         child: ListTile(
-                          title: const Text('Documento'),
+                          title: Text(context.loc
+                              .dailyBankingCardMovementDetailsUploadFileModalDocumento,),
                           leading: IconWithContainer(
                             icon: IconAssets.document,
                             backgroundColor: context.color.neutralLight100,

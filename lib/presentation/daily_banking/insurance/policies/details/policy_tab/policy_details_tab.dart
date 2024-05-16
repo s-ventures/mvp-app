@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/detailed/detailed_policy_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/business_insurance.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/widgets/policy_billing.dart';
@@ -55,13 +56,17 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
             leadingEmoji: '🖥️',
             category: 'Accidentes',
             title: policy.description,
-            subtitle: 'Número de póliza: ${policy.id.getOrCrash()}',
+            subtitle: context.loc.dailyBankingInsurancesPolicyNumberWithParams(
+              policy.id.getOrCrash(),
+            ),
           ),
           AppSpacing.vertical.s5,
           DateRangeListTile.disabled(
-            startDateTitle: 'Emisión',
+            startDateTitle:
+                context.loc.dailyBankingInsurancesPolicyDetailsDateOfIssue,
             startDate: policy.createDate.formatToDayMonthYear() ?? '---',
-            endDateTitle: 'Vencimiento',
+            endDateTitle:
+                context.loc.dailyBankingInsurancesPolicyDetailsExpirationDate,
             endDate: policy.endDate.formatToDayMonthYear() ?? '---',
           ),
           AppSpacing.vertical.s5,
@@ -71,19 +76,30 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
             paymentPeriodicity: policy.paymentPeriodicity,
           ),
           AppSpacing.vertical.s5,
-          const Coverages(
-            title: 'Coberturas incluidas',
+          Coverages(
+            title:
+                context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncluded,
             coverages: [
-              'Siniestros y averias generales',
-              'Asistencia Informática',
-              'Robo con y sin violencia',
-              'Daños Eléctricos',
-              'Avería de Maquinaria',
-              'Roturas de cristales',
-              'Daños Estéticos',
-              'Responsabilidad Civil',
-              'Pérdida de Beneficios diaria',
-              'Desalojo Forzoso',
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedClaimsGeneralBreakdowns,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedComputerAssistance,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedRobberyWithAndWithoutViolence,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedElectricalDamage,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedMachineryBreakdown,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedGlassBreakage,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedAestheticDamage,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedLiability,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedDailyLossProfit,
+              context.loc
+                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedForcedEviction,
             ],
           ),
           AppSpacing.vertical.s5,

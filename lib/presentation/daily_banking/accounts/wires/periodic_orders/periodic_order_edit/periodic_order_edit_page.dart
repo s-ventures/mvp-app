@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/detailed/detailed_periodic_order_controller.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class PeriodicOrderEditPage extends ConsumerStatefulWidget {
@@ -43,7 +45,7 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Transferncias programadas',
+              title: context.loc.dailyBankingScheduledTransfers,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -72,7 +74,7 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                       ),
                       AppSpacing.vertical.s3,
                       Text(
-                        'Sin comisión de transferencia',
+                        context.loc.dailyBankingScheduledTransfersNoTransferFee,
                         style: context.textStyle.bodyMediumRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -122,14 +124,14 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                   borderRadius: BorderRadius.circular(context.radius.soft),
                 ),
                 child: TextInput(
-                  hintText: 'Concepto',
+                  hintText: context.loc.commonConcept,
                   fillColor: context.color.backgroundLight0,
                   alignLabelWithHint: true,
                   controller: TextEditingController(
-                    text: periodicOrder.concept ?? 'Sin concepto',
+                    text: periodicOrder.concept ?? context.loc.commonNoConcept,
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
-                  labelText: 'Concepto',
+                  labelText: context.loc.commonConcept,
                   border: InputBorder.none,
                   enabledBorder: false,
                   contentPadding: EdgeInsets.zero,
@@ -170,12 +172,32 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Programado ${periodicOrder.frecuency.name.toLowerCase()}',
+                        context.loc.dailyBankingScheduledTransfersEditFrequency(
+                          periodicOrder.frecuency ==
+                                  PeriodicOrderFrecuencyType.daily
+                              ? context.loc.commonFrequencyDaily
+                              : periodicOrder.frecuency ==
+                                      PeriodicOrderFrecuencyType.weekly
+                                  ? context.loc.commonFrequencyWeekly
+                                  : periodicOrder.frecuency ==
+                                          PeriodicOrderFrecuencyType.monthly
+                                      ? context.loc.commonFrequencyMonthly
+                                      : '',
+                        ),
                         style: context.textStyle.bodyMediumRegular,
                       ),
                       AppSpacing.horizontal.s2,
                       Text(
-                        '· Desde ${periodicOrder.startDate.formatToTransactionDate()}',
+                        ' · ',
+                        style: context.textStyle.bodyMediumRegular.copyWith(
+                          color: context.color.textLight600,
+                        ),
+                      ),
+                      Text(
+                        context.loc.commonDateSinceDate(
+                          periodicOrder.startDate.formatToTransactionDate() ??
+                              '',
+                        ),
                         style: context.textStyle.bodyMediumRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -202,7 +224,8 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                     AppSpacing.horizontal.s3,
                     Expanded(
                       child: Button(
-                        title: 'Guardar cambios',
+                        title: context.loc
+                            .dailyBankingScheduledTransfersEditButtonConfirm,
                         size: ButtonSize.small,
                         onPressed: () async => context.pop(),
                         expand: true,

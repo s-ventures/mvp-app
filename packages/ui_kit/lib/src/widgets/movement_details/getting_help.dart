@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsGettingHelp extends StatelessWidget {
@@ -22,7 +23,7 @@ class MovementDetailsGettingHelp extends StatelessWidget {
               backgroundColor: context.color.neutralLight100,
             ),
             title: Text(
-              'Obtener ayuda',
+              context.loc.commonGettingHelp,
               style: context.textStyle.bodySmallRegular.copyWith(
                 color: context.color.textLight900,
               ),

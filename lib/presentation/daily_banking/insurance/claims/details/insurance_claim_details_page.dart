@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/detailed/detailed_claim_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/extension/claims_status_color_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -48,7 +49,8 @@ class _InsuranceClaimDetailsPageState
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Detalles del siniestro',
+                title: context
+                    .loc.dailyBankingInsurancesPolicyDetailsClaimsDetails,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -74,7 +76,10 @@ class _InsuranceClaimDetailsPageState
                   leadingEmoji: '🖥️',
                   leadingBackgroundColor: const Color(0xFFE0E0E0),
                   title: claim.reason,
-                  subtitle: 'Número de expediente: ${claim.id.getOrCrash()}',
+                  subtitle:
+                      context.loc.dailyBankingInsurancesPolicyNumberWithParams(
+                    claim.id.getOrCrash(),
+                  ),
                   category: claim.riskType,
                 ),
                 AppSpacing.vertical.s5,
@@ -84,7 +89,7 @@ class _InsuranceClaimDetailsPageState
                     right: AppSpacing.s5,
                   ),
                   title: Text(
-                    'Número de póliza',
+                    context.loc.dailyBankingInsurancesPolicyNumber,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -107,7 +112,8 @@ class _InsuranceClaimDetailsPageState
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    'Fecha apertura',
+                    context.loc
+                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsOpeningDate,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -131,7 +137,8 @@ class _InsuranceClaimDetailsPageState
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    'Fecha inicio tramitación',
+                    context.loc
+                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsStartDateProcessing,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -155,7 +162,8 @@ class _InsuranceClaimDetailsPageState
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    'Fecha fin de tramitación',
+                    context.loc
+                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsEndDateProcessing,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -180,7 +188,8 @@ class _InsuranceClaimDetailsPageState
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    'Estado de siniestro',
+                    context.loc
+                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsStateClaim,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -214,7 +223,8 @@ class _InsuranceClaimDetailsPageState
 
                 AppSpacing.vertical.s5,
                 Text(
-                  'Persona de contacto',
+                  context.loc
+                      .dailyBankingInsurancesPolicyDetailsClaimsDetailsContactPerson,
                   style: context.textStyle.bodyMediumSemiBold.copyWith(
                     color: context.color.textLight600,
                   ),
@@ -251,7 +261,7 @@ class _InsuranceClaimDetailsPageState
                         foreground: context.color.textLight900,
                       ),
                       title: Text(
-                        'Teléfono',
+                        context.loc.commonPhone,
                         style: context.textStyle.buttonTabBar
                             .copyWith(color: context.color.textLight600),
                       ),
@@ -268,7 +278,7 @@ class _InsuranceClaimDetailsPageState
                         foreground: context.color.textLight900,
                       ),
                       title: Text(
-                        'Mail',
+                        context.loc.commonEmail,
                         style: context.textStyle.buttonTabBar
                             .copyWith(color: context.color.textLight600),
                       ),
@@ -285,7 +295,7 @@ class _InsuranceClaimDetailsPageState
                         foreground: context.color.textLight900,
                       ),
                       title: Text(
-                        'Ciudad',
+                        context.loc.commonCity,
                         style: context.textStyle.buttonTabBar
                             .copyWith(color: context.color.textLight600),
                       ),

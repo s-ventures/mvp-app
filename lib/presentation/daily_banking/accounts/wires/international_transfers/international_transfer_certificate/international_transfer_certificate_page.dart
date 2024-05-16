@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Transferencia Internacional',
+              title: context.loc.dailyBankingInternationalTransfers,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -102,12 +103,19 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Diariamente',
+                          context.loc.commonFrequencyDaily,
                           style: context.textStyle.bodySmallRegular,
                         ),
-                        AppSpacing.horizontal.s3,
                         Text(
-                          '· Desde 12/01/2024',
+                          ' · ',
+                          style: context.textStyle.bodySmallRegular.copyWith(
+                            color: context.color.textLight600,
+                          ),
+                        ),
+                        Text(
+                          context.loc.commonDateSinceDate(
+                            DateTime.now().formatToTransactionDate()!,
+                          ),
                           style: context.textStyle.bodySmallRegular.copyWith(
                             color: context.color.textLight600,
                           ),
@@ -125,7 +133,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Titular',
+                    context.loc.commonHolder,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -138,7 +146,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'BIC/SWIFT',
+                    context.loc.commonBicSwift,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -151,7 +159,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Importe',
+                    context.loc.commonAmount,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -164,7 +172,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Comisión de transferencia',
+                    context.loc.commonTransferFee,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -177,7 +185,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Concepto',
+                    context.loc.commonConcept,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -190,7 +198,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Fecha de envío',
+                    context.loc.commonDateDispatch,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -203,7 +211,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Llegada estimada',
+                    context.loc.commonDateEstimatedArrival,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -230,7 +238,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
               Expanded(
                 child: Button(
                   icon: IconAssets.download,
-                  title: 'Descargar',
+                  title: context.loc.commonDownload,
                   size: ButtonSize.small,
                   expand: true,
                   onPressed: () async =>
