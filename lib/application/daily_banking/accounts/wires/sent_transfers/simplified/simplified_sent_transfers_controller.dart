@@ -56,4 +56,19 @@ class SimplifiedSentTransfersController
       );
     }
   }
+
+  Future<void> updateFilter({
+    required int? amountFrom,
+    required int? amountTo,
+    required DateTime? dateFrom,
+    required DateTime? dateTo,
+  }) async {
+    _repository.updateFilter(
+      amountFrom: amountFrom,
+      amountTo: amountTo,
+      startDateFrom: dateFrom,
+      startDateTo: dateTo,
+    );
+    await refresh();
+  }
 }

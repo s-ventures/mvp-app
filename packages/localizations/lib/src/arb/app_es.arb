@@ -164,8 +164,8 @@
   "@dailyBankingAccountsPaymentTaxModalTitle": {
     "description": "Title of modal reminder"
   },
-  "dailyBankingAccountPaymentTaxModalDescription": "Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos",
-  "@dailyBankingAccountPaymentTaxModalDescription": {
+  "dailyBankingAccountsPaymentTaxModalDescription": "Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos",
+  "@dailyBankingAccountsPaymentTaxModalDescription": {
     "description": "Description of moda reminder"
   },
   "dailyBankingAccountsPaymentTaxOtpTitle": "Liquidación de impuestos",
@@ -1651,5 +1651,9 @@
   "commonSave": "Guardar",
   "@commonSave": {
     "description": "Save"
+  },
+  "commonAttachmentDeleted": "Documento adjunto eliminado",
+  "@commonAttachmentDeleted": {
+    "description": "Attachment deleted"
   }
 }

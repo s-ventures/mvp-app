@@ -40,7 +40,7 @@ dailyBankingAccountsPaymentTaxFile,File,Expediente
 dailyBankingAccountsPaymentTaxSpecificData,Specific data,Datos específicos
 dailyBankingAccountsPaymentTaxButton,Tax payment button,Pagar impuestos
 dailyBankingAccountsPaymentTaxModalTitle,Title of modal reminder,Liquidar impuestos
-dailyBankingAccountPaymentTaxModalDescription,Description of moda reminder,Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos
+dailyBankingAccountsPaymentTaxModalDescription,Description of moda reminder,Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos
 dailyBankingAccountsPaymentTaxOtpTitle,Title of otp page,Liquidación de impuestos
 dailyBankingAccountsPaymentTaxOtpButton,Text of button of otp page to confirm payment tax,Confirmar
 dailyBankingAccountsPaymentTaxOtpSuccessTitle,Title of alert bottom sheet when payment is completed,Impuestos liquidados
@@ -412,3 +412,4 @@ commonRequestCertificateName,Request a certificate,Solicitar certificado de {nam
 commonIssuerName,Issuer Name,Nombre Emisor
 commonDetailsMovement,Details of the movement,Detalles del movimiento
 commonSave,Save,Guardar
+commonAttachmentDeleted,Attachment deleted,Documento adjunto eliminado

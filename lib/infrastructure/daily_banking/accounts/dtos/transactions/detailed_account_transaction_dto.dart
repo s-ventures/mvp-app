@@ -40,10 +40,10 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/en
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/transfer_in_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/transfer_out_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/detailed_card_transaction.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_info_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/dtos/transaction_attachment_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/account_transaction_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/extended_details/debit_dto.dart';
@@ -71,16 +71,23 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     required String? userComments,
     required String? userCategory,
     required String? placeId,
-    required int accountId,
-    required double endBalance,
+    // TODO(migalv): Hacer non-nullable de nuevo, el back-end está enviando null
+    required int? accountId,
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required double? endBalance,
     required String? detailFields,
     required bool? visible,
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required bool? bankReceipt,
-    required String originBranch,
-    required double originalAmount,
-    required String originalCurrencyCode,
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required String? originBranch,
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required double? originalAmount,
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+    required String? originalCurrencyCode,
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     @DateConverter() required DateTime assignmentDate,
-    required List<TransactionAttachmentDto>? attachments,
+    required List<FileAttachmentInfoDto>? attachments,
     @ExtendedDetailsConverter() required ExtendedDetailsDto? extendedDetails,
     required ProductTypeDto productType,
   }) = _DetailedAccountTransactionDto;
@@ -98,11 +105,13 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
       postingDate: postingDate,
       valueDate: valueDate,
       amount: amount,
-      endBalance: endBalance,
-      originBranch: originBranch,
+      endBalance: endBalance ?? 0,
+      originBranch: originBranch ?? '',
       detailFields: detailFields ?? '',
       userComments: userComments ?? '',
       bankReceipt: bankReceipt ?? false,
+      accountId: UniqueId.fromUniqueString(accountId.toString()),
+      attachments: attachments?.map((a) => a.toDomain()).toList() ?? [],
       details: extendedDetails == null
           ? null
           : () {

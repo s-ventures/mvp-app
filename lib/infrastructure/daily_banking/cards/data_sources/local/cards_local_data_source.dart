@@ -9,6 +9,8 @@ class CardsLocalDataSource {
 
   final SharedPreferencesLocalStorage _localStorage;
 
-  Future<Either<LocalStorageWriteFailure, Unit>> selectCard(int cardId) =>
+  Future<Either<LocalStorageWriteFailure, Unit>> saveSelectedCardId(
+    int cardId,
+  ) =>
       _localStorage.writeInt(_selectedCardId, cardId);
 }

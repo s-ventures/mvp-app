@@ -62,7 +62,8 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
 
     final isFilterApplied = startDate != null ||
         endDate != null ||
-        (amountFrom != null && amountTo != null) ||
+        amountFrom != null ||
+        amountTo != null ||
         frecuency != null;
 
     return Scaffold(

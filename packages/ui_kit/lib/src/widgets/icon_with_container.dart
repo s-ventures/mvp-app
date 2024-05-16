@@ -17,6 +17,8 @@ class IconWithContainer extends StatelessWidget {
     this.backgroundColor = Colors.white,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
     this.outlined = false,
+    this.isLoading = false,
+    this.textStyle,
   });
 
   final double height;
@@ -30,6 +32,8 @@ class IconWithContainer extends StatelessWidget {
   final Color backgroundColor;
   final BorderRadius borderRadius;
   final bool outlined;
+  final bool isLoading;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -54,31 +58,35 @@ class IconWithContainer extends StatelessWidget {
             ),
           ),
           child: Center(
-            child: icon != null
-                ? IconSvg(
-                    icon!,
-                    color: foreground == Colors.black
-                        ? context.color.iconLight900
-                        : foreground,
-                    size: size == IconWithContainerSize.extraSmall
-                        ? 12
-                        : size == IconWithContainerSize.small
-                            ? 16
-                            : size == IconWithContainerSize.medium
-                                ? 24
-                                : 32,
-                  )
-                : Text(
-                    text!,
-                    style: size == IconWithContainerSize.extraSmall
-                        ? context.textStyle.buttonTabBar.copyWith(
-                            color: foreground,
-                            fontSize: 8,
-                          )
-                        : context.textStyle.h6.copyWith(
-                            color: foreground,
-                          ),
-                  ),
+            child: isLoading
+                ? const CircularProgressIndicator.adaptive()
+                : icon != null
+                    ? IconSvg(
+                        icon!,
+                        color: foreground == Colors.black
+                            ? context.color.iconLight900
+                            : foreground,
+                        size: size == IconWithContainerSize.extraSmall
+                            ? 12
+                            : size == IconWithContainerSize.small
+                                ? 16
+                                : size == IconWithContainerSize.medium
+                                    ? 24
+                                    : 32,
+                      )
+                    : Text(
+                        text!,
+                        style: size == IconWithContainerSize.extraSmall
+                            ? textStyle ??
+                                context.textStyle.buttonTabBar.copyWith(
+                                  color: foreground,
+                                  fontSize: 8,
+                                )
+                            : textStyle ??
+                                context.textStyle.h6.copyWith(
+                                  color: foreground,
+                                ),
+                      ),
           ),
         ),
         if (subIcon != null)

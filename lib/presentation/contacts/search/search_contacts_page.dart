@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/search/widgets/favorite_contacts_list.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/search/widgets/filter_contacts_bottom_sheet/filter_contacts_bottom_sheet.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -41,15 +40,15 @@ class SearchContactsPage extends StatelessWidget {
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
             const FakeSearchBar(),
-            AppSpacing.vertical.s5,
-            const FavoriteContactsList(
-              onPressed: print,
-            ),
+            // AppSpacing.vertical.s5,
+            // const FavoriteContactsList(
+            //   onPressed: print,
+            // ),
             AppSpacing.vertical.s5,
             Text(
               'Contactos',
               style: context.textStyle.bodySmallSemiBold.copyWith(
-                color: context.color.textLight300,
+                color: context.color.textLight600,
               ),
             ),
             AppSpacing.vertical.s3,

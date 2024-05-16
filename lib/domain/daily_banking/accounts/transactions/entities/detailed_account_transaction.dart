@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/extended_transaction_details.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 
 part 'detailed_account_transaction.freezed.dart';
 
@@ -17,7 +18,9 @@ class DetailedAccountTransaction with _$DetailedAccountTransaction {
     required String category,
     required String detailFields,
     required String userComments,
-    required bool bankReceipt,
+    required bool? bankReceipt,
     required ExtendedTransactionDetails? details,
+    required UniqueId accountId,
+    @Default([]) List<FileAttachment> attachments,
   }) = _DetailedAccountTransaction;
 }

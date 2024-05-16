@@ -341,7 +341,7 @@ abstract class AppLocalizations {
   ///
   /// In es, this message translates to:
   /// **'Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos'**
-  String get dailyBankingAccountPaymentTaxModalDescription;
+  String get dailyBankingAccountsPaymentTaxModalDescription;
 
   /// Title of otp page
   ///
@@ -2568,6 +2568,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Guardar'**
   String get commonSave;
+
+  /// Attachment deleted
+  ///
+  /// In es, this message translates to:
+  /// **'Documento adjunto eliminado'**
+  String get commonAttachmentDeleted;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

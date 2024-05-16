@@ -1,11 +1,14 @@
 import 'dart:async';
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/detailed/detailed_card_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
+
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -120,6 +123,20 @@ class _CardTransactionDetailsPageState
                 CardMovementDetailsActions(
                   onUploadFilesPressed: () {
                     UploadFilesBottomSheet.show(context: context);
+                  },
+                  onCreateExpensePressed: () {
+                    context.goNamed(AppRoute.negocio.name);
+                  },
+                ),
+                AppSpacing.vertical.s5,
+                MovementDetailsActions(
+                  onUploadFilesPressed: () {
+                    UploadAttachmentsBottomSheet.show(
+                      context: context,
+                      onFileSelected: (File file) {
+                        // TODO(migalv): Implement this
+                      },
+                    );
                   },
                   onCreateExpensePressed: () {
                     context.goNamed(AppRoute.negocio.name);

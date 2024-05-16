@@ -18,6 +18,7 @@ enum AppRoute {
   dailyBankingInsuranceDetails('insurance-details'),
   dailyBankingInsuranceClaimDetails('claims-details'),
   dailyBankingTransfers('transfers'),
+  dailyBankingTransfersSent('transfers-sent'),
   dailyBankingTransfersSentDetails('transfers-sent-details'),
   dailyBankingTransfersReceivedDetails('transfers-received-details'),
   dailyBankingNationalTransfers('national-transfer'),

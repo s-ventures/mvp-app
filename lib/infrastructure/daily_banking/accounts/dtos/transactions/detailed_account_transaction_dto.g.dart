@@ -22,19 +22,19 @@ _$DetailedAccountTransactionDtoImpl
           userComments: json['userComments'] as String?,
           userCategory: json['userCategory'] as String?,
           placeId: json['placeId'] as String?,
-          accountId: json['accountId'] as int,
-          endBalance: (json['endBalance'] as num).toDouble(),
+          accountId: json['accountId'] as int?,
+          endBalance: (json['endBalance'] as num?)?.toDouble(),
           detailFields: json['detailFields'] as String?,
           visible: json['visible'] as bool?,
           bankReceipt: json['bankReceipt'] as bool?,
-          originBranch: json['originBranch'] as String,
-          originalAmount: (json['originalAmount'] as num).toDouble(),
-          originalCurrencyCode: json['originalCurrencyCode'] as String,
+          originBranch: json['originBranch'] as String?,
+          originalAmount: (json['originalAmount'] as num?)?.toDouble(),
+          originalCurrencyCode: json['originalCurrencyCode'] as String?,
           assignmentDate:
               const DateConverter().fromJson(json['assignmentDate'] as String),
           attachments: (json['attachments'] as List<dynamic>?)
               ?.map((e) =>
-                  TransactionAttachmentDto.fromJson(e as Map<String, dynamic>))
+                  FileAttachmentInfoDto.fromJson(e as Map<String, dynamic>))
               .toList(),
           extendedDetails: _$JsonConverterFromJson<Map<String, dynamic>,
                   ExtendedDetailsDto?>(json['extendedDetails'],

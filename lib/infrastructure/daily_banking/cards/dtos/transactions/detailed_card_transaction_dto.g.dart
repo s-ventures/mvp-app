@@ -26,10 +26,6 @@ DetailedCardTransactionDto _$DetailedCardTransactionDtoFromJson(
       concept: json['concept'] as String,
       postingTime: json['postingTime'] as String,
       accountMovementId: json['accountMovementId'] as int,
-      attachments: (json['attachments'] as List<dynamic>)
-          .map((e) =>
-              TransactionAttachmentDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
       productType: $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
     );
 
@@ -60,7 +56,6 @@ Map<String, dynamic> _$DetailedCardTransactionDtoToJson(
   val['concept'] = instance.concept;
   val['postingTime'] = instance.postingTime;
   val['accountMovementId'] = instance.accountMovementId;
-  val['attachments'] = instance.attachments.map((e) => e.toJson()).toList();
   val['productType'] = _$ProductTypeDtoEnumMap[instance.productType]!;
   return val;
 }

@@ -56,6 +56,7 @@ class Amount extends StatelessWidget {
                     AmountInput(
                       controller: amountFromController,
                       suffixText: '€',
+                      keyboardType: TextInputType.text,
                       onChanged: (value) {
                         final parsedValue = double.tryParse(value);
                         if (parsedValue != null) {
@@ -82,6 +83,7 @@ class Amount extends StatelessWidget {
                     AmountInput(
                       controller: amountToController,
                       suffixText: '€',
+                      keyboardType: TextInputType.text,
                       onChanged: (value) {
                         final parsedValue = double.tryParse(value);
                         if (parsedValue != null) {

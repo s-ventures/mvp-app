@@ -128,7 +128,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get dailyBankingAccountsPaymentTaxModalTitle => 'Liquidar impuestos';
 
   @override
-  String get dailyBankingAccountPaymentTaxModalDescription => 'Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos';
+  String get dailyBankingAccountsPaymentTaxModalDescription => 'Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos';
 
   @override
   String get dailyBankingAccountsPaymentTaxOtpTitle => 'Liquidación de impuestos';
@@ -1274,4 +1274,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get commonSave => 'Guardar';
+
+  @override
+  String get commonAttachmentDeleted => 'Documento adjunto eliminado';
 }

@@ -1,0 +1,15 @@
+{
+    "periodicTransferId": 15,
+    "accountId": 1066,
+    "customerId": 214,
+    "beneficiaryAccount": "ES0049489494994949494",
+    "beneficiaryName": "Alquiler local",
+    "beneficiaryCountryCode2char": "ES",
+    "amount": 1000.0,
+    "currencyCode": "EUR",
+    "startDate": "2024-04-07",
+    "frecuency": "MONTHLY",
+    "status": "CANCELLED",
+    "baasTransferId": "UNI-01",
+    "concept": "Concepto"
+}

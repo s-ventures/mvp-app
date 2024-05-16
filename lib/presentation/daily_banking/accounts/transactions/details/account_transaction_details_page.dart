@@ -4,14 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
+import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
+import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_attachments_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transaction_type.dart';
+import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_card_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_debit_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_direct_debit_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_tax_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_transfer_in_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_transfer_out_details.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/upload_attachments.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/localization/upload_attachments.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
@@ -33,6 +39,9 @@ class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
 
 class _AccountTransactionDetailsPageState
     extends ConsumerState<AccountTransactionDetailsPage> {
+  final PublishSubject<UploadFileFailure> _failureSubject = PublishSubject();
+  final CompositeSubscription _compositeSubscription = CompositeSubscription();
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -43,13 +52,40 @@ class _AccountTransactionDetailsPageState
             ),
       );
     });
+
+    ref.listenManual(
+      detailedAccountTransactionControllerProvider
+          .select((state) => state.uploadEvent),
+      (_, event) {
+        _handleEvent(event.getData());
+      },
+    );
+
+    _failureSubject
+        .throttleTime(kSnackBarDisplayDuration)
+        .doOnData(_showToastFailure)
+        .listenSafe(_compositeSubscription);
     super.initState();
   }
 
   @override
+  void dispose() {
+    _compositeSubscription.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final transaction =
-        ref.watch(detailedAccountTransactionControllerProvider).transaction;
+    final controller =
+        ref.watch(detailedAccountTransactionControllerProvider.notifier);
+    final transaction = ref.watch(
+      detailedAccountTransactionControllerProvider
+          .select((value) => value.transaction),
+    );
+    final attachments = ref.watch(
+      detailedAccountTransactionControllerProvider
+          .select((value) => value.attachments),
+    );
 
     return Scaffold(
       body: NestedScrollView(
@@ -122,6 +158,15 @@ class _AccountTransactionDetailsPageState
                   AppSpacing.vertical.s5,
                   const MovementDetailsVoucher(),
                   AppSpacing.vertical.s5,
+                  MovementDetailsUploadAttachments(
+                    attachments: attachments,
+                    onFileSelected:
+                        attachments.length < controller.maxAttachments
+                            ? (file) => controller.addFiles([file])
+                            : null,
+                    onRemove: controller.removeFile,
+                  ),
+                  AppSpacing.vertical.s5,
                   const MovementDetailsCertificate(
                     type: CertificateType.debit,
                   ),
@@ -147,6 +192,42 @@ class _AccountTransactionDetailsPageState
     );
   }
 
+  void _handleEvent(UploadEvent? event) {
+    if (event == null) {
+      return;
+    }
+
+    event.when(
+      failure: _handleFailure,
+      deleteFileSuccess: () =>
+          _handleSuccess(context.loc.commonAttachmentDeleted),
+    );
+  }
+
+  void _handleSuccess(String message) {
+    CustomToast.show(
+      context,
+      content: message,
+      type: ToastType.success,
+    );
+  }
+
+  void _handleFailure(UploadFileFailure? failure) {
+    if (failure == null) {
+      return;
+    }
+
+    _failureSubject.add(failure);
+  }
+
+  void _showToastFailure(UploadFileFailure failure) {
+    CustomToast.show(
+      context,
+      content: failure.localize(),
+      type: ToastType.error,
+    );
+  }
+
   List<PopupMenuEntry<dynamic>> get _actions => switch (widget.type) {
         AccountTransactionType.transferIn ||
         AccountTransactionType.transferOut ||
@@ -160,7 +241,7 @@ class _AccountTransactionDetailsPageState
               onTap: () {},
               child: Row(
                 children: [
-                  const Text('Ver mas recibos del emisor'),
+                  Text(context.loc.commonSeeMoreReceipts),
                   const Spacer(),
                   IconSvg.small(IconAssets.invoice),
                 ],
@@ -170,7 +251,7 @@ class _AccountTransactionDetailsPageState
               onTap: () {},
               child: Row(
                 children: [
-                  const Text('Recharzar cobro'),
+                  Text(context.loc.commonRefuseCollection),
                   const Spacer(),
                   IconSvg.small(IconAssets.xMark),
                 ],

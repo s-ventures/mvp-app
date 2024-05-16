@@ -6,7 +6,6 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/acco
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/account_transaction_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/search_account_transactions_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/received/transfer_received_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/details/sent/transfer_sent_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_certificate/international_transfer_certificate_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_otp/international_transfer_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/international_transfers/international_transfer_resume/international_transfer_resume_page.dart';
@@ -19,6 +18,8 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/per
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_edit/periodic_order_edit_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_order_otp/periodic_order_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/periodic_orders_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/details/transfer_sent_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/sent_transfers_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_contact/soon_pay_contact.page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_otp/soon_pay_otp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/soon_pay/soon_pay_page.dart';
@@ -255,6 +256,15 @@ class DailyBankingRouter {
               ],
             ),
 
+            GoRoute(
+              parentNavigatorKey: rootNavigatorKey,
+              path: AppRoute.dailyBankingTransfersSent.path,
+              name: AppRoute.dailyBankingTransfersSent.name,
+              pageBuilder: (context, state) => MaterialPage(
+                key: state.pageKey,
+                child: const SentTransfersPage(),
+              ),
+            ),
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
               path: AppRoute.dailyBankingTransfersSentDetails.path,

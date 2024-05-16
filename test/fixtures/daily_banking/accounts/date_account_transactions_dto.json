@@ -1,0 +1,18 @@
+{
+    "date": "2024-04-07",
+    "transactions": [
+        {
+            "movementId": 1013233,
+            "postingDate": "2024-04-07",
+            "valueDate": "2024-04-08",
+            "type": "TRANSFER_OUT",
+            "amount": -1000.0,
+            "currencyCode": "EUR",
+            "description": "Pago Alquiler local",
+            "accountId": 1066,
+            "endBalance": 23100.0,
+            "originBranch": "0000",
+            "productType": "ACCOUNTS"
+        }
+    ]
+}
