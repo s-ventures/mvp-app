@@ -110,6 +110,14 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
 
     // If it was previously uploaded we delete it from the back-end
     if (attachment.isUploaded) {
+      setStateSafe(
+        () => state.updateWith(
+          attachments: state.attachments.replaceWith(
+            [attachment.toDeleting()],
+            equals: (item, newItem) => item.id == newItem.id,
+          ),
+        ) as T,
+      );
       final result = await deleteAttachment(attachmentId);
       result.fold(
         (failure) => setStateSafe(

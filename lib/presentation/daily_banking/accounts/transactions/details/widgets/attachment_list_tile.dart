@@ -39,6 +39,11 @@ class AttachmentListTile extends StatelessWidget {
         sizeMb = attachment.size.bytesToMegaBytes();
         isLoading = true;
       },
+      deleting: (attachment) {
+        fileName = attachment.fileName;
+        sizeMb = attachment.size.bytesToMegaBytes();
+        isLoading = true;
+      },
       uploaded: (attachment) {
         fileName = attachment.fileName;
         sizeMb = attachment.size.bytesToMegaBytes();
