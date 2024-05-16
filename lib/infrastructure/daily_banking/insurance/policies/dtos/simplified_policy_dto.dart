@@ -17,8 +17,7 @@ class SimplifiedPolicyDto with _$SimplifiedPolicyDto {
   const factory SimplifiedPolicyDto({
     required int insuranceId,
     required String policy,
-    required String
-        status, // TODO(georgeta): Change to enum PolicyStatusTypeDto when BE is ready
+    required String status, // TODO(georgeta): Change to enum PolicyStatusTypeDto when BE is ready
     required String description,
   }) = _SimplifiedPolicyDto;
 

@@ -19,9 +19,8 @@ class _CardTransactionsRestClient implements CardTransactionsRestClient {
   String? baseUrl;
 
   @override
-  Future<PaginatedResponse<DateCardTransactionsDto>>
-      getSimplifiedCardTransactions(
-          {required CardTransactionsFilterDto filter}) async {
+  Future<PaginatedResponse<DateCardTransactionsDto>> getSimplifiedCardTransactions(
+      {required CardTransactionsFilterDto filter}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
@@ -59,8 +58,8 @@ class _CardTransactionsRestClient implements CardTransactionsRestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<DetailedCardTransactionDto>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<DetailedCardTransactionDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,

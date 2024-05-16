@@ -5,15 +5,13 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/en
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_repository.dart';
 
-final periodicOrdersPaginationRepositoryProvider =
-    Provider<PeriodicOrdersPaginationRepository>(
+final periodicOrdersPaginationRepositoryProvider = Provider<PeriodicOrdersPaginationRepository>(
   (ref) => PeriodicOrdersPaginationRepository(
     ref.watch(periodicOrdersRepositoryProvider),
   ),
 );
 
-class PeriodicOrdersPaginationRepository
-    extends PaginationListRepository<SimplifiedPeriodicOrder> {
+class PeriodicOrdersPaginationRepository extends PaginationListRepository<SimplifiedPeriodicOrder> {
   PeriodicOrdersPaginationRepository(
     this._periodicOrdersRepository,
   );
@@ -26,8 +24,7 @@ class PeriodicOrdersPaginationRepository
     required int page,
     required int pageSize,
   }) async {
-    final periodicOrders =
-        await _periodicOrdersRepository.getSimplifiedPeriodicOrders(
+    final periodicOrders = await _periodicOrdersRepository.getSimplifiedPeriodicOrders(
       filter: filter ?? const PeriodicOrdersFilter(),
       page: page,
       pageSize: pageSize,

@@ -3,17 +3,15 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/detailed/detailed_sent_transfer_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_repository.dart';
 
-final detailedSentTransferControllerProvider = StateNotifierProvider
-    .autoDispose<DetailedSentTransferController, DetailedSentTransferState>(
+final detailedSentTransferControllerProvider =
+    StateNotifierProvider.autoDispose<DetailedSentTransferController, DetailedSentTransferState>(
   (ref) => DetailedSentTransferController(
     ref.watch(sentTransfersRepositoryProvider),
   ),
 );
 
-class DetailedSentTransferController
-    extends StateNotifier<DetailedSentTransferState> {
-  DetailedSentTransferController(this._repository)
-      : super(const DetailedSentTransferState());
+class DetailedSentTransferController extends StateNotifier<DetailedSentTransferState> {
+  DetailedSentTransferController(this._repository) : super(const DetailedSentTransferState());
 
   final SentTransfersRepository _repository;
 
@@ -25,8 +23,7 @@ class DetailedSentTransferController
 
       setStateSafe(
         () => transactionOrFailure.fold(
-          (l) =>
-              state.copyWith(sentTransfer: AsyncError(l, StackTrace.current)),
+          (l) => state.copyWith(sentTransfer: AsyncError(l, StackTrace.current)),
           (r) => state.copyWith(sentTransfer: AsyncData(r)),
         ),
       );

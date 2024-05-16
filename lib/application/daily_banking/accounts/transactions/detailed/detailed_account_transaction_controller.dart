@@ -12,9 +12,8 @@ import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.da
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_repository.dart';
 import 'package:meta/meta.dart';
 
-final detailedAccountTransactionControllerProvider =
-    StateNotifierProvider.autoDispose<DetailedAccountTransactionController,
-        DetailedAccountTransactionState>(
+final detailedAccountTransactionControllerProvider = StateNotifierProvider.autoDispose<
+    DetailedAccountTransactionController, DetailedAccountTransactionState>(
   (ref) => DetailedAccountTransactionController(
     ref.watch(accountTransactionsRepositoryProvider),
   ),
@@ -33,8 +32,7 @@ class DetailedAccountTransactionController
 
   Future<void> init(String accountId, String transactionId) async {
     try {
-      final transactionOrFailure =
-          await _repository.getDetailedAccountTransaction(
+      final transactionOrFailure = await _repository.getDetailedAccountTransaction(
         accountId: accountId,
         transactionId: transactionId,
       );
@@ -48,9 +46,7 @@ class DetailedAccountTransactionController
             final attachments = txAttachments.replaceWith(
               state.attachments,
               equals: (item, newItem) {
-                return item.id != null &&
-                    newItem.id != null &&
-                    item.id == newItem.id;
+                return item.id != null && newItem.id != null && item.id == newItem.id;
               },
             );
 
@@ -73,12 +69,10 @@ class DetailedAccountTransactionController
 
   @override
   @protected
-  CancelableOperation<Either<UploadFileFailure, FileAttachmentUploaded>>
-      uploadAttachment(
+  CancelableOperation<Either<UploadFileFailure, FileAttachmentUploaded>> uploadAttachment(
     FileAttachmentAttached attachment,
   ) {
-    final accountId =
-        state.transaction.whenOrNull(data: (tx) => tx.accountId.getOrCrash());
+    final accountId = state.transaction.whenOrNull(data: (tx) => tx.accountId.getOrCrash());
     final transactionId = state.transaction.whenOrNull(
       data: (transaction) => transaction.id.value.fold(
         (l) => null,
@@ -107,8 +101,7 @@ class DetailedAccountTransactionController
   Future<Either<UploadFileFailure, void>> deleteAttachment(
     String attachmentId,
   ) async {
-    final accountId =
-        state.transaction.whenOrNull(data: (tx) => tx.accountId.getOrCrash());
+    final accountId = state.transaction.whenOrNull(data: (tx) => tx.accountId.getOrCrash());
     final transactionId = state.transaction.whenOrNull(
       data: (transaction) => transaction.id.value.fold(
         (l) => null,

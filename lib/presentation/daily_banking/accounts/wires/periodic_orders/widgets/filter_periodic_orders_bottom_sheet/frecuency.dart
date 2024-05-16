@@ -13,12 +13,10 @@ class FilterPeriodicOrdersFrecuency extends StatefulWidget {
   final ValueChanged<PeriodicOrderFrecuencyType> setFrecuencyTo;
 
   @override
-  State<FilterPeriodicOrdersFrecuency> createState() =>
-      _FilterPeriodicOrdersFrecuencyState();
+  State<FilterPeriodicOrdersFrecuency> createState() => _FilterPeriodicOrdersFrecuencyState();
 }
 
-class _FilterPeriodicOrdersFrecuencyState
-    extends State<FilterPeriodicOrdersFrecuency> {
+class _FilterPeriodicOrdersFrecuencyState extends State<FilterPeriodicOrdersFrecuency> {
   int? selectedIndex;
 
   @override
@@ -26,8 +24,7 @@ class _FilterPeriodicOrdersFrecuencyState
     super.initState();
 
     if (widget.frecuency != null) {
-      selectedIndex =
-          PeriodicOrderFrecuencyType.values.indexOf(widget.frecuency!);
+      selectedIndex = PeriodicOrderFrecuencyType.values.indexOf(widget.frecuency!);
     }
   }
 
@@ -43,8 +40,7 @@ class _FilterPeriodicOrdersFrecuencyState
             scrollDirection: Axis.horizontal,
             itemCount: PeriodicOrderFrecuencyType.values.length,
             itemBuilder: (context, index) {
-              final periodicOrderfrecuency =
-                  PeriodicOrderFrecuencyType.values[index];
+              final periodicOrderfrecuency = PeriodicOrderFrecuencyType.values[index];
 
               return Padding(
                 padding: const EdgeInsets.only(right: AppSpacing.s3),

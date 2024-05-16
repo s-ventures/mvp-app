@@ -16,18 +16,15 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AggregationState {
-  AsyncValue<String> get aggregationServiceUrl =>
-      throw _privateConstructorUsedError;
+  AsyncValue<String> get aggregationServiceUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AggregationStateCopyWith<AggregationState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AggregationStateCopyWith<AggregationState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AggregationStateCopyWith<$Res> {
-  factory $AggregationStateCopyWith(
-          AggregationState value, $Res Function(AggregationState) then) =
+  factory $AggregationStateCopyWith(AggregationState value, $Res Function(AggregationState) then) =
       _$AggregationStateCopyWithImpl<$Res, AggregationState>;
   @useResult
   $Res call({AsyncValue<String> aggregationServiceUrl});
@@ -58,10 +55,9 @@ class _$AggregationStateCopyWithImpl<$Res, $Val extends AggregationState>
 }
 
 /// @nodoc
-abstract class _$$AggregationStateImplCopyWith<$Res>
-    implements $AggregationStateCopyWith<$Res> {
-  factory _$$AggregationStateImplCopyWith(_$AggregationStateImpl value,
-          $Res Function(_$AggregationStateImpl) then) =
+abstract class _$$AggregationStateImplCopyWith<$Res> implements $AggregationStateCopyWith<$Res> {
+  factory _$$AggregationStateImplCopyWith(
+          _$AggregationStateImpl value, $Res Function(_$AggregationStateImpl) then) =
       __$$AggregationStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -72,8 +68,8 @@ abstract class _$$AggregationStateImplCopyWith<$Res>
 class __$$AggregationStateImplCopyWithImpl<$Res>
     extends _$AggregationStateCopyWithImpl<$Res, _$AggregationStateImpl>
     implements _$$AggregationStateImplCopyWith<$Res> {
-  __$$AggregationStateImplCopyWithImpl(_$AggregationStateImpl _value,
-      $Res Function(_$AggregationStateImpl) _then)
+  __$$AggregationStateImplCopyWithImpl(
+      _$AggregationStateImpl _value, $Res Function(_$AggregationStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,8 +89,7 @@ class __$$AggregationStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AggregationStateImpl implements _AggregationState {
-  const _$AggregationStateImpl(
-      {this.aggregationServiceUrl = const AsyncLoading<String>()});
+  const _$AggregationStateImpl({this.aggregationServiceUrl = const AsyncLoading<String>()});
 
   @override
   @JsonKey()
@@ -121,13 +116,11 @@ class _$AggregationStateImpl implements _AggregationState {
   @override
   @pragma('vm:prefer-inline')
   _$$AggregationStateImplCopyWith<_$AggregationStateImpl> get copyWith =>
-      __$$AggregationStateImplCopyWithImpl<_$AggregationStateImpl>(
-          this, _$identity);
+      __$$AggregationStateImplCopyWithImpl<_$AggregationStateImpl>(this, _$identity);
 }
 
 abstract class _AggregationState implements AggregationState {
-  const factory _AggregationState(
-          {final AsyncValue<String> aggregationServiceUrl}) =
+  const factory _AggregationState({final AsyncValue<String> aggregationServiceUrl}) =
       _$AggregationStateImpl;
 
   @override

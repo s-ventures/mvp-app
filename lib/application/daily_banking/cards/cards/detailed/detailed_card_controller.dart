@@ -18,8 +18,7 @@ class DetailedCardController extends StateNotifier<DetailedCardState> {
 
   Future<void> init(UniqueId cardId) async {
     try {
-      final cardOrFailure =
-          await _repository.getDetailedCard(cardId: cardId.toInt());
+      final cardOrFailure = await _repository.getDetailedCard(cardId: cardId.toInt());
 
       setStateSafe(
         () => state = cardOrFailure.fold(

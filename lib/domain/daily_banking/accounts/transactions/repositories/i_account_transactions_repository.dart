@@ -8,9 +8,8 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/fa
 // ignore: one_member_abstracts
 abstract class IAccountTransactionsRepository {
   Future<
-          Either<SimplifiedAccountTransactionFailure,
-              Map<DateTime, List<SimplifiedAccountTransaction>>>>
-      getSimplifiedAccountTransactions({
+      Either<SimplifiedAccountTransactionFailure,
+          Map<DateTime, List<SimplifiedAccountTransaction>>>> getSimplifiedAccountTransactions({
     required AccountTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,

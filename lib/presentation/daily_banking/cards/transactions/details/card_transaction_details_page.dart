@@ -22,12 +22,10 @@ class CardTransactionDetailsPage extends ConsumerStatefulWidget {
   final int transactionId;
 
   @override
-  ConsumerState<CardTransactionDetailsPage> createState() =>
-      _CardTransactionDetailsPageState();
+  ConsumerState<CardTransactionDetailsPage> createState() => _CardTransactionDetailsPageState();
 }
 
-class _CardTransactionDetailsPageState
-    extends ConsumerState<CardTransactionDetailsPage> {
+class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -43,8 +41,7 @@ class _CardTransactionDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final transaction =
-        ref.watch(detailedCardTransactionControllerProvider).transaction;
+    final transaction = ref.watch(detailedCardTransactionControllerProvider).transaction;
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(

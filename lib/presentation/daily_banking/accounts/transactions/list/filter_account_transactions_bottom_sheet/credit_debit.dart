@@ -9,11 +9,9 @@ class CreditDebit extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
-    final creditDebitValue = ref
-        .watch(filterSimplifiedAccountTransactionsControllerProvider)
-        .operationType;
+    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
+    final creditDebitValue =
+        ref.watch(filterSimplifiedAccountTransactionsControllerProvider).operationType;
 
     return OutlinedList(
       children: [

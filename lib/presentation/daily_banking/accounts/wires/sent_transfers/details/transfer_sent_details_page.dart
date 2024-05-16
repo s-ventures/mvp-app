@@ -17,12 +17,10 @@ class TransferSentDetailsPage extends ConsumerStatefulWidget {
   final int sentTransferId;
 
   @override
-  ConsumerState<TransferSentDetailsPage> createState() =>
-      _TransferSentDetailsPageState();
+  ConsumerState<TransferSentDetailsPage> createState() => _TransferSentDetailsPageState();
 }
 
-class _TransferSentDetailsPageState
-    extends ConsumerState<TransferSentDetailsPage> {
+class _TransferSentDetailsPageState extends ConsumerState<TransferSentDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -37,8 +35,7 @@ class _TransferSentDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final sentTransfer =
-        ref.watch(detailedSentTransferControllerProvider).sentTransfer;
+    final sentTransfer = ref.watch(detailedSentTransferControllerProvider).sentTransfer;
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -57,8 +54,7 @@ class _TransferSentDetailsPageState
                   CustomPopupMenuButton(
                     items: [
                       PopupMenuItem(
-                        onTap:
-                            () {}, // TODO(georgeta): Implementar funcionalidad
+                        onTap: () {}, // TODO(georgeta): Implementar funcionalidad
                         child: Row(
                           children: [
                             const Text('Ver mas recibos del emisor'),
@@ -68,8 +64,7 @@ class _TransferSentDetailsPageState
                         ),
                       ),
                       PopupMenuItem(
-                        onTap:
-                            () {}, // TODO(georgeta): Implementar funcionalidad
+                        onTap: () {}, // TODO(georgeta): Implementar funcionalidad
                         child: Row(
                           children: [
                             const Text('Recharzar cobro'),
@@ -100,16 +95,14 @@ class _TransferSentDetailsPageState
                 AppSpacing.vertical.s5,
                 MovementDetailsDate(
                   titleStartDate: 'Fecha cargo',
-                  startDate:
-                      sentTransfer.orderDate.formatToDayMonthYear() ?? '-',
+                  startDate: sentTransfer.orderDate.formatToDayMonthYear() ?? '-',
                   titleEndDate: 'Fecha abono',
                   endDate: sentTransfer.valueDate.formatToDayMonthYear() ?? '-',
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsBeneficiary(
                   name: sentTransfer.beneficiaryName,
-                  accountNumber: sentTransfer
-                      .beneficiaryAccount.insertSpaceEveryFourCharacters,
+                  accountNumber: sentTransfer.beneficiaryAccount.insertSpaceEveryFourCharacters,
                   transferType: sentTransfer.type.name,
                 ),
                 AppSpacing.vertical.s5,
@@ -118,8 +111,7 @@ class _TransferSentDetailsPageState
                   // TODO(georgeta): No recibimos el numero de cuenta del emisor, pendiente de añadir y modificar
                   last4: sentTransfer.beneficiaryAccount.lastFourCharacters,
                   icon: '✈️', // TODO(georgeta): no recibimos el icono
-                  category:
-                      'Viajes', // TODO(georgeta): no recibimos la categoría
+                  category: 'Viajes', // TODO(georgeta): no recibimos la categoría
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsDescription(

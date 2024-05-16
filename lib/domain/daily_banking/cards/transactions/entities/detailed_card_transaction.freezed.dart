@@ -31,8 +31,8 @@ mixin _$DetailedCardTransaction {
 
 /// @nodoc
 abstract class $DetailedCardTransactionCopyWith<$Res> {
-  factory $DetailedCardTransactionCopyWith(DetailedCardTransaction value,
-          $Res Function(DetailedCardTransaction) then) =
+  factory $DetailedCardTransactionCopyWith(
+          DetailedCardTransaction value, $Res Function(DetailedCardTransaction) then) =
       _$DetailedCardTransactionCopyWithImpl<$Res, DetailedCardTransaction>;
   @useResult
   $Res call(
@@ -46,8 +46,7 @@ abstract class $DetailedCardTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DetailedCardTransactionCopyWithImpl<$Res,
-        $Val extends DetailedCardTransaction>
+class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTransaction>
     implements $DetailedCardTransactionCopyWith<$Res> {
   _$DetailedCardTransactionCopyWithImpl(this._value, this._then);
 
@@ -104,8 +103,7 @@ class _$DetailedCardTransactionCopyWithImpl<$Res,
 abstract class _$$DetailedCardTransactionImplCopyWith<$Res>
     implements $DetailedCardTransactionCopyWith<$Res> {
   factory _$$DetailedCardTransactionImplCopyWith(
-          _$DetailedCardTransactionImpl value,
-          $Res Function(_$DetailedCardTransactionImpl) then) =
+          _$DetailedCardTransactionImpl value, $Res Function(_$DetailedCardTransactionImpl) then) =
       __$$DetailedCardTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -121,12 +119,10 @@ abstract class _$$DetailedCardTransactionImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
-    extends _$DetailedCardTransactionCopyWithImpl<$Res,
-        _$DetailedCardTransactionImpl>
+    extends _$DetailedCardTransactionCopyWithImpl<$Res, _$DetailedCardTransactionImpl>
     implements _$$DetailedCardTransactionImplCopyWith<$Res> {
   __$$DetailedCardTransactionImplCopyWithImpl(
-      _$DetailedCardTransactionImpl _value,
-      $Res Function(_$DetailedCardTransactionImpl) _then)
+      _$DetailedCardTransactionImpl _value, $Res Function(_$DetailedCardTransactionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -210,29 +206,24 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedCardTransactionImpl &&
-            (identical(other.movementId, movementId) ||
-                other.movementId == movementId) &&
+            (identical(other.movementId, movementId) || other.movementId == movementId) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.postingDate, postingDate) ||
-                other.postingDate == postingDate) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.postingDate, postingDate) || other.postingDate == postingDate) &&
+            (identical(other.description, description) || other.description == description) &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
-            (identical(other.merchantName, merchantName) ||
-                other.merchantName == merchantName) &&
+            (identical(other.merchantName, merchantName) || other.merchantName == merchantName) &&
             (identical(other.concept, concept) || other.concept == concept));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, movementId, amount, postingDate,
-      description, placeId, merchantName, concept);
+  int get hashCode => Object.hash(
+      runtimeType, movementId, amount, postingDate, description, placeId, merchantName, concept);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl>
-      get copyWith => __$$DetailedCardTransactionImplCopyWithImpl<
-          _$DetailedCardTransactionImpl>(this, _$identity);
+  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl> get copyWith =>
+      __$$DetailedCardTransactionImplCopyWithImpl<_$DetailedCardTransactionImpl>(this, _$identity);
 }
 
 abstract class _DetailedCardTransaction implements DetailedCardTransaction {
@@ -261,6 +252,6 @@ abstract class _DetailedCardTransaction implements DetailedCardTransaction {
   String get concept;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

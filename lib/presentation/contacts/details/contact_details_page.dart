@@ -34,8 +34,7 @@ class ContactDetailsPage extends StatelessWidget {
                       icon: IconAssets.edit,
                       type: ButtonType.outlined,
                       size: ButtonSize.extraSmall,
-                      onPressed: () async =>
-                          context.pushNamed(AppRoute.contactEdit.name),
+                      onPressed: () async => context.pushNamed(AppRoute.contactEdit.name),
                     ),
                   ],
                   bottom: const CustomTabBar(

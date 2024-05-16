@@ -24,23 +24,22 @@ class _AggregationRestClient implements AggregationRestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<TinkFlowLinkDto>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<TinkFlowLinkDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-            .compose(
-              _dio.options,
-              '/aggregation/v1/aggregation/get-link',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
+        .compose(
+          _dio.options,
+          '/aggregation/v1/aggregation/get-link',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
     final value = TinkFlowLinkDto.fromJson(_result.data!);
     return value;
   }
@@ -52,8 +51,8 @@ class _AggregationRestClient implements AggregationRestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<RegistrationProcessStatusDto>>(Options(
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<RegistrationProcessStatusDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -70,8 +69,7 @@ class _AggregationRestClient implements AggregationRestClient {
               baseUrl,
             ))));
     var value = _result.data!
-        .map((dynamic i) =>
-            RegistrationProcessStatusDto.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => RegistrationProcessStatusDto.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

@@ -12,7 +12,8 @@ class CategoryList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final categoryValue = ref.watch(filterSimplifiedAccountTransactionsControllerProvider).category;
-    final onCategorySelected = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier).setCategory;
+    final onCategorySelected =
+        ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier).setCategory;
 
     return OutlinedList(
       children: categories.asMap().entries.map((entry) {

@@ -14,8 +14,7 @@ class WebViewPageRouteParams {
 
   final String title;
   final String url;
-  final FutureOr<NavigationDecision> Function(NavigationRequest)?
-      onNavigationRequest;
+  final FutureOr<NavigationDecision> Function(NavigationRequest)? onNavigationRequest;
 }
 
 // DAILY BANKING

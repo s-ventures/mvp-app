@@ -64,8 +64,7 @@ class AccidentsInsuranceContractPage extends StatelessWidget {
                   context.color.tertiaryLight500,
                 ),
               ),
-              trailingIconsAnimation:
-                  CustomDropdownListTileTrailingIconAnimation.disabled,
+              trailingIconsAnimation: CustomDropdownListTileTrailingIconAnimation.disabled,
               collapsable: false,
               dropdownItems: [
                 TextInputIntoContainer(
@@ -81,8 +80,7 @@ class AccidentsInsuranceContractPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             CustomDropdownListTile(
-              title:
-                  'Renta mensual por invalidez permanente absoluta accidental',
+              title: 'Renta mensual por invalidez permanente absoluta accidental',
               nextToCollapse: true,
               trailingIconExpanded: Radio(
                 value: true,
@@ -93,8 +91,7 @@ class AccidentsInsuranceContractPage extends StatelessWidget {
                   context.color.tertiaryLight500,
                 ),
               ),
-              trailingIconsAnimation:
-                  CustomDropdownListTileTrailingIconAnimation.disabled,
+              trailingIconsAnimation: CustomDropdownListTileTrailingIconAnimation.disabled,
               collapsable: false,
               dropdownItems: [
                 TextInputIntoContainer(
@@ -110,8 +107,7 @@ class AccidentsInsuranceContractPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             CustomDropdownListTile(
-              title:
-                  'Capital adicional por fallecimiento en accidente de circulación',
+              title: 'Capital adicional por fallecimiento en accidente de circulación',
               trailingIconCollapsed: IconSvg.small(
                 IconAssets.plus,
                 color: context.color.tertiaryLight500,
@@ -125,8 +121,7 @@ class AccidentsInsuranceContractPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             CustomDropdownListTile(
-              title:
-                  'Capital adicional por invalidez permanente en accidente de circulación',
+              title: 'Capital adicional por invalidez permanente en accidente de circulación',
               trailingIconCollapsed: IconSvg.small(
                 IconAssets.plus,
                 color: context.color.tertiaryLight500,
@@ -140,8 +135,7 @@ class AccidentsInsuranceContractPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             CustomDropdownListTile(
-              title:
-                  'Capital adicional por fallecimiento en atraco, agresión o secuestro',
+              title: 'Capital adicional por fallecimiento en atraco, agresión o secuestro',
               trailingIconCollapsed: IconSvg.small(
                 IconAssets.plus,
                 color: context.color.tertiaryLight500,

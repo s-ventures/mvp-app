@@ -4,13 +4,11 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/reposit
 
 final accountBalanceControllerProvider =
     StateNotifierProvider<AccountBalanceController, AccountBalanceState>(
-  (ref) =>
-      AccountBalanceController(ref.watch(accountBalancesRepositoryProvider)),
+  (ref) => AccountBalanceController(ref.watch(accountBalancesRepositoryProvider)),
 );
 
 class AccountBalanceController extends StateNotifier<AccountBalanceState> {
-  AccountBalanceController(this._repository)
-      : super(const AccountBalanceState());
+  AccountBalanceController(this._repository) : super(const AccountBalanceState());
 
   final AccountBalancesRepository _repository;
 

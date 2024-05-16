@@ -34,8 +34,7 @@ mixin _$AccountBalanceFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AccountBalanceFailureUnexpected value)
-        unexpected,
+    required TResult Function(_AccountBalanceFailureUnexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,14 +52,13 @@ mixin _$AccountBalanceFailure {
 
 /// @nodoc
 abstract class $AccountBalanceFailureCopyWith<$Res> {
-  factory $AccountBalanceFailureCopyWith(AccountBalanceFailure value,
-          $Res Function(AccountBalanceFailure) then) =
+  factory $AccountBalanceFailureCopyWith(
+          AccountBalanceFailure value, $Res Function(AccountBalanceFailure) then) =
       _$AccountBalanceFailureCopyWithImpl<$Res, AccountBalanceFailure>;
 }
 
 /// @nodoc
-class _$AccountBalanceFailureCopyWithImpl<$Res,
-        $Val extends AccountBalanceFailure>
+class _$AccountBalanceFailureCopyWithImpl<$Res, $Val extends AccountBalanceFailure>
     implements $AccountBalanceFailureCopyWith<$Res> {
   _$AccountBalanceFailureCopyWithImpl(this._value, this._then);
 
@@ -80,19 +78,16 @@ abstract class _$$AccountBalanceFailureUnexpectedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$AccountBalanceFailureUnexpectedImplCopyWithImpl<$Res>
-    extends _$AccountBalanceFailureCopyWithImpl<$Res,
-        _$AccountBalanceFailureUnexpectedImpl>
+    extends _$AccountBalanceFailureCopyWithImpl<$Res, _$AccountBalanceFailureUnexpectedImpl>
     implements _$$AccountBalanceFailureUnexpectedImplCopyWith<$Res> {
-  __$$AccountBalanceFailureUnexpectedImplCopyWithImpl(
-      _$AccountBalanceFailureUnexpectedImpl _value,
+  __$$AccountBalanceFailureUnexpectedImplCopyWithImpl(_$AccountBalanceFailureUnexpectedImpl _value,
       $Res Function(_$AccountBalanceFailureUnexpectedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$AccountBalanceFailureUnexpectedImpl
-    implements _AccountBalanceFailureUnexpected {
+class _$AccountBalanceFailureUnexpectedImpl implements _AccountBalanceFailureUnexpected {
   const _$AccountBalanceFailureUnexpectedImpl();
 
   @override
@@ -103,8 +98,7 @@ class _$AccountBalanceFailureUnexpectedImpl
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AccountBalanceFailureUnexpectedImpl);
+        (other.runtimeType == runtimeType && other is _$AccountBalanceFailureUnexpectedImpl);
   }
 
   @override
@@ -141,8 +135,7 @@ class _$AccountBalanceFailureUnexpectedImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AccountBalanceFailureUnexpected value)
-        unexpected,
+    required TResult Function(_AccountBalanceFailureUnexpected value) unexpected,
   }) {
     return unexpected(this);
   }
@@ -168,8 +161,6 @@ class _$AccountBalanceFailureUnexpectedImpl
   }
 }
 
-abstract class _AccountBalanceFailureUnexpected
-    implements AccountBalanceFailure {
-  const factory _AccountBalanceFailureUnexpected() =
-      _$AccountBalanceFailureUnexpectedImpl;
+abstract class _AccountBalanceFailureUnexpected implements AccountBalanceFailure {
+  const factory _AccountBalanceFailureUnexpected() = _$AccountBalanceFailureUnexpectedImpl;
 }

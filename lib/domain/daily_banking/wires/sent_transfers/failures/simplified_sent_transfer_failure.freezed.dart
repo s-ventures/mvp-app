@@ -53,15 +53,12 @@ mixin _$SimplifiedSentTransferFailure {
 /// @nodoc
 abstract class $SimplifiedSentTransferFailureCopyWith<$Res> {
   factory $SimplifiedSentTransferFailureCopyWith(
-          SimplifiedSentTransferFailure value,
-          $Res Function(SimplifiedSentTransferFailure) then) =
-      _$SimplifiedSentTransferFailureCopyWithImpl<$Res,
-          SimplifiedSentTransferFailure>;
+          SimplifiedSentTransferFailure value, $Res Function(SimplifiedSentTransferFailure) then) =
+      _$SimplifiedSentTransferFailureCopyWithImpl<$Res, SimplifiedSentTransferFailure>;
 }
 
 /// @nodoc
-class _$SimplifiedSentTransferFailureCopyWithImpl<$Res,
-        $Val extends SimplifiedSentTransferFailure>
+class _$SimplifiedSentTransferFailureCopyWithImpl<$Res, $Val extends SimplifiedSentTransferFailure>
     implements $SimplifiedSentTransferFailureCopyWith<$Res> {
   _$SimplifiedSentTransferFailureCopyWithImpl(this._value, this._then);
 
@@ -73,8 +70,7 @@ class _$SimplifiedSentTransferFailureCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$UnexpectedImplCopyWith<$Res> {
-  factory _$$UnexpectedImplCopyWith(
-          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+  factory _$$UnexpectedImplCopyWith(_$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
       __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
@@ -82,8 +78,7 @@ abstract class _$$UnexpectedImplCopyWith<$Res> {
 class __$$UnexpectedImplCopyWithImpl<$Res>
     extends _$SimplifiedSentTransferFailureCopyWithImpl<$Res, _$UnexpectedImpl>
     implements _$$UnexpectedImplCopyWith<$Res> {
-  __$$UnexpectedImplCopyWithImpl(
-      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
+  __$$UnexpectedImplCopyWithImpl(_$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 

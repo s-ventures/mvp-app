@@ -6,20 +6,16 @@ part of 'natural_stakeholder_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NaturalStakeholderDto _$NaturalStakeholderDtoFromJson(
-        Map<String, dynamic> json) =>
+NaturalStakeholderDto _$NaturalStakeholderDtoFromJson(Map<String, dynamic> json) =>
     NaturalStakeholderDto(
       stakeholderId: json['stakeholderId'] as int?,
-      personTypeCode:
-          $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
+      personTypeCode: $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
       fullName: json['fullName'] as String?,
-      languageCodeType: $enumDecodeNullable(
-          _$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
+      languageCodeType: $enumDecodeNullable(_$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
       relationType: $enumDecode(_$RelationTypeDtoEnumMap, json['relationType']),
       createDate: _$JsonConverterFromJson<String, DateTime>(
           json['createDate'], const DateConverter().fromJson),
-      documentTypeCode: $enumDecodeNullable(
-          _$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
+      documentTypeCode: $enumDecodeNullable(_$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
       documentNumber: json['documentNumber'] as String?,
       additionalInfo: json['additionalInfo'] as String?,
       preferenceTelephone: json['preferenceTelephone'] as bool?,
@@ -36,20 +32,16 @@ NaturalStakeholderDto _$NaturalStakeholderDtoFromJson(
       residenceCountryCode: json['residenceCountryCode'] as String,
       residenceIndicator: json['residenceIndicator'] as bool,
       gender: $enumDecode(_$GenderDtoEnumMap, json['gender']),
-      maritalStatus:
-          $enumDecode(_$MaritalStatusDtoEnumMap, json['maritalStatus']),
-      matrimonialRegime:
-          $enumDecode(_$MatrimonialRegimeDtoEnumMap, json['matrimonialRegime']),
+      maritalStatus: $enumDecode(_$MaritalStatusDtoEnumMap, json['maritalStatus']),
+      matrimonialRegime: $enumDecode(_$MatrimonialRegimeDtoEnumMap, json['matrimonialRegime']),
       deathDate: DateTime.parse(json['deathDate'] as String),
-      employmentStatus:
-          $enumDecode(_$EmploymentStatusDtoEnumMap, json['employmentStatus']),
+      employmentStatus: $enumDecode(_$EmploymentStatusDtoEnumMap, json['employmentStatus']),
       personOcuppationCode: json['personOcuppationCode'] as String,
       sector: json['sector'] as String,
       econimicActivityCode: json['econimicActivityCode'] as String,
     );
 
-Map<String, dynamic> _$NaturalStakeholderDtoToJson(
-    NaturalStakeholderDto instance) {
+Map<String, dynamic> _$NaturalStakeholderDtoToJson(NaturalStakeholderDto instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -61,15 +53,11 @@ Map<String, dynamic> _$NaturalStakeholderDtoToJson(
   writeNotNull('stakeholderId', instance.stakeholderId);
   val['personTypeCode'] = _$PersonTypeCodeDtoEnumMap[instance.personTypeCode]!;
   writeNotNull('fullName', instance.fullName);
-  writeNotNull('languageCodeType',
-      _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
+  writeNotNull('languageCodeType', _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
   val['relationType'] = _$RelationTypeDtoEnumMap[instance.relationType]!;
-  writeNotNull(
-      'createDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createDate, const DateConverter().toJson));
-  writeNotNull('documentTypeCode',
-      _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
+  writeNotNull('createDate',
+      _$JsonConverterToJson<String, DateTime>(instance.createDate, const DateConverter().toJson));
+  writeNotNull('documentTypeCode', _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
   writeNotNull('documentNumber', instance.documentNumber);
   writeNotNull('additionalInfo', instance.additionalInfo);
   writeNotNull('preferenceTelephone', instance.preferenceTelephone);
@@ -87,11 +75,9 @@ Map<String, dynamic> _$NaturalStakeholderDtoToJson(
   val['residenceIndicator'] = instance.residenceIndicator;
   val['gender'] = _$GenderDtoEnumMap[instance.gender]!;
   val['maritalStatus'] = _$MaritalStatusDtoEnumMap[instance.maritalStatus]!;
-  val['matrimonialRegime'] =
-      _$MatrimonialRegimeDtoEnumMap[instance.matrimonialRegime]!;
+  val['matrimonialRegime'] = _$MatrimonialRegimeDtoEnumMap[instance.matrimonialRegime]!;
   val['deathDate'] = instance.deathDate.toIso8601String();
-  val['employmentStatus'] =
-      _$EmploymentStatusDtoEnumMap[instance.employmentStatus]!;
+  val['employmentStatus'] = _$EmploymentStatusDtoEnumMap[instance.employmentStatus]!;
   val['personOcuppationCode'] = instance.personOcuppationCode;
   val['sector'] = instance.sector;
   val['econimicActivityCode'] = instance.econimicActivityCode;

@@ -4,15 +4,13 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/ent
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_repository.dart';
 
-final sentTransfersPaginationRepositoryProvider =
-    Provider<SentTransfersPaginationRepository>(
+final sentTransfersPaginationRepositoryProvider = Provider<SentTransfersPaginationRepository>(
   (ref) => SentTransfersPaginationRepository(
     ref.watch(sentTransfersRepositoryProvider),
   ),
 );
 
-class SentTransfersPaginationRepository
-    extends PaginationListRepository<SimplifiedSentTransfer> {
+class SentTransfersPaginationRepository extends PaginationListRepository<SimplifiedSentTransfer> {
   SentTransfersPaginationRepository(
     this._sentTransfersRepository,
   );
@@ -24,8 +22,7 @@ class SentTransfersPaginationRepository
     required int page,
     required int pageSize,
   }) async {
-    final sentTransfers =
-        await _sentTransfersRepository.getSimplifiedSentTransfers(
+    final sentTransfers = await _sentTransfersRepository.getSimplifiedSentTransfers(
       filter: _filter ?? const SentTransfersFilter(),
       page: page,
       pageSize: pageSize,

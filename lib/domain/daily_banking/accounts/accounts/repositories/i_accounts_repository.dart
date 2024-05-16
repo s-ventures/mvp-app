@@ -7,8 +7,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failur
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/simplified_account_failure.dart';
 
 abstract class IAccountsRepository {
-  Future<Either<SimplifiedAccountFailure, List<SimplifiedAccount>>>
-      getSimplifiedAccounts({
+  Future<Either<SimplifiedAccountFailure, List<SimplifiedAccount>>> getSimplifiedAccounts({
     int page = 0,
     int pageSize = 10,
     void Function(int totalPages, int totalElements)? onPaginationInfo,

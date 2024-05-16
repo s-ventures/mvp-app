@@ -16,8 +16,7 @@ class DetailedAccountTransactionState
     @Default(AsyncLoading<DetailedAccountTransaction>())
     AsyncValue<DetailedAccountTransaction> transaction,
     @Default([]) List<FileAttachment> attachments,
-    @Default(SingleAccessVoid<UploadEvent>())
-    SingleAccessValue<UploadEvent> uploadEvent,
+    @Default(SingleAccessVoid<UploadEvent>()) SingleAccessValue<UploadEvent> uploadEvent,
   }) = _DetailedAccountTransactionState;
 
   const DetailedAccountTransactionState._();
@@ -34,6 +33,5 @@ class DetailedAccountTransactionState
   }
 
   @override
-  bool get attachmentsAreLoading =>
-      attachments.any((element) => !element.isReady);
+  bool get attachmentsAreLoading => attachments.any((element) => !element.isReady);
 }

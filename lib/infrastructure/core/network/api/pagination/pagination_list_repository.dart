@@ -3,8 +3,7 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pa
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class PaginationListRepository<T>
-    extends PaginationRepository<List<T>> {
+abstract class PaginationListRepository<T> extends PaginationRepository<List<T>> {
   PaginationListRepository({
     super.pageSize,
   }) : subject = BehaviorSubject.seeded(

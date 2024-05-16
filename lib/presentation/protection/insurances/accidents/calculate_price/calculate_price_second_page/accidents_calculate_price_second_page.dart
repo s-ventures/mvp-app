@@ -151,8 +151,7 @@ class _AccidentsInsuranceCalculatePriceSecondPageState
                 title: 'Siguiente',
                 size: ButtonSize.small,
                 onPressed: () => context.pushNamed(
-                  AppRoute
-                      .protectionInsuranceAccidentCalculatePriceThirdStep.name,
+                  AppRoute.protectionInsuranceAccidentCalculatePriceThirdStep.name,
                 ),
               ),
             ],

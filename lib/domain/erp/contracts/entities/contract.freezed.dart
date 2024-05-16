@@ -22,8 +22,7 @@ mixin _$Contract {
   DateTime? get endDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ContractCopyWith<Contract> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ContractCopyWith<Contract> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -31,13 +30,11 @@ abstract class $ContractCopyWith<$Res> {
   factory $ContractCopyWith(Contract value, $Res Function(Contract) then) =
       _$ContractCopyWithImpl<$Res, Contract>;
   @useResult
-  $Res call(
-      {UniqueId id, String productCode, DateTime startDate, DateTime? endDate});
+  $Res call({UniqueId id, String productCode, DateTime startDate, DateTime? endDate});
 }
 
 /// @nodoc
-class _$ContractCopyWithImpl<$Res, $Val extends Contract>
-    implements $ContractCopyWith<$Res> {
+class _$ContractCopyWithImpl<$Res, $Val extends Contract> implements $ContractCopyWith<$Res> {
   _$ContractCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -75,23 +72,18 @@ class _$ContractCopyWithImpl<$Res, $Val extends Contract>
 }
 
 /// @nodoc
-abstract class _$$ContractImplCopyWith<$Res>
-    implements $ContractCopyWith<$Res> {
-  factory _$$ContractImplCopyWith(
-          _$ContractImpl value, $Res Function(_$ContractImpl) then) =
+abstract class _$$ContractImplCopyWith<$Res> implements $ContractCopyWith<$Res> {
+  factory _$$ContractImplCopyWith(_$ContractImpl value, $Res Function(_$ContractImpl) then) =
       __$$ContractImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {UniqueId id, String productCode, DateTime startDate, DateTime? endDate});
+  $Res call({UniqueId id, String productCode, DateTime startDate, DateTime? endDate});
 }
 
 /// @nodoc
-class __$$ContractImplCopyWithImpl<$Res>
-    extends _$ContractCopyWithImpl<$Res, _$ContractImpl>
+class __$$ContractImplCopyWithImpl<$Res> extends _$ContractCopyWithImpl<$Res, _$ContractImpl>
     implements _$$ContractImplCopyWith<$Res> {
-  __$$ContractImplCopyWithImpl(
-      _$ContractImpl _value, $Res Function(_$ContractImpl) _then)
+  __$$ContractImplCopyWithImpl(_$ContractImpl _value, $Res Function(_$ContractImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -152,16 +144,13 @@ class _$ContractImpl implements _Contract {
         (other.runtimeType == runtimeType &&
             other is _$ContractImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.productCode, productCode) ||
-                other.productCode == productCode) &&
-            (identical(other.startDate, startDate) ||
-                other.startDate == startDate) &&
+            (identical(other.productCode, productCode) || other.productCode == productCode) &&
+            (identical(other.startDate, startDate) || other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, productCode, startDate, endDate);
+  int get hashCode => Object.hash(runtimeType, id, productCode, startDate, endDate);
 
   @JsonKey(ignore: true)
   @override
@@ -187,6 +176,5 @@ abstract class _Contract implements Contract {
   DateTime? get endDate;
   @override
   @JsonKey(ignore: true)
-  _$$ContractImplCopyWith<_$ContractImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ContractImplCopyWith<_$ContractImpl> get copyWith => throw _privateConstructorUsedError;
 }

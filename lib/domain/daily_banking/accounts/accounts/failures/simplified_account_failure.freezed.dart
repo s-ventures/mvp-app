@@ -52,14 +52,13 @@ mixin _$SimplifiedAccountFailure {
 
 /// @nodoc
 abstract class $SimplifiedAccountFailureCopyWith<$Res> {
-  factory $SimplifiedAccountFailureCopyWith(SimplifiedAccountFailure value,
-          $Res Function(SimplifiedAccountFailure) then) =
+  factory $SimplifiedAccountFailureCopyWith(
+          SimplifiedAccountFailure value, $Res Function(SimplifiedAccountFailure) then) =
       _$SimplifiedAccountFailureCopyWithImpl<$Res, SimplifiedAccountFailure>;
 }
 
 /// @nodoc
-class _$SimplifiedAccountFailureCopyWithImpl<$Res,
-        $Val extends SimplifiedAccountFailure>
+class _$SimplifiedAccountFailureCopyWithImpl<$Res, $Val extends SimplifiedAccountFailure>
     implements $SimplifiedAccountFailureCopyWith<$Res> {
   _$SimplifiedAccountFailureCopyWithImpl(this._value, this._then);
 
@@ -71,8 +70,7 @@ class _$SimplifiedAccountFailureCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$UnexpectedImplCopyWith<$Res> {
-  factory _$$UnexpectedImplCopyWith(
-          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+  factory _$$UnexpectedImplCopyWith(_$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
       __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
@@ -80,8 +78,7 @@ abstract class _$$UnexpectedImplCopyWith<$Res> {
 class __$$UnexpectedImplCopyWithImpl<$Res>
     extends _$SimplifiedAccountFailureCopyWithImpl<$Res, _$UnexpectedImpl>
     implements _$$UnexpectedImplCopyWith<$Res> {
-  __$$UnexpectedImplCopyWithImpl(
-      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
+  __$$UnexpectedImplCopyWithImpl(_$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 

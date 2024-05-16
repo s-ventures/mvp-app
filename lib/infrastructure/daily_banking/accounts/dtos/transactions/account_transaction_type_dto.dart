@@ -28,15 +28,12 @@ enum AccountTransactionTypeDto {
 
 extension AccountTransactionTypeDtoX on AccountTransactionTypeDto {
   AccountTransactionType toDomain() => switch (this) {
-        AccountTransactionTypeDto.transferIn =>
-          AccountTransactionType.transferIn,
+        AccountTransactionTypeDto.transferIn => AccountTransactionType.transferIn,
         AccountTransactionTypeDto.tax => AccountTransactionType.tax,
         AccountTransactionTypeDto.debit => AccountTransactionType.debit,
-        AccountTransactionTypeDto.directDebit =>
-          AccountTransactionType.directDebit,
+        AccountTransactionTypeDto.directDebit => AccountTransactionType.directDebit,
         AccountTransactionTypeDto.card => AccountTransactionType.card,
-        AccountTransactionTypeDto.transferOut =>
-          AccountTransactionType.transferOut,
+        AccountTransactionTypeDto.transferOut => AccountTransactionType.transferOut,
 
         // Other
         AccountTransactionTypeDto.cashWithdrawal ||

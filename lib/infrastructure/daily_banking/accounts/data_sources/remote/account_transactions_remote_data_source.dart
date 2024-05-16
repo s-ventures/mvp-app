@@ -14,13 +14,11 @@ class AccountTransactionsRemoteDataSource {
 
   final AccountTransactionsRestClient _restClient;
 
-  Future<PaginatedResponse<DateAccountTransactionsDto>>
-      getSimplifiedAccountTransactions({
+  Future<PaginatedResponse<DateAccountTransactionsDto>> getSimplifiedAccountTransactions({
     required AccountTransactionsFilterDto filterDto,
   }) async {
     try {
-      final response =
-          await _restClient.getSimplifiedAccountTransactions(filter: filterDto);
+      final response = await _restClient.getSimplifiedAccountTransactions(filter: filterDto);
       return response;
     } catch (_) {
       rethrow;

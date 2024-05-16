@@ -18,8 +18,7 @@ import 'package:rxdart/rxdart.dart';
 
 final cardsRepositoryProvider = Provider<CardsRepository>(
   (ref) => CardsRepository(
-    localDataSource:
-        CardsLocalDataSource(ref.watch(sharedPreferencesLocalStorageProvider)),
+    localDataSource: CardsLocalDataSource(ref.watch(sharedPreferencesLocalStorageProvider)),
     remoteDataSource: CardsRemoteDataSource(ref.watch(cardsRestClientProvider)),
   ),
 );
@@ -36,8 +35,7 @@ class CardsRepository implements ICardsRepository {
   final _selectedCardId = BehaviorSubject.seeded(none<(UniqueId, UniqueId)>());
 
   @override
-  Future<Either<SimplifiedCardFailure, List<SimplifiedCard>>>
-      getSimplifiedCards({
+  Future<Either<SimplifiedCardFailure, List<SimplifiedCard>>> getSimplifiedCards({
     int page = 0,
     int pageSize = 10,
     void Function(int totalPages, int totalElements)? onPaginationInfo,
@@ -113,6 +111,5 @@ class CardsRepository implements ICardsRepository {
   }
 
   @override
-  Stream<Option<(UniqueId, UniqueId)>> watchSelectedCard() =>
-      _selectedCardId.stream;
+  Stream<Option<(UniqueId, UniqueId)>> watchSelectedCard() => _selectedCardId.stream;
 }

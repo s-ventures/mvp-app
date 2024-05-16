@@ -52,8 +52,7 @@ class AccidentsInsuranceCalculatePriceFourthPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             const CardWithBoolOptions(
-              title:
-                  '¿Presenta invalidez, defecto físico, más de 12 dioptrías?',
+              title: '¿Presenta invalidez, defecto físico, más de 12 dioptrías?',
               initialValue: false,
             ),
             AppSpacing.vertical.s3,
@@ -64,32 +63,27 @@ class AccidentsInsuranceCalculatePriceFourthPage extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             const CardWithBoolOptions(
-              title:
-                  '¿Le han prescrito alguna intervención quirúrgica en el último año?',
+              title: '¿Le han prescrito alguna intervención quirúrgica en el último año?',
               initialValue: false,
             ),
             AppSpacing.vertical.s3,
             const CardWithBoolOptions(
-              title:
-                  '¿Le han prescrito algún tratamiento médico en el último año?',
+              title: '¿Le han prescrito algún tratamiento médico en el último año?',
               initialValue: false,
             ),
             AppSpacing.vertical.s3,
             const CardWithBoolOptions(
-              title:
-                  '¿Consume dos paquetes o más de cigarrillos o un litro de alcohol al día?',
+              title: '¿Consume dos paquetes o más de cigarrillos o un litro de alcohol al día?',
               initialValue: false,
             ),
             AppSpacing.vertical.s3,
             const CardWithBoolOptions(
-              title:
-                  '¿Ha estado de baja 15 días o más por enfermedad en los dos últimos años?',
+              title: '¿Ha estado de baja 15 días o más por enfermedad en los dos últimos años?',
               initialValue: false,
             ),
             AppSpacing.vertical.s3,
             const CardWithBoolOptions(
-              title:
-                  '¿Ha sufrido alguna intervención quirúrgica en los últimos 3 años?',
+              title: '¿Ha sufrido alguna intervención quirúrgica en los últimos 3 años?',
               initialValue: false,
             ),
             AppSpacing.vertical.s3,
@@ -124,9 +118,7 @@ class AccidentsInsuranceCalculatePriceFourthPage extends StatelessWidget {
                 title: 'Siguiente',
                 size: ButtonSize.small,
                 onPressed: () => context.pushNamed(
-                  AppRoute
-                      .protectionInsuranceAccidentCalculatePriceDataValidation
-                      .name,
+                  AppRoute.protectionInsuranceAccidentCalculatePriceDataValidation.name,
                 ),
               ),
             ],

@@ -3,14 +3,13 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/detailed/detailed_policy_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_repository.dart';
 
-final detailedPolicyControllerProvider = StateNotifierProvider.autoDispose<
-    DetailedPolicyController, DetailedPolicyState>(
+final detailedPolicyControllerProvider =
+    StateNotifierProvider.autoDispose<DetailedPolicyController, DetailedPolicyState>(
   (ref) => DetailedPolicyController(ref.watch(policiesRepositoryProvider)),
 );
 
 class DetailedPolicyController extends StateNotifier<DetailedPolicyState> {
-  DetailedPolicyController(this._repository)
-      : super(const DetailedPolicyState());
+  DetailedPolicyController(this._repository) : super(const DetailedPolicyState());
 
   final PoliciesRepository _repository;
 

@@ -30,33 +30,25 @@ class _SentTransfersPageState extends ConsumerState<SentTransfersPage> {
   @override
   Widget build(BuildContext context) {
     final sentTransfers = ref.watch(
-      simplifiedSentTransfersControllerProvider
-          .select((value) => value.sentTransfers),
+      simplifiedSentTransfersControllerProvider.select((value) => value.sentTransfers),
     );
 
-    final controller =
-        ref.read(filterSimplifiedSentTransfersControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedSentTransfersControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider
-          .select((value) => value.startDate),
+      filterSimplifiedSentTransfersControllerProvider.select((value) => value.startDate),
     );
     final endDate = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider
-          .select((value) => value.endDate),
+      filterSimplifiedSentTransfersControllerProvider.select((value) => value.endDate),
     );
     final amountFrom = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider
-          .select((value) => value.amountFrom),
+      filterSimplifiedSentTransfersControllerProvider.select((value) => value.amountFrom),
     );
     final amountTo = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider
-          .select((value) => value.amountTo),
+      filterSimplifiedSentTransfersControllerProvider.select((value) => value.amountTo),
     );
 
-    final isFilterApplied = startDate != null ||
-        endDate != null ||
-        amountFrom != null ||
-        amountTo != null;
+    final isFilterApplied =
+        startDate != null || endDate != null || amountFrom != null || amountTo != null;
 
     return Scaffold(
       body: NestedScrollView(
@@ -186,8 +178,7 @@ class _SentTransfersPageState extends ConsumerState<SentTransfersPage> {
                   ),
                 ),
               ),
-              loading: () =>
-                  const Center(child: CircularProgressIndicator.adaptive()),
+              loading: () => const Center(child: CircularProgressIndicator.adaptive()),
             ),
           ],
         ),

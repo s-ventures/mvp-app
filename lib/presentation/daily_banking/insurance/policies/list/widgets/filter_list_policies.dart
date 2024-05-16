@@ -15,8 +15,7 @@ class FilterListPolicies extends ConsumerStatefulWidget {
   final VoidCallback onClearDateRange;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterListPoliciesState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _FilterListPoliciesState();
 }
 
 class _FilterListPoliciesState extends ConsumerState<FilterListPolicies> {

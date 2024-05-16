@@ -136,8 +136,7 @@ class FilterPeriodicOrdersBottomSheet {
                   AppSpacing.vertical.s2,
                   FilterPeriodicOrdersFrecuency(
                     frecuency: frecuency,
-                    setFrecuencyTo: (PeriodicOrderFrecuencyType value) =>
-                        setFrecuencyTo(value),
+                    setFrecuencyTo: (PeriodicOrderFrecuencyType value) => setFrecuencyTo(value),
                   ),
                   AppSpacing.vertical.s5,
                   Text(
