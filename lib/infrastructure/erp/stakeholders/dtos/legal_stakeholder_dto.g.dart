@@ -15,8 +15,7 @@ LegalStakeholderDto _$LegalStakeholderDtoFromJson(Map<String, dynamic> json) =>
       fullName: json['fullName'] as String?,
       languageCodeType: $enumDecodeNullable(
           _$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
-      createDate: _$JsonConverterFromJson<String, DateTime>(
-          json['createDate'], const DateConverter().fromJson),
+      createDate: const DateConverter().fromJson(json['createDate'] as String),
       documentTypeCode: $enumDecodeNullable(
           _$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
       documentNumber: json['documentNumber'] as String?,
@@ -25,17 +24,19 @@ LegalStakeholderDto _$LegalStakeholderDtoFromJson(Map<String, dynamic> json) =>
       preferenceSms: json['preferenceSms'] as bool?,
       preferenceMail: json['preferenceMail'] as bool?,
       preferenceWhatsapp: json['preferenceWhatsapp'] as bool?,
-      isFavorite: json['isFavorite'] as bool?,
-      legalName: json['legalName'] as String,
-      comercialName: json['comercialName'] as String,
-      constitutionDate: DateTime.parse(json['constitutionDate'] as String),
-      constitutionCountryCode: json['constitutionCountryCode'] as String,
+      favorite: json['favorite'] as bool?,
+      legalName: json['legalName'] as String?,
+      comercialName: json['comercialName'] as String?,
+      constitutionDate: _$JsonConverterFromJson<String, DateTime>(
+          json['constitutionDate'], const DateConverter().fromJson),
+      constitutionCountryCode: json['constitutionCountryCode'] as String?,
       legalFormCode:
-          $enumDecode(_$LegalFormCodeDtoEnumMap, json['legalFormCode']),
-      nationalityCountryCode: json['nationalityCountryCode'] as String,
-      economicActivityCode: json['economicActivityCode'] as String,
-      typeCode: json['typeCode'] as String,
-      closureDate: DateTime.parse(json['closureDate'] as String),
+          $enumDecodeNullable(_$LegalFormCodeDtoEnumMap, json['legalFormCode']),
+      nationalityCountryCode: json['nationalityCountryCode'] as String?,
+      economicActivityCode: json['economicActivityCode'] as String?,
+      typeCode: json['typeCode'] as String?,
+      closureDate: _$JsonConverterFromJson<String, DateTime>(
+          json['closureDate'], const DateConverter().fromJson),
     );
 
 Map<String, dynamic> _$LegalStakeholderDtoToJson(LegalStakeholderDto instance) {
@@ -53,10 +54,7 @@ Map<String, dynamic> _$LegalStakeholderDtoToJson(LegalStakeholderDto instance) {
   writeNotNull('languageCodeType',
       _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
   val['relationType'] = _$RelationTypeDtoEnumMap[instance.relationType]!;
-  writeNotNull(
-      'createDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createDate, const DateConverter().toJson));
+  val['createDate'] = const DateConverter().toJson(instance.createDate);
   writeNotNull('documentTypeCode',
       _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
   writeNotNull('documentNumber', instance.documentNumber);
@@ -65,16 +63,23 @@ Map<String, dynamic> _$LegalStakeholderDtoToJson(LegalStakeholderDto instance) {
   writeNotNull('preferenceSms', instance.preferenceSms);
   writeNotNull('preferenceMail', instance.preferenceMail);
   writeNotNull('preferenceWhatsapp', instance.preferenceWhatsapp);
-  writeNotNull('isFavorite', instance.isFavorite);
-  val['legalName'] = instance.legalName;
-  val['comercialName'] = instance.comercialName;
-  val['constitutionDate'] = instance.constitutionDate.toIso8601String();
-  val['constitutionCountryCode'] = instance.constitutionCountryCode;
-  val['legalFormCode'] = _$LegalFormCodeDtoEnumMap[instance.legalFormCode]!;
-  val['nationalityCountryCode'] = instance.nationalityCountryCode;
-  val['economicActivityCode'] = instance.economicActivityCode;
-  val['typeCode'] = instance.typeCode;
-  val['closureDate'] = instance.closureDate.toIso8601String();
+  writeNotNull('favorite', instance.favorite);
+  writeNotNull('legalName', instance.legalName);
+  writeNotNull('comercialName', instance.comercialName);
+  writeNotNull(
+      'constitutionDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.constitutionDate, const DateConverter().toJson));
+  writeNotNull('constitutionCountryCode', instance.constitutionCountryCode);
+  writeNotNull(
+      'legalFormCode', _$LegalFormCodeDtoEnumMap[instance.legalFormCode]);
+  writeNotNull('nationalityCountryCode', instance.nationalityCountryCode);
+  writeNotNull('economicActivityCode', instance.economicActivityCode);
+  writeNotNull('typeCode', instance.typeCode);
+  writeNotNull(
+      'closureDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.closureDate, const DateConverter().toJson));
   return val;
 }
 
@@ -97,18 +102,18 @@ const _$LanguageCodeTypeDtoEnumMap = {
   LanguageCodeTypeDto.english: 'ENGLISH',
 };
 
-Value? _$JsonConverterFromJson<Json, Value>(
-  Object? json,
-  Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
-
 const _$DocumentTypeCodeDtoEnumMap = {
   DocumentTypeCodeDto.dni: 'DNI',
   DocumentTypeCodeDto.nie: 'NIE',
   DocumentTypeCodeDto.nif: 'NIF',
   DocumentTypeCodeDto.passport: 'PASSPORT',
 };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
 
 const _$LegalFormCodeDtoEnumMap = {
   LegalFormCodeDto.nonProfit: 'NON_PROFIT',

@@ -42,17 +42,17 @@ class NaturalStakeholder extends Stakeholder {
   final String name;
   final String surname1;
   final String surname2;
-  final DateTime birthDate;
+  final DateTime? birthDate;
   final String birthCountryCode;
   final String nationalityCountryCode;
   final String residenceCountryCode;
   final bool residenceIndicator;
-  final Gender gender;
-  final MaritalStatus maritalStatus;
-  final MatrimonialRegime matrimonialRegime;
-  final DateTime deathDate;
-  final EmploymentStatus employmentStatus;
-  final String personOcuppationCode;
-  final String sector;
-  final String econimicActivityCode;
+  final Gender? gender;
+  final MaritalStatus? maritalStatus;
+  final MatrimonialRegime? matrimonialRegime;
+  final DateTime? deathDate;
+  final EmploymentStatus? employmentStatus;
+  final String? personOcuppationCode;
+  final String? sector;
+  final String? econimicActivityCode;
 }

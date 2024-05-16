@@ -48,7 +48,10 @@ class _ContactsPageState extends ConsumerState<Contacts> {
                 children: [
                   const Rankings(),
                   AppSpacing.vertical.s6,
-                  const ContactList(),
+                  const ContactList(
+                    title: 'Contactos',
+                    filteredBy: ContactListFilter.all,
+                  ),
                 ],
               ),
             ),

@@ -28,9 +28,9 @@ abstract class Stakeholder {
   final LanguageCodeType languageCode;
   final RelationType relation;
   final DateTime createDate;
-  final DocumentTypeCode documentCode;
-  final String documentNumber;
-  final String additionalInfo;
+  final DocumentTypeCode? documentCode;
+  final String? documentNumber;
+  final String? additionalInfo;
   final bool preferenceTelephone;
   final bool preferenceSms;
   final bool preferenceEmail;
