@@ -49,14 +49,13 @@ class TransactionAttachmentsSection extends StatelessWidget {
               .toList()
               .separateVertical(AppSpacing.s3),
         if (onFileSelected != null)
-          CustomTextButton(
-            text: 'Añadir archivo',
-            onTap: () {
-              UploadAttachmentsBottomSheet.show(
-                context: context,
-                onFileSelected: onFileSelected!,
-              );
-            },
+          Button(
+            type: ButtonType.text,
+            title: 'Añadir archivo',
+            onPressed: () async => UploadAttachmentsBottomSheet.show(
+              context: context,
+              onFileSelected: onFileSelected!,
+            ),
           ),
       ],
     );
