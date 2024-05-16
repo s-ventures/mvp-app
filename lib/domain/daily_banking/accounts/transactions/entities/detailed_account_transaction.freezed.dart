@@ -282,7 +282,7 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       required this.bankReceipt,
       required this.details,
       required this.accountId,
-      required final List<FileAttachment> attachments = const []})
+      final List<FileAttachment> attachments = const []})
       : _attachments = attachments;
 
   @override
@@ -399,7 +399,7 @@ abstract class _DetailedAccountTransaction
           required final bool? bankReceipt,
           required final ExtendedTransactionDetails? details,
           required final UniqueId accountId,
-          required final List<FileAttachment> attachments}) =
+          final List<FileAttachment> attachments}) =
       _$DetailedAccountTransactionImpl;
 
   @override

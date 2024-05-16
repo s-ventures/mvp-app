@@ -30,8 +30,8 @@ _$DetailedAccountTransactionDtoImpl
           originBranch: json['originBranch'] as String?,
           originalAmount: (json['originalAmount'] as num?)?.toDouble(),
           originalCurrencyCode: json['originalCurrencyCode'] as String?,
-          assignmentDate:
-              const DateConverter().fromJson(json['assignmentDate'] as String),
+          assignmentDate: _$JsonConverterFromJson<String, DateTime>(
+              json['assignmentDate'], const DateConverter().fromJson),
           attachments: (json['attachments'] as List<dynamic>?)
               ?.map((e) =>
                   FileAttachmentInfoDto.fromJson(e as Map<String, dynamic>))
@@ -65,7 +65,8 @@ Map<String, dynamic> _$$DetailedAccountTransactionDtoImplToJson(
       'originBranch': instance.originBranch,
       'originalAmount': instance.originalAmount,
       'originalCurrencyCode': instance.originalCurrencyCode,
-      'assignmentDate': const DateConverter().toJson(instance.assignmentDate),
+      'assignmentDate': _$JsonConverterToJson<String, DateTime>(
+          instance.assignmentDate, const DateConverter().toJson),
       'attachments': instance.attachments?.map((e) => e.toJson()).toList(),
       'extendedDetails':
           const ExtendedDetailsConverter().toJson(instance.extendedDetails),
@@ -106,3 +107,9 @@ const _$ProductTypeDtoEnumMap = {
   ProductTypeDto.aggregatedAccounts: 'AGGREGATED_ACCOUNTS',
   ProductTypeDto.unknown: 'UNKNOWN',
 };
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

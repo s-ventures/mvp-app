@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_upload_request_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/dio_provider.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/date_card_transactions_dto.dart';
@@ -18,14 +20,27 @@ abstract class CardTransactionsRestClient {
   factory CardTransactionsRestClient(Dio dio) = _CardTransactionsRestClient;
 
   @GET('/cards/v1/query/transactions')
-  Future<PaginatedResponse<DateCardTransactionsDto>>
-      getSimplifiedCardTransactions({
+  Future<PaginatedResponse<DateCardTransactionsDto>> getSimplifiedCardTransactions({
     @Query('') required CardTransactionsFilterDto filter,
   });
 
   @GET('/cards/v1/{cardContractId}/transactions/{transactionId}')
   Future<DetailedCardTransactionDto> getDetailedCardTransaction({
-    @Path('cardContractId') required int cardContractId,
-    @Path('transactionId') required int transactionId,
+    @Path('cardContractId') required String cardContractId,
+    @Path('transactionId') required String transactionId,
+  });
+
+  @POST('/cards/v1/{cardContractId}/transactions/{transactionId}/attachments')
+  Future<FileAttachmentDto> uploadFileAttachmentForTransaction({
+    @Path('cardContractId') required String cardContractId,
+    @Path('transactionId') required String transactionId,
+    @Body() required FileAttachmentUploadRequestDto body,
+  });
+
+  @DELETE('/cards/v1/{cardContractId}/transactions/{transactionId}/attachments/{fileId}')
+  Future<void> removeFileAttachmentFromTransaction({
+    @Path('cardContractId') required String cardContractId,
+    @Path('transactionId') required String transactionId,
+    @Path('fileId') required String fileId,
   });
 }

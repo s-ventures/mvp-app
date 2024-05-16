@@ -56,6 +56,9 @@ class CardTransactionsRepository implements ICardTransactionsRepository {
         for (final e in response.data)
           const DateConverter().fromJson(e.date): e.transactions.map((e) => e.toDomain()).toList(),
       });
+
+      // final transactions = response.data.map((e) => e.toDomain()).toList();
+      // return right(transactions);
     } catch (_) {
       return left(const SimplifiedCardTransactionFailure.unexpected());
     }

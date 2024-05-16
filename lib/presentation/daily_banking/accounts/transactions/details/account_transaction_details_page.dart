@@ -8,14 +8,15 @@ import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_at
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/detailed/detailed_account_transaction_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transaction_type.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
+import 'package:manifiesto_mvp_app/presentation/core/show_toast_mixin.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_card_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_debit_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_direct_debit_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_tax_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_transfer_in_details.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/transaction_transfer_out_details.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/details/widgets/upload_attachments.dart';
 import 'package:manifiesto_mvp_app/presentation/extensions/localization/upload_attachments.dart';
+import 'package:manifiesto_mvp_app/presentation/shared/transaction/transaction_attachments_section.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -32,12 +33,10 @@ class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
   final AccountTransactionType type;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _AccountTransactionDetailsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _AccountTransactionDetailsPageState();
 }
 
-class _AccountTransactionDetailsPageState
-    extends ConsumerState<AccountTransactionDetailsPage> {
+class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransactionDetailsPage> with ShowToastMixin {
   final PublishSubject<UploadFileFailure> _failureSubject = PublishSubject();
   final CompositeSubscription _compositeSubscription = CompositeSubscription();
 
@@ -53,8 +52,7 @@ class _AccountTransactionDetailsPageState
     });
 
     ref.listenManual(
-      detailedAccountTransactionControllerProvider
-          .select((state) => state.uploadEvent),
+      detailedAccountTransactionControllerProvider.select((state) => state.uploadEvent),
       (_, event) {
         _handleEvent(event.getData());
       },
@@ -62,7 +60,7 @@ class _AccountTransactionDetailsPageState
 
     _failureSubject
         .throttleTime(kSnackBarDisplayDuration)
-        .doOnData(_showToastFailure)
+        .doOnData((failure) => showToastFailure(context, message: failure.localize()))
         .listenSafe(_compositeSubscription);
     super.initState();
   }
@@ -75,15 +73,12 @@ class _AccountTransactionDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        ref.watch(detailedAccountTransactionControllerProvider.notifier);
+    final controller = ref.watch(detailedAccountTransactionControllerProvider.notifier);
     final transaction = ref.watch(
-      detailedAccountTransactionControllerProvider
-          .select((value) => value.transaction),
+      detailedAccountTransactionControllerProvider.select((value) => value.transaction),
     );
     final attachments = ref.watch(
-      detailedAccountTransactionControllerProvider
-          .select((value) => value.attachments),
+      detailedAccountTransactionControllerProvider.select((value) => value.attachments),
     );
 
     return Scaffold(
@@ -109,26 +104,19 @@ class _AccountTransactionDetailsPageState
         },
         body: transaction.when(
           data: (transaction) => switch (widget.type) {
-            AccountTransactionType.tax =>
-              TransactionTaxDetails(transaction: transaction),
-            AccountTransactionType.card =>
-              TransactionCardDetails(transaction: transaction),
-            AccountTransactionType.debit =>
-              TransactionDebitDetails(transaction: transaction),
-            AccountTransactionType.directDebit =>
-              TransactionDirectDebitDetails(transaction: transaction),
-            AccountTransactionType.transferIn =>
-              TransactionTransferInDetails(transaction: transaction),
-            AccountTransactionType.transferOut =>
-              TransactionTransferOutDetails(transaction: transaction),
+            AccountTransactionType.tax => TransactionTaxDetails(transaction: transaction),
+            AccountTransactionType.card => TransactionCardDetails(transaction: transaction),
+            AccountTransactionType.debit => TransactionDebitDetails(transaction: transaction),
+            AccountTransactionType.directDebit => TransactionDirectDebitDetails(transaction: transaction),
+            AccountTransactionType.transferIn => TransactionTransferInDetails(transaction: transaction),
+            AccountTransactionType.transferOut => TransactionTransferOutDetails(transaction: transaction),
             AccountTransactionType.other => ListView(
                 padding: const EdgeInsets.all(AppSpacing.s5),
                 children: [
                   MovementDetailsSummary(
                     title: transaction.description,
                     iconText: '🏦',
-                    iconBgColor:
-                        context.color.secondaryLight600.withOpacity(.2),
+                    iconBgColor: context.color.secondaryLight600.withOpacity(.2),
                     amount: transaction.amount,
                     date: transaction.postingDate,
                   ),
@@ -155,12 +143,11 @@ class _AccountTransactionDetailsPageState
                   AppSpacing.vertical.s5,
                   const MovementDetailsVoucher(),
                   AppSpacing.vertical.s5,
-                  MovementDetailsUploadAttachments(
+                  TransactionAttachmentsSection(
+                    title: 'Adjuntos',
                     attachments: attachments,
                     onFileSelected:
-                        attachments.length < controller.maxAttachments
-                            ? (file) => controller.addFiles([file])
-                            : null,
+                        attachments.length < controller.maxAttachments ? (file) => controller.addFiles([file]) : null,
                     onRemove: controller.removeFile,
                   ),
                   AppSpacing.vertical.s5,
@@ -196,15 +183,10 @@ class _AccountTransactionDetailsPageState
 
     event.when(
       failure: _handleFailure,
-      deleteFileSuccess: () => _handleSuccess('Documento adjunto eliminado'),
-    );
-  }
-
-  void _handleSuccess(String message) {
-    CustomToast.show(
-      context,
-      content: message,
-      type: ToastType.success,
+      deleteFileSuccess: () => showSuccessToast(
+        context,
+        message: 'Documento adjunto eliminado',
+      ),
     );
   }
 
@@ -214,14 +196,6 @@ class _AccountTransactionDetailsPageState
     }
 
     _failureSubject.add(failure);
-  }
-
-  void _showToastFailure(UploadFileFailure failure) {
-    CustomToast.show(
-      context,
-      content: failure.localize(),
-      type: ToastType.error,
-    );
   }
 
   List<PopupMenuEntry<dynamic>> get _actions => switch (widget.type) {

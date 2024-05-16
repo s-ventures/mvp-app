@@ -18,8 +18,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/tr
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/detailed_account_transaction_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/simplified_account_transaction_dto.dart';
 
-final accountTransactionsRepositoryProvider =
-    Provider<AccountTransactionsRepository>(
+final accountTransactionsRepositoryProvider = Provider<AccountTransactionsRepository>(
   (ref) => AccountTransactionsRepository(
     remoteDataSource: AccountTransactionsRemoteDataSource(
       ref.watch(accountTransactionsRestClientProvider),
@@ -35,9 +34,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
   final AccountTransactionsRemoteDataSource _remoteDataSource;
 
   @override
-  Future<
-          Either<SimplifiedAccountTransactionFailure,
-              Map<DateTime, List<SimplifiedAccountTransaction>>>>
+  Future<Either<SimplifiedAccountTransactionFailure, Map<DateTime, List<SimplifiedAccountTransaction>>>>
       getSimplifiedAccountTransactions({
     required AccountTransactionsFilter filter,
     int page = 0,
@@ -56,8 +53,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
       onPaginationInfo?.call(response.totalPages, response.totalElements);
       return right({
         for (final e in response.data)
-          const DateConverter().fromJson(e.date):
-              e.transactions.map((e) => e.toDomain()).toList(),
+          const DateConverter().fromJson(e.date): e.transactions.map((e) => e.toDomain()).toList(),
       });
     } catch (_) {
       return left(const SimplifiedAccountTransactionFailure.unexpected());
@@ -65,8 +61,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
   }
 
   @override
-  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>>
-      getDetailedAccountTransaction({
+  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>> getDetailedAccountTransaction({
     required String accountId,
     required String transactionId,
   }) async {
@@ -81,16 +76,15 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
     }
   }
 
-  Future<Either<UploadFileFailure, FileAttachmentUploaded>>
-      attachFileToTransaction({
+  @override
+  Future<Either<UploadFileFailure, FileAttachmentUploaded>> attachFileToTransaction({
     required String accountId,
     required String transactionId,
     required File file,
     required String fileName,
   }) async {
     try {
-      final response =
-          await _remoteDataSource.uploadFileAttachmentForTransaction(
+      final response = await _remoteDataSource.uploadFileAttachmentForTransaction(
         accountId: accountId,
         transactionId: transactionId,
         file: file,
@@ -102,6 +96,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
     }
   }
 
+  @override
   Future<Either<UploadFileFailure, void>> removeAttachmentFromTransaction({
     required String accountId,
     required String transactionId,

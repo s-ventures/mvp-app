@@ -50,7 +50,8 @@ mixin _$DetailedAccountTransactionDto {
   String? get originalCurrencyCode =>
       throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
-  DateTime get assignmentDate => throw _privateConstructorUsedError;
+  DateTime? get assignmentDate =>
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   List<FileAttachmentInfoDto>? get attachments =>
       throw _privateConstructorUsedError;
   @ExtendedDetailsConverter()
@@ -91,7 +92,7 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       String? originBranch,
       double? originalAmount,
       String? originalCurrencyCode,
-      @DateConverter() DateTime assignmentDate,
+      @DateConverter() DateTime? assignmentDate,
       List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
@@ -130,7 +131,7 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? originBranch = freezed,
     Object? originalAmount = freezed,
     Object? originalCurrencyCode = freezed,
-    Object? assignmentDate = null,
+    Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
     Object? productType = null,
@@ -212,10 +213,10 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.originalCurrencyCode
           : originalCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      assignmentDate: null == assignmentDate
+      assignmentDate: freezed == assignmentDate
           ? _value.assignmentDate
           : assignmentDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       attachments: freezed == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -261,7 +262,7 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       String? originBranch,
       double? originalAmount,
       String? originalCurrencyCode,
-      @DateConverter() DateTime assignmentDate,
+      @DateConverter() DateTime? assignmentDate,
       List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
@@ -299,7 +300,7 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? originBranch = freezed,
     Object? originalAmount = freezed,
     Object? originalCurrencyCode = freezed,
-    Object? assignmentDate = null,
+    Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
     Object? productType = null,
@@ -381,10 +382,10 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.originalCurrencyCode
           : originalCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      assignmentDate: null == assignmentDate
+      assignmentDate: freezed == assignmentDate
           ? _value.assignmentDate
           : assignmentDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       attachments: freezed == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -484,8 +485,10 @@ class _$DetailedAccountTransactionDtoImpl
 // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   @DateConverter()
-  final DateTime assignmentDate;
+  final DateTime? assignmentDate;
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   final List<FileAttachmentInfoDto>? _attachments;
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   List<FileAttachmentInfoDto>? get attachments {
     final value = _attachments;
@@ -622,7 +625,7 @@ abstract class _DetailedAccountTransactionDto
           required final String? originBranch,
           required final double? originalAmount,
           required final String? originalCurrencyCode,
-          @DateConverter() required final DateTime assignmentDate,
+          @DateConverter() required final DateTime? assignmentDate,
           required final List<FileAttachmentInfoDto>? attachments,
           @ExtendedDetailsConverter()
           required final ExtendedDetailsDto? extendedDetails,
@@ -674,8 +677,8 @@ abstract class _DetailedAccountTransactionDto
   String? get originalCurrencyCode;
   @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
-  DateTime get assignmentDate;
-  @override
+  DateTime? get assignmentDate;
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   List<FileAttachmentInfoDto>? get attachments;
   @override
   @ExtendedDetailsConverter()

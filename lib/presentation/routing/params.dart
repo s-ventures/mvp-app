@@ -14,8 +14,7 @@ class WebViewPageRouteParams {
 
   final String title;
   final String url;
-  final FutureOr<NavigationDecision> Function(NavigationRequest)?
-      onNavigationRequest;
+  final FutureOr<NavigationDecision> Function(NavigationRequest)? onNavigationRequest;
 }
 
 // DAILY BANKING
@@ -38,8 +37,8 @@ class CardTransactionDetailsRouteParams {
     required this.transactionId,
   });
 
-  final int cardContractId;
-  final int transactionId;
+  final String cardContractId;
+  final String transactionId;
 }
 
 // Wires

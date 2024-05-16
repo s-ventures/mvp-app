@@ -8,16 +8,12 @@ import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 part 'detailed_account_transaction_state.freezed.dart';
 
 @freezed
-class DetailedAccountTransactionState
-    with _$DetailedAccountTransactionState
-    implements UploadAttachmentState {
+class DetailedAccountTransactionState with _$DetailedAccountTransactionState implements UploadAttachmentState {
   @Implements<UploadAttachmentState>()
   const factory DetailedAccountTransactionState({
-    @Default(AsyncLoading<DetailedAccountTransaction>())
-    AsyncValue<DetailedAccountTransaction> transaction,
+    @Default(AsyncLoading<DetailedAccountTransaction>()) AsyncValue<DetailedAccountTransaction> transaction,
     @Default([]) List<FileAttachment> attachments,
-    @Default(SingleAccessVoid<UploadEvent>())
-    SingleAccessValue<UploadEvent> uploadEvent,
+    @Default(SingleAccessVoid<UploadEvent>()) SingleAccessValue<UploadEvent> uploadEvent,
   }) = _DetailedAccountTransactionState;
 
   const DetailedAccountTransactionState._();
@@ -34,6 +30,5 @@ class DetailedAccountTransactionState
   }
 
   @override
-  bool get attachmentsAreLoading =>
-      attachments.any((element) => !element.isReady);
+  bool get attachmentsAreLoading => attachments.any((element) => !element.isReady);
 }

@@ -28,6 +28,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/detailed_card_transaction.dart';
+import 'package:manifiesto_mvp_app/infrastructure/attachments/dtos/file_attachment_info_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/extended_details_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/product_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
@@ -54,10 +55,10 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
     required this.postingTime,
     required this.accountMovementId,
     required this.productType,
+    required this.attachments,
   });
 
-  factory DetailedCardTransactionDto.fromJson(Map<String, dynamic> json) =>
-      _$DetailedCardTransactionDtoFromJson(json);
+  factory DetailedCardTransactionDto.fromJson(Map<String, dynamic> json) => _$DetailedCardTransactionDtoFromJson(json);
 
   final int movementId;
   @DateConverter()
@@ -78,6 +79,7 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
   final String postingTime;
   final int accountMovementId;
   final ProductTypeDto productType;
+  final List<FileAttachmentInfoDto>? attachments;
 
   @override
   Map<String, dynamic> toJson() => _$DetailedCardTransactionDtoToJson(this);
@@ -86,13 +88,14 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
 extension DetailedClaimDtoX on DetailedCardTransactionDto {
   DetailedCardTransaction toDomain() {
     return DetailedCardTransaction(
-      movementId: UniqueId.fromUniqueString(movementId.toString()),
+      id: UniqueId.fromUniqueString(movementId.toString()),
       amount: amount,
       postingDate: postingDate,
       description: description,
       placeId: placeId,
       merchantName: merchantName,
       concept: concept,
+      attachments: attachments?.map((a) => a.toDomain()).toList() ?? [],
     );
   }
 }
