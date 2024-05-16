@@ -14,12 +14,12 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.9
-  localizations:
-    path: ../localizations
   go_router: ^13.2.0
   google_fonts: ^6.1.0
   image_picker: ^1.1.1
   intl: ^0.18.0
+  localizations:
+    path: ../localizations
   wolt_modal_sheet: ^0.5.0
 
 dev_dependencies:
