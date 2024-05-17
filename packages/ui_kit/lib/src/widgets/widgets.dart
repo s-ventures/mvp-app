@@ -30,6 +30,7 @@ export 'daily_banking/transaction_list_tile.dart';
 export 'dates/custom_date_picker_list_tile.dart';
 export 'dates/date_range_list_tile.dart';
 export 'fake_search_bar.dart';
+export 'filters/amount_range.dart';
 export 'icon_over_text_button.dart';
 export 'icon_svg.dart';
 export 'icon_with_container.dart';

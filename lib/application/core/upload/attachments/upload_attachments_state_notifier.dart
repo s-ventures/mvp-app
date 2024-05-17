@@ -80,7 +80,7 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState>
       setStateSafe(
         () => state.updateWith(
           uploadEvent: SingleAccessData(
-              UploadEvent.failure(UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb))),
+              UploadEvent.failure(UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb)),),
         ) as T,
       );
     }
@@ -120,7 +120,7 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState>
         (success) {
           setStateSafe(
             () => state.updateWith(
-                uploadEvent: SingleAccessData(const UploadEvent.deleteFileSuccess())) as T,
+                uploadEvent: SingleAccessData(const UploadEvent.deleteFileSuccess()),) as T,
           );
         },
       );

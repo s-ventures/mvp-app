@@ -15,5 +15,5 @@ abstract class ISentTransfersRepository {
   });
 
   Future<Either<DetailedSentTransferFailure, DetailedSentTransfer>> getDetailedSentTransfer(
-      {required int sentTransferId});
+      {required int sentTransferId,});
 }

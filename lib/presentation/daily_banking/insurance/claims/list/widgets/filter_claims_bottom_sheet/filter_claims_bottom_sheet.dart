@@ -111,37 +111,32 @@ class FilterClaimsBottomSheet {
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Estado',
-                        style: context.textStyle.bodyMediumSemiBold.copyWith(
-                          color: context.color.textLight600,
-                        ),
-                      ),
-                      AppSpacing.vertical.s2,
-                      ClaimStatusFilter(
-                        status: status,
-                        setStatusTo: (ClaimStatusType value) => setStatusTo(value),
-                      ),
-                      AppSpacing.vertical.s5,
-                      Text(
-                        'Fecha',
-                        style: context.textStyle.bodyMediumSemiBold.copyWith(
-                          color: context.color.textLight600,
-                        ),
-                      ),
-                      AppSpacing.vertical.s2,
-                      DateRangeFilter(
-                        startDate: startDate,
-                        endDate: endDate,
-                        setStartDate: (DateTime value) => setStartDate(value),
-                        setEndDate: (DateTime value) => setEndDate(value),
-                      ),
-                      AppSpacing.vertical.s5,
-                    ],
+                  Text(
+                    'Estado',
+                    style: context.textStyle.bodyMediumSemiBold.copyWith(
+                      color: context.color.textLight600,
+                    ),
                   ),
+                  AppSpacing.vertical.s2,
+                  ClaimStatusFilter(
+                    status: status,
+                    setStatusTo: (ClaimStatusType value) => setStatusTo(value),
+                  ),
+                  AppSpacing.vertical.s5,
+                  Text(
+                    'Fecha',
+                    style: context.textStyle.bodyMediumSemiBold.copyWith(
+                      color: context.color.textLight600,
+                    ),
+                  ),
+                  AppSpacing.vertical.s2,
+                  DateRangeFilter(
+                    startDate: startDate,
+                    endDate: endDate,
+                    setStartDate: (DateTime value) => setStartDate(value),
+                    setEndDate: (DateTime value) => setEndDate(value),
+                  ),
+                  AppSpacing.vertical.s5,
                   Text(
                     'Categoría',
                     style: context.textStyle.bodyMediumSemiBold.copyWith(

@@ -31,7 +31,7 @@ class ScaffoldWithBottomNavBar extends ConsumerWidget {
       // https://github.com/flutter/flutter/issues/99124
       context.goNamed(AppRoute.dailyBanking.name);
     } else if (index == 1) {
-      context.goNamed(AppRoute.negocio.name);
+      context.goNamed(AppRoute.erp.name);
     } else if (index == 2) {
       context.goNamed(AppRoute.contacts.name);
     } else if (index == 3) {

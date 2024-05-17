@@ -22,10 +22,12 @@ class CardTransactionDetailsPage extends ConsumerStatefulWidget {
   final int transactionId;
 
   @override
-  ConsumerState<CardTransactionDetailsPage> createState() => _CardTransactionDetailsPageState();
+  ConsumerState<CardTransactionDetailsPage> createState() =>
+      _CardTransactionDetailsPageState();
 }
 
-class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDetailsPage> {
+class _CardTransactionDetailsPageState
+    extends ConsumerState<CardTransactionDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -41,7 +43,8 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
 
   @override
   Widget build(BuildContext context) {
-    final transaction = ref.watch(detailedCardTransactionControllerProvider).transaction;
+    final transaction =
+        ref.watch(detailedCardTransactionControllerProvider).transaction;
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -121,7 +124,7 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
                     UploadFilesBottomSheet.show(context: context);
                   },
                   onCreateExpensePressed: () {
-                    context.goNamed(AppRoute.negocio.name);
+                    context.goNamed(AppRoute.erp.name);
                   },
                 ),
                 AppSpacing.vertical.s5,
@@ -135,7 +138,7 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
                     );
                   },
                   onCreateExpensePressed: () {
-                    context.goNamed(AppRoute.negocio.name);
+                    context.goNamed(AppRoute.erp.name);
                   },
                 ),
                 AppSpacing.vertical.s5,

@@ -88,7 +88,7 @@ class TransactionDirectDebitDetails extends StatelessWidget {
             UploadFilesBottomSheet.show(context: context);
           },
           onCreateExpensePressed: () {
-            context.goNamed(AppRoute.negocio.name);
+            context.goNamed(AppRoute.erp.name);
           },
         ),
         AppSpacing.vertical.s5,
