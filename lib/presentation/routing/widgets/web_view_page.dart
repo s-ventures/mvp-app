@@ -12,8 +12,7 @@ class WebViewPage extends StatelessWidget {
   });
 
   final String url;
-  final FutureOr<NavigationDecision> Function(NavigationRequest)?
-      onNavigationRequest;
+  final FutureOr<NavigationDecision> Function(NavigationRequest)? onNavigationRequest;
 
   @override
   Widget build(BuildContext context) {

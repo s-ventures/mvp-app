@@ -59,8 +59,8 @@ class _$AccountBalanceStateCopyWithImpl<$Res, $Val extends AccountBalanceState>
 /// @nodoc
 abstract class _$$AccountBalanceStateImplCopyWith<$Res>
     implements $AccountBalanceStateCopyWith<$Res> {
-  factory _$$AccountBalanceStateImplCopyWith(_$AccountBalanceStateImpl value,
-          $Res Function(_$AccountBalanceStateImpl) then) =
+  factory _$$AccountBalanceStateImplCopyWith(
+          _$AccountBalanceStateImpl value, $Res Function(_$AccountBalanceStateImpl) then) =
       __$$AccountBalanceStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -71,8 +71,8 @@ abstract class _$$AccountBalanceStateImplCopyWith<$Res>
 class __$$AccountBalanceStateImplCopyWithImpl<$Res>
     extends _$AccountBalanceStateCopyWithImpl<$Res, _$AccountBalanceStateImpl>
     implements _$$AccountBalanceStateImplCopyWith<$Res> {
-  __$$AccountBalanceStateImplCopyWithImpl(_$AccountBalanceStateImpl _value,
-      $Res Function(_$AccountBalanceStateImpl) _then)
+  __$$AccountBalanceStateImplCopyWithImpl(
+      _$AccountBalanceStateImpl _value, $Res Function(_$AccountBalanceStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,8 +92,7 @@ class __$$AccountBalanceStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AccountBalanceStateImpl implements _AccountBalanceState {
-  const _$AccountBalanceStateImpl(
-      {this.balance = const AsyncLoading<AccountBalance>()});
+  const _$AccountBalanceStateImpl({this.balance = const AsyncLoading<AccountBalance>()});
 
   @override
   @JsonKey()
@@ -119,13 +118,12 @@ class _$AccountBalanceStateImpl implements _AccountBalanceState {
   @override
   @pragma('vm:prefer-inline')
   _$$AccountBalanceStateImplCopyWith<_$AccountBalanceStateImpl> get copyWith =>
-      __$$AccountBalanceStateImplCopyWithImpl<_$AccountBalanceStateImpl>(
-          this, _$identity);
+      __$$AccountBalanceStateImplCopyWithImpl<_$AccountBalanceStateImpl>(this, _$identity);
 }
 
 abstract class _AccountBalanceState implements AccountBalanceState {
-  const factory _AccountBalanceState(
-      {final AsyncValue<AccountBalance> balance}) = _$AccountBalanceStateImpl;
+  const factory _AccountBalanceState({final AsyncValue<AccountBalance> balance}) =
+      _$AccountBalanceStateImpl;
 
   @override
   AsyncValue<AccountBalance> get balance;

@@ -20,21 +20,17 @@ mixin _$SimplifiedCardTransactionsState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedCardTransactionsStateCopyWith<SimplifiedCardTransactionsState>
-      get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedCardTransactionsStateCopyWith<SimplifiedCardTransactionsState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedCardTransactionsStateCopyWith<$Res> {
-  factory $SimplifiedCardTransactionsStateCopyWith(
-          SimplifiedCardTransactionsState value,
+  factory $SimplifiedCardTransactionsStateCopyWith(SimplifiedCardTransactionsState value,
           $Res Function(SimplifiedCardTransactionsState) then) =
-      _$SimplifiedCardTransactionsStateCopyWithImpl<$Res,
-          SimplifiedCardTransactionsState>;
+      _$SimplifiedCardTransactionsStateCopyWithImpl<$Res, SimplifiedCardTransactionsState>;
   @useResult
-  $Res call(
-      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
-          transactions});
+  $Res call({AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions});
 }
 
 /// @nodoc
@@ -71,9 +67,7 @@ abstract class _$$SimplifiedCardTransactionsStateImplCopyWith<$Res>
       __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
-          transactions});
+  $Res call({AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions});
 }
 
 /// @nodoc
@@ -81,8 +75,7 @@ class __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>
     extends _$SimplifiedCardTransactionsStateCopyWithImpl<$Res,
         _$SimplifiedCardTransactionsStateImpl>
     implements _$$SimplifiedCardTransactionsStateImplCopyWith<$Res> {
-  __$$SimplifiedCardTransactionsStateImplCopyWithImpl(
-      _$SimplifiedCardTransactionsStateImpl _value,
+  __$$SimplifiedCardTransactionsStateImplCopyWithImpl(_$SimplifiedCardTransactionsStateImpl _value,
       $Res Function(_$SimplifiedCardTransactionsStateImpl) _then)
       : super(_value, _then);
 
@@ -102,11 +95,9 @@ class __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SimplifiedCardTransactionsStateImpl
-    implements _SimplifiedCardTransactionsState {
+class _$SimplifiedCardTransactionsStateImpl implements _SimplifiedCardTransactionsState {
   const _$SimplifiedCardTransactionsStateImpl(
-      {this.transactions = const AsyncLoading<
-          Map<DateTime, List<SimplifiedCardTransaction>>>()});
+      {this.transactions = const AsyncLoading<Map<DateTime, List<SimplifiedCardTransaction>>>()});
 
   @override
   @JsonKey()
@@ -122,8 +113,7 @@ class _$SimplifiedCardTransactionsStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedCardTransactionsStateImpl &&
-            (identical(other.transactions, transactions) ||
-                other.transactions == transactions));
+            (identical(other.transactions, transactions) || other.transactions == transactions));
   }
 
   @override
@@ -132,23 +122,20 @@ class _$SimplifiedCardTransactionsStateImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedCardTransactionsStateImplCopyWith<
-          _$SimplifiedCardTransactionsStateImpl>
+  _$$SimplifiedCardTransactionsStateImplCopyWith<_$SimplifiedCardTransactionsStateImpl>
       get copyWith => __$$SimplifiedCardTransactionsStateImplCopyWithImpl<
           _$SimplifiedCardTransactionsStateImpl>(this, _$identity);
 }
 
-abstract class _SimplifiedCardTransactionsState
-    implements SimplifiedCardTransactionsState {
+abstract class _SimplifiedCardTransactionsState implements SimplifiedCardTransactionsState {
   const factory _SimplifiedCardTransactionsState(
-      {final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
-          transactions}) = _$SimplifiedCardTransactionsStateImpl;
+          {final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions}) =
+      _$SimplifiedCardTransactionsStateImpl;
 
   @override
   AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> get transactions;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedCardTransactionsStateImplCopyWith<
-          _$SimplifiedCardTransactionsStateImpl>
+  _$$SimplifiedCardTransactionsStateImplCopyWith<_$SimplifiedCardTransactionsStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

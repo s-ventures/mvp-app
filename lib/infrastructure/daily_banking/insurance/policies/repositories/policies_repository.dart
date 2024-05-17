@@ -14,8 +14,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/polici
 
 final policiesRepositoryProvider = Provider<PoliciesRepository>(
   (ref) => PoliciesRepository(
-    remoteDataSource:
-        PoliciesRemoteDataSource(ref.watch(policiesRestClientProvider)),
+    remoteDataSource: PoliciesRemoteDataSource(ref.watch(policiesRestClientProvider)),
   ),
 );
 
@@ -27,8 +26,7 @@ class PoliciesRepository implements IPoliciesRepository {
   final PoliciesRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<SimplifiedPolicyFailure, List<SimplifiedPolicy>>>
-      getSimplifiedPolicies({
+  Future<Either<SimplifiedPolicyFailure, List<SimplifiedPolicy>>> getSimplifiedPolicies({
     required PoliciesFilter filter,
     int page = 0,
     int pageSize = 10,

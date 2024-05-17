@@ -23,22 +23,16 @@ mixin _$SimplifiedClaim {
   String get reason => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedClaimCopyWith<SimplifiedClaim> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SimplifiedClaimCopyWith<SimplifiedClaim> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedClaimCopyWith<$Res> {
-  factory $SimplifiedClaimCopyWith(
-          SimplifiedClaim value, $Res Function(SimplifiedClaim) then) =
+  factory $SimplifiedClaimCopyWith(SimplifiedClaim value, $Res Function(SimplifiedClaim) then) =
       _$SimplifiedClaimCopyWithImpl<$Res, SimplifiedClaim>;
   @useResult
   $Res call(
-      {UniqueId id,
-      UniqueId insuranceId,
-      ClaimStatusType status,
-      String riskType,
-      String reason});
+      {UniqueId id, UniqueId insuranceId, ClaimStatusType status, String riskType, String reason});
 }
 
 /// @nodoc
@@ -86,19 +80,14 @@ class _$SimplifiedClaimCopyWithImpl<$Res, $Val extends SimplifiedClaim>
 }
 
 /// @nodoc
-abstract class _$$SimplifiedClaimImplCopyWith<$Res>
-    implements $SimplifiedClaimCopyWith<$Res> {
-  factory _$$SimplifiedClaimImplCopyWith(_$SimplifiedClaimImpl value,
-          $Res Function(_$SimplifiedClaimImpl) then) =
+abstract class _$$SimplifiedClaimImplCopyWith<$Res> implements $SimplifiedClaimCopyWith<$Res> {
+  factory _$$SimplifiedClaimImplCopyWith(
+          _$SimplifiedClaimImpl value, $Res Function(_$SimplifiedClaimImpl) then) =
       __$$SimplifiedClaimImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {UniqueId id,
-      UniqueId insuranceId,
-      ClaimStatusType status,
-      String riskType,
-      String reason});
+      {UniqueId id, UniqueId insuranceId, ClaimStatusType status, String riskType, String reason});
 }
 
 /// @nodoc
@@ -175,24 +164,20 @@ class _$SimplifiedClaimImpl implements _SimplifiedClaim {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedClaimImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.insuranceId, insuranceId) ||
-                other.insuranceId == insuranceId) &&
+            (identical(other.insuranceId, insuranceId) || other.insuranceId == insuranceId) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.riskType, riskType) ||
-                other.riskType == riskType) &&
+            (identical(other.riskType, riskType) || other.riskType == riskType) &&
             (identical(other.reason, reason) || other.reason == reason));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, insuranceId, status, riskType, reason);
+  int get hashCode => Object.hash(runtimeType, id, insuranceId, status, riskType, reason);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimplifiedClaimImplCopyWith<_$SimplifiedClaimImpl> get copyWith =>
-      __$$SimplifiedClaimImplCopyWithImpl<_$SimplifiedClaimImpl>(
-          this, _$identity);
+      __$$SimplifiedClaimImplCopyWithImpl<_$SimplifiedClaimImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedClaim implements SimplifiedClaim {

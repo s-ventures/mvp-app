@@ -11,8 +11,7 @@ final detailedAccountControllerProvider =
 );
 
 class DetailedAccountController extends StateNotifier<DetailedAccountState> {
-  DetailedAccountController(this._repository)
-      : super(const DetailedAccountState());
+  DetailedAccountController(this._repository) : super(const DetailedAccountState());
 
   final AccountsRepository _repository;
 

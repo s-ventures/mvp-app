@@ -29,8 +29,7 @@ mixin _$PeriodicOrdersFilter {
   DateTime? get startDateTo => throw _privateConstructorUsedError;
   DateTime? get endDateFrom => throw _privateConstructorUsedError;
   DateTime? get endDateTo => throw _privateConstructorUsedError;
-  PeriodicOrderFrecuencyType? get frecuency =>
-      throw _privateConstructorUsedError;
+  PeriodicOrderFrecuencyType? get frecuency => throw _privateConstructorUsedError;
   PeriodicOrderStatusType? get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -40,8 +39,8 @@ mixin _$PeriodicOrdersFilter {
 
 /// @nodoc
 abstract class $PeriodicOrdersFilterCopyWith<$Res> {
-  factory $PeriodicOrdersFilterCopyWith(PeriodicOrdersFilter value,
-          $Res Function(PeriodicOrdersFilter) then) =
+  factory $PeriodicOrdersFilterCopyWith(
+          PeriodicOrdersFilter value, $Res Function(PeriodicOrdersFilter) then) =
       _$PeriodicOrdersFilterCopyWithImpl<$Res, PeriodicOrdersFilter>;
   @useResult
   $Res call(
@@ -63,8 +62,7 @@ abstract class $PeriodicOrdersFilterCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PeriodicOrdersFilterCopyWithImpl<$Res,
-        $Val extends PeriodicOrdersFilter>
+class _$PeriodicOrdersFilterCopyWithImpl<$Res, $Val extends PeriodicOrdersFilter>
     implements $PeriodicOrdersFilterCopyWith<$Res> {
   _$PeriodicOrdersFilterCopyWithImpl(this._value, this._then);
 
@@ -160,8 +158,8 @@ class _$PeriodicOrdersFilterCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$PeriodicOrdersFilterImplCopyWith<$Res>
     implements $PeriodicOrdersFilterCopyWith<$Res> {
-  factory _$$PeriodicOrdersFilterImplCopyWith(_$PeriodicOrdersFilterImpl value,
-          $Res Function(_$PeriodicOrdersFilterImpl) then) =
+  factory _$$PeriodicOrdersFilterImplCopyWith(
+          _$PeriodicOrdersFilterImpl value, $Res Function(_$PeriodicOrdersFilterImpl) then) =
       __$$PeriodicOrdersFilterImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -187,8 +185,8 @@ abstract class _$$PeriodicOrdersFilterImplCopyWith<$Res>
 class __$$PeriodicOrdersFilterImplCopyWithImpl<$Res>
     extends _$PeriodicOrdersFilterCopyWithImpl<$Res, _$PeriodicOrdersFilterImpl>
     implements _$$PeriodicOrdersFilterImplCopyWith<$Res> {
-  __$$PeriodicOrdersFilterImplCopyWithImpl(_$PeriodicOrdersFilterImpl _value,
-      $Res Function(_$PeriodicOrdersFilterImpl) _then)
+  __$$PeriodicOrdersFilterImplCopyWithImpl(
+      _$PeriodicOrdersFilterImpl _value, $Res Function(_$PeriodicOrdersFilterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -346,34 +344,24 @@ class _$PeriodicOrdersFilterImpl implements _PeriodicOrdersFilter {
         (other.runtimeType == runtimeType &&
             other is _$PeriodicOrdersFilterImpl &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality()
-                .equals(other._accountIds, _accountIds) &&
+            const DeepCollectionEquality().equals(other._accountIds, _accountIds) &&
             (identical(other.beneficiaryAccount, beneficiaryAccount) ||
                 other.beneficiaryAccount == beneficiaryAccount) &&
             (identical(other.beneficiaryName, beneficiaryName) ||
                 other.beneficiaryName == beneficiaryName) &&
             (identical(other.beneficiaryAddress, beneficiaryAddress) ||
                 other.beneficiaryAddress == beneficiaryAddress) &&
-            (identical(other.beneficiaryCountryCode2char,
-                    beneficiaryCountryCode2char) ||
-                other.beneficiaryCountryCode2char ==
-                    beneficiaryCountryCode2char) &&
-            (identical(other.amountFrom, amountFrom) ||
-                other.amountFrom == amountFrom) &&
-            (identical(other.amountTo, amountTo) ||
-                other.amountTo == amountTo) &&
-            (identical(other.currencyCode, currencyCode) ||
-                other.currencyCode == currencyCode) &&
+            (identical(other.beneficiaryCountryCode2char, beneficiaryCountryCode2char) ||
+                other.beneficiaryCountryCode2char == beneficiaryCountryCode2char) &&
+            (identical(other.amountFrom, amountFrom) || other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) || other.amountTo == amountTo) &&
+            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
             (identical(other.startDateFrom, startDateFrom) ||
                 other.startDateFrom == startDateFrom) &&
-            (identical(other.startDateTo, startDateTo) ||
-                other.startDateTo == startDateTo) &&
-            (identical(other.endDateFrom, endDateFrom) ||
-                other.endDateFrom == endDateFrom) &&
-            (identical(other.endDateTo, endDateTo) ||
-                other.endDateTo == endDateTo) &&
-            (identical(other.frecuency, frecuency) ||
-                other.frecuency == frecuency) &&
+            (identical(other.startDateTo, startDateTo) || other.startDateTo == startDateTo) &&
+            (identical(other.endDateFrom, endDateFrom) || other.endDateFrom == endDateFrom) &&
+            (identical(other.endDateTo, endDateTo) || other.endDateTo == endDateTo) &&
+            (identical(other.frecuency, frecuency) || other.frecuency == frecuency) &&
             (identical(other.status, status) || other.status == status));
   }
 
@@ -399,10 +387,8 @@ class _$PeriodicOrdersFilterImpl implements _PeriodicOrdersFilter {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PeriodicOrdersFilterImplCopyWith<_$PeriodicOrdersFilterImpl>
-      get copyWith =>
-          __$$PeriodicOrdersFilterImplCopyWithImpl<_$PeriodicOrdersFilterImpl>(
-              this, _$identity);
+  _$$PeriodicOrdersFilterImplCopyWith<_$PeriodicOrdersFilterImpl> get copyWith =>
+      __$$PeriodicOrdersFilterImplCopyWithImpl<_$PeriodicOrdersFilterImpl>(this, _$identity);
 }
 
 abstract class _PeriodicOrdersFilter implements PeriodicOrdersFilter {
@@ -455,6 +441,6 @@ abstract class _PeriodicOrdersFilter implements PeriodicOrdersFilter {
   PeriodicOrderStatusType? get status;
   @override
   @JsonKey(ignore: true)
-  _$$PeriodicOrdersFilterImplCopyWith<_$PeriodicOrdersFilterImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$PeriodicOrdersFilterImplCopyWith<_$PeriodicOrdersFilterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

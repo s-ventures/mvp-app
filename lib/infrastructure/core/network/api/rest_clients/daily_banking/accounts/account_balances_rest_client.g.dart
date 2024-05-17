@@ -19,14 +19,13 @@ class _AccountBalancesRestClient implements AccountBalancesRestClient {
   String? baseUrl;
 
   @override
-  Future<AccountBalanceDto> getAccountBalance(
-      {required String accountId}) async {
+  Future<AccountBalanceDto> getAccountBalance({required String accountId}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<AccountBalanceDto>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<AccountBalanceDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,

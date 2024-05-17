@@ -16,8 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedPoliciesState {
-  AsyncValue<List<SimplifiedPolicy>> get policies =>
-      throw _privateConstructorUsedError;
+  AsyncValue<List<SimplifiedPolicy>> get policies => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedPoliciesStateCopyWith<SimplifiedPoliciesState> get copyWith =>
@@ -26,16 +25,15 @@ mixin _$SimplifiedPoliciesState {
 
 /// @nodoc
 abstract class $SimplifiedPoliciesStateCopyWith<$Res> {
-  factory $SimplifiedPoliciesStateCopyWith(SimplifiedPoliciesState value,
-          $Res Function(SimplifiedPoliciesState) then) =
+  factory $SimplifiedPoliciesStateCopyWith(
+          SimplifiedPoliciesState value, $Res Function(SimplifiedPoliciesState) then) =
       _$SimplifiedPoliciesStateCopyWithImpl<$Res, SimplifiedPoliciesState>;
   @useResult
   $Res call({AsyncValue<List<SimplifiedPolicy>> policies});
 }
 
 /// @nodoc
-class _$SimplifiedPoliciesStateCopyWithImpl<$Res,
-        $Val extends SimplifiedPoliciesState>
+class _$SimplifiedPoliciesStateCopyWithImpl<$Res, $Val extends SimplifiedPoliciesState>
     implements $SimplifiedPoliciesStateCopyWith<$Res> {
   _$SimplifiedPoliciesStateCopyWithImpl(this._value, this._then);
 
@@ -62,8 +60,7 @@ class _$SimplifiedPoliciesStateCopyWithImpl<$Res,
 abstract class _$$SimplifiedPoliciesStateImplCopyWith<$Res>
     implements $SimplifiedPoliciesStateCopyWith<$Res> {
   factory _$$SimplifiedPoliciesStateImplCopyWith(
-          _$SimplifiedPoliciesStateImpl value,
-          $Res Function(_$SimplifiedPoliciesStateImpl) then) =
+          _$SimplifiedPoliciesStateImpl value, $Res Function(_$SimplifiedPoliciesStateImpl) then) =
       __$$SimplifiedPoliciesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -72,12 +69,10 @@ abstract class _$$SimplifiedPoliciesStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedPoliciesStateImplCopyWithImpl<$Res>
-    extends _$SimplifiedPoliciesStateCopyWithImpl<$Res,
-        _$SimplifiedPoliciesStateImpl>
+    extends _$SimplifiedPoliciesStateCopyWithImpl<$Res, _$SimplifiedPoliciesStateImpl>
     implements _$$SimplifiedPoliciesStateImplCopyWith<$Res> {
   __$$SimplifiedPoliciesStateImplCopyWithImpl(
-      _$SimplifiedPoliciesStateImpl _value,
-      $Res Function(_$SimplifiedPoliciesStateImpl) _then)
+      _$SimplifiedPoliciesStateImpl _value, $Res Function(_$SimplifiedPoliciesStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,8 +109,7 @@ class _$SimplifiedPoliciesStateImpl implements _SimplifiedPoliciesState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedPoliciesStateImpl &&
-            (identical(other.policies, policies) ||
-                other.policies == policies));
+            (identical(other.policies, policies) || other.policies == policies));
   }
 
   @override
@@ -124,20 +118,18 @@ class _$SimplifiedPoliciesStateImpl implements _SimplifiedPoliciesState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedPoliciesStateImplCopyWith<_$SimplifiedPoliciesStateImpl>
-      get copyWith => __$$SimplifiedPoliciesStateImplCopyWithImpl<
-          _$SimplifiedPoliciesStateImpl>(this, _$identity);
+  _$$SimplifiedPoliciesStateImplCopyWith<_$SimplifiedPoliciesStateImpl> get copyWith =>
+      __$$SimplifiedPoliciesStateImplCopyWithImpl<_$SimplifiedPoliciesStateImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedPoliciesState implements SimplifiedPoliciesState {
-  const factory _SimplifiedPoliciesState(
-          {final AsyncValue<List<SimplifiedPolicy>> policies}) =
+  const factory _SimplifiedPoliciesState({final AsyncValue<List<SimplifiedPolicy>> policies}) =
       _$SimplifiedPoliciesStateImpl;
 
   @override
   AsyncValue<List<SimplifiedPolicy>> get policies;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedPoliciesStateImplCopyWith<_$SimplifiedPoliciesStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedPoliciesStateImplCopyWith<_$SimplifiedPoliciesStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

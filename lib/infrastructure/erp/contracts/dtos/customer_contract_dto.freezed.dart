@@ -80,8 +80,8 @@ class _$CustomerContractDtoCopyWithImpl<$Res, $Val extends CustomerContractDto>
 /// @nodoc
 abstract class _$$CustomerContractDtoImplCopyWith<$Res>
     implements $CustomerContractDtoCopyWith<$Res> {
-  factory _$$CustomerContractDtoImplCopyWith(_$CustomerContractDtoImpl value,
-          $Res Function(_$CustomerContractDtoImpl) then) =
+  factory _$$CustomerContractDtoImplCopyWith(
+          _$CustomerContractDtoImpl value, $Res Function(_$CustomerContractDtoImpl) then) =
       __$$CustomerContractDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -95,8 +95,8 @@ abstract class _$$CustomerContractDtoImplCopyWith<$Res>
 class __$$CustomerContractDtoImplCopyWithImpl<$Res>
     extends _$CustomerContractDtoCopyWithImpl<$Res, _$CustomerContractDtoImpl>
     implements _$$CustomerContractDtoImplCopyWith<$Res> {
-  __$$CustomerContractDtoImplCopyWithImpl(_$CustomerContractDtoImpl _value,
-      $Res Function(_$CustomerContractDtoImpl) _then)
+  __$$CustomerContractDtoImplCopyWithImpl(
+      _$CustomerContractDtoImpl _value, $Res Function(_$CustomerContractDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,8 +121,7 @@ class __$$CustomerContractDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CustomerContractDtoImpl implements _CustomerContractDto {
-  const _$CustomerContractDtoImpl(
-      {required this.alias, required this.contract});
+  const _$CustomerContractDtoImpl({required this.alias, required this.contract});
 
   factory _$CustomerContractDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$CustomerContractDtoImplFromJson(json);
@@ -143,8 +142,7 @@ class _$CustomerContractDtoImpl implements _CustomerContractDto {
         (other.runtimeType == runtimeType &&
             other is _$CustomerContractDtoImpl &&
             (identical(other.alias, alias) || other.alias == alias) &&
-            (identical(other.contract, contract) ||
-                other.contract == contract));
+            (identical(other.contract, contract) || other.contract == contract));
   }
 
   @JsonKey(ignore: true)
@@ -155,8 +153,7 @@ class _$CustomerContractDtoImpl implements _CustomerContractDto {
   @override
   @pragma('vm:prefer-inline')
   _$$CustomerContractDtoImplCopyWith<_$CustomerContractDtoImpl> get copyWith =>
-      __$$CustomerContractDtoImplCopyWithImpl<_$CustomerContractDtoImpl>(
-          this, _$identity);
+      __$$CustomerContractDtoImplCopyWithImpl<_$CustomerContractDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

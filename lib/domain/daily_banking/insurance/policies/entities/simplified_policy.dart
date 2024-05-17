@@ -8,8 +8,7 @@ class SimplifiedPolicy with _$SimplifiedPolicy {
   const factory SimplifiedPolicy({
     required UniqueId id,
     required UniqueId insuranceId,
-    required String
-        status, // TODO(georgeta): Change to enum PolicyStatusType when BE is ready
+    required String status, // TODO(georgeta): Change to enum PolicyStatusType when BE is ready
     required String description,
   }) = _SimplifiedPolicy;
 }

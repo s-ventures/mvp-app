@@ -17,11 +17,8 @@ class AggregationRemoteDataSource {
 
   Future<bool> registerCredentials(String credentialsId) async {
     try {
-      final response =
-          await _restClient.registerCredentials(credentialsId: credentialsId);
-      return response
-          .map((e) => e.status)
-          .every((element) => element == StatusDto.success);
+      final response = await _restClient.registerCredentials(credentialsId: credentialsId);
+      return response.map((e) => e.status).every((element) => element == StatusDto.success);
     } catch (_) {
       rethrow;
     }

@@ -27,8 +27,7 @@ class DetailedPolicyDto with _$DetailedPolicyDto {
     required String certificateNumber,
     required DateTime createDate,
     required DateTime? endDate,
-    required String
-        status, // TODO(georgeta): Change to enum PolicyStatusType when BE is ready
+    required String status, // TODO(georgeta): Change to enum PolicyStatusType when BE is ready
     required String description,
     required double amount,
     required double lastInvoiceAmount,

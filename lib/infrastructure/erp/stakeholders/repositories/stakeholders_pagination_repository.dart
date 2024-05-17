@@ -10,16 +10,14 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pa
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_repository.dart';
 
-final stakeholdersPaginationRepositoryProvider =
-    Provider<StakeholdersPaginationRepository>((ref) {
+final stakeholdersPaginationRepositoryProvider = Provider<StakeholdersPaginationRepository>((ref) {
   return StakeholdersPaginationRepository(
     ref.watch(stakeholdersRepositoryProvider),
     ref.watch(contractsRepositoryProvider),
   );
 });
 
-class StakeholdersPaginationRepository
-    extends PaginationListRepository<Stakeholder> {
+class StakeholdersPaginationRepository extends PaginationListRepository<Stakeholder> {
   StakeholdersPaginationRepository(
     this._stakeholdersRepository,
     this._contractsRepository,
@@ -43,8 +41,7 @@ class StakeholdersPaginationRepository
 
       // A contract has been previously selected. Update filter and refresh
       else if (contractIdOption.isSome()) {
-        final contractId =
-            contractIdOption.fold(() => null, (a) => a)?.getOrElse('');
+        final contractId = contractIdOption.fold(() => null, (a) => a)?.getOrElse('');
         if (contractId?.isEmpty ?? true) return;
 
         _erpContractId = contractId;

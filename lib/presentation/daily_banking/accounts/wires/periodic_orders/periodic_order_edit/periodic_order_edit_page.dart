@@ -15,8 +15,7 @@ class PeriodicOrderEditPage extends ConsumerStatefulWidget {
   final int periodicOrderId;
 
   @override
-  ConsumerState<PeriodicOrderEditPage> createState() =>
-      _PeriodicOrderEditPageState();
+  ConsumerState<PeriodicOrderEditPage> createState() => _PeriodicOrderEditPageState();
 }
 
 class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
@@ -34,8 +33,7 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
 
   @override
   Widget build(BuildContext context) {
-    final periodicOrder =
-        ref.watch(detailedPeriodicOrderControllerProvider).periodicOrder;
+    final periodicOrder = ref.watch(detailedPeriodicOrderControllerProvider).periodicOrder;
 
     return Scaffold(
       body: NestedScrollView(

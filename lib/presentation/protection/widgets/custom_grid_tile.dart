@@ -32,15 +32,11 @@ class _CustomGridTileState extends State<CustomGridTile> {
       padding: const EdgeInsets.all(AppSpacing.s2),
       child: Container(
         decoration: ShapeDecoration(
-          color: _isChecked
-              ? context.color.tertiaryLight100
-              : context.color.backgroundLight0,
+          color: _isChecked ? context.color.tertiaryLight100 : context.color.backgroundLight0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(context.radius.soft),
             side: BorderSide(
-              color: _isChecked
-                  ? context.color.tertiaryLight400
-                  : context.color.strokeLigth100,
+              color: _isChecked ? context.color.tertiaryLight400 : context.color.strokeLigth100,
             ),
           ),
         ),
@@ -59,24 +55,21 @@ class _CustomGridTileState extends State<CustomGridTile> {
                   children: [
                     IconSvg.medium(
                       widget.icon,
-                      color: _isChecked
-                          ? context.color.tertiaryLight500
-                          : context.color.iconLight600,
+                      color:
+                          _isChecked ? context.color.tertiaryLight500 : context.color.iconLight600,
                     ),
                     Container(
                       padding: const EdgeInsets.all(AppSpacing.s2),
                       decoration: ShapeDecoration(
-                        color: _isChecked
-                            ? context.color.secondary
-                            : context.color.backgroundLight0,
+                        color:
+                            _isChecked ? context.color.secondary : context.color.backgroundLight0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                             context.radius.checkboxSmall,
                           ),
                           side: BorderSide(
-                            color: _isChecked
-                                ? context.color.secondary
-                                : context.color.strokeLigth100,
+                            color:
+                                _isChecked ? context.color.secondary : context.color.strokeLigth100,
                           ),
                         ),
                       ),

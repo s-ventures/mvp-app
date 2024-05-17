@@ -6,19 +6,15 @@ part of 'legal_stakeholder_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-LegalStakeholderDto _$LegalStakeholderDtoFromJson(Map<String, dynamic> json) =>
-    LegalStakeholderDto(
+LegalStakeholderDto _$LegalStakeholderDtoFromJson(Map<String, dynamic> json) => LegalStakeholderDto(
       stakeholderId: json['stakeholderId'] as int?,
-      personTypeCode:
-          $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
+      personTypeCode: $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
       relationType: $enumDecode(_$RelationTypeDtoEnumMap, json['relationType']),
       fullName: json['fullName'] as String?,
-      languageCodeType: $enumDecodeNullable(
-          _$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
+      languageCodeType: $enumDecodeNullable(_$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
       createDate: _$JsonConverterFromJson<String, DateTime>(
           json['createDate'], const DateConverter().fromJson),
-      documentTypeCode: $enumDecodeNullable(
-          _$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
+      documentTypeCode: $enumDecodeNullable(_$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
       documentNumber: json['documentNumber'] as String?,
       additionalInfo: json['additionalInfo'] as String?,
       preferenceTelephone: json['preferenceTelephone'] as bool?,
@@ -30,8 +26,7 @@ LegalStakeholderDto _$LegalStakeholderDtoFromJson(Map<String, dynamic> json) =>
       comercialName: json['comercialName'] as String,
       constitutionDate: DateTime.parse(json['constitutionDate'] as String),
       constitutionCountryCode: json['constitutionCountryCode'] as String,
-      legalFormCode:
-          $enumDecode(_$LegalFormCodeDtoEnumMap, json['legalFormCode']),
+      legalFormCode: $enumDecode(_$LegalFormCodeDtoEnumMap, json['legalFormCode']),
       nationalityCountryCode: json['nationalityCountryCode'] as String,
       economicActivityCode: json['economicActivityCode'] as String,
       typeCode: json['typeCode'] as String,
@@ -50,15 +45,11 @@ Map<String, dynamic> _$LegalStakeholderDtoToJson(LegalStakeholderDto instance) {
   writeNotNull('stakeholderId', instance.stakeholderId);
   val['personTypeCode'] = _$PersonTypeCodeDtoEnumMap[instance.personTypeCode]!;
   writeNotNull('fullName', instance.fullName);
-  writeNotNull('languageCodeType',
-      _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
+  writeNotNull('languageCodeType', _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
   val['relationType'] = _$RelationTypeDtoEnumMap[instance.relationType]!;
-  writeNotNull(
-      'createDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createDate, const DateConverter().toJson));
-  writeNotNull('documentTypeCode',
-      _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
+  writeNotNull('createDate',
+      _$JsonConverterToJson<String, DateTime>(instance.createDate, const DateConverter().toJson));
+  writeNotNull('documentTypeCode', _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
   writeNotNull('documentNumber', instance.documentNumber);
   writeNotNull('additionalInfo', instance.additionalInfo);
   writeNotNull('preferenceTelephone', instance.preferenceTelephone);

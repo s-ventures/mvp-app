@@ -74,8 +74,8 @@ class _ContactsPageState extends ConsumerState<Contacts> {
                           message:
                               'Para acceder a tus contactos necesitamos permiso para leer tu agenda.',
                           buttonOkText: 'Aceptar',
-                          onOkPressed: () async => context
-                              .pushNamed(AppRoute.contactsNewFromAgenda.name),
+                          onOkPressed: () async =>
+                              context.pushNamed(AppRoute.contactsNewFromAgenda.name),
                           buttonCancelText: 'Cancelar',
                           onCancelPressed: () async => context.pop(),
                         );

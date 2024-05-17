@@ -130,10 +130,8 @@ GoRouter router(RouterRef ref) {
                 routes: [
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
-                    path:
-                        AppRoute.protectionContractedProductsPolicyDetails.path,
-                    name:
-                        AppRoute.protectionContractedProductsPolicyDetails.name,
+                    path: AppRoute.protectionContractedProductsPolicyDetails.path,
+                    name: AppRoute.protectionContractedProductsPolicyDetails.name,
                     pageBuilder: (context, state) => NoTransitionPage(
                       key: state.pageKey,
                       child: const ContractedProductsPolicyDetails(),
@@ -141,10 +139,8 @@ GoRouter router(RouterRef ref) {
                     routes: [
                       GoRoute(
                         parentNavigatorKey: _rootNavigatorKey,
-                        path: AppRoute
-                            .protectionContractedProductsClaimDetails.path,
-                        name: AppRoute
-                            .protectionContractedProductsClaimDetails.name,
+                        path: AppRoute.protectionContractedProductsClaimDetails.path,
+                        name: AppRoute.protectionContractedProductsClaimDetails.name,
                         pageBuilder: (context, state) {
                           return NoTransitionPage(
                             key: state.pageKey,
@@ -176,12 +172,8 @@ GoRouter router(RouterRef ref) {
                 routes: [
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
-                    path: AppRoute
-                        .protectionInsuranceAccidentCalculatePriceFirstStep
-                        .path,
-                    name: AppRoute
-                        .protectionInsuranceAccidentCalculatePriceFirstStep
-                        .name,
+                    path: AppRoute.protectionInsuranceAccidentCalculatePriceFirstStep.path,
+                    name: AppRoute.protectionInsuranceAccidentCalculatePriceFirstStep.name,
                     pageBuilder: (context, state) => NoTransitionPage(
                       key: state.pageKey,
                       child: const AccidentsInsuranceCalculatePriceFirstPage(),
@@ -189,45 +181,31 @@ GoRouter router(RouterRef ref) {
                     routes: [
                       GoRoute(
                         parentNavigatorKey: _rootNavigatorKey,
-                        path: AppRoute
-                            .protectionInsuranceAccidentCalculatePriceSecondStep
-                            .path,
-                        name: AppRoute
-                            .protectionInsuranceAccidentCalculatePriceSecondStep
-                            .name,
+                        path: AppRoute.protectionInsuranceAccidentCalculatePriceSecondStep.path,
+                        name: AppRoute.protectionInsuranceAccidentCalculatePriceSecondStep.name,
                         pageBuilder: (context, state) => NoTransitionPage(
                           key: state.pageKey,
-                          child:
-                              const AccidentsInsuranceCalculatePriceSecondPage(),
+                          child: const AccidentsInsuranceCalculatePriceSecondPage(),
                         ),
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
-                            path: AppRoute
-                                .protectionInsuranceAccidentCalculatePriceThirdStep
-                                .path,
-                            name: AppRoute
-                                .protectionInsuranceAccidentCalculatePriceThirdStep
-                                .name,
+                            path: AppRoute.protectionInsuranceAccidentCalculatePriceThirdStep.path,
+                            name: AppRoute.protectionInsuranceAccidentCalculatePriceThirdStep.name,
                             pageBuilder: (context, state) => NoTransitionPage(
                               key: state.pageKey,
-                              child:
-                                  const AccidentsInsuranceCalculatePriceThirdPage(),
+                              child: const AccidentsInsuranceCalculatePriceThirdPage(),
                             ),
                             routes: [
                               GoRoute(
                                 parentNavigatorKey: _rootNavigatorKey,
                                 path: AppRoute
-                                    .protectionInsuranceAccidentCalculatePriceFourthStep
-                                    .path,
+                                    .protectionInsuranceAccidentCalculatePriceFourthStep.path,
                                 name: AppRoute
-                                    .protectionInsuranceAccidentCalculatePriceFourthStep
-                                    .name,
-                                pageBuilder: (context, state) =>
-                                    NoTransitionPage(
+                                    .protectionInsuranceAccidentCalculatePriceFourthStep.name,
+                                pageBuilder: (context, state) => NoTransitionPage(
                                   key: state.pageKey,
-                                  child:
-                                      const AccidentsInsuranceCalculatePriceFourthPage(),
+                                  child: const AccidentsInsuranceCalculatePriceFourthPage(),
                                 ),
                                 routes: [
                                   GoRoute(
@@ -238,11 +216,9 @@ GoRouter router(RouterRef ref) {
                                     name: AppRoute
                                         .protectionInsuranceAccidentCalculatePriceDataValidation
                                         .name,
-                                    pageBuilder: (context, state) =>
-                                        NoTransitionPage(
+                                    pageBuilder: (context, state) => NoTransitionPage(
                                       key: state.pageKey,
-                                      child:
-                                          const AccidentsInsuranceDataValidationPage(),
+                                      child: const AccidentsInsuranceDataValidationPage(),
                                     ),
                                     routes: [
                                       GoRoute(
@@ -253,72 +229,52 @@ GoRouter router(RouterRef ref) {
                                         name: AppRoute
                                             .protectionInsuranceAccidentCalculatePriceDataValidationEdit
                                             .name,
-                                        pageBuilder: (context, state) =>
-                                            NoTransitionPage(
+                                        pageBuilder: (context, state) => NoTransitionPage(
                                           key: state.pageKey,
-                                          child:
-                                              const AccidentsInsuranceDataValidationEditPage(),
+                                          child: const AccidentsInsuranceDataValidationEditPage(),
                                         ),
                                       ),
                                       GoRoute(
                                         parentNavigatorKey: _rootNavigatorKey,
-                                        path: AppRoute
-                                            .protectionInsuranceAccidentContract
-                                            .path,
-                                        name: AppRoute
-                                            .protectionInsuranceAccidentContract
-                                            .name,
-                                        pageBuilder: (context, state) =>
-                                            NoTransitionPage(
+                                        path: AppRoute.protectionInsuranceAccidentContract.path,
+                                        name: AppRoute.protectionInsuranceAccidentContract.name,
+                                        pageBuilder: (context, state) => NoTransitionPage(
                                           key: state.pageKey,
-                                          child:
-                                              const AccidentsInsuranceContractPage(),
+                                          child: const AccidentsInsuranceContractPage(),
                                         ),
                                         routes: [
                                           GoRoute(
-                                            parentNavigatorKey:
-                                                _rootNavigatorKey,
+                                            parentNavigatorKey: _rootNavigatorKey,
                                             path: AppRoute
-                                                .protectionInsuranceAccidentContractPayment
-                                                .path,
+                                                .protectionInsuranceAccidentContractPayment.path,
                                             name: AppRoute
-                                                .protectionInsuranceAccidentContractPayment
-                                                .name,
-                                            pageBuilder: (context, state) =>
-                                                NoTransitionPage(
+                                                .protectionInsuranceAccidentContractPayment.name,
+                                            pageBuilder: (context, state) => NoTransitionPage(
                                               key: state.pageKey,
-                                              child:
-                                                  const AccidentsInsurancePaymentPage(),
+                                              child: const AccidentsInsurancePaymentPage(),
                                             ),
                                             routes: [
                                               GoRoute(
-                                                parentNavigatorKey:
-                                                    _rootNavigatorKey,
+                                                parentNavigatorKey: _rootNavigatorKey,
                                                 path: AppRoute
                                                     .protectionInsuranceAccidentContractPaymentOtp
                                                     .path,
                                                 name: AppRoute
                                                     .protectionInsuranceAccidentContractPaymentOtp
                                                     .name,
-                                                pageBuilder: (context, state) =>
-                                                    NoTransitionPage(
+                                                pageBuilder: (context, state) => NoTransitionPage(
                                                   key: state.pageKey,
-                                                  child:
-                                                      const AccidentsInsurancePaymentOtpPage(),
+                                                  child: const AccidentsInsurancePaymentOtpPage(),
                                                 ),
                                                 routes: [
                                                   GoRoute(
-                                                    parentNavigatorKey:
-                                                        _rootNavigatorKey,
+                                                    parentNavigatorKey: _rootNavigatorKey,
                                                     path: AppRoute
-                                                        .protectionInsuranceAccidentContracted
-                                                        .path,
+                                                        .protectionInsuranceAccidentContracted.path,
                                                     name: AppRoute
-                                                        .protectionInsuranceAccidentContracted
-                                                        .name,
-                                                    pageBuilder:
-                                                        (context, state) =>
-                                                            NoTransitionPage(
+                                                        .protectionInsuranceAccidentContracted.name,
+                                                    pageBuilder: (context, state) =>
+                                                        NoTransitionPage(
                                                       key: state.pageKey,
                                                       child:
                                                           const AccidentsInsuranceContractedPage(),
@@ -353,44 +309,31 @@ GoRouter router(RouterRef ref) {
                 routes: [
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
-                    path: AppRoute
-                        .protectionInsuranceCommerceCalculatePriceFirstStep
-                        .path,
-                    name: AppRoute
-                        .protectionInsuranceCommerceCalculatePriceFirstStep
-                        .name,
+                    path: AppRoute.protectionInsuranceCommerceCalculatePriceFirstStep.path,
+                    name: AppRoute.protectionInsuranceCommerceCalculatePriceFirstStep.name,
                     pageBuilder: (context, state) => NoTransitionPage(
                       key: state.pageKey,
-                      child:
-                          const CommerceInsuranceCalculatePriceFirstStepPage(),
+                      child: const CommerceInsuranceCalculatePriceFirstStepPage(),
                     ),
                     routes: [
                       GoRoute(
                         parentNavigatorKey: _rootNavigatorKey,
-                        path: AppRoute
-                            .protectionInsuranceCommerceCalculatePriceSecondStep
-                            .path,
-                        name: AppRoute
-                            .protectionInsuranceCommerceCalculatePriceSecondStep
-                            .name,
+                        path: AppRoute.protectionInsuranceCommerceCalculatePriceSecondStep.path,
+                        name: AppRoute.protectionInsuranceCommerceCalculatePriceSecondStep.name,
                         pageBuilder: (context, state) => NoTransitionPage(
                           key: state.pageKey,
-                          child:
-                              const CommerceInsuranceCalculatePriceSecondStepPage(),
+                          child: const CommerceInsuranceCalculatePriceSecondStepPage(),
                         ),
                         routes: [
                           GoRoute(
                             parentNavigatorKey: _rootNavigatorKey,
                             path: AppRoute
-                                .protectionInsuranceCommerceCalculatePriceDataValidation
-                                .path,
+                                .protectionInsuranceCommerceCalculatePriceDataValidation.path,
                             name: AppRoute
-                                .protectionInsuranceCommerceCalculatePriceDataValidation
-                                .name,
+                                .protectionInsuranceCommerceCalculatePriceDataValidation.name,
                             pageBuilder: (context, state) => NoTransitionPage(
                               key: state.pageKey,
-                              child:
-                                  const CommerceInsuranceCalculatePriceDataValidationPage(),
+                              child: const CommerceInsuranceCalculatePriceDataValidationPage(),
                             ),
                             routes: [
                               GoRoute(
@@ -401,8 +344,7 @@ GoRouter router(RouterRef ref) {
                                 name: AppRoute
                                     .protectionInsuranceCommerceCalculatePriceDataValidationEdit
                                     .name,
-                                pageBuilder: (context, state) =>
-                                    NoTransitionPage(
+                                pageBuilder: (context, state) => NoTransitionPage(
                                   key: state.pageKey,
                                   child:
                                       const CommerceInsuranceCalculatePriceDataValidationEditPage(),
@@ -410,60 +352,42 @@ GoRouter router(RouterRef ref) {
                               ),
                               GoRoute(
                                 parentNavigatorKey: _rootNavigatorKey,
-                                path: AppRoute
-                                    .protectionInsuranceCommerceContract.path,
-                                name: AppRoute
-                                    .protectionInsuranceCommerceContract.name,
-                                pageBuilder: (context, state) =>
-                                    NoTransitionPage(
+                                path: AppRoute.protectionInsuranceCommerceContract.path,
+                                name: AppRoute.protectionInsuranceCommerceContract.name,
+                                pageBuilder: (context, state) => NoTransitionPage(
                                   key: state.pageKey,
                                   child: const InsuranceCommerceContractPage(),
                                 ),
                                 routes: [
                                   GoRoute(
                                     parentNavigatorKey: _rootNavigatorKey,
-                                    path: AppRoute
-                                        .protectionInsuranceCommerceContractPayment
-                                        .path,
-                                    name: AppRoute
-                                        .protectionInsuranceCommerceContractPayment
-                                        .name,
-                                    pageBuilder: (context, state) =>
-                                        NoTransitionPage(
+                                    path: AppRoute.protectionInsuranceCommerceContractPayment.path,
+                                    name: AppRoute.protectionInsuranceCommerceContractPayment.name,
+                                    pageBuilder: (context, state) => NoTransitionPage(
                                       key: state.pageKey,
-                                      child:
-                                          const InsuranceCommerceContractPaymentPage(),
+                                      child: const InsuranceCommerceContractPaymentPage(),
                                     ),
                                     routes: [
                                       GoRoute(
                                         parentNavigatorKey: _rootNavigatorKey,
                                         path: AppRoute
-                                            .protectionInsuranceCommerceContractPaymentOtp
-                                            .path,
+                                            .protectionInsuranceCommerceContractPaymentOtp.path,
                                         name: AppRoute
-                                            .protectionInsuranceCommerceContractPaymentOtp
-                                            .name,
-                                        pageBuilder: (context, state) =>
-                                            NoTransitionPage(
+                                            .protectionInsuranceCommerceContractPaymentOtp.name,
+                                        pageBuilder: (context, state) => NoTransitionPage(
                                           key: state.pageKey,
-                                          child:
-                                              const InsuranceCommerceContractPaymentOtpPage(),
+                                          child: const InsuranceCommerceContractPaymentOtpPage(),
                                         ),
                                         routes: [
                                           GoRoute(
-                                            parentNavigatorKey:
-                                                _rootNavigatorKey,
-                                            path: AppRoute
-                                                .protectionInsuranceCommerceContracted
-                                                .path,
-                                            name: AppRoute
-                                                .protectionInsuranceCommerceContracted
-                                                .name,
-                                            pageBuilder: (context, state) =>
-                                                NoTransitionPage(
+                                            parentNavigatorKey: _rootNavigatorKey,
+                                            path:
+                                                AppRoute.protectionInsuranceCommerceContracted.path,
+                                            name:
+                                                AppRoute.protectionInsuranceCommerceContracted.name,
+                                            pageBuilder: (context, state) => NoTransitionPage(
                                               key: state.pageKey,
-                                              child:
-                                                  const InsuranceCommerceContractedPage(),
+                                              child: const InsuranceCommerceContractedPage(),
                                             ),
                                           ),
                                         ],
@@ -533,5 +457,4 @@ GoRouter router(RouterRef ref) {
 }
 
 /// Route observer to use with RouteAware
-final RouteObserver<ModalRoute<void>> routeObserver =
-    RouteObserver<ModalRoute<void>>();
+final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();

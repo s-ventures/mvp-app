@@ -3,18 +3,15 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/detailed/detailed_card_transaction_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_repository.dart';
 
-final detailedCardTransactionControllerProvider =
-    StateNotifierProvider.autoDispose<DetailedCardTransactionController,
-        DetailedCardTransactionState>(
+final detailedCardTransactionControllerProvider = StateNotifierProvider.autoDispose<
+    DetailedCardTransactionController, DetailedCardTransactionState>(
   (ref) => DetailedCardTransactionController(
     ref.watch(cardTransactionsRepositoryProvider),
   ),
 );
 
-class DetailedCardTransactionController
-    extends StateNotifier<DetailedCardTransactionState> {
-  DetailedCardTransactionController(this._repository)
-      : super(const DetailedCardTransactionState());
+class DetailedCardTransactionController extends StateNotifier<DetailedCardTransactionState> {
+  DetailedCardTransactionController(this._repository) : super(const DetailedCardTransactionState());
 
   final CardTransactionsRepository _repository;
 

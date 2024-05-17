@@ -74,8 +74,7 @@ class AccidentsInsurancePage extends StatelessWidget {
                 title: 'Calcular precio',
                 size: ButtonSize.small,
                 onPressed: () async => context.pushNamed(
-                  AppRoute
-                      .protectionInsuranceAccidentCalculatePriceFirstStep.name,
+                  AppRoute.protectionInsuranceAccidentCalculatePriceFirstStep.name,
                 ),
               ),
             ],

@@ -61,8 +61,7 @@ class DetailedCardDto with _$DetailedCardDto {
     required String? cvv,
   }) = _DetailedCardDto;
 
-  factory DetailedCardDto.fromJson(Map<String, dynamic> json) =>
-      _$DetailedCardDtoFromJson(json);
+  factory DetailedCardDto.fromJson(Map<String, dynamic> json) => _$DetailedCardDtoFromJson(json);
 }
 
 extension DetailedCardDtoX on DetailedCardDto {

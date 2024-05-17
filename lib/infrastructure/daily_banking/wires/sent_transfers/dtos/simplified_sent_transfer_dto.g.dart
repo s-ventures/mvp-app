@@ -14,33 +14,29 @@ _$SimplifiedSentTransferDtoImpl _$$SimplifiedSentTransferDtoImplFromJson(
       senderBank: json['senderBank'] as String?,
       accountId: json['accountId'] as int,
       orderDate: DateTime.parse(json['orderDate'] as String),
-      valueDate: json['valueDate'] == null
-          ? null
-          : DateTime.parse(json['valueDate'] as String),
+      valueDate: json['valueDate'] == null ? null : DateTime.parse(json['valueDate'] as String),
       concept: json['concept'] as String,
       settlementAmount: (json['settlementAmount'] as num?)?.toDouble(),
       settlementCurrencyCode: json['settlementCurrencyCode'] as String?,
       foreignExchange: (json['foreignExchange'] as num?)?.toDouble(),
       exchangeValue: (json['exchangeValue'] as num?)?.toDouble(),
-      detailOfCharges: $enumDecodeNullable(
-          _$TransferDetailOfChargesDtoEnumMap, json['detailOfCharges']),
+      detailOfCharges:
+          $enumDecodeNullable(_$TransferDetailOfChargesDtoEnumMap, json['detailOfCharges']),
       instructedAmount: (json['instructedAmount'] as num?)?.toDouble(),
       instructedCurrencyCode: json['instructedCurrencyCode'] as String?,
       status: $enumDecode(_$TransferStatusTypeDtoEnumMap, json['status']),
       baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
       movementId: json['movementId'] as int?,
-      executionDate: json['executionDate'] == null
-          ? null
-          : DateTime.parse(json['executionDate'] as String),
+      executionDate:
+          json['executionDate'] == null ? null : DateTime.parse(json['executionDate'] as String),
       senderAccount: json['senderAccount'] as String?,
       sentTransferId: json['sentTransferId'] as int?,
       routingNumber: json['routingNumber'] as String?,
       beneficiaryBank: json['beneficiaryBank'] as String?,
       beneficiaryName: json['beneficiaryName'] as String,
-      transferDate: json['transferDate'] == null
-          ? null
-          : DateTime.parse(json['transferDate'] as String),
+      transferDate:
+          json['transferDate'] == null ? null : DateTime.parse(json['transferDate'] as String),
       referenceDC: json['referenceDC'] as String?,
     );
 
@@ -58,8 +54,7 @@ Map<String, dynamic> _$$SimplifiedSentTransferDtoImplToJson(
       'settlementCurrencyCode': instance.settlementCurrencyCode,
       'foreignExchange': instance.foreignExchange,
       'exchangeValue': instance.exchangeValue,
-      'detailOfCharges':
-          _$TransferDetailOfChargesDtoEnumMap[instance.detailOfCharges],
+      'detailOfCharges': _$TransferDetailOfChargesDtoEnumMap[instance.detailOfCharges],
       'instructedAmount': instance.instructedAmount,
       'instructedCurrencyCode': instance.instructedCurrencyCode,
       'status': _$TransferStatusTypeDtoEnumMap[instance.status]!,

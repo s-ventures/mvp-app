@@ -47,8 +47,7 @@ class TransferInDto extends ExtendedDetailsDto {
     required this.reference,
   });
 
-  factory TransferInDto.fromJson(Map<String, dynamic> json) =>
-      _$TransferInDtoFromJson(json);
+  factory TransferInDto.fromJson(Map<String, dynamic> json) => _$TransferInDtoFromJson(json);
   final SentTransferTypeDto? type;
   final String baasTransferId;
   final String? senderReference;

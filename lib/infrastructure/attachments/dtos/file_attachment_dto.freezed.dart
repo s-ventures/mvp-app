@@ -32,8 +32,7 @@ mixin _$FileAttachmentDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FileAttachmentDtoCopyWith<FileAttachmentDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FileAttachmentDtoCopyWith<FileAttachmentDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -107,10 +106,9 @@ class _$FileAttachmentDtoCopyWithImpl<$Res, $Val extends FileAttachmentDto>
 }
 
 /// @nodoc
-abstract class _$$FileAttachmentDtoImplCopyWith<$Res>
-    implements $FileAttachmentDtoCopyWith<$Res> {
-  factory _$$FileAttachmentDtoImplCopyWith(_$FileAttachmentDtoImpl value,
-          $Res Function(_$FileAttachmentDtoImpl) then) =
+abstract class _$$FileAttachmentDtoImplCopyWith<$Res> implements $FileAttachmentDtoCopyWith<$Res> {
+  factory _$$FileAttachmentDtoImplCopyWith(
+          _$FileAttachmentDtoImpl value, $Res Function(_$FileAttachmentDtoImpl) then) =
       __$$FileAttachmentDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -128,8 +126,8 @@ abstract class _$$FileAttachmentDtoImplCopyWith<$Res>
 class __$$FileAttachmentDtoImplCopyWithImpl<$Res>
     extends _$FileAttachmentDtoCopyWithImpl<$Res, _$FileAttachmentDtoImpl>
     implements _$$FileAttachmentDtoImplCopyWith<$Res> {
-  __$$FileAttachmentDtoImplCopyWithImpl(_$FileAttachmentDtoImpl _value,
-      $Res Function(_$FileAttachmentDtoImpl) _then)
+  __$$FileAttachmentDtoImplCopyWithImpl(
+      _$FileAttachmentDtoImpl _value, $Res Function(_$FileAttachmentDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -226,39 +224,25 @@ class _$FileAttachmentDtoImpl implements _FileAttachmentDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FileAttachmentDtoImpl &&
-            (identical(other.documentId, documentId) ||
-                other.documentId == documentId) &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName) &&
-            (identical(other.fileLength, fileLength) ||
-                other.fileLength == fileLength) &&
-            (identical(other.createDate, createDate) ||
-                other.createDate == createDate) &&
-            (identical(other.customerId, customerId) ||
-                other.customerId == customerId) &&
-            (identical(other.deleteDate, deleteDate) ||
-                other.deleteDate == deleteDate) &&
+            (identical(other.documentId, documentId) || other.documentId == documentId) &&
+            (identical(other.fileName, fileName) || other.fileName == fileName) &&
+            (identical(other.fileLength, fileLength) || other.fileLength == fileLength) &&
+            (identical(other.createDate, createDate) || other.createDate == createDate) &&
+            (identical(other.customerId, customerId) || other.customerId == customerId) &&
+            (identical(other.deleteDate, deleteDate) || other.deleteDate == deleteDate) &&
             const DeepCollectionEquality().equals(other._content, _content));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      documentId,
-      fileName,
-      fileLength,
-      createDate,
-      customerId,
-      deleteDate,
-      const DeepCollectionEquality().hash(_content));
+  int get hashCode => Object.hash(runtimeType, documentId, fileName, fileLength, createDate,
+      customerId, deleteDate, const DeepCollectionEquality().hash(_content));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FileAttachmentDtoImplCopyWith<_$FileAttachmentDtoImpl> get copyWith =>
-      __$$FileAttachmentDtoImplCopyWithImpl<_$FileAttachmentDtoImpl>(
-          this, _$identity);
+      __$$FileAttachmentDtoImplCopyWithImpl<_$FileAttachmentDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -278,8 +262,7 @@ abstract class _FileAttachmentDto implements FileAttachmentDto {
       @DateConverter() final DateTime? deleteDate,
       final List<String>? content}) = _$FileAttachmentDtoImpl;
 
-  factory _FileAttachmentDto.fromJson(Map<String, dynamic> json) =
-      _$FileAttachmentDtoImpl.fromJson;
+  factory _FileAttachmentDto.fromJson(Map<String, dynamic> json) = _$FileAttachmentDtoImpl.fromJson;
 
   @override
   int get documentId;

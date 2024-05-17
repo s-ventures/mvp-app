@@ -36,8 +36,7 @@ class Coverages extends StatelessWidget {
             ),
           ),
           AppSpacing.vertical.s3,
-          if (coveragesWithDescription != null &&
-              coveragesWithDescription!.isNotEmpty) ...[
+          if (coveragesWithDescription != null && coveragesWithDescription!.isNotEmpty) ...[
             ...coveragesWithDescription!.map(
               (Map<String, dynamic> coverage) => GestureDetector(
                 onTap: () => CoverageBottomSheet.show(
@@ -56,14 +55,11 @@ class Coverages extends StatelessWidget {
                         height: AppSpacing.s5,
                         padding: const EdgeInsets.all(AppSpacing.s2),
                         decoration: BoxDecoration(
-                          color: coverageCheckboxColors ==
-                                  CoverageCheckboxColoros.primary
+                          color: coverageCheckboxColors == CoverageCheckboxColoros.primary
                               ? context.color.primaryLight600
-                              : coverageCheckboxColors ==
-                                      CoverageCheckboxColoros.secondary
+                              : coverageCheckboxColors == CoverageCheckboxColoros.secondary
                                   ? context.color.secondaryLight600
-                                  : coverageCheckboxColors ==
-                                          CoverageCheckboxColoros.tertiary
+                                  : coverageCheckboxColors == CoverageCheckboxColoros.tertiary
                                       ? context.color.tertiaryLight500
                                       : context.color.strokeLigth100,
                           borderRadius: BorderRadius.circular(12),
@@ -102,14 +98,11 @@ class Coverages extends StatelessWidget {
                       height: AppSpacing.s5,
                       padding: const EdgeInsets.all(AppSpacing.s2),
                       decoration: BoxDecoration(
-                        color: coverageCheckboxColors ==
-                                CoverageCheckboxColoros.primary
+                        color: coverageCheckboxColors == CoverageCheckboxColoros.primary
                             ? context.color.primaryLight600
-                            : coverageCheckboxColors ==
-                                    CoverageCheckboxColoros.secondary
+                            : coverageCheckboxColors == CoverageCheckboxColoros.secondary
                                 ? context.color.secondaryLight600
-                                : coverageCheckboxColors ==
-                                        CoverageCheckboxColoros.tertiary
+                                : coverageCheckboxColors == CoverageCheckboxColoros.tertiary
                                     ? context.color.tertiaryLight500
                                     : context.color.strokeLigth100,
                         borderRadius: BorderRadius.circular(12),

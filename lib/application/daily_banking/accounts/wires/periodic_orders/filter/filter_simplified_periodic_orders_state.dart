@@ -9,8 +9,7 @@ enum FilterSimplifiedPeriodicOrdersType {
 }
 
 @freezed
-class FilterSimplifiedPeriodicOrdersState
-    with _$FilterSimplifiedPeriodicOrdersState {
+class FilterSimplifiedPeriodicOrdersState with _$FilterSimplifiedPeriodicOrdersState {
   const factory FilterSimplifiedPeriodicOrdersState({
     DateTime? startDate,
     DateTime? endDate,

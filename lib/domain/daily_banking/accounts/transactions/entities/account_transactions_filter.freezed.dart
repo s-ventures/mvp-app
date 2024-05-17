@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AccountTransactionsFilter {
   List<UniqueId> get accountIds => throw _privateConstructorUsedError;
-  TransactionOperationType get operationType =>
-      throw _privateConstructorUsedError;
+  TransactionOperationType get operationType => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   DateTime? get dateFrom => throw _privateConstructorUsedError;
   DateTime? get dateTo => throw _privateConstructorUsedError;
@@ -32,8 +31,8 @@ mixin _$AccountTransactionsFilter {
 
 /// @nodoc
 abstract class $AccountTransactionsFilterCopyWith<$Res> {
-  factory $AccountTransactionsFilterCopyWith(AccountTransactionsFilter value,
-          $Res Function(AccountTransactionsFilter) then) =
+  factory $AccountTransactionsFilterCopyWith(
+          AccountTransactionsFilter value, $Res Function(AccountTransactionsFilter) then) =
       _$AccountTransactionsFilterCopyWithImpl<$Res, AccountTransactionsFilter>;
   @useResult
   $Res call(
@@ -47,8 +46,7 @@ abstract class $AccountTransactionsFilterCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountTransactionsFilterCopyWithImpl<$Res,
-        $Val extends AccountTransactionsFilter>
+class _$AccountTransactionsFilterCopyWithImpl<$Res, $Val extends AccountTransactionsFilter>
     implements $AccountTransactionsFilterCopyWith<$Res> {
   _$AccountTransactionsFilterCopyWithImpl(this._value, this._then);
 
@@ -104,8 +102,7 @@ class _$AccountTransactionsFilterCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$AccountTransactionsFilterImplCopyWith<$Res>
     implements $AccountTransactionsFilterCopyWith<$Res> {
-  factory _$$AccountTransactionsFilterImplCopyWith(
-          _$AccountTransactionsFilterImpl value,
+  factory _$$AccountTransactionsFilterImplCopyWith(_$AccountTransactionsFilterImpl value,
           $Res Function(_$AccountTransactionsFilterImpl) then) =
       __$$AccountTransactionsFilterImplCopyWithImpl<$Res>;
   @override
@@ -122,12 +119,10 @@ abstract class _$$AccountTransactionsFilterImplCopyWith<$Res>
 
 /// @nodoc
 class __$$AccountTransactionsFilterImplCopyWithImpl<$Res>
-    extends _$AccountTransactionsFilterCopyWithImpl<$Res,
-        _$AccountTransactionsFilterImpl>
+    extends _$AccountTransactionsFilterCopyWithImpl<$Res, _$AccountTransactionsFilterImpl>
     implements _$$AccountTransactionsFilterImplCopyWith<$Res> {
   __$$AccountTransactionsFilterImplCopyWithImpl(
-      _$AccountTransactionsFilterImpl _value,
-      $Res Function(_$AccountTransactionsFilterImpl) _then)
+      _$AccountTransactionsFilterImpl _value, $Res Function(_$AccountTransactionsFilterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -218,38 +213,26 @@ class _$AccountTransactionsFilterImpl implements _AccountTransactionsFilter {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AccountTransactionsFilterImpl &&
-            const DeepCollectionEquality()
-                .equals(other._accountIds, _accountIds) &&
+            const DeepCollectionEquality().equals(other._accountIds, _accountIds) &&
             (identical(other.operationType, operationType) ||
                 other.operationType == operationType) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.dateFrom, dateFrom) ||
-                other.dateFrom == dateFrom) &&
+            (identical(other.description, description) || other.description == description) &&
+            (identical(other.dateFrom, dateFrom) || other.dateFrom == dateFrom) &&
             (identical(other.dateTo, dateTo) || other.dateTo == dateTo) &&
-            (identical(other.amountFrom, amountFrom) ||
-                other.amountFrom == amountFrom) &&
-            (identical(other.amountTo, amountTo) ||
-                other.amountTo == amountTo));
+            (identical(other.amountFrom, amountFrom) || other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) || other.amountTo == amountTo));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_accountIds),
-      operationType,
-      description,
-      dateFrom,
-      dateTo,
-      amountFrom,
-      amountTo);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_accountIds),
+      operationType, description, dateFrom, dateTo, amountFrom, amountTo);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AccountTransactionsFilterImplCopyWith<_$AccountTransactionsFilterImpl>
-      get copyWith => __$$AccountTransactionsFilterImplCopyWithImpl<
-          _$AccountTransactionsFilterImpl>(this, _$identity);
+  _$$AccountTransactionsFilterImplCopyWith<_$AccountTransactionsFilterImpl> get copyWith =>
+      __$$AccountTransactionsFilterImplCopyWithImpl<_$AccountTransactionsFilterImpl>(
+          this, _$identity);
 }
 
 abstract class _AccountTransactionsFilter implements AccountTransactionsFilter {
@@ -278,6 +261,6 @@ abstract class _AccountTransactionsFilter implements AccountTransactionsFilter {
   double? get amountTo;
   @override
   @JsonKey(ignore: true)
-  _$$AccountTransactionsFilterImplCopyWith<_$AccountTransactionsFilterImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$AccountTransactionsFilterImplCopyWith<_$AccountTransactionsFilterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

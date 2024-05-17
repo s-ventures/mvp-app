@@ -7,8 +7,7 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pa
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_repository.dart';
 
-final cardTransactionsPaginationRepositoryProvider =
-    Provider<CardTransactionsPaginationRepository>(
+final cardTransactionsPaginationRepositoryProvider = Provider<CardTransactionsPaginationRepository>(
   (ref) => CardTransactionsPaginationRepository(
     ref.watch(cardTransactionsRepositoryProvider),
     ref.watch(cardsRepositoryProvider),
@@ -79,8 +78,7 @@ class CardTransactionsPaginationRepository
       return <DateTime, List<SimplifiedCardTransaction>>{};
     }
 
-    final transactions =
-        await _transactionsRepository.getSimplifiedCardTransactions(
+    final transactions = await _transactionsRepository.getSimplifiedCardTransactions(
       filter: filter,
       page: page,
       pageSize: pageSize,

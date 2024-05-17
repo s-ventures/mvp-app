@@ -6,19 +6,15 @@ part of 'stakeholder_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StakeholderDto _$StakeholderDtoFromJson(Map<String, dynamic> json) =>
-    StakeholderDto(
+StakeholderDto _$StakeholderDtoFromJson(Map<String, dynamic> json) => StakeholderDto(
       stakeholderId: json['stakeholderId'] as int?,
-      personTypeCode:
-          $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
+      personTypeCode: $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
       relationType: $enumDecode(_$RelationTypeDtoEnumMap, json['relationType']),
       fullName: json['fullName'] as String?,
-      languageCodeType: $enumDecodeNullable(
-          _$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
+      languageCodeType: $enumDecodeNullable(_$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
       createDate: _$JsonConverterFromJson<String, DateTime>(
           json['createDate'], const DateConverter().fromJson),
-      documentTypeCode: $enumDecodeNullable(
-          _$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
+      documentTypeCode: $enumDecodeNullable(_$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
       documentNumber: json['documentNumber'] as String?,
       additionalInfo: json['additionalInfo'] as String?,
       preferenceTelephone: json['preferenceTelephone'] as bool?,
@@ -40,15 +36,11 @@ Map<String, dynamic> _$StakeholderDtoToJson(StakeholderDto instance) {
   writeNotNull('stakeholderId', instance.stakeholderId);
   val['personTypeCode'] = _$PersonTypeCodeDtoEnumMap[instance.personTypeCode]!;
   writeNotNull('fullName', instance.fullName);
-  writeNotNull('languageCodeType',
-      _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
+  writeNotNull('languageCodeType', _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
   val['relationType'] = _$RelationTypeDtoEnumMap[instance.relationType]!;
-  writeNotNull(
-      'createDate',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createDate, const DateConverter().toJson));
-  writeNotNull('documentTypeCode',
-      _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
+  writeNotNull('createDate',
+      _$JsonConverterToJson<String, DateTime>(instance.createDate, const DateConverter().toJson));
+  writeNotNull('documentTypeCode', _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
   writeNotNull('documentNumber', instance.documentNumber);
   writeNotNull('additionalInfo', instance.additionalInfo);
   writeNotNull('preferenceTelephone', instance.preferenceTelephone);

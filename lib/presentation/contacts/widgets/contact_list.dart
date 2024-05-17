@@ -55,9 +55,7 @@ class ContactList extends StatelessWidget {
                 text: 'JC',
                 foreground: context.color.textLight900,
                 backgroundColor: context.color.neutralLight100,
-                subIcon: filteredBy == ContactListFilter.fav
-                    ? IconAssets.star
-                    : null,
+                subIcon: filteredBy == ContactListFilter.fav ? IconAssets.star : null,
               ),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(context.radius.soft),
@@ -75,9 +73,7 @@ class ContactList extends StatelessWidget {
                 text: 'TM',
                 foreground: context.color.textLight900,
                 backgroundColor: context.color.neutralLight100,
-                subIcon: filteredBy == ContactListFilter.fav
-                    ? IconAssets.star
-                    : null,
+                subIcon: filteredBy == ContactListFilter.fav ? IconAssets.star : null,
               ),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(context.radius.soft),

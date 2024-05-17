@@ -4,7 +4,8 @@ import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.da
 extension UploadAttachmentX on UploadFileFailure {
   String localize() => map(
         uploadFailed: (_) => 'Ocurrió un error en la súbida',
-        fileExceedsMaxSize: (e) => 'Archivo superó el tamaño máximo (${e.maxSize.toPrecision(2)} Mb)',
+        fileExceedsMaxSize: (e) =>
+            'Archivo superó el tamaño máximo (${e.maxSize.toPrecision(2)} Mb)',
         unexpected: (_) => 'Algó salió mal, prueba de nuevo',
       );
 }

@@ -20,24 +20,21 @@ mixin _$SimplifiedPeriodicOrdersState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedPeriodicOrdersStateCopyWith<SimplifiedPeriodicOrdersState>
-      get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedPeriodicOrdersStateCopyWith<SimplifiedPeriodicOrdersState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedPeriodicOrdersStateCopyWith<$Res> {
   factory $SimplifiedPeriodicOrdersStateCopyWith(
-          SimplifiedPeriodicOrdersState value,
-          $Res Function(SimplifiedPeriodicOrdersState) then) =
-      _$SimplifiedPeriodicOrdersStateCopyWithImpl<$Res,
-          SimplifiedPeriodicOrdersState>;
+          SimplifiedPeriodicOrdersState value, $Res Function(SimplifiedPeriodicOrdersState) then) =
+      _$SimplifiedPeriodicOrdersStateCopyWithImpl<$Res, SimplifiedPeriodicOrdersState>;
   @useResult
   $Res call({AsyncValue<List<SimplifiedPeriodicOrder>> periodicOrders});
 }
 
 /// @nodoc
-class _$SimplifiedPeriodicOrdersStateCopyWithImpl<$Res,
-        $Val extends SimplifiedPeriodicOrdersState>
+class _$SimplifiedPeriodicOrdersStateCopyWithImpl<$Res, $Val extends SimplifiedPeriodicOrdersState>
     implements $SimplifiedPeriodicOrdersStateCopyWith<$Res> {
   _$SimplifiedPeriodicOrdersStateCopyWithImpl(this._value, this._then);
 
@@ -63,8 +60,7 @@ class _$SimplifiedPeriodicOrdersStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$SimplifiedPeriodicOrderStateImplCopyWith<$Res>
     implements $SimplifiedPeriodicOrdersStateCopyWith<$Res> {
-  factory _$$SimplifiedPeriodicOrderStateImplCopyWith(
-          _$SimplifiedPeriodicOrderStateImpl value,
+  factory _$$SimplifiedPeriodicOrderStateImplCopyWith(_$SimplifiedPeriodicOrderStateImpl value,
           $Res Function(_$SimplifiedPeriodicOrderStateImpl) then) =
       __$$SimplifiedPeriodicOrderStateImplCopyWithImpl<$Res>;
   @override
@@ -74,11 +70,9 @@ abstract class _$$SimplifiedPeriodicOrderStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedPeriodicOrderStateImplCopyWithImpl<$Res>
-    extends _$SimplifiedPeriodicOrdersStateCopyWithImpl<$Res,
-        _$SimplifiedPeriodicOrderStateImpl>
+    extends _$SimplifiedPeriodicOrdersStateCopyWithImpl<$Res, _$SimplifiedPeriodicOrderStateImpl>
     implements _$$SimplifiedPeriodicOrderStateImplCopyWith<$Res> {
-  __$$SimplifiedPeriodicOrderStateImplCopyWithImpl(
-      _$SimplifiedPeriodicOrderStateImpl _value,
+  __$$SimplifiedPeriodicOrderStateImplCopyWithImpl(_$SimplifiedPeriodicOrderStateImpl _value,
       $Res Function(_$SimplifiedPeriodicOrderStateImpl) _then)
       : super(_value, _then);
 
@@ -98,11 +92,9 @@ class __$$SimplifiedPeriodicOrderStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SimplifiedPeriodicOrderStateImpl
-    implements _SimplifiedPeriodicOrderState {
+class _$SimplifiedPeriodicOrderStateImpl implements _SimplifiedPeriodicOrderState {
   const _$SimplifiedPeriodicOrderStateImpl(
-      {this.periodicOrders =
-          const AsyncLoading<List<SimplifiedPeriodicOrder>>()});
+      {this.periodicOrders = const AsyncLoading<List<SimplifiedPeriodicOrder>>()});
 
   @override
   @JsonKey()
@@ -128,14 +120,12 @@ class _$SimplifiedPeriodicOrderStateImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedPeriodicOrderStateImplCopyWith<
-          _$SimplifiedPeriodicOrderStateImpl>
-      get copyWith => __$$SimplifiedPeriodicOrderStateImplCopyWithImpl<
-          _$SimplifiedPeriodicOrderStateImpl>(this, _$identity);
+  _$$SimplifiedPeriodicOrderStateImplCopyWith<_$SimplifiedPeriodicOrderStateImpl> get copyWith =>
+      __$$SimplifiedPeriodicOrderStateImplCopyWithImpl<_$SimplifiedPeriodicOrderStateImpl>(
+          this, _$identity);
 }
 
-abstract class _SimplifiedPeriodicOrderState
-    implements SimplifiedPeriodicOrdersState {
+abstract class _SimplifiedPeriodicOrderState implements SimplifiedPeriodicOrdersState {
   const factory _SimplifiedPeriodicOrderState(
           {final AsyncValue<List<SimplifiedPeriodicOrder>> periodicOrders}) =
       _$SimplifiedPeriodicOrderStateImpl;
@@ -144,7 +134,6 @@ abstract class _SimplifiedPeriodicOrderState
   AsyncValue<List<SimplifiedPeriodicOrder>> get periodicOrders;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedPeriodicOrderStateImplCopyWith<
-          _$SimplifiedPeriodicOrderStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedPeriodicOrderStateImplCopyWith<_$SimplifiedPeriodicOrderStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

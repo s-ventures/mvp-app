@@ -23,9 +23,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(
-        ref
-            .read(detailedAccountControllerProvider.notifier)
-            .init(widget.accountId),
+        ref.read(detailedAccountControllerProvider.notifier).init(widget.accountId),
       );
     });
     super.initState();
@@ -65,9 +63,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                         radius: 12,
                         backgroundColor: context.color.backgroundLight0,
                         child: IconSvg.small(
-                          account.entity == '2103'
-                              ? IconAssets.soon
-                              : IconAssets.santander,
+                          account.entity == '2103' ? IconAssets.soon : IconAssets.santander,
                           color: account.entity == '2103'
                               ? context.color.secondaryLight600
                               : context.color.statusError,
@@ -76,9 +72,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                     ),
                     AppSpacing.horizontal.s3,
                     Text(
-                      account.entity == '2103'
-                          ? 'Cuenta soon'
-                          : 'Cuenta Santander',
+                      account.entity == '2103' ? 'Cuenta soon' : 'Cuenta Santander',
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -185,15 +179,13 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                             children: [
                               Text(
                                 'IBAN',
-                                style:
-                                    context.textStyle.bodySmallRegular.copyWith(
+                                style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight600,
                                 ),
                               ),
                               Text(
                                 account.number,
-                                style:
-                                    context.textStyle.bodySmallRegular.copyWith(
+                                style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight900,
                                 ),
                               ),
@@ -216,15 +208,13 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                             children: [
                               Text(
                                 'Código BIC/SWIFT',
-                                style:
-                                    context.textStyle.bodySmallRegular.copyWith(
+                                style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight600,
                                 ),
                               ),
                               Text(
                                 '',
-                                style:
-                                    context.textStyle.bodySmallRegular.copyWith(
+                                style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight900,
                                 ),
                               ),
@@ -268,8 +258,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                           decoration: ShapeDecoration(
                             color: context.color.backgroundLight200,
                             shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(context.radius.soft),
+                              borderRadius: BorderRadius.circular(context.radius.soft),
                             ),
                           ),
                           child: IconSvg.small(

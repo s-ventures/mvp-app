@@ -27,5 +27,6 @@ class SimplifiedCardBalanceDto with _$SimplifiedCardBalanceDto {
     required double posMonthlyLimit,
   }) = _SimplifiedCardBalanceDto;
 
-  factory SimplifiedCardBalanceDto.fromJson(Map<String, dynamic> json) => _$SimplifiedCardBalanceDtoFromJson(json);
+  factory SimplifiedCardBalanceDto.fromJson(Map<String, dynamic> json) =>
+      _$SimplifiedCardBalanceDtoFromJson(json);
 }

@@ -7,7 +7,6 @@ part 'detailed_periodic_order_state.freezed.dart';
 @freezed
 class DetailedPeriodicOrderState with _$DetailedPeriodicOrderState {
   const factory DetailedPeriodicOrderState({
-    @Default(AsyncLoading<DetailedPeriodicOrder>())
-    AsyncValue<DetailedPeriodicOrder> periodicOrder,
+    @Default(AsyncLoading<DetailedPeriodicOrder>()) AsyncValue<DetailedPeriodicOrder> periodicOrder,
   }) = _DetailedPeriodicOrderState;
 }

@@ -20,14 +20,12 @@ mixin _$PoliciesFilter {
   DateTime? get createDateTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PoliciesFilterCopyWith<PoliciesFilter> get copyWith =>
-      throw _privateConstructorUsedError;
+  $PoliciesFilterCopyWith<PoliciesFilter> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $PoliciesFilterCopyWith<$Res> {
-  factory $PoliciesFilterCopyWith(
-          PoliciesFilter value, $Res Function(PoliciesFilter) then) =
+  factory $PoliciesFilterCopyWith(PoliciesFilter value, $Res Function(PoliciesFilter) then) =
       _$PoliciesFilterCopyWithImpl<$Res, PoliciesFilter>;
   @useResult
   $Res call({DateTime? createDateFrom, DateTime? createDateTo});
@@ -63,10 +61,9 @@ class _$PoliciesFilterCopyWithImpl<$Res, $Val extends PoliciesFilter>
 }
 
 /// @nodoc
-abstract class _$$PoliciesFilterImplCopyWith<$Res>
-    implements $PoliciesFilterCopyWith<$Res> {
-  factory _$$PoliciesFilterImplCopyWith(_$PoliciesFilterImpl value,
-          $Res Function(_$PoliciesFilterImpl) then) =
+abstract class _$$PoliciesFilterImplCopyWith<$Res> implements $PoliciesFilterCopyWith<$Res> {
+  factory _$$PoliciesFilterImplCopyWith(
+          _$PoliciesFilterImpl value, $Res Function(_$PoliciesFilterImpl) then) =
       __$$PoliciesFilterImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -122,8 +119,7 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
             other is _$PoliciesFilterImpl &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
-            (identical(other.createDateTo, createDateTo) ||
-                other.createDateTo == createDateTo));
+            (identical(other.createDateTo, createDateTo) || other.createDateTo == createDateTo));
   }
 
   @override
@@ -133,14 +129,12 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
   @override
   @pragma('vm:prefer-inline')
   _$$PoliciesFilterImplCopyWith<_$PoliciesFilterImpl> get copyWith =>
-      __$$PoliciesFilterImplCopyWithImpl<_$PoliciesFilterImpl>(
-          this, _$identity);
+      __$$PoliciesFilterImplCopyWithImpl<_$PoliciesFilterImpl>(this, _$identity);
 }
 
 abstract class _PoliciesFilter implements PoliciesFilter {
-  const factory _PoliciesFilter(
-      {final DateTime? createDateFrom,
-      final DateTime? createDateTo}) = _$PoliciesFilterImpl;
+  const factory _PoliciesFilter({final DateTime? createDateFrom, final DateTime? createDateTo}) =
+      _$PoliciesFilterImpl;
 
   @override
   DateTime? get createDateFrom;

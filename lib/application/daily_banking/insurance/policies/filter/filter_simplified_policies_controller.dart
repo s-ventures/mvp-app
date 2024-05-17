@@ -2,16 +2,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/filter/filter_simplified_policies_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/simplified/simplified_policies_controller.dart';
 
-final filterSimplifiedPoliciesControllerProvider =
-    StateNotifierProvider.autoDispose<FilterSimplifiedPoliciesController,
-        FilterSimplifiedPoliciesState>(
+final filterSimplifiedPoliciesControllerProvider = StateNotifierProvider.autoDispose<
+    FilterSimplifiedPoliciesController, FilterSimplifiedPoliciesState>(
   (ref) => FilterSimplifiedPoliciesController(
     ref.read(simplifiedPoliciesControllerProvider.notifier),
   ),
 );
 
-class FilterSimplifiedPoliciesController
-    extends StateNotifier<FilterSimplifiedPoliciesState> {
+class FilterSimplifiedPoliciesController extends StateNotifier<FilterSimplifiedPoliciesState> {
   FilterSimplifiedPoliciesController(
     this._simplifiedPoliciesController,
   ) : super(const FilterSimplifiedPoliciesState());

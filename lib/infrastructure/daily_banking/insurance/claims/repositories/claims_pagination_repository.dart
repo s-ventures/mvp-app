@@ -11,8 +11,7 @@ final claimsPaginationRepositoryProvider = Provider<ClaimsPaginationRepository>(
   ),
 );
 
-class ClaimsPaginationRepository
-    extends PaginationListRepository<SimplifiedClaim> {
+class ClaimsPaginationRepository extends PaginationListRepository<SimplifiedClaim> {
   ClaimsPaginationRepository(
     this._claimsRepository,
   );
