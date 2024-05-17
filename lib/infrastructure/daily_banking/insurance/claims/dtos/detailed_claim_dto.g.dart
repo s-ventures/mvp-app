@@ -6,8 +6,7 @@ part of 'detailed_claim_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DetailedClaimDtoImpl _$$DetailedClaimDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$DetailedClaimDtoImpl _$$DetailedClaimDtoImplFromJson(Map<String, dynamic> json) =>
     _$DetailedClaimDtoImpl(
       claimId: json['claimId'] as int,
       insuranceId: json['insuranceId'] as int,
@@ -21,16 +20,14 @@ _$DetailedClaimDtoImpl _$$DetailedClaimDtoImplFromJson(
       processStartDate: json['processStartDate'] == null
           ? null
           : DateTime.parse(json['processStartDate'] as String),
-      processEndDate: json['processEndDate'] == null
-          ? null
-          : DateTime.parse(json['processEndDate'] as String),
+      processEndDate:
+          json['processEndDate'] == null ? null : DateTime.parse(json['processEndDate'] as String),
       agentName: json['agentName'] as String,
       agentEmail: json['agentEmail'] as String,
       agentTelephone: json['agentTelephone'] as String,
     );
 
-Map<String, dynamic> _$$DetailedClaimDtoImplToJson(
-        _$DetailedClaimDtoImpl instance) =>
+Map<String, dynamic> _$$DetailedClaimDtoImplToJson(_$DetailedClaimDtoImpl instance) =>
     <String, dynamic>{
       'claimId': instance.claimId,
       'insuranceId': instance.insuranceId,

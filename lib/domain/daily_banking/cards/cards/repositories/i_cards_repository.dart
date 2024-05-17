@@ -7,8 +7,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/failures/sel
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/failures/simplified_card_failure.dart';
 
 abstract class ICardsRepository {
-  Future<Either<SimplifiedCardFailure, List<SimplifiedCard>>>
-      getSimplifiedCards({
+  Future<Either<SimplifiedCardFailure, List<SimplifiedCard>>> getSimplifiedCards({
     int page = 0,
     int pageSize = 10,
     void Function(int totalPages, int totalElements)? onPaginationInfo,

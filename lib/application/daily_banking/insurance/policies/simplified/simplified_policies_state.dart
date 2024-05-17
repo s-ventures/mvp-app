@@ -7,7 +7,6 @@ part 'simplified_policies_state.freezed.dart';
 @freezed
 class SimplifiedPoliciesState with _$SimplifiedPoliciesState {
   const factory SimplifiedPoliciesState({
-    @Default(AsyncLoading<List<SimplifiedPolicy>>())
-    AsyncValue<List<SimplifiedPolicy>> policies,
+    @Default(AsyncLoading<List<SimplifiedPolicy>>()) AsyncValue<List<SimplifiedPolicy>> policies,
   }) = _SimplifiedPoliciesState;
 }

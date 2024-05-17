@@ -14,8 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SimplifiedSentTransferDto _$SimplifiedSentTransferDtoFromJson(
-    Map<String, dynamic> json) {
+SimplifiedSentTransferDto _$SimplifiedSentTransferDtoFromJson(Map<String, dynamic> json) {
   return _SimplifiedSentTransferDto.fromJson(json);
 }
 
@@ -32,8 +31,7 @@ mixin _$SimplifiedSentTransferDto {
   String? get settlementCurrencyCode => throw _privateConstructorUsedError;
   double? get foreignExchange => throw _privateConstructorUsedError;
   double? get exchangeValue => throw _privateConstructorUsedError;
-  TransferDetailOfChargesDto? get detailOfCharges =>
-      throw _privateConstructorUsedError;
+  TransferDetailOfChargesDto? get detailOfCharges => throw _privateConstructorUsedError;
   double? get instructedAmount => throw _privateConstructorUsedError;
   String? get instructedCurrencyCode => throw _privateConstructorUsedError;
   TransferStatusTypeDto get status => throw _privateConstructorUsedError;
@@ -57,8 +55,8 @@ mixin _$SimplifiedSentTransferDto {
 
 /// @nodoc
 abstract class $SimplifiedSentTransferDtoCopyWith<$Res> {
-  factory $SimplifiedSentTransferDtoCopyWith(SimplifiedSentTransferDto value,
-          $Res Function(SimplifiedSentTransferDto) then) =
+  factory $SimplifiedSentTransferDtoCopyWith(
+          SimplifiedSentTransferDto value, $Res Function(SimplifiedSentTransferDto) then) =
       _$SimplifiedSentTransferDtoCopyWithImpl<$Res, SimplifiedSentTransferDto>;
   @useResult
   $Res call(
@@ -91,8 +89,7 @@ abstract class $SimplifiedSentTransferDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SimplifiedSentTransferDtoCopyWithImpl<$Res,
-        $Val extends SimplifiedSentTransferDto>
+class _$SimplifiedSentTransferDtoCopyWithImpl<$Res, $Val extends SimplifiedSentTransferDto>
     implements $SimplifiedSentTransferDtoCopyWith<$Res> {
   _$SimplifiedSentTransferDtoCopyWithImpl(this._value, this._then);
 
@@ -243,8 +240,7 @@ class _$SimplifiedSentTransferDtoCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$SimplifiedSentTransferDtoImplCopyWith<$Res>
     implements $SimplifiedSentTransferDtoCopyWith<$Res> {
-  factory _$$SimplifiedSentTransferDtoImplCopyWith(
-          _$SimplifiedSentTransferDtoImpl value,
+  factory _$$SimplifiedSentTransferDtoImplCopyWith(_$SimplifiedSentTransferDtoImpl value,
           $Res Function(_$SimplifiedSentTransferDtoImpl) then) =
       __$$SimplifiedSentTransferDtoImplCopyWithImpl<$Res>;
   @override
@@ -280,12 +276,10 @@ abstract class _$$SimplifiedSentTransferDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedSentTransferDtoImplCopyWithImpl<$Res>
-    extends _$SimplifiedSentTransferDtoCopyWithImpl<$Res,
-        _$SimplifiedSentTransferDtoImpl>
+    extends _$SimplifiedSentTransferDtoCopyWithImpl<$Res, _$SimplifiedSentTransferDtoImpl>
     implements _$$SimplifiedSentTransferDtoImplCopyWith<$Res> {
   __$$SimplifiedSentTransferDtoImplCopyWithImpl(
-      _$SimplifiedSentTransferDtoImpl _value,
-      $Res Function(_$SimplifiedSentTransferDtoImpl) _then)
+      _$SimplifiedSentTransferDtoImpl _value, $Res Function(_$SimplifiedSentTransferDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -527,14 +521,10 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.baasTransferId, baasTransferId) ||
                 other.baasTransferId == baasTransferId) &&
-            (identical(other.senderBank, senderBank) ||
-                other.senderBank == senderBank) &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
-            (identical(other.orderDate, orderDate) ||
-                other.orderDate == orderDate) &&
-            (identical(other.valueDate, valueDate) ||
-                other.valueDate == valueDate) &&
+            (identical(other.senderBank, senderBank) || other.senderBank == senderBank) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.orderDate, orderDate) || other.orderDate == orderDate) &&
+            (identical(other.valueDate, valueDate) || other.valueDate == valueDate) &&
             (identical(other.concept, concept) || other.concept == concept) &&
             (identical(other.settlementAmount, settlementAmount) ||
                 other.settlementAmount == settlementAmount) &&
@@ -553,10 +543,8 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.baasMovementId, baasMovementId) ||
                 other.baasMovementId == baasMovementId) &&
-            (identical(other.concept2, concept2) ||
-                other.concept2 == concept2) &&
-            (identical(other.movementId, movementId) ||
-                other.movementId == movementId) &&
+            (identical(other.concept2, concept2) || other.concept2 == concept2) &&
+            (identical(other.movementId, movementId) || other.movementId == movementId) &&
             (identical(other.executionDate, executionDate) ||
                 other.executionDate == executionDate) &&
             (identical(other.senderAccount, senderAccount) ||
@@ -569,10 +557,8 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
                 other.beneficiaryBank == beneficiaryBank) &&
             (identical(other.beneficiaryName, beneficiaryName) ||
                 other.beneficiaryName == beneficiaryName) &&
-            (identical(other.transferDate, transferDate) ||
-                other.transferDate == transferDate) &&
-            (identical(other.referenceDC, referenceDC) ||
-                other.referenceDC == referenceDC));
+            (identical(other.transferDate, transferDate) || other.transferDate == transferDate) &&
+            (identical(other.referenceDC, referenceDC) || other.referenceDC == referenceDC));
   }
 
   @JsonKey(ignore: true)
@@ -610,9 +596,9 @@ class _$SimplifiedSentTransferDtoImpl implements _SimplifiedSentTransferDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedSentTransferDtoImplCopyWith<_$SimplifiedSentTransferDtoImpl>
-      get copyWith => __$$SimplifiedSentTransferDtoImplCopyWithImpl<
-          _$SimplifiedSentTransferDtoImpl>(this, _$identity);
+  _$$SimplifiedSentTransferDtoImplCopyWith<_$SimplifiedSentTransferDtoImpl> get copyWith =>
+      __$$SimplifiedSentTransferDtoImplCopyWithImpl<_$SimplifiedSentTransferDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -708,6 +694,6 @@ abstract class _SimplifiedSentTransferDto implements SimplifiedSentTransferDto {
   String? get referenceDC;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedSentTransferDtoImplCopyWith<_$SimplifiedSentTransferDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedSentTransferDtoImplCopyWith<_$SimplifiedSentTransferDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

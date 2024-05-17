@@ -34,20 +34,17 @@ mixin _$SimplifiedAccountTransactionFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SimpleAccountTransactionFailureUnexpected value)
-        unexpected,
+    required TResult Function(_SimpleAccountTransactionFailureUnexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SimpleAccountTransactionFailureUnexpected value)?
-        unexpected,
+    TResult? Function(_SimpleAccountTransactionFailureUnexpected value)? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SimpleAccountTransactionFailureUnexpected value)?
-        unexpected,
+    TResult Function(_SimpleAccountTransactionFailureUnexpected value)? unexpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,11 +52,9 @@ mixin _$SimplifiedAccountTransactionFailure {
 
 /// @nodoc
 abstract class $SimplifiedAccountTransactionFailureCopyWith<$Res> {
-  factory $SimplifiedAccountTransactionFailureCopyWith(
-          SimplifiedAccountTransactionFailure value,
+  factory $SimplifiedAccountTransactionFailureCopyWith(SimplifiedAccountTransactionFailure value,
           $Res Function(SimplifiedAccountTransactionFailure) then) =
-      _$SimplifiedAccountTransactionFailureCopyWithImpl<$Res,
-          SimplifiedAccountTransactionFailure>;
+      _$SimplifiedAccountTransactionFailureCopyWithImpl<$Res, SimplifiedAccountTransactionFailure>;
 }
 
 /// @nodoc
@@ -145,8 +140,7 @@ class _$SimpleAccountTransactionFailureUnexpectedImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SimpleAccountTransactionFailureUnexpected value)
-        unexpected,
+    required TResult Function(_SimpleAccountTransactionFailureUnexpected value) unexpected,
   }) {
     return unexpected(this);
   }
@@ -154,8 +148,7 @@ class _$SimpleAccountTransactionFailureUnexpectedImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SimpleAccountTransactionFailureUnexpected value)?
-        unexpected,
+    TResult? Function(_SimpleAccountTransactionFailureUnexpected value)? unexpected,
   }) {
     return unexpected?.call(this);
   }
@@ -163,8 +156,7 @@ class _$SimpleAccountTransactionFailureUnexpectedImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SimpleAccountTransactionFailureUnexpected value)?
-        unexpected,
+    TResult Function(_SimpleAccountTransactionFailureUnexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (unexpected != null) {

@@ -160,8 +160,7 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                 case DebitDto:
                   final debitDto = extendedDetails! as DebitDto;
                   return DebitTransactionDetails(
-                    debitId:
-                        UniqueId.fromUniqueString(debitDto.debitId.toString()),
+                    debitId: UniqueId.fromUniqueString(debitDto.debitId.toString()),
                     amount: debitDto.amount,
                     issuer: debitDto.issuer,
                     issuerName: debitDto.issuerName,
@@ -180,8 +179,7 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                     returnDate: directDebitDto.returnDate,
                   );
                 case DetailedCardTransactionDto:
-                  final cardDto =
-                      extendedDetails! as DetailedCardTransactionDto;
+                  final cardDto = extendedDetails! as DetailedCardTransactionDto;
                   return DetailedCardTransaction(
                     movementId: UniqueId.fromUniqueString(
                       cardDto.movementId.toString(),

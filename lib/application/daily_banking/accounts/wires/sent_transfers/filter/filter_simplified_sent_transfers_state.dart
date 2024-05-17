@@ -8,8 +8,7 @@ enum FilterSimplifiedSentTransfersType {
 }
 
 @freezed
-class FilterSimplifiedSentTransfersState
-    with _$FilterSimplifiedSentTransfersState {
+class FilterSimplifiedSentTransfersState with _$FilterSimplifiedSentTransfersState {
   const factory FilterSimplifiedSentTransfersState({
     DateTime? startDate,
     DateTime? endDate,

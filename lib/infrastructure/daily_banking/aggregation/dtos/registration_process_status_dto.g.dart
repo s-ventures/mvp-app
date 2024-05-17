@@ -10,8 +10,7 @@ _$RegistrationProcessStatusDtoImpl _$$RegistrationProcessStatusDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$RegistrationProcessStatusDtoImpl(
       status: $enumDecode(_$StatusDtoEnumMap, json['status']),
-      product: AggregatedProductDto.fromJson(
-          json['product'] as Map<String, dynamic>),
+      product: AggregatedProductDto.fromJson(json['product'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$RegistrationProcessStatusDtoImplToJson(

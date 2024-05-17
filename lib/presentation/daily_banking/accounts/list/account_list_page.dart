@@ -13,8 +13,7 @@ class AccountListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final aggregationController =
-        ref.read(aggregationControllerProvider.notifier);
+    final aggregationController = ref.read(aggregationControllerProvider.notifier);
     ref.watch(aggregationControllerProvider).aggregationServiceUrl.when(
           data: (url) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -24,8 +23,7 @@ class AccountListPage extends ConsumerWidget {
                   title: 'Agregar cuenta',
                   url: url,
                   onNavigationRequest: (request) {
-                    final navigate = !aggregationController
-                        .tryParseCredentialsId(request.url);
+                    final navigate = !aggregationController.tryParseCredentialsId(request.url);
                     if (navigate) {
                       return NavigationDecision.navigate;
                     } else {
@@ -82,14 +80,12 @@ class AccountListPage extends ConsumerWidget {
                                 children: [
                                   IconWithContainer(
                                     icon: IconAssets.euro,
-                                    backgroundColor:
-                                        context.color.neutralLight100,
+                                    backgroundColor: context.color.neutralLight100,
                                   ),
                                   AppSpacing.horizontal.s3,
                                   Text(
                                     'Total',
-                                    style: context.textStyle.bodySmallRegular
-                                        .copyWith(
+                                    style: context.textStyle.bodySmallRegular.copyWith(
                                       color: context.color.textLight900,
                                     ),
                                   ),
@@ -102,8 +98,7 @@ class AccountListPage extends ConsumerWidget {
                             children: [
                               Text(
                                 789.00.toCurrency(plusSign: false),
-                                style:
-                                    context.textStyle.bodySmallRegular.copyWith(
+                                style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight900,
                                 ),
                               ),
@@ -123,8 +118,7 @@ class AccountListPage extends ConsumerWidget {
                     OutlinedList(
                       children: [
                         Splash(
-                          borderRadius:
-                              BorderRadius.circular(context.radius.soft),
+                          borderRadius: BorderRadius.circular(context.radius.soft),
                           child: Padding(
                             padding: const EdgeInsets.all(AppSpacing.s5),
                             child: Row(
@@ -137,18 +131,14 @@ class AccountListPage extends ConsumerWidget {
                                       children: [
                                         IconWithContainer(
                                           icon: IconAssets.soon,
-                                          backgroundColor:
-                                              context.color.secondaryLight600,
-                                          foreground:
-                                              context.color.neutralLight0,
+                                          backgroundColor: context.color.secondaryLight600,
+                                          foreground: context.color.neutralLight0,
                                           subIcon: IconAssets.check,
                                         ),
                                         AppSpacing.horizontal.s3,
                                         Text(
                                           'soon',
-                                          style: context
-                                              .textStyle.bodySmallRegular
-                                              .copyWith(
+                                          style: context.textStyle.bodySmallRegular.copyWith(
                                             color: context.color.textLight900,
                                           ),
                                         ),
@@ -161,8 +151,7 @@ class AccountListPage extends ConsumerWidget {
                                   children: [
                                     Text(
                                       456.00.toCurrency(plusSign: false),
-                                      style: context.textStyle.bodySmallRegular
-                                          .copyWith(
+                                      style: context.textStyle.bodySmallRegular.copyWith(
                                         color: context.color.textLight900,
                                       ),
                                     ),
@@ -178,8 +167,7 @@ class AccountListPage extends ConsumerWidget {
                     OutlinedList(
                       children: [
                         Splash(
-                          borderRadius:
-                              BorderRadius.circular(context.radius.soft),
+                          borderRadius: BorderRadius.circular(context.radius.soft),
                           child: Padding(
                             padding: const EdgeInsets.all(AppSpacing.s5),
                             child: Row(
@@ -192,17 +180,13 @@ class AccountListPage extends ConsumerWidget {
                                       children: [
                                         IconWithContainer(
                                           icon: IconAssets.santander,
-                                          backgroundColor:
-                                              context.color.statusError,
-                                          foreground:
-                                              context.color.neutralLight0,
+                                          backgroundColor: context.color.statusError,
+                                          foreground: context.color.neutralLight0,
                                         ),
                                         AppSpacing.horizontal.s3,
                                         Text(
                                           'Santander',
-                                          style: context
-                                              .textStyle.bodySmallRegular
-                                              .copyWith(
+                                          style: context.textStyle.bodySmallRegular.copyWith(
                                             color: context.color.textLight900,
                                           ),
                                         ),
@@ -215,8 +199,7 @@ class AccountListPage extends ConsumerWidget {
                                   children: [
                                     Text(
                                       333.00.toCurrency(plusSign: false),
-                                      style: context.textStyle.bodySmallRegular
-                                          .copyWith(
+                                      style: context.textStyle.bodySmallRegular.copyWith(
                                         color: context.color.textLight900,
                                       ),
                                     ),

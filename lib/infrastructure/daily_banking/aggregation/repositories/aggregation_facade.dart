@@ -35,8 +35,7 @@ class AggregationFacade implements IAggregation {
     String credentialsId,
   ) async {
     try {
-      final response =
-          await _remoteDataSource.registerCredentials(credentialsId);
+      final response = await _remoteDataSource.registerCredentials(credentialsId);
       return right(response);
     } catch (_) {
       return left(const RegisterCredentialsFailure.unexpected());

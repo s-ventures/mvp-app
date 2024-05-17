@@ -17,12 +17,10 @@ class PeriodicOrderDetailsPage extends ConsumerStatefulWidget {
   final int periodicOrderId;
 
   @override
-  ConsumerState<PeriodicOrderDetailsPage> createState() =>
-      _PeriodicOrderDetailsPageState();
+  ConsumerState<PeriodicOrderDetailsPage> createState() => _PeriodicOrderDetailsPageState();
 }
 
-class _PeriodicOrderDetailsPageState
-    extends ConsumerState<PeriodicOrderDetailsPage> {
+class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -37,8 +35,7 @@ class _PeriodicOrderDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final periodicOrder =
-        ref.watch(detailedPeriodicOrderControllerProvider).periodicOrder;
+    final periodicOrder = ref.watch(detailedPeriodicOrderControllerProvider).periodicOrder;
 
     return Scaffold(
       body: NestedScrollView(
@@ -91,8 +88,7 @@ class _PeriodicOrderDetailsPageState
                       decoration: ShapeDecoration(
                         color: context.color.neutralLight100,
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(context.radius.soft),
+                          borderRadius: BorderRadius.circular(context.radius.soft),
                         ),
                       ),
                       child: Row(
@@ -100,8 +96,7 @@ class _PeriodicOrderDetailsPageState
                         children: [
                           Text(
                             periodicOrder.frecuency.name,
-                            style:
-                                context.textStyle.bodyMediumSemiBold.copyWith(
+                            style: context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight900,
                             ),
                           ),
@@ -181,9 +176,7 @@ class _PeriodicOrderDetailsPageState
                       ),
                     ),
                     Text(
-                      periodicOrder.concept != null
-                          ? periodicOrder.concept!
-                          : 'Sin concepto',
+                      periodicOrder.concept != null ? periodicOrder.concept! : 'Sin concepto',
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -209,9 +202,7 @@ class _PeriodicOrderDetailsPageState
                       ),
                     ),
                     Text(
-                      periodicOrder.startDate
-                          .formatToTransactionDate()
-                          .toString(),
+                      periodicOrder.startDate.formatToTransactionDate().toString(),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -225,9 +216,7 @@ class _PeriodicOrderDetailsPageState
                     ),
                     Text(
                       periodicOrder.endDate != null
-                          ? periodicOrder.endDate
-                              .formatToTransactionDate()
-                              .toString()
+                          ? periodicOrder.endDate.formatToTransactionDate().toString()
                           : '-',
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,
@@ -252,8 +241,7 @@ class _PeriodicOrderDetailsPageState
                         icon: IconAssets.trash,
                         title: '¿Quieres eliminar el pago periódico?',
                         buttonOkText: 'Eliminar',
-                        buttonOkBackground:
-                            context.color.statusError.withOpacity(
+                        buttonOkBackground: context.color.statusError.withOpacity(
                           .15,
                         ),
                         buttonOkForeground: context.color.statusError,

@@ -73,8 +73,7 @@ class NationalTransferSignaturePage extends StatelessWidget {
             onPressed: () async => AlertBottomSheet.show(
               context: context,
               icon: IconAssets.check,
-              title:
-                  'Has enviado ${56.00.toCurrency(plusSign: false)} a Shore2Shore',
+              title: 'Has enviado ${56.00.toCurrency(plusSign: false)} a Shore2Shore',
               message:
                   'El pago se ha realizado correctamente. Puedes ver los detalles en tu historial de pagos.',
               buttonOkText: 'Continuar',

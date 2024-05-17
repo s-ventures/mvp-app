@@ -18,8 +18,7 @@ abstract class PeriodicOrdersRestClient {
   factory PeriodicOrdersRestClient(Dio dio) = _PeriodicOrdersRestClient;
 
   @GET('/wires/v1/periodic-orders/query')
-  Future<PaginatedResponse<SimplifiedPeriodicOrderDto>>
-      getSimplifiedPeriodicOrders({
+  Future<PaginatedResponse<SimplifiedPeriodicOrderDto>> getSimplifiedPeriodicOrders({
     @Query('') required PeriodicOrdersFilterDto filter,
   });
 

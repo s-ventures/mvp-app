@@ -13,9 +13,7 @@ enum PeriodicOrderFrecuencyTypeDto {
 extension PeriodicOrderFrecuencyTypeTypeDtoX on PeriodicOrderFrecuencyTypeDto {
   PeriodicOrderFrecuencyType toDomain() => switch (this) {
         PeriodicOrderFrecuencyTypeDto.daily => PeriodicOrderFrecuencyType.daily,
-        PeriodicOrderFrecuencyTypeDto.weekly =>
-          PeriodicOrderFrecuencyType.weekly,
-        PeriodicOrderFrecuencyTypeDto.monthly =>
-          PeriodicOrderFrecuencyType.monthly,
+        PeriodicOrderFrecuencyTypeDto.weekly => PeriodicOrderFrecuencyType.weekly,
+        PeriodicOrderFrecuencyTypeDto.monthly => PeriodicOrderFrecuencyType.monthly,
       };
 }

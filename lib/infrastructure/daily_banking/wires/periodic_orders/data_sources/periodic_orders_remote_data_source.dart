@@ -9,8 +9,7 @@ class PeriodicOrdersRemoteDataSource {
 
   final PeriodicOrdersRestClient _restClient;
 
-  Future<PaginatedResponse<SimplifiedPeriodicOrderDto>>
-      getSimplifiedPeriodicOrders({
+  Future<PaginatedResponse<SimplifiedPeriodicOrderDto>> getSimplifiedPeriodicOrders({
     required PeriodicOrdersFilterDto filterDto,
   }) {
     try {

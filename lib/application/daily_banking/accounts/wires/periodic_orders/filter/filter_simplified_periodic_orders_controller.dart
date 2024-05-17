@@ -3,9 +3,8 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/peri
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 
-final filterSimplifiedPeriodicOrdersControllerProvider =
-    StateNotifierProvider.autoDispose<FilterSimplifiedPeriodicOrdersController,
-        FilterSimplifiedPeriodicOrdersState>(
+final filterSimplifiedPeriodicOrdersControllerProvider = StateNotifierProvider.autoDispose<
+    FilterSimplifiedPeriodicOrdersController, FilterSimplifiedPeriodicOrdersState>(
   (ref) => FilterSimplifiedPeriodicOrdersController(
     ref.read(simplifiedPeriodicOrdersControllerProvider.notifier),
   ),

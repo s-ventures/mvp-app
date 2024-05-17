@@ -6,8 +6,7 @@ import 'package:manifiesto_mvp_app/presentation/protection/widgets/help_with_the
 import 'package:manifiesto_mvp_app/presentation/protection/widgets/text_input_into_container.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CommerceInsuranceCalculatePriceDataValidationEditPage
-    extends StatefulWidget {
+class CommerceInsuranceCalculatePriceDataValidationEditPage extends StatefulWidget {
   const CommerceInsuranceCalculatePriceDataValidationEditPage({super.key});
 
   @override
@@ -66,8 +65,7 @@ class _CommerceInsuranceCalculatePriceDataValidationEditPageState
                     children: [
                       CardWithBoolOptions(
                         inner: true,
-                        title:
-                            '¿El riesgo está en la calle Velazquez 100 bajo 2?',
+                        title: '¿El riesgo está en la calle Velazquez 100 bajo 2?',
                         initialValue: _groupValue,
                         onChanged: (value) => setState(() {
                           _groupValue = value;
@@ -180,8 +178,7 @@ class _CommerceInsuranceCalculatePriceDataValidationEditPageState
                 ),
                 AppSpacing.vertical.s5,
                 const CardWithBoolOptions(
-                  title:
-                      '¿El local dispone de algún hueco sin medida de protección?',
+                  title: '¿El local dispone de algún hueco sin medida de protección?',
                   initialValue: false,
                   onChanged: print,
                 ),

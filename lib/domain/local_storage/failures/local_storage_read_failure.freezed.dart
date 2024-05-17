@@ -64,14 +64,13 @@ mixin _$LocalStorageReadFailure {
 
 /// @nodoc
 abstract class $LocalStorageReadFailureCopyWith<$Res> {
-  factory $LocalStorageReadFailureCopyWith(LocalStorageReadFailure value,
-          $Res Function(LocalStorageReadFailure) then) =
+  factory $LocalStorageReadFailureCopyWith(
+          LocalStorageReadFailure value, $Res Function(LocalStorageReadFailure) then) =
       _$LocalStorageReadFailureCopyWithImpl<$Res, LocalStorageReadFailure>;
 }
 
 /// @nodoc
-class _$LocalStorageReadFailureCopyWithImpl<$Res,
-        $Val extends LocalStorageReadFailure>
+class _$LocalStorageReadFailureCopyWithImpl<$Res, $Val extends LocalStorageReadFailure>
     implements $LocalStorageReadFailureCopyWith<$Res> {
   _$LocalStorageReadFailureCopyWithImpl(this._value, this._then);
 
@@ -299,8 +298,7 @@ abstract class _TypeMissmatch implements LocalStorageReadFailure {
 
 /// @nodoc
 abstract class _$$UnknownImplCopyWith<$Res> {
-  factory _$$UnknownImplCopyWith(
-          _$UnknownImpl value, $Res Function(_$UnknownImpl) then) =
+  factory _$$UnknownImplCopyWith(_$UnknownImpl value, $Res Function(_$UnknownImpl) then) =
       __$$UnknownImplCopyWithImpl<$Res>;
 }
 
@@ -308,8 +306,7 @@ abstract class _$$UnknownImplCopyWith<$Res> {
 class __$$UnknownImplCopyWithImpl<$Res>
     extends _$LocalStorageReadFailureCopyWithImpl<$Res, _$UnknownImpl>
     implements _$$UnknownImplCopyWith<$Res> {
-  __$$UnknownImplCopyWithImpl(
-      _$UnknownImpl _value, $Res Function(_$UnknownImpl) _then)
+  __$$UnknownImplCopyWithImpl(_$UnknownImpl _value, $Res Function(_$UnknownImpl) _then)
       : super(_value, _then);
 }
 
@@ -325,8 +322,7 @@ class _$UnknownImpl implements _Unknown {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnknownImpl);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$UnknownImpl);
   }
 
   @override

@@ -32,7 +32,11 @@ class Overview extends StatelessWidget {
               AppSpacing.horizontal.s3,
               Padding(
                 padding: const EdgeInsets.only(top: AppSpacing.s3),
-                child: Text('/', style: context.textStyle.bodyMediumRegular.copyWith(color: context.color.textLight300),),
+                child: Text(
+                  '/',
+                  style: context.textStyle.bodyMediumRegular
+                      .copyWith(color: context.color.textLight300),
+                ),
               ),
               AppSpacing.horizontal.s3,
               Container(

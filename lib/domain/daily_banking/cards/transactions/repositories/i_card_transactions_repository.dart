@@ -6,9 +6,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/failu
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/failures/simplified_card_transaction_failure.dart';
 
 abstract class ICardTransactionsRepository {
-  Future<
-          Either<SimplifiedCardTransactionFailure,
-              Map<DateTime, List<SimplifiedCardTransaction>>>>
+  Future<Either<SimplifiedCardTransactionFailure, Map<DateTime, List<SimplifiedCardTransaction>>>>
       getSimplifiedCardTransactions({
     required CardTransactionsFilter filter,
     int page = 0,

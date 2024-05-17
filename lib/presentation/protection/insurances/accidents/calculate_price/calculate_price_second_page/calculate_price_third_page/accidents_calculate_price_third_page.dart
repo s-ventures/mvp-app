@@ -143,8 +143,7 @@ class _AccidentsInsuranceCalculatePriceThirdPageState
                 title: 'Siguiente',
                 size: ButtonSize.small,
                 onPressed: () => context.pushNamed(
-                  AppRoute
-                      .protectionInsuranceAccidentCalculatePriceFourthStep.name,
+                  AppRoute.protectionInsuranceAccidentCalculatePriceFourthStep.name,
                 ),
               ),
             ],

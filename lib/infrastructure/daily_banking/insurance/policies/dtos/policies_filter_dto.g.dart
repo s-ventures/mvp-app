@@ -6,11 +6,8 @@ part of 'policies_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PoliciesFilterDto _$PoliciesFilterDtoFromJson(Map<String, dynamic> json) =>
-    PoliciesFilterDto(
-      insuranceId: (json['insuranceId'] as List<dynamic>?)
-          ?.map((e) => e as int)
-          .toList(),
+PoliciesFilterDto _$PoliciesFilterDtoFromJson(Map<String, dynamic> json) => PoliciesFilterDto(
+      insuranceId: (json['insuranceId'] as List<dynamic>?)?.map((e) => e as int).toList(),
       policy: json['policy'] as String?,
       certificateNumber: json['certificateNumber'] as String?,
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
@@ -21,11 +18,10 @@ PoliciesFilterDto _$PoliciesFilterDtoFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       amountFrom: (json['amountFrom'] as num?)?.toDouble(),
       amountTo: (json['amountTo'] as num?)?.toDouble(),
-      lastInvoiceAmountFrom:
-          (json['lastInvoiceAmountFrom'] as num?)?.toDouble(),
+      lastInvoiceAmountFrom: (json['lastInvoiceAmountFrom'] as num?)?.toDouble(),
       lastInvoiceAmountTo: (json['lastInvoiceAmountTo'] as num?)?.toDouble(),
-      paymentPeriodicity: $enumDecodeNullable(
-          _$PolicyPaymentPeriodicityDtoEnumMap, json['paymentPeriodicity']),
+      paymentPeriodicity:
+          $enumDecodeNullable(_$PolicyPaymentPeriodicityDtoEnumMap, json['paymentPeriodicity']),
       iaasBranch: json['iaasBranch'] as String?,
       pageNumber: json['pageNumber'] as int? ?? 0,
       pageSize: json['pageSize'] as int? ?? 10,
@@ -50,18 +46,16 @@ Map<String, dynamic> _$PoliciesFilterDtoToJson(PoliciesFilterDto instance) {
       'createDateFrom',
       _$JsonConverterToJson<String, DateTime>(
           instance.createDateFrom, const DateConverter().toJson));
-  writeNotNull(
-      'createDateTo',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.createDateTo, const DateConverter().toJson));
+  writeNotNull('createDateTo',
+      _$JsonConverterToJson<String, DateTime>(instance.createDateTo, const DateConverter().toJson));
   writeNotNull('status', instance.status);
   writeNotNull('description', instance.description);
   writeNotNull('amountFrom', instance.amountFrom);
   writeNotNull('amountTo', instance.amountTo);
   writeNotNull('lastInvoiceAmountFrom', instance.lastInvoiceAmountFrom);
   writeNotNull('lastInvoiceAmountTo', instance.lastInvoiceAmountTo);
-  writeNotNull('paymentPeriodicity',
-      _$PolicyPaymentPeriodicityDtoEnumMap[instance.paymentPeriodicity]);
+  writeNotNull(
+      'paymentPeriodicity', _$PolicyPaymentPeriodicityDtoEnumMap[instance.paymentPeriodicity]);
   writeNotNull('iaasBranch', instance.iaasBranch);
   return val;
 }

@@ -15,8 +15,8 @@ final accountTransactionsPaginationRepositoryProvider =
   ),
 );
 
-class AccountTransactionsPaginationRepository extends PaginationMapRepository<
-    DateTime, List<SimplifiedAccountTransaction>> {
+class AccountTransactionsPaginationRepository
+    extends PaginationMapRepository<DateTime, List<SimplifiedAccountTransaction>> {
   AccountTransactionsPaginationRepository(
     this._transactionRepository,
     this._accountsRepository,
@@ -73,8 +73,7 @@ class AccountTransactionsPaginationRepository extends PaginationMapRepository<
       return <DateTime, List<SimplifiedAccountTransaction>>{};
     }
 
-    final transactions =
-        await _transactionRepository.getSimplifiedAccountTransactions(
+    final transactions = await _transactionRepository.getSimplifiedAccountTransactions(
       filter: filter,
       page: page,
       pageSize: pageSize,

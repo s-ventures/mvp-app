@@ -11,8 +11,7 @@ const List<Map<String, String>> coverageIncluded = [
         'Anim mollit ad ut fugiat sit aute ullamco incididunt aute. Minim anim laborum nisi minim dolor laborum exercitation est anim excepteur laboris et deserunt commodo. Qui voluptate incididunt ullamco mollit pariatur laborum aute qui commodo. Anim adipisicing officia magna enim mollit quis ullamco occaecat aliqua aliqua nulla deserunt et et. Aute irure exercitation aute ad eiusmod tempor est dolor officia irure.',
   },
   {
-    'title':
-        'Seguridad de los sistemas informáticos y datos de caracter personal',
+    'title': 'Seguridad de los sistemas informáticos y datos de caracter personal',
     'description':
         'Anim do nisi dolore consectetur magna in magna excepteur dolore enim. Aute nostrud consequat est esse adipisicing id incididunt proident incididunt consectetur. Nostrud qui aliqua proident reprehenderit ipsum cillum eiusmod duis voluptate ex ad. Irure ullamco ut magna ipsum.',
   },
@@ -32,8 +31,7 @@ const List<Map<String, String>> coverageIncluded = [
         'Ipsum incididunt ad mollit duis elit sint excepteur dolor. Ex aliquip cupidatat ut occaecat. Cupidatat cillum laborum labore ea qui non consectetur consequat incididunt. Est aliquip eu sunt consectetur commodo dolore. Est ipsum elit Lorem magna ea aliquip quis dolor laboris ipsum enim ullamco nulla incididunt. Culpa occaecat non sint fugiat mollit ipsum do tempor.',
   },
   {
-    'title':
-        'Responsabilidad por publicación de contenidos en medios corporativos',
+    'title': 'Responsabilidad por publicación de contenidos en medios corporativos',
     'description':
         'Magna magna velit ullamco est quis minim enim enim. Esse cillum cupidatat proident velit nulla consectetur officia sit. Laborum do quis officia ipsum elit adipisicing. Fugiat excepteur cupidatat quis sit elit.',
   },

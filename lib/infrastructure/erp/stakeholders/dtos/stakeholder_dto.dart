@@ -31,8 +31,7 @@ class StakeholderDto {
 
   factory StakeholderDto.fromJson(Map<String, dynamic> json) {
     final typeString = json['personTypeCode'] as String;
-    final personTypeCode =
-        PersonTypeCodeDto.values.byScreamingCaseName(typeString);
+    final personTypeCode = PersonTypeCodeDto.values.byScreamingCaseName(typeString);
 
     return switch (personTypeCode) {
       PersonTypeCodeDto.natural => NaturalStakeholderDto.fromJson(json),

@@ -7,8 +7,7 @@ final cardsPaginationRepositoryProvider = Provider<CardsPaginationRepository>(
   (ref) => CardsPaginationRepository(ref.watch(cardsRepositoryProvider)),
 );
 
-class CardsPaginationRepository
-    extends PaginationListRepository<SimplifiedCard> {
+class CardsPaginationRepository extends PaginationListRepository<SimplifiedCard> {
   CardsPaginationRepository(this._repository);
 
   final CardsRepository _repository;

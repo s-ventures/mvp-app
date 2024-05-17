@@ -6,16 +6,13 @@ part of 'direct_debit_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DirectDebitDto _$DirectDebitDtoFromJson(Map<String, dynamic> json) =>
-    DirectDebitDto(
+DirectDebitDto _$DirectDebitDtoFromJson(Map<String, dynamic> json) => DirectDebitDto(
       directDebitId: json['directDebitId'] as int,
       returned: json['returned'] as bool?,
       debitKey: json['debitKey'] as String,
       issuer: json['issuer'] as String?,
       debitReference: json['debitReference'] as String?,
-      returnDate: json['returnDate'] == null
-          ? null
-          : DateTime.parse(json['returnDate'] as String),
+      returnDate: json['returnDate'] == null ? null : DateTime.parse(json['returnDate'] as String),
       movementNumber: json['movementNumber'] as String?,
       movementId: json['movementId'] as int,
       fileId: json['fileId'] as int?,

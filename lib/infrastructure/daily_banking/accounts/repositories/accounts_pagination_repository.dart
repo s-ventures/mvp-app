@@ -5,13 +5,11 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failur
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
 
-final accountsPaginationRepositoryProvider =
-    Provider<AccountsPaginationRepository>(
+final accountsPaginationRepositoryProvider = Provider<AccountsPaginationRepository>(
   (ref) => AccountsPaginationRepository(ref.watch(accountsRepositoryProvider)),
 );
 
-class AccountsPaginationRepository
-    extends PaginationListRepository<SimplifiedAccount> {
+class AccountsPaginationRepository extends PaginationListRepository<SimplifiedAccount> {
   AccountsPaginationRepository(this._repository);
 
   final AccountsRepository _repository;

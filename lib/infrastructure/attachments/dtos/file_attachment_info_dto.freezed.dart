@@ -14,8 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-FileAttachmentInfoDto _$FileAttachmentInfoDtoFromJson(
-    Map<String, dynamic> json) {
+FileAttachmentInfoDto _$FileAttachmentInfoDtoFromJson(Map<String, dynamic> json) {
   return _FileAttachmentInfoDto.fromJson(json);
 }
 
@@ -35,20 +34,15 @@ mixin _$FileAttachmentInfoDto {
 
 /// @nodoc
 abstract class $FileAttachmentInfoDtoCopyWith<$Res> {
-  factory $FileAttachmentInfoDtoCopyWith(FileAttachmentInfoDto value,
-          $Res Function(FileAttachmentInfoDto) then) =
+  factory $FileAttachmentInfoDtoCopyWith(
+          FileAttachmentInfoDto value, $Res Function(FileAttachmentInfoDto) then) =
       _$FileAttachmentInfoDtoCopyWithImpl<$Res, FileAttachmentInfoDto>;
   @useResult
-  $Res call(
-      {int fileId,
-      String fileName,
-      int fileLength,
-      @DateConverter() DateTime createDate});
+  $Res call({int fileId, String fileName, int fileLength, @DateConverter() DateTime createDate});
 }
 
 /// @nodoc
-class _$FileAttachmentInfoDtoCopyWithImpl<$Res,
-        $Val extends FileAttachmentInfoDto>
+class _$FileAttachmentInfoDtoCopyWithImpl<$Res, $Val extends FileAttachmentInfoDto>
     implements $FileAttachmentInfoDtoCopyWith<$Res> {
   _$FileAttachmentInfoDtoCopyWithImpl(this._value, this._then);
 
@@ -90,25 +84,19 @@ class _$FileAttachmentInfoDtoCopyWithImpl<$Res,
 abstract class _$$FileAttachmentInfoDtoImplCopyWith<$Res>
     implements $FileAttachmentInfoDtoCopyWith<$Res> {
   factory _$$FileAttachmentInfoDtoImplCopyWith(
-          _$FileAttachmentInfoDtoImpl value,
-          $Res Function(_$FileAttachmentInfoDtoImpl) then) =
+          _$FileAttachmentInfoDtoImpl value, $Res Function(_$FileAttachmentInfoDtoImpl) then) =
       __$$FileAttachmentInfoDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int fileId,
-      String fileName,
-      int fileLength,
-      @DateConverter() DateTime createDate});
+  $Res call({int fileId, String fileName, int fileLength, @DateConverter() DateTime createDate});
 }
 
 /// @nodoc
 class __$$FileAttachmentInfoDtoImplCopyWithImpl<$Res>
-    extends _$FileAttachmentInfoDtoCopyWithImpl<$Res,
-        _$FileAttachmentInfoDtoImpl>
+    extends _$FileAttachmentInfoDtoCopyWithImpl<$Res, _$FileAttachmentInfoDtoImpl>
     implements _$$FileAttachmentInfoDtoImplCopyWith<$Res> {
-  __$$FileAttachmentInfoDtoImplCopyWithImpl(_$FileAttachmentInfoDtoImpl _value,
-      $Res Function(_$FileAttachmentInfoDtoImpl) _then)
+  __$$FileAttachmentInfoDtoImplCopyWithImpl(
+      _$FileAttachmentInfoDtoImpl _value, $Res Function(_$FileAttachmentInfoDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -173,25 +161,20 @@ class _$FileAttachmentInfoDtoImpl implements _FileAttachmentInfoDto {
         (other.runtimeType == runtimeType &&
             other is _$FileAttachmentInfoDtoImpl &&
             (identical(other.fileId, fileId) || other.fileId == fileId) &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName) &&
-            (identical(other.fileLength, fileLength) ||
-                other.fileLength == fileLength) &&
-            (identical(other.createDate, createDate) ||
-                other.createDate == createDate));
+            (identical(other.fileName, fileName) || other.fileName == fileName) &&
+            (identical(other.fileLength, fileLength) || other.fileLength == fileLength) &&
+            (identical(other.createDate, createDate) || other.createDate == createDate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, fileId, fileName, fileLength, createDate);
+  int get hashCode => Object.hash(runtimeType, fileId, fileName, fileLength, createDate);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileAttachmentInfoDtoImplCopyWith<_$FileAttachmentInfoDtoImpl>
-      get copyWith => __$$FileAttachmentInfoDtoImplCopyWithImpl<
-          _$FileAttachmentInfoDtoImpl>(this, _$identity);
+  _$$FileAttachmentInfoDtoImplCopyWith<_$FileAttachmentInfoDtoImpl> get copyWith =>
+      __$$FileAttachmentInfoDtoImplCopyWithImpl<_$FileAttachmentInfoDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -203,11 +186,10 @@ class _$FileAttachmentInfoDtoImpl implements _FileAttachmentInfoDto {
 
 abstract class _FileAttachmentInfoDto implements FileAttachmentInfoDto {
   const factory _FileAttachmentInfoDto(
-          {required final int fileId,
-          required final String fileName,
-          required final int fileLength,
-          @DateConverter() required final DateTime createDate}) =
-      _$FileAttachmentInfoDtoImpl;
+      {required final int fileId,
+      required final String fileName,
+      required final int fileLength,
+      @DateConverter() required final DateTime createDate}) = _$FileAttachmentInfoDtoImpl;
 
   factory _FileAttachmentInfoDto.fromJson(Map<String, dynamic> json) =
       _$FileAttachmentInfoDtoImpl.fromJson;
@@ -223,6 +205,6 @@ abstract class _FileAttachmentInfoDto implements FileAttachmentInfoDto {
   DateTime get createDate;
   @override
   @JsonKey(ignore: true)
-  _$$FileAttachmentInfoDtoImplCopyWith<_$FileAttachmentInfoDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$FileAttachmentInfoDtoImplCopyWith<_$FileAttachmentInfoDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

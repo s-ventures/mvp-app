@@ -19,8 +19,7 @@ enum SentTransferType {
 extension SentTransferTypeX on SentTransferType {
   SentTransferTypeDto toDto() => switch (this) {
         SentTransferType.transfer => SentTransferTypeDto.transfer,
-        SentTransferType.between_my_accounts =>
-          SentTransferTypeDto.between_my_accounts,
+        SentTransferType.between_my_accounts => SentTransferTypeDto.between_my_accounts,
         SentTransferType.inmediate => SentTransferTypeDto.inmediate,
         SentTransferType.urgent => SentTransferTypeDto.urgent,
         SentTransferType.sepa => SentTransferTypeDto.sepa,

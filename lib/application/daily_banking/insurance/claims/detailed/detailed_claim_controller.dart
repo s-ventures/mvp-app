@@ -3,8 +3,8 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/detailed/detailed_claim_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/repositories/claims_repository.dart';
 
-final detailedClaimControllerProvider = StateNotifierProvider.autoDispose<
-    DetailedClaimController, DetailedClaimState>(
+final detailedClaimControllerProvider =
+    StateNotifierProvider.autoDispose<DetailedClaimController, DetailedClaimState>(
   (ref) => DetailedClaimController(ref.watch(claimsRepositoryProvider)),
 );
 

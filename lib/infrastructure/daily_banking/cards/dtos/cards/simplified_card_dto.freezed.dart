@@ -30,8 +30,7 @@ mixin _$SimplifiedCardDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SimplifiedCardDtoCopyWith<SimplifiedCardDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SimplifiedCardDtoCopyWith<SimplifiedCardDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -115,10 +114,9 @@ class _$SimplifiedCardDtoCopyWithImpl<$Res, $Val extends SimplifiedCardDto>
 }
 
 /// @nodoc
-abstract class _$$SimplifiedCardDtoImplCopyWith<$Res>
-    implements $SimplifiedCardDtoCopyWith<$Res> {
-  factory _$$SimplifiedCardDtoImplCopyWith(_$SimplifiedCardDtoImpl value,
-          $Res Function(_$SimplifiedCardDtoImpl) then) =
+abstract class _$$SimplifiedCardDtoImplCopyWith<$Res> implements $SimplifiedCardDtoCopyWith<$Res> {
+  factory _$$SimplifiedCardDtoImplCopyWith(
+          _$SimplifiedCardDtoImpl value, $Res Function(_$SimplifiedCardDtoImpl) then) =
       __$$SimplifiedCardDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -139,8 +137,8 @@ abstract class _$$SimplifiedCardDtoImplCopyWith<$Res>
 class __$$SimplifiedCardDtoImplCopyWithImpl<$Res>
     extends _$SimplifiedCardDtoCopyWithImpl<$Res, _$SimplifiedCardDtoImpl>
     implements _$$SimplifiedCardDtoImplCopyWith<$Res> {
-  __$$SimplifiedCardDtoImplCopyWithImpl(_$SimplifiedCardDtoImpl _value,
-      $Res Function(_$SimplifiedCardDtoImpl) _then)
+  __$$SimplifiedCardDtoImplCopyWithImpl(
+      _$SimplifiedCardDtoImpl _value, $Res Function(_$SimplifiedCardDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -229,28 +227,24 @@ class _$SimplifiedCardDtoImpl implements _SimplifiedCardDto {
             other is _$SimplifiedCardDtoImpl &&
             (identical(other.cardId, cardId) || other.cardId == cardId) &&
             (identical(other.brand, brand) || other.brand == brand) &&
-            (identical(other.cardType, cardType) ||
-                other.cardType == cardType) &&
-            (identical(other.cardName, cardName) ||
-                other.cardName == cardName) &&
+            (identical(other.cardType, cardType) || other.cardType == cardType) &&
+            (identical(other.cardName, cardName) || other.cardName == cardName) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
                 other.cardEncryptedNumber == cardEncryptedNumber) &&
-            (identical(other.cardContract, cardContract) ||
-                other.cardContract == cardContract));
+            (identical(other.cardContract, cardContract) || other.cardContract == cardContract));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cardId, brand, cardType,
-      cardName, status, cardEncryptedNumber, cardContract);
+  int get hashCode => Object.hash(
+      runtimeType, cardId, brand, cardType, cardName, status, cardEncryptedNumber, cardContract);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimplifiedCardDtoImplCopyWith<_$SimplifiedCardDtoImpl> get copyWith =>
-      __$$SimplifiedCardDtoImplCopyWithImpl<_$SimplifiedCardDtoImpl>(
-          this, _$identity);
+      __$$SimplifiedCardDtoImplCopyWithImpl<_$SimplifiedCardDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -270,8 +264,7 @@ abstract class _SimplifiedCardDto implements SimplifiedCardDto {
       required final String cardEncryptedNumber,
       required final CardContractDto cardContract}) = _$SimplifiedCardDtoImpl;
 
-  factory _SimplifiedCardDto.fromJson(Map<String, dynamic> json) =
-      _$SimplifiedCardDtoImpl.fromJson;
+  factory _SimplifiedCardDto.fromJson(Map<String, dynamic> json) = _$SimplifiedCardDtoImpl.fromJson;
 
   @override
   int get cardId;

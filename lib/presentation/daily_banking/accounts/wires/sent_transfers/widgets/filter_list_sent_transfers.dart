@@ -21,12 +21,10 @@ class FilterListSentTransfers extends ConsumerStatefulWidget {
   final VoidCallback onClearAmountRange;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterListSentTransfersState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _FilterListSentTransfersState();
 }
 
-class _FilterListSentTransfersState
-    extends ConsumerState<FilterListSentTransfers> {
+class _FilterListSentTransfersState extends ConsumerState<FilterListSentTransfers> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -43,11 +41,8 @@ class _FilterListSentTransfersState
             ),
           if (widget.amountFrom != null || widget.amountTo != null)
             AmountRangeFilterListItem(
-              amountFrom: widget.amountFrom != null
-                  ? widget.amountFrom!.toDouble()
-                  : 0.0,
-              amountTo:
-                  widget.amountTo != null ? widget.amountTo!.toDouble() : 0.0,
+              amountFrom: widget.amountFrom != null ? widget.amountFrom!.toDouble() : 0.0,
+              amountTo: widget.amountTo != null ? widget.amountTo!.toDouble() : 0.0,
               onClear: widget.onClearAmountRange,
             ),
         ],

@@ -26,17 +26,15 @@ mixin _$SimplifiedAccountTransaction {
   AccountTransactionType get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedAccountTransactionCopyWith<SimplifiedAccountTransaction>
-      get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedAccountTransactionCopyWith<SimplifiedAccountTransaction> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedAccountTransactionCopyWith<$Res> {
   factory $SimplifiedAccountTransactionCopyWith(
-          SimplifiedAccountTransaction value,
-          $Res Function(SimplifiedAccountTransaction) then) =
-      _$SimplifiedAccountTransactionCopyWithImpl<$Res,
-          SimplifiedAccountTransaction>;
+          SimplifiedAccountTransaction value, $Res Function(SimplifiedAccountTransaction) then) =
+      _$SimplifiedAccountTransactionCopyWithImpl<$Res, SimplifiedAccountTransaction>;
   @useResult
   $Res call(
       {UniqueId id,
@@ -50,8 +48,7 @@ abstract class $SimplifiedAccountTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SimplifiedAccountTransactionCopyWithImpl<$Res,
-        $Val extends SimplifiedAccountTransaction>
+class _$SimplifiedAccountTransactionCopyWithImpl<$Res, $Val extends SimplifiedAccountTransaction>
     implements $SimplifiedAccountTransactionCopyWith<$Res> {
   _$SimplifiedAccountTransactionCopyWithImpl(this._value, this._then);
 
@@ -112,8 +109,7 @@ class _$SimplifiedAccountTransactionCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$SimplifiedAccountTransactionImplCopyWith<$Res>
     implements $SimplifiedAccountTransactionCopyWith<$Res> {
-  factory _$$SimplifiedAccountTransactionImplCopyWith(
-          _$SimplifiedAccountTransactionImpl value,
+  factory _$$SimplifiedAccountTransactionImplCopyWith(_$SimplifiedAccountTransactionImpl value,
           $Res Function(_$SimplifiedAccountTransactionImpl) then) =
       __$$SimplifiedAccountTransactionImplCopyWithImpl<$Res>;
   @override
@@ -131,11 +127,9 @@ abstract class _$$SimplifiedAccountTransactionImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedAccountTransactionImplCopyWithImpl<$Res>
-    extends _$SimplifiedAccountTransactionCopyWithImpl<$Res,
-        _$SimplifiedAccountTransactionImpl>
+    extends _$SimplifiedAccountTransactionCopyWithImpl<$Res, _$SimplifiedAccountTransactionImpl>
     implements _$$SimplifiedAccountTransactionImplCopyWith<$Res> {
-  __$$SimplifiedAccountTransactionImplCopyWithImpl(
-      _$SimplifiedAccountTransactionImpl _value,
+  __$$SimplifiedAccountTransactionImplCopyWithImpl(_$SimplifiedAccountTransactionImpl _value,
       $Res Function(_$SimplifiedAccountTransactionImpl) _then)
       : super(_value, _then);
 
@@ -190,8 +184,7 @@ class __$$SimplifiedAccountTransactionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SimplifiedAccountTransactionImpl
-    implements _SimplifiedAccountTransaction {
+class _$SimplifiedAccountTransactionImpl implements _SimplifiedAccountTransaction {
   const _$SimplifiedAccountTransactionImpl(
       {required this.id,
       required this.accountId,
@@ -230,44 +223,37 @@ class _$SimplifiedAccountTransactionImpl
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedAccountTransactionImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.category, category) || other.category == category) &&
+            (identical(other.description, description) || other.description == description) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.endBalance, endBalance) ||
-                other.endBalance == endBalance) &&
+            (identical(other.endBalance, endBalance) || other.endBalance == endBalance) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, accountId, category,
-      description, date, amount, endBalance, type);
+  int get hashCode => Object.hash(
+      runtimeType, id, accountId, category, description, date, amount, endBalance, type);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedAccountTransactionImplCopyWith<
-          _$SimplifiedAccountTransactionImpl>
-      get copyWith => __$$SimplifiedAccountTransactionImplCopyWithImpl<
-          _$SimplifiedAccountTransactionImpl>(this, _$identity);
+  _$$SimplifiedAccountTransactionImplCopyWith<_$SimplifiedAccountTransactionImpl> get copyWith =>
+      __$$SimplifiedAccountTransactionImplCopyWithImpl<_$SimplifiedAccountTransactionImpl>(
+          this, _$identity);
 }
 
-abstract class _SimplifiedAccountTransaction
-    implements SimplifiedAccountTransaction {
+abstract class _SimplifiedAccountTransaction implements SimplifiedAccountTransaction {
   const factory _SimplifiedAccountTransaction(
-          {required final UniqueId id,
-          required final UniqueId accountId,
-          required final String category,
-          required final String description,
-          required final DateTime date,
-          required final double amount,
-          required final double endBalance,
-          required final AccountTransactionType type}) =
-      _$SimplifiedAccountTransactionImpl;
+      {required final UniqueId id,
+      required final UniqueId accountId,
+      required final String category,
+      required final String description,
+      required final DateTime date,
+      required final double amount,
+      required final double endBalance,
+      required final AccountTransactionType type}) = _$SimplifiedAccountTransactionImpl;
 
   @override
   UniqueId get id;
@@ -287,7 +273,6 @@ abstract class _SimplifiedAccountTransaction
   AccountTransactionType get type;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedAccountTransactionImplCopyWith<
-          _$SimplifiedAccountTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedAccountTransactionImplCopyWith<_$SimplifiedAccountTransactionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

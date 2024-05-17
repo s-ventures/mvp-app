@@ -6,8 +6,7 @@ part of 'file_attachment_info_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FileAttachmentInfoDtoImpl _$$FileAttachmentInfoDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$FileAttachmentInfoDtoImpl _$$FileAttachmentInfoDtoImplFromJson(Map<String, dynamic> json) =>
     _$FileAttachmentInfoDtoImpl(
       fileId: json['fileId'] as int,
       fileName: json['fileName'] as String,
@@ -15,8 +14,7 @@ _$FileAttachmentInfoDtoImpl _$$FileAttachmentInfoDtoImplFromJson(
       createDate: const DateConverter().fromJson(json['createDate'] as String),
     );
 
-Map<String, dynamic> _$$FileAttachmentInfoDtoImplToJson(
-        _$FileAttachmentInfoDtoImpl instance) =>
+Map<String, dynamic> _$$FileAttachmentInfoDtoImplToJson(_$FileAttachmentInfoDtoImpl instance) =>
     <String, dynamic>{
       'fileId': instance.fileId,
       'fileName': instance.fileName,

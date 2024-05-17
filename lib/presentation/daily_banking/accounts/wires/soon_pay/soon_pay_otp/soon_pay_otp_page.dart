@@ -76,8 +76,7 @@ class SoonPayOTPPage extends StatelessWidget {
               context: context,
               icon: IconAssets.send,
               title: 'Envío realizado',
-              message:
-                  'Se han enviado ${50.00.toCurrency(plusSign: false)} a Thomas Magnum',
+              message: 'Se han enviado ${50.00.toCurrency(plusSign: false)} a Thomas Magnum',
               buttonOkText: 'Continuar',
               onOkPressed: () => context.pushNamed(
                 AppRoute.dailyBankingTransfers.name,

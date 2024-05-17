@@ -24,9 +24,7 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   @override
   void initState() {
     super.initState();
-    ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
-        .resetFilters();
+    ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier).resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
@@ -37,11 +35,8 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   }
 
   void _loadMore() {
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
-      ref
-          .read(simplifiedAccountTransactionsControllerProvider.notifier)
-          .loadNextPage();
+    if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+      ref.read(simplifiedAccountTransactionsControllerProvider.notifier).loadNextPage();
     }
   }
 
@@ -75,8 +70,7 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                       icon: IconAssets.transfer,
                       type: ButtonType.filled,
                       label: 'Enviar dinero',
-                      onPressed: () => context
-                          .pushNamed(AppRoute.dailyBankingTransfers.name),
+                      onPressed: () => context.pushNamed(AppRoute.dailyBankingTransfers.name),
                     ),
                     IconOverTextButton(
                       icon: IconAssets.calendar,

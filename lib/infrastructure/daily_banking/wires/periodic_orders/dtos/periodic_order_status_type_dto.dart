@@ -17,8 +17,7 @@ extension PeriodicOrderStatusTypeDtoX on PeriodicOrderStatusTypeDto {
   PeriodicOrderStatusType toDomain() => switch (this) {
         PeriodicOrderStatusTypeDto.sent => PeriodicOrderStatusType.sent,
         PeriodicOrderStatusTypeDto.received => PeriodicOrderStatusType.received,
-        PeriodicOrderStatusTypeDto.cancelled =>
-          PeriodicOrderStatusType.cancelled,
+        PeriodicOrderStatusTypeDto.cancelled => PeriodicOrderStatusType.cancelled,
         PeriodicOrderStatusTypeDto.pending => PeriodicOrderStatusType.pending,
         PeriodicOrderStatusTypeDto.rejected => PeriodicOrderStatusType.rejected,
       };

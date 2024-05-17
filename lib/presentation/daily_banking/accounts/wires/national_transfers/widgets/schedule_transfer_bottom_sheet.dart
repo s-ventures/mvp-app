@@ -52,8 +52,7 @@ class ScheduleTransferBottomSheet {
       ),
       mainContentSlivers: [
         SliverPadding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -69,8 +68,7 @@ class ScheduleTransferBottomSheet {
                     child: ListTile(
                       dense: true,
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
+                        borderRadius: BorderRadius.circular(context.radius.soft),
                       ),
                       title: Text(
                         'Fecha de inicio',
@@ -109,8 +107,7 @@ class ScheduleTransferBottomSheet {
                     child: ListTile(
                       dense: true,
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
+                        borderRadius: BorderRadius.circular(context.radius.soft),
                       ),
                       title: Text(
                         'Repetir',
@@ -196,8 +193,7 @@ class ScheduleTransferBottomSheet {
       ),
       mainContentSlivers: [
         SliverPadding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [

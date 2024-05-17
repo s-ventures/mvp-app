@@ -14,8 +14,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims
 
 final claimsRepositoryProvider = Provider<ClaimsRepository>(
   (ref) => ClaimsRepository(
-    remoteDataSource:
-        ClaimsRemoteDataSource(ref.watch(claimsRestClientProvider)),
+    remoteDataSource: ClaimsRemoteDataSource(ref.watch(claimsRestClientProvider)),
   ),
 );
 
@@ -27,8 +26,7 @@ class ClaimsRepository implements IClaimsRepository {
   final ClaimsRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<SimplifiedClaimFailure, List<SimplifiedClaim>>>
-      getSimplifiedClaims({
+  Future<Either<SimplifiedClaimFailure, List<SimplifiedClaim>>> getSimplifiedClaims({
     required ClaimsFilter filter,
     int page = 0,
     int pageSize = 10,

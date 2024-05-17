@@ -16,28 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedCardTransactionState {
-  AsyncValue<DetailedCardTransaction> get transaction =>
-      throw _privateConstructorUsedError;
+  AsyncValue<DetailedCardTransaction> get transaction => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedCardTransactionStateCopyWith<DetailedCardTransactionState>
-      get copyWith => throw _privateConstructorUsedError;
+  $DetailedCardTransactionStateCopyWith<DetailedCardTransactionState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedCardTransactionStateCopyWith<$Res> {
   factory $DetailedCardTransactionStateCopyWith(
-          DetailedCardTransactionState value,
-          $Res Function(DetailedCardTransactionState) then) =
-      _$DetailedCardTransactionStateCopyWithImpl<$Res,
-          DetailedCardTransactionState>;
+          DetailedCardTransactionState value, $Res Function(DetailedCardTransactionState) then) =
+      _$DetailedCardTransactionStateCopyWithImpl<$Res, DetailedCardTransactionState>;
   @useResult
   $Res call({AsyncValue<DetailedCardTransaction> transaction});
 }
 
 /// @nodoc
-class _$DetailedCardTransactionStateCopyWithImpl<$Res,
-        $Val extends DetailedCardTransactionState>
+class _$DetailedCardTransactionStateCopyWithImpl<$Res, $Val extends DetailedCardTransactionState>
     implements $DetailedCardTransactionStateCopyWith<$Res> {
   _$DetailedCardTransactionStateCopyWithImpl(this._value, this._then);
 
@@ -63,8 +59,7 @@ class _$DetailedCardTransactionStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$DetailedCardTransactionStateImplCopyWith<$Res>
     implements $DetailedCardTransactionStateCopyWith<$Res> {
-  factory _$$DetailedCardTransactionStateImplCopyWith(
-          _$DetailedCardTransactionStateImpl value,
+  factory _$$DetailedCardTransactionStateImplCopyWith(_$DetailedCardTransactionStateImpl value,
           $Res Function(_$DetailedCardTransactionStateImpl) then) =
       __$$DetailedCardTransactionStateImplCopyWithImpl<$Res>;
   @override
@@ -74,11 +69,9 @@ abstract class _$$DetailedCardTransactionStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedCardTransactionStateImplCopyWithImpl<$Res>
-    extends _$DetailedCardTransactionStateCopyWithImpl<$Res,
-        _$DetailedCardTransactionStateImpl>
+    extends _$DetailedCardTransactionStateCopyWithImpl<$Res, _$DetailedCardTransactionStateImpl>
     implements _$$DetailedCardTransactionStateImplCopyWith<$Res> {
-  __$$DetailedCardTransactionStateImplCopyWithImpl(
-      _$DetailedCardTransactionStateImpl _value,
+  __$$DetailedCardTransactionStateImplCopyWithImpl(_$DetailedCardTransactionStateImpl _value,
       $Res Function(_$DetailedCardTransactionStateImpl) _then)
       : super(_value, _then);
 
@@ -98,8 +91,7 @@ class __$$DetailedCardTransactionStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DetailedCardTransactionStateImpl
-    implements _DetailedCardTransactionState {
+class _$DetailedCardTransactionStateImpl implements _DetailedCardTransactionState {
   const _$DetailedCardTransactionStateImpl(
       {this.transaction = const AsyncLoading<DetailedCardTransaction>()});
 
@@ -117,8 +109,7 @@ class _$DetailedCardTransactionStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedCardTransactionStateImpl &&
-            (identical(other.transaction, transaction) ||
-                other.transaction == transaction));
+            (identical(other.transaction, transaction) || other.transaction == transaction));
   }
 
   @override
@@ -127,23 +118,19 @@ class _$DetailedCardTransactionStateImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedCardTransactionStateImplCopyWith<
-          _$DetailedCardTransactionStateImpl>
-      get copyWith => __$$DetailedCardTransactionStateImplCopyWithImpl<
-          _$DetailedCardTransactionStateImpl>(this, _$identity);
+  _$$DetailedCardTransactionStateImplCopyWith<_$DetailedCardTransactionStateImpl> get copyWith =>
+      __$$DetailedCardTransactionStateImplCopyWithImpl<_$DetailedCardTransactionStateImpl>(
+          this, _$identity);
 }
 
-abstract class _DetailedCardTransactionState
-    implements DetailedCardTransactionState {
+abstract class _DetailedCardTransactionState implements DetailedCardTransactionState {
   const factory _DetailedCardTransactionState(
-          {final AsyncValue<DetailedCardTransaction> transaction}) =
-      _$DetailedCardTransactionStateImpl;
+      {final AsyncValue<DetailedCardTransaction> transaction}) = _$DetailedCardTransactionStateImpl;
 
   @override
   AsyncValue<DetailedCardTransaction> get transaction;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedCardTransactionStateImplCopyWith<
-          _$DetailedCardTransactionStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$DetailedCardTransactionStateImplCopyWith<_$DetailedCardTransactionStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
