@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/budgets/widgets/budget_grid_tile.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/budgets/widgets/budget_list_tile.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Pending extends StatefulWidget {
-  const Pending({super.key});
+class BudgetsPending extends StatelessWidget {
+  const BudgetsPending({
+    required this.type,
+    required this.setType,
+    super.key,
+  });
 
-  @override
-  State<Pending> createState() => _PendingState();
-}
-
-class _PendingState extends State<Pending> {
-  SwitchViewType _type = SwitchViewType.list;
+  final SwitchViewType type;
+  final void Function(SwitchViewType) setType;
 
   @override
   Widget build(BuildContext context) {
@@ -27,36 +29,25 @@ class _PendingState extends State<Pending> {
               ),
             ),
             SwitchView(
-              onChanged: (typeSelected) {
-                debugPrint('TypeSelected: $typeSelected');
-                setState(() {
-                  _type = typeSelected;
-                });
-              },
+              onChanged: setType,
             ),
           ],
         ),
         AppSpacing.vertical.s5,
-        if (_type == SwitchViewType.list)
+        if (type == SwitchViewType.list)
           ListView.separated(
             shrinkWrap: true,
+            padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 6,
-            padding: EdgeInsets.zero,
             separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
-              return Container(
-                padding: const EdgeInsets.all(AppSpacing.s5),
-                decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(context.radius.soft),
-                  ),
-                ),
-                child: Text(
-                  'Item $index',
-                  style: context.textStyle.bodyMediumRegular,
-                ),
+              return const BudgetListTile(
+                budget: 'F1/2023',
+                date: '12/23',
+                contact: 'Contacto',
+                amount: 1000,
+                status: 'Vence en 3 días',
               );
             },
           )
@@ -72,14 +63,12 @@ class _PendingState extends State<Pending> {
             itemCount: 6,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              return CustomCard(
-                outlined: true,
-                child: Center(
-                  child: Text(
-                    'Item $index',
-                    style: context.textStyle.bodyMediumRegular,
-                  ),
-                ),
+              return const BudgetGridTile(
+                budget: 'F1/2023',
+                date: '12/23',
+                contact: 'Contacto',
+                amount: 1000,
+                status: 'Vence en 3 días',
               );
             },
           ),
