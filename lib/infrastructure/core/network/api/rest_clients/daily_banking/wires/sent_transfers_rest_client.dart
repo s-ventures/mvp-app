@@ -18,8 +18,7 @@ abstract class SentTransfersRestClient {
   factory SentTransfersRestClient(Dio dio) = _SentTransfersRestClient;
 
   @GET('/wires/v1/sent-transfers/query')
-  Future<PaginatedResponse<SimplifiedSentTransferDto>>
-      getSimplifiedSentTransfers({
+  Future<PaginatedResponse<SimplifiedSentTransferDto>> getSimplifiedSentTransfers({
     @Query('') required SentTransfersFilterDto filter,
   });
 

@@ -18,8 +18,7 @@ abstract class CardTransactionsRestClient {
   factory CardTransactionsRestClient(Dio dio) = _CardTransactionsRestClient;
 
   @GET('/cards/v1/query/transactions')
-  Future<PaginatedResponse<DateCardTransactionsDto>>
-      getSimplifiedCardTransactions({
+  Future<PaginatedResponse<DateCardTransactionsDto>> getSimplifiedCardTransactions({
     @Query('') required CardTransactionsFilterDto filter,
   });
 

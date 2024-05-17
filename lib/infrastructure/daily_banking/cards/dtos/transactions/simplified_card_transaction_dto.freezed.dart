@@ -14,8 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SimplifiedCardTransactionDto _$SimplifiedCardTransactionDtoFromJson(
-    Map<String, dynamic> json) {
+SimplifiedCardTransactionDto _$SimplifiedCardTransactionDtoFromJson(Map<String, dynamic> json) {
   return _CardTransactionDto.fromJson(json);
 }
 
@@ -38,17 +37,15 @@ mixin _$SimplifiedCardTransactionDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SimplifiedCardTransactionDtoCopyWith<SimplifiedCardTransactionDto>
-      get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedCardTransactionDtoCopyWith<SimplifiedCardTransactionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedCardTransactionDtoCopyWith<$Res> {
   factory $SimplifiedCardTransactionDtoCopyWith(
-          SimplifiedCardTransactionDto value,
-          $Res Function(SimplifiedCardTransactionDto) then) =
-      _$SimplifiedCardTransactionDtoCopyWithImpl<$Res,
-          SimplifiedCardTransactionDto>;
+          SimplifiedCardTransactionDto value, $Res Function(SimplifiedCardTransactionDto) then) =
+      _$SimplifiedCardTransactionDtoCopyWithImpl<$Res, SimplifiedCardTransactionDto>;
   @useResult
   $Res call(
       {int movementId,
@@ -66,8 +63,7 @@ abstract class $SimplifiedCardTransactionDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SimplifiedCardTransactionDtoCopyWithImpl<$Res,
-        $Val extends SimplifiedCardTransactionDto>
+class _$SimplifiedCardTransactionDtoCopyWithImpl<$Res, $Val extends SimplifiedCardTransactionDto>
     implements $SimplifiedCardTransactionDtoCopyWith<$Res> {
   _$SimplifiedCardTransactionDtoCopyWithImpl(this._value, this._then);
 
@@ -148,8 +144,8 @@ class _$SimplifiedCardTransactionDtoCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$CardTransactionDtoImplCopyWith<$Res>
     implements $SimplifiedCardTransactionDtoCopyWith<$Res> {
-  factory _$$CardTransactionDtoImplCopyWith(_$CardTransactionDtoImpl value,
-          $Res Function(_$CardTransactionDtoImpl) then) =
+  factory _$$CardTransactionDtoImplCopyWith(
+          _$CardTransactionDtoImpl value, $Res Function(_$CardTransactionDtoImpl) then) =
       __$$CardTransactionDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -170,11 +166,10 @@ abstract class _$$CardTransactionDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CardTransactionDtoImplCopyWithImpl<$Res>
-    extends _$SimplifiedCardTransactionDtoCopyWithImpl<$Res,
-        _$CardTransactionDtoImpl>
+    extends _$SimplifiedCardTransactionDtoCopyWithImpl<$Res, _$CardTransactionDtoImpl>
     implements _$$CardTransactionDtoImplCopyWith<$Res> {
-  __$$CardTransactionDtoImplCopyWithImpl(_$CardTransactionDtoImpl _value,
-      $Res Function(_$CardTransactionDtoImpl) _then)
+  __$$CardTransactionDtoImplCopyWithImpl(
+      _$CardTransactionDtoImpl _value, $Res Function(_$CardTransactionDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -303,27 +298,19 @@ class _$CardTransactionDtoImpl implements _CardTransactionDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CardTransactionDtoImpl &&
-            (identical(other.movementId, movementId) ||
-                other.movementId == movementId) &&
-            (identical(other.postingDate, postingDate) ||
-                other.postingDate == postingDate) &&
-            (identical(other.valueDate, valueDate) ||
-                other.valueDate == valueDate) &&
+            (identical(other.movementId, movementId) || other.movementId == movementId) &&
+            (identical(other.postingDate, postingDate) || other.postingDate == postingDate) &&
+            (identical(other.valueDate, valueDate) || other.valueDate == valueDate) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.currencyCode, currencyCode) ||
-                other.currencyCode == currencyCode) &&
+            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
             (identical(other.analyticsCategory, analyticsCategory) ||
                 other.analyticsCategory == analyticsCategory) &&
-            (identical(other.userCategory, userCategory) ||
-                other.userCategory == userCategory) &&
+            (identical(other.userCategory, userCategory) || other.userCategory == userCategory) &&
             (identical(other.cardId, cardId) || other.cardId == cardId) &&
-            (identical(other.responseCode, responseCode) ||
-                other.responseCode == responseCode) &&
+            (identical(other.responseCode, responseCode) || other.responseCode == responseCode) &&
             (identical(other.concept, concept) || other.concept == concept) &&
-            (identical(other.postingTime, postingTime) ||
-                other.postingTime == postingTime) &&
-            (identical(other.productType, productType) ||
-                other.productType == productType));
+            (identical(other.postingTime, postingTime) || other.postingTime == postingTime) &&
+            (identical(other.productType, productType) || other.productType == productType));
   }
 
   @JsonKey(ignore: true)
@@ -347,8 +334,7 @@ class _$CardTransactionDtoImpl implements _CardTransactionDto {
   @override
   @pragma('vm:prefer-inline')
   _$$CardTransactionDtoImplCopyWith<_$CardTransactionDtoImpl> get copyWith =>
-      __$$CardTransactionDtoImplCopyWithImpl<_$CardTransactionDtoImpl>(
-          this, _$identity);
+      __$$CardTransactionDtoImplCopyWithImpl<_$CardTransactionDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

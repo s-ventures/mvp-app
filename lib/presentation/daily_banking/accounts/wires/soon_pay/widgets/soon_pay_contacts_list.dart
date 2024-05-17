@@ -49,8 +49,7 @@ class SoonPayContactList extends StatelessWidget {
               type: 'Proveedor',
               typeForegroundColor: context.color.supplierForeground,
               typeBackgroundColor: context.color.supplierBackground,
-              onPressed: () =>
-                  context.pushNamed(AppRoute.dailyBankingSoonPayContact.name),
+              onPressed: () => context.pushNamed(AppRoute.dailyBankingSoonPayContact.name),
             ),
             ContactListTile(
               name: 'Alba García',

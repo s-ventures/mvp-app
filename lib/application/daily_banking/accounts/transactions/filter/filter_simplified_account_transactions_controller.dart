@@ -3,10 +3,8 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactio
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 
-final filterSimplifiedAccountTransactionsControllerProvider =
-    StateNotifierProvider.autoDispose<
-        FilterSimplifiedAccountTransactionsController,
-        FilterSimplifiedAccountTransactionsState>(
+final filterSimplifiedAccountTransactionsControllerProvider = StateNotifierProvider.autoDispose<
+    FilterSimplifiedAccountTransactionsController, FilterSimplifiedAccountTransactionsState>(
   (ref) => FilterSimplifiedAccountTransactionsController(
     ref.read(simplifiedAccountTransactionsControllerProvider.notifier),
   ),
@@ -18,8 +16,7 @@ class FilterSimplifiedAccountTransactionsController
     this._simplifiedAccountTransactionsController,
   ) : super(const FilterSimplifiedAccountTransactionsState());
 
-  final SimplifiedAccountTransactionsController
-      _simplifiedAccountTransactionsController;
+  final SimplifiedAccountTransactionsController _simplifiedAccountTransactionsController;
 
   Future<void> applyFilters() async {
     await _simplifiedAccountTransactionsController.updateFilter(

@@ -5,8 +5,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/en
 part 'simplified_account_transactions_state.freezed.dart';
 
 @freezed
-class SimplifiedAccountTransactionsState
-    with _$SimplifiedAccountTransactionsState {
+class SimplifiedAccountTransactionsState with _$SimplifiedAccountTransactionsState {
   const factory SimplifiedAccountTransactionsState({
     @Default(AsyncLoading<Map<DateTime, List<SimplifiedAccountTransaction>>>())
     AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> transactions,

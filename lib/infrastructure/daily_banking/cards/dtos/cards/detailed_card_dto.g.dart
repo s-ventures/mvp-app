@@ -6,8 +6,7 @@ part of 'detailed_card_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DetailedCardDtoImpl _$$DetailedCardDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$DetailedCardDtoImpl _$$DetailedCardDtoImplFromJson(Map<String, dynamic> json) =>
     _$DetailedCardDtoImpl(
       cardId: json['cardId'] as int,
       brand: json['brand'] as String,
@@ -19,19 +18,16 @@ _$DetailedCardDtoImpl _$$DetailedCardDtoImplFromJson(
       currencyCode: json['currencyCode'] as String,
       status: $enumDecode(_$CardStatusDtoEnumMap, json['status']),
       cardEncryptedNumber: json['cardEncryptedNumber'] as String,
-      cardContract: CardContractDto.fromJson(
-          json['cardContract'] as Map<String, dynamic>),
+      cardContract: CardContractDto.fromJson(json['cardContract'] as Map<String, dynamic>),
       balance: json['balance'] == null
           ? null
-          : SimplifiedCardBalanceDto.fromJson(
-              json['balance'] as Map<String, dynamic>),
+          : SimplifiedCardBalanceDto.fromJson(json['balance'] as Map<String, dynamic>),
       dueDate: json['dueDate'] as String?,
       statusReason: json['statusReason'] as String?,
       cvv: json['cvv'] as String?,
     );
 
-Map<String, dynamic> _$$DetailedCardDtoImplToJson(
-        _$DetailedCardDtoImpl instance) =>
+Map<String, dynamic> _$$DetailedCardDtoImplToJson(_$DetailedCardDtoImpl instance) =>
     <String, dynamic>{
       'cardId': instance.cardId,
       'brand': instance.brand,

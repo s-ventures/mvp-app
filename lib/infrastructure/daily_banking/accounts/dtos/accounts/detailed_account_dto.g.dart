@@ -6,8 +6,7 @@ part of 'detailed_account_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DetailedAccountDtoImpl _$$DetailedAccountDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$DetailedAccountDtoImpl _$$DetailedAccountDtoImplFromJson(Map<String, dynamic> json) =>
     _$DetailedAccountDtoImpl(
       accountId: json['accountId'] as int,
       entity: json['entity'] as String,
@@ -18,17 +17,14 @@ _$DetailedAccountDtoImpl _$$DetailedAccountDtoImplFromJson(
       activateDate: json['activateDate'] as String,
       closureDate: json['closureDate'] as String?,
       currencyCode: json['currencyCode'] as String,
-      dispositionType: $enumDecode(
-          _$AccountDispositionTypeDtoEnumMap, json['dispositionType']),
+      dispositionType: $enumDecode(_$AccountDispositionTypeDtoEnumMap, json['dispositionType']),
       dispositionNumber: json['dispositionNumber'] as String,
       lastOperationDate: json['lastOperationDate'] as String,
-      balance:
-          AccountBalanceDto.fromJson(json['balance'] as Map<String, dynamic>),
+      balance: AccountBalanceDto.fromJson(json['balance'] as Map<String, dynamic>),
       accountHolder: json['accountHolder'] as String?,
     );
 
-Map<String, dynamic> _$$DetailedAccountDtoImplToJson(
-        _$DetailedAccountDtoImpl instance) =>
+Map<String, dynamic> _$$DetailedAccountDtoImplToJson(_$DetailedAccountDtoImpl instance) =>
     <String, dynamic>{
       'accountId': instance.accountId,
       'entity': instance.entity,
@@ -39,8 +35,7 @@ Map<String, dynamic> _$$DetailedAccountDtoImplToJson(
       'activateDate': instance.activateDate,
       'closureDate': instance.closureDate,
       'currencyCode': instance.currencyCode,
-      'dispositionType':
-          _$AccountDispositionTypeDtoEnumMap[instance.dispositionType]!,
+      'dispositionType': _$AccountDispositionTypeDtoEnumMap[instance.dispositionType]!,
       'dispositionNumber': instance.dispositionNumber,
       'lastOperationDate': instance.lastOperationDate,
       'balance': instance.balance.toJson(),

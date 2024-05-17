@@ -16,23 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedSentTransfersState {
-  AsyncValue<List<SimplifiedSentTransfer>> get sentTransfers =>
-      throw _privateConstructorUsedError;
+  AsyncValue<List<SimplifiedSentTransfer>> get sentTransfers => throw _privateConstructorUsedError;
   AsyncValue<List<SimplifiedSentTransfer>> get lastSentTransfers =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedSentTransfersStateCopyWith<SimplifiedSentTransfersState>
-      get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedSentTransfersStateCopyWith<SimplifiedSentTransfersState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedSentTransfersStateCopyWith<$Res> {
   factory $SimplifiedSentTransfersStateCopyWith(
-          SimplifiedSentTransfersState value,
-          $Res Function(SimplifiedSentTransfersState) then) =
-      _$SimplifiedSentTransfersStateCopyWithImpl<$Res,
-          SimplifiedSentTransfersState>;
+          SimplifiedSentTransfersState value, $Res Function(SimplifiedSentTransfersState) then) =
+      _$SimplifiedSentTransfersStateCopyWithImpl<$Res, SimplifiedSentTransfersState>;
   @useResult
   $Res call(
       {AsyncValue<List<SimplifiedSentTransfer>> sentTransfers,
@@ -40,8 +37,7 @@ abstract class $SimplifiedSentTransfersStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SimplifiedSentTransfersStateCopyWithImpl<$Res,
-        $Val extends SimplifiedSentTransfersState>
+class _$SimplifiedSentTransfersStateCopyWithImpl<$Res, $Val extends SimplifiedSentTransfersState>
     implements $SimplifiedSentTransfersStateCopyWith<$Res> {
   _$SimplifiedSentTransfersStateCopyWithImpl(this._value, this._then);
 
@@ -72,8 +68,7 @@ class _$SimplifiedSentTransfersStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$SimplifiedSentTransfersStateImplCopyWith<$Res>
     implements $SimplifiedSentTransfersStateCopyWith<$Res> {
-  factory _$$SimplifiedSentTransfersStateImplCopyWith(
-          _$SimplifiedSentTransfersStateImpl value,
+  factory _$$SimplifiedSentTransfersStateImplCopyWith(_$SimplifiedSentTransfersStateImpl value,
           $Res Function(_$SimplifiedSentTransfersStateImpl) then) =
       __$$SimplifiedSentTransfersStateImplCopyWithImpl<$Res>;
   @override
@@ -85,11 +80,9 @@ abstract class _$$SimplifiedSentTransfersStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedSentTransfersStateImplCopyWithImpl<$Res>
-    extends _$SimplifiedSentTransfersStateCopyWithImpl<$Res,
-        _$SimplifiedSentTransfersStateImpl>
+    extends _$SimplifiedSentTransfersStateCopyWithImpl<$Res, _$SimplifiedSentTransfersStateImpl>
     implements _$$SimplifiedSentTransfersStateImplCopyWith<$Res> {
-  __$$SimplifiedSentTransfersStateImplCopyWithImpl(
-      _$SimplifiedSentTransfersStateImpl _value,
+  __$$SimplifiedSentTransfersStateImplCopyWithImpl(_$SimplifiedSentTransfersStateImpl _value,
       $Res Function(_$SimplifiedSentTransfersStateImpl) _then)
       : super(_value, _then);
 
@@ -114,12 +107,10 @@ class __$$SimplifiedSentTransfersStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SimplifiedSentTransfersStateImpl
-    implements _SimplifiedSentTransfersState {
+class _$SimplifiedSentTransfersStateImpl implements _SimplifiedSentTransfersState {
   const _$SimplifiedSentTransfersStateImpl(
       {this.sentTransfers = const AsyncLoading<List<SimplifiedSentTransfer>>(),
-      this.lastSentTransfers =
-          const AsyncLoading<List<SimplifiedSentTransfer>>()});
+      this.lastSentTransfers = const AsyncLoading<List<SimplifiedSentTransfer>>()});
 
   @override
   @JsonKey()
@@ -145,20 +136,17 @@ class _$SimplifiedSentTransfersStateImpl
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, sentTransfers, lastSentTransfers);
+  int get hashCode => Object.hash(runtimeType, sentTransfers, lastSentTransfers);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedSentTransfersStateImplCopyWith<
-          _$SimplifiedSentTransfersStateImpl>
-      get copyWith => __$$SimplifiedSentTransfersStateImplCopyWithImpl<
-          _$SimplifiedSentTransfersStateImpl>(this, _$identity);
+  _$$SimplifiedSentTransfersStateImplCopyWith<_$SimplifiedSentTransfersStateImpl> get copyWith =>
+      __$$SimplifiedSentTransfersStateImplCopyWithImpl<_$SimplifiedSentTransfersStateImpl>(
+          this, _$identity);
 }
 
-abstract class _SimplifiedSentTransfersState
-    implements SimplifiedSentTransfersState {
+abstract class _SimplifiedSentTransfersState implements SimplifiedSentTransfersState {
   const factory _SimplifiedSentTransfersState(
           {final AsyncValue<List<SimplifiedSentTransfer>> sentTransfers,
           final AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers}) =
@@ -170,7 +158,6 @@ abstract class _SimplifiedSentTransfersState
   AsyncValue<List<SimplifiedSentTransfer>> get lastSentTransfers;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedSentTransfersStateImplCopyWith<
-          _$SimplifiedSentTransfersStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedSentTransfersStateImplCopyWith<_$SimplifiedSentTransfersStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

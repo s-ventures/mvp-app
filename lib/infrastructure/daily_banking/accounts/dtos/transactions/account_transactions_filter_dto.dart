@@ -59,8 +59,7 @@ class AccountTransactionsFilterDto extends PaginatedRequest {
   }) {
     return AccountTransactionsFilterDto(
       accountId: filter.accountIds.map((e) => e.toInt()).toList(),
-      operationType:
-          filter.operationType.toDto(filter.amountFrom, filter.amountTo),
+      operationType: filter.operationType.toDto(filter.amountFrom, filter.amountTo),
       description: filter.description,
       postingDateFrom: filter.dateFrom,
       postingDateTo: filter.dateTo,

@@ -29,8 +29,7 @@ class CustomDropdownListTile extends StatefulWidget {
     this.trailingIconExpanded,
     this.trailingIconColor,
     this.collapsable = true,
-    this.trailingIconsAnimation =
-        CustomDropdownListTileTrailingIconAnimation.enabled,
+    this.trailingIconsAnimation = CustomDropdownListTileTrailingIconAnimation.enabled,
     super.key,
   });
 
@@ -70,8 +69,7 @@ class _CustomDropdownListTileState extends State<CustomDropdownListTile>
   @override
   void initState() {
     super.initState();
-    _isExpanded =
-        widget.initialState == CustomDropdownListTileInitialState.expanded;
+    _isExpanded = widget.initialState == CustomDropdownListTileInitialState.expanded;
 
     _controller = AnimationController(
       duration: const Duration(milliseconds: 200),
@@ -105,9 +103,7 @@ class _CustomDropdownListTileState extends State<CustomDropdownListTile>
   Widget _buildChildren(BuildContext context, Widget? child) {
     return Container(
       decoration: ShapeDecoration(
-        color: widget.nextToCollapse
-            ? context.color.strokeLigth100
-            : Colors.transparent,
+        color: widget.nextToCollapse ? context.color.strokeLigth100 : Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             widget.radius == CustomDropdownListTileRadius.soft
@@ -146,9 +142,7 @@ class _CustomDropdownListTileState extends State<CustomDropdownListTile>
                 dense: true,
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: AppSpacing.s4,
-                  vertical: widget.subtitle != null || widget.leading == null
-                      ? 0
-                      : AppSpacing.s3,
+                  vertical: widget.subtitle != null || widget.leading == null ? 0 : AppSpacing.s3,
                 ),
                 leading: widget.leading,
                 title: Text(
@@ -169,30 +163,27 @@ class _CustomDropdownListTileState extends State<CustomDropdownListTile>
                         ),
                       )
                     : null,
-                trailing: widget.trailingIconCollapsed == null &&
-                        widget.trailingIconExpanded == null
-                    ? RotationTransition(
-                        turns: widget.trailingIconsAnimation ==
-                                CustomDropdownListTileTrailingIconAnimation
-                                    .enabled
-                            ? _iconTurns
-                            : const AlwaysStoppedAnimation(0),
-                        child: IconSvg.small(
-                          IconAssets.chevronDown,
-                          color: widget.trailingIconColor ??
-                              context.color.iconLight900,
-                        ),
-                      )
-                    : RotationTransition(
-                        turns: widget.trailingIconsAnimation ==
-                                CustomDropdownListTileTrailingIconAnimation
-                                    .enabled
-                            ? _iconTurns
-                            : const AlwaysStoppedAnimation(0),
-                        child: _isExpanded
-                            ? widget.trailingIconExpanded
-                            : widget.trailingIconCollapsed,
-                      ),
+                trailing:
+                    widget.trailingIconCollapsed == null && widget.trailingIconExpanded == null
+                        ? RotationTransition(
+                            turns: widget.trailingIconsAnimation ==
+                                    CustomDropdownListTileTrailingIconAnimation.enabled
+                                ? _iconTurns
+                                : const AlwaysStoppedAnimation(0),
+                            child: IconSvg.small(
+                              IconAssets.chevronDown,
+                              color: widget.trailingIconColor ?? context.color.iconLight900,
+                            ),
+                          )
+                        : RotationTransition(
+                            turns: widget.trailingIconsAnimation ==
+                                    CustomDropdownListTileTrailingIconAnimation.enabled
+                                ? _iconTurns
+                                : const AlwaysStoppedAnimation(0),
+                            child: _isExpanded
+                                ? widget.trailingIconExpanded
+                                : widget.trailingIconCollapsed,
+                          ),
               ),
             ),
           ),

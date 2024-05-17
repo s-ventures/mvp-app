@@ -6,18 +6,16 @@ import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_pagination_repository.dart';
 
-final simplifiedAccountsControllerProvider = StateNotifierProvider<
-    SimplifiedAccountsController, SimplifiedAccountsState>(
+final simplifiedAccountsControllerProvider =
+    StateNotifierProvider<SimplifiedAccountsController, SimplifiedAccountsState>(
   (ref) => SimplifiedAccountsController(
     ref.watch(accountsPaginationRepositoryProvider),
   ),
 );
 
-class SimplifiedAccountsController
-    extends StateNotifier<SimplifiedAccountsState>
+class SimplifiedAccountsController extends StateNotifier<SimplifiedAccountsState>
     with PaginationLoadingProvider<List<SimplifiedAccount>> {
-  SimplifiedAccountsController(this._repository)
-      : super(const SimplifiedAccountsState());
+  SimplifiedAccountsController(this._repository) : super(const SimplifiedAccountsState());
 
   final AccountsPaginationRepository _repository;
 
@@ -27,8 +25,8 @@ class SimplifiedAccountsController
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            accounts: const AsyncLoading<List<SimplifiedAccount>>()
-                .copyWithPrevious(state.accounts),
+            accounts:
+                const AsyncLoading<List<SimplifiedAccount>>().copyWithPrevious(state.accounts),
           ),
         );
       },

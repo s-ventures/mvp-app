@@ -10,8 +10,7 @@ import 'package:manifiesto_mvp_app/presentation/protection/widgets/help_with_the
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CommerceInsuranceCalculatePriceDataValidationPage
-    extends StatelessWidget {
+class CommerceInsuranceCalculatePriceDataValidationPage extends StatelessWidget {
   const CommerceInsuranceCalculatePriceDataValidationPage({super.key});
 
   @override
@@ -35,9 +34,7 @@ class CommerceInsuranceCalculatePriceDataValidationPage
                   type: ButtonType.outlined,
                   size: ButtonSize.extraSmall,
                   onPressed: () async => context.pushNamed(
-                    AppRoute
-                        .protectionInsuranceCommerceCalculatePriceDataValidationEdit
-                        .name,
+                    AppRoute.protectionInsuranceCommerceCalculatePriceDataValidationEdit.name,
                   ),
                 ),
               ],

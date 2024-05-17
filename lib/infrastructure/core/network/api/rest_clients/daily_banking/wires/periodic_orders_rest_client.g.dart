@@ -19,9 +19,8 @@ class _PeriodicOrdersRestClient implements PeriodicOrdersRestClient {
   String? baseUrl;
 
   @override
-  Future<PaginatedResponse<SimplifiedPeriodicOrderDto>>
-      getSimplifiedPeriodicOrders(
-          {required PeriodicOrdersFilterDto filter}) async {
+  Future<PaginatedResponse<SimplifiedPeriodicOrderDto>> getSimplifiedPeriodicOrders(
+      {required PeriodicOrdersFilterDto filter}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
@@ -45,21 +44,19 @@ class _PeriodicOrdersRestClient implements PeriodicOrdersRestClient {
             ))));
     final value = PaginatedResponse<SimplifiedPeriodicOrderDto>.fromJson(
       _result.data!,
-      (json) =>
-          SimplifiedPeriodicOrderDto.fromJson(json as Map<String, dynamic>),
+      (json) => SimplifiedPeriodicOrderDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
 
   @override
-  Future<DetailedPeriodicOrderDto> getDetailedPeriodicOrder(
-      {required int periodicOrderId}) async {
+  Future<DetailedPeriodicOrderDto> getDetailedPeriodicOrder({required int periodicOrderId}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<DetailedPeriodicOrderDto>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<DetailedPeriodicOrderDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,

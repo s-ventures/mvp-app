@@ -27,8 +27,8 @@ class _StakeholdersRestClient implements StakeholdersRestClient {
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PaginatedResponse<StakeholderDto>>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<PaginatedResponse<StakeholderDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,

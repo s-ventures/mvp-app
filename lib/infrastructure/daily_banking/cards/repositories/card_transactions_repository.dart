@@ -29,9 +29,7 @@ class CardTransactionsRepository implements ICardTransactionsRepository {
   final CardTransactionsRemoteDataSource _remoteDataSource;
 
   @override
-  Future<
-          Either<SimplifiedCardTransactionFailure,
-              Map<DateTime, List<SimplifiedCardTransaction>>>>
+  Future<Either<SimplifiedCardTransactionFailure, Map<DateTime, List<SimplifiedCardTransaction>>>>
       getSimplifiedCardTransactions({
     required CardTransactionsFilter filter,
     int page = 0,
@@ -51,8 +49,7 @@ class CardTransactionsRepository implements ICardTransactionsRepository {
 
       return right({
         for (final e in response.data)
-          const DateConverter().fromJson(e.date):
-              e.transactions.map((e) => e.toDomain()).toList(),
+          const DateConverter().fromJson(e.date): e.transactions.map((e) => e.toDomain()).toList(),
       });
     } catch (_) {
       return left(const SimplifiedCardTransactionFailure.unexpected());

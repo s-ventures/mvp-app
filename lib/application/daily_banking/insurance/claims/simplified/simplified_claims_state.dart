@@ -7,7 +7,6 @@ part 'simplified_claims_state.freezed.dart';
 @freezed
 class SimplifiedClaimsState with _$SimplifiedClaimsState {
   const factory SimplifiedClaimsState({
-    @Default(AsyncLoading<List<SimplifiedClaim>>())
-    AsyncValue<List<SimplifiedClaim>> claims,
+    @Default(AsyncLoading<List<SimplifiedClaim>>()) AsyncValue<List<SimplifiedClaim>> claims,
   }) = _SimplifiedClaimsState;
 }

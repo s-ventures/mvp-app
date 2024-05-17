@@ -8,14 +8,12 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositori
 
 final simplifiedCardsControllerProvider =
     StateNotifierProvider<SimplifiedCardsController, SimplifiedCardsState>(
-  (ref) =>
-      SimplifiedCardsController(ref.watch(cardsPaginationRepositoryProvider)),
+  (ref) => SimplifiedCardsController(ref.watch(cardsPaginationRepositoryProvider)),
 );
 
 class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
     with PaginationLoadingProvider<List<SimplifiedCard>> {
-  SimplifiedCardsController(this._repository)
-      : super(const SimplifiedCardsState());
+  SimplifiedCardsController(this._repository) : super(const SimplifiedCardsState());
 
   final CardsPaginationRepository _repository;
 
@@ -25,8 +23,7 @@ class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            cards: const AsyncLoading<List<SimplifiedCard>>()
-                .copyWithPrevious(state.cards),
+            cards: const AsyncLoading<List<SimplifiedCard>>().copyWithPrevious(state.cards),
           ),
         );
       },

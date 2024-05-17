@@ -17,12 +17,10 @@ class SearchAccountTransactionsPage extends ConsumerStatefulWidget {
   const SearchAccountTransactionsPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _SearchAccountTransactionsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SearchAccountTransactionsPageState();
 }
 
-class _SearchAccountTransactionsPageState
-    extends ConsumerState<SearchAccountTransactionsPage> {
+class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTransactionsPage> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
   final _textSubject = PublishSubject<String>();
@@ -35,8 +33,7 @@ class _SearchAccountTransactionsPageState
       _textSubject.add(_controller.text);
     });
 
-    _debounceSubscription =
-        _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
+    _debounceSubscription = _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
       (text) {
         ref
             .read(
@@ -58,27 +55,21 @@ class _SearchAccountTransactionsPageState
 
   @override
   Widget build(BuildContext context) {
-    final controller = ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
     final stateDate = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.startDate),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.startDate),
     );
     final endDate = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.endDate),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.endDate),
     );
     final amountFrom = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.amountFrom),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountFrom),
     );
     final amountTo = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.amountTo),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountTo),
     );
     final operationType = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.operationType),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.operationType),
     );
 
     final isFilterApplied = stateDate != null ||

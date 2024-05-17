@@ -29,16 +29,13 @@ class _CardWithBoolOptionsState extends State<CardWithBoolOptions> {
         widget.inner ? 0 : AppSpacing.s5,
       ),
       decoration: ShapeDecoration(
-        color:
-            widget.inner ? Colors.transparent : context.color.backgroundLight0,
+        color: widget.inner ? Colors.transparent : context.color.backgroundLight0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             context.radius.hard,
           ),
           side: BorderSide(
-            color: widget.inner
-                ? Colors.transparent
-                : context.color.strokeLigth100,
+            color: widget.inner ? Colors.transparent : context.color.strokeLigth100,
           ),
         ),
       ),

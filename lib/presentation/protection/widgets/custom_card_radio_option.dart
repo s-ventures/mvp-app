@@ -81,9 +81,7 @@ class CustomCardRadioOption extends StatelessWidget {
                     height: AppSpacing.s6,
                     width: AppSpacing.s6,
                     decoration: BoxDecoration(
-                      color: value == groupValue
-                          ? context.color.secondary
-                          : Colors.transparent,
+                      color: value == groupValue ? context.color.secondary : Colors.transparent,
                       borderRadius: BorderRadius.circular(
                         context.radius.hard,
                       ),

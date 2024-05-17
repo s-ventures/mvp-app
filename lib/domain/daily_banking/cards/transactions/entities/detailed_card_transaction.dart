@@ -5,8 +5,7 @@ import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 part 'detailed_card_transaction.freezed.dart';
 
 @freezed
-class DetailedCardTransaction extends ExtendedTransactionDetails
-    with _$DetailedCardTransaction {
+class DetailedCardTransaction extends ExtendedTransactionDetails with _$DetailedCardTransaction {
   const factory DetailedCardTransaction({
     required UniqueId movementId,
     required double amount,

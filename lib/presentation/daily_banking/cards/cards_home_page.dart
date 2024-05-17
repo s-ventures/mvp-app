@@ -27,9 +27,7 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
   @override
   void initState() {
     super.initState();
-    ref
-        .read(filterSimplifiedCardTransactionsControllerProvider.notifier)
-        .resetFilters();
+    ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier).resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
@@ -40,11 +38,8 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
   }
 
   void _loadMore() {
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
-      ref
-          .read(simplifiedCardTransactionsControllerProvider.notifier)
-          .loadNextPage();
+    if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+      ref.read(simplifiedCardTransactionsControllerProvider.notifier).loadNextPage();
     }
   }
 

@@ -32,12 +32,10 @@ class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
   final AccountTransactionType type;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _AccountTransactionDetailsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _AccountTransactionDetailsPageState();
 }
 
-class _AccountTransactionDetailsPageState
-    extends ConsumerState<AccountTransactionDetailsPage> {
+class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransactionDetailsPage> {
   final PublishSubject<UploadFileFailure> _failureSubject = PublishSubject();
   final CompositeSubscription _compositeSubscription = CompositeSubscription();
 
@@ -53,8 +51,7 @@ class _AccountTransactionDetailsPageState
     });
 
     ref.listenManual(
-      detailedAccountTransactionControllerProvider
-          .select((state) => state.uploadEvent),
+      detailedAccountTransactionControllerProvider.select((state) => state.uploadEvent),
       (_, event) {
         _handleEvent(event.getData());
       },
@@ -75,15 +72,12 @@ class _AccountTransactionDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        ref.watch(detailedAccountTransactionControllerProvider.notifier);
+    final controller = ref.watch(detailedAccountTransactionControllerProvider.notifier);
     final transaction = ref.watch(
-      detailedAccountTransactionControllerProvider
-          .select((value) => value.transaction),
+      detailedAccountTransactionControllerProvider.select((value) => value.transaction),
     );
     final attachments = ref.watch(
-      detailedAccountTransactionControllerProvider
-          .select((value) => value.attachments),
+      detailedAccountTransactionControllerProvider.select((value) => value.attachments),
     );
 
     return Scaffold(
@@ -109,12 +103,9 @@ class _AccountTransactionDetailsPageState
         },
         body: transaction.when(
           data: (transaction) => switch (widget.type) {
-            AccountTransactionType.tax =>
-              TransactionTaxDetails(transaction: transaction),
-            AccountTransactionType.card =>
-              TransactionCardDetails(transaction: transaction),
-            AccountTransactionType.debit =>
-              TransactionDebitDetails(transaction: transaction),
+            AccountTransactionType.tax => TransactionTaxDetails(transaction: transaction),
+            AccountTransactionType.card => TransactionCardDetails(transaction: transaction),
+            AccountTransactionType.debit => TransactionDebitDetails(transaction: transaction),
             AccountTransactionType.directDebit =>
               TransactionDirectDebitDetails(transaction: transaction),
             AccountTransactionType.transferIn =>
@@ -127,8 +118,7 @@ class _AccountTransactionDetailsPageState
                   MovementDetailsSummary(
                     title: transaction.description,
                     iconText: '🏦',
-                    iconBgColor:
-                        context.color.secondaryLight600.withOpacity(.2),
+                    iconBgColor: context.color.secondaryLight600.withOpacity(.2),
                     amount: transaction.amount,
                     date: transaction.postingDate,
                   ),
@@ -157,10 +147,9 @@ class _AccountTransactionDetailsPageState
                   AppSpacing.vertical.s5,
                   MovementDetailsUploadAttachments(
                     attachments: attachments,
-                    onFileSelected:
-                        attachments.length < controller.maxAttachments
-                            ? (file) => controller.addFiles([file])
-                            : null,
+                    onFileSelected: attachments.length < controller.maxAttachments
+                        ? (file) => controller.addFiles([file])
+                        : null,
                     onRemove: controller.removeFile,
                   ),
                   AppSpacing.vertical.s5,

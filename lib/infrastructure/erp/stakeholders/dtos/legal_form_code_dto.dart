@@ -20,8 +20,7 @@ extension LegalFormCodeDtoX on LegalFormCodeDto {
         LegalFormCodeDto.limitedPartnership => LegalFormCode.limitedPartnership,
         LegalFormCodeDto.jointProperty => LegalFormCode.jointProperty,
         LegalFormCodeDto.cooperative => LegalFormCode.cooperative,
-        LegalFormCodeDto.limitedLiabilityCompany =>
-          LegalFormCode.limitedLiabilityCompany,
+        LegalFormCodeDto.limitedLiabilityCompany => LegalFormCode.limitedLiabilityCompany,
         LegalFormCodeDto.corporation => LegalFormCode.corporation,
         LegalFormCodeDto.other => LegalFormCode.other,
       };

@@ -6,15 +6,12 @@ part of 'natural_stakeholder_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NaturalStakeholderDto _$NaturalStakeholderDtoFromJson(
-        Map<String, dynamic> json) =>
+NaturalStakeholderDto _$NaturalStakeholderDtoFromJson(Map<String, dynamic> json) =>
     NaturalStakeholderDto(
       stakeholderId: json['stakeholderId'] as int?,
-      personTypeCode:
-          $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
+      personTypeCode: $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
       fullName: json['fullName'] as String?,
-      languageCodeType: $enumDecodeNullable(
-          _$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
+      languageCodeType: $enumDecodeNullable(_$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
       relationType: $enumDecode(_$RelationTypeDtoEnumMap, json['relationType']),
       createDate: const DateConverter().fromJson(json['createDate'] as String),
       documentTypeCode: $enumDecodeNullable(
@@ -49,8 +46,7 @@ NaturalStakeholderDto _$NaturalStakeholderDtoFromJson(
       econimicActivityCode: json['econimicActivityCode'] as String?,
     );
 
-Map<String, dynamic> _$NaturalStakeholderDtoToJson(
-    NaturalStakeholderDto instance) {
+Map<String, dynamic> _$NaturalStakeholderDtoToJson(NaturalStakeholderDto instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -62,8 +58,7 @@ Map<String, dynamic> _$NaturalStakeholderDtoToJson(
   writeNotNull('stakeholderId', instance.stakeholderId);
   val['personTypeCode'] = _$PersonTypeCodeDtoEnumMap[instance.personTypeCode]!;
   writeNotNull('fullName', instance.fullName);
-  writeNotNull('languageCodeType',
-      _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
+  writeNotNull('languageCodeType', _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
   val['relationType'] = _$RelationTypeDtoEnumMap[instance.relationType]!;
   val['createDate'] = const DateConverter().toJson(instance.createDate);
   writeNotNull('documentTypeCode',

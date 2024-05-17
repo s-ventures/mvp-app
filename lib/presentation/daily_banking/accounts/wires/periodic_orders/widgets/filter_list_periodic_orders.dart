@@ -26,12 +26,10 @@ class FilterListPeriodicOrders extends ConsumerStatefulWidget {
   final VoidCallback onClearFrecuency;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterListPeriodicOrdersState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _FilterListPeriodicOrdersState();
 }
 
-class _FilterListPeriodicOrdersState
-    extends ConsumerState<FilterListPeriodicOrders> {
+class _FilterListPeriodicOrdersState extends ConsumerState<FilterListPeriodicOrders> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

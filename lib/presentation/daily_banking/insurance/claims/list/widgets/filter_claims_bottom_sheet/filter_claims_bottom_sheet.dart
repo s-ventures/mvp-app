@@ -123,8 +123,7 @@ class FilterClaimsBottomSheet {
                       AppSpacing.vertical.s2,
                       ClaimStatusFilter(
                         status: status,
-                        setStatusTo: (ClaimStatusType value) =>
-                            setStatusTo(value),
+                        setStatusTo: (ClaimStatusType value) => setStatusTo(value),
                       ),
                       AppSpacing.vertical.s5,
                       Text(

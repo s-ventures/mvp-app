@@ -28,9 +28,7 @@ class AccidentsInsuranceDataValidationPage extends StatelessWidget {
                   type: ButtonType.outlined,
                   size: ButtonSize.extraSmall,
                   onPressed: () async => context.pushNamed(
-                    AppRoute
-                        .protectionInsuranceAccidentCalculatePriceDataValidationEdit
-                        .name,
+                    AppRoute.protectionInsuranceAccidentCalculatePriceDataValidationEdit.name,
                   ),
                 ),
               ],

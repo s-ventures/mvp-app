@@ -30,12 +30,10 @@ class ProtectionCustomCheckboxListTile extends StatefulWidget {
   final String title;
 
   @override
-  State<ProtectionCustomCheckboxListTile> createState() =>
-      _ProtectionCustomCheckboxListTileState();
+  State<ProtectionCustomCheckboxListTile> createState() => _ProtectionCustomCheckboxListTileState();
 }
 
-class _ProtectionCustomCheckboxListTileState
-    extends State<ProtectionCustomCheckboxListTile> {
+class _ProtectionCustomCheckboxListTileState extends State<ProtectionCustomCheckboxListTile> {
   @override
   Widget build(BuildContext context) {
     return Splash(
@@ -55,9 +53,8 @@ class _ProtectionCustomCheckboxListTileState
           vertical: AppSpacing.s3,
         ),
         dense: true,
-        leading: widget.checkboxPosition == CheckboxPosition.trailing
-            ? widget.icon
-            : _buildCheckbox(),
+        leading:
+            widget.checkboxPosition == CheckboxPosition.trailing ? widget.icon : _buildCheckbox(),
         title: Text(
           widget.title,
           style: context.textStyle.bodySmallRegular.copyWith(
@@ -72,9 +69,8 @@ class _ProtectionCustomCheckboxListTileState
                 ),
               )
             : null,
-        trailing: widget.checkboxPosition == CheckboxPosition.leading
-            ? widget.icon
-            : _buildCheckbox(),
+        trailing:
+            widget.checkboxPosition == CheckboxPosition.leading ? widget.icon : _buildCheckbox(),
         onTap: widget.isDisabled
             ? null
             : () async {

@@ -6,11 +6,9 @@ part of 'stakeholder_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StakeholderDto _$StakeholderDtoFromJson(Map<String, dynamic> json) =>
-    StakeholderDto(
+StakeholderDto _$StakeholderDtoFromJson(Map<String, dynamic> json) => StakeholderDto(
       stakeholderId: json['stakeholderId'] as int?,
-      personTypeCode:
-          $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
+      personTypeCode: $enumDecode(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
       relationType: $enumDecode(_$RelationTypeDtoEnumMap, json['relationType']),
       fullName: json['fullName'] as String?,
       languageCodeType: $enumDecodeNullable(
@@ -39,8 +37,7 @@ Map<String, dynamic> _$StakeholderDtoToJson(StakeholderDto instance) {
   writeNotNull('stakeholderId', instance.stakeholderId);
   val['personTypeCode'] = _$PersonTypeCodeDtoEnumMap[instance.personTypeCode]!;
   writeNotNull('fullName', instance.fullName);
-  writeNotNull('languageCodeType',
-      _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
+  writeNotNull('languageCodeType', _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
   val['relationType'] = _$RelationTypeDtoEnumMap[instance.relationType]!;
   val['createDate'] = const DateConverter().toJson(instance.createDate);
   writeNotNull('documentTypeCode',

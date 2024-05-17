@@ -19,7 +19,8 @@ import 'package:rxdart/rxdart.dart';
 
 part 'file_upload.dart';
 
-abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> extends StateNotifier<T> {
+abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState>
+    extends StateNotifier<T> {
   UploadAttachmentsStateNotifier(
     super._state, {
     required this.maxFileSizeMb,
@@ -78,7 +79,8 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
     if (exceededSizeFiles.isNotEmpty) {
       setStateSafe(
         () => state.updateWith(
-          uploadEvent: SingleAccessData(UploadEvent.failure(UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb))),
+          uploadEvent: SingleAccessData(
+              UploadEvent.failure(UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb))),
         ) as T,
       );
     }
@@ -117,7 +119,8 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
         ),
         (success) {
           setStateSafe(
-            () => state.updateWith(uploadEvent: SingleAccessData(const UploadEvent.deleteFileSuccess())) as T,
+            () => state.updateWith(
+                uploadEvent: SingleAccessData(const UploadEvent.deleteFileSuccess())) as T,
           );
         },
       );
@@ -200,7 +203,8 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState> e
           (result) => result.fold(
             (failure) {
               setStateSafe(
-                () => state.updateWith(uploadEvent: SingleAccessData(UploadEvent.failure(failure))) as T,
+                () => state.updateWith(uploadEvent: SingleAccessData(UploadEvent.failure(failure)))
+                    as T,
               );
               return (fileUpload.attachment.toError(error: failure), fileUpload.attachment.id!);
             },

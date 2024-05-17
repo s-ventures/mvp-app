@@ -38,8 +38,7 @@ class SentTransferCard extends StatelessWidget {
       ),
       subtitle: Text(
         sentTransfer.concept,
-        style: context.textStyle.buttonTabBar
-            .copyWith(color: context.color.textLight600),
+        style: context.textStyle.buttonTabBar.copyWith(color: context.color.textLight600),
       ),
       trailing: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),

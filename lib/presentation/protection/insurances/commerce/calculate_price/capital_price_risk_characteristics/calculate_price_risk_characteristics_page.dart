@@ -137,9 +137,7 @@ class CommerceInsuranceCalculatePriceSecondStepPage extends StatelessWidget {
                 title: 'Siguiente',
                 size: ButtonSize.small,
                 onPressed: () => context.pushNamed(
-                  AppRoute
-                      .protectionInsuranceCommerceCalculatePriceDataValidation
-                      .name,
+                  AppRoute.protectionInsuranceCommerceCalculatePriceDataValidation.name,
                 ),
               ),
             ],

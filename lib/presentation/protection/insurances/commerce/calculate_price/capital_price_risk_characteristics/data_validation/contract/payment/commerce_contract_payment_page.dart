@@ -71,8 +71,7 @@ class _InsuranceCommerceContractPaymentPageState
               fromDate: '12/01/2024',
               value: 'annual',
               groupValue: _paymentPeriodGroupValue,
-              onPressed: (String value) =>
-                  setState(() => _paymentPeriodGroupValue = value),
+              onPressed: (String value) => setState(() => _paymentPeriodGroupValue = value),
             ),
             AppSpacing.vertical.s3,
             CustomCardRadioOption(
@@ -82,8 +81,7 @@ class _InsuranceCommerceContractPaymentPageState
               fromDate: '12/01/2024',
               value: 'semiannual',
               groupValue: _paymentPeriodGroupValue,
-              onPressed: (value) =>
-                  setState(() => _paymentPeriodGroupValue = value),
+              onPressed: (value) => setState(() => _paymentPeriodGroupValue = value),
             ),
             AppSpacing.vertical.s3,
             CustomCardRadioOption(
@@ -93,8 +91,7 @@ class _InsuranceCommerceContractPaymentPageState
               fromDate: '12/01/2024',
               value: 'quarterly',
               groupValue: _paymentPeriodGroupValue,
-              onPressed: (value) =>
-                  setState(() => _paymentPeriodGroupValue = value),
+              onPressed: (value) => setState(() => _paymentPeriodGroupValue = value),
             ),
             AppSpacing.vertical.s6,
             Text(

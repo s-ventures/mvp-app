@@ -38,15 +38,12 @@ class _PoliciesState extends ConsumerState<Policies> {
       simplifiedPoliciesControllerProvider.select((value) => value.policies),
     );
 
-    final controller =
-        ref.read(filterSimplifiedPoliciesControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedPoliciesControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedPoliciesControllerProvider
-          .select((value) => value.createDateFrom),
+      filterSimplifiedPoliciesControllerProvider.select((value) => value.createDateFrom),
     );
     final endDate = ref.watch(
-      filterSimplifiedPoliciesControllerProvider
-          .select((value) => value.createDateTo),
+      filterSimplifiedPoliciesControllerProvider.select((value) => value.createDateTo),
     );
 
     final isFilterApplied = startDate != null || endDate != null;

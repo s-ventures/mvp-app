@@ -24,8 +24,8 @@ class _ContractsRestClient implements ContractsRestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<CustomerContractDto>>(Options(
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<CustomerContractDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -42,8 +42,7 @@ class _ContractsRestClient implements ContractsRestClient {
               baseUrl,
             ))));
     var value = _result.data!
-        .map((dynamic i) =>
-            CustomerContractDto.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) => CustomerContractDto.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
