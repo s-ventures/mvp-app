@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class BudgetsOverview extends StatelessWidget {
-  const BudgetsOverview({super.key});
+class QuotesOverview extends StatelessWidget {
+  const QuotesOverview({super.key});
 
   List<DropdownMenuItem<String>> get _dropdownItems {
     final menuItems = <DropdownMenuItem<String>>[

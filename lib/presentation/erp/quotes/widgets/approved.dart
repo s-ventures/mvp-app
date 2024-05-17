@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/budgets/widgets/budget_grid_tile.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/budgets/widgets/budget_list_tile.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/quotes/widgets/quotes_grid_tile.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/quotes/widgets/quotes_list_tile.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class BudgetsApproved extends StatelessWidget {
-  const BudgetsApproved({
+class QuotesApproved extends StatelessWidget {
+  const QuotesApproved({
     required this.viewType,
     super.key,
   });
@@ -43,8 +43,8 @@ class BudgetsApproved extends StatelessWidget {
             itemCount: 6,
             separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
-              return const BudgetListTile(
-                budget: 'F1/2023',
+              return const QuotesListTile(
+                quote: 'F1/2023',
                 date: '12/23',
                 contact: 'Contacto',
                 amount: 1000,
@@ -64,8 +64,8 @@ class BudgetsApproved extends StatelessWidget {
             itemCount: 6,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              return const BudgetGridTile(
-                budget: 'F1/2023',
+              return const QuotesGridTile(
+                quote: 'F1/2023',
                 date: '12/23',
                 contact: 'Contacto',
                 amount: 1000,

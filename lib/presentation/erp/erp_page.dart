@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/budgets/budgets.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/quotes/quotes_page.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class ErpPage extends StatelessWidget {
@@ -49,7 +49,7 @@ class ErpPage extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  const BudgetsTab(),
+                  const QuotesTab(),
                   Positioned(
                     right: 16,
                     bottom: 16,
