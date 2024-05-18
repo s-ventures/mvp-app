@@ -52,8 +52,7 @@ class QuotesOverview extends StatelessWidget {
               ),
               const Spacer(),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
                   color: context.color.statusSuccess.withOpacity(0.12),
                   borderRadius: BorderRadius.circular(context.radius.hard),
