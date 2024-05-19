@@ -3,15 +3,13 @@ import 'package:manifiesto_mvp_app/presentation/erp/quotes/widgets/quotes_grid_t
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/widgets/quotes_list_tile.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesPending extends StatelessWidget {
-  const QuotesPending({
-    required this.type,
-    required this.setType,
+class QuotesApproved extends StatelessWidget {
+  const QuotesApproved({
+    required this.viewType,
     super.key,
   });
 
-  final SwitchViewType type;
-  final void Function(SwitchViewType) setType;
+  final SwitchViewType viewType;
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +18,24 @@ class QuotesPending extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: Text(
-                'Pendientes',
-                style: context.textStyle.bodyMediumSemiBold.copyWith(
-                  color: context.color.textLight600,
-                ),
+            Text(
+              'Presupuestos',
+              style: context.textStyle.bodyMediumSemiBold.copyWith(
+                color: context.color.textLight600,
               ),
             ),
-            SwitchView(
-              onChanged: setType,
+            Button(
+              icon: IconAssets.filter,
+              onPressed: () async {},
+              size: ButtonSize.extraSmall,
+              type: ButtonType.outlined,
             ),
           ],
         ),
         AppSpacing.vertical.s5,
-        if (type == SwitchViewType.list)
+        const FakeSearchBar(),
+        AppSpacing.vertical.s5,
+        if (viewType == SwitchViewType.list)
           ListView.separated(
             shrinkWrap: true,
             padding: EdgeInsets.zero,

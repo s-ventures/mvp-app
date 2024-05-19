@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Overview extends StatelessWidget {
-  const Overview({super.key});
+class QuotesOverview extends StatelessWidget {
+  const QuotesOverview({super.key});
 
   List<DropdownMenuItem<String>> get _dropdownItems {
     final menuItems = <DropdownMenuItem<String>>[
@@ -54,7 +54,7 @@ class Overview extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
-                  color: context.color.statusSuccess.withOpacity(0.2),
+                  color: context.color.statusSuccess.withOpacity(0.12),
                   borderRadius: BorderRadius.circular(context.radius.hard),
                 ),
                 child: Row(
