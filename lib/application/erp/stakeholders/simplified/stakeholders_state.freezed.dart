@@ -18,8 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$StakeholdersState {
   AsyncValue<List<Stakeholder>> get stakeholders =>
       throw _privateConstructorUsedError;
-  AsyncValue<List<Stakeholder>> get favoriteStakeholders =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StakeholdersStateCopyWith<StakeholdersState> get copyWith =>
@@ -32,9 +30,7 @@ abstract class $StakeholdersStateCopyWith<$Res> {
           StakeholdersState value, $Res Function(StakeholdersState) then) =
       _$StakeholdersStateCopyWithImpl<$Res, StakeholdersState>;
   @useResult
-  $Res call(
-      {AsyncValue<List<Stakeholder>> stakeholders,
-      AsyncValue<List<Stakeholder>> favoriteStakeholders});
+  $Res call({AsyncValue<List<Stakeholder>> stakeholders});
 }
 
 /// @nodoc
@@ -51,16 +47,11 @@ class _$StakeholdersStateCopyWithImpl<$Res, $Val extends StakeholdersState>
   @override
   $Res call({
     Object? stakeholders = null,
-    Object? favoriteStakeholders = null,
   }) {
     return _then(_value.copyWith(
       stakeholders: null == stakeholders
           ? _value.stakeholders
           : stakeholders // ignore: cast_nullable_to_non_nullable
-              as AsyncValue<List<Stakeholder>>,
-      favoriteStakeholders: null == favoriteStakeholders
-          ? _value.favoriteStakeholders
-          : favoriteStakeholders // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<Stakeholder>>,
     ) as $Val);
   }
@@ -74,9 +65,7 @@ abstract class _$$StakeholdersStateImplCopyWith<$Res>
       __$$StakeholdersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AsyncValue<List<Stakeholder>> stakeholders,
-      AsyncValue<List<Stakeholder>> favoriteStakeholders});
+  $Res call({AsyncValue<List<Stakeholder>> stakeholders});
 }
 
 /// @nodoc
@@ -91,16 +80,11 @@ class __$$StakeholdersStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? stakeholders = null,
-    Object? favoriteStakeholders = null,
   }) {
     return _then(_$StakeholdersStateImpl(
       stakeholders: null == stakeholders
           ? _value.stakeholders
           : stakeholders // ignore: cast_nullable_to_non_nullable
-              as AsyncValue<List<Stakeholder>>,
-      favoriteStakeholders: null == favoriteStakeholders
-          ? _value.favoriteStakeholders
-          : favoriteStakeholders // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<Stakeholder>>,
     ));
   }
@@ -110,19 +94,15 @@ class __$$StakeholdersStateImplCopyWithImpl<$Res>
 
 class _$StakeholdersStateImpl implements _StakeholdersState {
   const _$StakeholdersStateImpl(
-      {this.stakeholders = const AsyncLoading<List<Stakeholder>>(),
-      this.favoriteStakeholders = const AsyncLoading<List<Stakeholder>>()});
+      {this.stakeholders = const AsyncLoading<List<Stakeholder>>()});
 
   @override
   @JsonKey()
   final AsyncValue<List<Stakeholder>> stakeholders;
-  @override
-  @JsonKey()
-  final AsyncValue<List<Stakeholder>> favoriteStakeholders;
 
   @override
   String toString() {
-    return 'StakeholdersState(stakeholders: $stakeholders, favoriteStakeholders: $favoriteStakeholders)';
+    return 'StakeholdersState(stakeholders: $stakeholders)';
   }
 
   @override
@@ -131,14 +111,11 @@ class _$StakeholdersStateImpl implements _StakeholdersState {
         (other.runtimeType == runtimeType &&
             other is _$StakeholdersStateImpl &&
             (identical(other.stakeholders, stakeholders) ||
-                other.stakeholders == stakeholders) &&
-            (identical(other.favoriteStakeholders, favoriteStakeholders) ||
-                other.favoriteStakeholders == favoriteStakeholders));
+                other.stakeholders == stakeholders));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, stakeholders, favoriteStakeholders);
+  int get hashCode => Object.hash(runtimeType, stakeholders);
 
   @JsonKey(ignore: true)
   @override
@@ -150,14 +127,11 @@ class _$StakeholdersStateImpl implements _StakeholdersState {
 
 abstract class _StakeholdersState implements StakeholdersState {
   const factory _StakeholdersState(
-          {final AsyncValue<List<Stakeholder>> stakeholders,
-          final AsyncValue<List<Stakeholder>> favoriteStakeholders}) =
+          {final AsyncValue<List<Stakeholder>> stakeholders}) =
       _$StakeholdersStateImpl;
 
   @override
   AsyncValue<List<Stakeholder>> get stakeholders;
-  @override
-  AsyncValue<List<Stakeholder>> get favoriteStakeholders;
   @override
   @JsonKey(ignore: true)
   _$$StakeholdersStateImplCopyWith<_$StakeholdersStateImpl> get copyWith =>

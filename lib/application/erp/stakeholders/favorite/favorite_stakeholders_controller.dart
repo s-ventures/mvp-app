@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
-import 'package:manifiesto_mvp_app/application/erp/stakeholders/simplified/stakeholders_state.dart';
+import 'package:manifiesto_mvp_app/application/erp/stakeholders/favorite/favorite_stakeholders_state.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
@@ -10,35 +10,36 @@ import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_typ
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_pagination_repository.dart';
 
-final stakeholdersControllerProvider =
-    StateNotifierProvider<StakeholdersController, StakeholdersState>(
-  (ref) => StakeholdersController(
-    ref.watch(stakeholdersPaginationRepositoryProvider),
+final favoriteStakeholdersControllerProvider =
+    StateNotifierProvider<FavoriteStakeholdersController, FavoriteStakeholdersState>(
+  (ref) => FavoriteStakeholdersController(
+    ref.watch(favoriteStakeholdersPaginationRepositoryProvider),
   ),
 );
 
-class StakeholdersController extends StateNotifier<StakeholdersState>
+class FavoriteStakeholdersController extends StateNotifier<FavoriteStakeholdersState>
     with PaginationLoadingProvider<List<Stakeholder>> {
-  StakeholdersController(
+  FavoriteStakeholdersController(
     this._repository,
-  ) : super(const StakeholdersState());
+  ) : super(const FavoriteStakeholdersState());
 
   final StakeholdersPaginationRepository _repository;
 
   Future<void> init() async {
+    await updateFilter(isFavorite: true);
     initPagination(
       _repository,
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            stakeholders:
-                const AsyncLoading<List<Stakeholder>>().copyWithPrevious(state.stakeholders),
+            favoriteStakeholders: const AsyncLoading<List<Stakeholder>>()
+                .copyWithPrevious(state.favoriteStakeholders),
           ),
         );
       },
-      onDataLoaded: (stakeholders) {
+      onDataLoaded: (favoriteStakeholders) {
         setStateSafe(
-          () => state.copyWith(stakeholders: stakeholders),
+          () => state.copyWith(favoriteStakeholders: favoriteStakeholders),
         );
       },
     );

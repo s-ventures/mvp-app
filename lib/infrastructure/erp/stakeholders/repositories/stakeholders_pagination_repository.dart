@@ -17,6 +17,14 @@ final stakeholdersPaginationRepositoryProvider = Provider<StakeholdersPagination
   );
 });
 
+final favoriteStakeholdersPaginationRepositoryProvider =
+    Provider<StakeholdersPaginationRepository>((ref) {
+  return StakeholdersPaginationRepository(
+    ref.watch(stakeholdersRepositoryProvider),
+    ref.watch(contractsRepositoryProvider),
+  );
+});
+
 class StakeholdersPaginationRepository extends PaginationListRepository<Stakeholder> {
   StakeholdersPaginationRepository(
     this._stakeholdersRepository,
@@ -54,7 +62,7 @@ class StakeholdersPaginationRepository extends PaginationListRepository<Stakehol
     required int pageSize,
   }) async {
     final erpContractId = _erpContractId;
-    if (_filter == null || erpContractId == null) return [];
+    if (erpContractId == null) return [];
 
     final stakeholders = await _stakeholdersRepository.getStakeholders(
       erpContractId: erpContractId,

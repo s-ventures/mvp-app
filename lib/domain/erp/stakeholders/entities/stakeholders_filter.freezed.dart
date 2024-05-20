@@ -130,8 +130,8 @@ class _$StakeholdersFilterCopyWithImpl<$Res, $Val extends StakeholdersFilter>
 /// @nodoc
 abstract class _$$StakeholdersFilterImplCopyWith<$Res>
     implements $StakeholdersFilterCopyWith<$Res> {
-  factory _$$StakeholdersFilterImplCopyWith(
-          _$StakeholdersFilterImpl value, $Res Function(_$StakeholdersFilterImpl) then) =
+  factory _$$StakeholdersFilterImplCopyWith(_$StakeholdersFilterImpl value,
+          $Res Function(_$StakeholdersFilterImpl) then) =
       __$$StakeholdersFilterImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -153,8 +153,8 @@ abstract class _$$StakeholdersFilterImplCopyWith<$Res>
 class __$$StakeholdersFilterImplCopyWithImpl<$Res>
     extends _$StakeholdersFilterCopyWithImpl<$Res, _$StakeholdersFilterImpl>
     implements _$$StakeholdersFilterImplCopyWith<$Res> {
-  __$$StakeholdersFilterImplCopyWithImpl(
-      _$StakeholdersFilterImpl _value, $Res Function(_$StakeholdersFilterImpl) _then)
+  __$$StakeholdersFilterImplCopyWithImpl(_$StakeholdersFilterImpl _value,
+      $Res Function(_$StakeholdersFilterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -274,20 +274,24 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
                 other.stakeholderId == stakeholderId) &&
             (identical(other.personTypeCode, personTypeCode) ||
                 other.personTypeCode == personTypeCode) &&
-            (identical(other.fullName, fullName) || other.fullName == fullName) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
             (identical(other.languageCodeType, languageCodeType) ||
                 other.languageCodeType == languageCodeType) &&
-            (identical(other.relationType, relationType) || other.relationType == relationType) &&
+            (identical(other.relationType, relationType) ||
+                other.relationType == relationType) &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
-            (identical(other.createDateTo, createDateTo) || other.createDateTo == createDateTo) &&
+            (identical(other.createDateTo, createDateTo) ||
+                other.createDateTo == createDateTo) &&
             (identical(other.documentTypeCode, documentTypeCode) ||
                 other.documentTypeCode == documentTypeCode) &&
             (identical(other.documentNumber, documentNumber) ||
                 other.documentNumber == documentNumber) &&
             (identical(other.additionalInfo, additionalInfo) ||
                 other.additionalInfo == additionalInfo) &&
-            (identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite));
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @override
@@ -309,7 +313,8 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
   @override
   @pragma('vm:prefer-inline')
   _$$StakeholdersFilterImplCopyWith<_$StakeholdersFilterImpl> get copyWith =>
-      __$$StakeholdersFilterImplCopyWithImpl<_$StakeholdersFilterImpl>(this, _$identity);
+      __$$StakeholdersFilterImplCopyWithImpl<_$StakeholdersFilterImpl>(
+          this, _$identity);
 }
 
 abstract class _StakeholdersFilter implements StakeholdersFilter {
