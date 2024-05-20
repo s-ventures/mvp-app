@@ -6,14 +6,16 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transacti
 import 'package:manifiesto_mvp_app/presentation/extensions/gutter_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class MovementDetailsUploadAttachments extends StatelessWidget {
-  const MovementDetailsUploadAttachments({
+class TransactionAttachmentsSection extends StatelessWidget {
+  const TransactionAttachmentsSection({
+    required this.title,
     required this.onFileSelected,
     required this.attachments,
     required this.onRemove,
     super.key,
   });
 
+  final String title;
   final List<FileAttachment> attachments;
   final void Function(File file)? onFileSelected;
   final void Function(FileAttachment attachment) onRemove;
@@ -27,7 +29,7 @@ class MovementDetailsUploadAttachments extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                'Adjuntos',
+                title,
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -47,14 +49,13 @@ class MovementDetailsUploadAttachments extends StatelessWidget {
               .toList()
               .separateVertical(AppSpacing.s3),
         if (onFileSelected != null)
-          CustomTextButton(
-            text: 'Añadir archivo',
-            onTap: () {
-              UploadAttachmentsBottomSheet.show(
-                context: context,
-                onFileSelected: onFileSelected!,
-              );
-            },
+          Button(
+            type: ButtonType.text,
+            title: 'Añadir archivo',
+            onPressed: () async => UploadAttachmentsBottomSheet.show(
+              context: context,
+              onFileSelected: onFileSelected!,
+            ),
           ),
       ],
     );
