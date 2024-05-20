@@ -1,12 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/filter_quotes_bottom_sheet/filter_quotes_bottom_sheet.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/quotes_list_tile.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/search/widgets/search_bar.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class SearchQuotesPage extends StatelessWidget {
   const SearchQuotesPage({super.key});
+
+  static List<Map<String, String>> items = [
+    {
+      'title': 'Presupuesto 1',
+      'date': '12/12/2021',
+      'contact': 'Contacto 1',
+      'amount': '123',
+      'status': 'Pendiente',
+    },
+    {
+      'title': 'Presupuesto 2',
+      'date': '12/12/2021',
+      'contact': 'Contacto 2',
+      'amount': '123',
+      'status': 'Pendiente',
+    },
+    {
+      'title': 'Presupuesto 3',
+      'date': '12/12/2021',
+      'contact': 'Contacto 3',
+      'amount': '123',
+      'status': 'Pendiente',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -77,15 +100,17 @@ class SearchQuotesPage extends StatelessWidget {
             AppSpacing.s5,
           ),
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 3,
+          itemCount: items.length,
           separatorBuilder: (context, index) => AppSpacing.vertical.s3,
           itemBuilder: (context, index) {
-            return const QuotesListTile(
-              quote: 'F1/2023',
-              date: '12/23',
-              contact: 'Contacto',
-              amount: 1000,
-              status: 'Vence en 3 días',
+            final item = items[index];
+
+            return ErpListTile(
+              title: item['title']!,
+              date: item['date']!,
+              contact: item['contact']!,
+              amount: double.parse(item['amount']!),
+              status: item['status']!,
             );
           },
         ),

@@ -41,8 +41,12 @@ enum AppRoute {
   dailyBankingCertsAndDocumentsRequestPayment('payment'),
   dailyBankingCertsAndDocumentsRequestPaymentOTP('otp'),
   dailyBankingCertsAndDocumentsRequestDownload('download'),
+
+  // Erp
   erp('/erp'),
   erpQuotesSearch('quotes/search'),
+  erpInvoiceSearch('invoices/search'),
+
   // Contacts
   contacts('/contacts'),
   contactsSearch('search'),
@@ -53,14 +57,17 @@ enum AppRoute {
   contactDetails('contact-details'),
   contactEdit('contact-edit'),
 
+  // Analytics
   analitica('/analitica'),
+
+  // Protection
   protection('/protection'),
   protectionImprove('improve'),
   protectionContractedProducts('contracted-products'),
   protectionContractedProductsPolicyDetails('policy-details'),
   protectionContractedProductsClaimDetails('claim-details'),
   protectionContractedProductsAddNew('add-new'),
-  // Commerce Insurance
+  // Protection Commerce Insurance
   protectionInsuranceCommerce('commercial-insurance'),
   protectionInsuranceCommerceCalculatePriceFirstStep(
     'calculate-price/first-step',
@@ -72,7 +79,7 @@ enum AppRoute {
   protectionInsuranceCommerceContractPayment('payment'),
   protectionInsuranceCommerceContractPaymentOtp('otp'),
   protectionInsuranceCommerceContracted('contracted'),
-  // Accidents Insurance
+  // Protection Accidents Insurance
   protectionInsuranceAccident('accident-insurance'),
   protectionInsuranceAccidentCalculatePriceFirstStep('calculate-price'),
   protectionInsuranceAccidentCalculatePriceSecondStep('second-step'),
@@ -84,12 +91,14 @@ enum AppRoute {
   protectionInsuranceAccidentContractPayment('payment'),
   protectionInsuranceAccidentContractPaymentOtp('otp'),
   protectionInsuranceAccidentContracted('contracted'),
-  // Cybersecurity Insurance
+  // Protection Cybersecurity Insurance
   protectionInsuranceCybersecurity('cybersecurity-insurance'),
-  // Responsibility Insurance
+  // Protection Responsibility Insurance
   protectionInsuranceResponsibility('responsibility-insurance'),
-  // Health Insurance
+  // Protection Health Insurance
   protectionInsuranceHealth('health-insurance'),
+
+  // Web view
   webView('/web-view');
 
   const AppRoute(this.path);

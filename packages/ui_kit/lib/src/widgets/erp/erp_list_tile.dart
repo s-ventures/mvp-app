@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesListTile extends StatelessWidget {
-  const QuotesListTile({
-    required this.quote,
+class ErpListTile extends StatelessWidget {
+  const ErpListTile({
+    required this.title,
     required this.date,
     required this.contact,
     required this.amount,
@@ -11,7 +11,7 @@ class QuotesListTile extends StatelessWidget {
     super.key,
   });
 
-  final String quote;
+  final String title;
   final String date;
   final String contact;
   final double amount;
@@ -46,7 +46,7 @@ class QuotesListTile extends StatelessWidget {
               ),
               AppSpacing.horizontal.s2,
               Text(
-                quote,
+                title,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),

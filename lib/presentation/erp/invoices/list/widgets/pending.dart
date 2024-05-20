@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesPending extends StatelessWidget {
-  const QuotesPending({
+class InvoicesPending extends StatelessWidget {
+  const InvoicesPending({
     required this.type,
     required this.setType,
     required this.items,
@@ -62,7 +62,7 @@ class QuotesPending extends StatelessWidget {
               crossAxisSpacing: AppSpacing.s5,
               mainAxisSpacing: AppSpacing.s5,
             ),
-            itemCount: 2,
+            itemCount: items.length,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
               final item = items[index];

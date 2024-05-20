@@ -1,11 +1,10 @@
 {
-    "[dart]": {
-        "editor.rulers": [
-            100
-        ]
-    },
-    "dart.lineLength": 100,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
-    }
+  "[dart]": {
+    "editor.rulers": [100]
+  },
+  "dart.lineLength": 100,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "conventionalCommits.scopes": ["erp/invoices"]
 }

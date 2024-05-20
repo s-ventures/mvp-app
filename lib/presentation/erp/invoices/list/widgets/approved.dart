@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesPending extends StatelessWidget {
-  const QuotesPending({
-    required this.type,
-    required this.setType,
+class InvoicesApproved extends StatelessWidget {
+  const InvoicesApproved({
+    required this.viewType,
     required this.items,
     super.key,
   });
 
-  final SwitchViewType type;
-  final void Function(SwitchViewType) setType;
+  final SwitchViewType viewType;
   final List<Map<String, String>> items;
 
   @override
@@ -20,26 +20,33 @@ class QuotesPending extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: Text(
-                'Pendientes',
-                style: context.textStyle.bodyMediumSemiBold.copyWith(
-                  color: context.color.textLight600,
-                ),
+            Text(
+              'Facturas',
+              style: context.textStyle.bodyMediumSemiBold.copyWith(
+                color: context.color.textLight600,
               ),
             ),
-            SwitchView(
-              onChanged: setType,
+            Button(
+              icon: IconAssets.filter,
+              size: ButtonSize.extraSmall,
+              type: ButtonType.outlined,
+              onPressed: () async {},
             ),
           ],
         ),
         AppSpacing.vertical.s5,
-        if (type == SwitchViewType.list)
+        FakeSearchBar(
+          onPressed: () => context.pushNamed(
+            AppRoute.erpInvoiceSearch.name,
+          ),
+        ),
+        AppSpacing.vertical.s5,
+        if (viewType == SwitchViewType.list)
           ListView.separated(
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: items.length,
+            itemCount: 2,
             separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
               final item = items[index];

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/filter_quotes_bottom_sheet/filter_quotes_bottom_sheet.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/quotes_grid_tile.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/quotes_list_tile.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class QuotesApproved extends StatelessWidget {
   const QuotesApproved({
     required this.viewType,
+    required this.items,
     super.key,
   });
 
   final SwitchViewType viewType;
+  final List<Map<String, String>> items;
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +54,14 @@ class QuotesApproved extends StatelessWidget {
             itemCount: 2,
             separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
-              return const QuotesListTile(
-                quote: 'F1/2023',
-                date: '12/23',
-                contact: 'Contacto',
-                amount: 1000,
-                status: 'Vence en 3 días',
+              final item = items[index];
+
+              return ErpListTile(
+                title: item['title']!,
+                date: item['date']!,
+                contact: item['contact']!,
+                amount: double.parse(item['amount']!),
+                status: item['status']!,
               );
             },
           )
@@ -75,12 +77,14 @@ class QuotesApproved extends StatelessWidget {
             itemCount: 2,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              return const QuotesGridTile(
-                quote: 'F1/2023',
-                date: '12/23',
-                contact: 'Contacto',
-                amount: 1000,
-                status: 'Vence en 3 días',
+              final item = items[index];
+
+              return ErpGridTile(
+                title: item['title']!,
+                date: item['date']!,
+                contact: item['contact']!,
+                amount: double.parse(item['amount']!),
+                status: item['status']!,
               );
             },
           ),

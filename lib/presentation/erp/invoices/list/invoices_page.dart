@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/approved.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/overview.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/pending.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/widgets/approved.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/widgets/pending.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesTab extends StatefulWidget {
-  const QuotesTab({super.key});
+class InvoicesTab extends StatefulWidget {
+  const InvoicesTab({super.key});
 
   @override
-  State<QuotesTab> createState() => _QuotesTabState();
+  State<InvoicesTab> createState() => _InvoicesTabState();
 }
 
-class _QuotesTabState extends State<QuotesTab> {
+class _InvoicesTabState extends State<InvoicesTab> {
   SwitchViewType type = SwitchViewType.list;
 
   @override
@@ -19,9 +18,22 @@ class _QuotesTabState extends State<QuotesTab> {
     return ListView(
       padding: const EdgeInsets.all(AppSpacing.s5),
       children: [
-        const QuotesOverview(),
+        const ErpOverview(
+          amount: 456,
+          total: 789,
+          percent: 1.3,
+          greenValue: 189,
+          greenLabel: 'Cobrada',
+          yellowValue: 89,
+          yellowLabel: 'Pendiente',
+          redValue: 23,
+          redLabel: 'Vencida',
+          textOfSelect: 'Facturado de este',
+          initialValue: 'Trimestre',
+          onPeriodChange: print,
+        ),
         AppSpacing.vertical.s5,
-        QuotesPending(
+        InvoicesPending(
           type: type,
           setType: (value) {
             setState(() {
@@ -46,9 +58,9 @@ class _QuotesTabState extends State<QuotesTab> {
           ],
         ),
         AppSpacing.vertical.s5,
-        QuotesApproved(
-          viewType: type,
-          items: const [
+        const InvoicesApproved(
+          viewType: SwitchViewType.list,
+          items: [
             {
               'title': 'F1/2023',
               'date': '02/23',
