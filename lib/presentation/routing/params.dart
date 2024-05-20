@@ -37,8 +37,8 @@ class CardTransactionDetailsRouteParams {
     required this.transactionId,
   });
 
-  final int cardContractId;
-  final int transactionId;
+  final String cardContractId;
+  final String transactionId;
 }
 
 // Wires

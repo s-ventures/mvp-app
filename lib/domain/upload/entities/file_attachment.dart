@@ -27,6 +27,14 @@ class FileAttachment with _$FileAttachment {
     required String? fileName,
   }) = FileAttachmentError;
 
+  const factory FileAttachment.deleting({
+    required String id,
+
+    /// File size in bytes
+    required int size,
+    required String? fileName,
+  }) = FileAttachmentDeleting;
+
   const factory FileAttachment.uploading({
     required String id,
     required File file,
@@ -113,6 +121,30 @@ class FileAttachment with _$FileAttachment {
           size: attachment.size,
           fileName: attachment.fileName,
           error: error,
+        ),
+        orElse: FileAttachment.initial,
+      );
+
+  FileAttachment toDeleting() => maybeMap(
+        attached: (attachment) => FileAttachment.deleting(
+          id: attachment.id,
+          size: attachment.size,
+          fileName: attachment.fileName,
+        ),
+        uploading: (attachment) => FileAttachment.deleting(
+          id: attachment.id,
+          size: attachment.size,
+          fileName: attachment.fileName,
+        ),
+        error: (attachment) => FileAttachment.deleting(
+          id: attachment.id,
+          size: attachment.size,
+          fileName: attachment.fileName,
+        ),
+        uploaded: (attachment) => FileAttachment.deleting(
+          id: attachment.id,
+          size: attachment.size,
+          fileName: attachment.fileName,
         ),
         orElse: FileAttachment.initial,
       );

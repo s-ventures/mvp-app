@@ -11,8 +11,7 @@ import 'package:mocktail/mocktail.dart';
 
 import '../../../../../fixtures_reader.dart';
 
-class MockCardTransactionsRestClient extends Mock
-    implements CardTransactionsRestClient {}
+class MockCardTransactionsRestClient extends Mock implements CardTransactionsRestClient {}
 
 void main() {
   late CardTransactionsRemoteDataSource dataSource;
@@ -37,8 +36,8 @@ void main() {
     data: [tDateCardTransactionsDto],
   );
 
-  const tcardContractId = 1068;
-  const tTransactionId = 64;
+  const tcardContractId = '1068';
+  const tTransactionId = '64';
   final tDetailedCardTransactionDto = DetailedCardTransactionDto.fromJson(
     'daily_banking/cards/detailed_card_transaction_dto.json'.toFixture(),
   );

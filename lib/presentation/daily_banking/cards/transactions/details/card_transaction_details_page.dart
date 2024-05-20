@@ -1,14 +1,16 @@
 import 'dart:async';
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
+import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_attachments_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/detailed/detailed_card_transaction_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
-
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
+import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
+import 'package:manifiesto_mvp_app/presentation/core/show_toast_mixin.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/localization/upload_attachments.dart';
+import 'package:manifiesto_mvp_app/presentation/shared/transaction/transaction_actions_section.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardTransactionDetailsPage extends ConsumerStatefulWidget {
@@ -18,14 +20,18 @@ class CardTransactionDetailsPage extends ConsumerStatefulWidget {
     super.key,
   });
 
-  final int cardContractId;
-  final int transactionId;
+  final String cardContractId;
+  final String transactionId;
 
   @override
   ConsumerState<CardTransactionDetailsPage> createState() => _CardTransactionDetailsPageState();
 }
 
-class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDetailsPage> {
+class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDetailsPage>
+    with ShowToastMixin {
+  final PublishSubject<UploadFileFailure> _failureSubject = PublishSubject();
+  final CompositeSubscription _compositeSubscription = CompositeSubscription();
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -36,12 +42,38 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
             ),
       );
     });
+
+    ref.listenManual(
+      detailedCardTransactionControllerProvider.select((state) => state.uploadEvent),
+      (_, event) {
+        _handleEvent(event.getData());
+      },
+    );
+
+    _failureSubject
+        .throttleTime(kSnackBarDisplayDuration)
+        .doOnData((failure) => showToastFailure(context, message: failure.localize()))
+        .listenSafe(_compositeSubscription);
     super.initState();
   }
 
   @override
+  void dispose() {
+    _compositeSubscription.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final transaction = ref.watch(detailedCardTransactionControllerProvider).transaction;
+    final controller = ref.watch(detailedCardTransactionControllerProvider.notifier);
+    // TODO: Mostrar dinámicamente los detalle de la transacción
+    final transaction = ref.watch(
+      detailedCardTransactionControllerProvider.select((value) => value.transaction),
+    );
+    final attachments = ref.watch(
+      detailedCardTransactionControllerProvider.select((value) => value.attachments),
+    );
+
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -116,27 +148,12 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
                 AppSpacing.vertical.s5,
                 const MovementDetailsVoucher(),
                 AppSpacing.vertical.s5,
-                CardMovementDetailsActions(
-                  onUploadFilesPressed: () {
-                    UploadFilesBottomSheet.show(context: context);
-                  },
-                  onCreateExpensePressed: () {
-                    context.goNamed(AppRoute.negocio.name);
-                  },
-                ),
-                AppSpacing.vertical.s5,
-                MovementDetailsActions(
-                  onUploadFilesPressed: () {
-                    UploadAttachmentsBottomSheet.show(
-                      context: context,
-                      onFileSelected: (File file) {
-                        // TODO(migalv): Implement this
-                      },
-                    );
-                  },
-                  onCreateExpensePressed: () {
-                    context.goNamed(AppRoute.negocio.name);
-                  },
+                TransactionActionsSection(
+                  attachments: attachments,
+                  onFileSelected: attachments.length < controller.maxAttachments
+                      ? (file) => controller.addFiles([file])
+                      : null,
+                  onRemove: controller.removeFile,
                 ),
                 AppSpacing.vertical.s5,
                 const MovementDetailsGettingHelp(),
@@ -158,5 +175,27 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
         ),
       ),
     );
+  }
+
+  void _handleEvent(UploadEvent? event) {
+    if (event == null) {
+      return;
+    }
+
+    event.when(
+      failure: _handleFailure,
+      deleteFileSuccess: () => showSuccessToast(
+        context,
+        message: 'Documento adjunto eliminado',
+      ),
+    );
+  }
+
+  void _handleFailure(UploadFileFailure? failure) {
+    if (failure == null) {
+      return;
+    }
+
+    _failureSubject.add(failure);
   }
 }

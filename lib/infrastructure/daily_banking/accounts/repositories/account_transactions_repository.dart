@@ -78,6 +78,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
     }
   }
 
+  @override
   Future<Either<UploadFileFailure, FileAttachmentUploaded>> attachFileToTransaction({
     required String accountId,
     required String transactionId,
@@ -97,6 +98,7 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
     }
   }
 
+  @override
   Future<Either<UploadFileFailure, void>> removeAttachmentFromTransaction({
     required String accountId,
     required String transactionId,

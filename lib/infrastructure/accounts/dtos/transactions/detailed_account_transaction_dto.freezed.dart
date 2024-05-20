@@ -49,8 +49,7 @@ mixin _$DetailedAccountTransactionDto {
   String? get originalCurrencyCode =>
       throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
-  DateTime? get assignmentDate =>
-      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  DateTime? get assignmentDate => throw _privateConstructorUsedError;
   List<FileAttachmentInfoDto>? get attachments => throw _privateConstructorUsedError;
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails => throw _privateConstructorUsedError;
@@ -476,9 +475,7 @@ class _$DetailedAccountTransactionDtoImpl implements _DetailedAccountTransaction
   @override
   @DateConverter()
   final DateTime? assignmentDate;
-// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   final List<FileAttachmentInfoDto>? _attachments;
-// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   List<FileAttachmentInfoDto>? get attachments {
     final value = _attachments;
@@ -650,7 +647,7 @@ abstract class _DetailedAccountTransactionDto implements DetailedAccountTransact
   @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
   DateTime? get assignmentDate;
-  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  @override
   List<FileAttachmentInfoDto>? get attachments;
   @override
   @ExtendedDetailsConverter()
