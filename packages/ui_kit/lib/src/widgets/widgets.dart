@@ -36,6 +36,7 @@ export 'icon_svg.dart';
 export 'icon_with_container.dart';
 export 'input/amount_input.dart';
 export 'input/currency_input.dart';
+export 'input/search_input.dart';
 export 'input/text_area.dart';
 export 'input/text_input.dart';
 export 'lists/outlined_list.dart';

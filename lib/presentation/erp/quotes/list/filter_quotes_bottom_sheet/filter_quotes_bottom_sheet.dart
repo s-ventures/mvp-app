@@ -153,7 +153,7 @@ class FilterQuotesBottomSheet {
                   AppSpacing.vertical.s3,
                   const QuotesContactFilter(
                     contacts: 'contacts',
-                    setContactTo: print,
+                    onChanged: print,
                   ),
                 ],
               ),
