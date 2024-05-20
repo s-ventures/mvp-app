@@ -20,9 +20,8 @@ class ErpListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.s5,
-        vertical: AppSpacing.s3,
+      padding: const EdgeInsets.all(
+        AppSpacing.s5,
       ),
       decoration: ShapeDecoration(
         color: context.color.backgroundLight0,
