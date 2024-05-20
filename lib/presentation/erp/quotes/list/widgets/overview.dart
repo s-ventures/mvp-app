@@ -6,9 +6,18 @@ class QuotesOverview extends StatelessWidget {
 
   List<DropdownMenuItem<String>> get _dropdownItems {
     final menuItems = <DropdownMenuItem<String>>[
-      const DropdownMenuItem(value: 'Mes', child: Text('Mes')),
-      const DropdownMenuItem(value: 'Trimestre', child: Text('Trimestre')),
-      const DropdownMenuItem(value: 'Año', child: Text('Año')),
+      const DropdownMenuItem(
+        value: 'Mes',
+        child: Text('Mes'),
+      ),
+      const DropdownMenuItem(
+        value: 'Trimestre',
+        child: Text('Trimestre'),
+      ),
+      const DropdownMenuItem(
+        value: 'Año',
+        child: Text('Año'),
+      ),
     ];
     return menuItems;
   }
@@ -31,11 +40,14 @@ class QuotesOverview extends StatelessWidget {
               ),
               AppSpacing.horizontal.s3,
               Padding(
-                padding: const EdgeInsets.only(top: AppSpacing.s3),
+                padding: const EdgeInsets.only(
+                  top: AppSpacing.s3,
+                ),
                 child: Text(
                   '/',
-                  style: context.textStyle.bodyMediumRegular
-                      .copyWith(color: context.color.textLight300),
+                  style: context.textStyle.bodyMediumRegular.copyWith(
+                    color: context.color.textLight300,
+                  ),
                 ),
               ),
               AppSpacing.horizontal.s3,
@@ -52,11 +64,17 @@ class QuotesOverview extends StatelessWidget {
               ),
               const Spacer(),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
-                  color: context.color.statusSuccess.withOpacity(0.12),
-                  borderRadius: BorderRadius.circular(context.radius.hard),
+                  color: context.color.statusSuccess.withOpacity(
+                    0.12,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    context.radius.hard,
+                  ),
                 ),
                 child: Row(
                   children: [
@@ -98,7 +116,9 @@ class QuotesOverview extends StatelessWidget {
                   style: context.textStyle.bodySmallSemiBold.copyWith(
                     color: context.color.textLight900,
                   ),
-                  borderRadius: BorderRadius.circular(context.radius.soft),
+                  borderRadius: BorderRadius.circular(
+                    context.radius.soft,
+                  ),
                   underline: Container(),
                   elevation: 1,
                   dropdownColor: context.color.backgroundLight0,
@@ -139,8 +159,12 @@ class QuotesOverview extends StatelessWidget {
             semanticsLabel: '60%',
             minHeight: 6,
             backgroundColor: context.color.backgroundLight200,
-            valueColor: AlwaysStoppedAnimation(context.color.statusInfo),
-            borderRadius: BorderRadius.circular(context.radius.soft),
+            valueColor: AlwaysStoppedAnimation(
+              context.color.statusInfo,
+            ),
+            borderRadius: BorderRadius.circular(
+              context.radius.soft,
+            ),
             color: context.color.statusSuccess,
           ),
         ],
