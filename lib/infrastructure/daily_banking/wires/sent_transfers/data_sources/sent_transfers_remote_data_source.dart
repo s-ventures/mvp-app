@@ -9,8 +9,7 @@ class SentTransfersRemoteDataSource {
 
   final SentTransfersRestClient _restClient;
 
-  Future<PaginatedResponse<SimplifiedSentTransferDto>>
-      getSimplifiedSentTransfers({
+  Future<PaginatedResponse<SimplifiedSentTransferDto>> getSimplifiedSentTransfers({
     required SentTransfersFilterDto filterDto,
   }) {
     try {

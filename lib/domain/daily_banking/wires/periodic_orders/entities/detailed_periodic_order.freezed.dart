@@ -27,8 +27,7 @@ mixin _$DetailedPeriodicOrder {
   String get currencyCode => throw _privateConstructorUsedError;
   DateTime get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
-  PeriodicOrderFrecuencyType get frecuency =>
-      throw _privateConstructorUsedError;
+  PeriodicOrderFrecuencyType get frecuency => throw _privateConstructorUsedError;
   PeriodicOrderStatusType get status => throw _privateConstructorUsedError;
   String get baasTransferId => throw _privateConstructorUsedError;
   String? get concept => throw _privateConstructorUsedError;
@@ -40,8 +39,8 @@ mixin _$DetailedPeriodicOrder {
 
 /// @nodoc
 abstract class $DetailedPeriodicOrderCopyWith<$Res> {
-  factory $DetailedPeriodicOrderCopyWith(DetailedPeriodicOrder value,
-          $Res Function(DetailedPeriodicOrder) then) =
+  factory $DetailedPeriodicOrderCopyWith(
+          DetailedPeriodicOrder value, $Res Function(DetailedPeriodicOrder) then) =
       _$DetailedPeriodicOrderCopyWithImpl<$Res, DetailedPeriodicOrder>;
   @useResult
   $Res call(
@@ -63,8 +62,7 @@ abstract class $DetailedPeriodicOrderCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DetailedPeriodicOrderCopyWithImpl<$Res,
-        $Val extends DetailedPeriodicOrder>
+class _$DetailedPeriodicOrderCopyWithImpl<$Res, $Val extends DetailedPeriodicOrder>
     implements $DetailedPeriodicOrderCopyWith<$Res> {
   _$DetailedPeriodicOrderCopyWithImpl(this._value, this._then);
 
@@ -161,8 +159,7 @@ class _$DetailedPeriodicOrderCopyWithImpl<$Res,
 abstract class _$$DetailedPeriodicOrderImplCopyWith<$Res>
     implements $DetailedPeriodicOrderCopyWith<$Res> {
   factory _$$DetailedPeriodicOrderImplCopyWith(
-          _$DetailedPeriodicOrderImpl value,
-          $Res Function(_$DetailedPeriodicOrderImpl) then) =
+          _$DetailedPeriodicOrderImpl value, $Res Function(_$DetailedPeriodicOrderImpl) then) =
       __$$DetailedPeriodicOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -186,11 +183,10 @@ abstract class _$$DetailedPeriodicOrderImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedPeriodicOrderImplCopyWithImpl<$Res>
-    extends _$DetailedPeriodicOrderCopyWithImpl<$Res,
-        _$DetailedPeriodicOrderImpl>
+    extends _$DetailedPeriodicOrderCopyWithImpl<$Res, _$DetailedPeriodicOrderImpl>
     implements _$$DetailedPeriodicOrderImplCopyWith<$Res> {
-  __$$DetailedPeriodicOrderImplCopyWithImpl(_$DetailedPeriodicOrderImpl _value,
-      $Res Function(_$DetailedPeriodicOrderImpl) _then)
+  __$$DetailedPeriodicOrderImplCopyWithImpl(
+      _$DetailedPeriodicOrderImpl _value, $Res Function(_$DetailedPeriodicOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -339,28 +335,21 @@ class _$DetailedPeriodicOrderImpl implements _DetailedPeriodicOrder {
         (other.runtimeType == runtimeType &&
             other is _$DetailedPeriodicOrderImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
-            (identical(other.customerId, customerId) ||
-                other.customerId == customerId) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.customerId, customerId) || other.customerId == customerId) &&
             (identical(other.beneficiaryAccount, beneficiaryAccount) ||
                 other.beneficiaryAccount == beneficiaryAccount) &&
             (identical(other.beneficiaryName, beneficiaryName) ||
                 other.beneficiaryName == beneficiaryName) &&
             (identical(other.beneficiaryAddress, beneficiaryAddress) ||
                 other.beneficiaryAddress == beneficiaryAddress) &&
-            (identical(other.beneficiaryCountryCode2char,
-                    beneficiaryCountryCode2char) ||
-                other.beneficiaryCountryCode2char ==
-                    beneficiaryCountryCode2char) &&
+            (identical(other.beneficiaryCountryCode2char, beneficiaryCountryCode2char) ||
+                other.beneficiaryCountryCode2char == beneficiaryCountryCode2char) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.currencyCode, currencyCode) ||
-                other.currencyCode == currencyCode) &&
-            (identical(other.startDate, startDate) ||
-                other.startDate == startDate) &&
+            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
+            (identical(other.startDate, startDate) || other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.frecuency, frecuency) ||
-                other.frecuency == frecuency) &&
+            (identical(other.frecuency, frecuency) || other.frecuency == frecuency) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.baasTransferId, baasTransferId) ||
                 other.baasTransferId == baasTransferId) &&
@@ -389,9 +378,8 @@ class _$DetailedPeriodicOrderImpl implements _DetailedPeriodicOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedPeriodicOrderImplCopyWith<_$DetailedPeriodicOrderImpl>
-      get copyWith => __$$DetailedPeriodicOrderImplCopyWithImpl<
-          _$DetailedPeriodicOrderImpl>(this, _$identity);
+  _$$DetailedPeriodicOrderImplCopyWith<_$DetailedPeriodicOrderImpl> get copyWith =>
+      __$$DetailedPeriodicOrderImplCopyWithImpl<_$DetailedPeriodicOrderImpl>(this, _$identity);
 }
 
 abstract class _DetailedPeriodicOrder implements DetailedPeriodicOrder {
@@ -444,6 +432,6 @@ abstract class _DetailedPeriodicOrder implements DetailedPeriodicOrder {
   String? get concept;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedPeriodicOrderImplCopyWith<_$DetailedPeriodicOrderImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$DetailedPeriodicOrderImplCopyWith<_$DetailedPeriodicOrderImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

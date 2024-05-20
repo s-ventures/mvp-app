@@ -16,8 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedCardsState {
-  AsyncValue<List<SimplifiedCard>> get cards =>
-      throw _privateConstructorUsedError;
+  AsyncValue<List<SimplifiedCard>> get cards => throw _privateConstructorUsedError;
   int get selectedCardIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -27,16 +26,15 @@ mixin _$SimplifiedCardsState {
 
 /// @nodoc
 abstract class $SimplifiedCardsStateCopyWith<$Res> {
-  factory $SimplifiedCardsStateCopyWith(SimplifiedCardsState value,
-          $Res Function(SimplifiedCardsState) then) =
+  factory $SimplifiedCardsStateCopyWith(
+          SimplifiedCardsState value, $Res Function(SimplifiedCardsState) then) =
       _$SimplifiedCardsStateCopyWithImpl<$Res, SimplifiedCardsState>;
   @useResult
   $Res call({AsyncValue<List<SimplifiedCard>> cards, int selectedCardIndex});
 }
 
 /// @nodoc
-class _$SimplifiedCardsStateCopyWithImpl<$Res,
-        $Val extends SimplifiedCardsState>
+class _$SimplifiedCardsStateCopyWithImpl<$Res, $Val extends SimplifiedCardsState>
     implements $SimplifiedCardsStateCopyWith<$Res> {
   _$SimplifiedCardsStateCopyWithImpl(this._value, this._then);
 
@@ -67,8 +65,8 @@ class _$SimplifiedCardsStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$SimplifiedCardsStateImplCopyWith<$Res>
     implements $SimplifiedCardsStateCopyWith<$Res> {
-  factory _$$SimplifiedCardsStateImplCopyWith(_$SimplifiedCardsStateImpl value,
-          $Res Function(_$SimplifiedCardsStateImpl) then) =
+  factory _$$SimplifiedCardsStateImplCopyWith(
+          _$SimplifiedCardsStateImpl value, $Res Function(_$SimplifiedCardsStateImpl) then) =
       __$$SimplifiedCardsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -79,8 +77,8 @@ abstract class _$$SimplifiedCardsStateImplCopyWith<$Res>
 class __$$SimplifiedCardsStateImplCopyWithImpl<$Res>
     extends _$SimplifiedCardsStateCopyWithImpl<$Res, _$SimplifiedCardsStateImpl>
     implements _$$SimplifiedCardsStateImplCopyWith<$Res> {
-  __$$SimplifiedCardsStateImplCopyWithImpl(_$SimplifiedCardsStateImpl _value,
-      $Res Function(_$SimplifiedCardsStateImpl) _then)
+  __$$SimplifiedCardsStateImplCopyWithImpl(
+      _$SimplifiedCardsStateImpl _value, $Res Function(_$SimplifiedCardsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,8 +104,7 @@ class __$$SimplifiedCardsStateImplCopyWithImpl<$Res>
 
 class _$SimplifiedCardsStateImpl implements _SimplifiedCardsState {
   const _$SimplifiedCardsStateImpl(
-      {this.cards = const AsyncLoading<List<SimplifiedCard>>(),
-      this.selectedCardIndex = 0});
+      {this.cards = const AsyncLoading<List<SimplifiedCard>>(), this.selectedCardIndex = 0});
 
   @override
   @JsonKey()
@@ -137,10 +134,8 @@ class _$SimplifiedCardsStateImpl implements _SimplifiedCardsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedCardsStateImplCopyWith<_$SimplifiedCardsStateImpl>
-      get copyWith =>
-          __$$SimplifiedCardsStateImplCopyWithImpl<_$SimplifiedCardsStateImpl>(
-              this, _$identity);
+  _$$SimplifiedCardsStateImplCopyWith<_$SimplifiedCardsStateImpl> get copyWith =>
+      __$$SimplifiedCardsStateImplCopyWithImpl<_$SimplifiedCardsStateImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedCardsState implements SimplifiedCardsState {
@@ -154,6 +149,6 @@ abstract class _SimplifiedCardsState implements SimplifiedCardsState {
   int get selectedCardIndex;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedCardsStateImplCopyWith<_$SimplifiedCardsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedCardsStateImplCopyWith<_$SimplifiedCardsStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

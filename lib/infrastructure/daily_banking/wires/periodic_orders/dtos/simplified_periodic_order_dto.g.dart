@@ -16,14 +16,10 @@ _$SimplifiedPeriodicOrderDtoImpl _$$SimplifiedPeriodicOrderDtoImplFromJson(
       beneficiaryName: json['beneficiaryName'] as String,
       amount: (json['amount'] as num).toDouble(),
       currencyCode: json['currencyCode'] as String,
-      status: $enumDecodeNullable(
-          _$PeriodicOrderStatusTypeDtoEnumMap, json['status']),
+      status: $enumDecodeNullable(_$PeriodicOrderStatusTypeDtoEnumMap, json['status']),
       concept: json['concept'] as String?,
-      frecuency: $enumDecodeNullable(
-          _$PeriodicOrderFrecuencyTypeDtoEnumMap, json['frecuency']),
-      startDate: json['startDate'] == null
-          ? null
-          : DateTime.parse(json['startDate'] as String),
+      frecuency: $enumDecodeNullable(_$PeriodicOrderFrecuencyTypeDtoEnumMap, json['frecuency']),
+      startDate: json['startDate'] == null ? null : DateTime.parse(json['startDate'] as String),
     );
 
 Map<String, dynamic> _$$SimplifiedPeriodicOrderDtoImplToJson(

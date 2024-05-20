@@ -21,8 +21,7 @@ final accountsRepositoryProvider = Provider<AccountsRepository>(
     localDataSource: AccountsLocalDataSource(
       ref.watch(sharedPreferencesLocalStorageProvider),
     ),
-    remoteDataSource:
-        AccountsRemoteDataSource(ref.watch(accountsRestClientProvider)),
+    remoteDataSource: AccountsRemoteDataSource(ref.watch(accountsRestClientProvider)),
   ),
 );
 
@@ -38,8 +37,7 @@ class AccountsRepository implements IAccountsRepository {
   final _selectedAccountId = BehaviorSubject.seeded(none<UniqueId>());
 
   @override
-  Future<Either<SimplifiedAccountFailure, List<SimplifiedAccount>>>
-      getSimplifiedAccounts({
+  Future<Either<SimplifiedAccountFailure, List<SimplifiedAccount>>> getSimplifiedAccounts({
     int page = 0,
     int pageSize = 10,
     void Function(int totalPages, int totalElements)? onPaginationInfo,
@@ -67,8 +65,7 @@ class AccountsRepository implements IAccountsRepository {
       final result = await _localDataSource.saveSelectedAccountId(accountId);
 
       if (result.isRight()) {
-        _selectedAccountId
-            .add(some(UniqueId.fromUniqueString(accountId.toString())));
+        _selectedAccountId.add(some(UniqueId.fromUniqueString(accountId.toString())));
         return right(unit);
       } else {
         return left(const SelectAccountFailure.unexpected());

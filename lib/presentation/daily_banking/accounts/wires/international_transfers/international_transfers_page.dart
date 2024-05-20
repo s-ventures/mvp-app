@@ -61,8 +61,7 @@ class InternationalTransfersPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius:
-                            BorderRadius.circular(context.radius.hard),
+                        borderRadius: BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [

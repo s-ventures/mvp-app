@@ -82,8 +82,7 @@ class CommerceInsuranceCalculatePriceFirstStepPage extends StatelessWidget {
                 title: 'Siguiente',
                 size: ButtonSize.small,
                 onPressed: () => context.pushNamed(
-                  AppRoute
-                      .protectionInsuranceCommerceCalculatePriceSecondStep.name,
+                  AppRoute.protectionInsuranceCommerceCalculatePriceSecondStep.name,
                 ),
               ),
             ],

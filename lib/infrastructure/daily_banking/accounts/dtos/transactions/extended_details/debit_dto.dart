@@ -24,8 +24,7 @@ class DebitDto extends ExtendedDetailsDto {
     required this.fileId,
   });
 
-  factory DebitDto.fromJson(Map<String, dynamic> json) =>
-      _$DebitDtoFromJson(json);
+  factory DebitDto.fromJson(Map<String, dynamic> json) => _$DebitDtoFromJson(json);
 
   final int debitId;
   final int accountId;

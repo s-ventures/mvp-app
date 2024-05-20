@@ -4,15 +4,13 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entit
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_repository.dart';
 
-final policiesPaginationRepositoryProvider =
-    Provider<PoliciesPaginationRepository>(
+final policiesPaginationRepositoryProvider = Provider<PoliciesPaginationRepository>(
   (ref) => PoliciesPaginationRepository(
     ref.watch(policiesRepositoryProvider),
   ),
 );
 
-class PoliciesPaginationRepository
-    extends PaginationListRepository<SimplifiedPolicy> {
+class PoliciesPaginationRepository extends PaginationListRepository<SimplifiedPolicy> {
   PoliciesPaginationRepository(
     this._policiesRepository,
   );

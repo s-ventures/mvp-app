@@ -6,8 +6,7 @@ part of 'aggregated_product_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AggregatedProductDtoImpl _$$AggregatedProductDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$AggregatedProductDtoImpl _$$AggregatedProductDtoImplFromJson(Map<String, dynamic> json) =>
     _$AggregatedProductDtoImpl(
       id: json['id'] as String,
       financialInstitutionId: json['financialInstitutionId'] as String,
@@ -16,8 +15,7 @@ _$AggregatedProductDtoImpl _$$AggregatedProductDtoImplFromJson(
       type: $enumDecode(_$TypeDtoEnumMap, json['type']),
     );
 
-Map<String, dynamic> _$$AggregatedProductDtoImplToJson(
-        _$AggregatedProductDtoImpl instance) =>
+Map<String, dynamic> _$$AggregatedProductDtoImplToJson(_$AggregatedProductDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'financialInstitutionId': instance.financialInstitutionId,

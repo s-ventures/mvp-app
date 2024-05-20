@@ -14,12 +14,10 @@ class CardListSliverPinnedHeader extends ConsumerStatefulWidget {
   const CardListSliverPinnedHeader({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _AccountListSliverPinnedHeaderState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _AccountListSliverPinnedHeaderState();
 }
 
-class _AccountListSliverPinnedHeaderState
-    extends ConsumerState<CardListSliverPinnedHeader> {
+class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPinnedHeader> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -34,8 +32,7 @@ class _AccountListSliverPinnedHeaderState
       simplifiedCardsControllerProvider.select((value) => value.cards),
     );
     final selectedCardsIndex = ref.watch(
-      simplifiedCardsControllerProvider
-          .select((value) => value.selectedCardIndex),
+      simplifiedCardsControllerProvider.select((value) => value.selectedCardIndex),
     );
     final controller = ref.watch(simplifiedCardsControllerProvider.notifier);
 

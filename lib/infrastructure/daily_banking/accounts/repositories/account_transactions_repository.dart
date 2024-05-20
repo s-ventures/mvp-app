@@ -34,8 +34,9 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
   final AccountTransactionsRemoteDataSource _remoteDataSource;
 
   @override
-  Future<Either<SimplifiedAccountTransactionFailure, Map<DateTime, List<SimplifiedAccountTransaction>>>>
-      getSimplifiedAccountTransactions({
+  Future<
+      Either<SimplifiedAccountTransactionFailure,
+          Map<DateTime, List<SimplifiedAccountTransaction>>>> getSimplifiedAccountTransactions({
     required AccountTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,
@@ -61,7 +62,8 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
   }
 
   @override
-  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>> getDetailedAccountTransaction({
+  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>>
+      getDetailedAccountTransaction({
     required String accountId,
     required String transactionId,
   }) async {

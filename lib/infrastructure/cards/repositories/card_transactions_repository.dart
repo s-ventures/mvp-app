@@ -65,7 +65,8 @@ class CardTransactionsRepository implements ICardTransactionsRepository {
   }
 
   @override
-  Future<Either<DetailedCardTransactionFailure, DetailedCardTransaction>> getDetailedCardTransaction({
+  Future<Either<DetailedCardTransactionFailure, DetailedCardTransaction>>
+      getDetailedCardTransaction({
     required String cardContractId,
     required String transactionId,
   }) async {

@@ -11,14 +11,15 @@ import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.da
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_repository.dart';
 import 'package:meta/meta.dart';
 
-final detailedCardTransactionControllerProvider =
-    StateNotifierProvider.autoDispose<DetailedCardTransactionController, DetailedCardTransactionState>(
+final detailedCardTransactionControllerProvider = StateNotifierProvider.autoDispose<
+    DetailedCardTransactionController, DetailedCardTransactionState>(
   (ref) => DetailedCardTransactionController(
     ref.watch(cardTransactionsRepositoryProvider),
   ),
 );
 
-class DetailedCardTransactionController extends UploadAttachmentsStateNotifier<DetailedCardTransactionState> {
+class DetailedCardTransactionController
+    extends UploadAttachmentsStateNotifier<DetailedCardTransactionState> {
   DetailedCardTransactionController(this._repository)
       : super(
           const DetailedCardTransactionState(),

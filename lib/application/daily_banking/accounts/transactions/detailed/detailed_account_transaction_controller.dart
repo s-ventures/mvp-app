@@ -12,14 +12,15 @@ import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.da
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_repository.dart';
 import 'package:meta/meta.dart';
 
-final detailedAccountTransactionControllerProvider =
-    StateNotifierProvider.autoDispose<DetailedAccountTransactionController, DetailedAccountTransactionState>(
+final detailedAccountTransactionControllerProvider = StateNotifierProvider.autoDispose<
+    DetailedAccountTransactionController, DetailedAccountTransactionState>(
   (ref) => DetailedAccountTransactionController(
     ref.watch(accountTransactionsRepositoryProvider),
   ),
 );
 
-class DetailedAccountTransactionController extends UploadAttachmentsStateNotifier<DetailedAccountTransactionState> {
+class DetailedAccountTransactionController
+    extends UploadAttachmentsStateNotifier<DetailedAccountTransactionState> {
   DetailedAccountTransactionController(this._repository)
       : super(
           const DetailedAccountTransactionState(),

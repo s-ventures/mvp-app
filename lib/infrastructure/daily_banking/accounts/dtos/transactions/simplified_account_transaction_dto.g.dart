@@ -6,26 +6,23 @@ part of 'simplified_account_transaction_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SimplifiedAccountTransactionDtoImpl
-    _$$SimplifiedAccountTransactionDtoImplFromJson(Map<String, dynamic> json) =>
-        _$SimplifiedAccountTransactionDtoImpl(
-          movementId: json['movementId'] as int,
-          postingDate:
-              const DateConverter().fromJson(json['postingDate'] as String),
-          valueDate:
-              const DateConverter().fromJson(json['valueDate'] as String),
-          type: $enumDecode(_$AccountTransactionTypeDtoEnumMap, json['type']),
-          amount: (json['amount'] as num).toDouble(),
-          endBalance: (json['endBalance'] as num).toDouble(),
-          currencyCode: json['currencyCode'] as String,
-          description: json['description'] as String,
-          analyticsCategory: json['analyticsCategory'] as String?,
-          userCategory: json['userCategory'] as String?,
-          accountId: json['accountId'] as int,
-          originBranch: json['originBranch'] as String,
-          productType:
-              $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
-        );
+_$SimplifiedAccountTransactionDtoImpl _$$SimplifiedAccountTransactionDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SimplifiedAccountTransactionDtoImpl(
+      movementId: json['movementId'] as int,
+      postingDate: const DateConverter().fromJson(json['postingDate'] as String),
+      valueDate: const DateConverter().fromJson(json['valueDate'] as String),
+      type: $enumDecode(_$AccountTransactionTypeDtoEnumMap, json['type']),
+      amount: (json['amount'] as num).toDouble(),
+      endBalance: (json['endBalance'] as num).toDouble(),
+      currencyCode: json['currencyCode'] as String,
+      description: json['description'] as String,
+      analyticsCategory: json['analyticsCategory'] as String?,
+      userCategory: json['userCategory'] as String?,
+      accountId: json['accountId'] as int,
+      originBranch: json['originBranch'] as String,
+      productType: $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
+    );
 
 Map<String, dynamic> _$$SimplifiedAccountTransactionDtoImplToJson(
         _$SimplifiedAccountTransactionDtoImpl instance) =>

@@ -10,11 +10,8 @@ enum MatrimonialRegimeDto {
 
 extension MatrimonialRegimeDtoX on MatrimonialRegimeDto {
   MatrimonialRegime toDomain() => switch (this) {
-        MatrimonialRegimeDto.maritalPartnership =>
-          MatrimonialRegime.maritalPartnership,
-        MatrimonialRegimeDto.separationProperty =>
-          MatrimonialRegime.separationProperty,
-        MatrimonialRegimeDto.participationRegime =>
-          MatrimonialRegime.participationRegime,
+        MatrimonialRegimeDto.maritalPartnership => MatrimonialRegime.maritalPartnership,
+        MatrimonialRegimeDto.separationProperty => MatrimonialRegime.separationProperty,
+        MatrimonialRegimeDto.participationRegime => MatrimonialRegime.participationRegime,
       };
 }

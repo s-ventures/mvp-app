@@ -11,15 +11,17 @@ import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.da
 
 // ignore: one_member_abstracts
 abstract class IAccountTransactionsRepository {
-  Future<Either<SimplifiedAccountTransactionFailure, Map<DateTime, List<SimplifiedAccountTransaction>>>>
-      getSimplifiedAccountTransactions({
+  Future<
+      Either<SimplifiedAccountTransactionFailure,
+          Map<DateTime, List<SimplifiedAccountTransaction>>>> getSimplifiedAccountTransactions({
     required AccountTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,
     void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
-  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>> getDetailedAccountTransaction({
+  Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>>
+      getDetailedAccountTransaction({
     required String accountId,
     required String transactionId,
   });

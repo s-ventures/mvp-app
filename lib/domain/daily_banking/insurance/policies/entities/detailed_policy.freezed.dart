@@ -26,18 +26,15 @@ mixin _$DetailedPolicy {
   String get description => throw _privateConstructorUsedError;
   double get amount => throw _privateConstructorUsedError;
   double get lastInvoiceAmount => throw _privateConstructorUsedError;
-  PolicyPaymentPeriodicity get paymentPeriodicity =>
-      throw _privateConstructorUsedError;
+  PolicyPaymentPeriodicity get paymentPeriodicity => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedPolicyCopyWith<DetailedPolicy> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DetailedPolicyCopyWith<DetailedPolicy> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedPolicyCopyWith<$Res> {
-  factory $DetailedPolicyCopyWith(
-          DetailedPolicy value, $Res Function(DetailedPolicy) then) =
+  factory $DetailedPolicyCopyWith(DetailedPolicy value, $Res Function(DetailedPolicy) then) =
       _$DetailedPolicyCopyWithImpl<$Res, DetailedPolicy>;
   @useResult
   $Res call(
@@ -123,10 +120,9 @@ class _$DetailedPolicyCopyWithImpl<$Res, $Val extends DetailedPolicy>
 }
 
 /// @nodoc
-abstract class _$$DetailedPolicyImplCopyWith<$Res>
-    implements $DetailedPolicyCopyWith<$Res> {
-  factory _$$DetailedPolicyImplCopyWith(_$DetailedPolicyImpl value,
-          $Res Function(_$DetailedPolicyImpl) then) =
+abstract class _$$DetailedPolicyImplCopyWith<$Res> implements $DetailedPolicyCopyWith<$Res> {
+  factory _$$DetailedPolicyImplCopyWith(
+          _$DetailedPolicyImpl value, $Res Function(_$DetailedPolicyImpl) then) =
       __$$DetailedPolicyImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -258,16 +254,13 @@ class _$DetailedPolicyImpl implements _DetailedPolicy {
         (other.runtimeType == runtimeType &&
             other is _$DetailedPolicyImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.insuranceId, insuranceId) ||
-                other.insuranceId == insuranceId) &&
+            (identical(other.insuranceId, insuranceId) || other.insuranceId == insuranceId) &&
             (identical(other.certificateNumber, certificateNumber) ||
                 other.certificateNumber == certificateNumber) &&
-            (identical(other.createDate, createDate) ||
-                other.createDate == createDate) &&
+            (identical(other.createDate, createDate) || other.createDate == createDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.description, description) || other.description == description) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.lastInvoiceAmount, lastInvoiceAmount) ||
                 other.lastInvoiceAmount == lastInvoiceAmount) &&
@@ -276,40 +269,28 @@ class _$DetailedPolicyImpl implements _DetailedPolicy {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      insuranceId,
-      certificateNumber,
-      createDate,
-      endDate,
-      status,
-      description,
-      amount,
-      lastInvoiceAmount,
-      paymentPeriodicity);
+  int get hashCode => Object.hash(runtimeType, id, insuranceId, certificateNumber, createDate,
+      endDate, status, description, amount, lastInvoiceAmount, paymentPeriodicity);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedPolicyImplCopyWith<_$DetailedPolicyImpl> get copyWith =>
-      __$$DetailedPolicyImplCopyWithImpl<_$DetailedPolicyImpl>(
-          this, _$identity);
+      __$$DetailedPolicyImplCopyWithImpl<_$DetailedPolicyImpl>(this, _$identity);
 }
 
 abstract class _DetailedPolicy implements DetailedPolicy {
   const factory _DetailedPolicy(
-          {required final UniqueId id,
-          required final UniqueId insuranceId,
-          required final String certificateNumber,
-          required final DateTime createDate,
-          required final DateTime? endDate,
-          required final String status,
-          required final String description,
-          required final double amount,
-          required final double lastInvoiceAmount,
-          required final PolicyPaymentPeriodicity paymentPeriodicity}) =
-      _$DetailedPolicyImpl;
+      {required final UniqueId id,
+      required final UniqueId insuranceId,
+      required final String certificateNumber,
+      required final DateTime createDate,
+      required final DateTime? endDate,
+      required final String status,
+      required final String description,
+      required final double amount,
+      required final double lastInvoiceAmount,
+      required final PolicyPaymentPeriodicity paymentPeriodicity}) = _$DetailedPolicyImpl;
 
   @override
   UniqueId get id;

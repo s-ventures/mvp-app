@@ -12,23 +12,18 @@ class AccountTransactionList extends ConsumerStatefulWidget {
     super.key,
   });
 
-  final void Function(SimplifiedAccountTransaction transaction)?
-      onTransactionPressed;
+  final void Function(SimplifiedAccountTransaction transaction)? onTransactionPressed;
 
   @override
-  ConsumerState<AccountTransactionList> createState() =>
-      _AccountTransactionListState();
+  ConsumerState<AccountTransactionList> createState() => _AccountTransactionListState();
 }
 
-class _AccountTransactionListState
-    extends ConsumerState<AccountTransactionList> {
+class _AccountTransactionListState extends ConsumerState<AccountTransactionList> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(
-        ref
-            .read(simplifiedAccountTransactionsControllerProvider.notifier)
-            .init(),
+        ref.read(simplifiedAccountTransactionsControllerProvider.notifier).init(),
       );
     });
     super.initState();
@@ -37,8 +32,7 @@ class _AccountTransactionListState
   @override
   Widget build(BuildContext context) {
     final transactions = ref.watch(
-      simplifiedAccountTransactionsControllerProvider
-          .select((value) => value.transactions),
+      simplifiedAccountTransactionsControllerProvider.select((value) => value.transactions),
     );
 
     return transactions.mapOrNull(
@@ -83,28 +77,20 @@ class _TransactionList extends StatelessWidget {
             AppSpacing.vertical.s3,
             ...list.asMap().entries.map((entry) {
               final transaction = entry.value;
-              final isFirst = entry.key == 0 ||
-                  transaction.date != list[entry.key - 1].date;
-              final isLast = entry.key == list.length - 1 ||
-                  transaction.date != list[entry.key + 1].date;
+              final isFirst = entry.key == 0 || transaction.date != list[entry.key - 1].date;
+              final isLast =
+                  entry.key == list.length - 1 || transaction.date != list[entry.key + 1].date;
 
               final borderRadius = BorderRadius.only(
-                topLeft: isFirst
-                    ? Radius.circular(context.radius.soft)
-                    : Radius.zero,
-                topRight: isFirst
-                    ? Radius.circular(context.radius.soft)
-                    : Radius.zero,
-                bottomLeft:
-                    isLast ? Radius.circular(context.radius.soft) : Radius.zero,
-                bottomRight:
-                    isLast ? Radius.circular(context.radius.soft) : Radius.zero,
+                topLeft: isFirst ? Radius.circular(context.radius.soft) : Radius.zero,
+                topRight: isFirst ? Radius.circular(context.radius.soft) : Radius.zero,
+                bottomLeft: isLast ? Radius.circular(context.radius.soft) : Radius.zero,
+                bottomRight: isLast ? Radius.circular(context.radius.soft) : Radius.zero,
               );
 
               return TransactionListTile(
                 leadingEmoji: '🏦',
-                leadingBackgroundColor:
-                    context.color.secondaryLight600.withOpacity(.2),
+                leadingBackgroundColor: context.color.secondaryLight600.withOpacity(.2),
                 title: transaction.description,
                 amount: transaction.amount,
                 endBalance: transaction.endBalance,

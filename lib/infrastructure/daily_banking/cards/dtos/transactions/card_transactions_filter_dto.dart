@@ -46,8 +46,8 @@ class CardTransactionsFilterDto extends PaginatedRequest {
     required this.postingDateFrom,
     required this.postingDateTo,
     required this.concept,
-    required super.pageSize,
-    required super.pageNumber,
+    super.pageSize = 10,
+    super.pageNumber = 0,
   });
 
   factory CardTransactionsFilterDto.fromDomain({
@@ -58,8 +58,7 @@ class CardTransactionsFilterDto extends PaginatedRequest {
     return CardTransactionsFilterDto(
       cardContractId: filter.cardContractIds.map((e) => e.toInt()).toList(),
       cardId: filter.cardIds.map((e) => e.toInt()).toList(),
-      operationType:
-          filter.operationType.toDto(filter.amountFrom, filter.amountTo),
+      operationType: filter.operationType.toDto(filter.amountFrom, filter.amountTo),
       postingDateFrom: filter.dateFrom,
       postingDateTo: filter.dateTo,
       amountFrom: filter.amountFrom,

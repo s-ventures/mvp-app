@@ -23,17 +23,15 @@ mixin _$FilterSimplifiedClaimsState {
   String? get riskType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterSimplifiedClaimsStateCopyWith<FilterSimplifiedClaimsState>
-      get copyWith => throw _privateConstructorUsedError;
+  $FilterSimplifiedClaimsStateCopyWith<FilterSimplifiedClaimsState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FilterSimplifiedClaimsStateCopyWith<$Res> {
   factory $FilterSimplifiedClaimsStateCopyWith(
-          FilterSimplifiedClaimsState value,
-          $Res Function(FilterSimplifiedClaimsState) then) =
-      _$FilterSimplifiedClaimsStateCopyWithImpl<$Res,
-          FilterSimplifiedClaimsState>;
+          FilterSimplifiedClaimsState value, $Res Function(FilterSimplifiedClaimsState) then) =
+      _$FilterSimplifiedClaimsStateCopyWithImpl<$Res, FilterSimplifiedClaimsState>;
   @useResult
   $Res call(
       {List<int>? insuranceIds,
@@ -44,8 +42,7 @@ abstract class $FilterSimplifiedClaimsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FilterSimplifiedClaimsStateCopyWithImpl<$Res,
-        $Val extends FilterSimplifiedClaimsState>
+class _$FilterSimplifiedClaimsStateCopyWithImpl<$Res, $Val extends FilterSimplifiedClaimsState>
     implements $FilterSimplifiedClaimsStateCopyWith<$Res> {
   _$FilterSimplifiedClaimsStateCopyWithImpl(this._value, this._then);
 
@@ -91,8 +88,7 @@ class _$FilterSimplifiedClaimsStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$FilterSimplifiedClaimsStateImplCopyWith<$Res>
     implements $FilterSimplifiedClaimsStateCopyWith<$Res> {
-  factory _$$FilterSimplifiedClaimsStateImplCopyWith(
-          _$FilterSimplifiedClaimsStateImpl value,
+  factory _$$FilterSimplifiedClaimsStateImplCopyWith(_$FilterSimplifiedClaimsStateImpl value,
           $Res Function(_$FilterSimplifiedClaimsStateImpl) then) =
       __$$FilterSimplifiedClaimsStateImplCopyWithImpl<$Res>;
   @override
@@ -107,11 +103,9 @@ abstract class _$$FilterSimplifiedClaimsStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$FilterSimplifiedClaimsStateImplCopyWithImpl<$Res>
-    extends _$FilterSimplifiedClaimsStateCopyWithImpl<$Res,
-        _$FilterSimplifiedClaimsStateImpl>
+    extends _$FilterSimplifiedClaimsStateCopyWithImpl<$Res, _$FilterSimplifiedClaimsStateImpl>
     implements _$$FilterSimplifiedClaimsStateImplCopyWith<$Res> {
-  __$$FilterSimplifiedClaimsStateImplCopyWithImpl(
-      _$FilterSimplifiedClaimsStateImpl _value,
+  __$$FilterSimplifiedClaimsStateImplCopyWithImpl(_$FilterSimplifiedClaimsStateImpl _value,
       $Res Function(_$FilterSimplifiedClaimsStateImpl) _then)
       : super(_value, _then);
 
@@ -151,8 +145,7 @@ class __$$FilterSimplifiedClaimsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterSimplifiedClaimsStateImpl
-    implements _FilterSimplifiedClaimsState {
+class _$FilterSimplifiedClaimsStateImpl implements _FilterSimplifiedClaimsState {
   const _$FilterSimplifiedClaimsStateImpl(
       {final List<int>? insuranceIds,
       this.createDateFrom,
@@ -190,36 +183,27 @@ class _$FilterSimplifiedClaimsStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterSimplifiedClaimsStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._insuranceIds, _insuranceIds) &&
+            const DeepCollectionEquality().equals(other._insuranceIds, _insuranceIds) &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
-            (identical(other.createDateTo, createDateTo) ||
-                other.createDateTo == createDateTo) &&
+            (identical(other.createDateTo, createDateTo) || other.createDateTo == createDateTo) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.riskType, riskType) ||
-                other.riskType == riskType));
+            (identical(other.riskType, riskType) || other.riskType == riskType));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_insuranceIds),
-      createDateFrom,
-      createDateTo,
-      status,
-      riskType);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_insuranceIds),
+      createDateFrom, createDateTo, status, riskType);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterSimplifiedClaimsStateImplCopyWith<_$FilterSimplifiedClaimsStateImpl>
-      get copyWith => __$$FilterSimplifiedClaimsStateImplCopyWithImpl<
-          _$FilterSimplifiedClaimsStateImpl>(this, _$identity);
+  _$$FilterSimplifiedClaimsStateImplCopyWith<_$FilterSimplifiedClaimsStateImpl> get copyWith =>
+      __$$FilterSimplifiedClaimsStateImplCopyWithImpl<_$FilterSimplifiedClaimsStateImpl>(
+          this, _$identity);
 }
 
-abstract class _FilterSimplifiedClaimsState
-    implements FilterSimplifiedClaimsState {
+abstract class _FilterSimplifiedClaimsState implements FilterSimplifiedClaimsState {
   const factory _FilterSimplifiedClaimsState(
       {final List<int>? insuranceIds,
       final DateTime? createDateFrom,
@@ -239,6 +223,6 @@ abstract class _FilterSimplifiedClaimsState
   String? get riskType;
   @override
   @JsonKey(ignore: true)
-  _$$FilterSimplifiedClaimsStateImplCopyWith<_$FilterSimplifiedClaimsStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$FilterSimplifiedClaimsStateImplCopyWith<_$FilterSimplifiedClaimsStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -11,8 +11,7 @@ _$DateAccountTransactionsDtoImpl _$$DateAccountTransactionsDtoImplFromJson(
     _$DateAccountTransactionsDtoImpl(
       date: json['date'] as String,
       transactions: (json['transactions'] as List<dynamic>)
-          .map((e) => SimplifiedAccountTransactionDto.fromJson(
-              e as Map<String, dynamic>))
+          .map((e) => SimplifiedAccountTransactionDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

@@ -13,8 +13,7 @@ import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/stakehol
 
 final stakeholdersRepositoryProvider = Provider<StakeholdersRepository>((ref) {
   return StakeholdersRepository(
-    remoteDataSource:
-        StakeholdersRemoteDataSource(ref.watch(stakeholdersRestClientProvider)),
+    remoteDataSource: StakeholdersRemoteDataSource(ref.watch(stakeholdersRestClientProvider)),
   );
 });
 

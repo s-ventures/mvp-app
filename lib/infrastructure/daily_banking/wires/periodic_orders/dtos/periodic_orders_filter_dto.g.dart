@@ -6,17 +6,14 @@ part of 'periodic_orders_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PeriodicOrdersFilterDto _$PeriodicOrdersFilterDtoFromJson(
-        Map<String, dynamic> json) =>
+PeriodicOrdersFilterDto _$PeriodicOrdersFilterDtoFromJson(Map<String, dynamic> json) =>
     PeriodicOrdersFilterDto(
       periodicTransferId: json['periodicTransferId'] as int?,
-      accountId:
-          (json['accountId'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      accountId: (json['accountId'] as List<dynamic>?)?.map((e) => e as int).toList(),
       beneficiaryAccount: json['beneficiaryAccount'] as String?,
       beneficiaryName: json['beneficiaryName'] as String?,
       beneficiaryAddress: json['beneficiaryAddress'] as String?,
-      beneficiaryCountryCode2char:
-          json['beneficiaryCountryCode2char'] as String?,
+      beneficiaryCountryCode2char: json['beneficiaryCountryCode2char'] as String?,
       amountFrom: (json['amountFrom'] as num?)?.toDouble(),
       amountTo: (json['amountTo'] as num?)?.toDouble(),
       currencyCode: json['currencyCode'] as String?,
@@ -28,16 +25,13 @@ PeriodicOrdersFilterDto _$PeriodicOrdersFilterDtoFromJson(
           json['endDateFrom'], const DateConverter().fromJson),
       endDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['endDateTo'], const DateConverter().fromJson),
-      frecuency: $enumDecodeNullable(
-          _$PeriodicOrderFrecuencyTypeDtoEnumMap, json['frecuency']),
-      status: $enumDecodeNullable(
-          _$PeriodicOrderStatusTypeDtoEnumMap, json['status']),
+      frecuency: $enumDecodeNullable(_$PeriodicOrderFrecuencyTypeDtoEnumMap, json['frecuency']),
+      status: $enumDecodeNullable(_$PeriodicOrderStatusTypeDtoEnumMap, json['status']),
       pageNumber: json['pageNumber'] as int? ?? 0,
       pageSize: json['pageSize'] as int? ?? 10,
     );
 
-Map<String, dynamic> _$PeriodicOrdersFilterDtoToJson(
-    PeriodicOrdersFilterDto instance) {
+Map<String, dynamic> _$PeriodicOrdersFilterDtoToJson(PeriodicOrdersFilterDto instance) {
   final val = <String, dynamic>{
     'pageSize': instance.pageSize,
     'pageNumber': instance.pageNumber,
@@ -54,8 +48,7 @@ Map<String, dynamic> _$PeriodicOrdersFilterDtoToJson(
   writeNotNull('beneficiaryAccount', instance.beneficiaryAccount);
   writeNotNull('beneficiaryName', instance.beneficiaryName);
   writeNotNull('beneficiaryAddress', instance.beneficiaryAddress);
-  writeNotNull(
-      'beneficiaryCountryCode2char', instance.beneficiaryCountryCode2char);
+  writeNotNull('beneficiaryCountryCode2char', instance.beneficiaryCountryCode2char);
   writeNotNull('amountFrom', instance.amountFrom);
   writeNotNull('amountTo', instance.amountTo);
   writeNotNull('currencyCode', instance.currencyCode);
@@ -63,20 +56,13 @@ Map<String, dynamic> _$PeriodicOrdersFilterDtoToJson(
       'startDateFrom',
       _$JsonConverterToJson<String, DateTime>(
           instance.startDateFrom, const DateConverter().toJson));
-  writeNotNull(
-      'startDateTo',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.startDateTo, const DateConverter().toJson));
-  writeNotNull(
-      'endDateFrom',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.endDateFrom, const DateConverter().toJson));
-  writeNotNull(
-      'endDateTo',
-      _$JsonConverterToJson<String, DateTime>(
-          instance.endDateTo, const DateConverter().toJson));
-  writeNotNull(
-      'frecuency', _$PeriodicOrderFrecuencyTypeDtoEnumMap[instance.frecuency]);
+  writeNotNull('startDateTo',
+      _$JsonConverterToJson<String, DateTime>(instance.startDateTo, const DateConverter().toJson));
+  writeNotNull('endDateFrom',
+      _$JsonConverterToJson<String, DateTime>(instance.endDateFrom, const DateConverter().toJson));
+  writeNotNull('endDateTo',
+      _$JsonConverterToJson<String, DateTime>(instance.endDateTo, const DateConverter().toJson));
+  writeNotNull('frecuency', _$PeriodicOrderFrecuencyTypeDtoEnumMap[instance.frecuency]);
   writeNotNull('status', _$PeriodicOrderStatusTypeDtoEnumMap[instance.status]);
   return val;
 }

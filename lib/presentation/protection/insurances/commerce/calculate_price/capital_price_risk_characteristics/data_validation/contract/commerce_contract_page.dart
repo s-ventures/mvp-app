@@ -12,12 +12,10 @@ class InsuranceCommerceContractPage extends StatefulWidget {
   const InsuranceCommerceContractPage({super.key});
 
   @override
-  State<InsuranceCommerceContractPage> createState() =>
-      _InsuranceCommerceContractPageState();
+  State<InsuranceCommerceContractPage> createState() => _InsuranceCommerceContractPageState();
 }
 
-class _InsuranceCommerceContractPageState
-    extends State<InsuranceCommerceContractPage> {
+class _InsuranceCommerceContractPageState extends State<InsuranceCommerceContractPage> {
   bool _groupValue = true;
 
   @override
@@ -77,8 +75,7 @@ class _InsuranceCommerceContractPageState
                   IconAssets.minus,
                   color: context.color.tertiaryLight500,
                 ),
-                trailingIconsAnimation:
-                    CustomDropdownListTileTrailingIconAnimation.disabled,
+                trailingIconsAnimation: CustomDropdownListTileTrailingIconAnimation.disabled,
                 dropdownItems: [
                   const TextInputIntoContainer(
                     title: 'Cantidad asegurada',
@@ -127,8 +124,7 @@ class _InsuranceCommerceContractPageState
                   IconAssets.minus,
                   color: context.color.tertiaryLight500,
                 ),
-                trailingIconsAnimation:
-                    CustomDropdownListTileTrailingIconAnimation.disabled,
+                trailingIconsAnimation: CustomDropdownListTileTrailingIconAnimation.disabled,
                 dropdownItems: const [
                   TextInputIntoContainer(
                     title: 'Cantidad asegurada',

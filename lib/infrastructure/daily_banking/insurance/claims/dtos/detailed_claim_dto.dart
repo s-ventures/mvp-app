@@ -41,8 +41,7 @@ class DetailedClaimDto with _$DetailedClaimDto {
     required String agentTelephone,
   }) = _DetailedClaimDto;
 
-  factory DetailedClaimDto.fromJson(Map<String, dynamic> json) =>
-      _$DetailedClaimDtoFromJson(json);
+  factory DetailedClaimDto.fromJson(Map<String, dynamic> json) => _$DetailedClaimDtoFromJson(json);
 }
 
 extension DetailedClaimDtoX on DetailedClaimDto {

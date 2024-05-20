@@ -11,19 +11,16 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'account_transactions_rest_client.g.dart';
 
-final accountTransactionsRestClientProvider =
-    Provider<AccountTransactionsRestClient>(
+final accountTransactionsRestClientProvider = Provider<AccountTransactionsRestClient>(
   (ref) => AccountTransactionsRestClient(ref.watch(dioProvider)),
 );
 
 @RestApi()
 abstract class AccountTransactionsRestClient {
-  factory AccountTransactionsRestClient(Dio dio) =
-      _AccountTransactionsRestClient;
+  factory AccountTransactionsRestClient(Dio dio) = _AccountTransactionsRestClient;
 
   @GET('/accounts/v1/query/transactions')
-  Future<PaginatedResponse<DateAccountTransactionsDto>>
-      getSimplifiedAccountTransactions({
+  Future<PaginatedResponse<DateAccountTransactionsDto>> getSimplifiedAccountTransactions({
     @Query('') required AccountTransactionsFilterDto filter,
   });
 

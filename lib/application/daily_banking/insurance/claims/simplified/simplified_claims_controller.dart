@@ -6,8 +6,8 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entitie
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/repositories/claims_pagination_repository.dart';
 
-final simplifiedClaimsControllerProvider = StateNotifierProvider.autoDispose<
-    SimplifiedClaimsController, SimplifiedClaimsState>(
+final simplifiedClaimsControllerProvider =
+    StateNotifierProvider.autoDispose<SimplifiedClaimsController, SimplifiedClaimsState>(
   (ref) => SimplifiedClaimsController(
     ref.watch(claimsPaginationRepositoryProvider),
   ),
@@ -27,8 +27,7 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            claims: const AsyncLoading<List<SimplifiedClaim>>()
-                .copyWithPrevious(state.claims),
+            claims: const AsyncLoading<List<SimplifiedClaim>>().copyWithPrevious(state.claims),
           ),
         );
       },

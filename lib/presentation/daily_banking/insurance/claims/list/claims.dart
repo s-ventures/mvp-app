@@ -36,23 +36,19 @@ class _ClaimsState extends ConsumerState<Claims> {
       simplifiedClaimsControllerProvider.select((value) => value.claims),
     );
 
-    final controller =
-        ref.read(filterSimplifiedClaimsControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedClaimsControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedClaimsControllerProvider
-          .select((value) => value.createDateFrom),
+      filterSimplifiedClaimsControllerProvider.select((value) => value.createDateFrom),
     );
     final endDate = ref.watch(
-      filterSimplifiedClaimsControllerProvider
-          .select((value) => value.createDateTo),
+      filterSimplifiedClaimsControllerProvider.select((value) => value.createDateTo),
     );
 
     final status = ref.watch(
       filterSimplifiedClaimsControllerProvider.select((value) => value.status),
     );
 
-    final isFilterApplied =
-        startDate != null || endDate != null || status != null;
+    final isFilterApplied = startDate != null || endDate != null || status != null;
 
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.s5),

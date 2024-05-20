@@ -18,7 +18,8 @@ abstract class ICardTransactionsRepository {
     void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
-  Future<Either<DetailedCardTransactionFailure, DetailedCardTransaction>> getDetailedCardTransaction({
+  Future<Either<DetailedCardTransactionFailure, DetailedCardTransaction>>
+      getDetailedCardTransaction({
     required String cardContractId,
     required String transactionId,
   });

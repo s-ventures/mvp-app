@@ -15,8 +15,7 @@ abstract class IPeriodicOrdersRepository {
     void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
-  Future<Either<DetailedPeriodicOrderFailure, DetailedPeriodicOrder>>
-      getDetailedPeriodicOrder({
+  Future<Either<DetailedPeriodicOrderFailure, DetailedPeriodicOrder>> getDetailedPeriodicOrder({
     required int periodicOrderId,
   });
 }

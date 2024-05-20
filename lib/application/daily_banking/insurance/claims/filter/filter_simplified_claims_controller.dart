@@ -3,15 +3,14 @@ import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/fi
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claim_status_type.dart';
 
-final filterSimplifiedClaimsControllerProvider = StateNotifierProvider
-    .autoDispose<FilterSimplifiedClaimsController, FilterSimplifiedClaimsState>(
+final filterSimplifiedClaimsControllerProvider = StateNotifierProvider.autoDispose<
+    FilterSimplifiedClaimsController, FilterSimplifiedClaimsState>(
   (ref) => FilterSimplifiedClaimsController(
     ref.read(simplifiedClaimsControllerProvider.notifier),
   ),
 );
 
-class FilterSimplifiedClaimsController
-    extends StateNotifier<FilterSimplifiedClaimsState> {
+class FilterSimplifiedClaimsController extends StateNotifier<FilterSimplifiedClaimsState> {
   FilterSimplifiedClaimsController(
     this._simplifiedClaimsController,
   ) : super(const FilterSimplifiedClaimsState());

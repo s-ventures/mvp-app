@@ -50,7 +50,8 @@ class AttachmentListTile extends StatelessWidget {
       },
     );
 
-    var subtitle = '${date != null ? '${date.formatToDayMonthYear()} - ' : ''}${sizeMb?.toPrecision(2)} Mb';
+    var subtitle =
+        '${date != null ? '${date.formatToDayMonthYear()} - ' : ''}${sizeMb?.toPrecision(2)} Mb';
 
     final error = attachment.asError()?.error;
     if (error != null) {

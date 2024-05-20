@@ -53,8 +53,7 @@ class PeriodicOrdersRepository implements IPeriodicOrdersRepository {
   }
 
   @override
-  Future<Either<DetailedPeriodicOrderFailure, DetailedPeriodicOrder>>
-      getDetailedPeriodicOrder({
+  Future<Either<DetailedPeriodicOrderFailure, DetailedPeriodicOrder>> getDetailedPeriodicOrder({
     required int periodicOrderId,
   }) async {
     try {

@@ -4,5 +4,6 @@ part 'simplified_account_transaction_failure.freezed.dart';
 
 @freezed
 class SimplifiedAccountTransactionFailure with _$SimplifiedAccountTransactionFailure {
-  const factory SimplifiedAccountTransactionFailure.unexpected() = _SimpleAccountTransactionFailureUnexpected;
+  const factory SimplifiedAccountTransactionFailure.unexpected() =
+      _SimpleAccountTransactionFailureUnexpected;
 }

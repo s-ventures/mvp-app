@@ -52,15 +52,13 @@ mixin _$RegisterCredentialsFailure {
 
 /// @nodoc
 abstract class $RegisterCredentialsFailureCopyWith<$Res> {
-  factory $RegisterCredentialsFailureCopyWith(RegisterCredentialsFailure value,
-          $Res Function(RegisterCredentialsFailure) then) =
-      _$RegisterCredentialsFailureCopyWithImpl<$Res,
-          RegisterCredentialsFailure>;
+  factory $RegisterCredentialsFailureCopyWith(
+          RegisterCredentialsFailure value, $Res Function(RegisterCredentialsFailure) then) =
+      _$RegisterCredentialsFailureCopyWithImpl<$Res, RegisterCredentialsFailure>;
 }
 
 /// @nodoc
-class _$RegisterCredentialsFailureCopyWithImpl<$Res,
-        $Val extends RegisterCredentialsFailure>
+class _$RegisterCredentialsFailureCopyWithImpl<$Res, $Val extends RegisterCredentialsFailure>
     implements $RegisterCredentialsFailureCopyWith<$Res> {
   _$RegisterCredentialsFailureCopyWithImpl(this._value, this._then);
 
@@ -72,8 +70,7 @@ class _$RegisterCredentialsFailureCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$UnexpectedImplCopyWith<$Res> {
-  factory _$$UnexpectedImplCopyWith(
-          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+  factory _$$UnexpectedImplCopyWith(_$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
       __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
@@ -81,8 +78,7 @@ abstract class _$$UnexpectedImplCopyWith<$Res> {
 class __$$UnexpectedImplCopyWithImpl<$Res>
     extends _$RegisterCredentialsFailureCopyWithImpl<$Res, _$UnexpectedImpl>
     implements _$$UnexpectedImplCopyWith<$Res> {
-  __$$UnexpectedImplCopyWithImpl(
-      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
+  __$$UnexpectedImplCopyWithImpl(_$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 

@@ -6,8 +6,7 @@ part of 'simplified_card_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SimplifiedCardDtoImpl _$$SimplifiedCardDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$SimplifiedCardDtoImpl _$$SimplifiedCardDtoImplFromJson(Map<String, dynamic> json) =>
     _$SimplifiedCardDtoImpl(
       cardId: json['cardId'] as int,
       brand: json['brand'] as String,
@@ -15,12 +14,10 @@ _$SimplifiedCardDtoImpl _$$SimplifiedCardDtoImplFromJson(
       cardName: json['cardName'] as String,
       status: $enumDecode(_$CardStatusDtoEnumMap, json['status']),
       cardEncryptedNumber: json['cardEncryptedNumber'] as String,
-      cardContract: CardContractDto.fromJson(
-          json['cardContract'] as Map<String, dynamic>),
+      cardContract: CardContractDto.fromJson(json['cardContract'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$SimplifiedCardDtoImplToJson(
-        _$SimplifiedCardDtoImpl instance) =>
+Map<String, dynamic> _$$SimplifiedCardDtoImplToJson(_$SimplifiedCardDtoImpl instance) =>
     <String, dynamic>{
       'cardId': instance.cardId,
       'brand': instance.brand,

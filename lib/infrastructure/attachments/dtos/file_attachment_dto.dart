@@ -17,7 +17,8 @@ class FileAttachmentDto with _$FileAttachmentDto {
     List<String>? content,
   }) = _FileAttachmentDto;
 
-  factory FileAttachmentDto.fromJson(Map<String, dynamic> json) => _$FileAttachmentDtoFromJson(json);
+  factory FileAttachmentDto.fromJson(Map<String, dynamic> json) =>
+      _$FileAttachmentDtoFromJson(json);
 }
 
 extension FileAttachmentDtoX on FileAttachmentDto {

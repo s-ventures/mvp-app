@@ -8,11 +8,14 @@ import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 part 'detailed_card_transaction_state.freezed.dart';
 
 @freezed
-class DetailedCardTransactionState with _$DetailedCardTransactionState implements UploadAttachmentState {
+class DetailedCardTransactionState
+    with _$DetailedCardTransactionState
+    implements UploadAttachmentState {
   @Implements<UploadAttachmentState>()
   const factory DetailedCardTransactionState({
     String? cardContractId,
-    @Default(AsyncLoading<DetailedCardTransaction>()) AsyncValue<DetailedCardTransaction> transaction,
+    @Default(AsyncLoading<DetailedCardTransaction>())
+    AsyncValue<DetailedCardTransaction> transaction,
     @Default([]) List<FileAttachment> attachments,
     @Default(SingleAccessVoid<UploadEvent>()) SingleAccessValue<UploadEvent> uploadEvent,
   }) = _DetailedCardTransactionState;

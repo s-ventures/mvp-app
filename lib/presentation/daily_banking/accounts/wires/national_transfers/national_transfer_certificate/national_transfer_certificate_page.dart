@@ -56,8 +56,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                           children: [
                             Text(
                               'Anular transferencia',
-                              style:
-                                  context.textStyle.bodyMediumRegular.copyWith(
+                              style: context.textStyle.bodyMediumRegular.copyWith(
                                 color: context.color.statusError,
                               ),
                             ),
@@ -233,8 +232,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   title: 'Descargar',
                   size: ButtonSize.small,
                   expand: true,
-                  onPressed: () async =>
-                      context.goNamed(AppRoute.dailyBanking.name),
+                  onPressed: () async => context.goNamed(AppRoute.dailyBanking.name),
                 ),
               ),
               AppSpacing.horizontal.s3,

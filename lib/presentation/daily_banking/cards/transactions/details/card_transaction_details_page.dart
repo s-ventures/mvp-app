@@ -27,7 +27,8 @@ class CardTransactionDetailsPage extends ConsumerStatefulWidget {
   ConsumerState<CardTransactionDetailsPage> createState() => _CardTransactionDetailsPageState();
 }
 
-class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDetailsPage> with ShowToastMixin {
+class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDetailsPage>
+    with ShowToastMixin {
   final PublishSubject<UploadFileFailure> _failureSubject = PublishSubject();
   final CompositeSubscription _compositeSubscription = CompositeSubscription();
 
@@ -149,8 +150,9 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
                 AppSpacing.vertical.s5,
                 TransactionActionsSection(
                   attachments: attachments,
-                  onFileSelected:
-                      attachments.length < controller.maxAttachments ? (file) => controller.addFiles([file]) : null,
+                  onFileSelected: attachments.length < controller.maxAttachments
+                      ? (file) => controller.addFiles([file])
+                      : null,
                   onRemove: controller.removeFile,
                 ),
                 AppSpacing.vertical.s5,

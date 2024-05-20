@@ -19,9 +19,8 @@ class _SentTransfersRestClient implements SentTransfersRestClient {
   String? baseUrl;
 
   @override
-  Future<PaginatedResponse<SimplifiedSentTransferDto>>
-      getSimplifiedSentTransfers(
-          {required SentTransfersFilterDto filter}) async {
+  Future<PaginatedResponse<SimplifiedSentTransferDto>> getSimplifiedSentTransfers(
+      {required SentTransfersFilterDto filter}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
@@ -45,21 +44,19 @@ class _SentTransfersRestClient implements SentTransfersRestClient {
             ))));
     final value = PaginatedResponse<SimplifiedSentTransferDto>.fromJson(
       _result.data!,
-      (json) =>
-          SimplifiedSentTransferDto.fromJson(json as Map<String, dynamic>),
+      (json) => SimplifiedSentTransferDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
 
   @override
-  Future<DetailedSentTransferDto> getDetailedSentTransfer(
-      {required int sentTransferId}) async {
+  Future<DetailedSentTransferDto> getDetailedSentTransfer({required int sentTransferId}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<DetailedSentTransferDto>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<DetailedSentTransferDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,

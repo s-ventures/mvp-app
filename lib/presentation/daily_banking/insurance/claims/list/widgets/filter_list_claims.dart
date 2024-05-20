@@ -21,8 +21,7 @@ class FilterListClaims extends ConsumerStatefulWidget {
   final VoidCallback onClearStatus;
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _FilterListClaimsState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _FilterListClaimsState();
 }
 
 class _FilterListClaimsState extends ConsumerState<FilterListClaims> {

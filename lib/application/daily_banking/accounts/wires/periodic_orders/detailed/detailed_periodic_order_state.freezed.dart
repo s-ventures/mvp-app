@@ -16,27 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedPeriodicOrderState {
-  AsyncValue<DetailedPeriodicOrder> get periodicOrder =>
-      throw _privateConstructorUsedError;
+  AsyncValue<DetailedPeriodicOrder> get periodicOrder => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedPeriodicOrderStateCopyWith<DetailedPeriodicOrderState>
-      get copyWith => throw _privateConstructorUsedError;
+  $DetailedPeriodicOrderStateCopyWith<DetailedPeriodicOrderState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedPeriodicOrderStateCopyWith<$Res> {
-  factory $DetailedPeriodicOrderStateCopyWith(DetailedPeriodicOrderState value,
-          $Res Function(DetailedPeriodicOrderState) then) =
-      _$DetailedPeriodicOrderStateCopyWithImpl<$Res,
-          DetailedPeriodicOrderState>;
+  factory $DetailedPeriodicOrderStateCopyWith(
+          DetailedPeriodicOrderState value, $Res Function(DetailedPeriodicOrderState) then) =
+      _$DetailedPeriodicOrderStateCopyWithImpl<$Res, DetailedPeriodicOrderState>;
   @useResult
   $Res call({AsyncValue<DetailedPeriodicOrder> periodicOrder});
 }
 
 /// @nodoc
-class _$DetailedPeriodicOrderStateCopyWithImpl<$Res,
-        $Val extends DetailedPeriodicOrderState>
+class _$DetailedPeriodicOrderStateCopyWithImpl<$Res, $Val extends DetailedPeriodicOrderState>
     implements $DetailedPeriodicOrderStateCopyWith<$Res> {
   _$DetailedPeriodicOrderStateCopyWithImpl(this._value, this._then);
 
@@ -62,8 +59,7 @@ class _$DetailedPeriodicOrderStateCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$DetailedPeriodicOrderStateImplCopyWith<$Res>
     implements $DetailedPeriodicOrderStateCopyWith<$Res> {
-  factory _$$DetailedPeriodicOrderStateImplCopyWith(
-          _$DetailedPeriodicOrderStateImpl value,
+  factory _$$DetailedPeriodicOrderStateImplCopyWith(_$DetailedPeriodicOrderStateImpl value,
           $Res Function(_$DetailedPeriodicOrderStateImpl) then) =
       __$$DetailedPeriodicOrderStateImplCopyWithImpl<$Res>;
   @override
@@ -73,11 +69,9 @@ abstract class _$$DetailedPeriodicOrderStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedPeriodicOrderStateImplCopyWithImpl<$Res>
-    extends _$DetailedPeriodicOrderStateCopyWithImpl<$Res,
-        _$DetailedPeriodicOrderStateImpl>
+    extends _$DetailedPeriodicOrderStateCopyWithImpl<$Res, _$DetailedPeriodicOrderStateImpl>
     implements _$$DetailedPeriodicOrderStateImplCopyWith<$Res> {
-  __$$DetailedPeriodicOrderStateImplCopyWithImpl(
-      _$DetailedPeriodicOrderStateImpl _value,
+  __$$DetailedPeriodicOrderStateImplCopyWithImpl(_$DetailedPeriodicOrderStateImpl _value,
       $Res Function(_$DetailedPeriodicOrderStateImpl) _then)
       : super(_value, _then);
 
@@ -125,21 +119,19 @@ class _$DetailedPeriodicOrderStateImpl implements _DetailedPeriodicOrderState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedPeriodicOrderStateImplCopyWith<_$DetailedPeriodicOrderStateImpl>
-      get copyWith => __$$DetailedPeriodicOrderStateImplCopyWithImpl<
-          _$DetailedPeriodicOrderStateImpl>(this, _$identity);
+  _$$DetailedPeriodicOrderStateImplCopyWith<_$DetailedPeriodicOrderStateImpl> get copyWith =>
+      __$$DetailedPeriodicOrderStateImplCopyWithImpl<_$DetailedPeriodicOrderStateImpl>(
+          this, _$identity);
 }
 
-abstract class _DetailedPeriodicOrderState
-    implements DetailedPeriodicOrderState {
+abstract class _DetailedPeriodicOrderState implements DetailedPeriodicOrderState {
   const factory _DetailedPeriodicOrderState(
-          {final AsyncValue<DetailedPeriodicOrder> periodicOrder}) =
-      _$DetailedPeriodicOrderStateImpl;
+      {final AsyncValue<DetailedPeriodicOrder> periodicOrder}) = _$DetailedPeriodicOrderStateImpl;
 
   @override
   AsyncValue<DetailedPeriodicOrder> get periodicOrder;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedPeriodicOrderStateImplCopyWith<_$DetailedPeriodicOrderStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$DetailedPeriodicOrderStateImplCopyWith<_$DetailedPeriodicOrderStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

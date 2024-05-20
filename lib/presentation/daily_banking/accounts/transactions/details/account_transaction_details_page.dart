@@ -36,7 +36,8 @@ class AccountTransactionDetailsPage extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _AccountTransactionDetailsPageState();
 }
 
-class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransactionDetailsPage> with ShowToastMixin {
+class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransactionDetailsPage>
+    with ShowToastMixin {
   final PublishSubject<UploadFileFailure> _failureSubject = PublishSubject();
   final CompositeSubscription _compositeSubscription = CompositeSubscription();
 
@@ -107,9 +108,12 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
             AccountTransactionType.tax => TransactionTaxDetails(transaction: transaction),
             AccountTransactionType.card => TransactionCardDetails(transaction: transaction),
             AccountTransactionType.debit => TransactionDebitDetails(transaction: transaction),
-            AccountTransactionType.directDebit => TransactionDirectDebitDetails(transaction: transaction),
-            AccountTransactionType.transferIn => TransactionTransferInDetails(transaction: transaction),
-            AccountTransactionType.transferOut => TransactionTransferOutDetails(transaction: transaction),
+            AccountTransactionType.directDebit =>
+              TransactionDirectDebitDetails(transaction: transaction),
+            AccountTransactionType.transferIn =>
+              TransactionTransferInDetails(transaction: transaction),
+            AccountTransactionType.transferOut =>
+              TransactionTransferOutDetails(transaction: transaction),
             AccountTransactionType.other => ListView(
                 padding: const EdgeInsets.all(AppSpacing.s5),
                 children: [
@@ -146,8 +150,9 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                   TransactionAttachmentsSection(
                     title: 'Adjuntos',
                     attachments: attachments,
-                    onFileSelected:
-                        attachments.length < controller.maxAttachments ? (file) => controller.addFiles([file]) : null,
+                    onFileSelected: attachments.length < controller.maxAttachments
+                        ? (file) => controller.addFiles([file])
+                        : null,
                     onRemove: controller.removeFile,
                   ),
                   AppSpacing.vertical.s5,

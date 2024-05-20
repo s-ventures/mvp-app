@@ -6,8 +6,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/failu
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/failures/simplified_policy_failure.dart';
 
 abstract class IPoliciesRepository {
-  Future<Either<SimplifiedPolicyFailure, List<SimplifiedPolicy>>>
-      getSimplifiedPolicies({
+  Future<Either<SimplifiedPolicyFailure, List<SimplifiedPolicy>>> getSimplifiedPolicies({
     required PoliciesFilter filter,
     int page = 0,
     int pageSize = 10,

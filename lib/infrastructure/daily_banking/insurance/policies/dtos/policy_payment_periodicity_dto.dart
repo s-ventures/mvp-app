@@ -13,8 +13,7 @@ enum PolicyPaymentPeriodicityDto {
 extension PolicyPaymentPeriodicityDtoX on PolicyPaymentPeriodicityDto {
   PolicyPaymentPeriodicity toDomain() => switch (this) {
         PolicyPaymentPeriodicityDto.monthly => PolicyPaymentPeriodicity.monthly,
-        PolicyPaymentPeriodicityDto.quarterly =>
-          PolicyPaymentPeriodicity.quarterly,
+        PolicyPaymentPeriodicityDto.quarterly => PolicyPaymentPeriodicity.quarterly,
         PolicyPaymentPeriodicityDto.annual => PolicyPaymentPeriodicity.annual,
       };
 }

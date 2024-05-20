@@ -58,7 +58,8 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
     required this.attachments,
   });
 
-  factory DetailedCardTransactionDto.fromJson(Map<String, dynamic> json) => _$DetailedCardTransactionDtoFromJson(json);
+  factory DetailedCardTransactionDto.fromJson(Map<String, dynamic> json) =>
+      _$DetailedCardTransactionDtoFromJson(json);
 
   final int movementId;
   @DateConverter()

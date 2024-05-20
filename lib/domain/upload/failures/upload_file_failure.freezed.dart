@@ -190,8 +190,8 @@ abstract class _UploadFailed implements UploadFileFailure {
 
 /// @nodoc
 abstract class _$$FileExceedsMaxSizeImplCopyWith<$Res> {
-  factory _$$FileExceedsMaxSizeImplCopyWith(_$FileExceedsMaxSizeImpl value,
-          $Res Function(_$FileExceedsMaxSizeImpl) then) =
+  factory _$$FileExceedsMaxSizeImplCopyWith(
+          _$FileExceedsMaxSizeImpl value, $Res Function(_$FileExceedsMaxSizeImpl) then) =
       __$$FileExceedsMaxSizeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double maxSize});
@@ -201,8 +201,8 @@ abstract class _$$FileExceedsMaxSizeImplCopyWith<$Res> {
 class __$$FileExceedsMaxSizeImplCopyWithImpl<$Res>
     extends _$UploadFileFailureCopyWithImpl<$Res, _$FileExceedsMaxSizeImpl>
     implements _$$FileExceedsMaxSizeImplCopyWith<$Res> {
-  __$$FileExceedsMaxSizeImplCopyWithImpl(_$FileExceedsMaxSizeImpl _value,
-      $Res Function(_$FileExceedsMaxSizeImpl) _then)
+  __$$FileExceedsMaxSizeImplCopyWithImpl(
+      _$FileExceedsMaxSizeImpl _value, $Res Function(_$FileExceedsMaxSizeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -247,8 +247,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
   @override
   @pragma('vm:prefer-inline')
   _$$FileExceedsMaxSizeImplCopyWith<_$FileExceedsMaxSizeImpl> get copyWith =>
-      __$$FileExceedsMaxSizeImplCopyWithImpl<_$FileExceedsMaxSizeImpl>(
-          this, _$identity);
+      __$$FileExceedsMaxSizeImplCopyWithImpl<_$FileExceedsMaxSizeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -320,8 +319,7 @@ class _$FileExceedsMaxSizeImpl implements _FileExceedsMaxSize {
 }
 
 abstract class _FileExceedsMaxSize implements UploadFileFailure {
-  const factory _FileExceedsMaxSize(final double maxSize) =
-      _$FileExceedsMaxSizeImpl;
+  const factory _FileExceedsMaxSize(final double maxSize) = _$FileExceedsMaxSizeImpl;
 
   double get maxSize;
   @JsonKey(ignore: true)
@@ -331,8 +329,7 @@ abstract class _FileExceedsMaxSize implements UploadFileFailure {
 
 /// @nodoc
 abstract class _$$UnexpectedImplCopyWith<$Res> {
-  factory _$$UnexpectedImplCopyWith(
-          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+  factory _$$UnexpectedImplCopyWith(_$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
       __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
@@ -340,8 +337,7 @@ abstract class _$$UnexpectedImplCopyWith<$Res> {
 class __$$UnexpectedImplCopyWithImpl<$Res>
     extends _$UploadFileFailureCopyWithImpl<$Res, _$UnexpectedImpl>
     implements _$$UnexpectedImplCopyWith<$Res> {
-  __$$UnexpectedImplCopyWithImpl(
-      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
+  __$$UnexpectedImplCopyWithImpl(_$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 

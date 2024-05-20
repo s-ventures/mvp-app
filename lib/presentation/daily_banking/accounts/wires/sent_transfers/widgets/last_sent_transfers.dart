@@ -20,9 +20,7 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(
-        ref
-            .read(simplifiedSentTransfersControllerProvider.notifier)
-            .initLastSentTransfers(),
+        ref.read(simplifiedSentTransfersControllerProvider.notifier).initLastSentTransfers(),
       );
     });
     super.initState();
@@ -31,8 +29,7 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
   @override
   Widget build(BuildContext context) {
     final sentTransfers = ref.watch(
-      simplifiedSentTransfersControllerProvider
-          .select((value) => value.lastSentTransfers),
+      simplifiedSentTransfersControllerProvider.select((value) => value.lastSentTransfers),
     );
 
     return Column(
@@ -54,8 +51,7 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
               outlineColor: context.color.tertiaryLight800,
               textColor: const Color(0xFF5494FF),
               horizontalPadding: 0,
-              onPressed: () =>
-                  context.pushNamed(AppRoute.dailyBankingTransfersSent.name),
+              onPressed: () => context.pushNamed(AppRoute.dailyBankingTransfersSent.name),
             ),
           ],
         ),
@@ -88,8 +84,7 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
                 ),
               ),
             ),
-            loading: () =>
-                const Center(child: CircularProgressIndicator.adaptive()),
+            loading: () => const Center(child: CircularProgressIndicator.adaptive()),
           ),
         ),
       ],

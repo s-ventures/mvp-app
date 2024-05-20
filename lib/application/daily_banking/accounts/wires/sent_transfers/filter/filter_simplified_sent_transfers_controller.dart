@@ -2,9 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/filter/filter_simplified_sent_transfers_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_controller.dart';
 
-final filterSimplifiedSentTransfersControllerProvider =
-    StateNotifierProvider.autoDispose<FilterSimplifiedSentTransfersController,
-        FilterSimplifiedSentTransfersState>(
+final filterSimplifiedSentTransfersControllerProvider = StateNotifierProvider.autoDispose<
+    FilterSimplifiedSentTransfersController, FilterSimplifiedSentTransfersState>(
   (ref) => FilterSimplifiedSentTransfersController(
     ref.read(simplifiedSentTransfersControllerProvider.notifier),
   ),

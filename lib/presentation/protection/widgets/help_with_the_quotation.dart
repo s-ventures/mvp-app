@@ -25,8 +25,7 @@ class HelpWithTheQuotation extends StatelessWidget {
             context: context,
             icon: IconAssets.headPhones,
             title: 'Servicio de atención al cliente',
-            message:
-                'Vas a ponerte en contacto con el Servicio de atención al cliente de soon.',
+            message: 'Vas a ponerte en contacto con el Servicio de atención al cliente de soon.',
             buttonOkText: 'Contactar',
             buttonCancelText: 'Cancelar',
             buttonsOrientation: AlertButtonsOrientation.vertical,

@@ -14,7 +14,8 @@ final cardTransactionsPaginationRepositoryProvider = Provider<CardTransactionsPa
   ),
 );
 
-class CardTransactionsPaginationRepository extends PaginationMapRepository<DateTime, List<SimplifiedCardTransaction>> {
+class CardTransactionsPaginationRepository
+    extends PaginationMapRepository<DateTime, List<SimplifiedCardTransaction>> {
   CardTransactionsPaginationRepository(
     this._transactionsRepository,
     this._cardsRepository,

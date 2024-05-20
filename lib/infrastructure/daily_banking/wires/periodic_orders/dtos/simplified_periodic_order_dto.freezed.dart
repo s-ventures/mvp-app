@@ -14,8 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SimplifiedPeriodicOrderDto _$SimplifiedPeriodicOrderDtoFromJson(
-    Map<String, dynamic> json) {
+SimplifiedPeriodicOrderDto _$SimplifiedPeriodicOrderDtoFromJson(Map<String, dynamic> json) {
   return _SimplifiedPeriodicOrderDto.fromJson(json);
 }
 
@@ -30,22 +29,20 @@ mixin _$SimplifiedPeriodicOrderDto {
   String get currencyCode => throw _privateConstructorUsedError;
   PeriodicOrderStatusTypeDto? get status => throw _privateConstructorUsedError;
   String? get concept => throw _privateConstructorUsedError;
-  PeriodicOrderFrecuencyTypeDto? get frecuency =>
-      throw _privateConstructorUsedError;
+  PeriodicOrderFrecuencyTypeDto? get frecuency => throw _privateConstructorUsedError;
   DateTime? get startDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SimplifiedPeriodicOrderDtoCopyWith<SimplifiedPeriodicOrderDto>
-      get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedPeriodicOrderDtoCopyWith<SimplifiedPeriodicOrderDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedPeriodicOrderDtoCopyWith<$Res> {
-  factory $SimplifiedPeriodicOrderDtoCopyWith(SimplifiedPeriodicOrderDto value,
-          $Res Function(SimplifiedPeriodicOrderDto) then) =
-      _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res,
-          SimplifiedPeriodicOrderDto>;
+  factory $SimplifiedPeriodicOrderDtoCopyWith(
+          SimplifiedPeriodicOrderDto value, $Res Function(SimplifiedPeriodicOrderDto) then) =
+      _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res, SimplifiedPeriodicOrderDto>;
   @useResult
   $Res call(
       {int periodicTransferId,
@@ -62,8 +59,7 @@ abstract class $SimplifiedPeriodicOrderDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res,
-        $Val extends SimplifiedPeriodicOrderDto>
+class _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res, $Val extends SimplifiedPeriodicOrderDto>
     implements $SimplifiedPeriodicOrderDtoCopyWith<$Res> {
   _$SimplifiedPeriodicOrderDtoCopyWithImpl(this._value, this._then);
 
@@ -139,8 +135,7 @@ class _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$SimplifiedPeriodicOrderDtoImplCopyWith<$Res>
     implements $SimplifiedPeriodicOrderDtoCopyWith<$Res> {
-  factory _$$SimplifiedPeriodicOrderDtoImplCopyWith(
-          _$SimplifiedPeriodicOrderDtoImpl value,
+  factory _$$SimplifiedPeriodicOrderDtoImplCopyWith(_$SimplifiedPeriodicOrderDtoImpl value,
           $Res Function(_$SimplifiedPeriodicOrderDtoImpl) then) =
       __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl<$Res>;
   @override
@@ -161,11 +156,9 @@ abstract class _$$SimplifiedPeriodicOrderDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl<$Res>
-    extends _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res,
-        _$SimplifiedPeriodicOrderDtoImpl>
+    extends _$SimplifiedPeriodicOrderDtoCopyWithImpl<$Res, _$SimplifiedPeriodicOrderDtoImpl>
     implements _$$SimplifiedPeriodicOrderDtoImplCopyWith<$Res> {
-  __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl(
-      _$SimplifiedPeriodicOrderDtoImpl _value,
+  __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl(_$SimplifiedPeriodicOrderDtoImpl _value,
       $Res Function(_$SimplifiedPeriodicOrderDtoImpl) _then)
       : super(_value, _then);
 
@@ -249,8 +242,7 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
       required this.frecuency,
       required this.startDate});
 
-  factory _$SimplifiedPeriodicOrderDtoImpl.fromJson(
-          Map<String, dynamic> json) =>
+  factory _$SimplifiedPeriodicOrderDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$SimplifiedPeriodicOrderDtoImplFromJson(json);
 
   @override
@@ -288,23 +280,18 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
             other is _$SimplifiedPeriodicOrderDtoImpl &&
             (identical(other.periodicTransferId, periodicTransferId) ||
                 other.periodicTransferId == periodicTransferId) &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
-            (identical(other.customerId, customerId) ||
-                other.customerId == customerId) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.customerId, customerId) || other.customerId == customerId) &&
             (identical(other.beneficiaryAccount, beneficiaryAccount) ||
                 other.beneficiaryAccount == beneficiaryAccount) &&
             (identical(other.beneficiaryName, beneficiaryName) ||
                 other.beneficiaryName == beneficiaryName) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.currencyCode, currencyCode) ||
-                other.currencyCode == currencyCode) &&
+            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.concept, concept) || other.concept == concept) &&
-            (identical(other.frecuency, frecuency) ||
-                other.frecuency == frecuency) &&
-            (identical(other.startDate, startDate) ||
-                other.startDate == startDate));
+            (identical(other.frecuency, frecuency) || other.frecuency == frecuency) &&
+            (identical(other.startDate, startDate) || other.startDate == startDate));
   }
 
   @JsonKey(ignore: true)
@@ -326,9 +313,9 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedPeriodicOrderDtoImplCopyWith<_$SimplifiedPeriodicOrderDtoImpl>
-      get copyWith => __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl<
-          _$SimplifiedPeriodicOrderDtoImpl>(this, _$identity);
+  _$$SimplifiedPeriodicOrderDtoImplCopyWith<_$SimplifiedPeriodicOrderDtoImpl> get copyWith =>
+      __$$SimplifiedPeriodicOrderDtoImplCopyWithImpl<_$SimplifiedPeriodicOrderDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -338,8 +325,7 @@ class _$SimplifiedPeriodicOrderDtoImpl implements _SimplifiedPeriodicOrderDto {
   }
 }
 
-abstract class _SimplifiedPeriodicOrderDto
-    implements SimplifiedPeriodicOrderDto {
+abstract class _SimplifiedPeriodicOrderDto implements SimplifiedPeriodicOrderDto {
   const factory _SimplifiedPeriodicOrderDto(
       {required final int periodicTransferId,
       required final int accountId,
@@ -380,6 +366,6 @@ abstract class _SimplifiedPeriodicOrderDto
   DateTime? get startDate;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedPeriodicOrderDtoImplCopyWith<_$SimplifiedPeriodicOrderDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedPeriodicOrderDtoImplCopyWith<_$SimplifiedPeriodicOrderDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
