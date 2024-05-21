@@ -17,6 +17,14 @@ final stakeholdersPaginationRepositoryProvider = Provider<StakeholdersPagination
   );
 });
 
+final favoriteStakeholdersPaginationRepositoryProvider =
+    Provider<StakeholdersPaginationRepository>((ref) {
+  return StakeholdersPaginationRepository(
+    ref.watch(stakeholdersRepositoryProvider),
+    ref.watch(contractsRepositoryProvider),
+  );
+});
+
 class StakeholdersPaginationRepository extends PaginationListRepository<Stakeholder> {
   StakeholdersPaginationRepository(
     this._stakeholdersRepository,
@@ -36,7 +44,6 @@ class StakeholdersPaginationRepository extends PaginationListRepository<Stakehol
       if (contractIdOption.isNone()) {
         // TODO(sergio): hardcoded erp contract id
         _erpContractId = 1071.toString();
-        _filter = const StakeholdersFilter();
       }
 
       // A contract has been previously selected. Update filter and refresh
@@ -54,13 +61,12 @@ class StakeholdersPaginationRepository extends PaginationListRepository<Stakehol
     required int page,
     required int pageSize,
   }) async {
-    final filter = _filter;
     final erpContractId = _erpContractId;
-    if (filter == null || erpContractId == null) return [];
+    if (erpContractId == null) return [];
 
     final stakeholders = await _stakeholdersRepository.getStakeholders(
       erpContractId: erpContractId,
-      filter: filter,
+      filter: _filter ?? const StakeholdersFilter(),
       page: page,
       pageSize: pageSize,
       onPaginationInfo: onPaginationInfo,
@@ -84,7 +90,7 @@ class StakeholdersPaginationRepository extends PaginationListRepository<Stakehol
     String? additionalInfo,
     bool? isFavorite,
   }) {
-    _filter = _filter?.copyWith(
+    _filter = (_filter ?? const StakeholdersFilter()).copyWith(
       stakeholderId: stakeholderId,
       personTypeCode: personTypeCode,
       fullName: fullName,

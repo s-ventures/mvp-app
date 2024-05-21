@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/amount.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category.dart';
@@ -156,7 +157,7 @@ class FilterAccountTransactionsBottomSheet {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Button(
-                  title: 'Descartar filtros',
+                  title: context.loc.commonFilterDiscard,
                   type: ButtonType.text,
                   size: ButtonSize.small,
                   onPressed: () async {
@@ -164,7 +165,7 @@ class FilterAccountTransactionsBottomSheet {
                   },
                 ),
                 Button(
-                  title: 'Aplicar',
+                  title: context.loc.commonFilterApply,
                   size: ButtonSize.small,
                   onPressed: () async {
                     await onApply().then((_) => context.pop());
@@ -179,7 +180,7 @@ class FilterAccountTransactionsBottomSheet {
         leadingNavBarWidget: Transform.translate(
           offset: const Offset(16, 24),
           child: Text(
-            'Filtrar',
+            context.loc.commonFilter,
             style: context.textStyle.h6,
           ),
         ),
@@ -204,7 +205,7 @@ class FilterAccountTransactionsBottomSheet {
                 [
                   AppSpacing.vertical.s2,
                   Text(
-                    'Fecha',
+                    context.loc.commonDate,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -218,7 +219,7 @@ class FilterAccountTransactionsBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Importe',
+                    context.loc.commonAmount,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -234,7 +235,7 @@ class FilterAccountTransactionsBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Categoría',
+                    context.loc.commonCategory,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -263,13 +264,13 @@ class FilterAccountTransactionsBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Button(
-                title: 'Cancelar',
+                title: context.loc.commonCancel,
                 type: ButtonType.text,
                 size: ButtonSize.small,
                 onPressed: () async {},
               ),
               Button(
-                title: 'Seleccionar',
+                title: context.loc.commonFilterSelect,
                 size: ButtonSize.small,
                 onPressed: () async {
                   pageIndexNotifier.value = 0;
@@ -290,7 +291,7 @@ class FilterAccountTransactionsBottomSheet {
         backgroundColor: context.color.bottomSheetBackground,
         sabGradientColor: context.color.bottomSheetBackground,
         topBarTitle: Text(
-          'Categoría',
+          context.loc.commonCategory,
           style: context.textStyle.h6,
         ),
         isTopBarLayerAlwaysVisible: true,
@@ -316,7 +317,9 @@ class FilterAccountTransactionsBottomSheet {
               child: Container(
                 decoration: BoxDecoration(
                   color: context.color.backgroundLight0,
-                  borderRadius: BorderRadius.circular(context.radius.soft),
+                  borderRadius: BorderRadius.circular(
+                    context.radius.soft,
+                  ),
                   border: Border.all(
                     color: context.color.strokeLigth100,
                   ),

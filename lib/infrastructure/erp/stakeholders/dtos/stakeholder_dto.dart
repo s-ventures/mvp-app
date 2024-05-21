@@ -26,7 +26,7 @@ class StakeholderDto {
     required this.preferenceSms,
     required this.preferenceMail,
     required this.preferenceWhatsapp,
-    required this.isFavorite,
+    required this.favorite,
   });
 
   factory StakeholderDto.fromJson(Map<String, dynamic> json) {
@@ -45,7 +45,7 @@ class StakeholderDto {
   final LanguageCodeTypeDto? languageCodeType;
   final RelationTypeDto relationType;
   @DateConverter()
-  final DateTime? createDate;
+  final DateTime createDate;
   final DocumentTypeCodeDto? documentTypeCode;
   final String? documentNumber;
   final String? additionalInfo;
@@ -53,7 +53,7 @@ class StakeholderDto {
   final bool? preferenceSms;
   final bool? preferenceMail;
   final bool? preferenceWhatsapp;
-  final bool? isFavorite;
+  final bool? favorite;
 
   Map<String, dynamic> toJson() => _$StakeholderDtoToJson(this);
 }

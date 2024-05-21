@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/policy_payment_periodicity.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -20,7 +21,7 @@ class PolicyBilling extends StatelessWidget {
       children: [
         ListTile(
           title: Text(
-            'Cuantía',
+            context.loc.dailyBankingInsurancesPolicyDetailsAmount,
             style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight600,
             ),
@@ -38,7 +39,7 @@ class PolicyBilling extends StatelessWidget {
         ),
         ListTile(
           title: Text(
-            'Importe del último recibo',
+            context.loc.dailyBankingInsurancesPolicyDetailsAmountLastReceipt,
             style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight600,
             ),
@@ -56,7 +57,7 @@ class PolicyBilling extends StatelessWidget {
         ),
         ListTile(
           title: Text(
-            'Periodicidad de pago',
+            context.loc.dailyBankingInsurancesPolicyDetailsFrequencyPayment,
             style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight600,
             ),

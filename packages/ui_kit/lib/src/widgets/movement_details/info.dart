@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsInfo extends StatelessWidget {
@@ -23,13 +24,19 @@ class MovementDetailsInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Detalles del movimiento ',
+            context.loc.commonDetailsMovement,
             style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight900,
             ),
           ),
           Text(
-            '· $period',
+            ' · ',
+            style: context.textStyle.bodySmallRegular.copyWith(
+              color: context.color.textLight600,
+            ),
+          ),
+          Text(
+            period,
             style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight600,
             ),

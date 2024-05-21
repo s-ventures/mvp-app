@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class CertificatesAndDocumentsDownload extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Certificado de titularidad',
+              title: context.loc.dailyBankingAccountsCertificatesTitleTitle,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -33,7 +34,7 @@ class CertificatesAndDocumentsDownload extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Descargar certificado',
+                    context.loc.dailyBankingAccountsCertificatesDownloadIndex,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight900,
                     ),
@@ -88,7 +89,7 @@ class CertificatesAndDocumentsDownload extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Certificado de titularidad',
+                        context.loc.dailyBankingAccountsCertificatesTitleTitle,
                         style: context.textStyle.bodySmallSemiBold.copyWith(
                           color: context.color.textLight900,
                         ),
@@ -113,7 +114,7 @@ class CertificatesAndDocumentsDownload extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Button(
-            title: 'Descargar certificado',
+            title: context.loc.dailyBankingAccountsCertificatesDownloadButton,
             size: ButtonSize.small,
             icon: IconAssets.download,
             onPressed: () async => context.goNamed(AppRoute.dailyBanking.name),

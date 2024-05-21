@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/widgets/national_transfer_form.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/national_transfers/widgets/schedule_transfer_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -18,7 +19,7 @@ class NationalTransfersPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Transferencia nacional',
+              title: context.loc.dailyBankingNationalTransfersTransfer,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -42,7 +43,7 @@ class NationalTransfersPage extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Comisión de transferencia',
+                          context.loc.dailyBankingNationalTransfersTransferFee,
                           style: context.textStyle.bodyMediumRegular,
                         ),
                         AppSpacing.horizontal.s3,
@@ -72,7 +73,7 @@ class NationalTransfersPage extends StatelessWidget {
                           ),
                           AppSpacing.horizontal.s5,
                           Text(
-                            'Cuenta soon',
+                            context.loc.commonAccountName('soon'),
                             style: context.textStyle.bodyMediumRegular,
                           ),
                           AppSpacing.horizontal.s5,
@@ -108,12 +109,19 @@ class NationalTransfersPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Programado diariamente',
+                      '${context.loc.commonProgrammed} ${context.loc.commonFrequencyDaily.toLowerCase()}',
                       style: context.textStyle.bodyMediumRegular,
                     ),
-                    AppSpacing.horizontal.s2,
                     Text(
-                      '· Desde hoy',
+                      ' · ',
+                      style: context.textStyle.bodyMediumRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    Text(
+                      context.loc.commonDateSinceDate(
+                        DateTime.now().formatToTransactionDate()!,
+                      ),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -137,7 +145,8 @@ class NationalTransfersPage extends StatelessWidget {
                   AppSpacing.horizontal.s3,
                   Expanded(
                     child: Button(
-                      title: 'Enviar dinero',
+                      title: context
+                          .loc.dailyBankingNationalTransfersButtonSendMoney,
                       size: ButtonSize.small,
                       onPressed: () => context.pushNamed(
                         AppRoute.dailyBankingNationalTransferResume.name,

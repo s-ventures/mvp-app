@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsBeneficiary extends StatelessWidget {
@@ -30,7 +31,7 @@ class MovementDetailsBeneficiary extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Beneficiario',
+            context.loc.commonBeneficiary,
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight600,
             ),
@@ -44,7 +45,7 @@ class MovementDetailsBeneficiary extends StatelessWidget {
           ),
           AppSpacing.vertical.s6,
           Text(
-            'Número de cuenta',
+            context.loc.dailyBankingTransfersSentMovementDetailsAccountNumber,
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight600,
             ),
@@ -58,7 +59,7 @@ class MovementDetailsBeneficiary extends StatelessWidget {
           ),
           AppSpacing.vertical.s6,
           Text(
-            'Tipo de transferencia',
+            context.loc.dailyBankingTransfersSentMovementDetailsTypeTransfer,
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight600,
             ),

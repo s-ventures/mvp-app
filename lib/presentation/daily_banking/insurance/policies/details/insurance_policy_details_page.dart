@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/filter/filter_simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/claims_tab/claims_tab.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/policy_details_tab.dart';
@@ -49,7 +50,7 @@ class _InsurancePolicyDetailsPageState extends ConsumerState<InsurancePolicyDeta
                   floating: true,
                   pinned: true,
                   centerTitle: true,
-                  title: 'Detalles de la póliza',
+                  title: context.loc.dailyBankingInsurancesPolicyDetails,
                   leading: Button(
                     icon: IconAssets.chevronLeft,
                     type: ButtonType.outlined,
@@ -73,10 +74,10 @@ class _InsurancePolicyDetailsPageState extends ConsumerState<InsurancePolicyDeta
                       onPressed: () async {},
                     ),
                   ],
-                  bottom: const CustomTabBar(
+                  bottom: CustomTabBar(
                     tabs: [
-                      Tab(text: 'Póliza'),
-                      Tab(text: 'Siniestros'),
+                      Tab(text: context.loc.dailyBankingInsurancesPolicy),
+                      Tab(text: context.loc.dailyBankingInsurancesClaims),
                     ],
                   ),
                 ),

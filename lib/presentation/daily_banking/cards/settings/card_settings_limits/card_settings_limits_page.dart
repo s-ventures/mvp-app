@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardSettingsLimitsPage extends StatelessWidget {
@@ -13,7 +14,7 @@ class CardSettingsLimitsPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Límites de tarjeta',
+              title: context.loc.dailyBankingCardsSettingsCardLimits,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -40,7 +41,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Límite de pago diario',
+                          context.loc
+                              .dailyBankingCardsSettingsCardLimitsDailyPayment,
                           style: context.textStyle.bodyMediumSemiBold.copyWith(
                             color: context.color.textLight600,
                           ),
@@ -69,7 +71,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                         ),
                         AppSpacing.vertical.s5,
                         Text(
-                          'Límite de pago mensual',
+                          context.loc
+                              .dailyBankingCardsSettingsCardLimitsMonthlyPayment,
                           style: context.textStyle.bodyMediumSemiBold.copyWith(
                             color: context.color.textLight600,
                           ),
@@ -98,7 +101,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                         ),
                         AppSpacing.vertical.s5,
                         Text(
-                          'Límite de pago online',
+                          context.loc
+                              .dailyBankingCardsSettingsCardLimitsOnlinePayment,
                           style: context.textStyle.bodyMediumSemiBold.copyWith(
                             color: context.color.textLight600,
                           ),
@@ -127,7 +131,8 @@ class CardSettingsLimitsPage extends StatelessWidget {
                         ),
                         AppSpacing.vertical.s5,
                         Text(
-                          'Límite de retira de cajero',
+                          context.loc
+                              .dailyBankingCardsSettingsCardLimitsAtmWithdrawals,
                           style: context.textStyle.bodyMediumSemiBold.copyWith(
                             color: context.color.textLight600,
                           ),
@@ -168,7 +173,7 @@ class CardSettingsLimitsPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Button(
-            title: 'Guardar',
+            title: context.loc.dailyBankingCardsSettingsCardLimitsApply,
             size: ButtonSize.medium,
             expand: true,
             onPressed: () async {},

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class SoonPayContactList extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                'Contactos soon',
+                context.loc.dailyBankingSoonPayContacts,
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -46,7 +47,7 @@ class SoonPayContactList extends StatelessWidget {
                 bottomRight: Radius.circular(context.radius.soft),
               ),
               nif: '12345678A',
-              type: 'Proveedor',
+              type: context.loc.dailyBankingSoonPaySupplier,
               typeForegroundColor: context.color.supplierForeground,
               typeBackgroundColor: context.color.supplierBackground,
               onPressed: () => context.pushNamed(AppRoute.dailyBankingSoonPayContact.name),
@@ -64,7 +65,7 @@ class SoonPayContactList extends StatelessWidget {
                 bottomRight: Radius.circular(context.radius.soft),
               ),
               nif: '12345678A',
-              type: 'Cliente',
+              type: context.loc.dailyBankingSoonPayClient,
               typeForegroundColor: context.color.customerForeground,
               typeBackgroundColor: context.color.customerBackground,
               onPressed: () {},
@@ -82,7 +83,7 @@ class SoonPayContactList extends StatelessWidget {
                 bottomRight: Radius.circular(context.radius.soft),
               ),
               nif: '12345678A',
-              type: 'Proveedor',
+              type: context.loc.dailyBankingSoonPaySupplier,
               typeForegroundColor: context.color.supplierForeground,
               typeBackgroundColor: context.color.supplierBackground,
               onPressed: () {},
@@ -100,7 +101,7 @@ class SoonPayContactList extends StatelessWidget {
                 bottomRight: Radius.circular(context.radius.soft),
               ),
               nif: '12345678A',
-              type: 'Cliente',
+              type: context.loc.dailyBankingSoonPayClient,
               typeForegroundColor: context.color.customerForeground,
               typeBackgroundColor: context.color.customerBackground,
               onPressed: () {},
@@ -112,7 +113,7 @@ class SoonPayContactList extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                'Contactos favoritos',
+                context.loc.dailyBankingSoonPayFavorites,
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -136,7 +137,7 @@ class SoonPayContactList extends StatelessWidget {
                 topRight: Radius.circular(context.radius.soft),
               ),
               nif: '12345678A',
-              type: 'Cliente',
+              type: context.loc.dailyBankingSoonPayClient,
               typeForegroundColor: context.color.customerForeground,
               typeBackgroundColor: context.color.customerBackground,
               onPressed: () {},
@@ -154,7 +155,7 @@ class SoonPayContactList extends StatelessWidget {
                 bottomRight: Radius.circular(context.radius.soft),
               ),
               nif: '12345678A',
-              type: 'Proveedor',
+              type: context.loc.dailyBankingSoonPaySupplier,
               typeForegroundColor: context.color.supplierForeground,
               typeBackgroundColor: context.color.supplierBackground,
               onPressed: () {},

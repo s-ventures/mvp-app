@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -49,7 +50,7 @@ class PeriodicOrderCard extends StatelessWidget {
                   ),
                 ),
                 trailing: Button(
-                  title: 'Ver detalles',
+                  title: context.loc.dailyBankingScheduledTransfersSeeDetails,
                   type: ButtonType.text,
                   size: ButtonSize.extraSmall,
                   textColor: context.color.statusInfo,
@@ -97,7 +98,10 @@ class PeriodicOrderCard extends StatelessWidget {
                           ),
                           AppSpacing.horizontal.s2,
                           Text(
-                            '· Desde ${periodicOrder.startDate?.formatToDayMonthYear() ?? ''}',
+                            context.loc.dailyBankingScheduledTransfersDateSince(
+                              periodicOrder.startDate?.formatToDayMonthYear() ??
+                                  '',
+                            ),
                             style: context.textStyle.bodyMediumRegular.copyWith(
                               color: context.color.textLight600,
                             ),

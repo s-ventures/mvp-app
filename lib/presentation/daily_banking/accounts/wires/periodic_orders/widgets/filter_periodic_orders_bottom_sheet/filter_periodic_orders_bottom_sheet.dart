@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/filter_periodic_orders_bottom_sheet/amount_range.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/filter_periodic_orders_bottom_sheet/frecuency.dart';
@@ -82,7 +83,7 @@ class FilterPeriodicOrdersBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Button(
-                title: 'Descartar filtros',
+                title: context.loc.commonFilterDiscard,
                 type: ButtonType.text,
                 size: ButtonSize.small,
                 onPressed: () async {
@@ -90,7 +91,7 @@ class FilterPeriodicOrdersBottomSheet {
                 },
               ),
               Button(
-                title: 'Aplicar',
+                title: context.loc.commonFilterApply,
                 size: ButtonSize.small,
                 onPressed: () async {
                   await onApply().then((_) => context.pop());
@@ -104,7 +105,7 @@ class FilterPeriodicOrdersBottomSheet {
         leadingNavBarWidget: Transform.translate(
           offset: const Offset(16, 24),
           child: Text(
-            'Filtrar',
+            context.loc.commonFilter,
             style: context.textStyle.h6,
           ),
         ),
@@ -128,7 +129,7 @@ class FilterPeriodicOrdersBottomSheet {
               delegate: SliverChildListDelegate(
                 [
                   Text(
-                    'Periodicidad',
+                    context.loc.commonPeriodicity,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -140,7 +141,7 @@ class FilterPeriodicOrdersBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Fecha',
+                    context.loc.commonDate,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -154,7 +155,7 @@ class FilterPeriodicOrdersBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Importe',
+                    context.loc.commonAmount,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),

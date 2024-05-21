@@ -1,7 +1,9 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/filter/filter_simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
@@ -64,7 +66,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Transferencias programadas',
+              title: context.loc.dailyBankingScheduledTransfers,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -81,7 +83,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
               children: [
                 Expanded(
                   child: Text(
-                    'Recientes',
+                    context.loc.dailyBankingScheduledTransfersRecent,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -164,14 +166,16 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
             periodicOrders.mapOrNull(
                   data: (data) => _PeriodicOrdersList(periodicOrders: data.value),
                 ) ??
-                const Center(child: CircularProgressIndicator.adaptive()),
+                const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                ),
           ],
         ),
       ),
       floatingActionButton: SizedBox(
         width: 144,
         child: Button(
-          title: 'Nueva',
+          title: context.loc.dailyBankingScheduledTransfersNew,
           icon: IconAssets.plus,
           size: ButtonSize.small,
           onPressed: () async => context.pushNamed(AppRoute.dailyBankingNationalTransfers.name),

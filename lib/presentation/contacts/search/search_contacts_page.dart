@@ -40,10 +40,6 @@ class SearchContactsPage extends StatelessWidget {
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
             const FakeSearchBar(),
-            // AppSpacing.vertical.s5,
-            // const FavoriteContactsList(
-            //   onPressed: print,
-            // ),
             AppSpacing.vertical.s5,
             Text(
               'Contactos',

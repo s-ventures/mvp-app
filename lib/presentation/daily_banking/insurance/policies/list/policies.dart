@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/filter/filter_simplified_policies_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/simplified/simplified_policies_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/simplified_policy.dart';
@@ -56,7 +57,7 @@ class _PoliciesState extends ConsumerState<Policies> {
             children: [
               Expanded(
                 child: Text(
-                  'Pólizas',
+                  context.loc.dailyBankingInsurancesPolicies,
                   style: context.textStyle.bodyMediumSemiBold.copyWith(
                     color: context.color.textLight600,
                   ),
@@ -140,7 +141,9 @@ class _PoliciesList extends StatelessWidget {
       itemBuilder: (context, index) {
         final policy = policies[index];
         return Padding(
-          padding: const EdgeInsets.only(bottom: AppSpacing.s3),
+          padding: const EdgeInsets.only(
+            bottom: AppSpacing.s3,
+          ),
           child: InsurancePolicyListTile(
             leadingEmoji:
                 '🖥️', // TODO(georgeta): Pending to receive category and use the icon based on it

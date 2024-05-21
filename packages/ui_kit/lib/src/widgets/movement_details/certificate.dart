@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 enum CertificateType {
@@ -20,7 +21,7 @@ class MovementDetailsCertificate extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Certificado',
+          context.loc.commonCertificate,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -42,7 +43,7 @@ class MovementDetailsCertificate extends StatelessWidget {
                   backgroundColor: context.color.neutralLight100,
                 ),
                 title: Text(
-                  'Solicitar certificado de ${type.name}',
+                  context.loc.commonRequestCertificateName(type.name),
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight900,
                   ),

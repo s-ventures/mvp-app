@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsDescription extends StatelessWidget {
@@ -15,7 +16,7 @@ class MovementDetailsDescription extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                'Descripción',
+                context.loc.commonDescription,
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),

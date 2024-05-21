@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/widgets/last_sent_transfer_card.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -39,17 +40,17 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Últimas transferencias',
+              context.loc.dailyBankingNewTransfersLastTransfers,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
             ),
             Button(
-              title: 'Ver todas',
+              title: context.loc.dailyBankingNewTransfersSeeAll,
               type: ButtonType.text,
               size: ButtonSize.small,
               outlineColor: context.color.tertiaryLight800,
-              textColor: const Color(0xFF5494FF),
+              textColor: context.color.statusInfo,
               horizontalPadding: 0,
               onPressed: () => context.pushNamed(AppRoute.dailyBankingTransfersSent.name),
             ),

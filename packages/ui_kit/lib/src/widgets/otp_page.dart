@@ -4,15 +4,18 @@ import 'package:ui_kit/ui_kit.dart';
 class OtpPage extends StatelessWidget {
   const OtpPage({
     required this.title,
-    required this.message,
     required this.onPressedBack,
     required this.onPressedResend,
     required this.onPressedConfirm,
+    this.subtitle = 'Código de confirmación',
+    this.message =
+        'Ingresa el código de confirmación que has recibido por SMS para confirmar la operación.',
     this.btnConfirmText = 'Confirmar',
     super.key,
   });
 
   final String title;
+  final String subtitle;
   final String message;
   final String btnConfirmText;
   final VoidCallback onPressedBack;
@@ -27,7 +30,7 @@ class OtpPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Firma de operación',
+              title: title,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -41,7 +44,7 @@ class OtpPage extends StatelessWidget {
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
             Text(
-              title,
+              subtitle,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),

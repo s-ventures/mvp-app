@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/detailed/detailed_periodic_order_controller.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -43,7 +45,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Transferencias programadas',
+              title: context.loc.dailyBankingScheduledTransfers,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -95,14 +97,22 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            periodicOrder.frecuency.name,
+                            periodicOrder.frecuency == PeriodicOrderFrecuencyType.daily
+                                ? context.loc.commonFrequencyDaily
+                                : periodicOrder.frecuency == PeriodicOrderFrecuencyType.weekly
+                                    ? context.loc.commonFrequencyWeekly
+                                    : periodicOrder.frecuency == PeriodicOrderFrecuencyType.monthly
+                                        ? context.loc.commonFrequencyMonthly
+                                        : '',
                             style: context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight900,
                             ),
                           ),
                           AppSpacing.horizontal.s3,
                           Text(
-                            '·  Desde ${periodicOrder.startDate.formatToDayMonthYear()}',
+                            context.loc.commonDateSinceDate(
+                              periodicOrder.startDate.formatToDayMonthYear() ?? '',
+                            ),
                             style: context.textStyle.bodyMediumRegular.copyWith(
                               color: context.color.textLight600,
                             ),
@@ -120,7 +130,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Beneficiario',
+                      context.loc.commonBeneficiary,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -133,7 +143,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                     ),
                     AppSpacing.vertical.s5,
                     Text(
-                      'IBAN',
+                      context.loc.commonIban,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -146,7 +156,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                     ),
                     AppSpacing.vertical.s5,
                     Text(
-                      'Importe',
+                      context.loc.commonAmount,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -170,20 +180,22 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                     ),
                     AppSpacing.vertical.s5,
                     Text(
-                      'Concepto',
+                      context.loc.commonConcept,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
                     ),
                     Text(
-                      periodicOrder.concept != null ? periodicOrder.concept! : 'Sin concepto',
+                      periodicOrder.concept != null
+                          ? periodicOrder.concept!
+                          : context.loc.commonNoConcept,
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,
                       ),
                     ),
                     AppSpacing.vertical.s5,
                     Text(
-                      'Frecuencia',
+                      context.loc.commonFrequency,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -196,7 +208,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                     ),
                     AppSpacing.vertical.s5,
                     Text(
-                      'Comenzó el',
+                      context.loc.dailyBankingScheduledTransfersStartedThe,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -209,7 +221,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                     ),
                     AppSpacing.vertical.s5,
                     Text(
-                      'Próximo pago',
+                      context.loc.dailyBankingScheduledTransfersNextPaid,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -230,7 +242,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                 children: [
                   Expanded(
                     child: Button(
-                      title: 'Eliminar transferencia',
+                      title: context.loc.dailyBankingScheduledTransfersRemoveTransfer,
                       size: ButtonSize.small,
                       background: context.color.statusError.withOpacity(
                         .15,
@@ -239,13 +251,16 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                       onPressed: () async => AlertBottomSheet.show(
                         context: context,
                         icon: IconAssets.trash,
-                        title: '¿Quieres eliminar el pago periódico?',
-                        buttonOkText: 'Eliminar',
+                        title: context.loc.dailyBankingScheduledTransfersRemoveModalTitle,
+                        buttonOkText:
+                            context.loc.dailyBankingScheduledTransfersRemoveModalButtonRemove,
                         buttonOkBackground: context.color.statusError.withOpacity(
                           .15,
                         ),
                         buttonOkForeground: context.color.statusError,
-                        buttonCancelText: 'Cancelar',
+                        buttonCancelText: context.loc.commonCancel,
+                        buttonCancelType: ButtonType.text,
+                        buttonsOrientation: AlertButtonsOrientation.vertical,
                       ),
                     ),
                   ),
