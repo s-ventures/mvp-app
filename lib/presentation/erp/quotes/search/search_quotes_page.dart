@@ -9,25 +9,25 @@ class SearchQuotesPage extends StatelessWidget {
 
   static List<Map<String, String>> items = [
     {
-      'title': 'Presupuesto 1',
-      'date': '12/12/2021',
+      'title': 'F1/2023',
+      'date': '02/23',
       'contact': 'Contacto 1',
       'amount': '123',
-      'status': 'Pendiente',
+      'status': 'Vence en 2 días',
     },
     {
-      'title': 'Presupuesto 2',
-      'date': '12/12/2021',
+      'title': 'F2/2023',
+      'date': '02/23',
       'contact': 'Contacto 2',
       'amount': '123',
-      'status': 'Pendiente',
+      'status': 'Vence en 2 días',
     },
     {
-      'title': 'Presupuesto 3',
-      'date': '12/12/2021',
+      'title': 'F3/2023',
+      'date': '02/23',
       'contact': 'Contacto 3',
       'amount': '123',
-      'status': 'Pendiente',
+      'status': 'Vence en 2 días',
     },
   ];
 

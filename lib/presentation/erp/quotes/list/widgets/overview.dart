@@ -101,7 +101,9 @@ class QuotesOverview extends StatelessWidget {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 3),
+                padding: const EdgeInsets.only(
+                  top: 3,
+                ),
                 child: Text(
                   'Presupuestos de este',
                   style: context.textStyle.bodySmallSemiBold.copyWith(
@@ -110,8 +112,7 @@ class QuotesOverview extends StatelessWidget {
                 ),
               ),
               AppSpacing.horizontal.s3,
-              SizedBox(
-                width: 72,
+              IntrinsicWidth(
                 child: DropdownButton(
                   style: context.textStyle.bodySmallSemiBold.copyWith(
                     color: context.color.textLight900,
@@ -122,15 +123,21 @@ class QuotesOverview extends StatelessWidget {
                   underline: Container(),
                   elevation: 1,
                   dropdownColor: context.color.backgroundLight0,
-                  icon: IconSvg.small(
-                    IconAssets.sortline,
-                    color: context.color.textLight600,
+                  icon: Padding(
+                    padding: const EdgeInsets.only(
+                      left: AppSpacing.s3,
+                      top: AppSpacing.s1,
+                    ),
+                    child: IconSvg.extraSmall(
+                      IconAssets.sortline,
+                      color: context.color.textLight600,
+                    ),
                   ),
                   isExpanded: true,
                   isDense: true,
                   value: 'Mes',
                   items: _dropdownItems,
-                  onChanged: (String? value) {},
+                  onChanged: print,
                 ),
               ),
             ],
