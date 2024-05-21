@@ -20,22 +20,18 @@ mixin _$FilterSimplifiedPeriodicOrdersState {
   DateTime? get endDate => throw _privateConstructorUsedError;
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
-  PeriodicOrderFrecuencyType? get frecuency =>
-      throw _privateConstructorUsedError;
+  PeriodicOrderFrecuencyType? get frecuency => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterSimplifiedPeriodicOrdersStateCopyWith<
-          FilterSimplifiedPeriodicOrdersState>
-      get copyWith => throw _privateConstructorUsedError;
+  $FilterSimplifiedPeriodicOrdersStateCopyWith<FilterSimplifiedPeriodicOrdersState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FilterSimplifiedPeriodicOrdersStateCopyWith<$Res> {
-  factory $FilterSimplifiedPeriodicOrdersStateCopyWith(
-          FilterSimplifiedPeriodicOrdersState value,
+  factory $FilterSimplifiedPeriodicOrdersStateCopyWith(FilterSimplifiedPeriodicOrdersState value,
           $Res Function(FilterSimplifiedPeriodicOrdersState) then) =
-      _$FilterSimplifiedPeriodicOrdersStateCopyWithImpl<$Res,
-          FilterSimplifiedPeriodicOrdersState>;
+      _$FilterSimplifiedPeriodicOrdersStateCopyWithImpl<$Res, FilterSimplifiedPeriodicOrdersState>;
   @useResult
   $Res call(
       {DateTime? startDate,
@@ -153,14 +149,9 @@ class __$$FilterSimplifiedPeriodicOrdersStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterSimplifiedPeriodicOrdersStateImpl
-    implements _FilterSimplifiedPeriodicOrdersState {
+class _$FilterSimplifiedPeriodicOrdersStateImpl implements _FilterSimplifiedPeriodicOrdersState {
   const _$FilterSimplifiedPeriodicOrdersStateImpl(
-      {this.startDate,
-      this.endDate,
-      this.amountFrom,
-      this.amountTo,
-      this.frecuency});
+      {this.startDate, this.endDate, this.amountFrom, this.amountTo, this.frecuency});
 
   @override
   final DateTime? startDate;
@@ -183,39 +174,31 @@ class _$FilterSimplifiedPeriodicOrdersStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterSimplifiedPeriodicOrdersStateImpl &&
-            (identical(other.startDate, startDate) ||
-                other.startDate == startDate) &&
+            (identical(other.startDate, startDate) || other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.amountFrom, amountFrom) ||
-                other.amountFrom == amountFrom) &&
-            (identical(other.amountTo, amountTo) ||
-                other.amountTo == amountTo) &&
-            (identical(other.frecuency, frecuency) ||
-                other.frecuency == frecuency));
+            (identical(other.amountFrom, amountFrom) || other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) || other.amountTo == amountTo) &&
+            (identical(other.frecuency, frecuency) || other.frecuency == frecuency));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, startDate, endDate, amountFrom, amountTo, frecuency);
+  int get hashCode => Object.hash(runtimeType, startDate, endDate, amountFrom, amountTo, frecuency);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterSimplifiedPeriodicOrdersStateImplCopyWith<
-          _$FilterSimplifiedPeriodicOrdersStateImpl>
+  _$$FilterSimplifiedPeriodicOrdersStateImplCopyWith<_$FilterSimplifiedPeriodicOrdersStateImpl>
       get copyWith => __$$FilterSimplifiedPeriodicOrdersStateImplCopyWithImpl<
           _$FilterSimplifiedPeriodicOrdersStateImpl>(this, _$identity);
 }
 
-abstract class _FilterSimplifiedPeriodicOrdersState
-    implements FilterSimplifiedPeriodicOrdersState {
+abstract class _FilterSimplifiedPeriodicOrdersState implements FilterSimplifiedPeriodicOrdersState {
   const factory _FilterSimplifiedPeriodicOrdersState(
-          {final DateTime? startDate,
-          final DateTime? endDate,
-          final double? amountFrom,
-          final double? amountTo,
-          final PeriodicOrderFrecuencyType? frecuency}) =
-      _$FilterSimplifiedPeriodicOrdersStateImpl;
+      {final DateTime? startDate,
+      final DateTime? endDate,
+      final double? amountFrom,
+      final double? amountTo,
+      final PeriodicOrderFrecuencyType? frecuency}) = _$FilterSimplifiedPeriodicOrdersStateImpl;
 
   @override
   DateTime? get startDate;
@@ -229,7 +212,6 @@ abstract class _FilterSimplifiedPeriodicOrdersState
   PeriodicOrderFrecuencyType? get frecuency;
   @override
   @JsonKey(ignore: true)
-  _$$FilterSimplifiedPeriodicOrdersStateImplCopyWith<
-          _$FilterSimplifiedPeriodicOrdersStateImpl>
+  _$$FilterSimplifiedPeriodicOrdersStateImplCopyWith<_$FilterSimplifiedPeriodicOrdersStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

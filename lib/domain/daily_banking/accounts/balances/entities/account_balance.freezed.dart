@@ -21,14 +21,12 @@ mixin _$AccountBalance {
   double get availableBalance => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AccountBalanceCopyWith<AccountBalance> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AccountBalanceCopyWith<AccountBalance> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AccountBalanceCopyWith<$Res> {
-  factory $AccountBalanceCopyWith(
-          AccountBalance value, $Res Function(AccountBalance) then) =
+  factory $AccountBalanceCopyWith(AccountBalance value, $Res Function(AccountBalance) then) =
       _$AccountBalanceCopyWithImpl<$Res, AccountBalance>;
   @useResult
   $Res call({UniqueId id, double balance, double availableBalance});
@@ -69,10 +67,9 @@ class _$AccountBalanceCopyWithImpl<$Res, $Val extends AccountBalance>
 }
 
 /// @nodoc
-abstract class _$$AccountBalanceImplCopyWith<$Res>
-    implements $AccountBalanceCopyWith<$Res> {
-  factory _$$AccountBalanceImplCopyWith(_$AccountBalanceImpl value,
-          $Res Function(_$AccountBalanceImpl) then) =
+abstract class _$$AccountBalanceImplCopyWith<$Res> implements $AccountBalanceCopyWith<$Res> {
+  factory _$$AccountBalanceImplCopyWith(
+          _$AccountBalanceImpl value, $Res Function(_$AccountBalanceImpl) then) =
       __$$AccountBalanceImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -115,9 +112,7 @@ class __$$AccountBalanceImplCopyWithImpl<$Res>
 
 class _$AccountBalanceImpl implements _AccountBalance {
   const _$AccountBalanceImpl(
-      {required this.id,
-      required this.balance,
-      required this.availableBalance});
+      {required this.id, required this.balance, required this.availableBalance});
 
   @override
   final UniqueId id;
@@ -149,8 +144,7 @@ class _$AccountBalanceImpl implements _AccountBalance {
   @override
   @pragma('vm:prefer-inline')
   _$$AccountBalanceImplCopyWith<_$AccountBalanceImpl> get copyWith =>
-      __$$AccountBalanceImplCopyWithImpl<_$AccountBalanceImpl>(
-          this, _$identity);
+      __$$AccountBalanceImplCopyWithImpl<_$AccountBalanceImpl>(this, _$identity);
 }
 
 abstract class _AccountBalance implements AccountBalance {

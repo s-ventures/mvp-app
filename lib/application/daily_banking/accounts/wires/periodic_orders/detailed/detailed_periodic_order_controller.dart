@@ -3,17 +3,15 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/detailed/detailed_periodic_order_state.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_repository.dart';
 
-final detailedPeriodicOrderControllerProvider = StateNotifierProvider
-    .autoDispose<DetailedPeriodicOrderController, DetailedPeriodicOrderState>(
+final detailedPeriodicOrderControllerProvider =
+    StateNotifierProvider.autoDispose<DetailedPeriodicOrderController, DetailedPeriodicOrderState>(
   (ref) => DetailedPeriodicOrderController(
     ref.watch(periodicOrdersRepositoryProvider),
   ),
 );
 
-class DetailedPeriodicOrderController
-    extends StateNotifier<DetailedPeriodicOrderState> {
-  DetailedPeriodicOrderController(this._repository)
-      : super(const DetailedPeriodicOrderState());
+class DetailedPeriodicOrderController extends StateNotifier<DetailedPeriodicOrderState> {
+  DetailedPeriodicOrderController(this._repository) : super(const DetailedPeriodicOrderState());
 
   final PeriodicOrdersRepository _repository;
 
@@ -25,8 +23,7 @@ class DetailedPeriodicOrderController
 
       setStateSafe(
         () => periodicOrderOrFailure.fold(
-          (l) =>
-              state.copyWith(periodicOrder: AsyncError(l, StackTrace.current)),
+          (l) => state.copyWith(periodicOrder: AsyncError(l, StackTrace.current)),
           (r) => state.copyWith(periodicOrder: AsyncData(r)),
         ),
       );

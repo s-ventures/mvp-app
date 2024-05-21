@@ -14,6 +14,7 @@ abstract class ISentTransfersRepository {
     void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
-  Future<Either<DetailedSentTransferFailure, DetailedSentTransfer>>
-      getDetailedSentTransfer({required int sentTransferId});
+  Future<Either<DetailedSentTransferFailure, DetailedSentTransfer>> getDetailedSentTransfer({
+    required int sentTransferId,
+  });
 }

@@ -17,8 +17,7 @@ final contractsRepositoryProvider = Provider<ContractsRepository>((ref) {
     localDataSource: ContractsLocalDataSource(
       ref.watch(sharedPreferencesLocalStorageProvider),
     ),
-    remoteDataSource:
-        ContractsRemoteDataSource(ref.watch(contractsRestClientProvider)),
+    remoteDataSource: ContractsRemoteDataSource(ref.watch(contractsRestClientProvider)),
   );
 });
 
@@ -34,8 +33,7 @@ class ContractsRepository implements IContractsRepository {
   final _selectedContractId = BehaviorSubject.seeded(none<UniqueId>());
 
   @override
-  Future<Either<CustomerContractFailure, List<CustomerContract>>>
-      getContracts() async {
+  Future<Either<CustomerContractFailure, List<CustomerContract>>> getContracts() async {
     try {
       final response = await _remoteDataSource.getContracts();
       final contracts = response.map((e) => e.toDomain()).toList();
@@ -53,8 +51,7 @@ class ContractsRepository implements IContractsRepository {
       final result = await _localDataSource.saveSelectedContractId(contractId);
 
       if (result.isRight()) {
-        _selectedContractId
-            .add(some(UniqueId.fromUniqueString(contractId.toString())));
+        _selectedContractId.add(some(UniqueId.fromUniqueString(contractId.toString())));
         return right(unit);
       }
       return left(const SelectContractFailure.unexpected());
@@ -64,6 +61,5 @@ class ContractsRepository implements IContractsRepository {
   }
 
   @override
-  Stream<Option<UniqueId>> watchSelectedContract() =>
-      _selectedContractId.stream;
+  Stream<Option<UniqueId>> watchSelectedContract() => _selectedContractId.stream;
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -33,31 +34,24 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
   @override
   Widget build(BuildContext context) {
     final periodicOrders = ref.watch(
-      simplifiedPeriodicOrdersControllerProvider
-          .select((value) => value.periodicOrders),
+      simplifiedPeriodicOrdersControllerProvider.select((value) => value.periodicOrders),
     );
 
-    final controller =
-        ref.read(filterSimplifiedPeriodicOrdersControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedPeriodicOrdersControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider
-          .select((value) => value.startDate),
+      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.startDate),
     );
     final endDate = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider
-          .select((value) => value.endDate),
+      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.endDate),
     );
     final amountFrom = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider
-          .select((value) => value.amountFrom),
+      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.amountFrom),
     );
     final amountTo = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider
-          .select((value) => value.amountTo),
+      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.amountTo),
     );
     final frecuency = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider
-          .select((value) => value.frecuency),
+      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.frecuency),
     );
 
     final isFilterApplied = startDate != null ||
@@ -170,9 +164,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
               ),
             AppSpacing.vertical.s5,
             periodicOrders.mapOrNull(
-                  data: (data) => _PeriodicOrdersList(
-                    periodicOrders: data.value,
-                  ),
+                  data: (data) => _PeriodicOrdersList(periodicOrders: data.value),
                 ) ??
                 const Center(
                   child: CircularProgressIndicator.adaptive(),
@@ -186,9 +178,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
           title: context.loc.dailyBankingScheduledTransfersNew,
           icon: IconAssets.plus,
           size: ButtonSize.small,
-          onPressed: () async => context.pushNamed(
-            AppRoute.dailyBankingNationalTransfers.name,
-          ),
+          onPressed: () async => context.pushNamed(AppRoute.dailyBankingNationalTransfers.name),
         ),
       ),
     );

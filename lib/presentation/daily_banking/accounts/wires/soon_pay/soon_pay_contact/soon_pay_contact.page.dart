@@ -43,8 +43,7 @@ class SoonPayContactPage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius:
-                            BorderRadius.circular(context.radius.hard),
+                        borderRadius: BorderRadius.circular(context.radius.hard),
                       ),
                       child: Row(
                         children: [
@@ -89,8 +88,7 @@ class SoonPayContactPage extends StatelessWidget {
                 child: Button(
                   title: context.loc.dailyBankingSoonPaySendMoney,
                   size: ButtonSize.small,
-                  onPressed: () =>
-                      context.pushNamed(AppRoute.dailyBankingSoonPayOTP.name),
+                  onPressed: () => context.pushNamed(AppRoute.dailyBankingSoonPayOTP.name),
                   expand: true,
                 ),
               ),

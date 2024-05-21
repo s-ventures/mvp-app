@@ -25,6 +25,5 @@ class TinkFlowLinkDto with _$TinkFlowLinkDto {
     required String fullLink,
   }) = _TinkFlowLinkDto;
 
-  factory TinkFlowLinkDto.fromJson(Map<String, dynamic> json) =>
-      _$TinkFlowLinkDtoFromJson(json);
+  factory TinkFlowLinkDto.fromJson(Map<String, dynamic> json) => _$TinkFlowLinkDtoFromJson(json);
 }

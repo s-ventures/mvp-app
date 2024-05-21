@@ -14,12 +14,10 @@ class SearchCardTransactionsPage extends ConsumerStatefulWidget {
   const SearchCardTransactionsPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _SearchCardTransactionsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SearchCardTransactionsPageState();
 }
 
-class _SearchCardTransactionsPageState
-    extends ConsumerState<SearchCardTransactionsPage> {
+class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransactionsPage> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
   final _textSubject = PublishSubject<String>();
@@ -32,12 +30,9 @@ class _SearchCardTransactionsPageState
       _textSubject.add(_controller.text);
     });
 
-    _debounceSubscription =
-        _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
+    _debounceSubscription = _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
       (text) {
-        ref
-            .read(filterSimplifiedCardTransactionsControllerProvider.notifier)
-            .setSearch(text);
+        ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier).setSearch(text);
       },
     );
   }
@@ -53,8 +48,7 @@ class _SearchCardTransactionsPageState
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
 
     return Scaffold(
       body: NestedScrollView(

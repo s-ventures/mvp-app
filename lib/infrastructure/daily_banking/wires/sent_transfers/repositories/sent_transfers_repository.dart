@@ -53,8 +53,7 @@ class SentTransfersRepository implements ISentTransfersRepository {
   }
 
   @override
-  Future<Either<DetailedSentTransferFailure, DetailedSentTransfer>>
-      getDetailedSentTransfer({
+  Future<Either<DetailedSentTransferFailure, DetailedSentTransfer>> getDetailedSentTransfer({
     required int sentTransferId,
   }) async {
     try {

@@ -107,8 +107,7 @@ class CommerceInsurancePage extends StatelessWidget {
                 title: 'Calcular precio',
                 size: ButtonSize.small,
                 onPressed: () => context.pushNamed(
-                  AppRoute
-                      .protectionInsuranceCommerceCalculatePriceFirstStep.name,
+                  AppRoute.protectionInsuranceCommerceCalculatePriceFirstStep.name,
                 ),
               ),
               AppSpacing.vertical.s5,

@@ -39,13 +39,19 @@ class AttachmentListTile extends StatelessWidget {
         sizeMb = attachment.size.bytesToMegaBytes();
         isLoading = true;
       },
+      deleting: (attachment) {
+        fileName = attachment.fileName;
+        sizeMb = attachment.size.bytesToMegaBytes();
+        isLoading = true;
+      },
       uploaded: (attachment) {
         fileName = attachment.fileName;
         sizeMb = attachment.size.bytesToMegaBytes();
       },
     );
 
-    var subtitle = '${date != null ? '${date.formatToDayMonthYear()} - ' : ''}${sizeMb?.toPrecision(2)} Mb';
+    var subtitle =
+        '${date != null ? '${date.formatToDayMonthYear()} - ' : ''}${sizeMb?.toPrecision(2)} Mb';
 
     final error = attachment.asError()?.error;
     if (error != null) {

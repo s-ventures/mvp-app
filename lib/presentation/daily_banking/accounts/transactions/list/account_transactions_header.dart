@@ -17,27 +17,21 @@ class AccountTransactionsHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
     final stateDate = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.startDate),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.startDate),
     );
     final endDate = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.endDate),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.endDate),
     );
     final amountFrom = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.amountFrom),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountFrom),
     );
     final amountTo = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.amountTo),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountTo),
     );
     final operationType = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider
-          .select((value) => value.operationType),
+      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.operationType),
     );
 
     final isFilterApplied = stateDate != null ||

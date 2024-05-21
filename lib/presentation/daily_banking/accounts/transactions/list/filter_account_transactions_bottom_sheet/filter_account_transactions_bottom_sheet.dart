@@ -231,8 +231,7 @@ class FilterAccountTransactionsBottomSheet {
                     operationType: operationType,
                     setAmountFrom: (double value) => setAmountFrom(value),
                     setAmountTo: (double value) => setAmountTo(value),
-                    setOperationType: (TransactionOperationType value) =>
-                        setTransactionType(value),
+                    setOperationType: (TransactionOperationType value) => setTransactionType(value),
                   ),
                   AppSpacing.vertical.s5,
                   Text(

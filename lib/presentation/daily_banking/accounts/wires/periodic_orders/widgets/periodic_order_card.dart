@@ -92,8 +92,7 @@ class PeriodicOrderCard extends StatelessWidget {
                         children: [
                           Text(
                             periodicOrder.frecuency?.name ?? '',
-                            style:
-                                context.textStyle.bodyMediumSemiBold.copyWith(
+                            style: context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight900,
                             ),
                           ),

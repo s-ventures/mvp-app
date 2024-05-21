@@ -6,8 +6,7 @@ part of 'file_attachment_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FileAttachmentDtoImpl _$$FileAttachmentDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$FileAttachmentDtoImpl _$$FileAttachmentDtoImplFromJson(Map<String, dynamic> json) =>
     _$FileAttachmentDtoImpl(
       documentId: json['documentId'] as int,
       fileName: json['fileName'] as String,
@@ -16,12 +15,10 @@ _$FileAttachmentDtoImpl _$$FileAttachmentDtoImplFromJson(
       customerId: json['customerId'] as int,
       deleteDate: _$JsonConverterFromJson<String, DateTime>(
           json['deleteDate'], const DateConverter().fromJson),
-      content:
-          (json['content'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      content: (json['content'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$FileAttachmentDtoImplToJson(
-        _$FileAttachmentDtoImpl instance) =>
+Map<String, dynamic> _$$FileAttachmentDtoImplToJson(_$FileAttachmentDtoImpl instance) =>
     <String, dynamic>{
       'documentId': instance.documentId,
       'fileName': instance.fileName,

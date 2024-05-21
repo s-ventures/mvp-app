@@ -86,7 +86,8 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required String? originalCurrencyCode,
     // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
-    @DateConverter() required DateTime assignmentDate,
+    @DateConverter() required DateTime? assignmentDate,
+    // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required List<FileAttachmentInfoDto>? attachments,
     @ExtendedDetailsConverter() required ExtendedDetailsDto? extendedDetails,
     required ProductTypeDto productType,
@@ -160,8 +161,7 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                 case DebitDto:
                   final debitDto = extendedDetails! as DebitDto;
                   return DebitTransactionDetails(
-                    debitId:
-                        UniqueId.fromUniqueString(debitDto.debitId.toString()),
+                    debitId: UniqueId.fromUniqueString(debitDto.debitId.toString()),
                     amount: debitDto.amount,
                     issuer: debitDto.issuer,
                     issuerName: debitDto.issuerName,
@@ -180,10 +180,9 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                     returnDate: directDebitDto.returnDate,
                   );
                 case DetailedCardTransactionDto:
-                  final cardDto =
-                      extendedDetails! as DetailedCardTransactionDto;
+                  final cardDto = extendedDetails! as DetailedCardTransactionDto;
                   return DetailedCardTransaction(
-                    movementId: UniqueId.fromUniqueString(
+                    id: UniqueId.fromUniqueString(
                       cardDto.movementId.toString(),
                     ),
                     amount: cardDto.amount,

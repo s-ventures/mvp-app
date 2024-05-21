@@ -10,7 +10,14 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pa
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_repository.dart';
 
-final stakeholdersPaginationRepositoryProvider =
+final stakeholdersPaginationRepositoryProvider = Provider<StakeholdersPaginationRepository>((ref) {
+  return StakeholdersPaginationRepository(
+    ref.watch(stakeholdersRepositoryProvider),
+    ref.watch(contractsRepositoryProvider),
+  );
+});
+
+final favoriteStakeholdersPaginationRepositoryProvider =
     Provider<StakeholdersPaginationRepository>((ref) {
   return StakeholdersPaginationRepository(
     ref.watch(stakeholdersRepositoryProvider),
@@ -18,8 +25,7 @@ final stakeholdersPaginationRepositoryProvider =
   );
 });
 
-class StakeholdersPaginationRepository
-    extends PaginationListRepository<Stakeholder> {
+class StakeholdersPaginationRepository extends PaginationListRepository<Stakeholder> {
   StakeholdersPaginationRepository(
     this._stakeholdersRepository,
     this._contractsRepository,
@@ -38,13 +44,11 @@ class StakeholdersPaginationRepository
       if (contractIdOption.isNone()) {
         // TODO(sergio): hardcoded erp contract id
         _erpContractId = 1071.toString();
-        _filter = const StakeholdersFilter();
       }
 
       // A contract has been previously selected. Update filter and refresh
       else if (contractIdOption.isSome()) {
-        final contractId =
-            contractIdOption.fold(() => null, (a) => a)?.getOrElse('');
+        final contractId = contractIdOption.fold(() => null, (a) => a)?.getOrElse('');
         if (contractId?.isEmpty ?? true) return;
 
         _erpContractId = contractId;
@@ -57,13 +61,12 @@ class StakeholdersPaginationRepository
     required int page,
     required int pageSize,
   }) async {
-    final filter = _filter;
     final erpContractId = _erpContractId;
-    if (filter == null || erpContractId == null) return [];
+    if (erpContractId == null) return [];
 
     final stakeholders = await _stakeholdersRepository.getStakeholders(
       erpContractId: erpContractId,
-      filter: filter,
+      filter: _filter ?? const StakeholdersFilter(),
       page: page,
       pageSize: pageSize,
       onPaginationInfo: onPaginationInfo,
@@ -87,7 +90,7 @@ class StakeholdersPaginationRepository
     String? additionalInfo,
     bool? isFavorite,
   }) {
-    _filter = _filter?.copyWith(
+    _filter = (_filter ?? const StakeholdersFilter()).copyWith(
       stakeholderId: stakeholderId,
       personTypeCode: personTypeCode,
       fullName: fullName,

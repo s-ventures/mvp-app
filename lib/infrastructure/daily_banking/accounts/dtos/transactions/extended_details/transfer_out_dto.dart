@@ -53,8 +53,7 @@ class TransferOutDto extends ExtendedDetailsDto {
     required this.swiftFee,
   });
 
-  factory TransferOutDto.fromJson(Map<String, dynamic> json) =>
-      _$TransferOutDtoFromJson(json);
+  factory TransferOutDto.fromJson(Map<String, dynamic> json) => _$TransferOutDtoFromJson(json);
   final SentTransferTypeDto? type;
   final String? senderReference;
   final String? bankOperationCode;

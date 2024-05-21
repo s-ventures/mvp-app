@@ -5,8 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/detailed/detailed_sent_transfer_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
+import 'package:manifiesto_mvp_app/presentation/shared/transaction/transaction_actions_section.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransferSentDetailsPage extends ConsumerStatefulWidget {
@@ -18,12 +17,10 @@ class TransferSentDetailsPage extends ConsumerStatefulWidget {
   final int sentTransferId;
 
   @override
-  ConsumerState<TransferSentDetailsPage> createState() =>
-      _TransferSentDetailsPageState();
+  ConsumerState<TransferSentDetailsPage> createState() => _TransferSentDetailsPageState();
 }
 
-class _TransferSentDetailsPageState
-    extends ConsumerState<TransferSentDetailsPage> {
+class _TransferSentDetailsPageState extends ConsumerState<TransferSentDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -38,8 +35,7 @@ class _TransferSentDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final sentTransfer =
-        ref.watch(detailedSentTransferControllerProvider).sentTransfer;
+    final sentTransfer = ref.watch(detailedSentTransferControllerProvider).sentTransfer;
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
@@ -58,8 +54,7 @@ class _TransferSentDetailsPageState
                   CustomPopupMenuButton(
                     items: [
                       PopupMenuItem(
-                        onTap:
-                            () {}, // TODO(georgeta): Implementar funcionalidad
+                        onTap: () {}, // TODO(georgeta): Implementar funcionalidad
                         child: Row(
                           children: [
                             Text(context.loc.commonSeeMoreReceipts),
@@ -69,8 +64,7 @@ class _TransferSentDetailsPageState
                         ),
                       ),
                       PopupMenuItem(
-                        onTap:
-                            () {}, // TODO(georgeta): Implementar funcionalidad
+                        onTap: () {}, // TODO(georgeta): Implementar funcionalidad
                         child: Row(
                           children: [
                             Text(context.loc.commonRefuseCollection),
@@ -100,19 +94,15 @@ class _TransferSentDetailsPageState
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsDate(
-                  titleStartDate: context
-                      .loc.dailyBankingTransfersSentMovementDetailsChargeDate,
-                  startDate:
-                      sentTransfer.orderDate.formatToDayMonthYear() ?? '-',
-                  titleEndDate: context
-                      .loc.dailyBankingTransfersSentMovementDetailsCreditDate,
+                  titleStartDate: context.loc.dailyBankingTransfersSentMovementDetailsChargeDate,
+                  startDate: sentTransfer.orderDate.formatToDayMonthYear() ?? '-',
+                  titleEndDate: context.loc.dailyBankingTransfersSentMovementDetailsCreditDate,
                   endDate: sentTransfer.valueDate.formatToDayMonthYear() ?? '-',
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsBeneficiary(
                   name: sentTransfer.beneficiaryName,
-                  accountNumber: sentTransfer
-                      .beneficiaryAccount.insertSpaceEveryFourCharacters,
+                  accountNumber: sentTransfer.beneficiaryAccount.insertSpaceEveryFourCharacters,
                   transferType: sentTransfer.type.name,
                 ),
                 AppSpacing.vertical.s5,
@@ -121,8 +111,7 @@ class _TransferSentDetailsPageState
                   // TODO(georgeta): No recibimos el numero de cuenta del emisor, pendiente de añadir y modificar
                   last4: sentTransfer.beneficiaryAccount.lastFourCharacters,
                   icon: '✈️', // TODO(georgeta): no recibimos el icono
-                  category:
-                      'Viajes', // TODO(georgeta): no recibimos la categoría
+                  category: 'Viajes', // TODO(georgeta): no recibimos la categoría
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsDescription(
@@ -131,12 +120,16 @@ class _TransferSentDetailsPageState
                 AppSpacing.vertical.s5,
                 const MovementDetailsVoucher(),
                 AppSpacing.vertical.s5,
-                MovementDetailsActions(
-                  onUploadFilesPressed: () {
-                    UploadFilesBottomSheet.show(context: context);
+                TransactionActionsSection(
+                  // TODO(migalv): Add dynamic attachments
+                  attachments: const [],
+                  onFileSelected: (file) {
+                    // TODO(migalv): Add files
+                    // attachments.length < controller.maxAttachments ? (file) => controller.addFiles([file]) : null,
                   },
-                  onCreateExpensePressed: () {
-                    context.goNamed(AppRoute.negocio.name);
+                  onRemove: (attachment) {
+                    // TODO(migalv): Add onRemove
+                    // controller.removeFile,
                   },
                 ),
                 AppSpacing.vertical.s5,

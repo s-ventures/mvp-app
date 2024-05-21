@@ -17,8 +17,7 @@ class DailyBankingPage extends StatelessWidget {
           headerSliverBuilder: (context, value) {
             return [
               SliverOverlapAbsorber(
-                handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+                handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: CustomAppBar.sliver(
                   centerTitle: true,
                   pinned: true,

@@ -53,9 +53,7 @@ class ScheduleTransferBottomSheet {
       ),
       mainContentSlivers: [
         SliverPadding(
-          padding: const EdgeInsets.all(
-            AppSpacing.s5,
-          ),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -71,12 +69,10 @@ class ScheduleTransferBottomSheet {
                     child: ListTile(
                       dense: true,
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
+                        borderRadius: BorderRadius.circular(context.radius.soft),
                       ),
                       title: Text(
-                        context.loc
-                            .dailyBankingNationalTransfersScheduledModalStartDate,
+                        context.loc.dailyBankingNationalTransfersScheduledModalStartDate,
                         style: context.textStyle.bodySmallSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -112,12 +108,10 @@ class ScheduleTransferBottomSheet {
                     child: ListTile(
                       dense: true,
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(context.radius.soft),
+                        borderRadius: BorderRadius.circular(context.radius.soft),
                       ),
                       title: Text(
-                        context.loc
-                            .dailyBankingNationalTransfersScheduledModalRepeat,
+                        context.loc.dailyBankingNationalTransfersScheduledModalRepeat,
                         style: context.textStyle.bodySmallSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -137,8 +131,7 @@ class ScheduleTransferBottomSheet {
                 ),
                 AppSpacing.vertical.s5,
                 Button(
-                  title: context
-                      .loc.dailyBankingNationalTransfersScheduledModalButton,
+                  title: context.loc.dailyBankingNationalTransfersScheduledModalButton,
                   size: ButtonSize.small,
                   expand: true,
                   onPressed: () async {
@@ -210,8 +203,7 @@ class ScheduleTransferBottomSheet {
       ),
       mainContentSlivers: [
         SliverPadding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [

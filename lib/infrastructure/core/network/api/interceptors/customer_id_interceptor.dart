@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final customerIdInterceptorProvider = Provider<CustomerIdInterceptor>((ref) => CustomerIdInterceptor());
+final customerIdInterceptorProvider =
+    Provider<CustomerIdInterceptor>((ref) => CustomerIdInterceptor());
 
 class CustomerIdInterceptor extends InterceptorsWrapper {
   CustomerIdInterceptor();

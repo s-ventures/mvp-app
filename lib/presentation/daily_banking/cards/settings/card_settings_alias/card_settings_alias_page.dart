@@ -31,8 +31,7 @@ class CardSettingsAliasPage extends StatelessWidget {
               TextInput(
                 size: TextInputSize.extraSmall,
                 labelText: context.loc.dailyBankingCardsAlias,
-                hintText:
-                    context.loc.dailyBankingCardsSettingsCardAliasDescription,
+                hintText: context.loc.dailyBankingCardsSettingsCardAliasDescription,
                 controller: TextEditingController(
                   text: '-',
                 ),

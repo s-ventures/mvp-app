@@ -59,8 +59,8 @@ class _$DetailedClaimStateCopyWithImpl<$Res, $Val extends DetailedClaimState>
 /// @nodoc
 abstract class _$$DetailedClaimStateImplCopyWith<$Res>
     implements $DetailedClaimStateCopyWith<$Res> {
-  factory _$$DetailedClaimStateImplCopyWith(_$DetailedClaimStateImpl value,
-          $Res Function(_$DetailedClaimStateImpl) then) =
+  factory _$$DetailedClaimStateImplCopyWith(
+          _$DetailedClaimStateImpl value, $Res Function(_$DetailedClaimStateImpl) then) =
       __$$DetailedClaimStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -71,8 +71,8 @@ abstract class _$$DetailedClaimStateImplCopyWith<$Res>
 class __$$DetailedClaimStateImplCopyWithImpl<$Res>
     extends _$DetailedClaimStateCopyWithImpl<$Res, _$DetailedClaimStateImpl>
     implements _$$DetailedClaimStateImplCopyWith<$Res> {
-  __$$DetailedClaimStateImplCopyWithImpl(_$DetailedClaimStateImpl _value,
-      $Res Function(_$DetailedClaimStateImpl) _then)
+  __$$DetailedClaimStateImplCopyWithImpl(
+      _$DetailedClaimStateImpl _value, $Res Function(_$DetailedClaimStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,8 +92,7 @@ class __$$DetailedClaimStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DetailedClaimStateImpl implements _DetailedClaimState {
-  const _$DetailedClaimStateImpl(
-      {this.claim = const AsyncLoading<DetailedClaim>()});
+  const _$DetailedClaimStateImpl({this.claim = const AsyncLoading<DetailedClaim>()});
 
   @override
   @JsonKey()
@@ -119,8 +118,7 @@ class _$DetailedClaimStateImpl implements _DetailedClaimState {
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedClaimStateImplCopyWith<_$DetailedClaimStateImpl> get copyWith =>
-      __$$DetailedClaimStateImplCopyWithImpl<_$DetailedClaimStateImpl>(
-          this, _$identity);
+      __$$DetailedClaimStateImplCopyWithImpl<_$DetailedClaimStateImpl>(this, _$identity);
 }
 
 abstract class _DetailedClaimState implements DetailedClaimState {

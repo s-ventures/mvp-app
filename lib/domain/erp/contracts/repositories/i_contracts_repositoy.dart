@@ -5,8 +5,7 @@ import 'package:manifiesto_mvp_app/domain/erp/contracts/failures/customer_contra
 import 'package:manifiesto_mvp_app/domain/erp/contracts/failures/select_contract_failure.dart';
 
 abstract class IContractsRepository {
-  Future<Either<CustomerContractFailure, List<CustomerContract>>>
-      getContracts();
+  Future<Either<CustomerContractFailure, List<CustomerContract>>> getContracts();
 
   Future<Either<SelectContractFailure, Unit>> selectContract({
     required int contractId,

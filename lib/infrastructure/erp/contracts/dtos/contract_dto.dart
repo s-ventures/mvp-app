@@ -22,8 +22,7 @@ class ContractDto with _$ContractDto {
     @DateConverter() required DateTime? endDate,
   }) = _ContractDto;
 
-  factory ContractDto.fromJson(Map<String, dynamic> json) =>
-      _$ContractDtoFromJson(json);
+  factory ContractDto.fromJson(Map<String, dynamic> json) => _$ContractDtoFromJson(json);
 }
 
 extension ContractDtoX on ContractDto {

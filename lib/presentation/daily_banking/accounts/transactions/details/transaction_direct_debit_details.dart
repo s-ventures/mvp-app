@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/direct_debit_transaction_details.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/widgets/upload_files_bottom_sheet.dart';
-import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
+import 'package:manifiesto_mvp_app/presentation/shared/transaction/transaction_actions_section.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransactionDirectDebitDetails extends StatelessWidget {
@@ -18,6 +16,7 @@ class TransactionDirectDebitDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final details = transaction.details! as DirectDebitTransactionDetails;
+    final attachments = transaction.attachments;
 
     return ListView(
       padding: const EdgeInsets.all(AppSpacing.s5),
@@ -31,11 +30,9 @@ class TransactionDirectDebitDetails extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         MovementDetailsDate(
-          titleStartDate: context
-              .loc.dailyBankingDirectDebitMovementDetailsMaximumReturnDate,
+          titleStartDate: context.loc.dailyBankingDirectDebitMovementDetailsMaximumReturnDate,
           startDate: transaction.postingDate.formatToDayMonthYear(),
-          titleEndDate:
-              context.loc.dailyBankingDirectDebitMovementDetailsReturnedReceipt,
+          titleEndDate: context.loc.dailyBankingDirectDebitMovementDetailsReturnedReceipt,
           endDate: details.returnDate.formatToDayMonthYear(),
         ),
         AppSpacing.vertical.s5,
@@ -57,8 +54,7 @@ class TransactionDirectDebitDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                context.loc
-                    .dailyBankingDirectDebitMovementDetailsMandatoryReference,
+                context.loc.dailyBankingDirectDebitMovementDetailsMandatoryReference,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -87,12 +83,15 @@ class TransactionDirectDebitDetails extends StatelessWidget {
         AppSpacing.vertical.s5,
         const MovementDetailsVoucher(),
         AppSpacing.vertical.s5,
-        MovementDetailsActions(
-          onUploadFilesPressed: () {
-            UploadFilesBottomSheet.show(context: context);
+        TransactionActionsSection(
+          attachments: attachments,
+          onFileSelected: (file) {
+            // TODO(migalv): Add files
+            // attachments.length < controller.maxAttachments ? (file) => controller.addFiles([file]) : null,
           },
-          onCreateExpensePressed: () {
-            context.goNamed(AppRoute.negocio.name);
+          onRemove: (attachment) {
+            // TODO(migalv): Add onRemove
+            // controller.removeFile,
           },
         ),
         AppSpacing.vertical.s5,

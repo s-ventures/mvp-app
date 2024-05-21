@@ -6,8 +6,6 @@ part of 'extended_details_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ExtendedDetailsDto _$ExtendedDetailsDtoFromJson(Map<String, dynamic> json) =>
-    ExtendedDetailsDto();
+ExtendedDetailsDto _$ExtendedDetailsDtoFromJson(Map<String, dynamic> json) => ExtendedDetailsDto();
 
-Map<String, dynamic> _$ExtendedDetailsDtoToJson(ExtendedDetailsDto instance) =>
-    <String, dynamic>{};
+Map<String, dynamic> _$ExtendedDetailsDtoToJson(ExtendedDetailsDto instance) => <String, dynamic>{};

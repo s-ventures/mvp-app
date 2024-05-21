@@ -14,8 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-DetailedAccountTransactionDto _$DetailedAccountTransactionDtoFromJson(
-    Map<String, dynamic> json) {
+DetailedAccountTransactionDto _$DetailedAccountTransactionDtoFromJson(Map<String, dynamic> json) {
   return _DetailedAccountTransactionDto.fromJson(json);
 }
 
@@ -50,26 +49,24 @@ mixin _$DetailedAccountTransactionDto {
   String? get originalCurrencyCode =>
       throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
-  DateTime get assignmentDate => throw _privateConstructorUsedError;
-  List<FileAttachmentInfoDto>? get attachments =>
-      throw _privateConstructorUsedError;
+  DateTime? get assignmentDate =>
+      throw _privateConstructorUsedError; // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
+  List<FileAttachmentInfoDto>? get attachments => throw _privateConstructorUsedError;
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails => throw _privateConstructorUsedError;
   ProductTypeDto get productType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailedAccountTransactionDtoCopyWith<DetailedAccountTransactionDto>
-      get copyWith => throw _privateConstructorUsedError;
+  $DetailedAccountTransactionDtoCopyWith<DetailedAccountTransactionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
   factory $DetailedAccountTransactionDtoCopyWith(
-          DetailedAccountTransactionDto value,
-          $Res Function(DetailedAccountTransactionDto) then) =
-      _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
-          DetailedAccountTransactionDto>;
+          DetailedAccountTransactionDto value, $Res Function(DetailedAccountTransactionDto) then) =
+      _$DetailedAccountTransactionDtoCopyWithImpl<$Res, DetailedAccountTransactionDto>;
   @useResult
   $Res call(
       {int movementId,
@@ -91,15 +88,14 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       String? originBranch,
       double? originalAmount,
       String? originalCurrencyCode,
-      @DateConverter() DateTime assignmentDate,
+      @DateConverter() DateTime? assignmentDate,
       List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
 }
 
 /// @nodoc
-class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
-        $Val extends DetailedAccountTransactionDto>
+class _$DetailedAccountTransactionDtoCopyWithImpl<$Res, $Val extends DetailedAccountTransactionDto>
     implements $DetailedAccountTransactionDtoCopyWith<$Res> {
   _$DetailedAccountTransactionDtoCopyWithImpl(this._value, this._then);
 
@@ -130,7 +126,7 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? originBranch = freezed,
     Object? originalAmount = freezed,
     Object? originalCurrencyCode = freezed,
-    Object? assignmentDate = null,
+    Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
     Object? productType = null,
@@ -212,10 +208,10 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.originalCurrencyCode
           : originalCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      assignmentDate: null == assignmentDate
+      assignmentDate: freezed == assignmentDate
           ? _value.assignmentDate
           : assignmentDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       attachments: freezed == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -235,8 +231,7 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
     implements $DetailedAccountTransactionDtoCopyWith<$Res> {
-  factory _$$DetailedAccountTransactionDtoImplCopyWith(
-          _$DetailedAccountTransactionDtoImpl value,
+  factory _$$DetailedAccountTransactionDtoImplCopyWith(_$DetailedAccountTransactionDtoImpl value,
           $Res Function(_$DetailedAccountTransactionDtoImpl) then) =
       __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>;
   @override
@@ -261,7 +256,7 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       String? originBranch,
       double? originalAmount,
       String? originalCurrencyCode,
-      @DateConverter() DateTime assignmentDate,
+      @DateConverter() DateTime? assignmentDate,
       List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
       ProductTypeDto productType});
@@ -269,11 +264,9 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
-    extends _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
-        _$DetailedAccountTransactionDtoImpl>
+    extends _$DetailedAccountTransactionDtoCopyWithImpl<$Res, _$DetailedAccountTransactionDtoImpl>
     implements _$$DetailedAccountTransactionDtoImplCopyWith<$Res> {
-  __$$DetailedAccountTransactionDtoImplCopyWithImpl(
-      _$DetailedAccountTransactionDtoImpl _value,
+  __$$DetailedAccountTransactionDtoImplCopyWithImpl(_$DetailedAccountTransactionDtoImpl _value,
       $Res Function(_$DetailedAccountTransactionDtoImpl) _then)
       : super(_value, _then);
 
@@ -299,7 +292,7 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? originBranch = freezed,
     Object? originalAmount = freezed,
     Object? originalCurrencyCode = freezed,
-    Object? assignmentDate = null,
+    Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
     Object? productType = null,
@@ -381,10 +374,10 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.originalCurrencyCode
           : originalCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      assignmentDate: null == assignmentDate
+      assignmentDate: freezed == assignmentDate
           ? _value.assignmentDate
           : assignmentDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       attachments: freezed == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -403,8 +396,7 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DetailedAccountTransactionDtoImpl
-    implements _DetailedAccountTransactionDto {
+class _$DetailedAccountTransactionDtoImpl implements _DetailedAccountTransactionDto {
   const _$DetailedAccountTransactionDtoImpl(
       {required this.movementId,
       @DateConverter() required this.postingDate,
@@ -431,8 +423,7 @@ class _$DetailedAccountTransactionDtoImpl
       required this.productType})
       : _attachments = attachments;
 
-  factory _$DetailedAccountTransactionDtoImpl.fromJson(
-          Map<String, dynamic> json) =>
+  factory _$DetailedAccountTransactionDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$DetailedAccountTransactionDtoImplFromJson(json);
 
   @override
@@ -484,8 +475,10 @@ class _$DetailedAccountTransactionDtoImpl
 // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   @DateConverter()
-  final DateTime assignmentDate;
+  final DateTime? assignmentDate;
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   final List<FileAttachmentInfoDto>? _attachments;
+// TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @override
   List<FileAttachmentInfoDto>? get attachments {
     final value = _attachments;
@@ -511,48 +504,34 @@ class _$DetailedAccountTransactionDtoImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedAccountTransactionDtoImpl &&
-            (identical(other.movementId, movementId) ||
-                other.movementId == movementId) &&
-            (identical(other.postingDate, postingDate) ||
-                other.postingDate == postingDate) &&
-            (identical(other.valueDate, valueDate) ||
-                other.valueDate == valueDate) &&
+            (identical(other.movementId, movementId) || other.movementId == movementId) &&
+            (identical(other.postingDate, postingDate) || other.postingDate == postingDate) &&
+            (identical(other.valueDate, valueDate) || other.valueDate == valueDate) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.currencyCode, currencyCode) ||
-                other.currencyCode == currencyCode) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
+            (identical(other.description, description) || other.description == description) &&
             (identical(other.analyticsCategory, analyticsCategory) ||
                 other.analyticsCategory == analyticsCategory) &&
-            (identical(other.userComments, userComments) ||
-                other.userComments == userComments) &&
-            (identical(other.userCategory, userCategory) ||
-                other.userCategory == userCategory) &&
+            (identical(other.userComments, userComments) || other.userComments == userComments) &&
+            (identical(other.userCategory, userCategory) || other.userCategory == userCategory) &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
-            (identical(other.accountId, accountId) ||
-                other.accountId == accountId) &&
-            (identical(other.endBalance, endBalance) ||
-                other.endBalance == endBalance) &&
-            (identical(other.detailFields, detailFields) ||
-                other.detailFields == detailFields) &&
+            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.endBalance, endBalance) || other.endBalance == endBalance) &&
+            (identical(other.detailFields, detailFields) || other.detailFields == detailFields) &&
             (identical(other.visible, visible) || other.visible == visible) &&
-            (identical(other.bankReceipt, bankReceipt) ||
-                other.bankReceipt == bankReceipt) &&
-            (identical(other.originBranch, originBranch) ||
-                other.originBranch == originBranch) &&
+            (identical(other.bankReceipt, bankReceipt) || other.bankReceipt == bankReceipt) &&
+            (identical(other.originBranch, originBranch) || other.originBranch == originBranch) &&
             (identical(other.originalAmount, originalAmount) ||
                 other.originalAmount == originalAmount) &&
             (identical(other.originalCurrencyCode, originalCurrencyCode) ||
                 other.originalCurrencyCode == originalCurrencyCode) &&
             (identical(other.assignmentDate, assignmentDate) ||
                 other.assignmentDate == assignmentDate) &&
-            const DeepCollectionEquality()
-                .equals(other._attachments, _attachments) &&
+            const DeepCollectionEquality().equals(other._attachments, _attachments) &&
             (identical(other.extendedDetails, extendedDetails) ||
                 other.extendedDetails == extendedDetails) &&
-            (identical(other.productType, productType) ||
-                other.productType == productType));
+            (identical(other.productType, productType) || other.productType == productType));
   }
 
   @JsonKey(ignore: true)
@@ -587,10 +566,9 @@ class _$DetailedAccountTransactionDtoImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedAccountTransactionDtoImplCopyWith<
-          _$DetailedAccountTransactionDtoImpl>
-      get copyWith => __$$DetailedAccountTransactionDtoImplCopyWithImpl<
-          _$DetailedAccountTransactionDtoImpl>(this, _$identity);
+  _$$DetailedAccountTransactionDtoImplCopyWith<_$DetailedAccountTransactionDtoImpl> get copyWith =>
+      __$$DetailedAccountTransactionDtoImplCopyWithImpl<_$DetailedAccountTransactionDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -600,34 +578,31 @@ class _$DetailedAccountTransactionDtoImpl
   }
 }
 
-abstract class _DetailedAccountTransactionDto
-    implements DetailedAccountTransactionDto {
+abstract class _DetailedAccountTransactionDto implements DetailedAccountTransactionDto {
   const factory _DetailedAccountTransactionDto(
-          {required final int movementId,
-          @DateConverter() required final DateTime postingDate,
-          @DateConverter() required final DateTime valueDate,
-          required final AccountTransactionTypeDto type,
-          required final double amount,
-          required final String currencyCode,
-          required final String description,
-          required final String? analyticsCategory,
-          required final String? userComments,
-          required final String? userCategory,
-          required final String? placeId,
-          required final int? accountId,
-          required final double? endBalance,
-          required final String? detailFields,
-          required final bool? visible,
-          required final bool? bankReceipt,
-          required final String? originBranch,
-          required final double? originalAmount,
-          required final String? originalCurrencyCode,
-          @DateConverter() required final DateTime assignmentDate,
-          required final List<FileAttachmentInfoDto>? attachments,
-          @ExtendedDetailsConverter()
-          required final ExtendedDetailsDto? extendedDetails,
-          required final ProductTypeDto productType}) =
-      _$DetailedAccountTransactionDtoImpl;
+      {required final int movementId,
+      @DateConverter() required final DateTime postingDate,
+      @DateConverter() required final DateTime valueDate,
+      required final AccountTransactionTypeDto type,
+      required final double amount,
+      required final String currencyCode,
+      required final String description,
+      required final String? analyticsCategory,
+      required final String? userComments,
+      required final String? userCategory,
+      required final String? placeId,
+      required final int? accountId,
+      required final double? endBalance,
+      required final String? detailFields,
+      required final bool? visible,
+      required final bool? bankReceipt,
+      required final String? originBranch,
+      required final double? originalAmount,
+      required final String? originalCurrencyCode,
+      @DateConverter() required final DateTime? assignmentDate,
+      required final List<FileAttachmentInfoDto>? attachments,
+      @ExtendedDetailsConverter() required final ExtendedDetailsDto? extendedDetails,
+      required final ProductTypeDto productType}) = _$DetailedAccountTransactionDtoImpl;
 
   factory _DetailedAccountTransactionDto.fromJson(Map<String, dynamic> json) =
       _$DetailedAccountTransactionDtoImpl.fromJson;
@@ -674,8 +649,8 @@ abstract class _DetailedAccountTransactionDto
   String? get originalCurrencyCode;
   @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   @DateConverter()
-  DateTime get assignmentDate;
-  @override
+  DateTime? get assignmentDate;
+  @override // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
   List<FileAttachmentInfoDto>? get attachments;
   @override
   @ExtendedDetailsConverter()
@@ -684,7 +659,6 @@ abstract class _DetailedAccountTransactionDto
   ProductTypeDto get productType;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedAccountTransactionDtoImplCopyWith<
-          _$DetailedAccountTransactionDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$DetailedAccountTransactionDtoImplCopyWith<_$DetailedAccountTransactionDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

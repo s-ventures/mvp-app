@@ -39,11 +39,7 @@ abstract class $SimplifiedClaimDtoCopyWith<$Res> {
       _$SimplifiedClaimDtoCopyWithImpl<$Res, SimplifiedClaimDto>;
   @useResult
   $Res call(
-      {int claimId,
-      int insuranceId,
-      ClaimStatusTypeDto status,
-      String riskType,
-      String reason});
+      {int claimId, int insuranceId, ClaimStatusTypeDto status, String riskType, String reason});
 }
 
 /// @nodoc
@@ -93,25 +89,21 @@ class _$SimplifiedClaimDtoCopyWithImpl<$Res, $Val extends SimplifiedClaimDto>
 /// @nodoc
 abstract class _$$SimplifiedClaimDtoImplCopyWith<$Res>
     implements $SimplifiedClaimDtoCopyWith<$Res> {
-  factory _$$SimplifiedClaimDtoImplCopyWith(_$SimplifiedClaimDtoImpl value,
-          $Res Function(_$SimplifiedClaimDtoImpl) then) =
+  factory _$$SimplifiedClaimDtoImplCopyWith(
+          _$SimplifiedClaimDtoImpl value, $Res Function(_$SimplifiedClaimDtoImpl) then) =
       __$$SimplifiedClaimDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {int claimId,
-      int insuranceId,
-      ClaimStatusTypeDto status,
-      String riskType,
-      String reason});
+      {int claimId, int insuranceId, ClaimStatusTypeDto status, String riskType, String reason});
 }
 
 /// @nodoc
 class __$$SimplifiedClaimDtoImplCopyWithImpl<$Res>
     extends _$SimplifiedClaimDtoCopyWithImpl<$Res, _$SimplifiedClaimDtoImpl>
     implements _$$SimplifiedClaimDtoImplCopyWith<$Res> {
-  __$$SimplifiedClaimDtoImplCopyWithImpl(_$SimplifiedClaimDtoImpl _value,
-      $Res Function(_$SimplifiedClaimDtoImpl) _then)
+  __$$SimplifiedClaimDtoImplCopyWithImpl(
+      _$SimplifiedClaimDtoImpl _value, $Res Function(_$SimplifiedClaimDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -183,25 +175,21 @@ class _$SimplifiedClaimDtoImpl implements _SimplifiedClaimDto {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedClaimDtoImpl &&
             (identical(other.claimId, claimId) || other.claimId == claimId) &&
-            (identical(other.insuranceId, insuranceId) ||
-                other.insuranceId == insuranceId) &&
+            (identical(other.insuranceId, insuranceId) || other.insuranceId == insuranceId) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.riskType, riskType) ||
-                other.riskType == riskType) &&
+            (identical(other.riskType, riskType) || other.riskType == riskType) &&
             (identical(other.reason, reason) || other.reason == reason));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, claimId, insuranceId, status, riskType, reason);
+  int get hashCode => Object.hash(runtimeType, claimId, insuranceId, status, riskType, reason);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimplifiedClaimDtoImplCopyWith<_$SimplifiedClaimDtoImpl> get copyWith =>
-      __$$SimplifiedClaimDtoImplCopyWithImpl<_$SimplifiedClaimDtoImpl>(
-          this, _$identity);
+      __$$SimplifiedClaimDtoImplCopyWithImpl<_$SimplifiedClaimDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

@@ -16,8 +16,7 @@ abstract class CardContractDto with _$CardContractDto {
     required String currencyCode,
   }) = _CardContractDto;
 
-  factory CardContractDto.fromJson(Map<String, dynamic> json) =>
-      _$CardContractDtoFromJson(json);
+  factory CardContractDto.fromJson(Map<String, dynamic> json) => _$CardContractDtoFromJson(json);
 }
 
 extension CardContractDtoX on CardContractDto {

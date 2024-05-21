@@ -20,12 +20,10 @@ class InsurancePolicyDetailsPage extends ConsumerStatefulWidget {
   final int policyId;
 
   @override
-  ConsumerState<InsurancePolicyDetailsPage> createState() =>
-      _InsurancePolicyDetailsPageState();
+  ConsumerState<InsurancePolicyDetailsPage> createState() => _InsurancePolicyDetailsPageState();
 }
 
-class _InsurancePolicyDetailsPageState
-    extends ConsumerState<InsurancePolicyDetailsPage> {
+class _InsurancePolicyDetailsPageState extends ConsumerState<InsurancePolicyDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -33,9 +31,7 @@ class _InsurancePolicyDetailsPageState
           .read(filterSimplifiedClaimsControllerProvider.notifier)
           .setInsuranceIds([widget.insuranceId]);
       unawaited(
-        ref
-            .read(filterSimplifiedClaimsControllerProvider.notifier)
-            .applyFilters(),
+        ref.read(filterSimplifiedClaimsControllerProvider.notifier).applyFilters(),
       );
     });
     super.initState();

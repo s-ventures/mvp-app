@@ -29,14 +29,12 @@ mixin _$ContractDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ContractDtoCopyWith<ContractDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ContractDtoCopyWith<ContractDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ContractDtoCopyWith<$Res> {
-  factory $ContractDtoCopyWith(
-          ContractDto value, $Res Function(ContractDto) then) =
+  factory $ContractDtoCopyWith(ContractDto value, $Res Function(ContractDto) then) =
       _$ContractDtoCopyWithImpl<$Res, ContractDto>;
   @useResult
   $Res call(
@@ -86,8 +84,7 @@ class _$ContractDtoCopyWithImpl<$Res, $Val extends ContractDto>
 }
 
 /// @nodoc
-abstract class _$$ContractDtoImplCopyWith<$Res>
-    implements $ContractDtoCopyWith<$Res> {
+abstract class _$$ContractDtoImplCopyWith<$Res> implements $ContractDtoCopyWith<$Res> {
   factory _$$ContractDtoImplCopyWith(
           _$ContractDtoImpl value, $Res Function(_$ContractDtoImpl) then) =
       __$$ContractDtoImplCopyWithImpl<$Res>;
@@ -104,8 +101,7 @@ abstract class _$$ContractDtoImplCopyWith<$Res>
 class __$$ContractDtoImplCopyWithImpl<$Res>
     extends _$ContractDtoCopyWithImpl<$Res, _$ContractDtoImpl>
     implements _$$ContractDtoImplCopyWith<$Res> {
-  __$$ContractDtoImplCopyWithImpl(
-      _$ContractDtoImpl _value, $Res Function(_$ContractDtoImpl) _then)
+  __$$ContractDtoImplCopyWithImpl(_$ContractDtoImpl _value, $Res Function(_$ContractDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -146,8 +142,7 @@ class _$ContractDtoImpl implements _ContractDto {
       @DateConverter() required this.startDate,
       @DateConverter() required this.endDate});
 
-  factory _$ContractDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContractDtoImplFromJson(json);
+  factory _$ContractDtoImpl.fromJson(Map<String, dynamic> json) => _$$ContractDtoImplFromJson(json);
 
   @override
   final int contractId;
@@ -170,19 +165,15 @@ class _$ContractDtoImpl implements _ContractDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ContractDtoImpl &&
-            (identical(other.contractId, contractId) ||
-                other.contractId == contractId) &&
-            (identical(other.productCode, productCode) ||
-                other.productCode == productCode) &&
-            (identical(other.startDate, startDate) ||
-                other.startDate == startDate) &&
+            (identical(other.contractId, contractId) || other.contractId == contractId) &&
+            (identical(other.productCode, productCode) || other.productCode == productCode) &&
+            (identical(other.startDate, startDate) || other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, contractId, productCode, startDate, endDate);
+  int get hashCode => Object.hash(runtimeType, contractId, productCode, startDate, endDate);
 
   @JsonKey(ignore: true)
   @override
@@ -205,8 +196,7 @@ abstract class _ContractDto implements ContractDto {
       @DateConverter() required final DateTime startDate,
       @DateConverter() required final DateTime? endDate}) = _$ContractDtoImpl;
 
-  factory _ContractDto.fromJson(Map<String, dynamic> json) =
-      _$ContractDtoImpl.fromJson;
+  factory _ContractDto.fromJson(Map<String, dynamic> json) = _$ContractDtoImpl.fromJson;
 
   @override
   int get contractId;
@@ -220,6 +210,5 @@ abstract class _ContractDto implements ContractDto {
   DateTime? get endDate;
   @override
   @JsonKey(ignore: true)
-  _$$ContractDtoImplCopyWith<_$ContractDtoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ContractDtoImplCopyWith<_$ContractDtoImpl> get copyWith => throw _privateConstructorUsedError;
 }

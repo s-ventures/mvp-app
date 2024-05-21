@@ -5,15 +5,14 @@ import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/simplified_policy.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_pagination_repository.dart';
 
-final simplifiedPoliciesControllerProvider = StateNotifierProvider<
-    SimplifiedPoliciesController, SimplifiedPoliciesState>(
+final simplifiedPoliciesControllerProvider =
+    StateNotifierProvider<SimplifiedPoliciesController, SimplifiedPoliciesState>(
   (ref) => SimplifiedPoliciesController(
     ref.watch(policiesPaginationRepositoryProvider),
   ),
 );
 
-class SimplifiedPoliciesController
-    extends StateNotifier<SimplifiedPoliciesState>
+class SimplifiedPoliciesController extends StateNotifier<SimplifiedPoliciesState>
     with PaginationLoadingProvider<List<SimplifiedPolicy>> {
   SimplifiedPoliciesController(
     this._repository,
@@ -27,8 +26,7 @@ class SimplifiedPoliciesController
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            policies: const AsyncLoading<List<SimplifiedPolicy>>()
-                .copyWithPrevious(state.policies),
+            policies: const AsyncLoading<List<SimplifiedPolicy>>().copyWithPrevious(state.policies),
           ),
         );
       },

@@ -4,8 +4,7 @@ import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_ty
 part 'filter_simplified_card_transactions_state.freezed.dart';
 
 @freezed
-class FilterSimplifiedCardTransactionsState
-    with _$FilterSimplifiedCardTransactionsState {
+class FilterSimplifiedCardTransactionsState with _$FilterSimplifiedCardTransactionsState {
   const factory FilterSimplifiedCardTransactionsState({
     @Default('') String search,
     DateTime? startDate,
@@ -13,7 +12,6 @@ class FilterSimplifiedCardTransactionsState
     double? amountFrom,
     double? amountTo,
     @Default('Entretenimiento') String category,
-    @Default(TransactionOperationType.all)
-    TransactionOperationType operationType,
+    @Default(TransactionOperationType.all) TransactionOperationType operationType,
   }) = _FilterSimplifiedCardTransactionsState;
 }

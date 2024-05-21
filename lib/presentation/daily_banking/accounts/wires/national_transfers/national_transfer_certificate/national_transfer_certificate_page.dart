@@ -34,8 +34,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              context.loc
-                                  .dailyBankingNationalTransfersMenuReuseTransfer,
+                              context.loc.dailyBankingNationalTransfersMenuReuseTransfer,
                               style: context.textStyle.bodyMediumRegular,
                             ),
                             AppSpacing.horizontal.s5,
@@ -57,10 +56,8 @@ class NationalTransferCertificatePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              context.loc
-                                  .dailyBankingNationalTransfersMenuCancelTransfer,
-                              style:
-                                  context.textStyle.bodyMediumRegular.copyWith(
+                              context.loc.dailyBankingNationalTransfersMenuCancelTransfer,
+                              style: context.textStyle.bodyMediumRegular.copyWith(
                                 color: context.color.statusError,
                               ),
                             ),
@@ -241,8 +238,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   title: context.loc.commonDownload,
                   size: ButtonSize.small,
                   expand: true,
-                  onPressed: () async =>
-                      context.goNamed(AppRoute.dailyBanking.name),
+                  onPressed: () async => context.goNamed(AppRoute.dailyBanking.name),
                 ),
               ),
               AppSpacing.horizontal.s3,

@@ -73,8 +73,7 @@ class ClaimDetailsListTile extends StatelessWidget {
                           : context.color.backgroundLight0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              trailingType == ClaimDetailsType.date ||
-                      trailingType == ClaimDetailsType.currency
+              trailingType == ClaimDetailsType.date || trailingType == ClaimDetailsType.currency
                   ? context.radius.soft
                   : context.radius.hard,
             ),
@@ -85,8 +84,7 @@ class ClaimDetailsListTile extends StatelessWidget {
           style: context.textStyle.bodyMediumRegular.copyWith(
             color: trailingType == ClaimDetailsType.text
                 ? context.color.textLight600
-                : trailingType == ClaimDetailsType.date ||
-                        trailingType == ClaimDetailsType.currency
+                : trailingType == ClaimDetailsType.date || trailingType == ClaimDetailsType.currency
                     ? context.color.textLight900
                     : trailingType == ClaimDetailsType.status
                         ? trailingStatus == ClaimDetailsStatus.completed

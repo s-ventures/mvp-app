@@ -14,7 +14,8 @@ class FileAttachmentInfoDto with _$FileAttachmentInfoDto {
     @DateConverter() required DateTime createDate,
   }) = _FileAttachmentInfoDto;
 
-  factory FileAttachmentInfoDto.fromJson(Map<String, dynamic> json) => _$FileAttachmentInfoDtoFromJson(json);
+  factory FileAttachmentInfoDto.fromJson(Map<String, dynamic> json) =>
+      _$FileAttachmentInfoDtoFromJson(json);
 }
 
 extension FileAttachmentInfoDtoX on FileAttachmentInfoDto {

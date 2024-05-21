@@ -14,12 +14,10 @@ class AccountListSliverPinnedHeader extends ConsumerStatefulWidget {
   const AccountListSliverPinnedHeader({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _AccountListSliverPinnedHeaderState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _AccountListSliverPinnedHeaderState();
 }
 
-class _AccountListSliverPinnedHeaderState
-    extends ConsumerState<AccountListSliverPinnedHeader> {
+class _AccountListSliverPinnedHeaderState extends ConsumerState<AccountListSliverPinnedHeader> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -34,8 +32,7 @@ class _AccountListSliverPinnedHeaderState
       simplifiedAccountsControllerProvider.select((value) => value.accounts),
     );
     final selectedAccountIndex = ref.watch(
-      simplifiedAccountsControllerProvider
-          .select((value) => value.selectedAccountIndex),
+      simplifiedAccountsControllerProvider.select((value) => value.selectedAccountIndex),
     );
     final controller = ref.read(simplifiedAccountsControllerProvider.notifier);
 
@@ -170,8 +167,7 @@ class _AccountList extends StatelessWidget {
                   ),
                   AppSpacing.horizontal.s3,
                   Text(
-                    account.balance.availableBalance
-                        .toCurrency(plusSign: false),
+                    account.balance.availableBalance.toCurrency(plusSign: false),
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: account.balance.availableBalance < 0
                           ? context.color.statusError
@@ -187,9 +183,7 @@ class _AccountList extends StatelessWidget {
                   CustomChip(
                     size: CustomChipSize.extraSmall,
                     backgroundColor: context.color.backgroundLight200,
-                    leadingIcon: account.entity == '2103'
-                        ? IconAssets.soon
-                        : IconAssets.santander,
+                    leadingIcon: account.entity == '2103' ? IconAssets.soon : IconAssets.santander,
                     leadingIconColor: account.entity == '2103'
                         ? context.color.secondaryLight600
                         : context.color.statusError,

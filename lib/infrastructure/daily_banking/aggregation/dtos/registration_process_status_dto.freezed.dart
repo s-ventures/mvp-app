@@ -14,8 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-RegistrationProcessStatusDto _$RegistrationProcessStatusDtoFromJson(
-    Map<String, dynamic> json) {
+RegistrationProcessStatusDto _$RegistrationProcessStatusDtoFromJson(Map<String, dynamic> json) {
   return _RegistrationProcessStatusDto.fromJson(json);
 }
 
@@ -26,17 +25,15 @@ mixin _$RegistrationProcessStatusDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RegistrationProcessStatusDtoCopyWith<RegistrationProcessStatusDto>
-      get copyWith => throw _privateConstructorUsedError;
+  $RegistrationProcessStatusDtoCopyWith<RegistrationProcessStatusDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RegistrationProcessStatusDtoCopyWith<$Res> {
   factory $RegistrationProcessStatusDtoCopyWith(
-          RegistrationProcessStatusDto value,
-          $Res Function(RegistrationProcessStatusDto) then) =
-      _$RegistrationProcessStatusDtoCopyWithImpl<$Res,
-          RegistrationProcessStatusDto>;
+          RegistrationProcessStatusDto value, $Res Function(RegistrationProcessStatusDto) then) =
+      _$RegistrationProcessStatusDtoCopyWithImpl<$Res, RegistrationProcessStatusDto>;
   @useResult
   $Res call({StatusDto status, AggregatedProductDto product});
 
@@ -44,8 +41,7 @@ abstract class $RegistrationProcessStatusDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RegistrationProcessStatusDtoCopyWithImpl<$Res,
-        $Val extends RegistrationProcessStatusDto>
+class _$RegistrationProcessStatusDtoCopyWithImpl<$Res, $Val extends RegistrationProcessStatusDto>
     implements $RegistrationProcessStatusDtoCopyWith<$Res> {
   _$RegistrationProcessStatusDtoCopyWithImpl(this._value, this._then);
 
@@ -84,8 +80,7 @@ class _$RegistrationProcessStatusDtoCopyWithImpl<$Res,
 /// @nodoc
 abstract class _$$RegistrationProcessStatusDtoImplCopyWith<$Res>
     implements $RegistrationProcessStatusDtoCopyWith<$Res> {
-  factory _$$RegistrationProcessStatusDtoImplCopyWith(
-          _$RegistrationProcessStatusDtoImpl value,
+  factory _$$RegistrationProcessStatusDtoImplCopyWith(_$RegistrationProcessStatusDtoImpl value,
           $Res Function(_$RegistrationProcessStatusDtoImpl) then) =
       __$$RegistrationProcessStatusDtoImplCopyWithImpl<$Res>;
   @override
@@ -98,11 +93,9 @@ abstract class _$$RegistrationProcessStatusDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$RegistrationProcessStatusDtoImplCopyWithImpl<$Res>
-    extends _$RegistrationProcessStatusDtoCopyWithImpl<$Res,
-        _$RegistrationProcessStatusDtoImpl>
+    extends _$RegistrationProcessStatusDtoCopyWithImpl<$Res, _$RegistrationProcessStatusDtoImpl>
     implements _$$RegistrationProcessStatusDtoImplCopyWith<$Res> {
-  __$$RegistrationProcessStatusDtoImplCopyWithImpl(
-      _$RegistrationProcessStatusDtoImpl _value,
+  __$$RegistrationProcessStatusDtoImplCopyWithImpl(_$RegistrationProcessStatusDtoImpl _value,
       $Res Function(_$RegistrationProcessStatusDtoImpl) _then)
       : super(_value, _then);
 
@@ -127,13 +120,10 @@ class __$$RegistrationProcessStatusDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RegistrationProcessStatusDtoImpl
-    implements _RegistrationProcessStatusDto {
-  const _$RegistrationProcessStatusDtoImpl(
-      {required this.status, required this.product});
+class _$RegistrationProcessStatusDtoImpl implements _RegistrationProcessStatusDto {
+  const _$RegistrationProcessStatusDtoImpl({required this.status, required this.product});
 
-  factory _$RegistrationProcessStatusDtoImpl.fromJson(
-          Map<String, dynamic> json) =>
+  factory _$RegistrationProcessStatusDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RegistrationProcessStatusDtoImplFromJson(json);
 
   @override
@@ -162,10 +152,9 @@ class _$RegistrationProcessStatusDtoImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegistrationProcessStatusDtoImplCopyWith<
-          _$RegistrationProcessStatusDtoImpl>
-      get copyWith => __$$RegistrationProcessStatusDtoImplCopyWithImpl<
-          _$RegistrationProcessStatusDtoImpl>(this, _$identity);
+  _$$RegistrationProcessStatusDtoImplCopyWith<_$RegistrationProcessStatusDtoImpl> get copyWith =>
+      __$$RegistrationProcessStatusDtoImplCopyWithImpl<_$RegistrationProcessStatusDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -175,12 +164,10 @@ class _$RegistrationProcessStatusDtoImpl
   }
 }
 
-abstract class _RegistrationProcessStatusDto
-    implements RegistrationProcessStatusDto {
+abstract class _RegistrationProcessStatusDto implements RegistrationProcessStatusDto {
   const factory _RegistrationProcessStatusDto(
-          {required final StatusDto status,
-          required final AggregatedProductDto product}) =
-      _$RegistrationProcessStatusDtoImpl;
+      {required final StatusDto status,
+      required final AggregatedProductDto product}) = _$RegistrationProcessStatusDtoImpl;
 
   factory _RegistrationProcessStatusDto.fromJson(Map<String, dynamic> json) =
       _$RegistrationProcessStatusDtoImpl.fromJson;
@@ -191,7 +178,6 @@ abstract class _RegistrationProcessStatusDto
   AggregatedProductDto get product;
   @override
   @JsonKey(ignore: true)
-  _$$RegistrationProcessStatusDtoImplCopyWith<
-          _$RegistrationProcessStatusDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$RegistrationProcessStatusDtoImplCopyWith<_$RegistrationProcessStatusDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -24,14 +24,12 @@ mixin _$SimplifiedCard {
   CardContract get contract => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedCardCopyWith<SimplifiedCard> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SimplifiedCardCopyWith<SimplifiedCard> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedCardCopyWith<$Res> {
-  factory $SimplifiedCardCopyWith(
-          SimplifiedCard value, $Res Function(SimplifiedCard) then) =
+  factory $SimplifiedCardCopyWith(SimplifiedCard value, $Res Function(SimplifiedCard) then) =
       _$SimplifiedCardCopyWithImpl<$Res, SimplifiedCard>;
   @useResult
   $Res call(
@@ -103,10 +101,9 @@ class _$SimplifiedCardCopyWithImpl<$Res, $Val extends SimplifiedCard>
 }
 
 /// @nodoc
-abstract class _$$SimplifiedCardImplCopyWith<$Res>
-    implements $SimplifiedCardCopyWith<$Res> {
-  factory _$$SimplifiedCardImplCopyWith(_$SimplifiedCardImpl value,
-          $Res Function(_$SimplifiedCardImpl) then) =
+abstract class _$$SimplifiedCardImplCopyWith<$Res> implements $SimplifiedCardCopyWith<$Res> {
+  factory _$$SimplifiedCardImplCopyWith(
+          _$SimplifiedCardImpl value, $Res Function(_$SimplifiedCardImpl) then) =
       __$$SimplifiedCardImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -209,20 +206,17 @@ class _$SimplifiedCardImpl implements _SimplifiedCard {
             (identical(other.lastFourDigits, lastFourDigits) ||
                 other.lastFourDigits == lastFourDigits) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.contract, contract) ||
-                other.contract == contract));
+            (identical(other.contract, contract) || other.contract == contract));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, brand, lastFourDigits, type, contract);
+  int get hashCode => Object.hash(runtimeType, id, name, brand, lastFourDigits, type, contract);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimplifiedCardImplCopyWith<_$SimplifiedCardImpl> get copyWith =>
-      __$$SimplifiedCardImplCopyWithImpl<_$SimplifiedCardImpl>(
-          this, _$identity);
+      __$$SimplifiedCardImplCopyWithImpl<_$SimplifiedCardImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedCard implements SimplifiedCard {

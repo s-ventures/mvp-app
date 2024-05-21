@@ -7,7 +7,6 @@ part 'detailed_account_state.freezed.dart';
 @freezed
 class DetailedAccountState with _$DetailedAccountState {
   const factory DetailedAccountState({
-    @Default(AsyncLoading<DetailedAccount>())
-    AsyncValue<DetailedAccount> account,
+    @Default(AsyncLoading<DetailedAccount>()) AsyncValue<DetailedAccount> account,
   }) = _DetailedAccountState;
 }

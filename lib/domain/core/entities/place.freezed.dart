@@ -24,15 +24,13 @@ mixin _$Place {
 
 /// @nodoc
 abstract class $PlaceCopyWith<$Res> {
-  factory $PlaceCopyWith(Place value, $Res Function(Place) then) =
-      _$PlaceCopyWithImpl<$Res, Place>;
+  factory $PlaceCopyWith(Place value, $Res Function(Place) then) = _$PlaceCopyWithImpl<$Res, Place>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class _$PlaceCopyWithImpl<$Res, $Val extends Place>
-    implements $PlaceCopyWith<$Res> {
+class _$PlaceCopyWithImpl<$Res, $Val extends Place> implements $PlaceCopyWith<$Res> {
   _$PlaceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -56,8 +54,7 @@ class _$PlaceCopyWithImpl<$Res, $Val extends Place>
 
 /// @nodoc
 abstract class _$$PlaceImplCopyWith<$Res> implements $PlaceCopyWith<$Res> {
-  factory _$$PlaceImplCopyWith(
-          _$PlaceImpl value, $Res Function(_$PlaceImpl) then) =
+  factory _$$PlaceImplCopyWith(_$PlaceImpl value, $Res Function(_$PlaceImpl) then) =
       __$$PlaceImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -65,11 +62,9 @@ abstract class _$$PlaceImplCopyWith<$Res> implements $PlaceCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PlaceImplCopyWithImpl<$Res>
-    extends _$PlaceCopyWithImpl<$Res, _$PlaceImpl>
+class __$$PlaceImplCopyWithImpl<$Res> extends _$PlaceCopyWithImpl<$Res, _$PlaceImpl>
     implements _$$PlaceImplCopyWith<$Res> {
-  __$$PlaceImplCopyWithImpl(
-      _$PlaceImpl _value, $Res Function(_$PlaceImpl) _then)
+  __$$PlaceImplCopyWithImpl(_$PlaceImpl _value, $Res Function(_$PlaceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,6 +119,5 @@ abstract class _Place implements Place {
   String get id;
   @override
   @JsonKey(ignore: true)
-  _$$PlaceImplCopyWith<_$PlaceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PlaceImplCopyWith<_$PlaceImpl> get copyWith => throw _privateConstructorUsedError;
 }

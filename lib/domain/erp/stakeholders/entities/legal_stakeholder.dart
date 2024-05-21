@@ -31,11 +31,11 @@ class LegalStakeholder extends Stakeholder {
 
   final String legalName;
   final String comercialName;
-  final DateTime constitutionDate;
+  final DateTime? constitutionDate;
   final String constitutionCountryCode;
-  final LegalFormCode legalFormCode;
+  final LegalFormCode? legalFormCode;
   final String nationalityCountryCode;
   final String economicActivityCode;
   final String typeCode;
-  final DateTime closureDate;
+  final DateTime? closureDate;
 }

@@ -61,8 +61,7 @@ class CardSettingsPage extends StatelessWidget {
                 children: [
                   Splash(
                     borderRadius: BorderRadius.circular(context.radius.soft),
-                    onPressed: () => context
-                        .pushNamed(AppRoute.dailyBankingCardSettingsAlias.name),
+                    onPressed: () => context.pushNamed(AppRoute.dailyBankingCardSettingsAlias.name),
                     child: ListTile(
                       title: Text(
                         context.loc.dailyBankingCardsSettingsCardAlias,

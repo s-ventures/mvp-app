@@ -19,48 +19,33 @@ mixin _$FileAttachment {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String id, File file, String? fileName, int size)
-        attached,
-    required TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)
-        error,
-    required TResult Function(
-            String id, File file, String? fileName, int size, double? progress)
+    required TResult Function(String id, File file, String? fileName, int size) attached,
+    required TResult Function(String id, UploadFileFailure error, int size, String? fileName) error,
+    required TResult Function(String id, int size, String? fileName) deleting,
+    required TResult Function(String id, File file, String? fileName, int size, double? progress)
         uploading,
-    required TResult Function(
-            String id, String? fileName, int size, DateTime timeStamp)
-        uploaded,
+    required TResult Function(String id, String? fileName, int size, DateTime timeStamp) uploaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult? Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult? Function(
-            String id, File file, String? fileName, int size, double? progress)?
+    TResult? Function(String id, File file, String? fileName, int size)? attached,
+    TResult? Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult? Function(String id, int size, String? fileName)? deleting,
+    TResult? Function(String id, File file, String? fileName, int size, double? progress)?
         uploading,
-    TResult? Function(
-            String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult? Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult Function(
-            String id, File file, String? fileName, int size, double? progress)?
-        uploading,
-    TResult Function(String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult Function(String id, File file, String? fileName, int size)? attached,
+    TResult Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult Function(String id, int size, String? fileName)? deleting,
+    TResult Function(String id, File file, String? fileName, int size, double? progress)? uploading,
+    TResult Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +54,7 @@ mixin _$FileAttachment {
     required TResult Function(FileAttachmentInitial value) initial,
     required TResult Function(FileAttachmentAttached value) attached,
     required TResult Function(FileAttachmentError value) error,
+    required TResult Function(FileAttachmentDeleting value) deleting,
     required TResult Function(FileAttachmentUploading value) uploading,
     required TResult Function(FileAttachmentUploaded value) uploaded,
   }) =>
@@ -78,6 +64,7 @@ mixin _$FileAttachment {
     TResult? Function(FileAttachmentInitial value)? initial,
     TResult? Function(FileAttachmentAttached value)? attached,
     TResult? Function(FileAttachmentError value)? error,
+    TResult? Function(FileAttachmentDeleting value)? deleting,
     TResult? Function(FileAttachmentUploading value)? uploading,
     TResult? Function(FileAttachmentUploaded value)? uploaded,
   }) =>
@@ -87,6 +74,7 @@ mixin _$FileAttachment {
     TResult Function(FileAttachmentInitial value)? initial,
     TResult Function(FileAttachmentAttached value)? attached,
     TResult Function(FileAttachmentError value)? error,
+    TResult Function(FileAttachmentDeleting value)? deleting,
     TResult Function(FileAttachmentUploading value)? uploading,
     TResult Function(FileAttachmentUploaded value)? uploaded,
     required TResult orElse(),
@@ -96,8 +84,7 @@ mixin _$FileAttachment {
 
 /// @nodoc
 abstract class $FileAttachmentCopyWith<$Res> {
-  factory $FileAttachmentCopyWith(
-          FileAttachment value, $Res Function(FileAttachment) then) =
+  factory $FileAttachmentCopyWith(FileAttachment value, $Res Function(FileAttachment) then) =
       _$FileAttachmentCopyWithImpl<$Res, FileAttachment>;
 }
 
@@ -115,8 +102,7 @@ class _$FileAttachmentCopyWithImpl<$Res, $Val extends FileAttachment>
 /// @nodoc
 abstract class _$$FileAttachmentInitialImplCopyWith<$Res> {
   factory _$$FileAttachmentInitialImplCopyWith(
-          _$FileAttachmentInitialImpl value,
-          $Res Function(_$FileAttachmentInitialImpl) then) =
+          _$FileAttachmentInitialImpl value, $Res Function(_$FileAttachmentInitialImpl) then) =
       __$$FileAttachmentInitialImplCopyWithImpl<$Res>;
 }
 
@@ -124,8 +110,8 @@ abstract class _$$FileAttachmentInitialImplCopyWith<$Res> {
 class __$$FileAttachmentInitialImplCopyWithImpl<$Res>
     extends _$FileAttachmentCopyWithImpl<$Res, _$FileAttachmentInitialImpl>
     implements _$$FileAttachmentInitialImplCopyWith<$Res> {
-  __$$FileAttachmentInitialImplCopyWithImpl(_$FileAttachmentInitialImpl _value,
-      $Res Function(_$FileAttachmentInitialImpl) _then)
+  __$$FileAttachmentInitialImplCopyWithImpl(
+      _$FileAttachmentInitialImpl _value, $Res Function(_$FileAttachmentInitialImpl) _then)
       : super(_value, _then);
 }
 
@@ -142,8 +128,7 @@ class _$FileAttachmentInitialImpl extends FileAttachmentInitial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FileAttachmentInitialImpl);
+        (other.runtimeType == runtimeType && other is _$FileAttachmentInitialImpl);
   }
 
   @override
@@ -153,17 +138,12 @@ class _$FileAttachmentInitialImpl extends FileAttachmentInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String id, File file, String? fileName, int size)
-        attached,
-    required TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)
-        error,
-    required TResult Function(
-            String id, File file, String? fileName, int size, double? progress)
+    required TResult Function(String id, File file, String? fileName, int size) attached,
+    required TResult Function(String id, UploadFileFailure error, int size, String? fileName) error,
+    required TResult Function(String id, int size, String? fileName) deleting,
+    required TResult Function(String id, File file, String? fileName, int size, double? progress)
         uploading,
-    required TResult Function(
-            String id, String? fileName, int size, DateTime timeStamp)
-        uploaded,
+    required TResult Function(String id, String? fileName, int size, DateTime timeStamp) uploaded,
   }) {
     return initial();
   }
@@ -172,17 +152,12 @@ class _$FileAttachmentInitialImpl extends FileAttachmentInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult? Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult? Function(
-            String id, File file, String? fileName, int size, double? progress)?
+    TResult? Function(String id, File file, String? fileName, int size)? attached,
+    TResult? Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult? Function(String id, int size, String? fileName)? deleting,
+    TResult? Function(String id, File file, String? fileName, int size, double? progress)?
         uploading,
-    TResult? Function(
-            String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult? Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
   }) {
     return initial?.call();
   }
@@ -191,16 +166,11 @@ class _$FileAttachmentInitialImpl extends FileAttachmentInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult Function(
-            String id, File file, String? fileName, int size, double? progress)?
-        uploading,
-    TResult Function(String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult Function(String id, File file, String? fileName, int size)? attached,
+    TResult Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult Function(String id, int size, String? fileName)? deleting,
+    TResult Function(String id, File file, String? fileName, int size, double? progress)? uploading,
+    TResult Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -215,6 +185,7 @@ class _$FileAttachmentInitialImpl extends FileAttachmentInitial {
     required TResult Function(FileAttachmentInitial value) initial,
     required TResult Function(FileAttachmentAttached value) attached,
     required TResult Function(FileAttachmentError value) error,
+    required TResult Function(FileAttachmentDeleting value) deleting,
     required TResult Function(FileAttachmentUploading value) uploading,
     required TResult Function(FileAttachmentUploaded value) uploaded,
   }) {
@@ -227,6 +198,7 @@ class _$FileAttachmentInitialImpl extends FileAttachmentInitial {
     TResult? Function(FileAttachmentInitial value)? initial,
     TResult? Function(FileAttachmentAttached value)? attached,
     TResult? Function(FileAttachmentError value)? error,
+    TResult? Function(FileAttachmentDeleting value)? deleting,
     TResult? Function(FileAttachmentUploading value)? uploading,
     TResult? Function(FileAttachmentUploaded value)? uploaded,
   }) {
@@ -239,6 +211,7 @@ class _$FileAttachmentInitialImpl extends FileAttachmentInitial {
     TResult Function(FileAttachmentInitial value)? initial,
     TResult Function(FileAttachmentAttached value)? attached,
     TResult Function(FileAttachmentError value)? error,
+    TResult Function(FileAttachmentDeleting value)? deleting,
     TResult Function(FileAttachmentUploading value)? uploading,
     TResult Function(FileAttachmentUploaded value)? uploaded,
     required TResult orElse(),
@@ -258,8 +231,7 @@ abstract class FileAttachmentInitial extends FileAttachment {
 /// @nodoc
 abstract class _$$FileAttachmentAttachedImplCopyWith<$Res> {
   factory _$$FileAttachmentAttachedImplCopyWith(
-          _$FileAttachmentAttachedImpl value,
-          $Res Function(_$FileAttachmentAttachedImpl) then) =
+          _$FileAttachmentAttachedImpl value, $Res Function(_$FileAttachmentAttachedImpl) then) =
       __$$FileAttachmentAttachedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id, File file, String? fileName, int size});
@@ -270,8 +242,7 @@ class __$$FileAttachmentAttachedImplCopyWithImpl<$Res>
     extends _$FileAttachmentCopyWithImpl<$Res, _$FileAttachmentAttachedImpl>
     implements _$$FileAttachmentAttachedImplCopyWith<$Res> {
   __$$FileAttachmentAttachedImplCopyWithImpl(
-      _$FileAttachmentAttachedImpl _value,
-      $Res Function(_$FileAttachmentAttachedImpl) _then)
+      _$FileAttachmentAttachedImpl _value, $Res Function(_$FileAttachmentAttachedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -307,10 +278,7 @@ class __$$FileAttachmentAttachedImplCopyWithImpl<$Res>
 
 class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
   const _$FileAttachmentAttachedImpl(
-      {required this.id,
-      required this.file,
-      required this.fileName,
-      required this.size})
+      {required this.id, required this.file, required this.fileName, required this.size})
       : super._();
 
   @override
@@ -336,8 +304,7 @@ class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
             other is _$FileAttachmentAttachedImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.file, file) || other.file == file) &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName) &&
+            (identical(other.fileName, fileName) || other.fileName == fileName) &&
             (identical(other.size, size) || other.size == size));
   }
 
@@ -347,25 +314,19 @@ class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileAttachmentAttachedImplCopyWith<_$FileAttachmentAttachedImpl>
-      get copyWith => __$$FileAttachmentAttachedImplCopyWithImpl<
-          _$FileAttachmentAttachedImpl>(this, _$identity);
+  _$$FileAttachmentAttachedImplCopyWith<_$FileAttachmentAttachedImpl> get copyWith =>
+      __$$FileAttachmentAttachedImplCopyWithImpl<_$FileAttachmentAttachedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String id, File file, String? fileName, int size)
-        attached,
-    required TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)
-        error,
-    required TResult Function(
-            String id, File file, String? fileName, int size, double? progress)
+    required TResult Function(String id, File file, String? fileName, int size) attached,
+    required TResult Function(String id, UploadFileFailure error, int size, String? fileName) error,
+    required TResult Function(String id, int size, String? fileName) deleting,
+    required TResult Function(String id, File file, String? fileName, int size, double? progress)
         uploading,
-    required TResult Function(
-            String id, String? fileName, int size, DateTime timeStamp)
-        uploaded,
+    required TResult Function(String id, String? fileName, int size, DateTime timeStamp) uploaded,
   }) {
     return attached(id, file, fileName, size);
   }
@@ -374,17 +335,12 @@ class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult? Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult? Function(
-            String id, File file, String? fileName, int size, double? progress)?
+    TResult? Function(String id, File file, String? fileName, int size)? attached,
+    TResult? Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult? Function(String id, int size, String? fileName)? deleting,
+    TResult? Function(String id, File file, String? fileName, int size, double? progress)?
         uploading,
-    TResult? Function(
-            String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult? Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
   }) {
     return attached?.call(id, file, fileName, size);
   }
@@ -393,16 +349,11 @@ class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult Function(
-            String id, File file, String? fileName, int size, double? progress)?
-        uploading,
-    TResult Function(String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult Function(String id, File file, String? fileName, int size)? attached,
+    TResult Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult Function(String id, int size, String? fileName)? deleting,
+    TResult Function(String id, File file, String? fileName, int size, double? progress)? uploading,
+    TResult Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
     required TResult orElse(),
   }) {
     if (attached != null) {
@@ -417,6 +368,7 @@ class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
     required TResult Function(FileAttachmentInitial value) initial,
     required TResult Function(FileAttachmentAttached value) attached,
     required TResult Function(FileAttachmentError value) error,
+    required TResult Function(FileAttachmentDeleting value) deleting,
     required TResult Function(FileAttachmentUploading value) uploading,
     required TResult Function(FileAttachmentUploaded value) uploaded,
   }) {
@@ -429,6 +381,7 @@ class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
     TResult? Function(FileAttachmentInitial value)? initial,
     TResult? Function(FileAttachmentAttached value)? attached,
     TResult? Function(FileAttachmentError value)? error,
+    TResult? Function(FileAttachmentDeleting value)? deleting,
     TResult? Function(FileAttachmentUploading value)? uploading,
     TResult? Function(FileAttachmentUploaded value)? uploaded,
   }) {
@@ -441,6 +394,7 @@ class _$FileAttachmentAttachedImpl extends FileAttachmentAttached {
     TResult Function(FileAttachmentInitial value)? initial,
     TResult Function(FileAttachmentAttached value)? attached,
     TResult Function(FileAttachmentError value)? error,
+    TResult Function(FileAttachmentDeleting value)? deleting,
     TResult Function(FileAttachmentUploading value)? uploading,
     TResult Function(FileAttachmentUploaded value)? uploaded,
     required TResult orElse(),
@@ -467,14 +421,14 @@ abstract class FileAttachmentAttached extends FileAttachment {
   /// File size in bytes
   int get size;
   @JsonKey(ignore: true)
-  _$$FileAttachmentAttachedImplCopyWith<_$FileAttachmentAttachedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$FileAttachmentAttachedImplCopyWith<_$FileAttachmentAttachedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$FileAttachmentErrorImplCopyWith<$Res> {
-  factory _$$FileAttachmentErrorImplCopyWith(_$FileAttachmentErrorImpl value,
-          $Res Function(_$FileAttachmentErrorImpl) then) =
+  factory _$$FileAttachmentErrorImplCopyWith(
+          _$FileAttachmentErrorImpl value, $Res Function(_$FileAttachmentErrorImpl) then) =
       __$$FileAttachmentErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id, UploadFileFailure error, int size, String? fileName});
@@ -486,8 +440,8 @@ abstract class _$$FileAttachmentErrorImplCopyWith<$Res> {
 class __$$FileAttachmentErrorImplCopyWithImpl<$Res>
     extends _$FileAttachmentCopyWithImpl<$Res, _$FileAttachmentErrorImpl>
     implements _$$FileAttachmentErrorImplCopyWith<$Res> {
-  __$$FileAttachmentErrorImplCopyWithImpl(_$FileAttachmentErrorImpl _value,
-      $Res Function(_$FileAttachmentErrorImpl) _then)
+  __$$FileAttachmentErrorImplCopyWithImpl(
+      _$FileAttachmentErrorImpl _value, $Res Function(_$FileAttachmentErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -531,10 +485,7 @@ class __$$FileAttachmentErrorImplCopyWithImpl<$Res>
 
 class _$FileAttachmentErrorImpl extends FileAttachmentError {
   const _$FileAttachmentErrorImpl(
-      {required this.id,
-      required this.error,
-      required this.size,
-      required this.fileName})
+      {required this.id, required this.error, required this.size, required this.fileName})
       : super._();
 
   @override
@@ -561,8 +512,7 @@ class _$FileAttachmentErrorImpl extends FileAttachmentError {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.size, size) || other.size == size) &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName));
+            (identical(other.fileName, fileName) || other.fileName == fileName));
   }
 
   @override
@@ -572,24 +522,18 @@ class _$FileAttachmentErrorImpl extends FileAttachmentError {
   @override
   @pragma('vm:prefer-inline')
   _$$FileAttachmentErrorImplCopyWith<_$FileAttachmentErrorImpl> get copyWith =>
-      __$$FileAttachmentErrorImplCopyWithImpl<_$FileAttachmentErrorImpl>(
-          this, _$identity);
+      __$$FileAttachmentErrorImplCopyWithImpl<_$FileAttachmentErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String id, File file, String? fileName, int size)
-        attached,
-    required TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)
-        error,
-    required TResult Function(
-            String id, File file, String? fileName, int size, double? progress)
+    required TResult Function(String id, File file, String? fileName, int size) attached,
+    required TResult Function(String id, UploadFileFailure error, int size, String? fileName) error,
+    required TResult Function(String id, int size, String? fileName) deleting,
+    required TResult Function(String id, File file, String? fileName, int size, double? progress)
         uploading,
-    required TResult Function(
-            String id, String? fileName, int size, DateTime timeStamp)
-        uploaded,
+    required TResult Function(String id, String? fileName, int size, DateTime timeStamp) uploaded,
   }) {
     return error(id, this.error, size, fileName);
   }
@@ -598,17 +542,12 @@ class _$FileAttachmentErrorImpl extends FileAttachmentError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult? Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult? Function(
-            String id, File file, String? fileName, int size, double? progress)?
+    TResult? Function(String id, File file, String? fileName, int size)? attached,
+    TResult? Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult? Function(String id, int size, String? fileName)? deleting,
+    TResult? Function(String id, File file, String? fileName, int size, double? progress)?
         uploading,
-    TResult? Function(
-            String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult? Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
   }) {
     return error?.call(id, this.error, size, fileName);
   }
@@ -617,16 +556,11 @@ class _$FileAttachmentErrorImpl extends FileAttachmentError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult Function(
-            String id, File file, String? fileName, int size, double? progress)?
-        uploading,
-    TResult Function(String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult Function(String id, File file, String? fileName, int size)? attached,
+    TResult Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult Function(String id, int size, String? fileName)? deleting,
+    TResult Function(String id, File file, String? fileName, int size, double? progress)? uploading,
+    TResult Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -641,6 +575,7 @@ class _$FileAttachmentErrorImpl extends FileAttachmentError {
     required TResult Function(FileAttachmentInitial value) initial,
     required TResult Function(FileAttachmentAttached value) attached,
     required TResult Function(FileAttachmentError value) error,
+    required TResult Function(FileAttachmentDeleting value) deleting,
     required TResult Function(FileAttachmentUploading value) uploading,
     required TResult Function(FileAttachmentUploaded value) uploaded,
   }) {
@@ -653,6 +588,7 @@ class _$FileAttachmentErrorImpl extends FileAttachmentError {
     TResult? Function(FileAttachmentInitial value)? initial,
     TResult? Function(FileAttachmentAttached value)? attached,
     TResult? Function(FileAttachmentError value)? error,
+    TResult? Function(FileAttachmentDeleting value)? deleting,
     TResult? Function(FileAttachmentUploading value)? uploading,
     TResult? Function(FileAttachmentUploaded value)? uploaded,
   }) {
@@ -665,6 +601,7 @@ class _$FileAttachmentErrorImpl extends FileAttachmentError {
     TResult Function(FileAttachmentInitial value)? initial,
     TResult Function(FileAttachmentAttached value)? attached,
     TResult Function(FileAttachmentError value)? error,
+    TResult Function(FileAttachmentDeleting value)? deleting,
     TResult Function(FileAttachmentUploading value)? uploading,
     TResult Function(FileAttachmentUploaded value)? uploaded,
     required TResult orElse(),
@@ -696,14 +633,198 @@ abstract class FileAttachmentError extends FileAttachment {
 }
 
 /// @nodoc
+abstract class _$$FileAttachmentDeletingImplCopyWith<$Res> {
+  factory _$$FileAttachmentDeletingImplCopyWith(
+          _$FileAttachmentDeletingImpl value, $Res Function(_$FileAttachmentDeletingImpl) then) =
+      __$$FileAttachmentDeletingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, int size, String? fileName});
+}
+
+/// @nodoc
+class __$$FileAttachmentDeletingImplCopyWithImpl<$Res>
+    extends _$FileAttachmentCopyWithImpl<$Res, _$FileAttachmentDeletingImpl>
+    implements _$$FileAttachmentDeletingImplCopyWith<$Res> {
+  __$$FileAttachmentDeletingImplCopyWithImpl(
+      _$FileAttachmentDeletingImpl _value, $Res Function(_$FileAttachmentDeletingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? size = null,
+    Object? fileName = freezed,
+  }) {
+    return _then(_$FileAttachmentDeletingImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
+      fileName: freezed == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FileAttachmentDeletingImpl extends FileAttachmentDeleting {
+  const _$FileAttachmentDeletingImpl({required this.id, required this.size, required this.fileName})
+      : super._();
+
+  @override
+  final String id;
+
+  /// File size in bytes
+  @override
+  final int size;
+  @override
+  final String? fileName;
+
+  @override
+  String toString() {
+    return 'FileAttachment.deleting(id: $id, size: $size, fileName: $fileName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FileAttachmentDeletingImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.fileName, fileName) || other.fileName == fileName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, size, fileName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FileAttachmentDeletingImplCopyWith<_$FileAttachmentDeletingImpl> get copyWith =>
+      __$$FileAttachmentDeletingImplCopyWithImpl<_$FileAttachmentDeletingImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String id, File file, String? fileName, int size) attached,
+    required TResult Function(String id, UploadFileFailure error, int size, String? fileName) error,
+    required TResult Function(String id, int size, String? fileName) deleting,
+    required TResult Function(String id, File file, String? fileName, int size, double? progress)
+        uploading,
+    required TResult Function(String id, String? fileName, int size, DateTime timeStamp) uploaded,
+  }) {
+    return deleting(id, size, fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String id, File file, String? fileName, int size)? attached,
+    TResult? Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult? Function(String id, int size, String? fileName)? deleting,
+    TResult? Function(String id, File file, String? fileName, int size, double? progress)?
+        uploading,
+    TResult? Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
+  }) {
+    return deleting?.call(id, size, fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String id, File file, String? fileName, int size)? attached,
+    TResult Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult Function(String id, int size, String? fileName)? deleting,
+    TResult Function(String id, File file, String? fileName, int size, double? progress)? uploading,
+    TResult Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
+    required TResult orElse(),
+  }) {
+    if (deleting != null) {
+      return deleting(id, size, fileName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FileAttachmentInitial value) initial,
+    required TResult Function(FileAttachmentAttached value) attached,
+    required TResult Function(FileAttachmentError value) error,
+    required TResult Function(FileAttachmentDeleting value) deleting,
+    required TResult Function(FileAttachmentUploading value) uploading,
+    required TResult Function(FileAttachmentUploaded value) uploaded,
+  }) {
+    return deleting(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FileAttachmentInitial value)? initial,
+    TResult? Function(FileAttachmentAttached value)? attached,
+    TResult? Function(FileAttachmentError value)? error,
+    TResult? Function(FileAttachmentDeleting value)? deleting,
+    TResult? Function(FileAttachmentUploading value)? uploading,
+    TResult? Function(FileAttachmentUploaded value)? uploaded,
+  }) {
+    return deleting?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FileAttachmentInitial value)? initial,
+    TResult Function(FileAttachmentAttached value)? attached,
+    TResult Function(FileAttachmentError value)? error,
+    TResult Function(FileAttachmentDeleting value)? deleting,
+    TResult Function(FileAttachmentUploading value)? uploading,
+    TResult Function(FileAttachmentUploaded value)? uploaded,
+    required TResult orElse(),
+  }) {
+    if (deleting != null) {
+      return deleting(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FileAttachmentDeleting extends FileAttachment {
+  const factory FileAttachmentDeleting(
+      {required final String id,
+      required final int size,
+      required final String? fileName}) = _$FileAttachmentDeletingImpl;
+  const FileAttachmentDeleting._() : super._();
+
+  String get id;
+
+  /// File size in bytes
+  int get size;
+  String? get fileName;
+  @JsonKey(ignore: true)
+  _$$FileAttachmentDeletingImplCopyWith<_$FileAttachmentDeletingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$FileAttachmentUploadingImplCopyWith<$Res> {
   factory _$$FileAttachmentUploadingImplCopyWith(
-          _$FileAttachmentUploadingImpl value,
-          $Res Function(_$FileAttachmentUploadingImpl) then) =
+          _$FileAttachmentUploadingImpl value, $Res Function(_$FileAttachmentUploadingImpl) then) =
       __$$FileAttachmentUploadingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {String id, File file, String? fileName, int size, double? progress});
+  $Res call({String id, File file, String? fileName, int size, double? progress});
 }
 
 /// @nodoc
@@ -711,8 +832,7 @@ class __$$FileAttachmentUploadingImplCopyWithImpl<$Res>
     extends _$FileAttachmentCopyWithImpl<$Res, _$FileAttachmentUploadingImpl>
     implements _$$FileAttachmentUploadingImplCopyWith<$Res> {
   __$$FileAttachmentUploadingImplCopyWithImpl(
-      _$FileAttachmentUploadingImpl _value,
-      $Res Function(_$FileAttachmentUploadingImpl) _then)
+      _$FileAttachmentUploadingImpl _value, $Res Function(_$FileAttachmentUploadingImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -785,39 +905,30 @@ class _$FileAttachmentUploadingImpl extends FileAttachmentUploading {
             other is _$FileAttachmentUploadingImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.file, file) || other.file == file) &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName) &&
+            (identical(other.fileName, fileName) || other.fileName == fileName) &&
             (identical(other.size, size) || other.size == size) &&
-            (identical(other.progress, progress) ||
-                other.progress == progress));
+            (identical(other.progress, progress) || other.progress == progress));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, file, fileName, size, progress);
+  int get hashCode => Object.hash(runtimeType, id, file, fileName, size, progress);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileAttachmentUploadingImplCopyWith<_$FileAttachmentUploadingImpl>
-      get copyWith => __$$FileAttachmentUploadingImplCopyWithImpl<
-          _$FileAttachmentUploadingImpl>(this, _$identity);
+  _$$FileAttachmentUploadingImplCopyWith<_$FileAttachmentUploadingImpl> get copyWith =>
+      __$$FileAttachmentUploadingImplCopyWithImpl<_$FileAttachmentUploadingImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String id, File file, String? fileName, int size)
-        attached,
-    required TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)
-        error,
-    required TResult Function(
-            String id, File file, String? fileName, int size, double? progress)
+    required TResult Function(String id, File file, String? fileName, int size) attached,
+    required TResult Function(String id, UploadFileFailure error, int size, String? fileName) error,
+    required TResult Function(String id, int size, String? fileName) deleting,
+    required TResult Function(String id, File file, String? fileName, int size, double? progress)
         uploading,
-    required TResult Function(
-            String id, String? fileName, int size, DateTime timeStamp)
-        uploaded,
+    required TResult Function(String id, String? fileName, int size, DateTime timeStamp) uploaded,
   }) {
     return uploading(id, file, fileName, size, progress);
   }
@@ -826,17 +937,12 @@ class _$FileAttachmentUploadingImpl extends FileAttachmentUploading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult? Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult? Function(
-            String id, File file, String? fileName, int size, double? progress)?
+    TResult? Function(String id, File file, String? fileName, int size)? attached,
+    TResult? Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult? Function(String id, int size, String? fileName)? deleting,
+    TResult? Function(String id, File file, String? fileName, int size, double? progress)?
         uploading,
-    TResult? Function(
-            String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult? Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
   }) {
     return uploading?.call(id, file, fileName, size, progress);
   }
@@ -845,16 +951,11 @@ class _$FileAttachmentUploadingImpl extends FileAttachmentUploading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult Function(
-            String id, File file, String? fileName, int size, double? progress)?
-        uploading,
-    TResult Function(String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult Function(String id, File file, String? fileName, int size)? attached,
+    TResult Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult Function(String id, int size, String? fileName)? deleting,
+    TResult Function(String id, File file, String? fileName, int size, double? progress)? uploading,
+    TResult Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
     required TResult orElse(),
   }) {
     if (uploading != null) {
@@ -869,6 +970,7 @@ class _$FileAttachmentUploadingImpl extends FileAttachmentUploading {
     required TResult Function(FileAttachmentInitial value) initial,
     required TResult Function(FileAttachmentAttached value) attached,
     required TResult Function(FileAttachmentError value) error,
+    required TResult Function(FileAttachmentDeleting value) deleting,
     required TResult Function(FileAttachmentUploading value) uploading,
     required TResult Function(FileAttachmentUploaded value) uploaded,
   }) {
@@ -881,6 +983,7 @@ class _$FileAttachmentUploadingImpl extends FileAttachmentUploading {
     TResult? Function(FileAttachmentInitial value)? initial,
     TResult? Function(FileAttachmentAttached value)? attached,
     TResult? Function(FileAttachmentError value)? error,
+    TResult? Function(FileAttachmentDeleting value)? deleting,
     TResult? Function(FileAttachmentUploading value)? uploading,
     TResult? Function(FileAttachmentUploaded value)? uploaded,
   }) {
@@ -893,6 +996,7 @@ class _$FileAttachmentUploadingImpl extends FileAttachmentUploading {
     TResult Function(FileAttachmentInitial value)? initial,
     TResult Function(FileAttachmentAttached value)? attached,
     TResult Function(FileAttachmentError value)? error,
+    TResult Function(FileAttachmentDeleting value)? deleting,
     TResult Function(FileAttachmentUploading value)? uploading,
     TResult Function(FileAttachmentUploaded value)? uploaded,
     required TResult orElse(),
@@ -921,15 +1025,14 @@ abstract class FileAttachmentUploading extends FileAttachment {
   int get size;
   double? get progress;
   @JsonKey(ignore: true)
-  _$$FileAttachmentUploadingImplCopyWith<_$FileAttachmentUploadingImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$FileAttachmentUploadingImplCopyWith<_$FileAttachmentUploadingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$FileAttachmentUploadedImplCopyWith<$Res> {
   factory _$$FileAttachmentUploadedImplCopyWith(
-          _$FileAttachmentUploadedImpl value,
-          $Res Function(_$FileAttachmentUploadedImpl) then) =
+          _$FileAttachmentUploadedImpl value, $Res Function(_$FileAttachmentUploadedImpl) then) =
       __$$FileAttachmentUploadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id, String? fileName, int size, DateTime timeStamp});
@@ -940,8 +1043,7 @@ class __$$FileAttachmentUploadedImplCopyWithImpl<$Res>
     extends _$FileAttachmentCopyWithImpl<$Res, _$FileAttachmentUploadedImpl>
     implements _$$FileAttachmentUploadedImplCopyWith<$Res> {
   __$$FileAttachmentUploadedImplCopyWithImpl(
-      _$FileAttachmentUploadedImpl _value,
-      $Res Function(_$FileAttachmentUploadedImpl) _then)
+      _$FileAttachmentUploadedImpl _value, $Res Function(_$FileAttachmentUploadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -977,10 +1079,7 @@ class __$$FileAttachmentUploadedImplCopyWithImpl<$Res>
 
 class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
   const _$FileAttachmentUploadedImpl(
-      {required this.id,
-      required this.fileName,
-      required this.size,
-      required this.timeStamp})
+      {required this.id, required this.fileName, required this.size, required this.timeStamp})
       : super._();
 
   @override
@@ -1005,11 +1104,9 @@ class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
         (other.runtimeType == runtimeType &&
             other is _$FileAttachmentUploadedImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName) &&
+            (identical(other.fileName, fileName) || other.fileName == fileName) &&
             (identical(other.size, size) || other.size == size) &&
-            (identical(other.timeStamp, timeStamp) ||
-                other.timeStamp == timeStamp));
+            (identical(other.timeStamp, timeStamp) || other.timeStamp == timeStamp));
   }
 
   @override
@@ -1018,25 +1115,19 @@ class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FileAttachmentUploadedImplCopyWith<_$FileAttachmentUploadedImpl>
-      get copyWith => __$$FileAttachmentUploadedImplCopyWithImpl<
-          _$FileAttachmentUploadedImpl>(this, _$identity);
+  _$$FileAttachmentUploadedImplCopyWith<_$FileAttachmentUploadedImpl> get copyWith =>
+      __$$FileAttachmentUploadedImplCopyWithImpl<_$FileAttachmentUploadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(String id, File file, String? fileName, int size)
-        attached,
-    required TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)
-        error,
-    required TResult Function(
-            String id, File file, String? fileName, int size, double? progress)
+    required TResult Function(String id, File file, String? fileName, int size) attached,
+    required TResult Function(String id, UploadFileFailure error, int size, String? fileName) error,
+    required TResult Function(String id, int size, String? fileName) deleting,
+    required TResult Function(String id, File file, String? fileName, int size, double? progress)
         uploading,
-    required TResult Function(
-            String id, String? fileName, int size, DateTime timeStamp)
-        uploaded,
+    required TResult Function(String id, String? fileName, int size, DateTime timeStamp) uploaded,
   }) {
     return uploaded(id, fileName, size, timeStamp);
   }
@@ -1045,17 +1136,12 @@ class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult? Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult? Function(
-            String id, File file, String? fileName, int size, double? progress)?
+    TResult? Function(String id, File file, String? fileName, int size)? attached,
+    TResult? Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult? Function(String id, int size, String? fileName)? deleting,
+    TResult? Function(String id, File file, String? fileName, int size, double? progress)?
         uploading,
-    TResult? Function(
-            String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult? Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
   }) {
     return uploaded?.call(id, fileName, size, timeStamp);
   }
@@ -1064,16 +1150,11 @@ class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(String id, File file, String? fileName, int size)?
-        attached,
-    TResult Function(
-            String id, UploadFileFailure error, int size, String? fileName)?
-        error,
-    TResult Function(
-            String id, File file, String? fileName, int size, double? progress)?
-        uploading,
-    TResult Function(String id, String? fileName, int size, DateTime timeStamp)?
-        uploaded,
+    TResult Function(String id, File file, String? fileName, int size)? attached,
+    TResult Function(String id, UploadFileFailure error, int size, String? fileName)? error,
+    TResult Function(String id, int size, String? fileName)? deleting,
+    TResult Function(String id, File file, String? fileName, int size, double? progress)? uploading,
+    TResult Function(String id, String? fileName, int size, DateTime timeStamp)? uploaded,
     required TResult orElse(),
   }) {
     if (uploaded != null) {
@@ -1088,6 +1169,7 @@ class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
     required TResult Function(FileAttachmentInitial value) initial,
     required TResult Function(FileAttachmentAttached value) attached,
     required TResult Function(FileAttachmentError value) error,
+    required TResult Function(FileAttachmentDeleting value) deleting,
     required TResult Function(FileAttachmentUploading value) uploading,
     required TResult Function(FileAttachmentUploaded value) uploaded,
   }) {
@@ -1100,6 +1182,7 @@ class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
     TResult? Function(FileAttachmentInitial value)? initial,
     TResult? Function(FileAttachmentAttached value)? attached,
     TResult? Function(FileAttachmentError value)? error,
+    TResult? Function(FileAttachmentDeleting value)? deleting,
     TResult? Function(FileAttachmentUploading value)? uploading,
     TResult? Function(FileAttachmentUploaded value)? uploaded,
   }) {
@@ -1112,6 +1195,7 @@ class _$FileAttachmentUploadedImpl extends FileAttachmentUploaded {
     TResult Function(FileAttachmentInitial value)? initial,
     TResult Function(FileAttachmentAttached value)? attached,
     TResult Function(FileAttachmentError value)? error,
+    TResult Function(FileAttachmentDeleting value)? deleting,
     TResult Function(FileAttachmentUploading value)? uploading,
     TResult Function(FileAttachmentUploaded value)? uploaded,
     required TResult orElse(),
@@ -1138,6 +1222,6 @@ abstract class FileAttachmentUploaded extends FileAttachment {
   int get size;
   DateTime get timeStamp;
   @JsonKey(ignore: true)
-  _$$FileAttachmentUploadedImplCopyWith<_$FileAttachmentUploadedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$FileAttachmentUploadedImplCopyWith<_$FileAttachmentUploadedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

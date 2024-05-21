@@ -25,9 +25,7 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   @override
   void initState() {
     super.initState();
-    ref
-        .read(filterSimplifiedAccountTransactionsControllerProvider.notifier)
-        .resetFilters();
+    ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier).resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
@@ -38,11 +36,8 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   }
 
   void _loadMore() {
-    if (_scrollController.position.pixels ==
-        _scrollController.position.maxScrollExtent) {
-      ref
-          .read(simplifiedAccountTransactionsControllerProvider.notifier)
-          .loadNextPage();
+    if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+      ref.read(simplifiedAccountTransactionsControllerProvider.notifier).loadNextPage();
     }
   }
 

@@ -28,20 +28,15 @@ mixin _$SimplifiedSentTransfer {
 
 /// @nodoc
 abstract class $SimplifiedSentTransferCopyWith<$Res> {
-  factory $SimplifiedSentTransferCopyWith(SimplifiedSentTransfer value,
-          $Res Function(SimplifiedSentTransfer) then) =
+  factory $SimplifiedSentTransferCopyWith(
+          SimplifiedSentTransfer value, $Res Function(SimplifiedSentTransfer) then) =
       _$SimplifiedSentTransferCopyWithImpl<$Res, SimplifiedSentTransfer>;
   @useResult
-  $Res call(
-      {UniqueId id,
-      String beneficiaryName,
-      String concept,
-      double settlementAmount});
+  $Res call({UniqueId id, String beneficiaryName, String concept, double settlementAmount});
 }
 
 /// @nodoc
-class _$SimplifiedSentTransferCopyWithImpl<$Res,
-        $Val extends SimplifiedSentTransfer>
+class _$SimplifiedSentTransferCopyWithImpl<$Res, $Val extends SimplifiedSentTransfer>
     implements $SimplifiedSentTransferCopyWith<$Res> {
   _$SimplifiedSentTransferCopyWithImpl(this._value, this._then);
 
@@ -83,26 +78,19 @@ class _$SimplifiedSentTransferCopyWithImpl<$Res,
 abstract class _$$SimplifiedSentTransferImplCopyWith<$Res>
     implements $SimplifiedSentTransferCopyWith<$Res> {
   factory _$$SimplifiedSentTransferImplCopyWith(
-          _$SimplifiedSentTransferImpl value,
-          $Res Function(_$SimplifiedSentTransferImpl) then) =
+          _$SimplifiedSentTransferImpl value, $Res Function(_$SimplifiedSentTransferImpl) then) =
       __$$SimplifiedSentTransferImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {UniqueId id,
-      String beneficiaryName,
-      String concept,
-      double settlementAmount});
+  $Res call({UniqueId id, String beneficiaryName, String concept, double settlementAmount});
 }
 
 /// @nodoc
 class __$$SimplifiedSentTransferImplCopyWithImpl<$Res>
-    extends _$SimplifiedSentTransferCopyWithImpl<$Res,
-        _$SimplifiedSentTransferImpl>
+    extends _$SimplifiedSentTransferCopyWithImpl<$Res, _$SimplifiedSentTransferImpl>
     implements _$$SimplifiedSentTransferImplCopyWith<$Res> {
   __$$SimplifiedSentTransferImplCopyWithImpl(
-      _$SimplifiedSentTransferImpl _value,
-      $Res Function(_$SimplifiedSentTransferImpl) _then)
+      _$SimplifiedSentTransferImpl _value, $Res Function(_$SimplifiedSentTransferImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -171,15 +159,13 @@ class _$SimplifiedSentTransferImpl implements _SimplifiedSentTransfer {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, beneficiaryName, concept, settlementAmount);
+  int get hashCode => Object.hash(runtimeType, id, beneficiaryName, concept, settlementAmount);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedSentTransferImplCopyWith<_$SimplifiedSentTransferImpl>
-      get copyWith => __$$SimplifiedSentTransferImplCopyWithImpl<
-          _$SimplifiedSentTransferImpl>(this, _$identity);
+  _$$SimplifiedSentTransferImplCopyWith<_$SimplifiedSentTransferImpl> get copyWith =>
+      __$$SimplifiedSentTransferImplCopyWithImpl<_$SimplifiedSentTransferImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedSentTransfer implements SimplifiedSentTransfer {
@@ -199,6 +185,6 @@ abstract class _SimplifiedSentTransfer implements SimplifiedSentTransfer {
   double get settlementAmount;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedSentTransferImplCopyWith<_$SimplifiedSentTransferImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SimplifiedSentTransferImplCopyWith<_$SimplifiedSentTransferImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

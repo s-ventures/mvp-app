@@ -6,8 +6,7 @@ part of 'tink_flow_link_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TinkFlowLinkDtoImpl _$$TinkFlowLinkDtoImplFromJson(
-        Map<String, dynamic> json) =>
+_$TinkFlowLinkDtoImpl _$$TinkFlowLinkDtoImplFromJson(Map<String, dynamic> json) =>
     _$TinkFlowLinkDtoImpl(
       connectionType: json['connectionType'] as String,
       redirectUri: json['redirectUri'] as String,
@@ -18,8 +17,7 @@ _$TinkFlowLinkDtoImpl _$$TinkFlowLinkDtoImplFromJson(
       fullLink: json['fullLink'] as String,
     );
 
-Map<String, dynamic> _$$TinkFlowLinkDtoImplToJson(
-        _$TinkFlowLinkDtoImpl instance) =>
+Map<String, dynamic> _$$TinkFlowLinkDtoImplToJson(_$TinkFlowLinkDtoImpl instance) =>
     <String, dynamic>{
       'connectionType': instance.connectionType,
       'redirectUri': instance.redirectUri,

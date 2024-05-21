@@ -8,7 +8,7 @@ import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/si
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_claims_bottom_sheet/filter_claims_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_list_claims.dart';
-import 'package:manifiesto_mvp_app/presentation/extension/claims_status_color_extension.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/claims_status_color_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -37,23 +37,19 @@ class _ClaimsState extends ConsumerState<Claims> {
       simplifiedClaimsControllerProvider.select((value) => value.claims),
     );
 
-    final controller =
-        ref.read(filterSimplifiedClaimsControllerProvider.notifier);
+    final controller = ref.read(filterSimplifiedClaimsControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedClaimsControllerProvider
-          .select((value) => value.createDateFrom),
+      filterSimplifiedClaimsControllerProvider.select((value) => value.createDateFrom),
     );
     final endDate = ref.watch(
-      filterSimplifiedClaimsControllerProvider
-          .select((value) => value.createDateTo),
+      filterSimplifiedClaimsControllerProvider.select((value) => value.createDateTo),
     );
 
     final status = ref.watch(
       filterSimplifiedClaimsControllerProvider.select((value) => value.status),
     );
 
-    final isFilterApplied =
-        startDate != null || endDate != null || status != null;
+    final isFilterApplied = startDate != null || endDate != null || status != null;
 
     return Padding(
       padding: const EdgeInsets.all(AppSpacing.s5),

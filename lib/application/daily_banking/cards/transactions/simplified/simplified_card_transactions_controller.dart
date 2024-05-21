@@ -6,18 +6,15 @@ import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_ty
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_pagination_repository.dart';
 
-final simplifiedCardTransactionsControllerProvider = StateNotifierProvider<
-    SimplifiedCardTransactionsController, SimplifiedCardTransactionsState>(
+final simplifiedCardTransactionsControllerProvider =
+    StateNotifierProvider<SimplifiedCardTransactionsController, SimplifiedCardTransactionsState>(
   (ref) => SimplifiedCardTransactionsController(
     ref.watch(cardTransactionsPaginationRepositoryProvider),
   ),
 );
 
-class SimplifiedCardTransactionsController
-    extends StateNotifier<SimplifiedCardTransactionsState>
-    with
-        PaginationLoadingProvider<
-            Map<DateTime, List<SimplifiedCardTransaction>>> {
+class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardTransactionsState>
+    with PaginationLoadingProvider<Map<DateTime, List<SimplifiedCardTransaction>>> {
   SimplifiedCardTransactionsController(
     this._repository,
   ) : super(const SimplifiedCardTransactionsState());
@@ -30,8 +27,7 @@ class SimplifiedCardTransactionsController
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            transactions: const AsyncLoading<
-                    Map<DateTime, List<SimplifiedCardTransaction>>>()
+            transactions: const AsyncLoading<Map<DateTime, List<SimplifiedCardTransaction>>>()
                 .copyWithPrevious(state.transactions),
           ),
         );

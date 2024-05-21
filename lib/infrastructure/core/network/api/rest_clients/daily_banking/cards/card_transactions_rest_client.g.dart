@@ -19,9 +19,8 @@ class _CardTransactionsRestClient implements CardTransactionsRestClient {
   String? baseUrl;
 
   @override
-  Future<PaginatedResponse<DateCardTransactionsDto>>
-      getSimplifiedCardTransactions(
-          {required CardTransactionsFilterDto filter}) async {
+  Future<PaginatedResponse<DateCardTransactionsDto>> getSimplifiedCardTransactions(
+      {required CardTransactionsFilterDto filter}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
@@ -52,15 +51,15 @@ class _CardTransactionsRestClient implements CardTransactionsRestClient {
 
   @override
   Future<DetailedCardTransactionDto> getDetailedCardTransaction({
-    required int cardContractId,
-    required int transactionId,
+    required String cardContractId,
+    required String transactionId,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<DetailedCardTransactionDto>(Options(
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<DetailedCardTransactionDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -78,6 +77,66 @@ class _CardTransactionsRestClient implements CardTransactionsRestClient {
             ))));
     final value = DetailedCardTransactionDto.fromJson(_result.data!);
     return value;
+  }
+
+  @override
+  Future<FileAttachmentDto> uploadFileAttachmentForTransaction({
+    required String cardContractId,
+    required String transactionId,
+    required FileAttachmentUploadRequestDto body,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(body.toJson());
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<FileAttachmentDto>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/cards/v1/${cardContractId}/transactions/${transactionId}/attachments',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = FileAttachmentDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<void> removeFileAttachmentFromTransaction({
+    required String cardContractId,
+    required String transactionId,
+    required String fileId,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'DELETE',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/cards/v1/${cardContractId}/transactions/${transactionId}/attachments/${fileId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/detailed/detailed_claim_controller.dart';
-import 'package:manifiesto_mvp_app/presentation/extension/claims_status_color_extension.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/claims_status_color_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsuranceClaimDetailsPage extends ConsumerStatefulWidget {
@@ -19,12 +19,10 @@ class InsuranceClaimDetailsPage extends ConsumerStatefulWidget {
   final int insuranceId;
 
   @override
-  ConsumerState<InsuranceClaimDetailsPage> createState() =>
-      _InsuranceClaimDetailsPageState();
+  ConsumerState<InsuranceClaimDetailsPage> createState() => _InsuranceClaimDetailsPageState();
 }
 
-class _InsuranceClaimDetailsPageState
-    extends ConsumerState<InsuranceClaimDetailsPage> {
+class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -171,8 +169,7 @@ class _InsuranceClaimDetailsPageState
                   trailing: Button(
                     size: ButtonSize.extraSmall,
                     onPressed: () async {},
-                    title:
-                        claim.processEndDate?.formatToDayMonthYear() ?? '---',
+                    title: claim.processEndDate?.formatToDayMonthYear() ?? '---',
                     background: context.color.neutralLight100,
                     foreground: context.color.iconLight900,
                   ),
@@ -195,8 +192,7 @@ class _InsuranceClaimDetailsPageState
                     ),
                   ),
                   trailing: Chip(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                     backgroundColor: claim.status.backgroundColor(context),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(context.radius.hard),

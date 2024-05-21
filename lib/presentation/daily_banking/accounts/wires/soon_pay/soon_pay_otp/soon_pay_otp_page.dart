@@ -20,10 +20,8 @@ class SoonPayOtpPage extends StatelessWidget {
           50,
           'Thomas Magnum',
         ),
-        message:
-            context.loc.dailyBankingSoonPayScheduledOtpSuccessModalDescription,
-        buttonOkText:
-            context.loc.dailyBankingSoonPayScheduledOtpSuccessModalButton,
+        message: context.loc.dailyBankingSoonPayScheduledOtpSuccessModalDescription,
+        buttonOkText: context.loc.dailyBankingSoonPayScheduledOtpSuccessModalButton,
         onOkPressed: () => context.pushNamed(
           AppRoute.dailyBankingTransfers.name,
         ),

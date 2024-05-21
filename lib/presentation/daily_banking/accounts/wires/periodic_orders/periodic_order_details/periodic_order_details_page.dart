@@ -19,12 +19,10 @@ class PeriodicOrderDetailsPage extends ConsumerStatefulWidget {
   final int periodicOrderId;
 
   @override
-  ConsumerState<PeriodicOrderDetailsPage> createState() =>
-      _PeriodicOrderDetailsPageState();
+  ConsumerState<PeriodicOrderDetailsPage> createState() => _PeriodicOrderDetailsPageState();
 }
 
-class _PeriodicOrderDetailsPageState
-    extends ConsumerState<PeriodicOrderDetailsPage> {
+class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -39,8 +37,7 @@ class _PeriodicOrderDetailsPageState
 
   @override
   Widget build(BuildContext context) {
-    final periodicOrder =
-        ref.watch(detailedPeriodicOrderControllerProvider).periodicOrder;
+    final periodicOrder = ref.watch(detailedPeriodicOrderControllerProvider).periodicOrder;
 
     return Scaffold(
       body: NestedScrollView(
@@ -93,34 +90,28 @@ class _PeriodicOrderDetailsPageState
                       decoration: ShapeDecoration(
                         color: context.color.neutralLight100,
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(context.radius.soft),
+                          borderRadius: BorderRadius.circular(context.radius.soft),
                         ),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            periodicOrder.frecuency ==
-                                    PeriodicOrderFrecuencyType.daily
+                            periodicOrder.frecuency == PeriodicOrderFrecuencyType.daily
                                 ? context.loc.commonFrequencyDaily
-                                : periodicOrder.frecuency ==
-                                        PeriodicOrderFrecuencyType.weekly
+                                : periodicOrder.frecuency == PeriodicOrderFrecuencyType.weekly
                                     ? context.loc.commonFrequencyWeekly
-                                    : periodicOrder.frecuency ==
-                                            PeriodicOrderFrecuencyType.monthly
+                                    : periodicOrder.frecuency == PeriodicOrderFrecuencyType.monthly
                                         ? context.loc.commonFrequencyMonthly
                                         : '',
-                            style:
-                                context.textStyle.bodyMediumSemiBold.copyWith(
+                            style: context.textStyle.bodyMediumSemiBold.copyWith(
                               color: context.color.textLight900,
                             ),
                           ),
                           AppSpacing.horizontal.s3,
                           Text(
                             context.loc.commonDateSinceDate(
-                              periodicOrder.startDate.formatToDayMonthYear() ??
-                                  '',
+                              periodicOrder.startDate.formatToDayMonthYear() ?? '',
                             ),
                             style: context.textStyle.bodyMediumRegular.copyWith(
                               color: context.color.textLight600,
@@ -223,9 +214,7 @@ class _PeriodicOrderDetailsPageState
                       ),
                     ),
                     Text(
-                      periodicOrder.startDate
-                          .formatToTransactionDate()
-                          .toString(),
+                      periodicOrder.startDate.formatToTransactionDate().toString(),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -239,9 +228,7 @@ class _PeriodicOrderDetailsPageState
                     ),
                     Text(
                       periodicOrder.endDate != null
-                          ? periodicOrder.endDate
-                              .formatToTransactionDate()
-                              .toString()
+                          ? periodicOrder.endDate.formatToTransactionDate().toString()
                           : '-',
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,
@@ -255,8 +242,7 @@ class _PeriodicOrderDetailsPageState
                 children: [
                   Expanded(
                     child: Button(
-                      title: context
-                          .loc.dailyBankingScheduledTransfersRemoveTransfer,
+                      title: context.loc.dailyBankingScheduledTransfersRemoveTransfer,
                       size: ButtonSize.small,
                       background: context.color.statusError.withOpacity(
                         .15,
@@ -265,12 +251,10 @@ class _PeriodicOrderDetailsPageState
                       onPressed: () async => AlertBottomSheet.show(
                         context: context,
                         icon: IconAssets.trash,
-                        title: context
-                            .loc.dailyBankingScheduledTransfersRemoveModalTitle,
-                        buttonOkText: context.loc
-                            .dailyBankingScheduledTransfersRemoveModalButtonRemove,
-                        buttonOkBackground:
-                            context.color.statusError.withOpacity(
+                        title: context.loc.dailyBankingScheduledTransfersRemoveModalTitle,
+                        buttonOkText:
+                            context.loc.dailyBankingScheduledTransfersRemoveModalButtonRemove,
+                        buttonOkBackground: context.color.statusError.withOpacity(
                           .15,
                         ),
                         buttonOkForeground: context.color.statusError,

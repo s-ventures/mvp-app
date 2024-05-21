@@ -9,8 +9,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/tr
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/transactions/extended_details/transfer_out_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/transactions/detailed_card_transaction_dto.dart';
 
-class ExtendedDetailsConverter
-    implements JsonConverter<ExtendedDetailsDto?, Map<String, dynamic>> {
+class ExtendedDetailsConverter implements JsonConverter<ExtendedDetailsDto?, Map<String, dynamic>> {
   const ExtendedDetailsConverter();
 
   @override
@@ -19,8 +18,7 @@ class ExtendedDetailsConverter
     if (typeString == null) {
       return null;
     }
-    final type =
-        AccountTransactionTypeDto.values.byScreamingCaseName(typeString);
+    final type = AccountTransactionTypeDto.values.byScreamingCaseName(typeString);
 
     return switch (type) {
       AccountTransactionTypeDto.transferIn => TransferInDto.fromJson(json),
@@ -28,13 +26,11 @@ class ExtendedDetailsConverter
       AccountTransactionTypeDto.tax => TaxDto.fromJson(json),
       AccountTransactionTypeDto.debit => DebitDto.fromJson(json),
       AccountTransactionTypeDto.directDebit => DirectDebitDto.fromJson(json),
-      AccountTransactionTypeDto.card =>
-        DetailedCardTransactionDto.fromJson(json),
+      AccountTransactionTypeDto.card => DetailedCardTransactionDto.fromJson(json),
       _ => throw UnimplementedError('Unknown type: $type'),
     };
   }
 
   @override
-  Map<String, dynamic> toJson(ExtendedDetailsDto? object) =>
-      object?.toJson() ?? {};
+  Map<String, dynamic> toJson(ExtendedDetailsDto? object) => object?.toJson() ?? {};
 }

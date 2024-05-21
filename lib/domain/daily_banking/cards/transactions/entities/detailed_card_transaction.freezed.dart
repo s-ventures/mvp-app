@@ -16,13 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedCardTransaction {
-  UniqueId get movementId => throw _privateConstructorUsedError;
+  UniqueId get id => throw _privateConstructorUsedError;
   double get amount => throw _privateConstructorUsedError;
   DateTime get postingDate => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get placeId => throw _privateConstructorUsedError;
   String get merchantName => throw _privateConstructorUsedError;
   String get concept => throw _privateConstructorUsedError;
+  List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedCardTransactionCopyWith<DetailedCardTransaction> get copyWith =>
@@ -31,23 +32,23 @@ mixin _$DetailedCardTransaction {
 
 /// @nodoc
 abstract class $DetailedCardTransactionCopyWith<$Res> {
-  factory $DetailedCardTransactionCopyWith(DetailedCardTransaction value,
-          $Res Function(DetailedCardTransaction) then) =
+  factory $DetailedCardTransactionCopyWith(
+          DetailedCardTransaction value, $Res Function(DetailedCardTransaction) then) =
       _$DetailedCardTransactionCopyWithImpl<$Res, DetailedCardTransaction>;
   @useResult
   $Res call(
-      {UniqueId movementId,
+      {UniqueId id,
       double amount,
       DateTime postingDate,
       String? description,
       String? placeId,
       String merchantName,
-      String concept});
+      String concept,
+      List<FileAttachment> attachments});
 }
 
 /// @nodoc
-class _$DetailedCardTransactionCopyWithImpl<$Res,
-        $Val extends DetailedCardTransaction>
+class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTransaction>
     implements $DetailedCardTransactionCopyWith<$Res> {
   _$DetailedCardTransactionCopyWithImpl(this._value, this._then);
 
@@ -59,18 +60,19 @@ class _$DetailedCardTransactionCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? movementId = null,
+    Object? id = null,
     Object? amount = null,
     Object? postingDate = null,
     Object? description = freezed,
     Object? placeId = freezed,
     Object? merchantName = null,
     Object? concept = null,
+    Object? attachments = null,
   }) {
     return _then(_value.copyWith(
-      movementId: null == movementId
-          ? _value.movementId
-          : movementId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       amount: null == amount
           ? _value.amount
@@ -96,6 +98,10 @@ class _$DetailedCardTransactionCopyWithImpl<$Res,
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
+      attachments: null == attachments
+          ? _value.attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
     ) as $Val);
   }
 }
@@ -104,46 +110,45 @@ class _$DetailedCardTransactionCopyWithImpl<$Res,
 abstract class _$$DetailedCardTransactionImplCopyWith<$Res>
     implements $DetailedCardTransactionCopyWith<$Res> {
   factory _$$DetailedCardTransactionImplCopyWith(
-          _$DetailedCardTransactionImpl value,
-          $Res Function(_$DetailedCardTransactionImpl) then) =
+          _$DetailedCardTransactionImpl value, $Res Function(_$DetailedCardTransactionImpl) then) =
       __$$DetailedCardTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {UniqueId movementId,
+      {UniqueId id,
       double amount,
       DateTime postingDate,
       String? description,
       String? placeId,
       String merchantName,
-      String concept});
+      String concept,
+      List<FileAttachment> attachments});
 }
 
 /// @nodoc
 class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
-    extends _$DetailedCardTransactionCopyWithImpl<$Res,
-        _$DetailedCardTransactionImpl>
+    extends _$DetailedCardTransactionCopyWithImpl<$Res, _$DetailedCardTransactionImpl>
     implements _$$DetailedCardTransactionImplCopyWith<$Res> {
   __$$DetailedCardTransactionImplCopyWithImpl(
-      _$DetailedCardTransactionImpl _value,
-      $Res Function(_$DetailedCardTransactionImpl) _then)
+      _$DetailedCardTransactionImpl _value, $Res Function(_$DetailedCardTransactionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? movementId = null,
+    Object? id = null,
     Object? amount = null,
     Object? postingDate = null,
     Object? description = freezed,
     Object? placeId = freezed,
     Object? merchantName = null,
     Object? concept = null,
+    Object? attachments = null,
   }) {
     return _then(_$DetailedCardTransactionImpl(
-      movementId: null == movementId
-          ? _value.movementId
-          : movementId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       amount: null == amount
           ? _value.amount
@@ -169,6 +174,10 @@ class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
+      attachments: null == attachments
+          ? _value._attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
     ));
   }
 }
@@ -177,16 +186,18 @@ class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
 
 class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
   const _$DetailedCardTransactionImpl(
-      {required this.movementId,
+      {required this.id,
       required this.amount,
       required this.postingDate,
       required this.description,
       required this.placeId,
       required this.merchantName,
-      required this.concept});
+      required this.concept,
+      final List<FileAttachment> attachments = const []})
+      : _attachments = attachments;
 
   @override
-  final UniqueId movementId;
+  final UniqueId id;
   @override
   final double amount;
   @override
@@ -199,10 +210,18 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
   final String merchantName;
   @override
   final String concept;
+  final List<FileAttachment> _attachments;
+  @override
+  @JsonKey()
+  List<FileAttachment> get attachments {
+    if (_attachments is EqualUnmodifiableListView) return _attachments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attachments);
+  }
 
   @override
   String toString() {
-    return 'DetailedCardTransaction(movementId: $movementId, amount: $amount, postingDate: $postingDate, description: $description, placeId: $placeId, merchantName: $merchantName, concept: $concept)';
+    return 'DetailedCardTransaction(id: $id, amount: $amount, postingDate: $postingDate, description: $description, placeId: $placeId, merchantName: $merchantName, concept: $concept, attachments: $attachments)';
   }
 
   @override
@@ -210,43 +229,40 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedCardTransactionImpl &&
-            (identical(other.movementId, movementId) ||
-                other.movementId == movementId) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.postingDate, postingDate) ||
-                other.postingDate == postingDate) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.postingDate, postingDate) || other.postingDate == postingDate) &&
+            (identical(other.description, description) || other.description == description) &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
-            (identical(other.merchantName, merchantName) ||
-                other.merchantName == merchantName) &&
-            (identical(other.concept, concept) || other.concept == concept));
+            (identical(other.merchantName, merchantName) || other.merchantName == merchantName) &&
+            (identical(other.concept, concept) || other.concept == concept) &&
+            const DeepCollectionEquality().equals(other._attachments, _attachments));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, movementId, amount, postingDate,
-      description, placeId, merchantName, concept);
+  int get hashCode => Object.hash(runtimeType, id, amount, postingDate, description, placeId,
+      merchantName, concept, const DeepCollectionEquality().hash(_attachments));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl>
-      get copyWith => __$$DetailedCardTransactionImplCopyWithImpl<
-          _$DetailedCardTransactionImpl>(this, _$identity);
+  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl> get copyWith =>
+      __$$DetailedCardTransactionImplCopyWithImpl<_$DetailedCardTransactionImpl>(this, _$identity);
 }
 
 abstract class _DetailedCardTransaction implements DetailedCardTransaction {
   const factory _DetailedCardTransaction(
-      {required final UniqueId movementId,
+      {required final UniqueId id,
       required final double amount,
       required final DateTime postingDate,
       required final String? description,
       required final String? placeId,
       required final String merchantName,
-      required final String concept}) = _$DetailedCardTransactionImpl;
+      required final String concept,
+      final List<FileAttachment> attachments}) = _$DetailedCardTransactionImpl;
 
   @override
-  UniqueId get movementId;
+  UniqueId get id;
   @override
   double get amount;
   @override
@@ -260,7 +276,9 @@ abstract class _DetailedCardTransaction implements DetailedCardTransaction {
   @override
   String get concept;
   @override
+  List<FileAttachment> get attachments;
+  @override
   @JsonKey(ignore: true)
-  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

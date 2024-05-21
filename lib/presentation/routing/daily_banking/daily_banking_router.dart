@@ -104,10 +104,8 @@ class DailyBankingRouter {
                       routes: [
                         GoRoute(
                           parentNavigatorKey: rootNavigatorKey,
-                          path: AppRoute
-                              .dailyBankingNationalTransferCertificate.path,
-                          name: AppRoute
-                              .dailyBankingNationalTransferCertificate.name,
+                          path: AppRoute.dailyBankingNationalTransferCertificate.path,
+                          name: AppRoute.dailyBankingNationalTransferCertificate.name,
                           pageBuilder: (context, state) => MaterialPage(
                             key: state.pageKey,
                             child: const NationalTransferCertificatePage(),
@@ -140,10 +138,8 @@ class DailyBankingRouter {
                   routes: [
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path: AppRoute
-                          .dailyBankingInternationalTransferSignature.path,
-                      name: AppRoute
-                          .dailyBankingInternationalTransferSignature.name,
+                      path: AppRoute.dailyBankingInternationalTransferSignature.path,
+                      name: AppRoute.dailyBankingInternationalTransferSignature.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
                         child: const InternationalTransferOtpPage(),
@@ -151,12 +147,8 @@ class DailyBankingRouter {
                       routes: [
                         GoRoute(
                           parentNavigatorKey: rootNavigatorKey,
-                          path: AppRoute
-                              .dailyBankingInternationalTransferCertificate
-                              .path,
-                          name: AppRoute
-                              .dailyBankingInternationalTransferCertificate
-                              .name,
+                          path: AppRoute.dailyBankingInternationalTransferCertificate.path,
+                          name: AppRoute.dailyBankingInternationalTransferCertificate.name,
                           pageBuilder: (context, state) => MaterialPage(
                             key: state.pageKey,
                             child: const InternationalTransferCertificatePage(),
@@ -183,8 +175,7 @@ class DailyBankingRouter {
                   path: AppRoute.dailyBankingScheduledTransferDetails.path,
                   name: AppRoute.dailyBankingScheduledTransferDetails.name,
                   pageBuilder: (context, state) {
-                    final params =
-                        state.extra! as PeriodicOrderDetailsRouteParams;
+                    final params = state.extra! as PeriodicOrderDetailsRouteParams;
                     return MaterialPage(
                       key: state.pageKey,
                       child: PeriodicOrderDetailsPage(
@@ -198,8 +189,7 @@ class DailyBankingRouter {
                       path: AppRoute.dailyBankingScheduledTransferEdit.path,
                       name: AppRoute.dailyBankingScheduledTransferEdit.name,
                       pageBuilder: (context, state) {
-                        final params =
-                            state.extra! as PeriodicOrderDetailsRouteParams;
+                        final params = state.extra! as PeriodicOrderDetailsRouteParams;
                         return MaterialPage(
                           key: state.pageKey,
                           child: PeriodicOrderEditPage(
@@ -210,10 +200,8 @@ class DailyBankingRouter {
                     ),
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path:
-                          AppRoute.dailyBankingScheduledTransferSignature.path,
-                      name:
-                          AppRoute.dailyBankingScheduledTransferSignature.name,
+                      path: AppRoute.dailyBankingScheduledTransferSignature.path,
+                      name: AppRoute.dailyBankingScheduledTransferSignature.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
                         child: const PeriodicOrderOtpPage(),
@@ -481,10 +469,8 @@ class DailyBankingRouter {
               routes: [
                 GoRoute(
                   parentNavigatorKey: rootNavigatorKey,
-                  path:
-                      AppRoute.dailyBankingCertsAndDocumentsRequestPayment.path,
-                  name:
-                      AppRoute.dailyBankingCertsAndDocumentsRequestPayment.name,
+                  path: AppRoute.dailyBankingCertsAndDocumentsRequestPayment.path,
+                  name: AppRoute.dailyBankingCertsAndDocumentsRequestPayment.name,
                   pageBuilder: (context, state) => MaterialPage(
                     key: state.pageKey,
                     child: const CertificatesAndDocumentsRequestPaymentPage(),
@@ -492,24 +478,17 @@ class DailyBankingRouter {
                   routes: [
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path: AppRoute
-                          .dailyBankingCertsAndDocumentsRequestPaymentOTP.path,
-                      name: AppRoute
-                          .dailyBankingCertsAndDocumentsRequestPaymentOTP.name,
+                      path: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOTP.path,
+                      name: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOTP.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
-                        child:
-                            const CertificatesAndDocumentsRequestPaymentOTPPage(),
+                        child: const CertificatesAndDocumentsRequestPaymentOTPPage(),
                       ),
                       routes: [
                         GoRoute(
                           parentNavigatorKey: rootNavigatorKey,
-                          path: AppRoute
-                              .dailyBankingCertsAndDocumentsRequestDownload
-                              .path,
-                          name: AppRoute
-                              .dailyBankingCertsAndDocumentsRequestDownload
-                              .name,
+                          path: AppRoute.dailyBankingCertsAndDocumentsRequestDownload.path,
+                          name: AppRoute.dailyBankingCertsAndDocumentsRequestDownload.name,
                           pageBuilder: (context, state) => MaterialPage(
                             key: state.pageKey,
                             child: const CertificatesAndDocumentsDownload(),

@@ -1,9 +1,13 @@
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/relation_type_dto.dart';
 
 enum RelationType {
-  supplier,
-  customer,
-  both,
+  supplier('Proveedor'),
+  customer('Cliente'),
+  both('Ambos');
+
+  const RelationType(this.name);
+
+  final String name;
 }
 
 extension RelationTypeX on RelationType {
