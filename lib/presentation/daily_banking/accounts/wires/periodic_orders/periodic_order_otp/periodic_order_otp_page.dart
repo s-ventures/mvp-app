@@ -4,26 +4,25 @@ import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class SoonPayOtpPage extends StatelessWidget {
-  const SoonPayOtpPage({super.key});
+class PeriodicOrderOtpPage extends StatelessWidget {
+  const PeriodicOrderOtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return OtpPage(
-      title: context.loc.dailyBankingSoonPayOtpTitle,
+      title: context.loc.commonSignatureOperation,
       onPressedBack: () async => context.pop(),
       onPressedResend: () async {},
+      btnConfirmText: context.loc.dailyBankingNationalTransfersOtpButton,
       onPressedConfirm: () async => AlertBottomSheet.show(
         context: context,
-        icon: IconAssets.calendar,
-        title: context.loc.dailyBankingSoonPayScheduledOtpSuccessModalTitle(
-          50,
-          'Thomas Magnum',
-        ),
-        message: context.loc.dailyBankingSoonPayScheduledOtpSuccessModalDescription,
-        buttonOkText: context.loc.dailyBankingSoonPayScheduledOtpSuccessModalButton,
+        icon: IconAssets.check,
+        title: context.loc.dailyBankingScheduledTransfersOtpModalSuccessTitle,
+        message: context
+            .loc.dailyBankingScheduledTransfersOtpModalSuccessDescription,
+        buttonOkText: context.loc.commonContinue,
         onOkPressed: () => context.pushNamed(
-          AppRoute.dailyBankingTransfers.name,
+          AppRoute.dailyBankingNationalTransferCertificate.name,
         ),
       ),
     );

@@ -4,7 +4,7 @@ version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: ">=3.3.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -28,11 +28,11 @@ flutter:
   assets:
     - assets/
 
-arb_generator: 
+arb_generator:
   input_filepath: "assets/l10n.csv"
   output_directory: "lib/src/arb"
   filename_prepend: "app_"
   csv_settings:
-    delimiter: ";"
+    delimiter: ","
     description_index: 1
     base_index: 2

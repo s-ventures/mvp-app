@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -15,7 +16,7 @@ class CertificatesAndDocumentsPage extends StatelessWidget {
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Certificados',
+                title: context.loc.commonCertificates,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -29,7 +30,7 @@ class CertificatesAndDocumentsPage extends StatelessWidget {
             padding: const EdgeInsets.all(AppSpacing.s5),
             children: [
               Text(
-                'Solicitar certificados',
+                context.loc.dailyBankingAccountsCertificatesRequestCertificates,
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -44,13 +45,14 @@ class CertificatesAndDocumentsPage extends StatelessWidget {
                     ),
                     child: ListTile(
                       title: Text(
-                        'Certificado de titularidad',
+                        context.loc.dailyBankingAccountsCertificatesTitleTitle,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight900,
                         ),
                       ),
                       subtitle: Text(
-                        'Número CCC',
+                        context.loc
+                            .dailyBankingAccountsCertificatesTitleDescription,
                         style: context.textStyle.buttonTabBar.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -71,13 +73,15 @@ class CertificatesAndDocumentsPage extends StatelessWidget {
                   Splash(
                     child: ListTile(
                       title: Text(
-                        'Certificado saldo en cuenta',
+                        context.loc
+                            .dailyBankingAccountsCertificatesAccountBalanceTitle,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight900,
                         ),
                       ),
                       subtitle: Text(
-                        'Saldo en cuenta',
+                        context.loc
+                            .dailyBankingAccountsCertificatesAccountBalanceDescription,
                         style: context.textStyle.buttonTabBar.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -98,13 +102,14 @@ class CertificatesAndDocumentsPage extends StatelessWidget {
                   Splash(
                     child: ListTile(
                       title: Text(
-                        'Certificado de abono',
+                        context.loc.dailyBankingAccountsCertificatesCreditTitle,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight900,
                         ),
                       ),
                       subtitle: Text(
-                        'Ingreso en cuenta',
+                        context.loc
+                            .dailyBankingAccountsCertificatesCreditDescription,
                         style: context.textStyle.buttonTabBar.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -129,13 +134,14 @@ class CertificatesAndDocumentsPage extends StatelessWidget {
                     ),
                     child: ListTile(
                       title: Text(
-                        'Certificado de adeudo',
+                        context.loc.dailyBankingAccountsCertificatesDebitTitle,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight900,
                         ),
                       ),
                       subtitle: Text(
-                        'Cargo en cuenta',
+                        context.loc
+                            .dailyBankingAccountsCertificatesDebitDescription,
                         style: context.textStyle.buttonTabBar.copyWith(
                           color: context.color.textLight600,
                         ),

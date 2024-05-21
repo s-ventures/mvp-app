@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/details/widgets/card_details.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -38,7 +39,7 @@ class CardDetailsBottomSheet {
       leadingNavBarWidget: Transform.translate(
         offset: const Offset(16, 24),
         child: Text(
-          'Detalles de tarjeta',
+          context.loc.dailyBankingCardsDetailsTitle,
           style: context.textStyle.h6,
         ),
       ),
@@ -52,7 +53,8 @@ class CardDetailsBottomSheet {
       ),
       mainContentSlivers: [
         SliverPadding(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
+          padding:
+              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 80),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class BusinessInsurance extends StatelessWidget {
@@ -17,7 +18,7 @@ class BusinessInsurance extends StatelessWidget {
               backgroundColor: context.color.backgroundLight200,
             ),
             title: Text(
-              'Seguro de comercios',
+              context.loc.commonInsuranceCommercial,
               style: context.textStyle.bodySmallRegular.copyWith(
                 color: context.color.textLight900,
               ),

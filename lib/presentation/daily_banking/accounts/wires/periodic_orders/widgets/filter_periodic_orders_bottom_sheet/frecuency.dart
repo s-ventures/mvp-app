@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -46,7 +47,15 @@ class _FilterPeriodicOrdersFrecuencyState extends State<FilterPeriodicOrdersFrec
                 padding: const EdgeInsets.only(right: AppSpacing.s3),
                 child: CustomChip(
                   title: Text(
-                    periodicOrderfrecuency.name,
+                    periodicOrderfrecuency == PeriodicOrderFrecuencyType.daily
+                        ? context.loc.commonFrequencyDaily
+                        : periodicOrderfrecuency ==
+                                PeriodicOrderFrecuencyType.weekly
+                            ? context.loc.commonFrequencyWeekly
+                            : periodicOrderfrecuency ==
+                                    PeriodicOrderFrecuencyType.monthly
+                                ? context.loc.commonFrequencyMonthly
+                                : '',
                     style: context.textStyle.buttonExtraSmall.copyWith(
                       color: selectedIndex == index
                           ? context.color.textLight0

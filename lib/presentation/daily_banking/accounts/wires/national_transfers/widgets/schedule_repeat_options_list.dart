@@ -3,7 +3,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 class ScheduleRepeatOptionList extends StatelessWidget {
   const ScheduleRepeatOptionList(
-      {required this.options, this.groupValue = 'nunca', this.onPressed, super.key});
+      {required this.options, this.groupValue = 'nunca', this.onPressed, super.key,});
 
   final List<Map<String, dynamic>> options;
   final dynamic groupValue;

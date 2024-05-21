@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -16,9 +17,11 @@ class WiresOptions extends StatelessWidget {
               icon: IconAssets.marker,
               backgroundColor: context.color.neutralLight100,
             ),
-            title: const Text('Envío nacional'),
+            title: Text(
+              context.loc.dailyBankingNewTransfersNationalTitle,
+            ),
             subtitle: Text(
-              'Enviar dinero dentro de tu país',
+              context.loc.dailyBankingNewTransfersNationalDescription,
               style: context.textStyle.bodySmallRegular.copyWith(
                 color: context.color.textLight600,
               ),
@@ -41,9 +44,9 @@ class WiresOptions extends StatelessWidget {
               icon: IconAssets.global,
               backgroundColor: context.color.neutralLight100,
             ),
-            title: const Text('Envío internacional'),
+            title: Text(context.loc.dailyBankingNewTransfersInternationalTitle),
             subtitle: Text(
-              'Enviar dinero al extranjero',
+              context.loc.dailyBankingNewTransfersInternationalDescription,
               style: context.textStyle.bodySmallRegular.copyWith(
                 color: context.color.textLight600,
               ),
@@ -65,9 +68,11 @@ class WiresOptions extends StatelessWidget {
               size: IconWithContainerSize.large,
               backgroundColor: context.color.neutralLight100,
             ),
-            title: const Text('Enviar a contacto soon'),
+            title: Text(
+              context.loc.dailyBankingNewTransfersSoonContactTitle,
+            ),
             subtitle: Text(
-              'Transferencias directas',
+              context.loc.dailyBankingNewTransfersSoonContactDescription,
               style: context.textStyle.bodySmallRegular.copyWith(
                 color: context.color.textLight600,
               ),

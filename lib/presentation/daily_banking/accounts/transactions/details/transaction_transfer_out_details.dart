@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/transfer_out_transaction_details.dart';
 import 'package:manifiesto_mvp_app/presentation/shared/transaction/transaction_actions_section.dart';
@@ -29,9 +30,9 @@ class TransactionTransferOutDetails extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         MovementDetailsDate(
-          titleStartDate: 'Fecha cargo',
+          titleStartDate: context.loc.dailyBankingTransfersSentMovementDetailsChargeDate,
           startDate: details.orderDate.formatToDayMonthYear(),
-          titleEndDate: 'Fecha abono',
+          titleEndDate: context.loc.dailyBankingTransfersSentMovementDetailsCreditDate,
           endDate: details.valueDate.formatToDayMonthYear(),
         ),
         AppSpacing.vertical.s5,
@@ -41,7 +42,7 @@ class TransactionTransferOutDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Beneficiario',
+                context.loc.dailyBankingTransfersSentMovementDetailsBeneficiary,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -53,7 +54,7 @@ class TransactionTransferOutDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                'Número de cuenta',
+                context.loc.dailyBankingTransfersSentMovementDetailsAccountNumber,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -65,7 +66,7 @@ class TransactionTransferOutDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                'Tipo de transferencia',
+                context.loc.dailyBankingTransfersSentMovementDetailsTypeTransfer,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),

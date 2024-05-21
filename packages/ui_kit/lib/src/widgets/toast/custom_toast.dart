@@ -49,7 +49,7 @@ class CustomToast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Implementar custom toast design
+    // TODO(jesus): Implementar custom toast design
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(

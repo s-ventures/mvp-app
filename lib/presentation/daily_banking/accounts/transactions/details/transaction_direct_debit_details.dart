@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/detailed_account_transaction.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/extended_transaction_details/direct_debit_transaction_details.dart';
 import 'package:manifiesto_mvp_app/presentation/shared/transaction/transaction_actions_section.dart';
@@ -29,9 +30,9 @@ class TransactionDirectDebitDetails extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         MovementDetailsDate(
-          titleStartDate: 'Fecha máxima devol.',
+          titleStartDate: context.loc.dailyBankingDirectDebitMovementDetailsMaximumReturnDate,
           startDate: transaction.postingDate.formatToDayMonthYear(),
-          titleEndDate: 'Recibo devuelto',
+          titleEndDate: context.loc.dailyBankingDirectDebitMovementDetailsReturnedReceipt,
           endDate: details.returnDate.formatToDayMonthYear(),
         ),
         AppSpacing.vertical.s5,
@@ -41,7 +42,7 @@ class TransactionDirectDebitDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Nombre emisor',
+                context.loc.dailyBankingDirectDebitMovementDetailsNameIssuer,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -53,7 +54,7 @@ class TransactionDirectDebitDetails extends StatelessWidget {
               ),
               AppSpacing.vertical.s4,
               Text(
-                'Referencia mandato',
+                context.loc.dailyBankingDirectDebitMovementDetailsMandatoryReference,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),

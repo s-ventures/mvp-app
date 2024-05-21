@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 enum BankAccountType {
@@ -29,7 +30,7 @@ class MovementDetailsBankingInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Información bancaria',
+          context.loc.commonBankingInformation,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -81,7 +82,7 @@ class MovementDetailsBankingInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Categoría',
+                        context.loc.commonCategory,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
                         ),

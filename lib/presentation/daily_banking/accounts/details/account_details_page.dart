@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/accounts/detailed/detailed_account_controller.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -40,7 +41,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Detalles de la cuenta',
+                title: context.loc.dailyBankingAccountsDetailsTitle,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -101,7 +102,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                       Row(
                         children: [
                           Text(
-                            'Saldo disponible',
+                            context.loc.dailyBankingAccountsDetailsAvailableBalance,
                             style: context.textStyle.bodySmallRegular.copyWith(
                               color: context.color.textLight600,
                             ),
@@ -125,7 +126,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Nombre de la cuenta',
+                        context.loc.dailyBankingAccountsDetailsAccountName,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -138,7 +139,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                       ),
                       AppSpacing.vertical.s5,
                       Text(
-                        'Alias de la cuenta',
+                        context.loc.dailyBankingAccountsDetailsAccountAlias,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -159,7 +160,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Titular',
+                        context.loc.dailyBankingAccountsDetailsBeneficiary,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -178,7 +179,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'IBAN',
+                                context.loc.dailyBankingAccountsDetailsIban,
                                 style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight600,
                                 ),
@@ -207,7 +208,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Código BIC/SWIFT',
+                                context.loc.dailyBankingAccountsDetailsBicSwift,
                                 style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight600,
                                 ),
@@ -230,7 +231,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                       ),
                       AppSpacing.vertical.s5,
                       Text(
-                        'Nombre y dirección del banco',
+                        context.loc.dailyBankingAccountsDetailsBankName,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -267,7 +268,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                           ),
                         ),
                         title: Text(
-                          'Transferencia programadas',
+                          context.loc.dailyBankingScheduledTransfers,
                           style: context.textStyle.bodySmallRegular.copyWith(
                             color: context.color.textLight900,
                           ),

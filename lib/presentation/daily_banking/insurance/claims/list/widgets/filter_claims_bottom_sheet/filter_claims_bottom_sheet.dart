@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_claims_bottom_sheet/claim_status_filter.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -69,7 +70,7 @@ class FilterClaimsBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Button(
-                title: 'Descartar filtros',
+                title: context.loc.commonFilterDiscard,
                 type: ButtonType.text,
                 size: ButtonSize.small,
                 onPressed: () async {
@@ -77,7 +78,7 @@ class FilterClaimsBottomSheet {
                 },
               ),
               Button(
-                title: 'Aplicar',
+                title: context.loc.commonFilterApply,
                 size: ButtonSize.small,
                 onPressed: () async {
                   await onApply().then((_) => context.pop());
@@ -89,7 +90,7 @@ class FilterClaimsBottomSheet {
         backgroundColor: context.color.bottomSheetBackground,
         sabGradientColor: context.color.bottomSheetBackground,
         topBarTitle: Text(
-          'Filtrar',
+          context.loc.commonFilter,
           style: context.textStyle.h6,
         ),
         isTopBarLayerAlwaysVisible: true,
@@ -115,7 +116,7 @@ class FilterClaimsBottomSheet {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Estado',
+                        context.loc.dailyBankingInsurancesClaimsFilterStatus,
                         style: context.textStyle.bodyMediumSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -127,7 +128,7 @@ class FilterClaimsBottomSheet {
                       ),
                       AppSpacing.vertical.s5,
                       Text(
-                        'Fecha',
+                        context.loc.commonDate,
                         style: context.textStyle.bodyMediumSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -143,7 +144,7 @@ class FilterClaimsBottomSheet {
                     ],
                   ),
                   Text(
-                    'Categoría',
+                    context.loc.commonCategory,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -158,7 +159,7 @@ class FilterClaimsBottomSheet {
                         borderRadius: BorderRadius.circular(
                           context.radius.soft,
                         ),
-                        title: 'Energía',
+                        title: context.loc.commonCategoryEnergy,
                         trailing: IconSvg.small(
                           IconAssets.chevronRight,
                           color: context.color.iconLight600,
@@ -188,13 +189,13 @@ class FilterClaimsBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Button(
-                title: 'Cancelar',
+                title: context.loc.commonCancel,
                 type: ButtonType.text,
                 size: ButtonSize.small,
                 onPressed: () async {},
               ),
               Button(
-                title: 'Seleccionar',
+                title: context.loc.commonFilterSelect,
                 size: ButtonSize.small,
                 onPressed: () async {
                   pageIndexNotifier.value = 0;
@@ -215,7 +216,7 @@ class FilterClaimsBottomSheet {
         backgroundColor: context.color.bottomSheetBackground,
         sabGradientColor: context.color.bottomSheetBackground,
         topBarTitle: Text(
-          'Categoría',
+          context.loc.commonCategory,
           style: context.textStyle.h6,
         ),
         isTopBarLayerAlwaysVisible: true,
