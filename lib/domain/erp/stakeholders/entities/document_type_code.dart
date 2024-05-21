@@ -1,10 +1,14 @@
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/document_type_code_dto.dart';
 
 enum DocumentTypeCode {
-  dni,
-  nie,
-  nif,
-  passport,
+  dni('DNI'),
+  nie('NIE'),
+  nif('NIF'),
+  passport('Pasaporte');
+
+  const DocumentTypeCode(this.name);
+
+  final String name;
 }
 
 extension DocumentTypeCodeX on DocumentTypeCode? {

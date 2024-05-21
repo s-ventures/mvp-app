@@ -13,6 +13,7 @@ import 'package:manifiesto_mvp_app/domain/erp/contracts/entities/customer_contra
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/dtos/contract_dto.dart';
 
 part 'customer_contract_dto.freezed.dart';
+part 'customer_contract_dto.g.dart';
 
 @freezed
 class CustomerContractDto with _$CustomerContractDto {
