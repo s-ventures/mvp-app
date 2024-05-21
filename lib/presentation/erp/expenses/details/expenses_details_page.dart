@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class InvoicesDetailsPage extends StatelessWidget {
-  const InvoicesDetailsPage({
+class ExpensesDetailsPage extends StatelessWidget {
+  const ExpensesDetailsPage({
     super.key,
   });
 
@@ -15,7 +15,7 @@ class InvoicesDetailsPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Factura',
+              title: 'Gasto',
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -31,7 +31,7 @@ class InvoicesDetailsPage extends StatelessWidget {
             const ErpDetailsHeader(
               title: 'Presupuesto F1/2023',
               subtitle: 'Notas para el receptor',
-              status: ErpDetailsStatus.pending,
+              status: ErpDetailsStatus.rejected,
             ),
             AppSpacing.vertical.s6,
             const ErpDetailsDates(
@@ -49,13 +49,9 @@ class InvoicesDetailsPage extends StatelessWidget {
               address: '28001, España',
               nif: '12345678Z',
             ),
-            AppSpacing.vertical.s3,
-            ErpDetailsLink(
-              onPressed: () {},
-            ),
             AppSpacing.vertical.s6,
             const ErpDetailsCategory(
-              categorySelected: 'Código contable',
+              categorySelected: 'Ventas',
             ),
             AppSpacing.vertical.s6,
             const ErpDetailsProducts(
