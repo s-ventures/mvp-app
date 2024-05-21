@@ -63,7 +63,7 @@ class ErpDetailsMovement extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                (total).toCurrency(),
+                total.toCurrency(),
                 style: context.textStyle.bodyMediumRegular.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -75,7 +75,7 @@ class ErpDetailsMovement extends StatelessWidget {
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
                 onPressed: () async {},
-              )
+              ),
             ],
           ),
         ),

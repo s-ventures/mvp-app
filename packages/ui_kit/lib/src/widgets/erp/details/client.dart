@@ -52,7 +52,7 @@ class ErpDetailsClient extends StatelessWidget {
                 backgroundColor: context.color.backgroundLight200,
                 borderRadius: BorderRadius.circular(
                   context.radius.soft,
-                )),
+                ),),
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
