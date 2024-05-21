@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/Expenses/search/widgets/search_bar.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/expenses/list/filter_expenses_bottom_sheet/filter_expenses_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class SearchExpensesPage extends StatelessWidget {
@@ -113,6 +114,9 @@ class SearchExpensesPage extends StatelessWidget {
               contact: item['contact']!,
               amount: double.parse(item['amount']!),
               status: item['status']!,
+              onPressed: () async => context.pushNamed(
+                AppRoute.erpExpensesDetails.name,
+              ),
             );
           },
         ),
