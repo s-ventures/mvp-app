@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class QuotesPending extends StatelessWidget {
@@ -50,6 +52,9 @@ class QuotesPending extends StatelessWidget {
                 contact: item['contact']!,
                 amount: double.parse(item['amount']!),
                 status: item['status']!,
+                onPressed: () async => context.pushNamed(
+                  AppRoute.erpQuotesDetails.name,
+                ),
               );
             },
           )

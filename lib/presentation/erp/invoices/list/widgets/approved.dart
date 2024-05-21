@@ -42,7 +42,7 @@ class InvoicesApproved extends StatelessWidget {
         AppSpacing.vertical.s5,
         FakeSearchBar(
           onPressed: () => context.pushNamed(
-            AppRoute.erpInvoiceSearch.name,
+            AppRoute.erpInvoicesSearch.name,
           ),
         ),
         AppSpacing.vertical.s5,
@@ -62,6 +62,9 @@ class InvoicesApproved extends StatelessWidget {
                 contact: item['contact']!,
                 amount: double.parse(item['amount']!),
                 status: item['status']!,
+                onPressed: () async => context.pushNamed(
+                  AppRoute.erpInvoicesDetails.name,
+                ),
               );
             },
           )

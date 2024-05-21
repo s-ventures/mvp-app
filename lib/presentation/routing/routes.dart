@@ -45,8 +45,11 @@ enum AppRoute {
   // Erp
   erp('/erp'),
   erpQuotesSearch('quotes/search'),
-  erpInvoiceSearch('invoices/search'),
+  erpQuotesDetails('quotes/details'),
+  erpInvoicesSearch('invoices/search'),
+  erpInvoicesDetails('invoices/details'),
   erpExpensesSearch('expenses/search'),
+  erpExpensesDetails('expenses/details'),
 
   // Contacts
   contacts('/contacts'),
