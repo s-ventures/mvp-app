@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/invoices_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/quotes_page.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -60,11 +61,19 @@ class ErpPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Center(
-                child: Text(
-                  'Facturas',
-                  style: TextStyle(color: context.color.primary),
-                ),
+              Stack(
+                children: [
+                  const InvoicesTab(),
+                  Positioned(
+                    right: 16,
+                    bottom: 16,
+                    child: Button(
+                      onPressed: () async {},
+                      icon: IconAssets.plus,
+                      size: ButtonSize.small,
+                    ),
+                  ),
+                ],
               ),
               Center(
                 child: Text(

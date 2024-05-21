@@ -4,8 +4,10 @@ class IconAssets {
   static const String _iconPath = 'assets/icons';
 
   static const String addressBook = '$_iconPath/address-book.svg';
+  static const String arrowDown = '$_iconPath/arrow-down.svg';
   static const String arrowLeft = '$_iconPath/arrow-left.svg';
   static const String arrowRight = '$_iconPath/arrow-right.svg';
+  static const String arrowUp = '$_iconPath/arrow-up.svg';
   static const String ban = '$_iconPath/ban.svg';
   static const String bank = '$_iconPath/bank.svg';
   static const String bell = '$_iconPath/bell.svg';
@@ -61,8 +63,8 @@ class IconAssets {
   static const String save = '$_iconPath/save.svg';
   static const String scan = '$_iconPath/scan.svg';
   static const String search = '$_iconPath/search.svg';
-  static const String securityCam = '$_iconPath/security-cam.svg';
   static const String security = '$_iconPath/security.svg';
+  static const String securityCam = '$_iconPath/security-cam.svg';
   static const String send = '$_iconPath/send.svg';
   static const String settings = '$_iconPath/settings.svg';
   static const String share = '$_iconPath/share.svg';
