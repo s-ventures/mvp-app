@@ -84,7 +84,7 @@ class SearchExpensesPage extends StatelessWidget {
               ],
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(
-                  kToolbarHeight + (false ? kTextTabBarHeight : 0),
+                  kToolbarHeight,
                 ),
                 child: Column(
                   children: [
