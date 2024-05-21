@@ -80,9 +80,7 @@ class SearchQuotesPage extends StatelessWidget {
                 ),
               ],
               bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(
-                  kToolbarHeight + (false ? kTextTabBarHeight : 0),
-                ),
+                preferredSize: const Size.fromHeight(kToolbarHeight),
                 child: Column(
                   children: [
                     QuotesSearchBar(

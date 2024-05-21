@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Transferencia nacional',
+              title: context.loc.dailyBankingNationalTransfersTransfer,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -33,7 +34,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Reutilizar transferencia',
+                              context.loc.dailyBankingNationalTransfersMenuReuseTransfer,
                               style: context.textStyle.bodyMediumRegular,
                             ),
                             AppSpacing.horizontal.s5,
@@ -55,7 +56,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Anular transferencia',
+                              context.loc.dailyBankingNationalTransfersMenuCancelTransfer,
                               style: context.textStyle.bodyMediumRegular.copyWith(
                                 color: context.color.statusError,
                               ),
@@ -101,12 +102,17 @@ class NationalTransferCertificatePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Diariamente',
+                          context.loc.commonFrequencyDaily,
                           style: context.textStyle.bodySmallRegular,
                         ),
-                        AppSpacing.horizontal.s3,
                         Text(
-                          '· Desde 12/01/2024',
+                          ' · ',
+                          style: context.textStyle.bodySmallRegular.copyWith(
+                            color: context.color.textLight600,
+                          ),
+                        ),
+                        Text(
+                          context.loc.commonDateSinceDate('21/01/2024'),
                           style: context.textStyle.bodySmallRegular.copyWith(
                             color: context.color.textLight600,
                           ),
@@ -124,7 +130,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Titular',
+                    context.loc.commonHolder,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -137,7 +143,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'IBAN',
+                    context.loc.commonIban,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -150,7 +156,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Importe',
+                    context.loc.commonAmount,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -163,7 +169,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Comisión de transferencia',
+                    context.loc.commonTransferFee,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -176,7 +182,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Concepto',
+                    context.loc.commonConcept,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -189,7 +195,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Fecha de envío',
+                    context.loc.commonDateDispatch,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -202,7 +208,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Llegada estimada',
+                    context.loc.commonDateEstimatedArrival,
                     style: context.textStyle.bodySmallSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -229,7 +235,7 @@ class NationalTransferCertificatePage extends StatelessWidget {
               Expanded(
                 child: Button(
                   icon: IconAssets.download,
-                  title: 'Descargar',
+                  title: context.loc.commonDownload,
                   size: ButtonSize.small,
                   expand: true,
                   onPressed: () async => context.goNamed(AppRoute.dailyBanking.name),

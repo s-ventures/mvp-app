@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/widgets/contact_list.dart';
+import 'package:manifiesto_mvp_app/presentation/contacts/widgets/contacts_list.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/widgets/rankings.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -48,7 +48,7 @@ class _ContactsPageState extends ConsumerState<Contacts> {
                 children: [
                   const Rankings(),
                   AppSpacing.vertical.s6,
-                  const ContactList(),
+                  const ContactsList(),
                 ],
               ),
             ),

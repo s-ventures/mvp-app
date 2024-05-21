@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/filter_account_transactions_bottom_sheet.dart';
@@ -45,7 +46,7 @@ class AccountTransactionsHeader extends ConsumerWidget {
           children: [
             Expanded(
               child: Text(
-                'Movimientos',
+                context.loc.dailyBankingAccountsMovements,
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CertificateTaxes extends StatelessWidget {
@@ -30,7 +31,7 @@ class CertificateTaxes extends StatelessWidget {
               borderRadius: BorderRadius.circular(context.radius.soft),
             ),
             child: Text(
-              'Comisión de certificado',
+              context.loc.dailyBankingAccountsCertificatesRequestCommission,
               textAlign: TextAlign.center,
               style: context.textStyle.bodySmallRegular.copyWith(
                 color: context.color.textLight600,

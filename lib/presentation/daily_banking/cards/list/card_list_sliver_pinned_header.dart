@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/cards/simplified/simplified_cards_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
@@ -114,7 +115,7 @@ class _CardList extends StatelessWidget {
                       title: Row(
                         children: [
                           Text(
-                            'Alias',
+                            context.loc.dailyBankingCardsAlias,
                             style: context.textStyle.bodySmallSemiBold.copyWith(
                               color: context.color.primaryLight600,
                             ),
@@ -139,7 +140,7 @@ class _CardList extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Desactivar'),
+                              Text(context.loc.dailyBankingCardsMenuDeactivate),
                               AppSpacing.horizontal.s7,
                               IconSvg.small(IconAssets.power),
                             ],
@@ -156,7 +157,7 @@ class _CardList extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Ver detalles'),
+                              Text(context.loc.dailyBankingCardsMenuSeeDetails),
                               AppSpacing.horizontal.s7,
                               IconSvg.small(IconAssets.info),
                             ],
@@ -172,7 +173,7 @@ class _CardList extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Ajustes'),
+                              Text(context.loc.dailyBankingCardsMenuSettings),
                               AppSpacing.horizontal.s7,
                               IconSvg.small(IconAssets.invoice),
                             ],

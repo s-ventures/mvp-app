@@ -1,7 +1,415 @@
-keys;description;es;ca
-commonAppTitle;App Title;soon;soon
-dailyBankingAccounts;Accounts;Cuentas;Comptes
-dailyBankingCards;Cards;Tarjetas;Targetes
-dailyBankingInsurance;Insurance;Seguros;Assegurances
-erpQuotations;Quotations;Presupuestos;Pressupostos
-erpInvoices;Invoices;Facturas;Factures
+keys,description,es
+dailyBankingAccounts,Accounts,Cuentas
+dailyBankingAccountsAvailableBalance,Available balance,Saldo disponible
+dailyBankingAccountsAccount,Account,Cuenta
+dailyBankingAccountsAddMoney,Button Add money,Añadir dinero
+dailyBankingAccountsSendMoney,Button Send money,Enviar dinero
+dailyBankingAccountsSchedule,Button Schedule,Programado
+dailyBankingAccountsMovements,Movements,Movimientos
+dailyBankingAccountsAddAccount,Add account,Añadir cuenta
+dailyBankingAccountsMenuAccount,Menu account option accounts,Cuentas
+dailyBankingAccountsMenuSeeDetails,Menu account option see details,Ver detalles
+dailyBankingAccountsMenuPayTax,Menu account option pay tax,Pagar un impuesto
+dailyBankingAccountsMenuCertsAndDocs,Menu account option certificates and documents,Certificados y documentos
+dailyBankingAccountsFiltersMovementTypes,Modal filters movement types,Tipo de movimiento
+dailyBankingAccountsFiltersMovementTypesCard,Filter movement type card,Tarjeta
+dailyBankingAccountsFiltersMovementTypesDomiciliations,Filter movement type domiciliations,Domiciliaciones
+dailyBankingAccountsFiltersMovementTypesReceipts,Filter movement type receipts,Recibos
+dailyBankingAccountsFiltersMovementTypesTrasnfersSent,Filter movement type transfers sent,Transferencias emitidas
+dailyBankingAccountsFiltersMovementTypesTaxes,Filter movement type taxes,Impuestos
+dailyBankingAccountsFiltersMovementTypesTransfersReceived,Filter movement type transfers received,Transferencias recibidas
+dailyBankingAccountsFiltersRecentCategories,Filter recent categories,Categorías recientes
+dailyBankingAccountsPageTitle,Title of page of accounts,Cuentas
+dailyBankingAccountsPageSubtitle,Subtitle of page of accounts,Cuentas
+dailyBankingAccountsPageDescription,Description of page of accounts,Selecciona las cuentas que quieres que estén visibles en la pantalla de inicio.
+dailyBankingAccountsPageButton,Button to select account,Seleccionar cuenta
+dailyBankingAccountsDetailsTitle,Title of page of account details,Detalles de la cuenta
+dailyBankingAccountsDetailsAvailableBalance,Available balance,Saldo disponible
+dailyBankingAccountsDetailsAccountName,Account name,Nombre de la cuenta
+dailyBankingAccountsDetailsAccountAlias,Account alias,Alias de la cuenta
+dailyBankingAccountsDetailsBeneficiary,Beneficiary,Beneficiario
+dailyBankingAccountsDetailsIban,IBAN,IBAN
+dailyBankingAccountsDetailsBicSwift,Bic swift,Código BIC/Swift
+dailyBankingAccountsDetailsBankName,Bank name,Nombre y dirección del banco
+dailyBankingAccountsDetailsTitleCertificate,Title certificate,Solicitar certificado de titularidad
+dailyBankingAccountsPaymentTaxTitle,Title of page of payment tax,Liquidación de impuestos
+dailyBankingAccountsPaymentTaxModel,Model,Modelo
+dailyBankingAccountsPaymentTaxProof,Proof,Justificante
+dailyBankingAccountsPaymentTaxAccrualDate,Accrual date,Fecha devengo
+dailyBankingAccountsPaymentTaxFile,File,Expediente
+dailyBankingAccountsPaymentTaxSpecificData,Specific data,Datos específicos
+dailyBankingAccountsPaymentTaxButton,Tax payment button,Pagar impuestos
+dailyBankingAccountsPaymentTaxModalTitle,Title of modal reminder,Liquidar impuestos
+dailyBankingAccountsPaymentTaxModalDescription,Description of moda reminder,Recuerde que necesita tener la Carta de Pagos aprobada para procesar la liquidación de impuestos
+dailyBankingAccountsPaymentTaxOtpTitle,Title of otp page,Liquidación de impuestos
+dailyBankingAccountsPaymentTaxOtpButton,Text of button of otp page to confirm payment tax,Confirmar
+dailyBankingAccountsPaymentTaxOtpSuccessTitle,Title of alert bottom sheet when payment is completed,Impuestos liquidados
+dailyBankingAccountsPaymentTaxOtpSuccessDescription,Description of alert bottom sheet when payment is completed,Tus impuestos han sido liquidados con éxito.
+dailyBankingAccountsPaymentTaxOtpErrorTitle,Title of the alert bottom sheet when the payment of tax could not be pay,Error al liquidar impuestos
+dailyBankingAccountsPaymentTaxOtpErrorDescription,Description of the alert bottom sheet when the payment of tax could not be pay,No se han podido liquidar tus impuestos.
+dailyBankingAccountsPaymentTaxScanFileModalAllowCameraTitle,Title of the modal to request access to the camera and gallery,Permitir acceso a la cámara y a la galería de fotos
+dailyBankingAccountsPaymentTaxScanFileModalAllowCameraDescription,Description of the modal to request access to the camera and gallery,Soon necesita permiso para acceder a tu cámara y a tu galería.
+dailyBankingAccountsPaymentTaxScanFileModalAllowCameraSecondDescription,Second description of the modal to request access to the camera and gallery,Esto permite escanear documentos.
+dailyBankingAccountsPaymentTaxScanSuccessTitle,Modal title when the document has been scanned successfully,Escaneo completado
+dailyBankingAccountsPaymentTaxScanSuccessDescription,Modal description when the document has been scanned successfully,Los campos se rellenarán automáticamente
+dailyBankingAccountsPaymentTaxScanErrorTitle,Modal title when the document has not been scanned properly,Escaneo incompleto
+dailyBankingAccountsPaymentTaxScanErrorDescription,Modal description when the document has not been scanned properly,Se ha producido un error al escanear tus documentos
+dailyBankingAccountsPaymentTaxScanErrorButton,Modal button when the document has not been scanned properly,Volver a intentar
+dailyBankingAccountsCertificatesTitle,Title of the certificates page,Certificados y documentos
+dailyBankingAccountsCertificatesRequestCertificates,Request certificates,Solicitar certificados
+dailyBankingAccountsCertificatesTitleTitle,Title of certificate of title,Certificado titularidad
+dailyBankingAccountsCertificatesTitleDescription,Description of certificate of title,Número CCC
+dailyBankingAccountsCertificatesAccountBalanceTitle,Title of certificate account balance,Certificado saldo en cuenta
+dailyBankingAccountsCertificatesAccountBalanceDescription,Description of certificate account balance,Saldo en cuenta
+dailyBankingAccountsCertificatesCreditTitle,Title of credit memo certificate,Certificado de abono
+dailyBankingAccountsCertificatesCreditDescription,Description of credit memo certificate,Ingreso en cuenta
+dailyBankingAccountsCertificatesDebitTitle,Title of certificate of indebtedness,Certificado de adeudo
+dailyBankingAccountsCertificatesDebitDescription,Description of certificate of indebtedness,Cargo en cuenta
+dailyBankingAccountsCertificatesRequestTitle,Request certificates,Solicitar certificado
+dailyBankingAccountsCertificatesRequestFamily,Certificate family,Familia
+dailyBankingAccountsCertificatesRequestContract,Contract,Contrato
+dailyBankingAccountsCertificatesRequestCertificateGeneration,Certificate generation,Generación del certificado
+dailyBankingAccountsCertificatesRequestWhenWillIReceiveIt,When will I receive it,Cuándo lo recibiré
+dailyBankingAccountsCertificatesRequestCommission,Commission of certificate,Comisión del certificado
+dailyBankingAccountsCertificatesPaymentTitle,Payment certificate after request,Pago certificado
+dailyBankingAccountsCertificatesPaymentCommission,Commission of certificate,Comisión de certificado
+dailyBankingAccountsCertificatesPaymentMethod,Payment methods,Método de pago
+dailyBankingAccountsCertificatesPaymentButton,Text of button of payment certificate,Pagar certificado
+dailyBankingAccountsCertificatesPaymentOtpTitle,Title of otp page,Confirmación pago
+dailyBankingAccountsCertificatesPaymentOtpButton,Text of button of otp page to confirm certificate payment,Pagar certificado
+dailyBankingAccountsCertificatesPaymentOtpSuccessTitle,Title of the alert bottom sheet when the certificate is paid for,¡Pago realizado!
+dailyBankingAccountsCertificatesPaymentOtpSuccessDescription,Description of the alert bottom sheet when the certificate is paid for,Tu certificado ya está listo.
+dailyBankingAccountsCertificatesPaymentOtpSuccessButton,Button of the alert bottom sheet when the certificate is paid for,Ver certificado
+dailyBankingAccountsCertificatesPaymentOtpErrorTitle,Title of the alert bottom sheet when the certificate could not be paid for,Error realizando el pago
+dailyBankingAccountsCertificatesPaymentOtpErrorDescription,Description of the alert bottom sheet when the certificate could not be paid for,Ha ocurrido un error al realizar el pago.
+dailyBankingAccountsCertificatesDownloadIndex,Documentation index,Índice de documentación
+dailyBankingAccountsCertificatesDownloadButton,Button download,Descargar certificado
+dailyBankingAccountsCertificatesDownloadSuccessButton,Open certificate,Abrir certificado
+dailyBankingAccountsCertificatesDownloadSuccessAlertTitle,Alert when the certificate has been successfully downloaded,La descarga se ha realizado con éxito.
+dailyBankingAccountsCertificatesDownloadSuccessAlertAction,Action of alert when the certificate has been successfully downloaded,Abrir documento
+dailyBankingAccountsCertificatesDownloadErrorAlertTitle,Alert when the certificate has not been downloaded,Ha ocurrido un error al descargar el documento.
+dailyBankingAddMoneyTitle,Add money title,Añadir dinero
+dailyBankingAddMoneyBalance,Add money balance,Saldo {amount}
+dailyBankingAddMoneyButtonConfirm,Add money button confirm,Añadir dinero
+dailyBankingMovementDetails,Details of movement,Detalles de movimiento
+dailyBankingMovementDetailsMenuViewMoreIssuerReceipts,See more receipts from the issuer,Ver más recibos del emisor
+dailyBankingMovementDetailsMenuRefuseCharge,Refuse charge,Rechazar cobro
+dailyBankingMovementDetailsModalTitel,Title of alert bottom sheet to reject charge,¿Quieres rechazar el cobro?
+dailyBankingMovementDetailsModalDescription,Description of alert bottom sheet to reject charge,"Al rechazar este cobro, se notificará al remitente y se iniciarán los procesos correspondientes para resolver cualquier discrepancia."
+dailyBankingMovementDetailsModalButtonReject,Button Reject of alert bottom sheet to reject charge,Rechazar
+dailyBankingCardMovementDetailsDownloadSuccessAlertTitle,Title of success alert when downloading the voucher,La descarga se realizado con éxito.
+dailyBankingCardMovementDetailsDownloadSuccessAlertAction,Action of success alert when downloading the voucher,Abrir documento
+dailyBankingCardMovementDetailsUploadFileModalTitle,Title of the file upload modal,Añadir archivo
+dailyBankingCardMovementDetailsUploadFileModalScan,Action of scan,Escanear
+dailyBankingCardMovementDetailsUploadFileModalGalery,Action of galery,Galería
+dailyBankingCardMovementDetailsUploadFileModalDocumento,Action of document,Documento
+dailyBankingCardMovementDetailsUploadFileErrorAlertTitle,Title of error alert when upload the file,Error al subir archivo
+dailyBankingCardMovementDetailsReceipt,Receipt,Recibo
+dailyBankingCardMovementDetailsUploadFile,Upload file,Subir archivo
+dailyBankingCardMovementDetailsExpense,Expense,Gasto
+dailyBankingCardMovementDetailsCreateExpense,Create expense,Crear gasto
+dailyBankingDirectDebitMovementDetailsMaximumReturnDate,Maximum return date,Fecha máxima devolución
+dailyBankingDirectDebitMovementDetailsReturnedReceipt,Returned receipt,Recibo devuelto
+dailyBankingDirectDebitMovementDetailsNameIssuer,Name of issuer,Nombre emisor
+dailyBankingDirectDebitMovementDetailsMandatoryReference,Mandatory reference,Referencia mandato
+dailyBankingDebitMovementDetailsPaymentDate,Payment date,Fecha pago
+dailyBankingDebitMovementDetailsChargeDate,Charge date,Fecha cargo
+dailyBankingDebitMovementDetailsNameIssuer,Name of issuer,Nombre emisor
+dailyBankingDebitMovementDetailsMandatoryReference,Mandatory reference,Referencia mandato
+dailyBankingDebitMovementDetailsIdentifier,Identifier,Identificador
+dailyBankingTaxesMovementDetailsPeriodImposed,Period imposed,Periodo impuesto
+dailyBankingTaxesMovementDetailsChargeDate,Charge date,Fecha cargo
+dailyBankingTaxesMovementDetailsNameIssuer,Name of issuer,Nombre emisor
+dailyBankingTaxesMovementDetailsMandateReference,Mandate reference,Referencia de mandato
+dailyBankingTaxesMovementDetailsTypeMovement,Type of movement,Tipo de movimiento
+dailyBankingTaxesMovementDetailsIdentifier,Identifier,Identificador
+dailyBankingTransfersSentMovementDetailsPeriodicTransfer,Periodic transfer,Transferencia periódica
+dailyBankingTransfersSentMovementDetailsChargeDate,Charge date,Fecha cargo
+dailyBankingTransfersSentMovementDetailsCreditDate,Date of credit,Fecha abono
+dailyBankingTransfersSentMovementDetailsBeneficiary,Beneficiary,Beneficiario
+dailyBankingTransfersSentMovementDetailsAccountNumber,Account number,Número de cuenta
+dailyBankingTransfersSentMovementDetailsTypeTransfer,Type of transfer,Tipo de transferencia
+dailyBankingTransfersReceivedMovementDetailsChargeDate,Charge date,Fecha cargo
+dailyBankingTransfersReceivedMovementDetailsCreditDate,Date of credit,Fecha abono
+dailyBankingTransfersReceivedMovementDetailsSender,Sender,Ordenante
+dailyBankingTransfersReceivedMovementDetailsSendersAccount,Sender's account,Cuenta ordenante
+dailyBankingNewTransfers,New transfer,Nueva transferencia
+dailyBankingNewTransfersNationalTitle,National transfer option title,Envío nacional
+dailyBankingNewTransfersNationalDescription,National transfer option description,Enviar dinero dentro de tu país
+dailyBankingNewTransfersInternationalTitle,International transfer option title,Envío internacional
+dailyBankingNewTransfersInternationalDescription,International transfer option description,Enviar dinero al extranjero
+dailyBankingNewTransfersSoonContactTitle,Soon transfer option title,Enviar a contacto soon
+dailyBankingNewTransfersSoonContactDescription,Soon transfer option description,Transferencias directas
+dailyBankingNewTransfersLastTransfers,Last transfers,Últimas transferencias
+dailyBankingNewTransfersSeeAll,See all,Ver todas
+dailyBankingNewTransfersFavoriteContacts,Favorite contacts,Contactos favoritos
+dailyBankingScheduledTransfers,Scheduled transfers,Transferencias programadas
+dailyBankingScheduledTransfersRecent,Recent,Recientes
+dailyBankingScheduledTransfersSeeDetails,Go to details of a schedule transfer,Ver detalles
+dailyBankingScheduledTransfersDateSince,Date since,Desde {date}
+dailyBankingScheduledTransfersNew,New transfer,Nueva
+dailyBankingScheduledTransfersNewModalTitle,New transfer,Nueva transferencia
+dailyBankingScheduledTransfersNewModalNationalShipment,National shipment,Envío nacional
+dailyBankingScheduledTransfersNewModalNationalShipmentDescription,National shipment description,Enviar dinero dentro de tu país
+dailyBankingScheduledTransfersNewModalSendToContactSoon,Send to contact soon,Enviar a contacto soon
+dailyBankingScheduledTransfersNewModalSendToContactSoonDescription,Send to contact soon description,Transferencias directas
+dailyBankingScheduledTransfersStartedThe,Started the,Comenzó el
+dailyBankingScheduledTransfersNextPaid,Next paid,Próximo pago
+dailyBankingScheduledTransfersOtpModalSuccessTitle,Title of alert bottom sheet to send transfer,Transferencia realizada
+dailyBankingScheduledTransfersOtpModalSuccessDescription,Description of alert bottom sheet to send transfer,Se ha realizado la transferencia con exito
+dailyBankingScheduledTransfersRemoveTransfer,Remove transfer,Eliminar transferencia
+dailyBankingScheduledTransfersNoTransferFee,No transfer fee,Sin comisión de transferencia
+dailyBankingScheduledTransfersRemoveModalTitle,Title of alert bottom sheet to remove transfer,¿Quieres eliminar el pago periódico?
+dailyBankingScheduledTransfersRemoveModalDescription,Description of alert bottom sheet to remove transfer,¿Estás seguro que deseas eliminar el pago periódico?
+dailyBankingScheduledTransfersRemoveModalButtonRemove,Button remove of alert bottom sheet to remove transfer,Eliminar transferencia
+dailyBankingScheduledTransfersRemovedSuccessAlertTitle,Alert when the transfer has been successfully removed,Transferencia eliminada con éxito.
+dailyBankingScheduledTransfersRemovedErrorAlertTitle,Alert when the transfer could not be deleted,Error al eliminar la transferencia.
+dailyBankingScheduledTransfersEditTitle,Title of edit scheduled transfer,Transferencias programadas
+dailyBankingScheduledTransfersEditFrequency,Frequency of scheduled transfer,Programado {frequency}
+dailyBankingScheduledTransfersEditButtonConfirm,Confirm button of scheduled transfer,Guardar cambios
+dailyBankingNationalTransfersTransfer,Title of page national transfer,Transferencia nacional
+dailyBankingNationalTransfersTransferFee,Transfer fee,Comisión de transferencia
+dailyBankingNationalTransfersDestination,Destination,Destino
+dailyBankingNationalTransfersCountryRecipientBank,Country of recipient bank,País del banco destinatario
+dailyBankingNationalTransfersButtonSendMoney,Button send money,Enviar dinero
+dailyBankingNationalTransfersScheduledModalTitle,Title of the modal to schedule a transfer,Programar
+dailyBankingNationalTransfersScheduledModalStartDate,Input start date,Fecha de inicio
+dailyBankingNationalTransfersScheduledModalRepeat,Input repeat,Repetir
+dailyBankingNationalTransfersScheduledModalButton,Button of the modal to schedule a transfer,Establecer programación
+dailyBankingNationalTransfersResumeButton,Button of the resume page,Confirmar
+dailyBankingNationalTransfersOtpTitle,Title of otp page to send national transfer,Firma de operación
+dailyBankingNationalTransfersOtpButton,Button of otp page to send national transfer,Confirmar
+dailyBankingNationalTransfersScheduledOtpModalSuccessTitle,Title of alert bottom sheet to send transfer,Has programado {amount} € a {name}
+dailyBankingNationalTransfersScheduledOtpModalSuccessDescription,Description of alert bottom sheet to send transfer,Transferencia programada diariamente desde hoy.
+dailyBankingNationalTransfersOtpModalSuccessTitle,Title of alert bottom sheet to send transfer,Envío realizado
+dailyBankingNationalTransfersOtpModalSuccessDescription,Description of alert bottom sheet to send transfer,Se han enviado {amount} € a {name}
+dailyBankingNationalTransfersOtpModalErrorTitle,Title of the alert bottom sheet when the transfer fails to be sent,Ha ocurrido un error
+dailyBankingNationalTransfersOtpModalErrorDescription,Description of the alert bottom sheet when the transfer fails to be sent,No se han podido enviar {amount} € a {name}.
+dailyBankingNationalTransfersOtpSuccessDownloadSuccessAlertTitle,Title of the alert when a transfer certificate has been downloaded successfully,La descarga se ha realizado con éxito.
+dailyBankingNationalTransfersOtpSuccessDownloadSuccessAlertAction,Description of the alert when a transfer certificate has been downloaded successfully,Abrir documento
+dailyBankingNationalTransfersOtpSuccessDownloadErrorAlertTitle,Title of the alert when the certificate of a transfer has not been successfully downloaded,Ha ocurrido un error al descargar el documento.
+dailyBankingNationalTransfersMenuReuseTransfer,Reuse transfer,Reutilizar transferencia
+dailyBankingNationalTransfersMenuCancelTransfer,Cancel transfer,Anular transferencia
+dailyBankingNationalTransfersMenuCancelTransferModalTitle,Title of the modal when a transfer is cancelled,Transferencia anulada
+dailyBankingNationalTransfersMenuCancelTransferModalDescription,Description of the modal when a transfer is cancelled,La transferencia de {amount} € a {name} ha sido anulada con éxito.
+dailyBankingInternationalTransfers,International transfer,Transferencia internacional
+dailyBankingInternationalTransfersDestination,Destination,Destino
+dailyBankinginternationalTransfersCountryRecipientBank,Country of recipient bank,País del banco destinatario
+dailyBankingInternationalTransfersButtonSendMoney,Button send money,Enviar dinero
+dailyBankingInternationalTransfersType,Type of transfer,Tipo de transferencia
+dailyBankingInternationalTransfersOtpTitle,Title of otp page to send national transfer,Firma de operación
+dailyBankingInternationalTransfersOtpButton,Button of otp page to send national transfer,Confirmar
+dailyBankingInternationalTransfersOtpSuccessModalTitle,Title of alert bottom sheet to send transfer,Has enviado {amount} € a {name}
+dailyBankingInternationalTransfersOtpSuccessModalDescription,Description of alert bottom sheet to send transfer,Transferencia enviada con éxito.
+dailyBankingInternationalTransfersOtpSuccessDownloadSuccessAlertTitle,Title of the alert when a transfer certificate has been downloaded successfully,La descarga se realizado con éxito.
+dailyBankingInternationalTransfersOtpSuccessDownloadSuccessAlertAction,Description of the alert when a transfer certificate has been downloaded successfully,Abrir documento
+dailyBankingInternationalTransfersOtpSuccessDownloadErrorAlertTitle,Title of the alert when the certificate of a transfer has not been successfully downloaded,Ha ocurrido un error al descargar el documento.
+dailyBankingSoonPay,Title,soonPay
+dailyBankingSoonPayContacts,Contacts soon,Contactos soon
+dailyBankingSoonPayClient,Client,Cliente
+dailyBankingSoonPayFavorites,Favorite contacts,Contactos favoritos
+dailyBankingSoonPaySupplier,Supplier,Proveedor
+dailyBankingSoonPayWithoutTransferFee,Transfer fee,Sin comisión de transferencia
+dailyBankingSoonPaySendMoney,Send money,Enviar dinero
+dailyBankingSoonPayScheduledModal,soonPay scheduled modal,Programar
+dailyBankingSoonPayScheduledModalButton,soonPay scheduled modal button,Establecer programación
+dailyBankingSoonPayOtpTitle,Title of the page otp to send money to soon contact,Firma de operación
+dailyBankingSoonPayOtpButton,Button of the page otp to send money to soon contact,Confirmar
+dailyBankingSoonPayScheduledOtpSuccessModalTitle,Title of alert bottom sheet when otp is success,Has programado {amount} € a {name}
+dailyBankingSoonPayScheduledOtpSuccessModalDescription,Description of alert bottom sheet when otp is success,Transferencia programada mensualmente desde hoy.
+dailyBankingSoonPayScheduledOtpSuccessModalButton,Button of alert bottom sheet when otp is success,Continuar
+dailyBankingSoonPayOtpSuccessModalTitle,Title of alert bottom sheet when otp is success,Envío realizado
+dailyBankingSoonPayOtpSuccessModalDescription,Description of alert bottom sheet when otp is success,Se han enviado {amount} € a {name}.
+dailyBankingSoonPayOtpSuccessModalButton,Button of alert bottom sheet when otp is success,Continuar
+dailyBankingSoonPayOtpErrorModalTitle,Title of alert bottom sheet when otp is wrong,Ha ocurrido un error
+dailyBankingSoonPayOtpErrorModalDescription,Description of alert bottom sheet when otp is wrong,No se han podido enviar {amount} € a {name}.
+dailyBankingSoonPayOtpErrorModalButton,Button of alert bottom sheet when otp is wrong,Volver a intentar
+dailyBankingCards,Cards,Tarjetas
+dailyBankingCardsAlias,Alias,Alias
+dailyBankingCardsVirtual,Virtual card,Virtual
+dailyBankingCardsPhysical,Physical card,Física
+dailyBankingCardsBasic,Basic card,Basic
+dailyBankingCardsPremium,Premium card,Premium
+dailyBankingCardsMenuDeactivate,Menu cards deactivate card,Desactivar
+dailyBankingCardsMenuSeeDetails,Menu cards see details,Ver detalles
+dailyBankingCardsMenuSettings,Menu cards settings,Ajustes
+dailyBankingCardsMenuDeactivateModalTitle,Title of modal deactivate card,Desactivar tarjeta
+dailyBankingCardsMenuDeactivateModalSubtitle,Subtitle of modal deactivate card,¿Estás seguro de proceder?
+dailyBankingCardsMenuDeactivateModalDescription,Description of modal deactivate card,"Antes de continuar, por favor, confirma que deseas desactivar tu tarjeta. Este proceso desactivará temporalmente tu tarjeta y no podrás realizar transacciones."
+dailyBankingCardsMenuDeactivateOtpTitle,Title of otp page to deactivate card,Desactivar Tarjeta
+dailyBankingCardsMenuDeactivateOtpButton,Text of button of otp page to deactivate card,Confirmar desactivación
+dailyBankingCardsMenuDeactivateOtpSuccessTitle,Title of alert bottom sheet when card is deactivated,¡Tarjeta Desactivada!
+dailyBankingCardsMenuDeactivateOtpSuccessDescription,Description of alert bottom sheet when card is deactivated,Tu tarjeta ha sido desactivada con éxito
+dailyBankingCardsMenuDeactivateOtpErrorTitle,Title of the alert bottom sheet when the card could not be deactivated,Error al desactivar tarjeta
+dailyBankingCardsMenuDeactivateOtpErrorDescription,Description of the alert bottom sheet when the card could not be deactivated,"Ha ocurrido un error, no ha sido posible desactivar tu tarjeta."
+dailyBankingCardsDetailsTitle,Title card details,Detalles de tarjeta
+dailyBankingCardsDetailsHolder,Holder of card,Titular
+dailyBankingCardsDetailsCardNumber,Card number,Número de tarjeta
+dailyBankingCardsDetailsExpirationDate,Expiration date,Fecha de caducidad
+dailyBankingCardsDetailsCvv,Cvv,CVV
+dailyBankingCardsSettingsTitle,Title card settings,Ajustes
+dailyBankingCardsSettingsCardLimits,Limits of card,Límites de tarjeta
+dailyBankingCardsSettingsCardLimitsDescription,Limits of card description,Establece límites de gasto
+dailyBankingCardsSettingsCardAlias,Alias card,Editar alias
+dailyBankingCardsSettingsCardAliasDescription,Alias card description,Establece un alias a tu tarjeta
+dailyBankingCardsSettingsCardOnlinePayment,Online payment,Pagos online
+dailyBankingCardsSettingsCardAtmWithdrawals,Atm withdrawals,Retiradas de cajero
+dailyBankingCardsSettingsCardContactlessPayment,Contactless payments,Pagos contactless
+dailyBankingCardsSettingsCardReportTheftOrLoss,Report theft or loss,Reportar robo o pérdida
+dailyBankingCardsSettingsCardLimitsTitle,Title of page of card limits,Límites de tarjeta
+dailyBankingCardsSettingsCardLimitsDailyPayment,Limit of daily payment,Límite de pago diario
+dailyBankingCardsSettingsCardLimitsMonthlyPayment,Limit of monthly payment,Límite de pago mensual
+dailyBankingCardsSettingsCardLimitsOnlinePayment,Limit of online payment,Límite de pago online
+dailyBankingCardsSettingsCardLimitsAtmWithdrawals,Limit of atm withdrawals,Límite de retirada en cajero
+dailyBankingCardsSettingsCardLimitsApply,Apply limits,Aplicar límites
+dailyBankingInsurances,Insurances,Seguros
+dailyBankingInsurancesPolicy,Policy,Póliza
+dailyBankingInsurancesPolicies,Policies,Pólizas
+dailyBankingInsurancesPolicyNumber,Policy number,Número de póliza
+dailyBankingInsurancesPolicyNumberWithParams,Policy number,Número de póliza: {number}
+dailyBankingInsurancesClaims,Claims,Siniestros
+dailyBankingInsurancesClaimsNumber,Claims number,Número de expediente: {number}
+dailyBankingInsurancesClaimsFilterStatus,Filter of claims status,Estado
+dailyBankingInsurancesClaimsFilterStatusOpen,Filter of claims status open,Abierto
+dailyBankingInsurancesClaimsFilterStatusInProgress,Filter of claims status in progress,En curso
+dailyBankingInsurancesClaimsFilterStatusFinished,Filter of claims status finished,Finalizado
+dailyBankingInsurancesPolicyDetails,Policy details,Detalles de la póliza
+dailyBankingInsurancesPolicyDetailsDateOfIssue,Date of issue,Emisión
+dailyBankingInsurancesPolicyDetailsExpirationDate,Date of expiration,Vencimiento
+dailyBankingInsurancesPolicyDetailsAmount,Amount,Cuantía
+dailyBankingInsurancesPolicyDetailsAmountLastReceipt,Amount of last receipt,Importe del último recibo
+dailyBankingInsurancesPolicyDetailsFrequencyPayment,Frequency of payment,Periodicidad de pago
+dailyBankingInsurancesPolicyDetailsCoverageIncluded,Cover included,Coberturas incluidas
+dailyBankingInsurancesPolicyDetailsCoverageIncludedClaimsGeneralBreakdowns,General claims and breakdowns,Siniestros y averías generales
+dailyBankingInsurancesPolicyDetailsCoverageIncludedComputerAssistance,Computer Assistance,Asistencia Informática
+dailyBankingInsurancesPolicyDetailsCoverageIncludedRobberyWithAndWithoutViolence,Robbery with and without violence,Robo con y sin violencia
+dailyBankingInsurancesPolicyDetailsCoverageIncludedElectricalDamage,Electrical Damage,Daños Eléctricos
+dailyBankingInsurancesPolicyDetailsCoverageIncludedMachineryBreakdown,Machinery Breakdown,Avería de Maquinaria
+dailyBankingInsurancesPolicyDetailsCoverageIncludedGlassBreakage,Glass breakage,Roturas de cristales
+dailyBankingInsurancesPolicyDetailsCoverageIncludedAestheticDamage,Aesthetic Damage,Daños Estéticos
+dailyBankingInsurancesPolicyDetailsCoverageIncludedLiability,Liability,Responsabilidad Civil
+dailyBankingInsurancesPolicyDetailsCoverageIncludedDailyLossProfit,Daily Loss of Profit,Pérdida de Beneficios diaria
+dailyBankingInsurancesPolicyDetailsCoverageIncludedForcedEviction,Forced Eviction,Desalojo Forzoso
+dailyBankingInsurancesPolicyDetailsClaimsReportButton,Report a claim,Declarar un siniestro
+dailyBankingInsurancesPolicyDetailsClaimsDetails,Details of the claim,Detalles del siniestro
+dailyBankingInsurancesPolicyDetailsClaimsDetailsNumber,File No.,Nº Expediente
+dailyBankingInsurancesPolicyDetailsClaimsDetailsOpeningDate,Opening date,Fecha apertura
+dailyBankingInsurancesPolicyDetailsClaimsDetailsStartDateProcessing,Start date of processing,Fecha inicio tramitación
+dailyBankingInsurancesPolicyDetailsClaimsDetailsEndDateProcessing,End date of processing,Fecha fin de tramitación
+dailyBankingInsurancesPolicyDetailsClaimsDetailsStateClaim,State of claim,Estado de siniestro
+dailyBankingInsurancesPolicyDetailsClaimsDetailsContactPerson,Contact person,Persona de contacto
+dailyBankingInsurancesPolicyDetailsClaimsDetailsAssistanceModalTitle,Title of the mode of assistance,Servicio de atención al cliente
+dailyBankingInsurancesPolicyDetailsClaimsDetailsAssistanceModalDescription,Description of the mode of assistance,Vas a ponerte en contacto con el Servicio de atención al cliente de soon. 
+commonAppTitle,App Title,soon
+commonBottomNavigationHome,Bottom navigation home,Inicio
+commonBottomNavigationBusiness,Bottom navigation business,Negocio
+commonBottomNavigationAgenda,Bottom navigation agenda,Agenda
+commonBottomNavigationAnalitycs,Bottom navigation analitycs,Analítica
+commonBottomNavigationProtection,Bottom navigation protection,Protección
+commonSearch,Search,Buscar
+commonFilter,Filter,Filtrar
+commonFilterDiscard,Discard filters,Descartar filtros
+commonFilterApply,Apply filters,Aplicar
+commonFilterSelect,Select,Seleccionar
+commonAmount,Amount,Importe
+commonAll,All,Todos
+commonRevenue,Revenue,Ingresos
+commonExpenses,Expenses,Gastos
+commonCategory,Category,Categoría
+commonCategories,Categories,Categorías
+commonCategoryEnergy,Category energy,Energía
+commonCategoryFeeding,Category feeding,Alimentación
+commonCategoryCulture,Caregory culture,Cultura
+commonCategoryEducation,Category education ,Educación
+commonCategoryEntertainment,Category entertainment,Entretenimiento
+commonCategoryHome,Category home,Hogar
+commonCategoryFashion,Category fashion,Moda
+commonCategoryHealth,Category health,Salud
+commonCategoryTechnology,Category technology,Tecnología
+commonCategoryTransport,Category transport,Transporte
+commonCategoryTravel,Caregory travel,Viajes
+commonMovements,Movements,Movimientos
+commonChange,Change,Cambiar
+commonCancel,Cancelar,Cancelar
+commonDeactivate,Desactivar,Desactivar
+commonOtpSubtitle,Subtitle of otp page,Código de confirmación
+commonOtpDescription,Description of otp page,Ingresa el código de confirmación que has recibido por SMS para confirmar la operación.
+commonOtpResend,Text button resend code,Reenviar
+commonOtpHelp,Help text of otp page,¿No recibes el código?
+commonContinue,Continue,Continuar
+commonSettings,Settings,Ajustes
+commonSecurity,Security,Seguridad
+commonTotal,Total,Total
+commonAccount,Account,Cuenta
+commonAccountName,Account name,Cuenta {name}
+commonIban,IBAN,IBAN
+commonBicSwift,Code BIC/SWIFT,Código BIC/SWIFT
+commonCertificates,Certificates,Certificados
+commonCertificate,Certificate,Certificado
+commonNext,Next,Siguiente
+commonPolicy,Policy,Póliza
+commonClaims,Claims,Siniestros
+commonInsuranceCommercial,Insurance commercial,Seguro de comercios
+commonInsuranceResponsability,Insurance responsability,Seguro de Responsabilidad Civil
+commonInsuranceCibersecurity,Insurance cibersecurity,Seguro de Ciberseguridad
+commonInsuranceHealth,Insurance health,Seguro de Salud
+commonInsuranceAccidents,Insurance accidents,Seguro de Accidentes
+commonPhone,Phone,Teléfono
+commonEmail,Email,Mail
+commonCity,City,Ciudad
+commonContact,Contact,Contactar
+commonDescription,Description,Descripción
+commonVoucher,Voucher,Comprobante
+commonAttachments,Attachments,Adjuntos
+commonGettingHelp,Getting help,Obtener ayuda
+commonAddFile,Add file,Añadir archivo
+commonCreateExpense,Create expense,Crear gasto
+commonBankingInformation,Banking information,Información bancaria
+commonMovementDetails,Movement details,Detalles de movimiento
+commonBeneficiary,Beneficiary,Beneficiario
+commonConcept,Concept,Concepto
+commonProgrammed,Programmed,Programado
+commonCurrency,Currency,Divisa
+commonDownload,Download,Descargar
+commonTransferTypeOrdinary,Ordinary,Ordinaria
+commonTransferTypeImmediate,Immediate,Inmediata
+commonFrom,From,Desde
+commonTo,To,Hasta
+commonDate,Date,Fecha
+commonDateSince,Since,Desde
+commonDateSinceDate,Since with date,Desde {date}
+commonDateUntil,Until,Hasta
+commonDateDispatch,Date of dispatch,Fecha de envío
+commonDateEstimatedArrival,Estimated arrival,Llegada estimada
+commonDateToday,Today,Hoy
+commonDateYesterday,Yesterday,Ayer
+commonDateYear,Year,Año
+commonDateMonth,Month,Mes
+commonDateDay,Day,Día
+commonFrequency,Frequency,Frecuencia
+commonFrequencyDaily,Daily,Diariamente
+commonFrequencyWeekly,Weekly,Semanalmente
+commonFrequencyMonthly,Monthly,Mensualmente
+commonFrequencyQuarterly,Quarterly,Trimestralmente
+commonFrequencyYearly,Yearly,Anualmente
+commonFrequencyOccasional,Occasional,Puntual
+commonPeriodicity,Periodicity,Periodicidad
+commonAmountFrom,Amount from,Desde
+commonAmountTo,Amount to,Hasta
+commonNoConcept,No concept,Sin concepto
+commonCountriesSpain,Spain,España
+commonCountriesPortugal,Portugal,Portugal
+commonCountriesFrance,France,Francia
+commonCorporateName,Name or corporate name,Nombre o razón social
+commonHolder,Holder,Titular
+commonTransferFee,Transfer fee,Comisión de transferencia
+commonConfirm,Confirm,Confirmar
+commonSignatureOperation,Signature of operation,Firma de operación
+commonSeeMoreReceipts,See more receipts from the issuer,Ver más recibos del emisor
+commonRefuseCollection,Refuse collection,Rechazar cobro
+commonAccountNumber,Account number,Número de cuenta
+commonRequestCertificateName,Request a certificate,Solicitar certificado de {name}
+commonIssuerName,Issuer Name,Nombre Emisor
+commonDetailsMovement,Details of the movement,Detalles del movimiento
+commonSave,Save,Guardar
+commonAttachmentDeleted,Attachment deleted,Documento adjunto eliminado

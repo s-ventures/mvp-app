@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DateRangeFilter extends StatefulWidget {
@@ -33,7 +34,7 @@ class _DateRangeFilterState extends State<DateRangeFilter> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Desde',
+                  context.loc.commonDateSince,
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight600,
                   ),
@@ -70,7 +71,7 @@ class _DateRangeFilterState extends State<DateRangeFilter> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hasta',
+                  context.loc.commonDateUntil,
                   style: context.textStyle.bodySmallRegular.copyWith(
                     color: context.color.textLight600,
                   ),

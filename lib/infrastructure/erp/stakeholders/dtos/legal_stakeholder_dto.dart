@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/legal_stakeholder.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/document_type_code_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/language_code_type_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/legal_form_code_dto.dart';
@@ -26,7 +27,7 @@ class LegalStakeholderDto extends StakeholderDto {
     required super.preferenceSms,
     required super.preferenceMail,
     required super.preferenceWhatsapp,
-    required super.isFavorite,
+    required super.favorite,
     required this.legalName,
     required this.comercialName,
     required this.constitutionDate,
@@ -41,15 +42,17 @@ class LegalStakeholderDto extends StakeholderDto {
   factory LegalStakeholderDto.fromJson(Map<String, dynamic> json) =>
       _$LegalStakeholderDtoFromJson(json);
 
-  final String legalName;
-  final String comercialName;
-  final DateTime constitutionDate;
-  final String constitutionCountryCode;
-  final LegalFormCodeDto legalFormCode;
-  final String nationalityCountryCode;
-  final String economicActivityCode;
-  final String typeCode;
-  final DateTime closureDate;
+  final String? legalName;
+  final String? comercialName;
+  @DateConverter()
+  final DateTime? constitutionDate;
+  final String? constitutionCountryCode;
+  final LegalFormCodeDto? legalFormCode;
+  final String? nationalityCountryCode;
+  final String? economicActivityCode;
+  final String? typeCode;
+  @DateConverter()
+  final DateTime? closureDate;
 
   @override
   Map<String, dynamic> toJson() => _$LegalStakeholderDtoToJson(this);
@@ -61,8 +64,7 @@ extension LegalStakeholderDtoX on LegalStakeholderDto {
         personTypeCode: personTypeCode.toDomain(),
         fullName: fullName ?? '',
         additionalInfo: additionalInfo ?? '',
-        // TODO(georgeta): comprobar !.
-        createDate: createDate!,
+        createDate: createDate,
         documentNumber: documentNumber ?? '',
         documentCode: documentTypeCode!.toDomain(),
         languageCode: languageCodeType!.toDomain(),
@@ -71,15 +73,15 @@ extension LegalStakeholderDtoX on LegalStakeholderDto {
         preferenceEmail: preferenceMail ?? false,
         preferenceSms: preferenceSms ?? false,
         preferenceWhatsapp: preferenceWhatsapp ?? false,
-        isFavorite: isFavorite ?? false,
-        legalName: legalName,
-        comercialName: comercialName,
+        isFavorite: favorite ?? false,
+        legalName: legalName ?? '',
+        comercialName: comercialName ?? '',
         constitutionDate: constitutionDate,
-        constitutionCountryCode: constitutionCountryCode,
-        legalFormCode: legalFormCode.toDomain(),
-        nationalityCountryCode: nationalityCountryCode,
-        economicActivityCode: economicActivityCode,
-        typeCode: typeCode,
+        constitutionCountryCode: constitutionCountryCode ?? '',
+        legalFormCode: legalFormCode?.toDomain(),
+        nationalityCountryCode: nationalityCountryCode ?? '',
+        economicActivityCode: economicActivityCode ?? '',
+        typeCode: typeCode ?? '',
         closureDate: closureDate,
       );
 }

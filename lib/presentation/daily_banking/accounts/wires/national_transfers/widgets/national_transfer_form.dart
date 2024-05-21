@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class NationalTransferForm extends StatelessWidget {
@@ -10,25 +11,35 @@ class NationalTransferForm extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Destino',
+          context.loc.dailyBankingNationalTransfersDestination,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
         ),
         AppSpacing.vertical.s3,
         CustomDropdown(
-          labelText: 'Pais del banco destinatario',
+          labelText:
+              context.loc.dailyBankingNationalTransfersCountryRecipientBank,
           initialValue: 'España',
-          dropDownList: const [
-            DropownValueModel(name: 'España', value: 'España'),
-            DropownValueModel(name: 'Portugal', value: 'Portugal'),
-            DropownValueModel(name: 'Francia', value: 'Francia'),
+          dropDownList: [
+            DropownValueModel(
+              name: context.loc.commonCountriesSpain,
+              value: 'España',
+            ),
+            DropownValueModel(
+              name: context.loc.commonCountriesPortugal,
+              value: 'Portugal',
+            ),
+            DropownValueModel(
+              name: context.loc.commonCountriesFrance,
+              value: 'Francia',
+            ),
           ],
           onChanged: (value) {},
         ),
         AppSpacing.vertical.s3,
         CustomDropdown(
-          labelText: 'Divisa',
+          labelText: context.loc.commonCurrency,
           initialValue: 'Euro',
           dropDownList: const [
             DropownValueModel(name: 'Euro (€)', value: 'Euro'),
@@ -38,17 +49,17 @@ class NationalTransferForm extends StatelessWidget {
         ),
         AppSpacing.vertical.s3,
         TextInput(
-          labelText: 'Nombre o razón social',
+          labelText: context.loc.commonCorporateName,
           fillColor: context.color.backgroundLight0,
         ),
         AppSpacing.vertical.s3,
         TextInput(
-          labelText: 'IBAN',
+          labelText: context.loc.commonIban,
           fillColor: context.color.backgroundLight0,
         ),
         AppSpacing.vertical.s3,
         TextInput(
-          labelText: 'Concepto',
+          labelText: context.loc.commonConcept,
           fillColor: context.color.backgroundLight0,
         ),
       ],

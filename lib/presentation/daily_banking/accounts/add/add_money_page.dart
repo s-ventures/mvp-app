@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class AddMoneyPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Añadir dinero',
+              title: context.loc.dailyBankingAddMoneyTitle,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -51,7 +52,11 @@ class AddMoneyPage extends StatelessWidget {
                           ),
                           AppSpacing.horizontal.s5,
                           Text(
-                            'Saldo 456,00 €',
+                            context.loc.dailyBankingAddMoneyBalance(
+                              456.00.toCurrency(
+                                plusSign: false,
+                              ),
+                            ),
                             style: context.textStyle.bodyMediumRegular,
                           ),
                         ],
@@ -91,7 +96,7 @@ class AddMoneyPage extends StatelessWidget {
                 backgroundColor: context.color.strokeLigth100,
               ),
               trailing: Text(
-                'Cambiar',
+                context.loc.commonChange,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.statusInfo,
                 ),
@@ -105,7 +110,7 @@ class AddMoneyPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
           child: Button(
-            title: 'Añadir dinero',
+            title: context.loc.dailyBankingAddMoneyButtonConfirm,
             size: ButtonSize.small,
             onPressed: () async {},
           ),

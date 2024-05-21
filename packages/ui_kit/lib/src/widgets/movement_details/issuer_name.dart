@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class MovementDetailsIssuer extends StatelessWidget {
@@ -17,7 +18,7 @@ class MovementDetailsIssuer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Nombre Emisor',
+            context.loc.commonIssuerName,
             style: context.textStyle.bodySmallSemiBold.copyWith(
               color: context.color.textLight600,
             ),

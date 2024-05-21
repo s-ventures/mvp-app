@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsuranceClaimListTile extends StatelessWidget {
@@ -44,7 +45,9 @@ class InsuranceClaimListTile extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            'Número de expediente: $number',
+                            context.loc.dailyBankingInsurancesClaimsNumber(
+                              number,
+                            ),
                             style: context.textStyle.buttonTabBar.copyWith(
                               color: context.color.textLight600,
                             ),

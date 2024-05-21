@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
@@ -61,7 +62,7 @@ class FilterPoliciesBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Button(
-                title: 'Descartar filtros',
+                title: context.loc.commonFilterDiscard,
                 type: ButtonType.text,
                 size: ButtonSize.small,
                 onPressed: () async {
@@ -69,7 +70,7 @@ class FilterPoliciesBottomSheet {
                 },
               ),
               Button(
-                title: 'Aplicar',
+                title: context.loc.commonFilterApply,
                 size: ButtonSize.small,
                 onPressed: () async {
                   await onApply().then((_) => context.pop());
@@ -81,7 +82,7 @@ class FilterPoliciesBottomSheet {
         backgroundColor: context.color.bottomSheetBackground,
         sabGradientColor: context.color.bottomSheetBackground,
         topBarTitle: Text(
-          'Filtrar',
+          context.loc.commonFilter,
           style: context.textStyle.h6,
         ),
         isTopBarLayerAlwaysVisible: true,
@@ -104,7 +105,7 @@ class FilterPoliciesBottomSheet {
               delegate: SliverChildListDelegate(
                 [
                   Text(
-                    'Fecha',
+                    context.loc.commonDate,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -118,7 +119,7 @@ class FilterPoliciesBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Categoría',
+                    context.loc.commonCategory,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -133,7 +134,7 @@ class FilterPoliciesBottomSheet {
                         borderRadius: BorderRadius.circular(
                           context.radius.soft,
                         ),
-                        title: 'Energía',
+                        title: context.loc.commonCategoryEnergy,
                         trailing: IconSvg.small(
                           IconAssets.chevronRight,
                           color: context.color.iconLight600,

@@ -115,6 +115,13 @@ class AccountListPage extends ConsumerWidget {
                       ),
                     ),
                     AppSpacing.vertical.s3,
+                    Text(
+                      context.loc.dailyBankingAccountsPageDescription,
+                      style: context.textStyle.bodySmallRegular.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    AppSpacing.vertical.s3,
                     OutlinedList(
                       children: [
                         Splash(
@@ -217,7 +224,7 @@ class AccountListPage extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Button(
-                  title: 'Seleccionar cuenta',
+                  title: context.loc.dailyBankingAccountsPageButton,
                   size: ButtonSize.small,
                   expand: true,
                   onPressed: () async => context.pop(),

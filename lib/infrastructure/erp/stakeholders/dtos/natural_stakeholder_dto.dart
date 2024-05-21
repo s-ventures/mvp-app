@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/natural_stakeholder.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/document_type_code_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/employment_status_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/gender_dto.dart';
@@ -29,7 +30,7 @@ class NaturalStakeholderDto extends StakeholderDto {
     required super.preferenceMail,
     required super.preferenceSms,
     required super.preferenceWhatsapp,
-    required super.isFavorite,
+    required super.favorite,
     required this.name,
     required this.surname1,
     required this.surname2,
@@ -38,7 +39,7 @@ class NaturalStakeholderDto extends StakeholderDto {
     required this.nationalityCountryCode,
     required this.residenceCountryCode,
     required this.residenceIndicator,
-    required this.gender,
+    required this.sex,
     required this.maritalStatus,
     required this.matrimonialRegime,
     required this.deathDate,
@@ -51,22 +52,24 @@ class NaturalStakeholderDto extends StakeholderDto {
   factory NaturalStakeholderDto.fromJson(Map<String, dynamic> json) =>
       _$NaturalStakeholderDtoFromJson(json);
 
-  final String name;
-  final String surname1;
-  final String surname2;
-  final DateTime birthDate;
-  final String birthCountryCode;
-  final String nationalityCountryCode;
-  final String residenceCountryCode;
-  final bool residenceIndicator;
-  final GenderDto gender;
-  final MaritalStatusDto maritalStatus;
-  final MatrimonialRegimeDto matrimonialRegime;
-  final DateTime deathDate;
-  final EmploymentStatusDto employmentStatus;
-  final String personOcuppationCode;
-  final String sector;
-  final String econimicActivityCode;
+  final String? name;
+  final String? surname1;
+  final String? surname2;
+  @DateConverter()
+  final DateTime? birthDate;
+  final String? birthCountryCode;
+  final String? nationalityCountryCode;
+  final String? residenceCountryCode;
+  final bool? residenceIndicator;
+  final GenderDto? sex;
+  final MaritalStatusDto? maritalStatus;
+  final MatrimonialRegimeDto? matrimonialRegime;
+  @DateConverter()
+  final DateTime? deathDate;
+  final EmploymentStatusDto? employmentStatus;
+  final String? personOcuppationCode;
+  final String? sector;
+  final String? econimicActivityCode;
 
   @override
   Map<String, dynamic> toJson() => _$NaturalStakeholderDtoToJson(this);
@@ -78,8 +81,7 @@ extension NaturalStakeholderDtoX on NaturalStakeholderDto {
         personTypeCode: personTypeCode.toDomain(),
         fullName: fullName ?? '',
         additionalInfo: additionalInfo ?? '',
-        // TODO(georgeta): comprobar !.
-        createDate: createDate!,
+        createDate: createDate,
         documentNumber: documentNumber ?? '',
         documentCode: documentTypeCode!.toDomain(),
         languageCode: languageCodeType!.toDomain(),
@@ -88,22 +90,22 @@ extension NaturalStakeholderDtoX on NaturalStakeholderDto {
         preferenceEmail: preferenceMail ?? false,
         preferenceSms: preferenceSms ?? false,
         preferenceWhatsapp: preferenceWhatsapp ?? false,
-        name: name,
-        isFavorite: isFavorite ?? false,
-        surname1: surname1,
-        surname2: surname2,
-        gender: gender.toDomain(),
-        maritalStatus: maritalStatus.toDomain(),
-        matrimonialRegime: matrimonialRegime.toDomain(),
-        employmentStatus: employmentStatus.toDomain(),
+        name: name ?? '',
+        isFavorite: favorite ?? false,
+        surname1: surname1 ?? '',
+        surname2: surname2 ?? '',
+        gender: sex?.toDomain(),
+        maritalStatus: maritalStatus?.toDomain(),
+        matrimonialRegime: matrimonialRegime?.toDomain(),
+        employmentStatus: employmentStatus?.toDomain(),
         birthDate: birthDate,
-        birthCountryCode: birthCountryCode,
-        nationalityCountryCode: nationalityCountryCode,
-        residenceCountryCode: residenceCountryCode,
-        residenceIndicator: residenceIndicator,
+        birthCountryCode: birthCountryCode ?? '',
+        nationalityCountryCode: nationalityCountryCode ?? '',
+        residenceCountryCode: residenceCountryCode ?? '',
+        residenceIndicator: residenceIndicator ?? false,
         deathDate: deathDate,
-        personOcuppationCode: personOcuppationCode,
-        sector: sector,
-        econimicActivityCode: econimicActivityCode,
+        personOcuppationCode: personOcuppationCode ?? '',
+        sector: sector ?? '',
+        econimicActivityCode: econimicActivityCode ?? '',
       );
 }
