@@ -5,6 +5,7 @@ class CustomCheckboxListTile extends StatelessWidget {
   const CustomCheckboxListTile({
     required this.title,
     required this.onPressed,
+    this.tileColor,
     this.borderRadius = BorderRadius.zero,
     this.checkboxIcon = IconAssets.check,
     this.checkboxSize = CheckboxSize.medium,
@@ -12,7 +13,7 @@ class CustomCheckboxListTile extends StatelessWidget {
     this.controlAffinity = ListTileControlAffinity.trailing,
     this.dense = false,
     this.leading,
-    this.tileColor,
+    this.subtitle,
     this.trailing,
     this.value = false,
     super.key,
@@ -29,6 +30,7 @@ class CustomCheckboxListTile extends StatelessWidget {
   final bool dense;
   final Widget? leading;
   final Color? tileColor;
+  final String? subtitle;
   final Widget? trailing;
   final bool value;
 
@@ -45,6 +47,14 @@ class CustomCheckboxListTile extends StatelessWidget {
             color: context.color.textLight900,
           ),
         ),
+        subtitle: subtitle != null
+            ? Text(
+                subtitle!,
+                style: context.textStyle.buttonTabBar.copyWith(
+                  color: context.color.textLight600,
+                ),
+              )
+            : null,
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius,
         ),

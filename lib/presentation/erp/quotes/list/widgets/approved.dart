@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/widgets/quotes_grid_tile.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/widgets/quotes_list_tile.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/filter_quotes_bottom_sheet/filter_quotes_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/quotes_grid_tile.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/quotes_list_tile.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesPending extends StatelessWidget {
-  const QuotesPending({
-    required this.type,
-    required this.setType,
+class QuotesApproved extends StatelessWidget {
+  const QuotesApproved({
+    required this.viewType,
     super.key,
   });
 
-  final SwitchViewType type;
-  final void Function(SwitchViewType) setType;
+  final SwitchViewType viewType;
 
   @override
   Widget build(BuildContext context) {
@@ -20,26 +21,37 @@ class QuotesPending extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: Text(
-                'Pendientes',
-                style: context.textStyle.bodyMediumSemiBold.copyWith(
-                  color: context.color.textLight600,
-                ),
+            Text(
+              'Presupuestos',
+              style: context.textStyle.bodyMediumSemiBold.copyWith(
+                color: context.color.textLight600,
               ),
             ),
-            SwitchView(
-              onChanged: setType,
+            Button(
+              icon: IconAssets.filter,
+              size: ButtonSize.extraSmall,
+              type: ButtonType.outlined,
+              onPressed: () => FilterQuotesBottomSheet.show(
+                context: context,
+                onApply: () async {},
+                onReset: () async {},
+              ),
             ),
           ],
         ),
         AppSpacing.vertical.s5,
-        if (type == SwitchViewType.list)
+        FakeSearchBar(
+          onPressed: () => context.pushNamed(
+            AppRoute.erpQuotesSearch.name,
+          ),
+        ),
+        AppSpacing.vertical.s5,
+        if (viewType == SwitchViewType.list)
           ListView.separated(
             shrinkWrap: true,
             padding: EdgeInsets.zero,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 6,
+            itemCount: 2,
             separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
               return const QuotesListTile(
@@ -60,7 +72,7 @@ class QuotesPending extends StatelessWidget {
               crossAxisSpacing: AppSpacing.s5,
               mainAxisSpacing: AppSpacing.s5,
             ),
-            itemCount: 6,
+            itemCount: 2,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
               return const QuotesGridTile(

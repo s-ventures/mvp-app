@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/analitica/analitica_page.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/erp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/add_product/add_product_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/contracted_products_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/policy_details/claims_tab/details/claims_details_page.dart';
@@ -33,6 +32,7 @@ import 'package:manifiesto_mvp_app/presentation/protection/insurances/responsibi
 import 'package:manifiesto_mvp_app/presentation/protection/protection_page.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/contacts/contacts_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/daily_banking/daily_banking_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/erp/erp_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/widgets/scaffold_with_bottom_nav_bar.dart';
@@ -46,9 +46,9 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 @Riverpod(keepAlive: true)
 GoRouter router(RouterRef ref) {
-  // final authRouter = AuthRouter.build();
   final dailyBankingRouter = DailyBankingRouter.build(_rootNavigatorKey);
   final contactsRouter = ContactsRouter.build(_rootNavigatorKey);
+  final erpRouter = ErpRouter.build(_rootNavigatorKey);
 
   return GoRouter(
     initialLocation: AppRoute.dailyBanking.path,
@@ -69,9 +69,6 @@ GoRouter router(RouterRef ref) {
           );
         },
       ),
-      // // Auth
-      // authRouter,
-
       // Shell Route
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
@@ -81,16 +78,7 @@ GoRouter router(RouterRef ref) {
         routes: [
           dailyBankingRouter,
           contactsRouter,
-
-          // ERP
-          GoRoute(
-            path: AppRoute.negocio.path,
-            name: AppRoute.negocio.name,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: const ErpPage(),
-            ),
-          ),
+          erpRouter,
 
           // ANALYTICS
           GoRoute(

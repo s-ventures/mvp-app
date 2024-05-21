@@ -128,7 +128,7 @@ class FilterClaimsBottomSheet {
                       ),
                       AppSpacing.vertical.s5,
                       Text(
-                        context.loc.commonDate,
+                        'Fecha',
                         style: context.textStyle.bodyMediumSemiBold.copyWith(
                           color: context.color.textLight600,
                         ),

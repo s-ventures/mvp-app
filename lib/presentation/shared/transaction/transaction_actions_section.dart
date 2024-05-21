@@ -40,7 +40,7 @@ class TransactionActionsSection extends StatelessWidget {
         Button(
           type: ButtonType.text,
           title: 'Crear gasto',
-          onPressed: () async => context.goNamed(AppRoute.negocio.name),
+          onPressed: () async => context.goNamed(AppRoute.erp.name),
         ),
       ],
     );
