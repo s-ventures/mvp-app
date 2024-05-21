@@ -43,6 +43,9 @@ class ErpDetailsClient extends StatelessWidget {
               borderRadius: BorderRadius.circular(
                 context.radius.soft,
               ),
+              side: BorderSide(
+                color: context.color.strokeLigth100,
+              ),
             ),
             leading: IconWithContainer(
                 text: initials,

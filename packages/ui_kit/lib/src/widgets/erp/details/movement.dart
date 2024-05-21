@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class ErpDetailsAttachments extends StatelessWidget {
-  const ErpDetailsAttachments({
+class ErpDetailsMovement extends StatelessWidget {
+  const ErpDetailsMovement({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class ErpDetailsAttachments extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Archivos adjuntos',
+          'Movimiento asociado',
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -20,10 +20,11 @@ class ErpDetailsAttachments extends StatelessWidget {
         AppSpacing.vertical.s3,
         ListTile(
           dense: true,
+          tileColor: context.color.backgroundLight0,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.s4,
+            vertical: AppSpacing.s1,
           ),
-          tileColor: context.color.backgroundLight0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               context.radius.soft,
@@ -33,21 +34,35 @@ class ErpDetailsAttachments extends StatelessWidget {
             ),
           ),
           leading: IconWithContainer(
-            icon: IconAssets.file,
-            backgroundColor: context.color.backgroundLight200,
-            borderRadius: BorderRadius.circular(
-              context.radius.soft,
-            ),
+            icon: IconAssets.soon,
+            size: IconWithContainerSize.medium,
+            backgroundColor: context.color.secondaryLight100,
           ),
           title: Text(
-            'Archivo1.pdf',
+            'Adeslas',
             style: context.textStyle.bodyMediumRegular,
           ),
           subtitle: Text(
-            '28/11/23 - 100 KB',
-            style: context.textStyle.buttonTabBar.copyWith(
+            'soon · 10:29',
+            style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight600,
             ),
+          ),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                (-123.00).toCurrency(),
+                style: context.textStyle.bodyMediumRegular.copyWith(
+                  color: context.color.textLight600,
+                ),
+              ),
+              AppSpacing.horizontal.s3,
+              IconSvg.small(
+                IconAssets.xMark,
+                color: context.color.iconLight600,
+              ),
+            ],
           ),
         ),
       ],

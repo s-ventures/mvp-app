@@ -21,7 +21,7 @@ class ErpDetailsDates extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCard(
+    return CustomCard.outlined(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
