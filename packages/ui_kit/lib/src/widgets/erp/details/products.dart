@@ -85,7 +85,7 @@ class ErpDetailsProducts extends StatelessWidget {
           ),
         ),
         AppSpacing.vertical.s3,
-        CustomCard(
+        CustomCard.outlined(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

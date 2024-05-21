@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/erp_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/expenses/search/search_expenses_page.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/invoices/details/invoices_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/invoices/search/search_invoices_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/details/quotes_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/search/search_quotes_page.dart';
@@ -42,6 +43,15 @@ class ErpRouter {
           pageBuilder: (context, state) => NoTransitionPage(
             key: state.pageKey,
             child: const SearchInvoicesPage(),
+          ),
+        ),
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoute.erpInvoicesDetails.path,
+          name: AppRoute.erpInvoicesDetails.name,
+          pageBuilder: (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            child: const InvoicesDetailsPage(),
           ),
         ),
         GoRoute(
