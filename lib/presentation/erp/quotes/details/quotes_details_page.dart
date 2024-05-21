@@ -67,7 +67,12 @@ class QuotesDetailsPage extends StatelessWidget {
               ],
             ),
             AppSpacing.vertical.s6,
-            const ErpDetailsAttachments(),
+            ErpDetailsAttachments(
+              title: 'Archivo1.pdf',
+              date: '29/11/2023',
+              size: '1,2 MB',
+              onPressed: () async {},
+            ),
           ],
         ),
       ),

@@ -3,8 +3,11 @@ import 'package:ui_kit/ui_kit.dart';
 
 class ErpDetailsCategory extends StatelessWidget {
   const ErpDetailsCategory({
+    required this.categorySelected,
     super.key,
   });
+
+  final String categorySelected;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class ErpDetailsCategory extends StatelessWidget {
         AppSpacing.vertical.s3,
         CustomCard.outlined(
           child: Text(
-            'Código contable',
+            categorySelected,
             style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight600,
             ),

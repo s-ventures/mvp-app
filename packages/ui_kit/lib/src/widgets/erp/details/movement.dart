@@ -3,8 +3,19 @@ import 'package:ui_kit/ui_kit.dart';
 
 class ErpDetailsMovement extends StatelessWidget {
   const ErpDetailsMovement({
+    required this.emoji,
+    required this.movement,
+    required this.total,
+    required this.account,
+    required this.hour,
     super.key,
   });
+
+  final String emoji;
+  final String movement;
+  final double total;
+  final String account;
+  final String hour;
 
   @override
   Widget build(BuildContext context) {
@@ -34,16 +45,16 @@ class ErpDetailsMovement extends StatelessWidget {
             ),
           ),
           leading: IconWithContainer(
-            icon: IconAssets.soon,
+            text: emoji,
             size: IconWithContainerSize.medium,
             backgroundColor: context.color.secondaryLight100,
           ),
           title: Text(
-            'Adeslas',
+            movement,
             style: context.textStyle.bodyMediumRegular,
           ),
           subtitle: Text(
-            'soon · 10:29',
+            '$account · $hour',
             style: context.textStyle.bodySmallRegular.copyWith(
               color: context.color.textLight600,
             ),
@@ -52,16 +63,19 @@ class ErpDetailsMovement extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                (-123.00).toCurrency(),
+                (total).toCurrency(),
                 style: context.textStyle.bodyMediumRegular.copyWith(
                   color: context.color.textLight600,
                 ),
               ),
               AppSpacing.horizontal.s3,
-              IconSvg.small(
-                IconAssets.xMark,
-                color: context.color.iconLight600,
-              ),
+              Button(
+                icon: IconAssets.xMark,
+                foreground: context.color.iconLight600,
+                type: ButtonType.outlined,
+                size: ButtonSize.extraSmall,
+                onPressed: () async {},
+              )
             ],
           ),
         ),
