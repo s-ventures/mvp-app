@@ -4,7 +4,7 @@ import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders_filter.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/failures/stakeholder_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/repositories/i_stakeholders_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/stakeholders_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/stakeholders/stakeholders_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/data_sources/remote/stakeholders_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/legal_stakeholder_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/natural_stakeholder_dto.dart';

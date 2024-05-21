@@ -5,7 +5,7 @@ import 'package:manifiesto_mvp_app/domain/erp/contracts/entities/customer_contra
 import 'package:manifiesto_mvp_app/domain/erp/contracts/failures/customer_contract_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/contracts/failures/select_contract_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/contracts/repositories/i_contracts_repositoy.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/contracts_rest_client.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/contracts/contracts_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/data_sources/local/contracts_local_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/data_sources/remote/contracts_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/dtos/customer_contract_dto.dart';
