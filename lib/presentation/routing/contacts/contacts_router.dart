@@ -20,6 +20,7 @@ class ContactsRouter {
         child: const Contacts(),
       ),
       routes: [
+        // Search contacts
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.contactsSearch.path,
@@ -29,6 +30,8 @@ class ContactsRouter {
             child: const SearchContactsPage(),
           ),
         ),
+
+        // New contact manual
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.contactsNewFromManual.path,
@@ -38,6 +41,8 @@ class ContactsRouter {
             child: const NewContactManualPage(),
           ),
         ),
+
+        // New contact from agenda
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.contactsNewFromAgenda.path,
@@ -47,6 +52,8 @@ class ContactsRouter {
             child: const NewContactFromAgendaPage(),
           ),
         ),
+
+        // Upload contacts
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.contactsNewFromUpload.path,
@@ -67,6 +74,8 @@ class ContactsRouter {
             ),
           ],
         ),
+
+        // Contact details
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.contactDetails.path,
