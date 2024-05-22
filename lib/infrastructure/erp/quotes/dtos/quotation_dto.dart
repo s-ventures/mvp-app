@@ -33,11 +33,11 @@ part 'quotation_dto.g.dart';
 class QuotationDto with _$QuotationDto {
   const factory QuotationDto({
     required int erpContractId,
-    required String number,
+    required String? number,
     required int stakeholderId,
     required DateTime? dueDate,
     required DateTime createdDate,
-    required double totalAmount,
+    required double? totalAmount,
     required String? currencyCode,
     required double? withholdingTaxesPercentage,
     required int? fileId,
@@ -62,8 +62,8 @@ extension QuotationDtoX on QuotationDto {
     return Quotation(
       id: UniqueId.fromUniqueString(quotationId.toString()),
       erpContractId: UniqueId.fromUniqueString(erpContractId.toString()),
-      number: number,
-      totalAmount: totalAmount,
+      number: number ?? '',
+      totalAmount: totalAmount ?? 0,
       dueDate: dueDate,
       createdDate: createdDate,
       sentDate: sentDate,

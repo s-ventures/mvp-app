@@ -9,13 +9,13 @@ part of 'quotation_dto.dart';
 _$QuotationDtoImpl _$$QuotationDtoImplFromJson(Map<String, dynamic> json) =>
     _$QuotationDtoImpl(
       erpContractId: (json['erpContractId'] as num).toInt(),
-      number: json['number'] as String,
+      number: json['number'] as String?,
       stakeholderId: (json['stakeholderId'] as num).toInt(),
       dueDate: json['dueDate'] == null
           ? null
           : DateTime.parse(json['dueDate'] as String),
       createdDate: DateTime.parse(json['createdDate'] as String),
-      totalAmount: (json['totalAmount'] as num).toDouble(),
+      totalAmount: (json['totalAmount'] as num?)?.toDouble(),
       currencyCode: json['currencyCode'] as String?,
       withholdingTaxesPercentage:
           (json['withholdingTaxesPercentage'] as num?)?.toDouble(),

@@ -21,11 +21,11 @@ QuotationDto _$QuotationDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QuotationDto {
   int get erpContractId => throw _privateConstructorUsedError;
-  String get number => throw _privateConstructorUsedError;
+  String? get number => throw _privateConstructorUsedError;
   int get stakeholderId => throw _privateConstructorUsedError;
   DateTime? get dueDate => throw _privateConstructorUsedError;
   DateTime get createdDate => throw _privateConstructorUsedError;
-  double get totalAmount => throw _privateConstructorUsedError;
+  double? get totalAmount => throw _privateConstructorUsedError;
   String? get currencyCode => throw _privateConstructorUsedError;
   double? get withholdingTaxesPercentage => throw _privateConstructorUsedError;
   int? get fileId => throw _privateConstructorUsedError;
@@ -55,11 +55,11 @@ abstract class $QuotationDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {int erpContractId,
-      String number,
+      String? number,
       int stakeholderId,
       DateTime? dueDate,
       DateTime createdDate,
-      double totalAmount,
+      double? totalAmount,
       String? currencyCode,
       double? withholdingTaxesPercentage,
       int? fileId,
@@ -90,11 +90,11 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
   @override
   $Res call({
     Object? erpContractId = null,
-    Object? number = null,
+    Object? number = freezed,
     Object? stakeholderId = null,
     Object? dueDate = freezed,
     Object? createdDate = null,
-    Object? totalAmount = null,
+    Object? totalAmount = freezed,
     Object? currencyCode = freezed,
     Object? withholdingTaxesPercentage = freezed,
     Object? fileId = freezed,
@@ -115,10 +115,10 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
           ? _value.erpContractId
           : erpContractId // ignore: cast_nullable_to_non_nullable
               as int,
-      number: null == number
+      number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       stakeholderId: null == stakeholderId
           ? _value.stakeholderId
           : stakeholderId // ignore: cast_nullable_to_non_nullable
@@ -131,10 +131,10 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
           ? _value.createdDate
           : createdDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      totalAmount: null == totalAmount
+      totalAmount: freezed == totalAmount
           ? _value.totalAmount
           : totalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       currencyCode: freezed == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
@@ -205,11 +205,11 @@ abstract class _$$QuotationDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {int erpContractId,
-      String number,
+      String? number,
       int stakeholderId,
       DateTime? dueDate,
       DateTime createdDate,
-      double totalAmount,
+      double? totalAmount,
       String? currencyCode,
       double? withholdingTaxesPercentage,
       int? fileId,
@@ -238,11 +238,11 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? erpContractId = null,
-    Object? number = null,
+    Object? number = freezed,
     Object? stakeholderId = null,
     Object? dueDate = freezed,
     Object? createdDate = null,
-    Object? totalAmount = null,
+    Object? totalAmount = freezed,
     Object? currencyCode = freezed,
     Object? withholdingTaxesPercentage = freezed,
     Object? fileId = freezed,
@@ -263,10 +263,10 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
           ? _value.erpContractId
           : erpContractId // ignore: cast_nullable_to_non_nullable
               as int,
-      number: null == number
+      number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       stakeholderId: null == stakeholderId
           ? _value.stakeholderId
           : stakeholderId // ignore: cast_nullable_to_non_nullable
@@ -279,10 +279,10 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
           ? _value.createdDate
           : createdDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      totalAmount: null == totalAmount
+      totalAmount: freezed == totalAmount
           ? _value.totalAmount
           : totalAmount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       currencyCode: freezed == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
@@ -374,7 +374,7 @@ class _$QuotationDtoImpl implements _QuotationDto {
   @override
   final int erpContractId;
   @override
-  final String number;
+  final String? number;
   @override
   final int stakeholderId;
   @override
@@ -382,7 +382,7 @@ class _$QuotationDtoImpl implements _QuotationDto {
   @override
   final DateTime createdDate;
   @override
-  final double totalAmount;
+  final double? totalAmount;
   @override
   final String? currencyCode;
   @override
@@ -505,11 +505,11 @@ class _$QuotationDtoImpl implements _QuotationDto {
 abstract class _QuotationDto implements QuotationDto {
   const factory _QuotationDto(
       {required final int erpContractId,
-      required final String number,
+      required final String? number,
       required final int stakeholderId,
       required final DateTime? dueDate,
       required final DateTime createdDate,
-      required final double totalAmount,
+      required final double? totalAmount,
       required final String? currencyCode,
       required final double? withholdingTaxesPercentage,
       required final int? fileId,
@@ -531,7 +531,7 @@ abstract class _QuotationDto implements QuotationDto {
   @override
   int get erpContractId;
   @override
-  String get number;
+  String? get number;
   @override
   int get stakeholderId;
   @override
@@ -539,7 +539,7 @@ abstract class _QuotationDto implements QuotationDto {
   @override
   DateTime get createdDate;
   @override
-  double get totalAmount;
+  double? get totalAmount;
   @override
   String? get currencyCode;
   @override

@@ -28,22 +28,6 @@ class _QuotesTabState extends State<QuotesTab> {
               type = value;
             });
           },
-          items: const [
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 1',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 2',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-          ],
         ),
         AppSpacing.vertical.s5,
         Quotes(viewType: type),

@@ -1,22 +1,42 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/erp/quotes/pending/pending_quotes_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesPending extends StatelessWidget {
+class QuotesPending extends ConsumerStatefulWidget {
   const QuotesPending({
     required this.type,
     required this.setType,
-    required this.items,
     super.key,
   });
 
   final SwitchViewType type;
   final void Function(SwitchViewType) setType;
-  final List<Map<String, String>> items;
+
+  @override
+  ConsumerState<QuotesPending> createState() => _QuotesPendingState();
+}
+
+class _QuotesPendingState extends ConsumerState<QuotesPending> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(pendingQuotesControllerProvider.notifier).init(),
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final pendingQuotes = ref.watch(
+      pendingQuotesControllerProvider.select((value) => value.pendingQuotes),
+    );
     return Column(
       children: [
         Row(
@@ -31,59 +51,75 @@ class QuotesPending extends StatelessWidget {
               ),
             ),
             SwitchView(
-              onChanged: setType,
+              onChanged: widget.setType,
             ),
           ],
         ),
         AppSpacing.vertical.s5,
-        if (type == SwitchViewType.list)
-          ListView.separated(
-            shrinkWrap: true,
-            padding: EdgeInsets.zero,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: items.length,
-            separatorBuilder: (context, index) => const Divider(),
-            itemBuilder: (context, index) {
-              final item = items[index];
+        pendingQuotes.when(
+          data: (pendingQuotes) {
+            if (widget.type == SwitchViewType.list) {
+              return ListView.separated(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: pendingQuotes.length,
+                separatorBuilder: (context, index) => const Divider(),
+                itemBuilder: (context, index) {
+                  final quotation = pendingQuotes[index];
 
-              return ErpListTile(
-                title: item['title']!,
-                date: item['date']!,
-                contact: item['contact']!,
-                amount: double.parse(item['amount']!),
-                status: item['status']!,
-                onPressed: () async => context.pushNamed(
-                  AppRoute.erpQuotesDetails.name,
-                ),
+                  return ErpListTile(
+                    title: quotation.number,
+                    date: quotation.createdDate.formatToDayMonthYear() ?? '',
+                    // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
+                    contact: 'Nombre Contacto',
+                    amount: quotation.totalAmount,
+                    status: quotation.status.name,
+                    onPressed: () async => context.pushNamed(
+                      AppRoute.erpQuotesDetails.name,
+                    ),
+                  );
+                },
               );
-            },
-          )
-        else
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: AppSpacing.s5,
-              mainAxisSpacing: AppSpacing.s5,
+            } else {
+              return GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: AppSpacing.s5,
+                  mainAxisSpacing: AppSpacing.s5,
+                ),
+                itemCount: pendingQuotes.length,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  final quotation = pendingQuotes[index];
+
+                  return ErpGridTile(
+                    title: quotation.number,
+                    date: quotation.createdDate.formatToDayMonthYear() ?? '',
+                    // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
+                    contact: 'Nombre Contacto',
+                    amount: quotation.totalAmount,
+                    status: quotation.status.name,
+                    onPressed: () async => context.pushNamed(
+                      AppRoute.erpQuotesDetails.name,
+                    ),
+                  );
+                },
+              );
+            }
+          },
+          error: (error, _) => Center(
+            child: Text(
+              error.toString(),
+              style: context.textStyle.bodySmallRegular.copyWith(
+                color: context.color.error,
+              ),
             ),
-            itemCount: 2,
-            padding: EdgeInsets.zero,
-            itemBuilder: (context, index) {
-              final item = items[index];
-
-              return ErpGridTile(
-                title: item['title']!,
-                date: item['date']!,
-                contact: item['contact']!,
-                amount: double.parse(item['amount']!),
-                status: item['status']!,
-                onPressed: () async => context.pushNamed(
-                  AppRoute.erpQuotesDetails.name,
-                ),
-              );
-            },
           ),
+          loading: () => const Center(child: CircularProgressIndicator.adaptive()),
+        ),
       ],
     );
   }

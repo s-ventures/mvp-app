@@ -41,16 +41,16 @@ class SimplifiedQuotesController extends StateNotifier<SimplifiedQuotesState>
   }
 
   Future<void> updateFilter({
-    required UniqueId? id,
-    required UniqueId? stakeholderId,
-    required DateTime? createdDateFrom,
-    required DateTime? createdDateTo,
-    required DateTime? issueDateFrom,
-    required DateTime? issueDateTo,
-    required double? totalAmountFrom,
-    required double? totalAmountTo,
-    required String? query,
-    required QuotationStatus? status,
+    UniqueId? id,
+    UniqueId? stakeholderId,
+    DateTime? createdDateFrom,
+    DateTime? createdDateTo,
+    DateTime? issueDateFrom,
+    DateTime? issueDateTo,
+    double? totalAmountFrom,
+    double? totalAmountTo,
+    String? query,
+    QuotationStatus? status,
   }) async {
     _repository.updateFilter(
       id: id,
