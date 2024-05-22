@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 enum NewContactType { manual, agenda, upload }
@@ -50,7 +51,7 @@ class NewContactBottomSheet {
                 children: [
                   Expanded(
                     child: Text(
-                      'Añadir contacto',
+                      context.loc.contactsAdd,
                       style: context.textStyle.h6.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -91,7 +92,7 @@ class NewContactBottomSheet {
                       borderRadius: BorderRadius.circular(context.radius.soft),
                     ),
                     title: Text(
-                      'Manual',
+                      context.loc.contactsAddModalManual,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -123,7 +124,7 @@ class NewContactBottomSheet {
                       borderRadius: BorderRadius.circular(context.radius.soft),
                     ),
                     title: Text(
-                      'Desde agenda',
+                      context.loc.contactsAddModalFromAgenda,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -155,7 +156,7 @@ class NewContactBottomSheet {
                       borderRadius: BorderRadius.circular(context.radius.soft),
                     ),
                     title: Text(
-                      'Subir contactos',
+                      context.loc.contactsAddModalFromUploadFile,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),

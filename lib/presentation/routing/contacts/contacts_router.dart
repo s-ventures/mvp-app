@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/contacts_page.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/details/contact_details_page.dart';
+import 'package:manifiesto_mvp_app/presentation/contacts/details/edit/contact_edit_page.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/new_contacts/from_agenda/from_agenda_page.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/new_contacts/manual/manual_page.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/new_contacts/upload_contacts/document_list/upload_contacts_document_list_page.dart';
@@ -81,7 +82,7 @@ class ContactsRouter {
               name: AppRoute.contactEdit.name,
               pageBuilder: (context, state) => NoTransitionPage(
                 key: state.pageKey,
-                child: const ContactDetailsPage(),
+                child: const ContactEdit(),
               ),
             ),
           ],

@@ -356,6 +356,8 @@ commonInsuranceHealth,Insurance health,Seguro de Salud
 commonInsuranceAccidents,Insurance accidents,Seguro de Accidentes
 commonPhone,Phone,Teléfono
 commonEmail,Email,Mail
+commonSms,SMS,SMS
+commonWhatsapp,Whatsapp,Whatsapp
 commonCity,City,Ciudad
 commonContact,Contact,Contactar
 commonDescription,Description,Descripción
@@ -397,6 +399,7 @@ commonPeriodicity,Periodicity,Periodicidad
 commonAmountFrom,Amount from,Desde
 commonAmountTo,Amount to,Hasta
 commonNoConcept,No concept,Sin concepto
+commonCountry,Country,País
 commonCountriesSpain,Spain,España
 commonCountriesPortugal,Portugal,Portugal
 commonCountriesFrance,France,Francia
@@ -413,3 +416,80 @@ commonIssuerName,Issuer Name,Nombre Emisor
 commonDetailsMovement,Details of the movement,Detalles del movimiento
 commonSave,Save,Guardar
 commonAttachmentDeleted,Attachment deleted,Documento adjunto eliminado
+commonClient,Client,Cliente
+commonSupplier,Supplier,Proveedor
+commonCharged,Charged,Cobrado
+commonPending,Pending,Pendiente
+commonOverdue,Overdue,Vencido
+commonUnpaid,Unpaid,Impagado
+commonPaid,Paid,Pagado
+commonType,Type,Tipo
+commonStatus,Status,Estado
+commonDocument,Document,Documento
+commonAddress,Address,Dirección
+commonAddressExtraInfo,Address extra information,"Piso, puerta, nº casa"
+commonAccept,Accept,Aceptar
+commonPostalCode,Postal code,Código postal
+commonTaxInformation,Tax information,Información fiscal
+commonNameOrCompanyName,Name or corporate name,Nombre o razón social
+commonCifOrNif,CIF / NIF,CIF/NIF
+commonNifWithParams,NIF with param,NIF: {nif}
+commonNotes,Notes,Notas
+commonCommunicationPreferences,Communication preferences,Preferencias de comunicación
+contacts,,Contactos
+contactsSelectorUnpaid,,Impagos
+contactsSelectorIncome,,Ingresos
+contactsFavourites,,Contactos favoritos
+contactsAdd,,Añadir
+contactsAddModalManual,,Manual
+contactsAddModalFromAgenda,,Desde agenda
+contactsAddModalFromUploadFile,,Subir contactos
+contactsUploadFilePageTitle,,Importar
+contactsUploadFilePageDescription,,Importa tus contactos fácilmente con nuestra plantilla diseñada para simplificar el proceso.
+contactsUploadFilePageTemplateImportingContacts,,Plantilla para importar contactos
+contactsUploadFilePageTemplate,,Plantilla
+contactsUploadFilePageTemplateSuccessDownloadedAlertTitle,,La descarga se ha realizado con éxito.
+contactsUploadFilePageTemplateSuccessDownloadedAlertDescription,,Abrir documento
+contactsUploadFilePageSelectedFile,,Archivo seleccionado
+contactsUploadFilePageSelectFile,,Selecciona archivo
+contactsUploadFilePageChooseFile,,Elige el archivo para subir.
+contactsUploadFilePageSelectFileButton,,Seleccionar archivo
+contactsUploadFilePageUploadFileButton,,Subir archivo
+contactsUploadFilePageModalToSelectDocumentTitle,,Subir archivo
+contactsUploadFilePageModalToSelectDocumentSuccessTitle,,Envío completado
+contactsUploadFilePageModalToSelectDocumentSuccessDescription,,Archivo subido con éxito
+contactsUploadFilePageModalToSelectDocumentErrorTitle,,Error al importar
+contactsUploadFilePageModalToSelectDocumentErrorDescription,,No se ha podido subir el archivo
+contactsUploadFilePageModalToSelectDocumentErrorAlertTitle,,Error al subir {filename}
+contactsAddFromAgendaModalRequestPermissionsTitle,,Acceso agenda
+contactsAddFromAgendaModalRequestPermissionsDescription,,"Para poder añadir contactos desde tu agenda, necesitamos acceder a ella. Por favor, pulsa en ""Aceptar"" para permitir el acceso. ¡Gracias!"
+contactsAddFromAgendaPageTitle,,Agenda
+contactsAddFromAgendaSelectContactsAll,,Seleccionar todos
+contactsAddFromAgendaAddButton,,Añadir
+contactsAddFromAgendaSelectContactsSuccessAddedAlertTitle,,Nuevo contacto agregado.
+contactsAddFromAgendaSelectContactsErrorAddedAlertTitle,,Error al añadir contacto.
+contactsAddManualNewContactPageTitle,,Nuevo contacto
+contactsAddManualNewContactPageContactInfo,,Información del contacto
+contactsAddManualNewContactPageButton,,Crear
+contactsDetailsPageTitle,,Contacto
+contactsDetailsTabProfile,,Perfil
+contactsDetailsTabRevenue,,Ingresos
+contactsDetailsTabExpenses,,Gastos
+contactsDetailsActionsSendEmail,,Enviar mail
+contactsDetailsActionsCall,,Llamar
+contactsDetailsMarkAsFavourite,,Marcar como favorito
+contactsDetailsNotes,,Notas
+contactsDetailsNotesHintText,,Ej: Llamar a Marta el sábado
+contactsDetailsComunicationsPreferences,,Preferencias de comunicación
+contactsDetailsDeleteContactButton,,Eliminar contacto
+contactsDetailsDeleteContactModalTitle,,Eliminar contacto
+contactsDetailsDeleteContactModalDescription,,Se perderán todos los datos y no podrás recuperarlos
+contactsDetailsDeleteContactModalSuccessAlertTitle,,Contacto eliminado
+contactsDetailsIncorrectFieldsAlertTitle,,Campos incorrectos
+contactsDetailsIncompleteFieldsModalTitle,,Campos incompletos
+contactsDetailsIncompleteFieldsModalDescription,,"Tu contacto está activo, pero aún hay campos por completar para una gestión más completa y precisa."
+contactsDetailsIncompleteFieldsModalOkButton,,Completar
+contactsDetailsIncompleteFieldsModalCancelButton,,Lo haré más tarde
+contactsDetailsRevenueAndExpensesResult,,Resultado
+contactsEditPageTitle,,Contacto
+contactsEditPageContactInfo,,Información del contacto

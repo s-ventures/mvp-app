@@ -60,20 +60,18 @@ class CustomCheckboxListTile extends StatelessWidget {
         ),
         tileColor: tileColor,
         contentPadding: contentPadding,
-        leading: controlAffinity == ListTileControlAffinity.leading
-            ? Container(
+        leading: controlAffinity == ListTileControlAffinity.trailing
+            ? leading
+            : Container(
                 padding: const EdgeInsets.all(AppSpacing.s2),
                 width: AppSpacing.s6,
                 height: AppSpacing.s6,
                 decoration: ShapeDecoration(
                   color: value ? context.color.secondary : Colors.transparent,
                   shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(context.radius.checkboxSmall),
+                    borderRadius: BorderRadius.circular(context.radius.checkboxSmall),
                     side: BorderSide(
-                      color: value
-                          ? context.color.secondary
-                          : context.color.strokeLigth100,
+                      color: value ? context.color.secondary : context.color.strokeLigth100,
                     ),
                   ),
                 ),
@@ -81,22 +79,19 @@ class CustomCheckboxListTile extends StatelessWidget {
                   checkboxIcon,
                   color: value ? context.color.iconLight0 : Colors.transparent,
                 ),
-              )
-            : leading ?? const SizedBox.shrink(),
-        trailing: controlAffinity == ListTileControlAffinity.trailing
-            ? Container(
+              ),
+        trailing: controlAffinity == ListTileControlAffinity.leading
+            ? trailing
+            : Container(
                 padding: const EdgeInsets.all(AppSpacing.s2),
                 width: AppSpacing.s6,
                 height: AppSpacing.s6,
                 decoration: ShapeDecoration(
                   color: value ? context.color.secondary : Colors.transparent,
                   shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(context.radius.checkboxSmall),
+                    borderRadius: BorderRadius.circular(context.radius.checkboxSmall),
                     side: BorderSide(
-                      color: value
-                          ? context.color.secondary
-                          : context.color.strokeLigth100,
+                      color: value ? context.color.secondary : context.color.strokeLigth100,
                     ),
                   ),
                 ),
@@ -104,8 +99,7 @@ class CustomCheckboxListTile extends StatelessWidget {
                   checkboxIcon,
                   color: value ? context.color.iconLight0 : Colors.transparent,
                 ),
-              )
-            : trailing ?? const SizedBox.shrink(),
+              ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/widgets/contacts_list.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/widgets/rankings.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
@@ -70,13 +71,13 @@ class _ContactsPageState extends ConsumerState<Contacts> {
                         AlertBottomSheet.show(
                           context: context,
                           icon: IconAssets.security,
-                          title: 'Acceso agenda',
+                          title: context.loc.contactsAddFromAgendaModalRequestPermissionsTitle,
                           message:
-                              'Para acceder a tus contactos necesitamos permiso para leer tu agenda.',
-                          buttonOkText: 'Aceptar',
+                              context.loc.contactsAddFromAgendaModalRequestPermissionsDescription,
+                          buttonOkText: context.loc.commonAccept,
                           onOkPressed: () async =>
                               context.pushNamed(AppRoute.contactsNewFromAgenda.name),
-                          buttonCancelText: 'Cancelar',
+                          buttonCancelText: context.loc.commonCancel,
                           onCancelPressed: () async => context.pop(),
                         );
                       case NewContactType.upload:
