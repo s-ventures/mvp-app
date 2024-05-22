@@ -32,11 +32,11 @@ mixin _$QuotationDto {
   String? get additionalInfo => throw _privateConstructorUsedError;
   DateTime? get statusDate => throw _privateConstructorUsedError;
   double? get withHoldingTaxesAmount => throw _privateConstructorUsedError;
-  double get totalWithoutTaxes => throw _privateConstructorUsedError;
+  double? get totalWithoutTaxes => throw _privateConstructorUsedError;
   int get quotationId => throw _privateConstructorUsedError;
-  int get stakeholderAddressId => throw _privateConstructorUsedError;
-  int get stakeholderTelephoneId => throw _privateConstructorUsedError;
-  int get stakeholderEmailId => throw _privateConstructorUsedError;
+  int? get stakeholderAddressId => throw _privateConstructorUsedError;
+  int? get stakeholderTelephoneId => throw _privateConstructorUsedError;
+  int? get stakeholderEmailId => throw _privateConstructorUsedError;
   DateTime? get sentDate => throw _privateConstructorUsedError;
   QuotationStatusDto get status => throw _privateConstructorUsedError;
   int? get serialNumberId => throw _privateConstructorUsedError;
@@ -66,11 +66,11 @@ abstract class $QuotationDtoCopyWith<$Res> {
       String? additionalInfo,
       DateTime? statusDate,
       double? withHoldingTaxesAmount,
-      double totalWithoutTaxes,
+      double? totalWithoutTaxes,
       int quotationId,
-      int stakeholderAddressId,
-      int stakeholderTelephoneId,
-      int stakeholderEmailId,
+      int? stakeholderAddressId,
+      int? stakeholderTelephoneId,
+      int? stakeholderEmailId,
       DateTime? sentDate,
       QuotationStatusDto status,
       int? serialNumberId});
@@ -101,11 +101,11 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
     Object? additionalInfo = freezed,
     Object? statusDate = freezed,
     Object? withHoldingTaxesAmount = freezed,
-    Object? totalWithoutTaxes = null,
+    Object? totalWithoutTaxes = freezed,
     Object? quotationId = null,
-    Object? stakeholderAddressId = null,
-    Object? stakeholderTelephoneId = null,
-    Object? stakeholderEmailId = null,
+    Object? stakeholderAddressId = freezed,
+    Object? stakeholderTelephoneId = freezed,
+    Object? stakeholderEmailId = freezed,
     Object? sentDate = freezed,
     Object? status = null,
     Object? serialNumberId = freezed,
@@ -159,26 +159,26 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
           ? _value.withHoldingTaxesAmount
           : withHoldingTaxesAmount // ignore: cast_nullable_to_non_nullable
               as double?,
-      totalWithoutTaxes: null == totalWithoutTaxes
+      totalWithoutTaxes: freezed == totalWithoutTaxes
           ? _value.totalWithoutTaxes
           : totalWithoutTaxes // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       quotationId: null == quotationId
           ? _value.quotationId
           : quotationId // ignore: cast_nullable_to_non_nullable
               as int,
-      stakeholderAddressId: null == stakeholderAddressId
+      stakeholderAddressId: freezed == stakeholderAddressId
           ? _value.stakeholderAddressId
           : stakeholderAddressId // ignore: cast_nullable_to_non_nullable
-              as int,
-      stakeholderTelephoneId: null == stakeholderTelephoneId
+              as int?,
+      stakeholderTelephoneId: freezed == stakeholderTelephoneId
           ? _value.stakeholderTelephoneId
           : stakeholderTelephoneId // ignore: cast_nullable_to_non_nullable
-              as int,
-      stakeholderEmailId: null == stakeholderEmailId
+              as int?,
+      stakeholderEmailId: freezed == stakeholderEmailId
           ? _value.stakeholderEmailId
           : stakeholderEmailId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       sentDate: freezed == sentDate
           ? _value.sentDate
           : sentDate // ignore: cast_nullable_to_non_nullable
@@ -216,11 +216,11 @@ abstract class _$$QuotationDtoImplCopyWith<$Res>
       String? additionalInfo,
       DateTime? statusDate,
       double? withHoldingTaxesAmount,
-      double totalWithoutTaxes,
+      double? totalWithoutTaxes,
       int quotationId,
-      int stakeholderAddressId,
-      int stakeholderTelephoneId,
-      int stakeholderEmailId,
+      int? stakeholderAddressId,
+      int? stakeholderTelephoneId,
+      int? stakeholderEmailId,
       DateTime? sentDate,
       QuotationStatusDto status,
       int? serialNumberId});
@@ -249,11 +249,11 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
     Object? additionalInfo = freezed,
     Object? statusDate = freezed,
     Object? withHoldingTaxesAmount = freezed,
-    Object? totalWithoutTaxes = null,
+    Object? totalWithoutTaxes = freezed,
     Object? quotationId = null,
-    Object? stakeholderAddressId = null,
-    Object? stakeholderTelephoneId = null,
-    Object? stakeholderEmailId = null,
+    Object? stakeholderAddressId = freezed,
+    Object? stakeholderTelephoneId = freezed,
+    Object? stakeholderEmailId = freezed,
     Object? sentDate = freezed,
     Object? status = null,
     Object? serialNumberId = freezed,
@@ -307,26 +307,26 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
           ? _value.withHoldingTaxesAmount
           : withHoldingTaxesAmount // ignore: cast_nullable_to_non_nullable
               as double?,
-      totalWithoutTaxes: null == totalWithoutTaxes
+      totalWithoutTaxes: freezed == totalWithoutTaxes
           ? _value.totalWithoutTaxes
           : totalWithoutTaxes // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       quotationId: null == quotationId
           ? _value.quotationId
           : quotationId // ignore: cast_nullable_to_non_nullable
               as int,
-      stakeholderAddressId: null == stakeholderAddressId
+      stakeholderAddressId: freezed == stakeholderAddressId
           ? _value.stakeholderAddressId
           : stakeholderAddressId // ignore: cast_nullable_to_non_nullable
-              as int,
-      stakeholderTelephoneId: null == stakeholderTelephoneId
+              as int?,
+      stakeholderTelephoneId: freezed == stakeholderTelephoneId
           ? _value.stakeholderTelephoneId
           : stakeholderTelephoneId // ignore: cast_nullable_to_non_nullable
-              as int,
-      stakeholderEmailId: null == stakeholderEmailId
+              as int?,
+      stakeholderEmailId: freezed == stakeholderEmailId
           ? _value.stakeholderEmailId
           : stakeholderEmailId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       sentDate: freezed == sentDate
           ? _value.sentDate
           : sentDate // ignore: cast_nullable_to_non_nullable
@@ -396,15 +396,15 @@ class _$QuotationDtoImpl implements _QuotationDto {
   @override
   final double? withHoldingTaxesAmount;
   @override
-  final double totalWithoutTaxes;
+  final double? totalWithoutTaxes;
   @override
   final int quotationId;
   @override
-  final int stakeholderAddressId;
+  final int? stakeholderAddressId;
   @override
-  final int stakeholderTelephoneId;
+  final int? stakeholderTelephoneId;
   @override
-  final int stakeholderEmailId;
+  final int? stakeholderEmailId;
   @override
   final DateTime? sentDate;
   @override
@@ -516,11 +516,11 @@ abstract class _QuotationDto implements QuotationDto {
       required final String? additionalInfo,
       required final DateTime? statusDate,
       required final double? withHoldingTaxesAmount,
-      required final double totalWithoutTaxes,
+      required final double? totalWithoutTaxes,
       required final int quotationId,
-      required final int stakeholderAddressId,
-      required final int stakeholderTelephoneId,
-      required final int stakeholderEmailId,
+      required final int? stakeholderAddressId,
+      required final int? stakeholderTelephoneId,
+      required final int? stakeholderEmailId,
       required final DateTime? sentDate,
       required final QuotationStatusDto status,
       required final int? serialNumberId}) = _$QuotationDtoImpl;
@@ -553,15 +553,15 @@ abstract class _QuotationDto implements QuotationDto {
   @override
   double? get withHoldingTaxesAmount;
   @override
-  double get totalWithoutTaxes;
+  double? get totalWithoutTaxes;
   @override
   int get quotationId;
   @override
-  int get stakeholderAddressId;
+  int? get stakeholderAddressId;
   @override
-  int get stakeholderTelephoneId;
+  int? get stakeholderTelephoneId;
   @override
-  int get stakeholderEmailId;
+  int? get stakeholderEmailId;
   @override
   DateTime? get sentDate;
   @override

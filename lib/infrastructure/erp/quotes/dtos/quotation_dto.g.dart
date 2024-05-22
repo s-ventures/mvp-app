@@ -26,11 +26,11 @@ _$QuotationDtoImpl _$$QuotationDtoImplFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['statusDate'] as String),
       withHoldingTaxesAmount:
           (json['withHoldingTaxesAmount'] as num?)?.toDouble(),
-      totalWithoutTaxes: (json['totalWithoutTaxes'] as num).toDouble(),
+      totalWithoutTaxes: (json['totalWithoutTaxes'] as num?)?.toDouble(),
       quotationId: (json['quotationId'] as num).toInt(),
-      stakeholderAddressId: (json['stakeholderAddressId'] as num).toInt(),
-      stakeholderTelephoneId: (json['stakeholderTelephoneId'] as num).toInt(),
-      stakeholderEmailId: (json['stakeholderEmailId'] as num).toInt(),
+      stakeholderAddressId: (json['stakeholderAddressId'] as num?)?.toInt(),
+      stakeholderTelephoneId: (json['stakeholderTelephoneId'] as num?)?.toInt(),
+      stakeholderEmailId: (json['stakeholderEmailId'] as num?)?.toInt(),
       sentDate: json['sentDate'] == null
           ? null
           : DateTime.parse(json['sentDate'] as String),

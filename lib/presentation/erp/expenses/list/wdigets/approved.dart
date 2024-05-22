@@ -88,6 +88,9 @@ class ExpensesApproved extends StatelessWidget {
                 contact: item['contact']!,
                 amount: double.parse(item['amount']!),
                 status: item['status']!,
+                onPressed: () async => context.pushNamed(
+                  AppRoute.erpExpensesDetails.name,
+                ),
               );
             },
           ),
