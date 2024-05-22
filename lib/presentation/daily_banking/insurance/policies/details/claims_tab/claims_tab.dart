@@ -53,6 +53,8 @@ class ClaimsTab extends ConsumerWidget {
             );
           },
         ) ??
-        const Center(child: CircularProgressIndicator.adaptive());
+        const Center(
+          child: CustomLoader(),
+        );
   }
 }

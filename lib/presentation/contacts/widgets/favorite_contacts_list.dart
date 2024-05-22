@@ -104,7 +104,9 @@ class _FavoriteContactsListState extends ConsumerState<FavoriteContactsList> {
                   ),
                 ),
               ),
-              loading: () => const Center(child: CircularProgressIndicator.adaptive()),
+              loading: () => const Center(
+                child: CustomLoader(),
+              ),
             ),
           ],
         ),

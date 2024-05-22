@@ -167,7 +167,7 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
                   data: (data) => _PeriodicOrdersList(periodicOrders: data.value),
                 ) ??
                 const Center(
-                  child: CircularProgressIndicator.adaptive(),
+                  child: CustomLoader(),
                 ),
           ],
         ),

@@ -47,8 +47,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
             return [
               CustomAppBar.sliver(
                 centerTitle: true,
-                title: context
-                    .loc.dailyBankingInsurancesPolicyDetailsClaimsDetails,
+                title: context.loc.dailyBankingInsurancesPolicyDetailsClaimsDetails,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -74,8 +73,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
                   leadingEmoji: '🖥️',
                   leadingBackgroundColor: const Color(0xFFE0E0E0),
                   title: claim.reason,
-                  subtitle:
-                      context.loc.dailyBankingInsurancesPolicyNumberWithParams(
+                  subtitle: context.loc.dailyBankingInsurancesPolicyNumberWithParams(
                     claim.id.getOrCrash(),
                   ),
                   category: claim.riskType,
@@ -110,8 +108,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    context.loc
-                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsOpeningDate,
+                    context.loc.dailyBankingInsurancesPolicyDetailsClaimsDetailsOpeningDate,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -135,8 +132,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    context.loc
-                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsStartDateProcessing,
+                    context.loc.dailyBankingInsurancesPolicyDetailsClaimsDetailsStartDateProcessing,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -160,8 +156,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    context.loc
-                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsEndDateProcessing,
+                    context.loc.dailyBankingInsurancesPolicyDetailsClaimsDetailsEndDateProcessing,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -185,8 +180,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
                     right: AppSpacing.s4,
                   ),
                   title: Text(
-                    context.loc
-                        .dailyBankingInsurancesPolicyDetailsClaimsDetailsStateClaim,
+                    context.loc.dailyBankingInsurancesPolicyDetailsClaimsDetailsStateClaim,
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -219,8 +213,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
 
                 AppSpacing.vertical.s5,
                 Text(
-                  context.loc
-                      .dailyBankingInsurancesPolicyDetailsClaimsDetailsContactPerson,
+                  context.loc.dailyBankingInsurancesPolicyDetailsClaimsDetailsContactPerson,
                   style: context.textStyle.bodyMediumSemiBold.copyWith(
                     color: context.color.textLight600,
                   ),
@@ -314,7 +307,7 @@ class _InsuranceClaimDetailsPageState extends ConsumerState<InsuranceClaimDetail
               ),
             ),
             loading: () => const Center(
-              child: CircularProgressIndicator(),
+              child: CustomLoader(),
             ),
           ),
         ),

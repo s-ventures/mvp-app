@@ -59,13 +59,11 @@ class IconWithContainer extends StatelessWidget {
           ),
           child: Center(
             child: isLoading
-                ? const CircularProgressIndicator.adaptive()
+                ? const CustomLoader()
                 : icon != null
                     ? IconSvg(
                         icon!,
-                        color: foreground == Colors.black
-                            ? context.color.iconLight900
-                            : foreground,
+                        color: foreground == Colors.black ? context.color.iconLight900 : foreground,
                         size: size == IconWithContainerSize.extraSmall
                             ? 12
                             : size == IconWithContainerSize.small
