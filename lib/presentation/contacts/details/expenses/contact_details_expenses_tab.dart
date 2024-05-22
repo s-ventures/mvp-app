@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class ContactDetailsExpensesTab extends StatelessWidget {
@@ -45,7 +46,7 @@ class ContactDetailsExpensesTab extends StatelessWidget {
                       ),
                       isExpanded: true,
                       isDense: true,
-                      value: 'Mes',
+                      value: context.loc.commonDateMonth,
                       items: _dropdownItems,
                       onChanged: (String? value) {},
                     ),
@@ -54,19 +55,19 @@ class ContactDetailsExpensesTab extends StatelessWidget {
               ),
               AppSpacing.vertical.s2,
               Text(
-                'Resultado',
+                context.loc.contactsDetailsRevenueAndExpensesResult,
                 style: context.textStyle.bodySmallSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),
               ),
               AppSpacing.vertical.s5,
-              const LineBarChart(
+              LineBarChart(
                 greenValue: 123,
-                greenLabel: 'Cobrado',
+                greenLabel: context.loc.commonCharged,
                 yellowValue: 37,
-                yellowLabel: 'Pendiente',
+                yellowLabel: context.loc.commonPending,
                 redValue: 89,
-                redLabel: 'Impagado',
+                redLabel: context.loc.commonUnpaid,
               ),
             ],
           ),
@@ -76,7 +77,7 @@ class ContactDetailsExpensesTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Movimientos',
+              context.loc.commonMovements,
               style: context.textStyle.bodySmallSemiBold.copyWith(
                 color: context.color.textLight300,
               ),

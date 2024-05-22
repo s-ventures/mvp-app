@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class NewContactFromAgendaPage extends StatelessWidget {
   const NewContactFromAgendaPage({super.key});
-
-  String get _groupValue => 'Dori Doreau';
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class NewContactFromAgendaPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Agenda',
+              title: context.loc.contactsAddFromAgendaPageTitle,
               leading: Button(
                 icon: IconAssets.chevronLeft,
                 type: ButtonType.outlined,
@@ -38,61 +37,85 @@ class NewContactFromAgendaPage extends StatelessWidget {
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
             Text(
-              'Contactos',
+              context.loc.contacts,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
             ),
             AppSpacing.vertical.s3,
             const FakeSearchBar(),
-            AppSpacing.vertical.s5,
+            AppSpacing.vertical.s2,
+            CustomCheckboxListTile(
+              dense: true,
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s3,
+              ),
+              borderRadius: BorderRadius.circular(context.radius.soft),
+              controlAffinity: ListTileControlAffinity.leading,
+              title: context.loc.contactsAddFromAgendaSelectContactsAll,
+              onPressed: print,
+            ),
+            AppSpacing.vertical.s2,
             OutlinedList(
               children: [
-                CustomRadioListTile(
+                CustomCheckboxListTile(
                   title: 'Thomas Magnum',
                   subtitle: 'NIF: BO123456',
-                  groupValue: _groupValue,
-                  onChanged: (value) {},
-                  value: 'Thomas Magnum',
+                  onPressed: print,
+                  leading: IconWithContainer(
+                    text: 'TM',
+                    backgroundColor: context.color.neutralLight100,
+                  ),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(context.radius.soft),
                     topRight: Radius.circular(context.radius.soft),
                   ),
                 ),
-                CustomRadioListTile(
+                CustomCheckboxListTile(
                   title: 'Dori Doreau',
                   subtitle: 'NIF: BO123456',
-                  groupValue: _groupValue,
-                  onChanged: (value) {},
-                  value: 'Dori Doreau',
+                  leading: IconWithContainer(
+                    text: 'DD',
+                    backgroundColor: context.color.neutralLight100,
+                  ),
+                  value: true,
+                  onPressed: print,
                 ),
-                CustomRadioListTile(
+                CustomCheckboxListTile(
                   title: 'Kate Tanner',
                   subtitle: 'NIF: BO123456',
-                  groupValue: _groupValue,
-                  onChanged: (value) {},
-                  value: 'Kate Tanner',
+                  leading: IconWithContainer(
+                    text: 'KT',
+                    backgroundColor: context.color.neutralLight100,
+                  ),
+                  onPressed: print,
                 ),
-                CustomRadioListTile(
+                CustomCheckboxListTile(
                   title: 'Alba Bosch',
                   subtitle: 'NIF: BO123456',
-                  groupValue: _groupValue,
-                  onChanged: (value) {},
-                  value: 'Alba Bosch',
+                  leading: IconWithContainer(
+                    text: 'AB',
+                    backgroundColor: context.color.neutralLight100,
+                  ),
+                  onPressed: print,
                 ),
-                CustomRadioListTile(
+                CustomCheckboxListTile(
                   title: 'Phillip Dokidis',
                   subtitle: 'NIF: BO123456',
-                  groupValue: _groupValue,
-                  onChanged: (value) {},
-                  value: 'Phillip Dokidis',
+                  leading: IconWithContainer(
+                    text: 'PD',
+                    backgroundColor: context.color.neutralLight100,
+                  ),
+                  onPressed: print,
                 ),
-                CustomRadioListTile(
+                CustomCheckboxListTile(
                   title: 'Jordyn Aminoff',
                   subtitle: 'NIF: BO123456',
-                  groupValue: _groupValue,
-                  onChanged: (value) {},
-                  value: 'Jordyn Aminoff',
+                  leading: IconWithContainer(
+                    text: 'JA',
+                    backgroundColor: context.color.neutralLight100,
+                  ),
+                  onPressed: print,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(context.radius.soft),
                     bottomRight: Radius.circular(context.radius.soft),
@@ -109,16 +132,16 @@ class NewContactFromAgendaPage extends StatelessWidget {
             horizontal: AppSpacing.s5,
           ),
           child: Button(
-            title: 'Añadir',
+            title: context.loc.contactsAddFromAgendaAddButton,
             size: ButtonSize.small,
             onPressed: () async => AlertBottomSheet.show(
               context: context,
               icon: IconAssets.info,
-              title: 'Campos incompletos',
-              message: 'Falta información sobre este contacto',
-              buttonOkText: 'Completar',
+              title: context.loc.contactsDetailsIncompleteFieldsModalTitle,
+              message: context.loc.contactsDetailsIncompleteFieldsModalDescription,
+              buttonOkText: context.loc.contactsDetailsIncompleteFieldsModalOkButton,
               onOkPressed: () async {},
-              buttonCancelText: 'Lo haré más tarde',
+              buttonCancelText: context.loc.contactsDetailsIncompleteFieldsModalCancelButton,
               buttonCancelType: ButtonType.text,
               onCancelPressed: () async => context.goNamed(
                 AppRoute.contacts.name,

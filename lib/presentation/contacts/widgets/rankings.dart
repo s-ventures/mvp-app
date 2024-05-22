@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class Rankings extends StatelessWidget {
   const Rankings({super.key});
+
   List<DropdownMenuItem<String>> get _dropdownItems {
     final menuItems = <DropdownMenuItem<String>>[
       const DropdownMenuItem(value: 'Mes', child: Text('Mes')),
@@ -20,8 +22,11 @@ class Rankings extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SegmentedControl(
-              values: const ['Impagos', 'Ingresos'],
-              initialValue: 'Impagos',
+              values: [
+                context.loc.contactsSelectorUnpaid,
+                context.loc.contactsSelectorIncome,
+              ],
+              initialValue: context.loc.contactsSelectorUnpaid,
               onChanged: print,
               widgetBuilder: (String value) {
                 return Text(
@@ -43,13 +48,13 @@ class Rankings extends StatelessWidget {
                 underline: Container(),
                 elevation: 1,
                 dropdownColor: context.color.backgroundLight0,
-                icon: IconSvg.small(
+                icon: IconSvg.extraSmall(
                   IconAssets.sortline,
-                  color: context.color.textLight600,
+                  color: context.color.iconLight600,
                 ),
                 isExpanded: true,
                 isDense: true,
-                value: 'Mes',
+                value: context.loc.commonDateMonth,
                 items: _dropdownItems,
                 onChanged: (String? value) {},
               ),
@@ -67,13 +72,13 @@ class Rankings extends StatelessWidget {
           ),
           contact: 'Dori Doreau',
           amount: 983.00.toCurrency(plusSign: false),
-          lineBarChart: const LineBarChart(
+          lineBarChart: LineBarChart(
             greenValue: 789,
-            greenLabel: 'Cobrado',
+            greenLabel: context.loc.commonUnpaid,
             yellowValue: 95,
-            yellowLabel: 'Pendiente',
+            yellowLabel: context.loc.commonPending,
             redValue: 16,
-            redLabel: 'Pagado',
+            redLabel: context.loc.commonPaid,
           ),
         ),
         AppSpacing.vertical.s3,
@@ -87,13 +92,13 @@ class Rankings extends StatelessWidget {
           ),
           contact: 'Kate Tanner',
           amount: 357.00.toCurrency(plusSign: false),
-          lineBarChart: const LineBarChart(
+          lineBarChart: LineBarChart(
             greenValue: 789,
-            greenLabel: 'Cobrado',
+            greenLabel: context.loc.commonCharged,
             yellowValue: 95,
-            yellowLabel: 'Pendiente',
+            yellowLabel: context.loc.commonPending,
             redValue: 16,
-            redLabel: 'Pagado',
+            redLabel: context.loc.commonPaid,
           ),
         ),
         AppSpacing.vertical.s3,
@@ -107,13 +112,13 @@ class Rankings extends StatelessWidget {
           ),
           contact: 'Alba Bosch',
           amount: 234.00.toCurrency(plusSign: false),
-          lineBarChart: const LineBarChart(
+          lineBarChart: LineBarChart(
             greenValue: 789,
-            greenLabel: 'Cobrado',
+            greenLabel: context.loc.commonCharged,
             yellowValue: 95,
-            yellowLabel: 'Pendiente',
+            yellowLabel: context.loc.commonPending,
             redValue: 16,
-            redLabel: 'Pagado',
+            redLabel: context.loc.commonPaid,
           ),
         ),
       ],

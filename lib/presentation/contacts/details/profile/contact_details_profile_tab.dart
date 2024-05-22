@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class ContactDetailsProfileTab extends StatelessWidget {
@@ -24,7 +25,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
                 ),
               ),
               nif: '12345678A',
-              type: 'Cliente',
+              type: context.loc.commonClient,
               typeForegroundColor: context.color.customerForeground,
               typeBackgroundColor: context.color.customerBackground,
               onPressed: () {},
@@ -38,9 +39,9 @@ class ContactDetailsProfileTab extends StatelessWidget {
             Expanded(
               child: Button(
                 icon: IconAssets.mail,
-                title: 'Enviar email',
+                title: context.loc.contactsDetailsActionsSendEmail,
                 type: ButtonType.outlined,
-                size: ButtonSize.small,
+                size: ButtonSize.extraSmall,
                 onPressed: () async {},
               ),
             ),
@@ -48,8 +49,8 @@ class ContactDetailsProfileTab extends StatelessWidget {
             Expanded(
               child: Button(
                 icon: IconAssets.phone,
-                title: 'Editar',
-                size: ButtonSize.small,
+                title: context.loc.contactsDetailsActionsCall,
+                size: ButtonSize.extraSmall,
                 onPressed: () async {},
               ),
             ),
@@ -57,7 +58,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         CustomCheckboxListTile(
-          title: 'Marcar como favorito',
+          title: context.loc.contactsDetailsMarkAsFavourite,
           value: true,
           checkboxIcon: IconAssets.star,
           dense: true,
@@ -69,14 +70,14 @@ class ContactDetailsProfileTab extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         Text(
-          'Notas',
+          context.loc.contactsDetailsNotes,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
         ),
         AppSpacing.vertical.s3,
         TextInput(
-          hintText: 'Ej: Llamar a Marta el sábado',
+          hintText: context.loc.contactsDetailsNotesHintText,
           maxLines: 4,
           onChanged: (value) {},
         ),
@@ -86,7 +87,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
             ListTile(
               dense: true,
               title: Text(
-                'Dirección',
+                context.loc.commonAddress,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -106,7 +107,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
             ListTile(
               dense: true,
               title: Text(
-                'Código postal',
+                context.loc.commonPostalCode,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -126,7 +127,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
             ListTile(
               dense: true,
               title: Text(
-                'Ciudad',
+                context.loc.commonCity,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -147,7 +148,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         Text(
-          'Información bancaria',
+          context.loc.commonBankingInformation,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -158,7 +159,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
             ListTile(
               dense: true,
               title: Text(
-                'IBAN',
+                context.loc.commonIban,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -173,7 +174,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
             ListTile(
               dense: true,
               title: Text(
-                'SWIFT/BIC',
+                context.loc.commonBicSwift,
                 style: context.textStyle.buttonTabBar.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -189,7 +190,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
         ),
         AppSpacing.vertical.s5,
         Text(
-          'Prefencias de comunicación',
+          context.loc.contactsDetailsComunicationsPreferences,
           style: context.textStyle.bodyMediumSemiBold.copyWith(
             color: context.color.textLight600,
           ),
@@ -203,7 +204,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
                 horizontal: AppSpacing.s5,
               ),
               title: Text(
-                'Teléfono',
+                context.loc.commonPhone,
                 style: context.textStyle.bodySmallRegular.copyWith(
                   color: context.color.textLight900,
                 ),
@@ -215,7 +216,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
                 horizontal: AppSpacing.s5,
               ),
               title: Text(
-                'SMS',
+                context.loc.commonSms,
                 style: context.textStyle.bodySmallRegular.copyWith(
                   color: context.color.textLight900,
                 ),
@@ -227,7 +228,7 @@ class ContactDetailsProfileTab extends StatelessWidget {
                 horizontal: AppSpacing.s5,
               ),
               title: Text(
-                'WhatsApp',
+                context.loc.commonWhatsapp,
                 style: context.textStyle.bodySmallRegular.copyWith(
                   color: context.color.textLight900,
                 ),
