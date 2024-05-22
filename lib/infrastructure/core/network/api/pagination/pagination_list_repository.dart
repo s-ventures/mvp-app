@@ -74,7 +74,7 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
     subject.add(
       PaginationListData(
         page: page,
-        data: appendNewItems(newItems),
+        data: _appendNewItems(newItems),
         pageSize: pagination.pageSize,
         isComplete: !hasLoadedMoreItems,
       ),
@@ -83,7 +83,7 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
     return hasLoadedMoreItems;
   }
 
-  List<T> appendNewItems(List<T> newItems) {
+  List<T> _appendNewItems(List<T> newItems) {
     final currentItems = subject.value.data ?? <T>[];
     return List.of(currentItems)..addAll(newItems);
   }
