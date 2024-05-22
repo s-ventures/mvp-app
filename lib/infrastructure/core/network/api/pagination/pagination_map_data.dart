@@ -4,10 +4,10 @@ class PaginationMapData<K, V> extends PaginationData {
   PaginationMapData({
     required super.page,
     required super.pageSize,
-    required super.totalElements,
-    required super.totalPages,
     required this.data,
+    this.isComplete = false,
   });
 
   final Map<K, V>? data;
+  final bool isComplete;
 }
