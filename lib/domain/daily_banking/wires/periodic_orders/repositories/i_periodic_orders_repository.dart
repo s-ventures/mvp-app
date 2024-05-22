@@ -12,7 +12,6 @@ abstract class IPeriodicOrdersRepository {
     required PeriodicOrdersFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
   Future<Either<DetailedPeriodicOrderFailure, DetailedPeriodicOrder>> getDetailedPeriodicOrder({

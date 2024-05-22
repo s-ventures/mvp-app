@@ -69,7 +69,6 @@ class StakeholdersPaginationRepository extends PaginationListRepository<Stakehol
       filter: _filter ?? const StakeholdersFilter(),
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return stakeholders.fold(
       (l) => [],

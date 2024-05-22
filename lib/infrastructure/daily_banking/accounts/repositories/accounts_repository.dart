@@ -40,7 +40,6 @@ class AccountsRepository implements IAccountsRepository {
   Future<Either<SimplifiedAccountFailure, List<SimplifiedAccount>>> getSimplifiedAccounts({
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     try {
       final response = await _remoteDataSource.getSimplifiedAccounts(
@@ -49,7 +48,6 @@ class AccountsRepository implements IAccountsRepository {
           pageSize: pageSize,
         ),
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
       final accounts = response.data.map((e) => e.toDomain()).toList();
       return right(accounts);
     } catch (_) {

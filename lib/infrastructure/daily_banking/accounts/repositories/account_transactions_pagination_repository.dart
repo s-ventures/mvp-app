@@ -77,7 +77,6 @@ class AccountTransactionsPaginationRepository
       filter: filter,
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return transactions.fold(
       (l) => <DateTime, List<SimplifiedAccountTransaction>>{},

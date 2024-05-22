@@ -26,7 +26,6 @@ class SentTransfersPaginationRepository extends PaginationListRepository<Simplif
       filter: _filter ?? const SentTransfersFilter(),
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return sentTransfers.fold(
       (l) => <SimplifiedSentTransfer>[],
