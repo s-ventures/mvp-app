@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transactions_filter.dart';
 
 final filterSimplifiedAccountTransactionsControllerProvider = StateNotifierProvider.autoDispose<
@@ -22,12 +23,14 @@ class FilterSimplifiedAccountTransactionsController
   Future<void> applyFilters() async {
     await _simplifiedAccountTransactionsController.updateFilter(
       AccountTransactionsFilter(
+        // TODO(sergio): fix this. use copyWith instead
+        accountIds: [UniqueId.fromUniqueString(1066.toString())],
+        operationType: state.operationType,
         description: state.search,
         amountFrom: state.amountFrom,
         amountTo: state.amountTo,
         dateFrom: state.startDate,
         dateTo: state.endDate,
-        operationType: state.operationType,
       ),
     );
   }
