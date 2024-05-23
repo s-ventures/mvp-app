@@ -33,10 +33,9 @@ class TransactionCardDetails extends StatelessWidget {
           location: 'Madrid, España',
         ),
         AppSpacing.vertical.s5,
-        const MovementDetailsBankingInfo(
+        MovementDetailsBankingInfo(
           type: BankAccountType.card,
-          // TODO(georgeta): Nos falta el numero de tarjeta en el DTO
-          last4: '1234',
+          last4: details.cardEncryptedNumber.lastFourCharacters,
           icon: '🖥️',
           category: 'Tecnología',
         ),

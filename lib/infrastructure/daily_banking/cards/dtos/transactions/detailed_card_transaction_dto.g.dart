@@ -6,10 +6,12 @@ part of 'detailed_card_transaction_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DetailedCardTransactionDto _$DetailedCardTransactionDtoFromJson(Map<String, dynamic> json) =>
+DetailedCardTransactionDto _$DetailedCardTransactionDtoFromJson(
+        Map<String, dynamic> json) =>
     DetailedCardTransactionDto(
-      movementId: json['movementId'] as int,
-      postingDate: const DateConverter().fromJson(json['postingDate'] as String),
+      movementId: (json['movementId'] as num).toInt(),
+      postingDate:
+          const DateConverter().fromJson(json['postingDate'] as String),
       valueDate: const DateConverter().fromJson(json['valueDate'] as String),
       amount: (json['amount'] as num).toDouble(),
       currencyCode: json['currencyCode'] as String,
@@ -18,19 +20,22 @@ DetailedCardTransactionDto _$DetailedCardTransactionDtoFromJson(Map<String, dyna
       userComments: json['userComments'] as String?,
       userCategory: json['userCategory'] as String?,
       placeId: json['placeId'] as String?,
-      cardId: json['cardId'] as int,
+      cardId: (json['cardId'] as num).toInt(),
       responseCode: json['responseCode'] as String,
       merchantName: json['merchantName'] as String,
       concept: json['concept'] as String,
       postingTime: json['postingTime'] as String,
-      accountMovementId: json['accountMovementId'] as int,
+      accountMovementId: (json['accountMovementId'] as num).toInt(),
+      cardEncryptedNumber: json['cardEncryptedNumber'] as String?,
       productType: $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
       attachments: (json['attachments'] as List<dynamic>?)
-          ?.map((e) => FileAttachmentInfoDto.fromJson(e as Map<String, dynamic>))
+          ?.map(
+              (e) => FileAttachmentInfoDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$DetailedCardTransactionDtoToJson(DetailedCardTransactionDto instance) {
+Map<String, dynamic> _$DetailedCardTransactionDtoToJson(
+    DetailedCardTransactionDto instance) {
   final val = <String, dynamic>{
     'movementId': instance.movementId,
     'postingDate': const DateConverter().toJson(instance.postingDate),
@@ -56,8 +61,10 @@ Map<String, dynamic> _$DetailedCardTransactionDtoToJson(DetailedCardTransactionD
   val['concept'] = instance.concept;
   val['postingTime'] = instance.postingTime;
   val['accountMovementId'] = instance.accountMovementId;
+  writeNotNull('cardEncryptedNumber', instance.cardEncryptedNumber);
   val['productType'] = _$ProductTypeDtoEnumMap[instance.productType]!;
-  writeNotNull('attachments', instance.attachments?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'attachments', instance.attachments?.map((e) => e.toJson()).toList());
   return val;
 }
 
