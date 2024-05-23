@@ -13,6 +13,8 @@ mixin FilteredPaginationLoadingProvider<T, F extends PaginationFilter> {
 
   int get page => _source?.page ?? 0;
 
+  F? get filter => _filter;
+
   void initPagination(
     FilteredPaginationRepository<T, F> source, {
     required void Function(AsyncValue<T>) onDataLoaded,
