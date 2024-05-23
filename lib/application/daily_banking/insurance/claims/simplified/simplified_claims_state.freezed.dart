@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedClaimsState {
-  AsyncValue<List<SimplifiedClaim>> get claims => throw _privateConstructorUsedError;
+  AsyncValue<List<SimplifiedClaim>> get claims =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedClaimsStateCopyWith<SimplifiedClaimsState> get copyWith =>
@@ -25,15 +26,16 @@ mixin _$SimplifiedClaimsState {
 
 /// @nodoc
 abstract class $SimplifiedClaimsStateCopyWith<$Res> {
-  factory $SimplifiedClaimsStateCopyWith(
-          SimplifiedClaimsState value, $Res Function(SimplifiedClaimsState) then) =
+  factory $SimplifiedClaimsStateCopyWith(SimplifiedClaimsState value,
+          $Res Function(SimplifiedClaimsState) then) =
       _$SimplifiedClaimsStateCopyWithImpl<$Res, SimplifiedClaimsState>;
   @useResult
   $Res call({AsyncValue<List<SimplifiedClaim>> claims});
 }
 
 /// @nodoc
-class _$SimplifiedClaimsStateCopyWithImpl<$Res, $Val extends SimplifiedClaimsState>
+class _$SimplifiedClaimsStateCopyWithImpl<$Res,
+        $Val extends SimplifiedClaimsState>
     implements $SimplifiedClaimsStateCopyWith<$Res> {
   _$SimplifiedClaimsStateCopyWithImpl(this._value, this._then);
 
@@ -60,7 +62,8 @@ class _$SimplifiedClaimsStateCopyWithImpl<$Res, $Val extends SimplifiedClaimsSta
 abstract class _$$SimplifiedClaimsStateImplCopyWith<$Res>
     implements $SimplifiedClaimsStateCopyWith<$Res> {
   factory _$$SimplifiedClaimsStateImplCopyWith(
-          _$SimplifiedClaimsStateImpl value, $Res Function(_$SimplifiedClaimsStateImpl) then) =
+          _$SimplifiedClaimsStateImpl value,
+          $Res Function(_$SimplifiedClaimsStateImpl) then) =
       __$$SimplifiedClaimsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -69,10 +72,11 @@ abstract class _$$SimplifiedClaimsStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedClaimsStateImplCopyWithImpl<$Res>
-    extends _$SimplifiedClaimsStateCopyWithImpl<$Res, _$SimplifiedClaimsStateImpl>
+    extends _$SimplifiedClaimsStateCopyWithImpl<$Res,
+        _$SimplifiedClaimsStateImpl>
     implements _$$SimplifiedClaimsStateImplCopyWith<$Res> {
-  __$$SimplifiedClaimsStateImplCopyWithImpl(
-      _$SimplifiedClaimsStateImpl _value, $Res Function(_$SimplifiedClaimsStateImpl) _then)
+  __$$SimplifiedClaimsStateImplCopyWithImpl(_$SimplifiedClaimsStateImpl _value,
+      $Res Function(_$SimplifiedClaimsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +96,8 @@ class __$$SimplifiedClaimsStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SimplifiedClaimsStateImpl implements _SimplifiedClaimsState {
-  const _$SimplifiedClaimsStateImpl({this.claims = const AsyncLoading<List<SimplifiedClaim>>()});
+  const _$SimplifiedClaimsStateImpl(
+      {this.claims = const AsyncLoading<List<SimplifiedClaim>>()});
 
   @override
   @JsonKey()
@@ -117,18 +122,20 @@ class _$SimplifiedClaimsStateImpl implements _SimplifiedClaimsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedClaimsStateImplCopyWith<_$SimplifiedClaimsStateImpl> get copyWith =>
-      __$$SimplifiedClaimsStateImplCopyWithImpl<_$SimplifiedClaimsStateImpl>(this, _$identity);
+  _$$SimplifiedClaimsStateImplCopyWith<_$SimplifiedClaimsStateImpl>
+      get copyWith => __$$SimplifiedClaimsStateImplCopyWithImpl<
+          _$SimplifiedClaimsStateImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedClaimsState implements SimplifiedClaimsState {
-  const factory _SimplifiedClaimsState({final AsyncValue<List<SimplifiedClaim>> claims}) =
+  const factory _SimplifiedClaimsState(
+          {final AsyncValue<List<SimplifiedClaim>> claims}) =
       _$SimplifiedClaimsStateImpl;
 
   @override
   AsyncValue<List<SimplifiedClaim>> get claims;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedClaimsStateImplCopyWith<_$SimplifiedClaimsStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SimplifiedClaimsStateImplCopyWith<_$SimplifiedClaimsStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

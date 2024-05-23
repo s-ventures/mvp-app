@@ -14,7 +14,8 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-DetailedCardBalanceDto _$DetailedCardBalanceDtoFromJson(Map<String, dynamic> json) {
+DetailedCardBalanceDto _$DetailedCardBalanceDtoFromJson(
+    Map<String, dynamic> json) {
   return _DetailedCardBalanceDto.fromJson(json);
 }
 
@@ -37,8 +38,8 @@ mixin _$DetailedCardBalanceDto {
 
 /// @nodoc
 abstract class $DetailedCardBalanceDtoCopyWith<$Res> {
-  factory $DetailedCardBalanceDtoCopyWith(
-          DetailedCardBalanceDto value, $Res Function(DetailedCardBalanceDto) then) =
+  factory $DetailedCardBalanceDtoCopyWith(DetailedCardBalanceDto value,
+          $Res Function(DetailedCardBalanceDto) then) =
       _$DetailedCardBalanceDtoCopyWithImpl<$Res, DetailedCardBalanceDto>;
   @useResult
   $Res call(
@@ -53,7 +54,8 @@ abstract class $DetailedCardBalanceDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DetailedCardBalanceDtoCopyWithImpl<$Res, $Val extends DetailedCardBalanceDto>
+class _$DetailedCardBalanceDtoCopyWithImpl<$Res,
+        $Val extends DetailedCardBalanceDto>
     implements $DetailedCardBalanceDtoCopyWith<$Res> {
   _$DetailedCardBalanceDtoCopyWithImpl(this._value, this._then);
 
@@ -115,7 +117,8 @@ class _$DetailedCardBalanceDtoCopyWithImpl<$Res, $Val extends DetailedCardBalanc
 abstract class _$$DetailedCardBalanceDtoImplCopyWith<$Res>
     implements $DetailedCardBalanceDtoCopyWith<$Res> {
   factory _$$DetailedCardBalanceDtoImplCopyWith(
-          _$DetailedCardBalanceDtoImpl value, $Res Function(_$DetailedCardBalanceDtoImpl) then) =
+          _$DetailedCardBalanceDtoImpl value,
+          $Res Function(_$DetailedCardBalanceDtoImpl) then) =
       __$$DetailedCardBalanceDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -132,10 +135,12 @@ abstract class _$$DetailedCardBalanceDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedCardBalanceDtoImplCopyWithImpl<$Res>
-    extends _$DetailedCardBalanceDtoCopyWithImpl<$Res, _$DetailedCardBalanceDtoImpl>
+    extends _$DetailedCardBalanceDtoCopyWithImpl<$Res,
+        _$DetailedCardBalanceDtoImpl>
     implements _$$DetailedCardBalanceDtoImplCopyWith<$Res> {
   __$$DetailedCardBalanceDtoImplCopyWithImpl(
-      _$DetailedCardBalanceDtoImpl _value, $Res Function(_$DetailedCardBalanceDtoImpl) _then)
+      _$DetailedCardBalanceDtoImpl _value,
+      $Res Function(_$DetailedCardBalanceDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -248,14 +253,23 @@ class _$DetailedCardBalanceDtoImpl implements _DetailedCardBalanceDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cardId, date, atmWithdrawalLimit, atmDailyLimit,
-      atmMonthlyLimit, posOrderLimit, posDailyLimit, posMonthlyLimit);
+  int get hashCode => Object.hash(
+      runtimeType,
+      cardId,
+      date,
+      atmWithdrawalLimit,
+      atmDailyLimit,
+      atmMonthlyLimit,
+      posOrderLimit,
+      posDailyLimit,
+      posMonthlyLimit);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedCardBalanceDtoImplCopyWith<_$DetailedCardBalanceDtoImpl> get copyWith =>
-      __$$DetailedCardBalanceDtoImplCopyWithImpl<_$DetailedCardBalanceDtoImpl>(this, _$identity);
+  _$$DetailedCardBalanceDtoImplCopyWith<_$DetailedCardBalanceDtoImpl>
+      get copyWith => __$$DetailedCardBalanceDtoImplCopyWithImpl<
+          _$DetailedCardBalanceDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -297,6 +311,6 @@ abstract class _DetailedCardBalanceDto implements DetailedCardBalanceDto {
   double get posMonthlyLimit;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedCardBalanceDtoImplCopyWith<_$DetailedCardBalanceDtoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DetailedCardBalanceDtoImplCopyWith<_$DetailedCardBalanceDtoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

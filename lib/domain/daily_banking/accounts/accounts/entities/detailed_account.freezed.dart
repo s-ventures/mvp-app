@@ -24,12 +24,14 @@ mixin _$DetailedAccount {
   String get accountHolder => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedAccountCopyWith<DetailedAccount> get copyWith => throw _privateConstructorUsedError;
+  $DetailedAccountCopyWith<DetailedAccount> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedAccountCopyWith<$Res> {
-  factory $DetailedAccountCopyWith(DetailedAccount value, $Res Function(DetailedAccount) then) =
+  factory $DetailedAccountCopyWith(
+          DetailedAccount value, $Res Function(DetailedAccount) then) =
       _$DetailedAccountCopyWithImpl<$Res, DetailedAccount>;
   @useResult
   $Res call(
@@ -101,9 +103,10 @@ class _$DetailedAccountCopyWithImpl<$Res, $Val extends DetailedAccount>
 }
 
 /// @nodoc
-abstract class _$$DetailedAccountImplCopyWith<$Res> implements $DetailedAccountCopyWith<$Res> {
-  factory _$$DetailedAccountImplCopyWith(
-          _$DetailedAccountImpl value, $Res Function(_$DetailedAccountImpl) then) =
+abstract class _$$DetailedAccountImplCopyWith<$Res>
+    implements $DetailedAccountCopyWith<$Res> {
+  factory _$$DetailedAccountImplCopyWith(_$DetailedAccountImpl value,
+          $Res Function(_$DetailedAccountImpl) then) =
       __$$DetailedAccountImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -203,21 +206,23 @@ class _$DetailedAccountImpl implements _DetailedAccount {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.balance, balance) || other.balance == balance) &&
-            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode) &&
             (identical(other.entity, entity) || other.entity == entity) &&
             (identical(other.accountHolder, accountHolder) ||
                 other.accountHolder == accountHolder));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, number, balance, currencyCode, entity, accountHolder);
+  int get hashCode => Object.hash(
+      runtimeType, id, number, balance, currencyCode, entity, accountHolder);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedAccountImplCopyWith<_$DetailedAccountImpl> get copyWith =>
-      __$$DetailedAccountImplCopyWithImpl<_$DetailedAccountImpl>(this, _$identity);
+      __$$DetailedAccountImplCopyWithImpl<_$DetailedAccountImpl>(
+          this, _$identity);
 }
 
 abstract class _DetailedAccount implements DetailedAccount {

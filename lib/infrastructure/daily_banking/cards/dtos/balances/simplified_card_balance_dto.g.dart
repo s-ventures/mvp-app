@@ -6,7 +6,8 @@ part of 'simplified_card_balance_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SimplifiedCardBalanceDtoImpl _$$SimplifiedCardBalanceDtoImplFromJson(Map<String, dynamic> json) =>
+_$SimplifiedCardBalanceDtoImpl _$$SimplifiedCardBalanceDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$SimplifiedCardBalanceDtoImpl(
       cardId: json['cardId'] as int,
       date: json['date'] as String,

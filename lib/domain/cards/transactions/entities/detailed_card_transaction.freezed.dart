@@ -19,13 +19,14 @@ mixin _$DetailedCardTransaction {}
 
 /// @nodoc
 abstract class $DetailedCardTransactionCopyWith<$Res> {
-  factory $DetailedCardTransactionCopyWith(
-          DetailedCardTransaction value, $Res Function(DetailedCardTransaction) then) =
+  factory $DetailedCardTransactionCopyWith(DetailedCardTransaction value,
+          $Res Function(DetailedCardTransaction) then) =
       _$DetailedCardTransactionCopyWithImpl<$Res, DetailedCardTransaction>;
 }
 
 /// @nodoc
-class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTransaction>
+class _$DetailedCardTransactionCopyWithImpl<$Res,
+        $Val extends DetailedCardTransaction>
     implements $DetailedCardTransactionCopyWith<$Res> {
   _$DetailedCardTransactionCopyWithImpl(this._value, this._then);
 
@@ -38,16 +39,19 @@ class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTrans
 /// @nodoc
 abstract class _$$DetailedCardTransactionImplCopyWith<$Res> {
   factory _$$DetailedCardTransactionImplCopyWith(
-          _$DetailedCardTransactionImpl value, $Res Function(_$DetailedCardTransactionImpl) then) =
+          _$DetailedCardTransactionImpl value,
+          $Res Function(_$DetailedCardTransactionImpl) then) =
       __$$DetailedCardTransactionImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
-    extends _$DetailedCardTransactionCopyWithImpl<$Res, _$DetailedCardTransactionImpl>
+    extends _$DetailedCardTransactionCopyWithImpl<$Res,
+        _$DetailedCardTransactionImpl>
     implements _$$DetailedCardTransactionImplCopyWith<$Res> {
   __$$DetailedCardTransactionImplCopyWithImpl(
-      _$DetailedCardTransactionImpl _value, $Res Function(_$DetailedCardTransactionImpl) _then)
+      _$DetailedCardTransactionImpl _value,
+      $Res Function(_$DetailedCardTransactionImpl) _then)
       : super(_value, _then);
 }
 
@@ -64,7 +68,8 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DetailedCardTransactionImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DetailedCardTransactionImpl);
   }
 
   @override

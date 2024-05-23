@@ -6,7 +6,8 @@ part of 'card_contract_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CardContractDtoImpl _$$CardContractDtoImplFromJson(Map<String, dynamic> json) =>
+_$CardContractDtoImpl _$$CardContractDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$CardContractDtoImpl(
       cardContractId: json['cardContractId'] as int,
       accountId: json['accountId'] as int,
@@ -16,13 +17,14 @@ _$CardContractDtoImpl _$$CardContractDtoImplFromJson(Map<String, dynamic> json) 
       currencyCode: json['currencyCode'] as String,
     );
 
-Map<String, dynamic> _$$CardContractDtoImplToJson(_$CardContractDtoImpl instance) =>
+Map<String, dynamic> _$$CardContractDtoImplToJson(
+        _$CardContractDtoImpl instance) =>
     <String, dynamic>{
       'cardContractId': instance.cardContractId,
       'accountId': instance.accountId,
       'createDate': const DateConverter().toJson(instance.createDate),
-      'endDate':
-          _$JsonConverterToJson<String, DateTime>(instance.endDate, const DateConverter().toJson),
+      'endDate': _$JsonConverterToJson<String, DateTime>(
+          instance.endDate, const DateConverter().toJson),
       'currencyCode': instance.currencyCode,
     };
 

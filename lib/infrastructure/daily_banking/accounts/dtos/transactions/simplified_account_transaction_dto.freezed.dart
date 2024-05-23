@@ -39,15 +39,17 @@ mixin _$SimplifiedAccountTransactionDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SimplifiedAccountTransactionDtoCopyWith<SimplifiedAccountTransactionDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SimplifiedAccountTransactionDtoCopyWith<SimplifiedAccountTransactionDto>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedAccountTransactionDtoCopyWith<$Res> {
-  factory $SimplifiedAccountTransactionDtoCopyWith(SimplifiedAccountTransactionDto value,
+  factory $SimplifiedAccountTransactionDtoCopyWith(
+          SimplifiedAccountTransactionDto value,
           $Res Function(SimplifiedAccountTransactionDto) then) =
-      _$SimplifiedAccountTransactionDtoCopyWithImpl<$Res, SimplifiedAccountTransactionDto>;
+      _$SimplifiedAccountTransactionDtoCopyWithImpl<$Res,
+          SimplifiedAccountTransactionDto>;
   @useResult
   $Res call(
       {int movementId,
@@ -180,7 +182,8 @@ class __$$SimplifiedAccountTransactionDtoImplCopyWithImpl<$Res>
     extends _$SimplifiedAccountTransactionDtoCopyWithImpl<$Res,
         _$SimplifiedAccountTransactionDtoImpl>
     implements _$$SimplifiedAccountTransactionDtoImplCopyWith<$Res> {
-  __$$SimplifiedAccountTransactionDtoImplCopyWithImpl(_$SimplifiedAccountTransactionDtoImpl _value,
+  __$$SimplifiedAccountTransactionDtoImplCopyWithImpl(
+      _$SimplifiedAccountTransactionDtoImpl _value,
       $Res Function(_$SimplifiedAccountTransactionDtoImpl) _then)
       : super(_value, _then);
 
@@ -260,7 +263,8 @@ class __$$SimplifiedAccountTransactionDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SimplifiedAccountTransactionDtoImpl implements _SimplifiedAccountTransactionDto {
+class _$SimplifiedAccountTransactionDtoImpl
+    implements _SimplifiedAccountTransactionDto {
   const _$SimplifiedAccountTransactionDtoImpl(
       {required this.movementId,
       @DateConverter() required this.postingDate,
@@ -276,7 +280,8 @@ class _$SimplifiedAccountTransactionDtoImpl implements _SimplifiedAccountTransac
       required this.originBranch,
       required this.productType});
 
-  factory _$SimplifiedAccountTransactionDtoImpl.fromJson(Map<String, dynamic> json) =>
+  factory _$SimplifiedAccountTransactionDtoImpl.fromJson(
+          Map<String, dynamic> json) =>
       _$$SimplifiedAccountTransactionDtoImplFromJson(json);
 
   @override
@@ -318,20 +323,30 @@ class _$SimplifiedAccountTransactionDtoImpl implements _SimplifiedAccountTransac
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedAccountTransactionDtoImpl &&
-            (identical(other.movementId, movementId) || other.movementId == movementId) &&
-            (identical(other.postingDate, postingDate) || other.postingDate == postingDate) &&
-            (identical(other.valueDate, valueDate) || other.valueDate == valueDate) &&
+            (identical(other.movementId, movementId) ||
+                other.movementId == movementId) &&
+            (identical(other.postingDate, postingDate) ||
+                other.postingDate == postingDate) &&
+            (identical(other.valueDate, valueDate) ||
+                other.valueDate == valueDate) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.endBalance, endBalance) || other.endBalance == endBalance) &&
-            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
-            (identical(other.description, description) || other.description == description) &&
+            (identical(other.endBalance, endBalance) ||
+                other.endBalance == endBalance) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.analyticsCategory, analyticsCategory) ||
                 other.analyticsCategory == analyticsCategory) &&
-            (identical(other.userCategory, userCategory) || other.userCategory == userCategory) &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
-            (identical(other.originBranch, originBranch) || other.originBranch == originBranch) &&
-            (identical(other.productType, productType) || other.productType == productType));
+            (identical(other.userCategory, userCategory) ||
+                other.userCategory == userCategory) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.originBranch, originBranch) ||
+                other.originBranch == originBranch) &&
+            (identical(other.productType, productType) ||
+                other.productType == productType));
   }
 
   @JsonKey(ignore: true)
@@ -355,7 +370,8 @@ class _$SimplifiedAccountTransactionDtoImpl implements _SimplifiedAccountTransac
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedAccountTransactionDtoImplCopyWith<_$SimplifiedAccountTransactionDtoImpl>
+  _$$SimplifiedAccountTransactionDtoImplCopyWith<
+          _$SimplifiedAccountTransactionDtoImpl>
       get copyWith => __$$SimplifiedAccountTransactionDtoImplCopyWithImpl<
           _$SimplifiedAccountTransactionDtoImpl>(this, _$identity);
 
@@ -367,21 +383,23 @@ class _$SimplifiedAccountTransactionDtoImpl implements _SimplifiedAccountTransac
   }
 }
 
-abstract class _SimplifiedAccountTransactionDto implements SimplifiedAccountTransactionDto {
+abstract class _SimplifiedAccountTransactionDto
+    implements SimplifiedAccountTransactionDto {
   const factory _SimplifiedAccountTransactionDto(
-      {required final int movementId,
-      @DateConverter() required final DateTime postingDate,
-      @DateConverter() required final DateTime valueDate,
-      required final AccountTransactionTypeDto type,
-      required final double amount,
-      required final double endBalance,
-      required final String currencyCode,
-      required final String description,
-      required final String? analyticsCategory,
-      required final String? userCategory,
-      required final int accountId,
-      required final String originBranch,
-      required final ProductTypeDto productType}) = _$SimplifiedAccountTransactionDtoImpl;
+          {required final int movementId,
+          @DateConverter() required final DateTime postingDate,
+          @DateConverter() required final DateTime valueDate,
+          required final AccountTransactionTypeDto type,
+          required final double amount,
+          required final double endBalance,
+          required final String currencyCode,
+          required final String description,
+          required final String? analyticsCategory,
+          required final String? userCategory,
+          required final int accountId,
+          required final String originBranch,
+          required final ProductTypeDto productType}) =
+      _$SimplifiedAccountTransactionDtoImpl;
 
   factory _SimplifiedAccountTransactionDto.fromJson(Map<String, dynamic> json) =
       _$SimplifiedAccountTransactionDtoImpl.fromJson;
@@ -416,6 +434,7 @@ abstract class _SimplifiedAccountTransactionDto implements SimplifiedAccountTran
   ProductTypeDto get productType;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedAccountTransactionDtoImplCopyWith<_$SimplifiedAccountTransactionDtoImpl>
+  _$$SimplifiedAccountTransactionDtoImplCopyWith<
+          _$SimplifiedAccountTransactionDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

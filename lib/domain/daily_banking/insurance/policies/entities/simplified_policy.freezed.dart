@@ -23,15 +23,18 @@ mixin _$SimplifiedPolicy {
   String get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedPolicyCopyWith<SimplifiedPolicy> get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedPolicyCopyWith<SimplifiedPolicy> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedPolicyCopyWith<$Res> {
-  factory $SimplifiedPolicyCopyWith(SimplifiedPolicy value, $Res Function(SimplifiedPolicy) then) =
+  factory $SimplifiedPolicyCopyWith(
+          SimplifiedPolicy value, $Res Function(SimplifiedPolicy) then) =
       _$SimplifiedPolicyCopyWithImpl<$Res, SimplifiedPolicy>;
   @useResult
-  $Res call({UniqueId id, UniqueId insuranceId, String status, String description});
+  $Res call(
+      {UniqueId id, UniqueId insuranceId, String status, String description});
 }
 
 /// @nodoc
@@ -74,21 +77,23 @@ class _$SimplifiedPolicyCopyWithImpl<$Res, $Val extends SimplifiedPolicy>
 }
 
 /// @nodoc
-abstract class _$$SimplifiedPolicyImplCopyWith<$Res> implements $SimplifiedPolicyCopyWith<$Res> {
-  factory _$$SimplifiedPolicyImplCopyWith(
-          _$SimplifiedPolicyImpl value, $Res Function(_$SimplifiedPolicyImpl) then) =
+abstract class _$$SimplifiedPolicyImplCopyWith<$Res>
+    implements $SimplifiedPolicyCopyWith<$Res> {
+  factory _$$SimplifiedPolicyImplCopyWith(_$SimplifiedPolicyImpl value,
+          $Res Function(_$SimplifiedPolicyImpl) then) =
       __$$SimplifiedPolicyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, UniqueId insuranceId, String status, String description});
+  $Res call(
+      {UniqueId id, UniqueId insuranceId, String status, String description});
 }
 
 /// @nodoc
 class __$$SimplifiedPolicyImplCopyWithImpl<$Res>
     extends _$SimplifiedPolicyCopyWithImpl<$Res, _$SimplifiedPolicyImpl>
     implements _$$SimplifiedPolicyImplCopyWith<$Res> {
-  __$$SimplifiedPolicyImplCopyWithImpl(
-      _$SimplifiedPolicyImpl _value, $Res Function(_$SimplifiedPolicyImpl) _then)
+  __$$SimplifiedPolicyImplCopyWithImpl(_$SimplifiedPolicyImpl _value,
+      $Res Function(_$SimplifiedPolicyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,19 +155,23 @@ class _$SimplifiedPolicyImpl implements _SimplifiedPolicy {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedPolicyImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.insuranceId, insuranceId) || other.insuranceId == insuranceId) &&
+            (identical(other.insuranceId, insuranceId) ||
+                other.insuranceId == insuranceId) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.description, description) || other.description == description));
+            (identical(other.description, description) ||
+                other.description == description));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, insuranceId, status, description);
+  int get hashCode =>
+      Object.hash(runtimeType, id, insuranceId, status, description);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimplifiedPolicyImplCopyWith<_$SimplifiedPolicyImpl> get copyWith =>
-      __$$SimplifiedPolicyImplCopyWithImpl<_$SimplifiedPolicyImpl>(this, _$identity);
+      __$$SimplifiedPolicyImplCopyWithImpl<_$SimplifiedPolicyImpl>(
+          this, _$identity);
 }
 
 abstract class _SimplifiedPolicy implements SimplifiedPolicy {

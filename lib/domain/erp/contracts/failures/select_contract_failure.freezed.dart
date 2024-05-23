@@ -52,13 +52,14 @@ mixin _$SelectContractFailure {
 
 /// @nodoc
 abstract class $SelectContractFailureCopyWith<$Res> {
-  factory $SelectContractFailureCopyWith(
-          SelectContractFailure value, $Res Function(SelectContractFailure) then) =
+  factory $SelectContractFailureCopyWith(SelectContractFailure value,
+          $Res Function(SelectContractFailure) then) =
       _$SelectContractFailureCopyWithImpl<$Res, SelectContractFailure>;
 }
 
 /// @nodoc
-class _$SelectContractFailureCopyWithImpl<$Res, $Val extends SelectContractFailure>
+class _$SelectContractFailureCopyWithImpl<$Res,
+        $Val extends SelectContractFailure>
     implements $SelectContractFailureCopyWith<$Res> {
   _$SelectContractFailureCopyWithImpl(this._value, this._then);
 
@@ -70,7 +71,8 @@ class _$SelectContractFailureCopyWithImpl<$Res, $Val extends SelectContractFailu
 
 /// @nodoc
 abstract class _$$UnexpectedImplCopyWith<$Res> {
-  factory _$$UnexpectedImplCopyWith(_$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+  factory _$$UnexpectedImplCopyWith(
+          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
       __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
@@ -78,7 +80,8 @@ abstract class _$$UnexpectedImplCopyWith<$Res> {
 class __$$UnexpectedImplCopyWithImpl<$Res>
     extends _$SelectContractFailureCopyWithImpl<$Res, _$UnexpectedImpl>
     implements _$$UnexpectedImplCopyWith<$Res> {
-  __$$UnexpectedImplCopyWithImpl(_$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
+  __$$UnexpectedImplCopyWithImpl(
+      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 
