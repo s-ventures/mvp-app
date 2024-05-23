@@ -9,8 +9,9 @@ part of 'account_transactions_filter_dto.dart';
 AccountTransactionsFilterDto _$AccountTransactionsFilterDtoFromJson(
         Map<String, dynamic> json) =>
     AccountTransactionsFilterDto(
-      accountId:
-          (json['accountId'] as List<dynamic>).map((e) => e as int).toList(),
+      accountId: (json['accountId'] as List<dynamic>)
+          .map((e) => (e as num).toInt())
+          .toList(),
       operationType: $enumDecode(
           _$TransactionOperationTypeDtoEnumMap, json['operationType']),
       description: json['description'] as String?,
@@ -20,8 +21,8 @@ AccountTransactionsFilterDto _$AccountTransactionsFilterDtoFromJson(
           json['postingDateFrom'], const DateConverter().fromJson),
       postingDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['postingDateTo'], const DateConverter().fromJson),
-      pageNumber: json['pageNumber'] as int? ?? 0,
-      pageSize: json['pageSize'] as int? ?? 10,
+      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
+      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
     );
 
 Map<String, dynamic> _$AccountTransactionsFilterDtoToJson(
