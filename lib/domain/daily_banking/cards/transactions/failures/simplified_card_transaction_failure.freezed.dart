@@ -52,9 +52,11 @@ mixin _$SimplifiedCardTransactionFailure {
 
 /// @nodoc
 abstract class $SimplifiedCardTransactionFailureCopyWith<$Res> {
-  factory $SimplifiedCardTransactionFailureCopyWith(SimplifiedCardTransactionFailure value,
+  factory $SimplifiedCardTransactionFailureCopyWith(
+          SimplifiedCardTransactionFailure value,
           $Res Function(SimplifiedCardTransactionFailure) then) =
-      _$SimplifiedCardTransactionFailureCopyWithImpl<$Res, SimplifiedCardTransactionFailure>;
+      _$SimplifiedCardTransactionFailureCopyWithImpl<$Res,
+          SimplifiedCardTransactionFailure>;
 }
 
 /// @nodoc
@@ -71,15 +73,17 @@ class _$SimplifiedCardTransactionFailureCopyWithImpl<$Res,
 
 /// @nodoc
 abstract class _$$UnexpectedImplCopyWith<$Res> {
-  factory _$$UnexpectedImplCopyWith(_$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+  factory _$$UnexpectedImplCopyWith(
+          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
       __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$UnexpectedImplCopyWithImpl<$Res>
-    extends _$SimplifiedCardTransactionFailureCopyWithImpl<$Res, _$UnexpectedImpl>
-    implements _$$UnexpectedImplCopyWith<$Res> {
-  __$$UnexpectedImplCopyWithImpl(_$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
+    extends _$SimplifiedCardTransactionFailureCopyWithImpl<$Res,
+        _$UnexpectedImpl> implements _$$UnexpectedImplCopyWith<$Res> {
+  __$$UnexpectedImplCopyWithImpl(
+      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 

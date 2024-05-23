@@ -36,10 +36,7 @@ abstract class $FilterSimplifiedSentTransfersStateCopyWith<$Res> {
           FilterSimplifiedSentTransfersState>;
   @useResult
   $Res call(
-      {DateTime? startDate,
-      DateTime? endDate,
-      double? amountFrom,
-      double? amountTo});
+      {DateTime? startDate, DateTime? endDate, int? amountFrom, int? amountTo});
 }
 
 /// @nodoc
@@ -92,10 +89,7 @@ abstract class _$$FilterSimplifiedSentTransfersStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DateTime? startDate,
-      DateTime? endDate,
-      double? amountFrom,
-      double? amountTo});
+      {DateTime? startDate, DateTime? endDate, int? amountFrom, int? amountTo});
 }
 
 /// @nodoc

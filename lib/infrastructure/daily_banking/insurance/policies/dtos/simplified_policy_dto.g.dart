@@ -6,7 +6,8 @@ part of 'simplified_policy_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SimplifiedPolicyDtoImpl _$$SimplifiedPolicyDtoImplFromJson(Map<String, dynamic> json) =>
+_$SimplifiedPolicyDtoImpl _$$SimplifiedPolicyDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$SimplifiedPolicyDtoImpl(
       insuranceId: json['insuranceId'] as int,
       policy: json['policy'] as String,
@@ -14,7 +15,8 @@ _$SimplifiedPolicyDtoImpl _$$SimplifiedPolicyDtoImplFromJson(Map<String, dynamic
       description: json['description'] as String,
     );
 
-Map<String, dynamic> _$$SimplifiedPolicyDtoImplToJson(_$SimplifiedPolicyDtoImpl instance) =>
+Map<String, dynamic> _$$SimplifiedPolicyDtoImplToJson(
+        _$SimplifiedPolicyDtoImpl instance) =>
     <String, dynamic>{
       'insuranceId': instance.insuranceId,
       'policy': instance.policy,

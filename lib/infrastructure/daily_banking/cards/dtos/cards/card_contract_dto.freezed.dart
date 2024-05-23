@@ -30,12 +30,14 @@ mixin _$CardContractDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CardContractDtoCopyWith<CardContractDto> get copyWith => throw _privateConstructorUsedError;
+  $CardContractDtoCopyWith<CardContractDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CardContractDtoCopyWith<$Res> {
-  factory $CardContractDtoCopyWith(CardContractDto value, $Res Function(CardContractDto) then) =
+  factory $CardContractDtoCopyWith(
+          CardContractDto value, $Res Function(CardContractDto) then) =
       _$CardContractDtoCopyWithImpl<$Res, CardContractDto>;
   @useResult
   $Res call(
@@ -91,9 +93,10 @@ class _$CardContractDtoCopyWithImpl<$Res, $Val extends CardContractDto>
 }
 
 /// @nodoc
-abstract class _$$CardContractDtoImplCopyWith<$Res> implements $CardContractDtoCopyWith<$Res> {
-  factory _$$CardContractDtoImplCopyWith(
-          _$CardContractDtoImpl value, $Res Function(_$CardContractDtoImpl) then) =
+abstract class _$$CardContractDtoImplCopyWith<$Res>
+    implements $CardContractDtoCopyWith<$Res> {
+  factory _$$CardContractDtoImplCopyWith(_$CardContractDtoImpl value,
+          $Res Function(_$CardContractDtoImpl) then) =
       __$$CardContractDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -185,22 +188,26 @@ class _$CardContractDtoImpl implements _CardContractDto {
             other is _$CardContractDtoImpl &&
             (identical(other.cardContractId, cardContractId) ||
                 other.cardContractId == cardContractId) &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
-            (identical(other.createDate, createDate) || other.createDate == createDate) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode));
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, cardContractId, accountId, createDate, endDate, currencyCode);
+  int get hashCode => Object.hash(runtimeType, cardContractId, accountId,
+      createDate, endDate, currencyCode);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CardContractDtoImplCopyWith<_$CardContractDtoImpl> get copyWith =>
-      __$$CardContractDtoImplCopyWithImpl<_$CardContractDtoImpl>(this, _$identity);
+      __$$CardContractDtoImplCopyWithImpl<_$CardContractDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -218,7 +225,8 @@ abstract class _CardContractDto implements CardContractDto {
       @DateConverter() required final DateTime? endDate,
       required final String currencyCode}) = _$CardContractDtoImpl;
 
-  factory _CardContractDto.fromJson(Map<String, dynamic> json) = _$CardContractDtoImpl.fromJson;
+  factory _CardContractDto.fromJson(Map<String, dynamic> json) =
+      _$CardContractDtoImpl.fromJson;
 
   @override
   int get cardContractId;

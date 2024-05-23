@@ -34,8 +34,8 @@ mixin _$AggregatedProductDto {
 
 /// @nodoc
 abstract class $AggregatedProductDtoCopyWith<$Res> {
-  factory $AggregatedProductDtoCopyWith(
-          AggregatedProductDto value, $Res Function(AggregatedProductDto) then) =
+  factory $AggregatedProductDtoCopyWith(AggregatedProductDto value,
+          $Res Function(AggregatedProductDto) then) =
       _$AggregatedProductDtoCopyWithImpl<$Res, AggregatedProductDto>;
   @useResult
   $Res call(
@@ -47,7 +47,8 @@ abstract class $AggregatedProductDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AggregatedProductDtoCopyWithImpl<$Res, $Val extends AggregatedProductDto>
+class _$AggregatedProductDtoCopyWithImpl<$Res,
+        $Val extends AggregatedProductDto>
     implements $AggregatedProductDtoCopyWith<$Res> {
   _$AggregatedProductDtoCopyWithImpl(this._value, this._then);
 
@@ -93,8 +94,8 @@ class _$AggregatedProductDtoCopyWithImpl<$Res, $Val extends AggregatedProductDto
 /// @nodoc
 abstract class _$$AggregatedProductDtoImplCopyWith<$Res>
     implements $AggregatedProductDtoCopyWith<$Res> {
-  factory _$$AggregatedProductDtoImplCopyWith(
-          _$AggregatedProductDtoImpl value, $Res Function(_$AggregatedProductDtoImpl) then) =
+  factory _$$AggregatedProductDtoImplCopyWith(_$AggregatedProductDtoImpl value,
+          $Res Function(_$AggregatedProductDtoImpl) then) =
       __$$AggregatedProductDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -110,8 +111,8 @@ abstract class _$$AggregatedProductDtoImplCopyWith<$Res>
 class __$$AggregatedProductDtoImplCopyWithImpl<$Res>
     extends _$AggregatedProductDtoCopyWithImpl<$Res, _$AggregatedProductDtoImpl>
     implements _$$AggregatedProductDtoImplCopyWith<$Res> {
-  __$$AggregatedProductDtoImplCopyWithImpl(
-      _$AggregatedProductDtoImpl _value, $Res Function(_$AggregatedProductDtoImpl) _then)
+  __$$AggregatedProductDtoImplCopyWithImpl(_$AggregatedProductDtoImpl _value,
+      $Res Function(_$AggregatedProductDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -185,7 +186,8 @@ class _$AggregatedProductDtoImpl implements _AggregatedProductDto {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.financialInstitutionId, financialInstitutionId) ||
                 other.financialInstitutionId == financialInstitutionId) &&
-            (identical(other.financialInstitutionName, financialInstitutionName) ||
+            (identical(
+                    other.financialInstitutionName, financialInstitutionName) ||
                 other.financialInstitutionName == financialInstitutionName) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type));
@@ -193,14 +195,16 @@ class _$AggregatedProductDtoImpl implements _AggregatedProductDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, financialInstitutionId, financialInstitutionName, name, type);
+  int get hashCode => Object.hash(runtimeType, id, financialInstitutionId,
+      financialInstitutionName, name, type);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AggregatedProductDtoImplCopyWith<_$AggregatedProductDtoImpl> get copyWith =>
-      __$$AggregatedProductDtoImplCopyWithImpl<_$AggregatedProductDtoImpl>(this, _$identity);
+  _$$AggregatedProductDtoImplCopyWith<_$AggregatedProductDtoImpl>
+      get copyWith =>
+          __$$AggregatedProductDtoImplCopyWithImpl<_$AggregatedProductDtoImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -233,6 +237,6 @@ abstract class _AggregatedProductDto implements AggregatedProductDto {
   TypeDto get type;
   @override
   @JsonKey(ignore: true)
-  _$$AggregatedProductDtoImplCopyWith<_$AggregatedProductDtoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AggregatedProductDtoImplCopyWith<_$AggregatedProductDtoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

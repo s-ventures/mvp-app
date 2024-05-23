@@ -6,7 +6,8 @@ part of 'simplified_claim_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SimplifiedClaimDtoImpl _$$SimplifiedClaimDtoImplFromJson(Map<String, dynamic> json) =>
+_$SimplifiedClaimDtoImpl _$$SimplifiedClaimDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$SimplifiedClaimDtoImpl(
       claimId: json['claimId'] as int,
       insuranceId: json['insuranceId'] as int,
@@ -15,7 +16,8 @@ _$SimplifiedClaimDtoImpl _$$SimplifiedClaimDtoImplFromJson(Map<String, dynamic> 
       reason: json['reason'] as String,
     );
 
-Map<String, dynamic> _$$SimplifiedClaimDtoImplToJson(_$SimplifiedClaimDtoImpl instance) =>
+Map<String, dynamic> _$$SimplifiedClaimDtoImplToJson(
+        _$SimplifiedClaimDtoImpl instance) =>
     <String, dynamic>{
       'claimId': instance.claimId,
       'insuranceId': instance.insuranceId,

@@ -22,10 +22,12 @@ mixin _$FilterSimplifiedAccountTransactionsState {
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
-  TransactionOperationType get operationType => throw _privateConstructorUsedError;
+  TransactionOperationType get operationType =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterSimplifiedAccountTransactionsStateCopyWith<FilterSimplifiedAccountTransactionsState>
+  $FilterSimplifiedAccountTransactionsStateCopyWith<
+          FilterSimplifiedAccountTransactionsState>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -51,7 +53,8 @@ abstract class $FilterSimplifiedAccountTransactionsStateCopyWith<$Res> {
 class _$FilterSimplifiedAccountTransactionsStateCopyWithImpl<$Res,
         $Val extends FilterSimplifiedAccountTransactionsState>
     implements $FilterSimplifiedAccountTransactionsStateCopyWith<$Res> {
-  _$FilterSimplifiedAccountTransactionsStateCopyWithImpl(this._value, this._then);
+  _$FilterSimplifiedAccountTransactionsStateCopyWithImpl(
+      this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -217,26 +220,31 @@ class _$FilterSimplifiedAccountTransactionsStateImpl
         (other.runtimeType == runtimeType &&
             other is _$FilterSimplifiedAccountTransactionsStateImpl &&
             (identical(other.search, search) || other.search == search) &&
-            (identical(other.startDate, startDate) || other.startDate == startDate) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.amountFrom, amountFrom) || other.amountFrom == amountFrom) &&
-            (identical(other.amountTo, amountTo) || other.amountTo == amountTo) &&
-            (identical(other.category, category) || other.category == category) &&
+            (identical(other.amountFrom, amountFrom) ||
+                other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) ||
+                other.amountTo == amountTo) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             (identical(other.operationType, operationType) ||
                 other.operationType == operationType));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, search, startDate, endDate, amountFrom, amountTo, category, operationType);
+  int get hashCode => Object.hash(runtimeType, search, startDate, endDate,
+      amountFrom, amountTo, category, operationType);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FilterSimplifiedAccountTransactionsStateImplCopyWith<
           _$FilterSimplifiedAccountTransactionsStateImpl>
-      get copyWith => __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<
-          _$FilterSimplifiedAccountTransactionsStateImpl>(this, _$identity);
+      get copyWith =>
+          __$$FilterSimplifiedAccountTransactionsStateImplCopyWithImpl<
+              _$FilterSimplifiedAccountTransactionsStateImpl>(this, _$identity);
 }
 
 abstract class _FilterSimplifiedAccountTransactionsState
