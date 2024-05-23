@@ -9,4 +9,10 @@ abstract class FilteredPaginationRepository<T, F extends PaginationFilter>
 
   @override
   Future<bool> loadNextPage({F? filter});
+
+  @override
+  Stream<T> observe({F? filter});
+
+  @override
+  Future<void> refresh({F? filter});
 }

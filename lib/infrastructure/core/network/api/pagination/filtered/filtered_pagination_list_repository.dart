@@ -38,7 +38,7 @@ abstract class FilteredPaginationListRepository<T, F extends PaginationFilter>
   });
 
   @override
-  Future<void> refresh() {
+  Future<void> refresh({F? filter}) {
     subject.add(
       PaginationListData(
         page: 0,
@@ -50,9 +50,9 @@ abstract class FilteredPaginationListRepository<T, F extends PaginationFilter>
   }
 
   @override
-  Stream<List<T>> observe() async* {
+  Stream<List<T>> observe({F? filter}) async* {
     if (subject.value.data == null) {
-      _loadPage().ignore();
+      _loadPage(filter: filter).ignore();
     }
     yield* subject.stream
         .where((pagination) => pagination.data != null)

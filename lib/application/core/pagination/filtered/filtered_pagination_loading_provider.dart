@@ -25,7 +25,7 @@ mixin FilteredPaginationLoadingProvider<T, F extends PaginationFilter> {
     _filter = initialFilter;
 
     source
-        .observe()
+        .observe(filter: _filter)
         .doOnError((error, stack) {
           onDataLoadingError?.call(error);
         })
@@ -48,7 +48,7 @@ mixin FilteredPaginationLoadingProvider<T, F extends PaginationFilter> {
   }
 
   Future<void> refresh() {
-    return _source?.refresh() ?? Future.value();
+    return _source?.refresh(filter: _filter) ?? Future.value();
   }
 
   void loadNextPage() {

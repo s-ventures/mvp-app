@@ -38,9 +38,9 @@ abstract class FilteredPaginationMapRepository<K, V, F extends PaginationFilter>
       );
 
   @override
-  Stream<Map<K, V>> observe() async* {
+  Stream<Map<K, V>> observe({F? filter}) async* {
     if (subject.value.data == null) {
-      _loadPage().ignore();
+      _loadPage(filter: filter).ignore();
     }
     yield* subject.stream
         .where((pagination) => pagination.data != null)
@@ -49,7 +49,7 @@ abstract class FilteredPaginationMapRepository<K, V, F extends PaginationFilter>
   }
 
   @override
-  Future<void> refresh() {
+  Future<void> refresh({F? filter}) {
     subject.add(
       PaginationMapData(
         page: 0,
@@ -57,7 +57,7 @@ abstract class FilteredPaginationMapRepository<K, V, F extends PaginationFilter>
         data: null,
       ),
     );
-    return _loadPage();
+    return _loadPage(filter: filter);
   }
 
   Future<bool> _loadPage({int page = 0, F? filter}) async {
