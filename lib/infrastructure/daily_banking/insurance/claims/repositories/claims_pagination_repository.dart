@@ -28,7 +28,6 @@ class ClaimsPaginationRepository extends PaginationListRepository<SimplifiedClai
       filter: filter ?? const ClaimsFilter(),
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return claims.fold(
       (l) => <SimplifiedClaim>[],

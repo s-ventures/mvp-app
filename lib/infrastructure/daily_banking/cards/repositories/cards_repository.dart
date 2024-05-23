@@ -38,7 +38,6 @@ class CardsRepository implements ICardsRepository {
   Future<Either<SimplifiedCardFailure, List<SimplifiedCard>>> getSimplifiedCards({
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     try {
       final response = await _remoteDataSource.getSimplifiedCards(
@@ -47,7 +46,6 @@ class CardsRepository implements ICardsRepository {
           pageSize: pageSize,
         ),
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
       final cards = response.data.map((e) => e.toDomain()).toList();
       return right(cards);
     } catch (_) {
@@ -60,7 +58,6 @@ class CardsRepository implements ICardsRepository {
     required int cardId,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     try {
       final response = await _remoteDataSource.getDetailedCard(
@@ -69,15 +66,11 @@ class CardsRepository implements ICardsRepository {
           pageSize: pageSize,
         ),
       );
-
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
-
       final card = response.data
           .firstWhere(
             (element) => element.cardId == cardId,
           )
           .toDomain();
-
       return right(card);
     } catch (_) {
       return left(const DetailedCardFailure.unexpected());

@@ -11,8 +11,6 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
             page: 0,
             pageSize: pageSize,
             data: null,
-            totalElements: 0,
-            totalPages: 0,
           ),
         );
 
@@ -46,34 +44,15 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
         page: 0,
         pageSize: pageSize,
         data: null,
-        totalElements: 0,
-        totalPages: 0,
       ),
     );
     return _loadPage();
   }
 
-  @override
-  void onPaginationInfo(int totalPages, int totalElements) {
-    final pagination = subject.value;
-    subject.add(
-      PaginationMapData(
-        totalElements: totalElements,
-        totalPages: totalPages,
-        page: pagination.page,
-        pageSize: pagination.pageSize,
-        data: pagination.data,
-      ),
-    );
-  }
-
   Future<bool> _loadPage({int page = 0}) async {
     final pagination = subject.value;
 
-    // if (pagination.isComplete) {
-    //   return false;
-    // }
-    if (pagination.totalPages > 0 && page >= pagination.totalPages) {
+    if (pagination.isComplete) {
       return false;
     }
 
@@ -94,8 +73,7 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
         page: page,
         data: _appendNewItems(newItems),
         pageSize: pagination.pageSize,
-        totalElements: pagination.totalElements,
-        totalPages: pagination.totalPages,
+        isComplete: !hasLoadedMoreItems,
       ),
     );
 

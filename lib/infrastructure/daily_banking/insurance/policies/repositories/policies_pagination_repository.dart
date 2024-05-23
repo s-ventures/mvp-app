@@ -26,7 +26,6 @@ class PoliciesPaginationRepository extends PaginationListRepository<SimplifiedPo
       filter: _filter ?? const PoliciesFilter(),
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return policies.fold(
       (l) => <SimplifiedPolicy>[],
