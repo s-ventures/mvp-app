@@ -32,15 +32,16 @@ mixin _$DetailedAccountTransaction {
   List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedAccountTransactionCopyWith<DetailedAccountTransaction> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DetailedAccountTransactionCopyWith<DetailedAccountTransaction>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedAccountTransactionCopyWith<$Res> {
-  factory $DetailedAccountTransactionCopyWith(
-          DetailedAccountTransaction value, $Res Function(DetailedAccountTransaction) then) =
-      _$DetailedAccountTransactionCopyWithImpl<$Res, DetailedAccountTransaction>;
+  factory $DetailedAccountTransactionCopyWith(DetailedAccountTransaction value,
+          $Res Function(DetailedAccountTransaction) then) =
+      _$DetailedAccountTransactionCopyWithImpl<$Res,
+          DetailedAccountTransaction>;
   @useResult
   $Res call(
       {UniqueId id,
@@ -60,7 +61,8 @@ abstract class $DetailedAccountTransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DetailedAccountTransactionCopyWithImpl<$Res, $Val extends DetailedAccountTransaction>
+class _$DetailedAccountTransactionCopyWithImpl<$Res,
+        $Val extends DetailedAccountTransaction>
     implements $DetailedAccountTransactionCopyWith<$Res> {
   _$DetailedAccountTransactionCopyWithImpl(this._value, this._then);
 
@@ -151,7 +153,8 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res, $Val extends DetailedAccoun
 /// @nodoc
 abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
     implements $DetailedAccountTransactionCopyWith<$Res> {
-  factory _$$DetailedAccountTransactionImplCopyWith(_$DetailedAccountTransactionImpl value,
+  factory _$$DetailedAccountTransactionImplCopyWith(
+          _$DetailedAccountTransactionImpl value,
           $Res Function(_$DetailedAccountTransactionImpl) then) =
       __$$DetailedAccountTransactionImplCopyWithImpl<$Res>;
   @override
@@ -175,9 +178,11 @@ abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
-    extends _$DetailedAccountTransactionCopyWithImpl<$Res, _$DetailedAccountTransactionImpl>
+    extends _$DetailedAccountTransactionCopyWithImpl<$Res,
+        _$DetailedAccountTransactionImpl>
     implements _$$DetailedAccountTransactionImplCopyWith<$Res> {
-  __$$DetailedAccountTransactionImplCopyWithImpl(_$DetailedAccountTransactionImpl _value,
+  __$$DetailedAccountTransactionImplCopyWithImpl(
+      _$DetailedAccountTransactionImpl _value,
       $Res Function(_$DetailedAccountTransactionImpl) _then)
       : super(_value, _then);
 
@@ -326,19 +331,30 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
         (other.runtimeType == runtimeType &&
             other is _$DetailedAccountTransactionImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.description, description) || other.description == description) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.endBalance, endBalance) || other.endBalance == endBalance) &&
-            (identical(other.postingDate, postingDate) || other.postingDate == postingDate) &&
-            (identical(other.valueDate, valueDate) || other.valueDate == valueDate) &&
-            (identical(other.originBranch, originBranch) || other.originBranch == originBranch) &&
-            (identical(other.category, category) || other.category == category) &&
-            (identical(other.detailFields, detailFields) || other.detailFields == detailFields) &&
-            (identical(other.userComments, userComments) || other.userComments == userComments) &&
-            (identical(other.bankReceipt, bankReceipt) || other.bankReceipt == bankReceipt) &&
+            (identical(other.endBalance, endBalance) ||
+                other.endBalance == endBalance) &&
+            (identical(other.postingDate, postingDate) ||
+                other.postingDate == postingDate) &&
+            (identical(other.valueDate, valueDate) ||
+                other.valueDate == valueDate) &&
+            (identical(other.originBranch, originBranch) ||
+                other.originBranch == originBranch) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.detailFields, detailFields) ||
+                other.detailFields == detailFields) &&
+            (identical(other.userComments, userComments) ||
+                other.userComments == userComments) &&
+            (identical(other.bankReceipt, bankReceipt) ||
+                other.bankReceipt == bankReceipt) &&
             (identical(other.details, details) || other.details == details) &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
-            const DeepCollectionEquality().equals(other._attachments, _attachments));
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            const DeepCollectionEquality()
+                .equals(other._attachments, _attachments));
   }
 
   @override
@@ -362,27 +378,29 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl> get copyWith =>
-      __$$DetailedAccountTransactionImplCopyWithImpl<_$DetailedAccountTransactionImpl>(
-          this, _$identity);
+  _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl>
+      get copyWith => __$$DetailedAccountTransactionImplCopyWithImpl<
+          _$DetailedAccountTransactionImpl>(this, _$identity);
 }
 
-abstract class _DetailedAccountTransaction implements DetailedAccountTransaction {
+abstract class _DetailedAccountTransaction
+    implements DetailedAccountTransaction {
   const factory _DetailedAccountTransaction(
-      {required final UniqueId id,
-      required final String description,
-      required final double amount,
-      required final double endBalance,
-      required final DateTime postingDate,
-      required final DateTime valueDate,
-      required final String originBranch,
-      required final String category,
-      required final String detailFields,
-      required final String userComments,
-      required final bool? bankReceipt,
-      required final ExtendedTransactionDetails? details,
-      required final UniqueId accountId,
-      final List<FileAttachment> attachments}) = _$DetailedAccountTransactionImpl;
+          {required final UniqueId id,
+          required final String description,
+          required final double amount,
+          required final double endBalance,
+          required final DateTime postingDate,
+          required final DateTime valueDate,
+          required final String originBranch,
+          required final String category,
+          required final String detailFields,
+          required final String userComments,
+          required final bool? bankReceipt,
+          required final ExtendedTransactionDetails? details,
+          required final UniqueId accountId,
+          final List<FileAttachment> attachments}) =
+      _$DetailedAccountTransactionImpl;
 
   @override
   UniqueId get id;
@@ -414,6 +432,6 @@ abstract class _DetailedAccountTransaction implements DetailedAccountTransaction
   List<FileAttachment> get attachments;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DetailedAccountTransactionImplCopyWith<_$DetailedAccountTransactionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

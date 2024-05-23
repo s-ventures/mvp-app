@@ -22,10 +22,12 @@ mixin _$FilterSimplifiedCardTransactionsState {
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
-  TransactionOperationType get operationType => throw _privateConstructorUsedError;
+  TransactionOperationType get operationType =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterSimplifiedCardTransactionsStateCopyWith<FilterSimplifiedCardTransactionsState>
+  $FilterSimplifiedCardTransactionsStateCopyWith<
+          FilterSimplifiedCardTransactionsState>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -217,23 +219,28 @@ class _$FilterSimplifiedCardTransactionsStateImpl
         (other.runtimeType == runtimeType &&
             other is _$FilterSimplifiedCardTransactionsStateImpl &&
             (identical(other.search, search) || other.search == search) &&
-            (identical(other.startDate, startDate) || other.startDate == startDate) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.amountFrom, amountFrom) || other.amountFrom == amountFrom) &&
-            (identical(other.amountTo, amountTo) || other.amountTo == amountTo) &&
-            (identical(other.category, category) || other.category == category) &&
+            (identical(other.amountFrom, amountFrom) ||
+                other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) ||
+                other.amountTo == amountTo) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             (identical(other.operationType, operationType) ||
                 other.operationType == operationType));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, search, startDate, endDate, amountFrom, amountTo, category, operationType);
+  int get hashCode => Object.hash(runtimeType, search, startDate, endDate,
+      amountFrom, amountTo, category, operationType);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterSimplifiedCardTransactionsStateImplCopyWith<_$FilterSimplifiedCardTransactionsStateImpl>
+  _$$FilterSimplifiedCardTransactionsStateImplCopyWith<
+          _$FilterSimplifiedCardTransactionsStateImpl>
       get copyWith => __$$FilterSimplifiedCardTransactionsStateImplCopyWithImpl<
           _$FilterSimplifiedCardTransactionsStateImpl>(this, _$identity);
 }
@@ -241,13 +248,14 @@ class _$FilterSimplifiedCardTransactionsStateImpl
 abstract class _FilterSimplifiedCardTransactionsState
     implements FilterSimplifiedCardTransactionsState {
   const factory _FilterSimplifiedCardTransactionsState(
-      {final String search,
-      final DateTime? startDate,
-      final DateTime? endDate,
-      final double? amountFrom,
-      final double? amountTo,
-      final String category,
-      final TransactionOperationType operationType}) = _$FilterSimplifiedCardTransactionsStateImpl;
+          {final String search,
+          final DateTime? startDate,
+          final DateTime? endDate,
+          final double? amountFrom,
+          final double? amountTo,
+          final String category,
+          final TransactionOperationType operationType}) =
+      _$FilterSimplifiedCardTransactionsStateImpl;
 
   @override
   String get search;
@@ -265,6 +273,7 @@ abstract class _FilterSimplifiedCardTransactionsState
   TransactionOperationType get operationType;
   @override
   @JsonKey(ignore: true)
-  _$$FilterSimplifiedCardTransactionsStateImplCopyWith<_$FilterSimplifiedCardTransactionsStateImpl>
+  _$$FilterSimplifiedCardTransactionsStateImplCopyWith<
+          _$FilterSimplifiedCardTransactionsStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -16,21 +16,26 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedAccountTransactionsState {
-  AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> get transactions =>
-      throw _privateConstructorUsedError;
+  AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+      get transactions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedAccountTransactionsStateCopyWith<SimplifiedAccountTransactionsState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SimplifiedAccountTransactionsStateCopyWith<
+          SimplifiedAccountTransactionsState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SimplifiedAccountTransactionsStateCopyWith<$Res> {
-  factory $SimplifiedAccountTransactionsStateCopyWith(SimplifiedAccountTransactionsState value,
+  factory $SimplifiedAccountTransactionsStateCopyWith(
+          SimplifiedAccountTransactionsState value,
           $Res Function(SimplifiedAccountTransactionsState) then) =
-      _$SimplifiedAccountTransactionsStateCopyWithImpl<$Res, SimplifiedAccountTransactionsState>;
+      _$SimplifiedAccountTransactionsStateCopyWithImpl<$Res,
+          SimplifiedAccountTransactionsState>;
   @useResult
-  $Res call({AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> transactions});
+  $Res call(
+      {AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+          transactions});
 }
 
 /// @nodoc
@@ -67,7 +72,9 @@ abstract class _$$SimplifiedAccountTransactionsStateImplCopyWith<$Res>
       __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> transactions});
+  $Res call(
+      {AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+          transactions});
 }
 
 /// @nodoc
@@ -96,14 +103,16 @@ class __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SimplifiedAccountTransactionsStateImpl implements _SimplifiedAccountTransactionsState {
+class _$SimplifiedAccountTransactionsStateImpl
+    implements _SimplifiedAccountTransactionsState {
   const _$SimplifiedAccountTransactionsStateImpl(
-      {this.transactions =
-          const AsyncLoading<Map<DateTime, List<SimplifiedAccountTransaction>>>()});
+      {this.transactions = const AsyncLoading<
+          Map<DateTime, List<SimplifiedAccountTransaction>>>()});
 
   @override
   @JsonKey()
-  final AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> transactions;
+  final AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+      transactions;
 
   @override
   String toString() {
@@ -115,7 +124,8 @@ class _$SimplifiedAccountTransactionsStateImpl implements _SimplifiedAccountTran
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedAccountTransactionsStateImpl &&
-            (identical(other.transactions, transactions) || other.transactions == transactions));
+            (identical(other.transactions, transactions) ||
+                other.transactions == transactions));
   }
 
   @override
@@ -124,20 +134,24 @@ class _$SimplifiedAccountTransactionsStateImpl implements _SimplifiedAccountTran
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedAccountTransactionsStateImplCopyWith<_$SimplifiedAccountTransactionsStateImpl>
+  _$$SimplifiedAccountTransactionsStateImplCopyWith<
+          _$SimplifiedAccountTransactionsStateImpl>
       get copyWith => __$$SimplifiedAccountTransactionsStateImplCopyWithImpl<
           _$SimplifiedAccountTransactionsStateImpl>(this, _$identity);
 }
 
-abstract class _SimplifiedAccountTransactionsState implements SimplifiedAccountTransactionsState {
+abstract class _SimplifiedAccountTransactionsState
+    implements SimplifiedAccountTransactionsState {
   const factory _SimplifiedAccountTransactionsState(
-          {final AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> transactions}) =
-      _$SimplifiedAccountTransactionsStateImpl;
+      {final AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+          transactions}) = _$SimplifiedAccountTransactionsStateImpl;
 
   @override
-  AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> get transactions;
+  AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>>
+      get transactions;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedAccountTransactionsStateImplCopyWith<_$SimplifiedAccountTransactionsStateImpl>
+  _$$SimplifiedAccountTransactionsStateImplCopyWith<
+          _$SimplifiedAccountTransactionsStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

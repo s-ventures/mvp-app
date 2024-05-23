@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
-import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
+import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_state.dart';
-import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_orders_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_pagination_repository.dart';
 
@@ -14,7 +14,7 @@ final simplifiedPeriodicOrdersControllerProvider =
 );
 
 class SimplifiedPeriodicOrdersController extends StateNotifier<SimplifiedPeriodicOrdersState>
-    with PaginationLoadingProvider<List<SimplifiedPeriodicOrder>> {
+    with FilteredPaginationLoadingProvider<List<SimplifiedPeriodicOrder>, PeriodicOrdersFilter> {
   SimplifiedPeriodicOrdersController(
     this._repository,
   ) : super(const SimplifiedPeriodicOrdersState());
@@ -38,22 +38,5 @@ class SimplifiedPeriodicOrdersController extends StateNotifier<SimplifiedPeriodi
         );
       },
     );
-  }
-
-  Future<void> updateFilter({
-    required double? amountFrom,
-    required double? amountTo,
-    required DateTime? dateFrom,
-    required DateTime? dateTo,
-    required PeriodicOrderFrecuencyType? frecuency,
-  }) async {
-    _repository.updateFilter(
-      amountFrom: amountFrom,
-      amountTo: amountTo,
-      startDateFrom: dateFrom,
-      startDateTo: dateTo,
-      frecuency: frecuency,
-    );
-    await refresh();
   }
 }

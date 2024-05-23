@@ -19,7 +19,8 @@ mixin _$DetailedCardState {
   AsyncValue<DetailedCard> get card => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedCardStateCopyWith<DetailedCardState> get copyWith => throw _privateConstructorUsedError;
+  $DetailedCardStateCopyWith<DetailedCardState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -56,9 +57,10 @@ class _$DetailedCardStateCopyWithImpl<$Res, $Val extends DetailedCardState>
 }
 
 /// @nodoc
-abstract class _$$DetailedCardStateImplCopyWith<$Res> implements $DetailedCardStateCopyWith<$Res> {
-  factory _$$DetailedCardStateImplCopyWith(
-          _$DetailedCardStateImpl value, $Res Function(_$DetailedCardStateImpl) then) =
+abstract class _$$DetailedCardStateImplCopyWith<$Res>
+    implements $DetailedCardStateCopyWith<$Res> {
+  factory _$$DetailedCardStateImplCopyWith(_$DetailedCardStateImpl value,
+          $Res Function(_$DetailedCardStateImpl) then) =
       __$$DetailedCardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -69,8 +71,8 @@ abstract class _$$DetailedCardStateImplCopyWith<$Res> implements $DetailedCardSt
 class __$$DetailedCardStateImplCopyWithImpl<$Res>
     extends _$DetailedCardStateCopyWithImpl<$Res, _$DetailedCardStateImpl>
     implements _$$DetailedCardStateImplCopyWith<$Res> {
-  __$$DetailedCardStateImplCopyWithImpl(
-      _$DetailedCardStateImpl _value, $Res Function(_$DetailedCardStateImpl) _then)
+  __$$DetailedCardStateImplCopyWithImpl(_$DetailedCardStateImpl _value,
+      $Res Function(_$DetailedCardStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +92,8 @@ class __$$DetailedCardStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DetailedCardStateImpl implements _DetailedCardState {
-  const _$DetailedCardStateImpl({this.card = const AsyncLoading<DetailedCard>()});
+  const _$DetailedCardStateImpl(
+      {this.card = const AsyncLoading<DetailedCard>()});
 
   @override
   @JsonKey()
@@ -116,11 +119,13 @@ class _$DetailedCardStateImpl implements _DetailedCardState {
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedCardStateImplCopyWith<_$DetailedCardStateImpl> get copyWith =>
-      __$$DetailedCardStateImplCopyWithImpl<_$DetailedCardStateImpl>(this, _$identity);
+      __$$DetailedCardStateImplCopyWithImpl<_$DetailedCardStateImpl>(
+          this, _$identity);
 }
 
 abstract class _DetailedCardState implements DetailedCardState {
-  const factory _DetailedCardState({final AsyncValue<DetailedCard> card}) = _$DetailedCardStateImpl;
+  const factory _DetailedCardState({final AsyncValue<DetailedCard> card}) =
+      _$DetailedCardStateImpl;
 
   @override
   AsyncValue<DetailedCard> get card;

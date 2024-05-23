@@ -3,7 +3,7 @@ import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_exte
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-mixin PaginationLoadingProvider<T> {
+mixin class PaginationLoadingProvider<T> {
   final CompositeSubscription _subscriptions = CompositeSubscription();
   final PublishSubject<void> _loadNextPageSubject = PublishSubject();
 

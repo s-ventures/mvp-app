@@ -71,7 +71,7 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
     subject.add(
       PaginationMapData(
         page: page,
-        data: _appendNewItems(newItems),
+        data: appendNewItems(newItems),
         pageSize: pagination.pageSize,
         isComplete: !hasLoadedMoreItems,
       ),
@@ -80,7 +80,7 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
     return hasLoadedMoreItems;
   }
 
-  Map<K, V> _appendNewItems(Map<K, V> newItems) {
+  Map<K, V> appendNewItems(Map<K, V> newItems) {
     final currentItems = subject.value.data ?? <K, V>{};
     return Map.of(currentItems)..addAll(newItems);
   }

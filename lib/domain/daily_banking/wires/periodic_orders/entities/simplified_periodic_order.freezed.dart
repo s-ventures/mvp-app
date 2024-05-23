@@ -25,7 +25,8 @@ mixin _$SimplifiedPeriodicOrder {
   String get currencyCode => throw _privateConstructorUsedError;
   PeriodicOrderStatusType? get status => throw _privateConstructorUsedError;
   String? get concept => throw _privateConstructorUsedError;
-  PeriodicOrderFrecuencyType? get frecuency => throw _privateConstructorUsedError;
+  PeriodicOrderFrecuencyType? get frecuency =>
+      throw _privateConstructorUsedError;
   DateTime? get startDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,8 +36,8 @@ mixin _$SimplifiedPeriodicOrder {
 
 /// @nodoc
 abstract class $SimplifiedPeriodicOrderCopyWith<$Res> {
-  factory $SimplifiedPeriodicOrderCopyWith(
-          SimplifiedPeriodicOrder value, $Res Function(SimplifiedPeriodicOrder) then) =
+  factory $SimplifiedPeriodicOrderCopyWith(SimplifiedPeriodicOrder value,
+          $Res Function(SimplifiedPeriodicOrder) then) =
       _$SimplifiedPeriodicOrderCopyWithImpl<$Res, SimplifiedPeriodicOrder>;
   @useResult
   $Res call(
@@ -54,7 +55,8 @@ abstract class $SimplifiedPeriodicOrderCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SimplifiedPeriodicOrderCopyWithImpl<$Res, $Val extends SimplifiedPeriodicOrder>
+class _$SimplifiedPeriodicOrderCopyWithImpl<$Res,
+        $Val extends SimplifiedPeriodicOrder>
     implements $SimplifiedPeriodicOrderCopyWith<$Res> {
   _$SimplifiedPeriodicOrderCopyWithImpl(this._value, this._then);
 
@@ -131,7 +133,8 @@ class _$SimplifiedPeriodicOrderCopyWithImpl<$Res, $Val extends SimplifiedPeriodi
 abstract class _$$SimplifiedPeriodicOrderImplCopyWith<$Res>
     implements $SimplifiedPeriodicOrderCopyWith<$Res> {
   factory _$$SimplifiedPeriodicOrderImplCopyWith(
-          _$SimplifiedPeriodicOrderImpl value, $Res Function(_$SimplifiedPeriodicOrderImpl) then) =
+          _$SimplifiedPeriodicOrderImpl value,
+          $Res Function(_$SimplifiedPeriodicOrderImpl) then) =
       __$$SimplifiedPeriodicOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -151,10 +154,12 @@ abstract class _$$SimplifiedPeriodicOrderImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedPeriodicOrderImplCopyWithImpl<$Res>
-    extends _$SimplifiedPeriodicOrderCopyWithImpl<$Res, _$SimplifiedPeriodicOrderImpl>
+    extends _$SimplifiedPeriodicOrderCopyWithImpl<$Res,
+        _$SimplifiedPeriodicOrderImpl>
     implements _$$SimplifiedPeriodicOrderImplCopyWith<$Res> {
   __$$SimplifiedPeriodicOrderImplCopyWithImpl(
-      _$SimplifiedPeriodicOrderImpl _value, $Res Function(_$SimplifiedPeriodicOrderImpl) _then)
+      _$SimplifiedPeriodicOrderImpl _value,
+      $Res Function(_$SimplifiedPeriodicOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -271,29 +276,46 @@ class _$SimplifiedPeriodicOrderImpl implements _SimplifiedPeriodicOrder {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedPeriodicOrderImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
-            (identical(other.customerId, customerId) || other.customerId == customerId) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.customerId, customerId) ||
+                other.customerId == customerId) &&
             (identical(other.beneficiaryAccount, beneficiaryAccount) ||
                 other.beneficiaryAccount == beneficiaryAccount) &&
             (identical(other.beneficiaryName, beneficiaryName) ||
                 other.beneficiaryName == beneficiaryName) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.concept, concept) || other.concept == concept) &&
-            (identical(other.frecuency, frecuency) || other.frecuency == frecuency) &&
-            (identical(other.startDate, startDate) || other.startDate == startDate));
+            (identical(other.frecuency, frecuency) ||
+                other.frecuency == frecuency) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, accountId, customerId, beneficiaryAccount,
-      beneficiaryName, amount, currencyCode, status, concept, frecuency, startDate);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      accountId,
+      customerId,
+      beneficiaryAccount,
+      beneficiaryName,
+      amount,
+      currencyCode,
+      status,
+      concept,
+      frecuency,
+      startDate);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedPeriodicOrderImplCopyWith<_$SimplifiedPeriodicOrderImpl> get copyWith =>
-      __$$SimplifiedPeriodicOrderImplCopyWithImpl<_$SimplifiedPeriodicOrderImpl>(this, _$identity);
+  _$$SimplifiedPeriodicOrderImplCopyWith<_$SimplifiedPeriodicOrderImpl>
+      get copyWith => __$$SimplifiedPeriodicOrderImplCopyWithImpl<
+          _$SimplifiedPeriodicOrderImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedPeriodicOrder implements SimplifiedPeriodicOrder {
@@ -334,6 +356,6 @@ abstract class _SimplifiedPeriodicOrder implements SimplifiedPeriodicOrder {
   DateTime? get startDate;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedPeriodicOrderImplCopyWith<_$SimplifiedPeriodicOrderImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SimplifiedPeriodicOrderImplCopyWith<_$SimplifiedPeriodicOrderImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

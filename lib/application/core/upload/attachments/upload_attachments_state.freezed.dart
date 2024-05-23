@@ -58,7 +58,8 @@ mixin _$UploadEvent {
 
 /// @nodoc
 abstract class $UploadEventCopyWith<$Res> {
-  factory $UploadEventCopyWith(UploadEvent value, $Res Function(UploadEvent) then) =
+  factory $UploadEventCopyWith(
+          UploadEvent value, $Res Function(UploadEvent) then) =
       _$UploadEventCopyWithImpl<$Res, UploadEvent>;
 }
 
@@ -208,7 +209,8 @@ class _$UploadFailureImpl implements _UploadFailure {
 }
 
 abstract class _UploadFailure implements UploadEvent {
-  const factory _UploadFailure(final UploadFileFailure failure) = _$UploadFailureImpl;
+  const factory _UploadFailure(final UploadFileFailure failure) =
+      _$UploadFailureImpl;
 
   UploadFileFailure get failure;
   @JsonKey(ignore: true)
@@ -218,8 +220,8 @@ abstract class _UploadFailure implements UploadEvent {
 
 /// @nodoc
 abstract class _$$DeleteFileSuccessImplCopyWith<$Res> {
-  factory _$$DeleteFileSuccessImplCopyWith(
-          _$DeleteFileSuccessImpl value, $Res Function(_$DeleteFileSuccessImpl) then) =
+  factory _$$DeleteFileSuccessImplCopyWith(_$DeleteFileSuccessImpl value,
+          $Res Function(_$DeleteFileSuccessImpl) then) =
       __$$DeleteFileSuccessImplCopyWithImpl<$Res>;
 }
 
@@ -227,8 +229,8 @@ abstract class _$$DeleteFileSuccessImplCopyWith<$Res> {
 class __$$DeleteFileSuccessImplCopyWithImpl<$Res>
     extends _$UploadEventCopyWithImpl<$Res, _$DeleteFileSuccessImpl>
     implements _$$DeleteFileSuccessImplCopyWith<$Res> {
-  __$$DeleteFileSuccessImplCopyWithImpl(
-      _$DeleteFileSuccessImpl _value, $Res Function(_$DeleteFileSuccessImpl) _then)
+  __$$DeleteFileSuccessImplCopyWithImpl(_$DeleteFileSuccessImpl _value,
+      $Res Function(_$DeleteFileSuccessImpl) _then)
       : super(_value, _then);
 }
 

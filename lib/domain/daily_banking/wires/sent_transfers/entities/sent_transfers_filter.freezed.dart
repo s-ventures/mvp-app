@@ -81,8 +81,8 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
 /// @nodoc
 abstract class _$$SentTransfersFilterImplCopyWith<$Res>
     implements $SentTransfersFilterCopyWith<$Res> {
-  factory _$$SentTransfersFilterImplCopyWith(
-          _$SentTransfersFilterImpl value, $Res Function(_$SentTransfersFilterImpl) then) =
+  factory _$$SentTransfersFilterImplCopyWith(_$SentTransfersFilterImpl value,
+          $Res Function(_$SentTransfersFilterImpl) then) =
       __$$SentTransfersFilterImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -97,8 +97,8 @@ abstract class _$$SentTransfersFilterImplCopyWith<$Res>
 class __$$SentTransfersFilterImplCopyWithImpl<$Res>
     extends _$SentTransfersFilterCopyWithImpl<$Res, _$SentTransfersFilterImpl>
     implements _$$SentTransfersFilterImplCopyWith<$Res> {
-  __$$SentTransfersFilterImplCopyWithImpl(
-      _$SentTransfersFilterImpl _value, $Res Function(_$SentTransfersFilterImpl) _then)
+  __$$SentTransfersFilterImplCopyWithImpl(_$SentTransfersFilterImpl _value,
+      $Res Function(_$SentTransfersFilterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +134,10 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
 
 class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   const _$SentTransfersFilterImpl(
-      {this.orderDateFrom, this.orderDateTo, this.settlementAmountFrom, this.settlementAmountTo});
+      {this.orderDateFrom,
+      this.orderDateTo,
+      this.settlementAmountFrom,
+      this.settlementAmountTo});
 
   @override
   final DateTime? orderDateFrom;
@@ -157,7 +160,8 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
             other is _$SentTransfersFilterImpl &&
             (identical(other.orderDateFrom, orderDateFrom) ||
                 other.orderDateFrom == orderDateFrom) &&
-            (identical(other.orderDateTo, orderDateTo) || other.orderDateTo == orderDateTo) &&
+            (identical(other.orderDateTo, orderDateTo) ||
+                other.orderDateTo == orderDateTo) &&
             (identical(other.settlementAmountFrom, settlementAmountFrom) ||
                 other.settlementAmountFrom == settlementAmountFrom) &&
             (identical(other.settlementAmountTo, settlementAmountTo) ||
@@ -165,14 +169,15 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, orderDateFrom, orderDateTo, settlementAmountFrom, settlementAmountTo);
+  int get hashCode => Object.hash(runtimeType, orderDateFrom, orderDateTo,
+      settlementAmountFrom, settlementAmountTo);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SentTransfersFilterImplCopyWith<_$SentTransfersFilterImpl> get copyWith =>
-      __$$SentTransfersFilterImplCopyWithImpl<_$SentTransfersFilterImpl>(this, _$identity);
+      __$$SentTransfersFilterImplCopyWithImpl<_$SentTransfersFilterImpl>(
+          this, _$identity);
 }
 
 abstract class _SentTransfersFilter implements SentTransfersFilter {

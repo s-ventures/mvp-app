@@ -30,12 +30,14 @@ mixin _$TinkFlowLinkDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TinkFlowLinkDtoCopyWith<TinkFlowLinkDto> get copyWith => throw _privateConstructorUsedError;
+  $TinkFlowLinkDtoCopyWith<TinkFlowLinkDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TinkFlowLinkDtoCopyWith<$Res> {
-  factory $TinkFlowLinkDtoCopyWith(TinkFlowLinkDto value, $Res Function(TinkFlowLinkDto) then) =
+  factory $TinkFlowLinkDtoCopyWith(
+          TinkFlowLinkDto value, $Res Function(TinkFlowLinkDto) then) =
       _$TinkFlowLinkDtoCopyWithImpl<$Res, TinkFlowLinkDto>;
   @useResult
   $Res call(
@@ -103,9 +105,10 @@ class _$TinkFlowLinkDtoCopyWithImpl<$Res, $Val extends TinkFlowLinkDto>
 }
 
 /// @nodoc
-abstract class _$$TinkFlowLinkDtoImplCopyWith<$Res> implements $TinkFlowLinkDtoCopyWith<$Res> {
-  factory _$$TinkFlowLinkDtoImplCopyWith(
-          _$TinkFlowLinkDtoImpl value, $Res Function(_$TinkFlowLinkDtoImpl) then) =
+abstract class _$$TinkFlowLinkDtoImplCopyWith<$Res>
+    implements $TinkFlowLinkDtoCopyWith<$Res> {
+  factory _$$TinkFlowLinkDtoImplCopyWith(_$TinkFlowLinkDtoImpl value,
+          $Res Function(_$TinkFlowLinkDtoImpl) then) =
       __$$TinkFlowLinkDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -213,25 +216,29 @@ class _$TinkFlowLinkDtoImpl implements _TinkFlowLinkDto {
             other is _$TinkFlowLinkDtoImpl &&
             (identical(other.connectionType, connectionType) ||
                 other.connectionType == connectionType) &&
-            (identical(other.redirectUri, redirectUri) || other.redirectUri == redirectUri) &&
-            (identical(other.clientId, clientId) || other.clientId == clientId) &&
+            (identical(other.redirectUri, redirectUri) ||
+                other.redirectUri == redirectUri) &&
+            (identical(other.clientId, clientId) ||
+                other.clientId == clientId) &&
             (identical(other.market, market) || other.market == market) &&
             (identical(other.locale, locale) || other.locale == locale) &&
             (identical(other.authorizationCode, authorizationCode) ||
                 other.authorizationCode == authorizationCode) &&
-            (identical(other.fullLink, fullLink) || other.fullLink == fullLink));
+            (identical(other.fullLink, fullLink) ||
+                other.fullLink == fullLink));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, connectionType, redirectUri, clientId, market,
-      locale, authorizationCode, fullLink);
+  int get hashCode => Object.hash(runtimeType, connectionType, redirectUri,
+      clientId, market, locale, authorizationCode, fullLink);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TinkFlowLinkDtoImplCopyWith<_$TinkFlowLinkDtoImpl> get copyWith =>
-      __$$TinkFlowLinkDtoImplCopyWithImpl<_$TinkFlowLinkDtoImpl>(this, _$identity);
+      __$$TinkFlowLinkDtoImplCopyWithImpl<_$TinkFlowLinkDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -251,7 +258,8 @@ abstract class _TinkFlowLinkDto implements TinkFlowLinkDto {
       required final String authorizationCode,
       required final String fullLink}) = _$TinkFlowLinkDtoImpl;
 
-  factory _TinkFlowLinkDto.fromJson(Map<String, dynamic> json) = _$TinkFlowLinkDtoImpl.fromJson;
+  factory _TinkFlowLinkDto.fromJson(Map<String, dynamic> json) =
+      _$TinkFlowLinkDtoImpl.fromJson;
 
   @override
   String get connectionType;

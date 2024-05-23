@@ -19,8 +19,9 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
   String? baseUrl;
 
   @override
-  Future<PaginatedResponse<DateAccountTransactionsDto>> getSimplifiedAccountTransactions(
-      {required AccountTransactionsFilterDto filter}) async {
+  Future<PaginatedResponse<DateAccountTransactionsDto>>
+      getSimplifiedAccountTransactions(
+          {required AccountTransactionsFilterDto filter}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
@@ -44,7 +45,8 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
             ))));
     final value = PaginatedResponse<DateAccountTransactionsDto>.fromJson(
       _result.data!,
-      (json) => DateAccountTransactionsDto.fromJson(json as Map<String, dynamic>),
+      (json) =>
+          DateAccountTransactionsDto.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
@@ -58,8 +60,8 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<DetailedAccountTransactionDto>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<DetailedAccountTransactionDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -90,8 +92,8 @@ class _AccountTransactionsRestClient implements AccountTransactionsRestClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body.toJson());
-    final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<FileAttachmentDto>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<FileAttachmentDto>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,

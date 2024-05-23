@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/filter/filter_simplified_periodic_orders_state.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_orders_filter.dart';
 
 final filterSimplifiedPeriodicOrdersControllerProvider = StateNotifierProvider.autoDispose<
     FilterSimplifiedPeriodicOrdersController, FilterSimplifiedPeriodicOrdersState>(
@@ -20,11 +21,13 @@ class FilterSimplifiedPeriodicOrdersController
 
   Future<void> applyFilters() async {
     await _simplifiedPeriodicOrdersController.updateFilter(
-      amountFrom: state.amountFrom,
-      amountTo: state.amountTo,
-      dateFrom: state.startDate,
-      dateTo: state.endDate,
-      frecuency: state.frecuency,
+      PeriodicOrdersFilter(
+        amountFrom: state.amountFrom,
+        amountTo: state.amountTo,
+        startDateFrom: state.startDate,
+        startDateTo: state.endDate,
+        frecuency: state.frecuency,
+      ),
     );
   }
 

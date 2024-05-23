@@ -25,7 +25,10 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
 
   /// Retrieves a page from the data source
   @protected
-  Future<List<T>?> fetchPage({required int page, required int pageSize});
+  Future<List<T>?> fetchPage({
+    required int page,
+    required int pageSize,
+  });
 
   @override
   Future<void> refresh() {
@@ -74,7 +77,7 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
     subject.add(
       PaginationListData(
         page: page,
-        data: _appendNewItems(newItems),
+        data: appendNewItems(newItems),
         pageSize: pagination.pageSize,
         isComplete: !hasLoadedMoreItems,
       ),
@@ -83,7 +86,7 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
     return hasLoadedMoreItems;
   }
 
-  List<T> _appendNewItems(List<T> newItems) {
+  List<T> appendNewItems(List<T> newItems) {
     final currentItems = subject.value.data ?? <T>[];
     return List.of(currentItems)..addAll(newItems);
   }
