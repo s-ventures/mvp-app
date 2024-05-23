@@ -1104,6 +1104,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get commonEmail => 'Mail';
 
   @override
+  String get commonSms => 'SMS';
+
+  @override
+  String get commonWhatsapp => 'Whatsapp';
+
+  @override
   String get commonCity => 'Ciudad';
 
   @override
@@ -1229,6 +1235,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get commonNoConcept => 'Sin concepto';
 
   @override
+  String get commonCountry => 'País';
+
+  @override
   String get commonCountriesSpain => 'España';
 
   @override
@@ -1277,4 +1286,239 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get commonAttachmentDeleted => 'Documento adjunto eliminado';
+
+  @override
+  String get commonClient => 'Cliente';
+
+  @override
+  String get commonSupplier => 'Proveedor';
+
+  @override
+  String get commonCharged => 'Cobrado';
+
+  @override
+  String get commonPending => 'Pendiente';
+
+  @override
+  String get commonOverdue => 'Vencido';
+
+  @override
+  String get commonUnpaid => 'Impagado';
+
+  @override
+  String get commonPaid => 'Pagado';
+
+  @override
+  String get commonType => 'Tipo';
+
+  @override
+  String get commonStatus => 'Estado';
+
+  @override
+  String get commonDocument => 'Documento';
+
+  @override
+  String get commonAddress => 'Dirección';
+
+  @override
+  String get commonAddressExtraInfo => 'Piso, puerta, nº casa';
+
+  @override
+  String get commonAccept => 'Aceptar';
+
+  @override
+  String get commonPostalCode => 'Código postal';
+
+  @override
+  String get commonTaxInformation => 'Información fiscal';
+
+  @override
+  String get commonNameOrCompanyName => 'Nombre o razón social';
+
+  @override
+  String get commonCifOrNif => 'CIF/NIF';
+
+  @override
+  String commonNifWithParams(Object nif) {
+    return 'NIF: $nif';
+  }
+
+  @override
+  String get commonNotes => 'Notas';
+
+  @override
+  String get commonCommunicationPreferences => 'Preferencias de comunicación';
+
+  @override
+  String get contacts => 'Contactos';
+
+  @override
+  String get contactsSelectorUnpaid => 'Impagos';
+
+  @override
+  String get contactsSelectorIncome => 'Ingresos';
+
+  @override
+  String get contactsFavourites => 'Contactos favoritos';
+
+  @override
+  String get contactsAdd => 'Añadir';
+
+  @override
+  String get contactsAddModalManual => 'Manual';
+
+  @override
+  String get contactsAddModalFromAgenda => 'Desde agenda';
+
+  @override
+  String get contactsAddModalFromUploadFile => 'Subir contactos';
+
+  @override
+  String get contactsUploadFilePageTitle => 'Importar';
+
+  @override
+  String get contactsUploadFilePageDescription => 'Importa tus contactos fácilmente con nuestra plantilla diseñada para simplificar el proceso.';
+
+  @override
+  String get contactsUploadFilePageTemplateImportingContacts => 'Plantilla para importar contactos';
+
+  @override
+  String get contactsUploadFilePageTemplate => 'Plantilla';
+
+  @override
+  String get contactsUploadFilePageTemplateSuccessDownloadedAlertTitle => 'La descarga se ha realizado con éxito.';
+
+  @override
+  String get contactsUploadFilePageTemplateSuccessDownloadedAlertDescription => 'Abrir documento';
+
+  @override
+  String get contactsUploadFilePageSelectedFile => 'Archivo seleccionado';
+
+  @override
+  String get contactsUploadFilePageSelectFile => 'Selecciona archivo';
+
+  @override
+  String get contactsUploadFilePageChooseFile => 'Elige el archivo para subir.';
+
+  @override
+  String get contactsUploadFilePageSelectFileButton => 'Seleccionar archivo';
+
+  @override
+  String get contactsUploadFilePageUploadFileButton => 'Subir archivo';
+
+  @override
+  String get contactsUploadFilePageModalToSelectDocumentTitle => 'Subir archivo';
+
+  @override
+  String get contactsUploadFilePageModalToSelectDocumentSuccessTitle => 'Envío completado';
+
+  @override
+  String get contactsUploadFilePageModalToSelectDocumentSuccessDescription => 'Archivo subido con éxito';
+
+  @override
+  String get contactsUploadFilePageModalToSelectDocumentErrorTitle => 'Error al importar';
+
+  @override
+  String get contactsUploadFilePageModalToSelectDocumentErrorDescription => 'No se ha podido subir el archivo';
+
+  @override
+  String contactsUploadFilePageModalToSelectDocumentErrorAlertTitle(Object filename) {
+    return 'Error al subir $filename';
+  }
+
+  @override
+  String get contactsAddFromAgendaModalRequestPermissionsTitle => 'Acceso agenda';
+
+  @override
+  String get contactsAddFromAgendaModalRequestPermissionsDescription => 'Para poder añadir contactos desde tu agenda, necesitamos acceder a ella. Por favor, pulsa en \"Aceptar\" para permitir el acceso. ¡Gracias!';
+
+  @override
+  String get contactsAddFromAgendaPageTitle => 'Agenda';
+
+  @override
+  String get contactsAddFromAgendaSelectContactsAll => 'Seleccionar todos';
+
+  @override
+  String get contactsAddFromAgendaAddButton => 'Añadir';
+
+  @override
+  String get contactsAddFromAgendaSelectContactsSuccessAddedAlertTitle => 'Nuevo contacto agregado.';
+
+  @override
+  String get contactsAddFromAgendaSelectContactsErrorAddedAlertTitle => 'Error al añadir contacto.';
+
+  @override
+  String get contactsAddManualNewContactPageTitle => 'Nuevo contacto';
+
+  @override
+  String get contactsAddManualNewContactPageContactInfo => 'Información del contacto';
+
+  @override
+  String get contactsAddManualNewContactPageButton => 'Crear';
+
+  @override
+  String get contactsDetailsPageTitle => 'Contacto';
+
+  @override
+  String get contactsDetailsTabProfile => 'Perfil';
+
+  @override
+  String get contactsDetailsTabRevenue => 'Ingresos';
+
+  @override
+  String get contactsDetailsTabExpenses => 'Gastos';
+
+  @override
+  String get contactsDetailsActionsSendEmail => 'Enviar mail';
+
+  @override
+  String get contactsDetailsActionsCall => 'Llamar';
+
+  @override
+  String get contactsDetailsMarkAsFavourite => 'Marcar como favorito';
+
+  @override
+  String get contactsDetailsNotes => 'Notas';
+
+  @override
+  String get contactsDetailsNotesHintText => 'Ej: Llamar a Marta el sábado';
+
+  @override
+  String get contactsDetailsComunicationsPreferences => 'Preferencias de comunicación';
+
+  @override
+  String get contactsDetailsDeleteContactButton => 'Eliminar contacto';
+
+  @override
+  String get contactsDetailsDeleteContactModalTitle => 'Eliminar contacto';
+
+  @override
+  String get contactsDetailsDeleteContactModalDescription => 'Se perderán todos los datos y no podrás recuperarlos';
+
+  @override
+  String get contactsDetailsDeleteContactModalSuccessAlertTitle => 'Contacto eliminado';
+
+  @override
+  String get contactsDetailsIncorrectFieldsAlertTitle => 'Campos incorrectos';
+
+  @override
+  String get contactsDetailsIncompleteFieldsModalTitle => 'Campos incompletos';
+
+  @override
+  String get contactsDetailsIncompleteFieldsModalDescription => 'Tu contacto está activo, pero aún hay campos por completar para una gestión más completa y precisa.';
+
+  @override
+  String get contactsDetailsIncompleteFieldsModalOkButton => 'Completar';
+
+  @override
+  String get contactsDetailsIncompleteFieldsModalCancelButton => 'Lo haré más tarde';
+
+  @override
+  String get contactsDetailsRevenueAndExpensesResult => 'Resultado';
+
+  @override
+  String get contactsEditPageTitle => 'Contacto';
+
+  @override
+  String get contactsEditPageContactInfo => 'Información del contacto';
 }

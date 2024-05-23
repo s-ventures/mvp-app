@@ -6,5 +6,10 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
   },
-  "conventionalCommits.scopes": ["erp/invoices", "erp/expenses", "erp/quotes"]
+  "conventionalCommits.scopes": [
+    "erp/invoices",
+    "erp/expenses",
+    "erp/quotes",
+    "daily_banking"
+  ]
 }

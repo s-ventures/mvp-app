@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class UploadContactBottomSheet {
@@ -48,7 +49,7 @@ class UploadContactBottomSheet {
                 children: [
                   Expanded(
                     child: Text(
-                      'Subir archivos',
+                      context.loc.contactsUploadFilePageModalToSelectDocumentTitle,
                       style: context.textStyle.h6.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -89,7 +90,7 @@ class UploadContactBottomSheet {
                       borderRadius: BorderRadius.circular(context.radius.soft),
                     ),
                     title: Text(
-                      'Documento',
+                      context.loc.commonDocument,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),

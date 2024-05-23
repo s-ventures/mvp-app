@@ -15,7 +15,6 @@ abstract class ICardTransactionsRepository {
     required CardTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
   Future<Either<DetailedCardTransactionFailure, DetailedCardTransaction>>

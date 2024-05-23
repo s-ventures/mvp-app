@@ -82,7 +82,6 @@ class CardTransactionsPaginationRepository
       filter: filter,
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return transactions.fold(
       (l) => <DateTime, List<SimplifiedCardTransaction>>{},

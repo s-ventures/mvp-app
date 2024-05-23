@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class ContactListTile extends StatelessWidget {
@@ -33,9 +34,8 @@ class ContactListTile extends StatelessWidget {
         leading: leading,
         title: Text(name, style: context.textStyle.bodySmallRegular),
         subtitle: Text(
-          'NIF: $nif',
-          style: context.textStyle.buttonTabBar
-              .copyWith(color: context.color.textLight600),
+          '${context.loc.commonCifOrNif}: $nif',
+          style: context.textStyle.buttonTabBar.copyWith(color: context.color.textLight600),
         ),
         trailing: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),

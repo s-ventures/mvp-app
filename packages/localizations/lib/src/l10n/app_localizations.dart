@@ -2233,6 +2233,18 @@ abstract class AppLocalizations {
   /// **'Mail'**
   String get commonEmail;
 
+  /// SMS
+  ///
+  /// In es, this message translates to:
+  /// **'SMS'**
+  String get commonSms;
+
+  /// Whatsapp
+  ///
+  /// In es, this message translates to:
+  /// **'Whatsapp'**
+  String get commonWhatsapp;
+
   /// City
   ///
   /// In es, this message translates to:
@@ -2479,6 +2491,12 @@ abstract class AppLocalizations {
   /// **'Sin concepto'**
   String get commonNoConcept;
 
+  /// Country
+  ///
+  /// In es, this message translates to:
+  /// **'País'**
+  String get commonCountry;
+
   /// Spain
   ///
   /// In es, this message translates to:
@@ -2574,6 +2592,468 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Documento adjunto eliminado'**
   String get commonAttachmentDeleted;
+
+  /// Client
+  ///
+  /// In es, this message translates to:
+  /// **'Cliente'**
+  String get commonClient;
+
+  /// Supplier
+  ///
+  /// In es, this message translates to:
+  /// **'Proveedor'**
+  String get commonSupplier;
+
+  /// Charged
+  ///
+  /// In es, this message translates to:
+  /// **'Cobrado'**
+  String get commonCharged;
+
+  /// Pending
+  ///
+  /// In es, this message translates to:
+  /// **'Pendiente'**
+  String get commonPending;
+
+  /// Overdue
+  ///
+  /// In es, this message translates to:
+  /// **'Vencido'**
+  String get commonOverdue;
+
+  /// Unpaid
+  ///
+  /// In es, this message translates to:
+  /// **'Impagado'**
+  String get commonUnpaid;
+
+  /// Paid
+  ///
+  /// In es, this message translates to:
+  /// **'Pagado'**
+  String get commonPaid;
+
+  /// Type
+  ///
+  /// In es, this message translates to:
+  /// **'Tipo'**
+  String get commonType;
+
+  /// Status
+  ///
+  /// In es, this message translates to:
+  /// **'Estado'**
+  String get commonStatus;
+
+  /// Document
+  ///
+  /// In es, this message translates to:
+  /// **'Documento'**
+  String get commonDocument;
+
+  /// Address
+  ///
+  /// In es, this message translates to:
+  /// **'Dirección'**
+  String get commonAddress;
+
+  /// Address extra information
+  ///
+  /// In es, this message translates to:
+  /// **'Piso, puerta, nº casa'**
+  String get commonAddressExtraInfo;
+
+  /// Accept
+  ///
+  /// In es, this message translates to:
+  /// **'Aceptar'**
+  String get commonAccept;
+
+  /// Postal code
+  ///
+  /// In es, this message translates to:
+  /// **'Código postal'**
+  String get commonPostalCode;
+
+  /// Tax information
+  ///
+  /// In es, this message translates to:
+  /// **'Información fiscal'**
+  String get commonTaxInformation;
+
+  /// Name or corporate name
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre o razón social'**
+  String get commonNameOrCompanyName;
+
+  /// CIF / NIF
+  ///
+  /// In es, this message translates to:
+  /// **'CIF/NIF'**
+  String get commonCifOrNif;
+
+  /// NIF with param
+  ///
+  /// In es, this message translates to:
+  /// **'NIF: {nif}'**
+  String commonNifWithParams(Object nif);
+
+  /// Notes
+  ///
+  /// In es, this message translates to:
+  /// **'Notas'**
+  String get commonNotes;
+
+  /// Communication preferences
+  ///
+  /// In es, this message translates to:
+  /// **'Preferencias de comunicación'**
+  String get commonCommunicationPreferences;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Contactos'**
+  String get contacts;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Impagos'**
+  String get contactsSelectorUnpaid;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Ingresos'**
+  String get contactsSelectorIncome;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Contactos favoritos'**
+  String get contactsFavourites;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Añadir'**
+  String get contactsAdd;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Manual'**
+  String get contactsAddModalManual;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Desde agenda'**
+  String get contactsAddModalFromAgenda;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Subir contactos'**
+  String get contactsAddModalFromUploadFile;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Importar'**
+  String get contactsUploadFilePageTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Importa tus contactos fácilmente con nuestra plantilla diseñada para simplificar el proceso.'**
+  String get contactsUploadFilePageDescription;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Plantilla para importar contactos'**
+  String get contactsUploadFilePageTemplateImportingContacts;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Plantilla'**
+  String get contactsUploadFilePageTemplate;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'La descarga se ha realizado con éxito.'**
+  String get contactsUploadFilePageTemplateSuccessDownloadedAlertTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Abrir documento'**
+  String get contactsUploadFilePageTemplateSuccessDownloadedAlertDescription;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Archivo seleccionado'**
+  String get contactsUploadFilePageSelectedFile;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Selecciona archivo'**
+  String get contactsUploadFilePageSelectFile;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Elige el archivo para subir.'**
+  String get contactsUploadFilePageChooseFile;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Seleccionar archivo'**
+  String get contactsUploadFilePageSelectFileButton;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Subir archivo'**
+  String get contactsUploadFilePageUploadFileButton;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Subir archivo'**
+  String get contactsUploadFilePageModalToSelectDocumentTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Envío completado'**
+  String get contactsUploadFilePageModalToSelectDocumentSuccessTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Archivo subido con éxito'**
+  String get contactsUploadFilePageModalToSelectDocumentSuccessDescription;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Error al importar'**
+  String get contactsUploadFilePageModalToSelectDocumentErrorTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'No se ha podido subir el archivo'**
+  String get contactsUploadFilePageModalToSelectDocumentErrorDescription;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Error al subir {filename}'**
+  String contactsUploadFilePageModalToSelectDocumentErrorAlertTitle(Object filename);
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Acceso agenda'**
+  String get contactsAddFromAgendaModalRequestPermissionsTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Para poder añadir contactos desde tu agenda, necesitamos acceder a ella. Por favor, pulsa en \"Aceptar\" para permitir el acceso. ¡Gracias!'**
+  String get contactsAddFromAgendaModalRequestPermissionsDescription;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Agenda'**
+  String get contactsAddFromAgendaPageTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Seleccionar todos'**
+  String get contactsAddFromAgendaSelectContactsAll;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Añadir'**
+  String get contactsAddFromAgendaAddButton;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Nuevo contacto agregado.'**
+  String get contactsAddFromAgendaSelectContactsSuccessAddedAlertTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Error al añadir contacto.'**
+  String get contactsAddFromAgendaSelectContactsErrorAddedAlertTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Nuevo contacto'**
+  String get contactsAddManualNewContactPageTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Información del contacto'**
+  String get contactsAddManualNewContactPageContactInfo;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Crear'**
+  String get contactsAddManualNewContactPageButton;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Contacto'**
+  String get contactsDetailsPageTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Perfil'**
+  String get contactsDetailsTabProfile;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Ingresos'**
+  String get contactsDetailsTabRevenue;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Gastos'**
+  String get contactsDetailsTabExpenses;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Enviar mail'**
+  String get contactsDetailsActionsSendEmail;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Llamar'**
+  String get contactsDetailsActionsCall;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Marcar como favorito'**
+  String get contactsDetailsMarkAsFavourite;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Notas'**
+  String get contactsDetailsNotes;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Ej: Llamar a Marta el sábado'**
+  String get contactsDetailsNotesHintText;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Preferencias de comunicación'**
+  String get contactsDetailsComunicationsPreferences;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar contacto'**
+  String get contactsDetailsDeleteContactButton;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar contacto'**
+  String get contactsDetailsDeleteContactModalTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Se perderán todos los datos y no podrás recuperarlos'**
+  String get contactsDetailsDeleteContactModalDescription;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Contacto eliminado'**
+  String get contactsDetailsDeleteContactModalSuccessAlertTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Campos incorrectos'**
+  String get contactsDetailsIncorrectFieldsAlertTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Campos incompletos'**
+  String get contactsDetailsIncompleteFieldsModalTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Tu contacto está activo, pero aún hay campos por completar para una gestión más completa y precisa.'**
+  String get contactsDetailsIncompleteFieldsModalDescription;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Completar'**
+  String get contactsDetailsIncompleteFieldsModalOkButton;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Lo haré más tarde'**
+  String get contactsDetailsIncompleteFieldsModalCancelButton;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Resultado'**
+  String get contactsDetailsRevenueAndExpensesResult;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Contacto'**
+  String get contactsEditPageTitle;
+
+  ///
+  ///
+  /// In es, this message translates to:
+  /// **'Información del contacto'**
+  String get contactsEditPageContactInfo;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

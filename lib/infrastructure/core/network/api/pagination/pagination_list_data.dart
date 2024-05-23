@@ -4,9 +4,8 @@ class PaginationListData<T> extends PaginationData {
   PaginationListData({
     required super.page,
     required super.pageSize,
-    required super.totalElements,
-    required super.totalPages,
     required this.data,
+    super.isComplete,
   });
 
   final List<T>? data;

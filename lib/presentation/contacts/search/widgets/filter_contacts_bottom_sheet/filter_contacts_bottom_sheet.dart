@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
@@ -40,7 +41,7 @@ class FilterContactsBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Button(
-                title: 'Descartar filtros',
+                title: context.loc.commonFilterDiscard,
                 type: ButtonType.text,
                 size: ButtonSize.small,
                 onPressed: () async {
@@ -48,7 +49,7 @@ class FilterContactsBottomSheet {
                 },
               ),
               Button(
-                title: 'Aplicar',
+                title: context.loc.commonFilterApply,
                 size: ButtonSize.small,
                 onPressed: () async {
                   await onApply().then((_) => context.pop());
@@ -62,7 +63,7 @@ class FilterContactsBottomSheet {
         leadingNavBarWidget: Transform.translate(
           offset: const Offset(16, 24),
           child: Text(
-            'Filtrar',
+            context.loc.commonFilter,
             style: context.textStyle.h6,
           ),
         ),
@@ -93,7 +94,7 @@ class FilterContactsBottomSheet {
                       horizontal: AppSpacing.s5,
                       vertical: AppSpacing.s1,
                     ),
-                    title: 'Contactos favoritos',
+                    title: context.loc.contactsFavourites,
                     leading: IconWithContainer(
                       icon: IconAssets.star,
                       backgroundColor: context.color.neutralLight100,
@@ -109,7 +110,7 @@ class FilterContactsBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Tipo',
+                    context.loc.commonType,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -119,7 +120,7 @@ class FilterContactsBottomSheet {
                     children: [
                       CustomChip(
                         title: Text(
-                          'Cliente',
+                          context.loc.commonClient,
                           style: context.textStyle.bodySmallSemiBold.copyWith(
                             color: context.color.primaryLight300,
                           ),
@@ -129,7 +130,7 @@ class FilterContactsBottomSheet {
                       AppSpacing.horizontal.s3,
                       CustomChip(
                         title: Text(
-                          'Proveedor',
+                          context.loc.commonSupplier,
                           style: context.textStyle.bodySmallSemiBold.copyWith(
                             color: context.color.textLight0,
                           ),
@@ -141,7 +142,7 @@ class FilterContactsBottomSheet {
                   ),
                   AppSpacing.vertical.s5,
                   Text(
-                    'Estado',
+                    context.loc.commonStatus,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
@@ -151,7 +152,7 @@ class FilterContactsBottomSheet {
                     children: [
                       CustomChip(
                         title: Text(
-                          'Cobrado',
+                          context.loc.commonCharged,
                           style: context.textStyle.bodySmallSemiBold.copyWith(
                             color: context.color.textLight0,
                           ),
@@ -162,7 +163,7 @@ class FilterContactsBottomSheet {
                       AppSpacing.horizontal.s3,
                       CustomChip(
                         title: Text(
-                          'Pendiente',
+                          context.loc.commonPending,
                           style: context.textStyle.bodySmallSemiBold.copyWith(
                             color: context.color.primaryLight300,
                           ),
@@ -172,7 +173,7 @@ class FilterContactsBottomSheet {
                       AppSpacing.horizontal.s3,
                       CustomChip(
                         title: Text(
-                          'Vencido',
+                          context.loc.commonOverdue,
                           style: context.textStyle.bodySmallSemiBold.copyWith(
                             color: context.color.primaryLight300,
                           ),

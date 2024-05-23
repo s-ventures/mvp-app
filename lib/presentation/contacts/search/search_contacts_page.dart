@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/search/widgets/filter_contacts_bottom_sheet/filter_contacts_bottom_sheet.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class SearchContactsPage extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Buscar',
+              title: context.loc.commonSearch,
               leading: Button(
                 icon: IconAssets.chevronLeft,
                 type: ButtonType.outlined,
@@ -42,7 +43,7 @@ class SearchContactsPage extends StatelessWidget {
             const FakeSearchBar(),
             AppSpacing.vertical.s5,
             Text(
-              'Contactos',
+              context.loc.contacts,
               style: context.textStyle.bodySmallSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
@@ -62,7 +63,7 @@ class SearchContactsPage extends StatelessWidget {
                     topRight: Radius.circular(context.radius.soft),
                   ),
                   nif: '12345678A',
-                  type: 'Cliente',
+                  type: context.loc.commonClient,
                   typeForegroundColor: context.color.customerForeground,
                   typeBackgroundColor: context.color.customerBackground,
                   onPressed: () {},
@@ -80,7 +81,7 @@ class SearchContactsPage extends StatelessWidget {
                     bottomRight: Radius.circular(context.radius.soft),
                   ),
                   nif: '12345678A',
-                  type: 'Proveedor',
+                  type: context.loc.commonSupplier,
                   typeForegroundColor: context.color.supplierForeground,
                   typeBackgroundColor: context.color.supplierBackground,
                   onPressed: () {},

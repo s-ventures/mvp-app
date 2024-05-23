@@ -28,7 +28,6 @@ class PeriodicOrdersPaginationRepository extends PaginationListRepository<Simpli
       filter: filter ?? const PeriodicOrdersFilter(),
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return periodicOrders.fold(
       (l) => <SimplifiedPeriodicOrder>[],

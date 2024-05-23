@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/erp/stakeholders/simplified/stakeholders_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/search/widgets/filter_contacts_bottom_sheet/filter_contacts_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/extensions/stakeholders_relation_type_color.dart';
@@ -40,7 +41,7 @@ class _ContactsListState extends ConsumerState<ContactsList> {
           children: [
             Expanded(
               child: Text(
-                'Contactos',
+                context.loc.contacts,
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),
