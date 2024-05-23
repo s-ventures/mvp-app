@@ -11,12 +11,12 @@ class FilterSentTransfersBottomSheet {
     required Future<void> Function() onReset,
     required ValueChanged<DateTime> setStartDate,
     required ValueChanged<DateTime> setEndDate,
-    required ValueChanged<int> setAmountFrom,
-    required ValueChanged<int> setAmountTo,
+    required ValueChanged<double> setAmountFrom,
+    required ValueChanged<double> setAmountTo,
     required DateTime? startDate,
     required DateTime? endDate,
-    required int? amountFrom,
-    required int? amountTo,
+    required double? amountFrom,
+    required double? amountTo,
   }) {
     final pageIndexNotifier = ValueNotifier(0);
 
@@ -56,12 +56,12 @@ class FilterSentTransfersBottomSheet {
     Future<void> Function() onReset,
     ValueChanged<DateTime> setStartDate,
     ValueChanged<DateTime> setEndDate,
-    ValueChanged<int> setAmountFrom,
-    ValueChanged<int> setAmountTo,
+    ValueChanged<double> setAmountFrom,
+    ValueChanged<double> setAmountTo,
     DateTime? startDate,
     DateTime? endDate,
-    int? amountFrom,
-    int? amountTo,
+    double? amountFrom,
+    double? amountTo,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
@@ -143,8 +143,8 @@ class FilterSentTransfersBottomSheet {
                   FilterSentTransfersAmount(
                     amountFrom: amountFrom,
                     amountTo: amountTo,
-                    setAmountFrom: (int value) => setAmountFrom(value),
-                    setAmountTo: (int value) => setAmountTo(value),
+                    setAmountFrom: (value) => setAmountFrom(value),
+                    setAmountTo: (value) => setAmountTo(value),
                   ),
                 ],
               ),

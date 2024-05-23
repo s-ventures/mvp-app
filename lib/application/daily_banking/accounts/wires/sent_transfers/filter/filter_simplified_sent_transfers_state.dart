@@ -12,7 +12,7 @@ class FilterSimplifiedSentTransfersState with _$FilterSimplifiedSentTransfersSta
   const factory FilterSimplifiedSentTransfersState({
     DateTime? startDate,
     DateTime? endDate,
-    int? amountFrom,
-    int? amountTo,
+    double? amountFrom,
+    double? amountTo,
   }) = _FilterSimplifiedSentTransfersState;
 }

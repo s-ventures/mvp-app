@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SentTransfersFilter {
   DateTime? get orderDateFrom => throw _privateConstructorUsedError;
   DateTime? get orderDateTo => throw _privateConstructorUsedError;
-  int? get settlementAmountFrom => throw _privateConstructorUsedError;
-  int? get settlementAmountTo => throw _privateConstructorUsedError;
+  double? get settlementAmountFrom => throw _privateConstructorUsedError;
+  double? get settlementAmountTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SentTransfersFilterCopyWith<SentTransfersFilter> get copyWith =>
@@ -35,8 +35,8 @@ abstract class $SentTransfersFilterCopyWith<$Res> {
   $Res call(
       {DateTime? orderDateFrom,
       DateTime? orderDateTo,
-      int? settlementAmountFrom,
-      int? settlementAmountTo});
+      double? settlementAmountFrom,
+      double? settlementAmountTo});
 }
 
 /// @nodoc
@@ -69,11 +69,11 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
       settlementAmountFrom: freezed == settlementAmountFrom
           ? _value.settlementAmountFrom
           : settlementAmountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       settlementAmountTo: freezed == settlementAmountTo
           ? _value.settlementAmountTo
           : settlementAmountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -81,24 +81,24 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
 /// @nodoc
 abstract class _$$SentTransfersFilterImplCopyWith<$Res>
     implements $SentTransfersFilterCopyWith<$Res> {
-  factory _$$SentTransfersFilterImplCopyWith(
-          _$SentTransfersFilterImpl value, $Res Function(_$SentTransfersFilterImpl) then) =
+  factory _$$SentTransfersFilterImplCopyWith(_$SentTransfersFilterImpl value,
+          $Res Function(_$SentTransfersFilterImpl) then) =
       __$$SentTransfersFilterImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {DateTime? orderDateFrom,
       DateTime? orderDateTo,
-      int? settlementAmountFrom,
-      int? settlementAmountTo});
+      double? settlementAmountFrom,
+      double? settlementAmountTo});
 }
 
 /// @nodoc
 class __$$SentTransfersFilterImplCopyWithImpl<$Res>
     extends _$SentTransfersFilterCopyWithImpl<$Res, _$SentTransfersFilterImpl>
     implements _$$SentTransfersFilterImplCopyWith<$Res> {
-  __$$SentTransfersFilterImplCopyWithImpl(
-      _$SentTransfersFilterImpl _value, $Res Function(_$SentTransfersFilterImpl) _then)
+  __$$SentTransfersFilterImplCopyWithImpl(_$SentTransfersFilterImpl _value,
+      $Res Function(_$SentTransfersFilterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,11 +121,11 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
       settlementAmountFrom: freezed == settlementAmountFrom
           ? _value.settlementAmountFrom
           : settlementAmountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       settlementAmountTo: freezed == settlementAmountTo
           ? _value.settlementAmountTo
           : settlementAmountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
@@ -134,16 +134,19 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
 
 class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   const _$SentTransfersFilterImpl(
-      {this.orderDateFrom, this.orderDateTo, this.settlementAmountFrom, this.settlementAmountTo});
+      {this.orderDateFrom,
+      this.orderDateTo,
+      this.settlementAmountFrom,
+      this.settlementAmountTo});
 
   @override
   final DateTime? orderDateFrom;
   @override
   final DateTime? orderDateTo;
   @override
-  final int? settlementAmountFrom;
+  final double? settlementAmountFrom;
   @override
-  final int? settlementAmountTo;
+  final double? settlementAmountTo;
 
   @override
   String toString() {
@@ -157,7 +160,8 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
             other is _$SentTransfersFilterImpl &&
             (identical(other.orderDateFrom, orderDateFrom) ||
                 other.orderDateFrom == orderDateFrom) &&
-            (identical(other.orderDateTo, orderDateTo) || other.orderDateTo == orderDateTo) &&
+            (identical(other.orderDateTo, orderDateTo) ||
+                other.orderDateTo == orderDateTo) &&
             (identical(other.settlementAmountFrom, settlementAmountFrom) ||
                 other.settlementAmountFrom == settlementAmountFrom) &&
             (identical(other.settlementAmountTo, settlementAmountTo) ||
@@ -165,31 +169,32 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, orderDateFrom, orderDateTo, settlementAmountFrom, settlementAmountTo);
+  int get hashCode => Object.hash(runtimeType, orderDateFrom, orderDateTo,
+      settlementAmountFrom, settlementAmountTo);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SentTransfersFilterImplCopyWith<_$SentTransfersFilterImpl> get copyWith =>
-      __$$SentTransfersFilterImplCopyWithImpl<_$SentTransfersFilterImpl>(this, _$identity);
+      __$$SentTransfersFilterImplCopyWithImpl<_$SentTransfersFilterImpl>(
+          this, _$identity);
 }
 
 abstract class _SentTransfersFilter implements SentTransfersFilter {
   const factory _SentTransfersFilter(
       {final DateTime? orderDateFrom,
       final DateTime? orderDateTo,
-      final int? settlementAmountFrom,
-      final int? settlementAmountTo}) = _$SentTransfersFilterImpl;
+      final double? settlementAmountFrom,
+      final double? settlementAmountTo}) = _$SentTransfersFilterImpl;
 
   @override
   DateTime? get orderDateFrom;
   @override
   DateTime? get orderDateTo;
   @override
-  int? get settlementAmountFrom;
+  double? get settlementAmountFrom;
   @override
-  int? get settlementAmountTo;
+  double? get settlementAmountTo;
   @override
   @JsonKey(ignore: true)
   _$$SentTransfersFilterImplCopyWith<_$SentTransfersFilterImpl> get copyWith =>

@@ -7,7 +7,7 @@ class SentTransfersFilter with _$SentTransfersFilter {
   const factory SentTransfersFilter({
     DateTime? orderDateFrom,
     DateTime? orderDateTo,
-    int? settlementAmountFrom,
-    int? settlementAmountTo,
+    double? settlementAmountFrom,
+    double? settlementAmountTo,
   }) = _SentTransfersFilter;
 }
