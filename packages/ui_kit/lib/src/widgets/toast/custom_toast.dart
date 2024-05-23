@@ -51,9 +51,8 @@ class CustomToast extends StatelessWidget {
         padding: const EdgeInsets.all(
           AppSpacing.s1,
         ),
-        duration: const Duration(
-          milliseconds: 1000,
-        ),
+        // ignore: avoid_redundant_argument_values
+        duration: kSnackBarDisplayDuration,
       ),
     );
   }
