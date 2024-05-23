@@ -87,9 +87,7 @@ class _TransferSentDetailsPageState extends ConsumerState<TransferSentDetailsPag
                   title: sentTransfer.concept,
                   iconText: '🏦',
                   iconBgColor: context.color.secondaryLight600.withOpacity(.2),
-                  amount: sentTransfer.settlementAmount != null
-                      ? sentTransfer.settlementAmount! * -1
-                      : 0.0,
+                  amount: sentTransfer.settlementAmount ?? 0.0,
                   date: sentTransfer.orderDate,
                 ),
                 AppSpacing.vertical.s5,
@@ -108,8 +106,8 @@ class _TransferSentDetailsPageState extends ConsumerState<TransferSentDetailsPag
                 AppSpacing.vertical.s5,
                 MovementDetailsBankingInfo(
                   type: BankAccountType.account,
-                  // TODO(georgeta): No recibimos el numero de cuenta del emisor, pendiente de añadir y modificar
-                  last4: sentTransfer.beneficiaryAccount.lastFourCharacters,
+
+                  last4: sentTransfer.accountNumber.lastFourCharacters,
                   icon: '✈️', // TODO(georgeta): no recibimos el icono
                   category: 'Viajes', // TODO(georgeta): no recibimos la categoría
                 ),

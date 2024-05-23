@@ -39,5 +39,6 @@ class DetailedSentTransfer with _$DetailedSentTransfer {
     required String beneficiaryName,
     required DateTime? transferDate,
     required String? referenceDC,
+    required String accountNumber,
   }) = _DetailedSentTransfer;
 }

@@ -30,7 +30,8 @@ mixin _$DetailedSentTransfer {
   String? get settlementCurrencyCode => throw _privateConstructorUsedError;
   double? get foreignExchange => throw _privateConstructorUsedError;
   double? get exchangeValue => throw _privateConstructorUsedError;
-  TransferDetailOfCharges? get detailsOfCharges => throw _privateConstructorUsedError;
+  TransferDetailOfCharges? get detailsOfCharges =>
+      throw _privateConstructorUsedError;
   double? get instructedAmount => throw _privateConstructorUsedError;
   String? get instructedCurrencyCode => throw _privateConstructorUsedError;
   TransferStatusType get status => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ mixin _$DetailedSentTransfer {
   String get beneficiaryName => throw _privateConstructorUsedError;
   DateTime? get transferDate => throw _privateConstructorUsedError;
   String? get referenceDC => throw _privateConstructorUsedError;
+  String get accountNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedSentTransferCopyWith<DetailedSentTransfer> get copyWith =>
@@ -54,8 +56,8 @@ mixin _$DetailedSentTransfer {
 
 /// @nodoc
 abstract class $DetailedSentTransferCopyWith<$Res> {
-  factory $DetailedSentTransferCopyWith(
-          DetailedSentTransfer value, $Res Function(DetailedSentTransfer) then) =
+  factory $DetailedSentTransferCopyWith(DetailedSentTransfer value,
+          $Res Function(DetailedSentTransfer) then) =
       _$DetailedSentTransferCopyWithImpl<$Res, DetailedSentTransfer>;
   @useResult
   $Res call(
@@ -88,11 +90,13 @@ abstract class $DetailedSentTransferCopyWith<$Res> {
       String beneficiaryAccount,
       String beneficiaryName,
       DateTime? transferDate,
-      String? referenceDC});
+      String? referenceDC,
+      String accountNumber});
 }
 
 /// @nodoc
-class _$DetailedSentTransferCopyWithImpl<$Res, $Val extends DetailedSentTransfer>
+class _$DetailedSentTransferCopyWithImpl<$Res,
+        $Val extends DetailedSentTransfer>
     implements $DetailedSentTransferCopyWith<$Res> {
   _$DetailedSentTransferCopyWithImpl(this._value, this._then);
 
@@ -134,6 +138,7 @@ class _$DetailedSentTransferCopyWithImpl<$Res, $Val extends DetailedSentTransfer
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
     Object? referenceDC = freezed,
+    Object? accountNumber = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -256,6 +261,10 @@ class _$DetailedSentTransferCopyWithImpl<$Res, $Val extends DetailedSentTransfer
           ? _value.referenceDC
           : referenceDC // ignore: cast_nullable_to_non_nullable
               as String?,
+      accountNumber: null == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -263,8 +272,8 @@ class _$DetailedSentTransferCopyWithImpl<$Res, $Val extends DetailedSentTransfer
 /// @nodoc
 abstract class _$$DetailedSentTransferImplCopyWith<$Res>
     implements $DetailedSentTransferCopyWith<$Res> {
-  factory _$$DetailedSentTransferImplCopyWith(
-          _$DetailedSentTransferImpl value, $Res Function(_$DetailedSentTransferImpl) then) =
+  factory _$$DetailedSentTransferImplCopyWith(_$DetailedSentTransferImpl value,
+          $Res Function(_$DetailedSentTransferImpl) then) =
       __$$DetailedSentTransferImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -298,15 +307,16 @@ abstract class _$$DetailedSentTransferImplCopyWith<$Res>
       String beneficiaryAccount,
       String beneficiaryName,
       DateTime? transferDate,
-      String? referenceDC});
+      String? referenceDC,
+      String accountNumber});
 }
 
 /// @nodoc
 class __$$DetailedSentTransferImplCopyWithImpl<$Res>
     extends _$DetailedSentTransferCopyWithImpl<$Res, _$DetailedSentTransferImpl>
     implements _$$DetailedSentTransferImplCopyWith<$Res> {
-  __$$DetailedSentTransferImplCopyWithImpl(
-      _$DetailedSentTransferImpl _value, $Res Function(_$DetailedSentTransferImpl) _then)
+  __$$DetailedSentTransferImplCopyWithImpl(_$DetailedSentTransferImpl _value,
+      $Res Function(_$DetailedSentTransferImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -342,6 +352,7 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
     Object? referenceDC = freezed,
+    Object? accountNumber = null,
   }) {
     return _then(_$DetailedSentTransferImpl(
       id: null == id
@@ -464,6 +475,10 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
           ? _value.referenceDC
           : referenceDC // ignore: cast_nullable_to_non_nullable
               as String?,
+      accountNumber: null == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -501,7 +516,8 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
       required this.beneficiaryAccount,
       required this.beneficiaryName,
       required this.transferDate,
-      required this.referenceDC});
+      required this.referenceDC,
+      required this.accountNumber});
 
   @override
   final UniqueId id;
@@ -563,10 +579,12 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
   final DateTime? transferDate;
   @override
   final String? referenceDC;
+  @override
+  final String accountNumber;
 
   @override
   String toString() {
-    return 'DetailedSentTransfer(id: $id, type: $type, baasTransferId: $baasTransferId, bankOperationCode: $bankOperationCode, senderBank: $senderBank, accountId: $accountId, customerId: $customerId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailsOfCharges: $detailsOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, executionDate: $executionDate, senderAccount: $senderAccount, periodicTransfer: $periodicTransfer, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, transferDate: $transferDate, referenceDC: $referenceDC)';
+    return 'DetailedSentTransfer(id: $id, type: $type, baasTransferId: $baasTransferId, bankOperationCode: $bankOperationCode, senderBank: $senderBank, accountId: $accountId, customerId: $customerId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailsOfCharges: $detailsOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, executionDate: $executionDate, senderAccount: $senderAccount, periodicTransfer: $periodicTransfer, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, transferDate: $transferDate, referenceDC: $referenceDC, accountNumber: $accountNumber)';
   }
 
   @override
@@ -580,11 +598,16 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
                 other.baasTransferId == baasTransferId) &&
             (identical(other.bankOperationCode, bankOperationCode) ||
                 other.bankOperationCode == bankOperationCode) &&
-            (identical(other.senderBank, senderBank) || other.senderBank == senderBank) &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
-            (identical(other.customerId, customerId) || other.customerId == customerId) &&
-            (identical(other.orderDate, orderDate) || other.orderDate == orderDate) &&
-            (identical(other.valueDate, valueDate) || other.valueDate == valueDate) &&
+            (identical(other.senderBank, senderBank) ||
+                other.senderBank == senderBank) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.customerId, customerId) ||
+                other.customerId == customerId) &&
+            (identical(other.orderDate, orderDate) ||
+                other.orderDate == orderDate) &&
+            (identical(other.valueDate, valueDate) ||
+                other.valueDate == valueDate) &&
             (identical(other.concept, concept) || other.concept == concept) &&
             (identical(other.settlementAmount, settlementAmount) ||
                 other.settlementAmount == settlementAmount) &&
@@ -603,8 +626,10 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.baasMovementId, baasMovementId) ||
                 other.baasMovementId == baasMovementId) &&
-            (identical(other.concept2, concept2) || other.concept2 == concept2) &&
-            (identical(other.movementId, movementId) || other.movementId == movementId) &&
+            (identical(other.concept2, concept2) ||
+                other.concept2 == concept2) &&
+            (identical(other.movementId, movementId) ||
+                other.movementId == movementId) &&
             (identical(other.executionDate, executionDate) ||
                 other.executionDate == executionDate) &&
             (identical(other.senderAccount, senderAccount) ||
@@ -619,8 +644,12 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
                 other.beneficiaryAccount == beneficiaryAccount) &&
             (identical(other.beneficiaryName, beneficiaryName) ||
                 other.beneficiaryName == beneficiaryName) &&
-            (identical(other.transferDate, transferDate) || other.transferDate == transferDate) &&
-            (identical(other.referenceDC, referenceDC) || other.referenceDC == referenceDC));
+            (identical(other.transferDate, transferDate) ||
+                other.transferDate == transferDate) &&
+            (identical(other.referenceDC, referenceDC) ||
+                other.referenceDC == referenceDC) &&
+            (identical(other.accountNumber, accountNumber) ||
+                other.accountNumber == accountNumber));
   }
 
   @override
@@ -655,14 +684,17 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
         beneficiaryAccount,
         beneficiaryName,
         transferDate,
-        referenceDC
+        referenceDC,
+        accountNumber
       ]);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedSentTransferImplCopyWith<_$DetailedSentTransferImpl> get copyWith =>
-      __$$DetailedSentTransferImplCopyWithImpl<_$DetailedSentTransferImpl>(this, _$identity);
+  _$$DetailedSentTransferImplCopyWith<_$DetailedSentTransferImpl>
+      get copyWith =>
+          __$$DetailedSentTransferImplCopyWithImpl<_$DetailedSentTransferImpl>(
+              this, _$identity);
 }
 
 abstract class _DetailedSentTransfer implements DetailedSentTransfer {
@@ -696,7 +728,8 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
       required final String beneficiaryAccount,
       required final String beneficiaryName,
       required final DateTime? transferDate,
-      required final String? referenceDC}) = _$DetailedSentTransferImpl;
+      required final String? referenceDC,
+      required final String accountNumber}) = _$DetailedSentTransferImpl;
 
   @override
   UniqueId get id;
@@ -759,7 +792,9 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
   @override
   String? get referenceDC;
   @override
+  String get accountNumber;
+  @override
   @JsonKey(ignore: true)
-  _$$DetailedSentTransferImplCopyWith<_$DetailedSentTransferImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DetailedSentTransferImplCopyWith<_$DetailedSentTransferImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,44 +6,51 @@ part of 'detailed_sent_transfer_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DetailedSentTransferDtoImpl _$$DetailedSentTransferDtoImplFromJson(Map<String, dynamic> json) =>
+_$DetailedSentTransferDtoImpl _$$DetailedSentTransferDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$DetailedSentTransferDtoImpl(
       type: $enumDecode(_$SentTransferTypeDtoEnumMap, json['type']),
       baasTransferId: json['baasTransferId'] as String?,
       bankOperationCode: json['bankOperationCode'] as String?,
       senderBank: json['senderBank'] as String?,
-      accountId: json['accountId'] as int,
-      customerId: json['customerId'] as int,
+      accountId: (json['accountId'] as num).toInt(),
+      customerId: (json['customerId'] as num).toInt(),
       orderDate: DateTime.parse(json['orderDate'] as String),
-      valueDate: json['valueDate'] == null ? null : DateTime.parse(json['valueDate'] as String),
+      valueDate: json['valueDate'] == null
+          ? null
+          : DateTime.parse(json['valueDate'] as String),
       concept: json['concept'] as String,
       settlementAmount: (json['settlementAmount'] as num?)?.toDouble(),
       settlementCurrencyCode: json['settlementCurrencyCode'] as String?,
       foreignExchange: (json['foreignExchange'] as num?)?.toDouble(),
       exchangeValue: (json['exchangeValue'] as num?)?.toDouble(),
-      detailsOfCharges:
-          $enumDecodeNullable(_$TransferDetailOfChargesDtoEnumMap, json['detailsOfCharges']),
+      detailsOfCharges: $enumDecodeNullable(
+          _$TransferDetailOfChargesDtoEnumMap, json['detailsOfCharges']),
       instructedAmount: (json['instructedAmount'] as num?)?.toDouble(),
       instructedCurrencyCode: json['instructedCurrencyCode'] as String?,
       status: $enumDecode(_$TransferStatusTypeDtoEnumMap, json['status']),
       baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
-      movementId: json['movementId'] as int?,
-      executionDate:
-          json['executionDate'] == null ? null : DateTime.parse(json['executionDate'] as String),
+      movementId: (json['movementId'] as num?)?.toInt(),
+      executionDate: json['executionDate'] == null
+          ? null
+          : DateTime.parse(json['executionDate'] as String),
       senderAccount: json['senderAccount'] as String?,
-      sentTransferId: json['sentTransferId'] as int,
+      sentTransferId: (json['sentTransferId'] as num).toInt(),
       periodicTransfer: json['periodicTransfer'] as bool,
       routingNumber: json['routingNumber'] as String?,
       beneficiaryBank: json['beneficiaryBank'] as String?,
       beneficiaryAccount: json['beneficiaryAccount'] as String,
       beneficiaryName: json['beneficiaryName'] as String,
-      transferDate:
-          json['transferDate'] == null ? null : DateTime.parse(json['transferDate'] as String),
+      transferDate: json['transferDate'] == null
+          ? null
+          : DateTime.parse(json['transferDate'] as String),
       referenceDC: json['referenceDC'] as String?,
+      accountNumber: json['accountNumber'] as String?,
     );
 
-Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(_$DetailedSentTransferDtoImpl instance) =>
+Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(
+        _$DetailedSentTransferDtoImpl instance) =>
     <String, dynamic>{
       'type': _$SentTransferTypeDtoEnumMap[instance.type]!,
       'baasTransferId': instance.baasTransferId,
@@ -58,7 +65,8 @@ Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(_$DetailedSentTransfer
       'settlementCurrencyCode': instance.settlementCurrencyCode,
       'foreignExchange': instance.foreignExchange,
       'exchangeValue': instance.exchangeValue,
-      'detailsOfCharges': _$TransferDetailOfChargesDtoEnumMap[instance.detailsOfCharges],
+      'detailsOfCharges':
+          _$TransferDetailOfChargesDtoEnumMap[instance.detailsOfCharges],
       'instructedAmount': instance.instructedAmount,
       'instructedCurrencyCode': instance.instructedCurrencyCode,
       'status': _$TransferStatusTypeDtoEnumMap[instance.status]!,
@@ -75,6 +83,7 @@ Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(_$DetailedSentTransfer
       'beneficiaryName': instance.beneficiaryName,
       'transferDate': instance.transferDate?.toIso8601String(),
       'referenceDC': instance.referenceDC,
+      'accountNumber': instance.accountNumber,
     };
 
 const _$SentTransferTypeDtoEnumMap = {

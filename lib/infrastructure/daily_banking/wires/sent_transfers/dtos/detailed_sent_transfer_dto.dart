@@ -74,6 +74,7 @@ class DetailedSentTransferDto with _$DetailedSentTransferDto {
     required String beneficiaryName,
     required DateTime? transferDate,
     required String? referenceDC,
+    required String? accountNumber,
   }) = _DetailedSentTransferDto;
 
   factory DetailedSentTransferDto.fromJson(Map<String, dynamic> json) =>
@@ -113,6 +114,7 @@ extension DetailedSentTransferDtoX on DetailedSentTransferDto {
       beneficiaryName: beneficiaryName,
       transferDate: transferDate,
       referenceDC: referenceDC,
+      accountNumber: accountNumber ?? '',
     );
   }
 }
