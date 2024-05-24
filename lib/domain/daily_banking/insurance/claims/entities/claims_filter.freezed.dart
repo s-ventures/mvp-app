@@ -210,7 +210,7 @@ class _$ClaimsFilterImpl implements _ClaimsFilter {
       __$$ClaimsFilterImplCopyWithImpl<_$ClaimsFilterImpl>(this, _$identity);
 }
 
-abstract class _ClaimsFilter implements ClaimsFilter {
+abstract class _ClaimsFilter implements ClaimsFilter, PaginationFilter {
   const factory _ClaimsFilter(
       {final List<int>? insuranceIds,
       final DateTime? createDateFrom,
