@@ -88,7 +88,7 @@ class SoonPayContactPage extends StatelessWidget {
                 child: Button(
                   title: context.loc.dailyBankingSoonPaySendMoney,
                   size: ButtonSize.small,
-                  onPressed: () => context.pushNamed(AppRoute.dailyBankingSoonPayOTP.name),
+                  onPressed: () => context.pushNamed(AppRoute.dailyBankingSoonPayOtp.name),
                   expand: true,
                 ),
               ),
