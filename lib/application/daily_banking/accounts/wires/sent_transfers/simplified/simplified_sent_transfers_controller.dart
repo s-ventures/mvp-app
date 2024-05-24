@@ -56,8 +56,8 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
   }
 
   Future<void> updateFilter({
-    required int? amountFrom,
-    required int? amountTo,
+    required double? amountFrom,
+    required double? amountTo,
     required DateTime? dateFrom,
     required DateTime? dateTo,
   }) async {

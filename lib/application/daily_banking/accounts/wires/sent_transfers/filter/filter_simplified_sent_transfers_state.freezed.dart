@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FilterSimplifiedSentTransfersState {
   DateTime? get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
-  int? get amountFrom => throw _privateConstructorUsedError;
-  int? get amountTo => throw _privateConstructorUsedError;
+  double? get amountFrom => throw _privateConstructorUsedError;
+  double? get amountTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FilterSimplifiedSentTransfersStateCopyWith<
@@ -36,7 +36,10 @@ abstract class $FilterSimplifiedSentTransfersStateCopyWith<$Res> {
           FilterSimplifiedSentTransfersState>;
   @useResult
   $Res call(
-      {DateTime? startDate, DateTime? endDate, int? amountFrom, int? amountTo});
+      {DateTime? startDate,
+      DateTime? endDate,
+      double? amountFrom,
+      double? amountTo});
 }
 
 /// @nodoc
@@ -70,11 +73,11 @@ class _$FilterSimplifiedSentTransfersStateCopyWithImpl<$Res,
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       amountTo: freezed == amountTo
           ? _value.amountTo
           : amountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -89,7 +92,10 @@ abstract class _$$FilterSimplifiedSentTransfersStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DateTime? startDate, DateTime? endDate, int? amountFrom, int? amountTo});
+      {DateTime? startDate,
+      DateTime? endDate,
+      double? amountFrom,
+      double? amountTo});
 }
 
 /// @nodoc
@@ -122,11 +128,11 @@ class __$$FilterSimplifiedSentTransfersStateImplCopyWithImpl<$Res>
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       amountTo: freezed == amountTo
           ? _value.amountTo
           : amountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
@@ -143,9 +149,9 @@ class _$FilterSimplifiedSentTransfersStateImpl
   @override
   final DateTime? endDate;
   @override
-  final int? amountFrom;
+  final double? amountFrom;
   @override
-  final int? amountTo;
+  final double? amountTo;
 
   @override
   String toString() {
@@ -184,17 +190,17 @@ abstract class _FilterSimplifiedSentTransfersState
   const factory _FilterSimplifiedSentTransfersState(
       {final DateTime? startDate,
       final DateTime? endDate,
-      final int? amountFrom,
-      final int? amountTo}) = _$FilterSimplifiedSentTransfersStateImpl;
+      final double? amountFrom,
+      final double? amountTo}) = _$FilterSimplifiedSentTransfersStateImpl;
 
   @override
   DateTime? get startDate;
   @override
   DateTime? get endDate;
   @override
-  int? get amountFrom;
+  double? get amountFrom;
   @override
-  int? get amountTo;
+  double? get amountTo;
   @override
   @JsonKey(ignore: true)
   _$$FilterSimplifiedSentTransfersStateImplCopyWith<

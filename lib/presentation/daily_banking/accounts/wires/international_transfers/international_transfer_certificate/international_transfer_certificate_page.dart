@@ -113,7 +113,7 @@ class InternationalTransferCertificatePage extends StatelessWidget {
                         ),
                         Text(
                           context.loc.commonDateSinceDate(
-                            DateTime.now().formatToTransactionDate()!,
+                            DateTime.now().formatToTransactionDate(),
                           ),
                           style: context.textStyle.bodySmallRegular.copyWith(
                             color: context.color.textLight600,

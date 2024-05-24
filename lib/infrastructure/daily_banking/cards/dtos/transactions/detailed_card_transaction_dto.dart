@@ -54,6 +54,7 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
     required this.concept,
     required this.postingTime,
     required this.accountMovementId,
+    required this.cardEncryptedNumber,
     required this.productType,
     required this.attachments,
   });
@@ -79,6 +80,7 @@ class DetailedCardTransactionDto extends ExtendedDetailsDto {
   final String concept;
   final String postingTime;
   final int accountMovementId;
+  final String? cardEncryptedNumber;
   final ProductTypeDto productType;
   final List<FileAttachmentInfoDto>? attachments;
 
@@ -96,6 +98,7 @@ extension DetailedClaimDtoX on DetailedCardTransactionDto {
       placeId: placeId,
       merchantName: merchantName,
       concept: concept,
+      cardEncryptedNumber: cardEncryptedNumber ?? '',
       attachments: attachments?.map((a) => a.toDomain()).toList() ?? [],
     );
   }

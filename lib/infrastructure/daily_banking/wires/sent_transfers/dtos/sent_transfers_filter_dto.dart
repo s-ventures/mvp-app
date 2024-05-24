@@ -96,14 +96,14 @@ class SentTransfersFilterDto extends PaginatedRequest {
   @DateConverter()
   final DateTime? valueDateTo;
   final String? concept;
-  final int? settlementAmountFrom;
-  final int? settlementAmountTo;
-  final int? foreignExchangeFrom;
-  final int? foreignExchangeTo;
+  final double? settlementAmountFrom;
+  final double? settlementAmountTo;
+  final double? foreignExchangeFrom;
+  final double? foreignExchangeTo;
   final int? exchangeValueFrom;
   final int? exchangeValueTo;
-  final int? instructedAmountFrom;
-  final int? instructedAmountTo;
+  final double? instructedAmountFrom;
+  final double? instructedAmountTo;
   final TransferStatusTypeDto? status;
   final String? baasMovementId;
   final String? concept2;

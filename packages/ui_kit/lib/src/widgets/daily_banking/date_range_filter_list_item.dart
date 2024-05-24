@@ -22,23 +22,20 @@ class DateRangeFilterListItem extends StatelessWidget {
       String end;
 
       if (startDate != null) {
-        if (startDate.formatToDayMonthYear() ==
-            DateTime.now().formatToDayMonthYear()) {
+        if (startDate.formatToDayMonthYear() == DateTime.now().formatToDayMonthYear()) {
           start = context.loc.commonDateToday;
         }
-        start = startDate.formatToDayMonthYear()!;
+        start = startDate.formatToDayMonthYear();
         separator = endDate != null ? ' - ' : '';
-        start =
-            endDate == null ? '${context.loc.commonDateSince} $start' : start;
+        start = endDate == null ? '${context.loc.commonDateSince} $start' : start;
       } else {
         start = '';
         separator = '';
       }
 
       if (endDate != null) {
-        end = endDate.formatToDayMonthYear()!;
-        if (endDate.formatToDayMonthYear() ==
-            DateTime.now().formatToDayMonthYear()) {
+        end = endDate.formatToDayMonthYear();
+        if (endDate.formatToDayMonthYear() == DateTime.now().formatToDayMonthYear()) {
           end = context.loc.commonDateToday;
         }
         end = startDate == null ? '${context.loc.commonDateUntil} $end' : end;

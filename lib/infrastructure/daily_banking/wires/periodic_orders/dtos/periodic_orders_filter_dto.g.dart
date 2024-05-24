@@ -9,9 +9,10 @@ part of 'periodic_orders_filter_dto.dart';
 PeriodicOrdersFilterDto _$PeriodicOrdersFilterDtoFromJson(
         Map<String, dynamic> json) =>
     PeriodicOrdersFilterDto(
-      periodicTransferId: json['periodicTransferId'] as int?,
-      accountId:
-          (json['accountId'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      periodicTransferId: (json['periodicTransferId'] as num?)?.toInt(),
+      accountId: (json['accountId'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
       beneficiaryAccount: json['beneficiaryAccount'] as String?,
       beneficiaryName: json['beneficiaryName'] as String?,
       beneficiaryAddress: json['beneficiaryAddress'] as String?,
@@ -32,8 +33,8 @@ PeriodicOrdersFilterDto _$PeriodicOrdersFilterDtoFromJson(
           _$PeriodicOrderFrecuencyTypeDtoEnumMap, json['frecuency']),
       status: $enumDecodeNullable(
           _$PeriodicOrderStatusTypeDtoEnumMap, json['status']),
-      pageNumber: json['pageNumber'] as int? ?? 0,
-      pageSize: json['pageSize'] as int? ?? 10,
+      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
+      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
     );
 
 Map<String, dynamic> _$PeriodicOrdersFilterDtoToJson(

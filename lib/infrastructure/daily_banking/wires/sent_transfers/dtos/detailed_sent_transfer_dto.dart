@@ -74,6 +74,7 @@ class DetailedSentTransferDto with _$DetailedSentTransferDto {
     required String beneficiaryName,
     required DateTime? transferDate,
     required String? referenceDC,
+    required String? accountNumber,
   }) = _DetailedSentTransferDto;
 
   factory DetailedSentTransferDto.fromJson(Map<String, dynamic> json) =>
@@ -93,7 +94,7 @@ extension DetailedSentTransferDtoX on DetailedSentTransferDto {
       orderDate: orderDate,
       valueDate: valueDate,
       concept: concept,
-      settlementAmount: settlementAmount,
+      settlementAmount: settlementAmount ?? 0.0,
       settlementCurrencyCode: settlementCurrencyCode,
       foreignExchange: foreignExchange,
       exchangeValue: exchangeValue,
@@ -113,6 +114,7 @@ extension DetailedSentTransferDtoX on DetailedSentTransferDto {
       beneficiaryName: beneficiaryName,
       transferDate: transferDate,
       referenceDC: referenceDC,
+      accountNumber: accountNumber ?? '',
     );
   }
 }

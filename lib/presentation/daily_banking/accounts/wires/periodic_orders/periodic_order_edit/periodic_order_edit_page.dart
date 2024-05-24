@@ -190,7 +190,7 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                       ),
                       Text(
                         context.loc.commonDateSinceDate(
-                          periodicOrder.startDate.formatToTransactionDate() ?? '',
+                          periodicOrder.startDate.formatToTransactionDate(),
                         ),
                         style: context.textStyle.bodyMediumRegular.copyWith(
                           color: context.color.textLight600,

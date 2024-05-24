@@ -90,6 +90,7 @@ class DetailedAccountTransactionDto with _$DetailedAccountTransactionDto {
     // TODO(migalv): Hacer non-nullable de nuevo (porque ahora nos llega null a veces)
     required List<FileAttachmentInfoDto>? attachments,
     @ExtendedDetailsConverter() required ExtendedDetailsDto? extendedDetails,
+    required String? accountNumber,
     required ProductTypeDto productType,
   }) = _DetailedAccountTransactionDto;
 
@@ -112,6 +113,7 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
       userComments: userComments ?? '',
       bankReceipt: bankReceipt ?? false,
       accountId: UniqueId.fromUniqueString(accountId.toString()),
+      accountNumber: accountNumber ?? '',
       attachments: attachments?.map((a) => a.toDomain()).toList() ?? [],
       details: extendedDetails == null
           ? null
@@ -190,6 +192,7 @@ extension DetailedAccountTransactionDtoX on DetailedAccountTransactionDto {
                     description: cardDto.description,
                     placeId: cardDto.placeId,
                     merchantName: cardDto.merchantName,
+                    cardEncryptedNumber: cardDto.cardEncryptedNumber ?? '',
                     concept: cardDto.concept,
                   );
               }

@@ -10,10 +10,10 @@ class FilterSentTransfersAmount extends StatelessWidget {
     super.key,
   });
 
-  final int? amountFrom;
-  final int? amountTo;
-  final ValueChanged<int> setAmountFrom;
-  final ValueChanged<int> setAmountTo;
+  final double? amountFrom;
+  final double? amountTo;
+  final ValueChanged<double> setAmountFrom;
+  final ValueChanged<double> setAmountTo;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class FilterSentTransfersAmount extends StatelessWidget {
                   controller: amountFromController,
                   suffixText: '€',
                   onChanged: (value) {
-                    final parsedValue = int.tryParse(value);
+                    final parsedValue = double.tryParse(value);
                     if (parsedValue != null) {
                       setAmountFrom(parsedValue);
                       amountFromController.text = value;
@@ -69,7 +69,7 @@ class FilterSentTransfersAmount extends StatelessWidget {
                   controller: amountToController,
                   suffixText: '€',
                   onChanged: (value) {
-                    final parsedValue = int.tryParse(value);
+                    final parsedValue = double.tryParse(value);
                     if (parsedValue != null) {
                       setAmountTo(parsedValue);
                       amountToController.text = value;

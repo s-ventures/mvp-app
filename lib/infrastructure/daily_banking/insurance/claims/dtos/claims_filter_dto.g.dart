@@ -8,11 +8,11 @@ part of 'claims_filter_dto.dart';
 
 ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) =>
     ClaimsFilterDto(
-      claimId: json['claimId'] as int?,
+      claimId: (json['claimId'] as num?)?.toInt(),
       insuranceId: (json['insuranceId'] as List<dynamic>?)
-          ?.map((e) => e as int)
+          ?.map((e) => (e as num).toInt())
           .toList(),
-      year: json['year'] as int?,
+      year: (json['year'] as num?)?.toInt(),
       dossier: json['dossier'] as String?,
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['createDateFrom'], const DateConverter().fromJson),
@@ -33,8 +33,8 @@ ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) =>
       agentName: json['agentName'] as String?,
       agentEmail: json['agentEmail'] as String?,
       agentTelephone: json['agentTelephone'] as String?,
-      pageNumber: json['pageNumber'] as int? ?? 0,
-      pageSize: json['pageSize'] as int? ?? 10,
+      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
+      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
     );
 
 Map<String, dynamic> _$ClaimsFilterDtoToJson(ClaimsFilterDto instance) {

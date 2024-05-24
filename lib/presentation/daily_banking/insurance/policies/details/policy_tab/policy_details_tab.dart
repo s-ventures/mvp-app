@@ -63,9 +63,9 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
           AppSpacing.vertical.s5,
           DateRangeListTile.disabled(
             startDateTitle: context.loc.dailyBankingInsurancesPolicyDetailsDateOfIssue,
-            startDate: policy.createDate.formatToDayMonthYear() ?? '---',
+            startDate: policy.createDate.formatToDayMonthYear(),
             endDateTitle: context.loc.dailyBankingInsurancesPolicyDetailsExpirationDate,
-            endDate: policy.endDate.formatToDayMonthYear() ?? '---',
+            endDate: policy.endDate.formatToDayMonthYear(),
           ),
           AppSpacing.vertical.s5,
           PolicyBilling(

@@ -56,6 +56,7 @@ mixin _$DetailedAccountTransactionDto {
       throw _privateConstructorUsedError;
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails => throw _privateConstructorUsedError;
+  String? get accountNumber => throw _privateConstructorUsedError;
   ProductTypeDto get productType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -95,6 +96,7 @@ abstract class $DetailedAccountTransactionDtoCopyWith<$Res> {
       @DateConverter() DateTime? assignmentDate,
       List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
+      String? accountNumber,
       ProductTypeDto productType});
 }
 
@@ -134,6 +136,7 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
     Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
+    Object? accountNumber = freezed,
     Object? productType = null,
   }) {
     return _then(_value.copyWith(
@@ -225,6 +228,10 @@ class _$DetailedAccountTransactionDtoCopyWithImpl<$Res,
           ? _value.extendedDetails
           : extendedDetails // ignore: cast_nullable_to_non_nullable
               as ExtendedDetailsDto?,
+      accountNumber: freezed == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       productType: null == productType
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
@@ -265,6 +272,7 @@ abstract class _$$DetailedAccountTransactionDtoImplCopyWith<$Res>
       @DateConverter() DateTime? assignmentDate,
       List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() ExtendedDetailsDto? extendedDetails,
+      String? accountNumber,
       ProductTypeDto productType});
 }
 
@@ -303,6 +311,7 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
     Object? assignmentDate = freezed,
     Object? attachments = freezed,
     Object? extendedDetails = freezed,
+    Object? accountNumber = freezed,
     Object? productType = null,
   }) {
     return _then(_$DetailedAccountTransactionDtoImpl(
@@ -394,6 +403,10 @@ class __$$DetailedAccountTransactionDtoImplCopyWithImpl<$Res>
           ? _value.extendedDetails
           : extendedDetails // ignore: cast_nullable_to_non_nullable
               as ExtendedDetailsDto?,
+      accountNumber: freezed == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
       productType: null == productType
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
@@ -429,6 +442,7 @@ class _$DetailedAccountTransactionDtoImpl
       @DateConverter() required this.assignmentDate,
       required final List<FileAttachmentInfoDto>? attachments,
       @ExtendedDetailsConverter() required this.extendedDetails,
+      required this.accountNumber,
       required this.productType})
       : _attachments = attachments;
 
@@ -502,11 +516,13 @@ class _$DetailedAccountTransactionDtoImpl
   @ExtendedDetailsConverter()
   final ExtendedDetailsDto? extendedDetails;
   @override
+  final String? accountNumber;
+  @override
   final ProductTypeDto productType;
 
   @override
   String toString() {
-    return 'DetailedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userComments: $userComments, userCategory: $userCategory, placeId: $placeId, accountId: $accountId, endBalance: $endBalance, detailFields: $detailFields, visible: $visible, bankReceipt: $bankReceipt, originBranch: $originBranch, originalAmount: $originalAmount, originalCurrencyCode: $originalCurrencyCode, assignmentDate: $assignmentDate, attachments: $attachments, extendedDetails: $extendedDetails, productType: $productType)';
+    return 'DetailedAccountTransactionDto(movementId: $movementId, postingDate: $postingDate, valueDate: $valueDate, type: $type, amount: $amount, currencyCode: $currencyCode, description: $description, analyticsCategory: $analyticsCategory, userComments: $userComments, userCategory: $userCategory, placeId: $placeId, accountId: $accountId, endBalance: $endBalance, detailFields: $detailFields, visible: $visible, bankReceipt: $bankReceipt, originBranch: $originBranch, originalAmount: $originalAmount, originalCurrencyCode: $originalCurrencyCode, assignmentDate: $assignmentDate, attachments: $attachments, extendedDetails: $extendedDetails, accountNumber: $accountNumber, productType: $productType)';
   }
 
   @override
@@ -554,6 +570,8 @@ class _$DetailedAccountTransactionDtoImpl
                 .equals(other._attachments, _attachments) &&
             (identical(other.extendedDetails, extendedDetails) ||
                 other.extendedDetails == extendedDetails) &&
+            (identical(other.accountNumber, accountNumber) ||
+                other.accountNumber == accountNumber) &&
             (identical(other.productType, productType) ||
                 other.productType == productType));
   }
@@ -584,6 +602,7 @@ class _$DetailedAccountTransactionDtoImpl
         assignmentDate,
         const DeepCollectionEquality().hash(_attachments),
         extendedDetails,
+        accountNumber,
         productType
       ]);
 
@@ -629,6 +648,7 @@ abstract class _DetailedAccountTransactionDto
           required final List<FileAttachmentInfoDto>? attachments,
           @ExtendedDetailsConverter()
           required final ExtendedDetailsDto? extendedDetails,
+          required final String? accountNumber,
           required final ProductTypeDto productType}) =
       _$DetailedAccountTransactionDtoImpl;
 
@@ -683,6 +703,8 @@ abstract class _DetailedAccountTransactionDto
   @override
   @ExtendedDetailsConverter()
   ExtendedDetailsDto? get extendedDetails;
+  @override
+  String? get accountNumber;
   @override
   ProductTypeDto get productType;
   @override

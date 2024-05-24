@@ -9,7 +9,7 @@ part of 'detailed_account_transaction_dto.dart';
 _$DetailedAccountTransactionDtoImpl
     _$$DetailedAccountTransactionDtoImplFromJson(Map<String, dynamic> json) =>
         _$DetailedAccountTransactionDtoImpl(
-          movementId: json['movementId'] as int,
+          movementId: (json['movementId'] as num).toInt(),
           postingDate:
               const DateConverter().fromJson(json['postingDate'] as String),
           valueDate:
@@ -22,7 +22,7 @@ _$DetailedAccountTransactionDtoImpl
           userComments: json['userComments'] as String?,
           userCategory: json['userCategory'] as String?,
           placeId: json['placeId'] as String?,
-          accountId: json['accountId'] as int?,
+          accountId: (json['accountId'] as num?)?.toInt(),
           endBalance: (json['endBalance'] as num?)?.toDouble(),
           detailFields: json['detailFields'] as String?,
           visible: json['visible'] as bool?,
@@ -39,6 +39,7 @@ _$DetailedAccountTransactionDtoImpl
           extendedDetails: _$JsonConverterFromJson<Map<String, dynamic>,
                   ExtendedDetailsDto?>(json['extendedDetails'],
               const ExtendedDetailsConverter().fromJson),
+          accountNumber: json['accountNumber'] as String?,
           productType:
               $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
         );
@@ -70,6 +71,7 @@ Map<String, dynamic> _$$DetailedAccountTransactionDtoImplToJson(
       'attachments': instance.attachments?.map((e) => e.toJson()).toList(),
       'extendedDetails':
           const ExtendedDetailsConverter().toJson(instance.extendedDetails),
+      'accountNumber': instance.accountNumber,
       'productType': _$ProductTypeDtoEnumMap[instance.productType]!,
     };
 

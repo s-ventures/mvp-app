@@ -13,8 +13,8 @@ _$DetailedSentTransferDtoImpl _$$DetailedSentTransferDtoImplFromJson(
       baasTransferId: json['baasTransferId'] as String?,
       bankOperationCode: json['bankOperationCode'] as String?,
       senderBank: json['senderBank'] as String?,
-      accountId: json['accountId'] as int,
-      customerId: json['customerId'] as int,
+      accountId: (json['accountId'] as num).toInt(),
+      customerId: (json['customerId'] as num).toInt(),
       orderDate: DateTime.parse(json['orderDate'] as String),
       valueDate: json['valueDate'] == null
           ? null
@@ -31,12 +31,12 @@ _$DetailedSentTransferDtoImpl _$$DetailedSentTransferDtoImplFromJson(
       status: $enumDecode(_$TransferStatusTypeDtoEnumMap, json['status']),
       baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
-      movementId: json['movementId'] as int?,
+      movementId: (json['movementId'] as num?)?.toInt(),
       executionDate: json['executionDate'] == null
           ? null
           : DateTime.parse(json['executionDate'] as String),
       senderAccount: json['senderAccount'] as String?,
-      sentTransferId: json['sentTransferId'] as int,
+      sentTransferId: (json['sentTransferId'] as num).toInt(),
       periodicTransfer: json['periodicTransfer'] as bool,
       routingNumber: json['routingNumber'] as String?,
       beneficiaryBank: json['beneficiaryBank'] as String?,
@@ -46,6 +46,7 @@ _$DetailedSentTransferDtoImpl _$$DetailedSentTransferDtoImplFromJson(
           ? null
           : DateTime.parse(json['transferDate'] as String),
       referenceDC: json['referenceDC'] as String?,
+      accountNumber: json['accountNumber'] as String?,
     );
 
 Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(
@@ -82,6 +83,7 @@ Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(
       'beneficiaryName': instance.beneficiaryName,
       'transferDate': instance.transferDate?.toIso8601String(),
       'referenceDC': instance.referenceDC,
+      'accountNumber': instance.accountNumber,
     };
 
 const _$SentTransferTypeDtoEnumMap = {

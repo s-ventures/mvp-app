@@ -63,7 +63,7 @@ class MovementDetailsSummary extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    amount.toCurrency(),
+                    amount.toCurrency(plusSign: false),
                     style: context.textStyle.h6.copyWith(
                       color: context.color.textLight900,
                       letterSpacing: 0.15,
@@ -71,9 +71,7 @@ class MovementDetailsSummary extends StatelessWidget {
                   ),
                   AppSpacing.vertical.s2,
                   Text(
-                    date != null
-                        ? DateFormat('dd MMM · HH:mm').format(date!)
-                        : subtitle ?? '',
+                    date != null ? DateFormat('dd MMM · HH:mm').format(date!) : subtitle ?? '',
                     style: context.textStyle.bodySmallRegular.copyWith(
                       color: context.color.textLight600,
                       fontSize: 12,
@@ -84,8 +82,7 @@ class MovementDetailsSummary extends StatelessWidget {
               const Spacer(),
               if (status != null)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   decoration: BoxDecoration(
                     color: status == MovementStatus.completed
                         ? context.color.statusSuccess.withOpacity(0.1)

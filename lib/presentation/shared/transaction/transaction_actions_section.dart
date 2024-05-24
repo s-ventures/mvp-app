@@ -22,6 +22,7 @@ class TransactionActionsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TransactionAttachmentsSection(
           title: 'Adjuntos',
@@ -39,6 +40,9 @@ class TransactionActionsSection extends StatelessWidget {
         AppSpacing.vertical.s3,
         Button(
           type: ButtonType.text,
+          textColor: context.color.statusInfo,
+          size: ButtonSize.small,
+          horizontalPadding: 0,
           title: 'Crear gasto',
           onPressed: () async => context.goNamed(AppRoute.erp.name),
         ),
