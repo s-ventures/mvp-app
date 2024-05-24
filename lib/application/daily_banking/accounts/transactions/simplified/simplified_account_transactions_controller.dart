@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_state.dart';
+import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transactions_filter.dart';
@@ -20,7 +21,7 @@ final simplifiedAccountTransactionsControllerProvider = StateNotifierProvider<
 class SimplifiedAccountTransactionsController
     extends StateNotifier<SimplifiedAccountTransactionsState>
     with
-        FilteredPaginationLoadingProvider<Map<DateTime, List<SimplifiedAccountTransaction>>,
+        FilteredPaginationLoadingProvider<DateTimeListMap<SimplifiedAccountTransaction>,
             AccountTransactionsFilter> {
   SimplifiedAccountTransactionsController(
     this._accountsTransactionPaginationRepository,
@@ -41,7 +42,7 @@ class SimplifiedAccountTransactionsController
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
-            transactions: const AsyncLoading<Map<DateTime, List<SimplifiedAccountTransaction>>>()
+            transactions: const AsyncLoading<DateTimeListMap<SimplifiedAccountTransaction>>()
                 .copyWithPrevious(state.transactions),
           ),
         );
