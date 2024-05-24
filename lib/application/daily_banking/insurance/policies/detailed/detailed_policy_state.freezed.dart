@@ -59,8 +59,8 @@ class _$DetailedPolicyStateCopyWithImpl<$Res, $Val extends DetailedPolicyState>
 /// @nodoc
 abstract class _$$DetailedPolicyStateImplCopyWith<$Res>
     implements $DetailedPolicyStateCopyWith<$Res> {
-  factory _$$DetailedPolicyStateImplCopyWith(
-          _$DetailedPolicyStateImpl value, $Res Function(_$DetailedPolicyStateImpl) then) =
+  factory _$$DetailedPolicyStateImplCopyWith(_$DetailedPolicyStateImpl value,
+          $Res Function(_$DetailedPolicyStateImpl) then) =
       __$$DetailedPolicyStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -71,8 +71,8 @@ abstract class _$$DetailedPolicyStateImplCopyWith<$Res>
 class __$$DetailedPolicyStateImplCopyWithImpl<$Res>
     extends _$DetailedPolicyStateCopyWithImpl<$Res, _$DetailedPolicyStateImpl>
     implements _$$DetailedPolicyStateImplCopyWith<$Res> {
-  __$$DetailedPolicyStateImplCopyWithImpl(
-      _$DetailedPolicyStateImpl _value, $Res Function(_$DetailedPolicyStateImpl) _then)
+  __$$DetailedPolicyStateImplCopyWithImpl(_$DetailedPolicyStateImpl _value,
+      $Res Function(_$DetailedPolicyStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,8 @@ class __$$DetailedPolicyStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DetailedPolicyStateImpl implements _DetailedPolicyState {
-  const _$DetailedPolicyStateImpl({this.policy = const AsyncLoading<DetailedPolicy>()});
+  const _$DetailedPolicyStateImpl(
+      {this.policy = const AsyncLoading<DetailedPolicy>()});
 
   @override
   @JsonKey()
@@ -118,12 +119,13 @@ class _$DetailedPolicyStateImpl implements _DetailedPolicyState {
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedPolicyStateImplCopyWith<_$DetailedPolicyStateImpl> get copyWith =>
-      __$$DetailedPolicyStateImplCopyWithImpl<_$DetailedPolicyStateImpl>(this, _$identity);
+      __$$DetailedPolicyStateImplCopyWithImpl<_$DetailedPolicyStateImpl>(
+          this, _$identity);
 }
 
 abstract class _DetailedPolicyState implements DetailedPolicyState {
-  const factory _DetailedPolicyState({final AsyncValue<DetailedPolicy> policy}) =
-      _$DetailedPolicyStateImpl;
+  const factory _DetailedPolicyState(
+      {final AsyncValue<DetailedPolicy> policy}) = _$DetailedPolicyStateImpl;
 
   @override
   AsyncValue<DetailedPolicy> get policy;

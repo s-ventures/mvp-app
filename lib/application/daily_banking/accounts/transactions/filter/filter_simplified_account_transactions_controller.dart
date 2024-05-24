@@ -19,14 +19,18 @@ class FilterSimplifiedAccountTransactionsController
   final SimplifiedAccountTransactionsController _simplifiedAccountTransactionsController;
 
   Future<void> applyFilters() async {
-    await _simplifiedAccountTransactionsController.updateFilter(
+    final filter = _simplifiedAccountTransactionsController.filter?.copyWith(
+      operationType: state.operationType,
       description: state.search,
       amountFrom: state.amountFrom,
       amountTo: state.amountTo,
       dateFrom: state.startDate,
       dateTo: state.endDate,
-      operationType: state.operationType,
     );
+
+    if (filter == null) return;
+
+    await _simplifiedAccountTransactionsController.updateFilter(filter);
   }
 
   Future<void> resetFilters() async {

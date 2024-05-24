@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SimplifiedAccountsState {
-  AsyncValue<List<SimplifiedAccount>> get accounts => throw _privateConstructorUsedError;
+  AsyncValue<List<SimplifiedAccount>> get accounts =>
+      throw _privateConstructorUsedError;
   int get selectedAccountIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -26,15 +27,17 @@ mixin _$SimplifiedAccountsState {
 
 /// @nodoc
 abstract class $SimplifiedAccountsStateCopyWith<$Res> {
-  factory $SimplifiedAccountsStateCopyWith(
-          SimplifiedAccountsState value, $Res Function(SimplifiedAccountsState) then) =
+  factory $SimplifiedAccountsStateCopyWith(SimplifiedAccountsState value,
+          $Res Function(SimplifiedAccountsState) then) =
       _$SimplifiedAccountsStateCopyWithImpl<$Res, SimplifiedAccountsState>;
   @useResult
-  $Res call({AsyncValue<List<SimplifiedAccount>> accounts, int selectedAccountIndex});
+  $Res call(
+      {AsyncValue<List<SimplifiedAccount>> accounts, int selectedAccountIndex});
 }
 
 /// @nodoc
-class _$SimplifiedAccountsStateCopyWithImpl<$Res, $Val extends SimplifiedAccountsState>
+class _$SimplifiedAccountsStateCopyWithImpl<$Res,
+        $Val extends SimplifiedAccountsState>
     implements $SimplifiedAccountsStateCopyWith<$Res> {
   _$SimplifiedAccountsStateCopyWithImpl(this._value, this._then);
 
@@ -66,19 +69,23 @@ class _$SimplifiedAccountsStateCopyWithImpl<$Res, $Val extends SimplifiedAccount
 abstract class _$$SimplifiedAccountsStateImplCopyWith<$Res>
     implements $SimplifiedAccountsStateCopyWith<$Res> {
   factory _$$SimplifiedAccountsStateImplCopyWith(
-          _$SimplifiedAccountsStateImpl value, $Res Function(_$SimplifiedAccountsStateImpl) then) =
+          _$SimplifiedAccountsStateImpl value,
+          $Res Function(_$SimplifiedAccountsStateImpl) then) =
       __$$SimplifiedAccountsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<List<SimplifiedAccount>> accounts, int selectedAccountIndex});
+  $Res call(
+      {AsyncValue<List<SimplifiedAccount>> accounts, int selectedAccountIndex});
 }
 
 /// @nodoc
 class __$$SimplifiedAccountsStateImplCopyWithImpl<$Res>
-    extends _$SimplifiedAccountsStateCopyWithImpl<$Res, _$SimplifiedAccountsStateImpl>
+    extends _$SimplifiedAccountsStateCopyWithImpl<$Res,
+        _$SimplifiedAccountsStateImpl>
     implements _$$SimplifiedAccountsStateImplCopyWith<$Res> {
   __$$SimplifiedAccountsStateImplCopyWithImpl(
-      _$SimplifiedAccountsStateImpl _value, $Res Function(_$SimplifiedAccountsStateImpl) _then)
+      _$SimplifiedAccountsStateImpl _value,
+      $Res Function(_$SimplifiedAccountsStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +131,8 @@ class _$SimplifiedAccountsStateImpl implements _SimplifiedAccountsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedAccountsStateImpl &&
-            (identical(other.accounts, accounts) || other.accounts == accounts) &&
+            (identical(other.accounts, accounts) ||
+                other.accounts == accounts) &&
             (identical(other.selectedAccountIndex, selectedAccountIndex) ||
                 other.selectedAccountIndex == selectedAccountIndex));
   }
@@ -135,8 +143,9 @@ class _$SimplifiedAccountsStateImpl implements _SimplifiedAccountsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedAccountsStateImplCopyWith<_$SimplifiedAccountsStateImpl> get copyWith =>
-      __$$SimplifiedAccountsStateImplCopyWithImpl<_$SimplifiedAccountsStateImpl>(this, _$identity);
+  _$$SimplifiedAccountsStateImplCopyWith<_$SimplifiedAccountsStateImpl>
+      get copyWith => __$$SimplifiedAccountsStateImplCopyWithImpl<
+          _$SimplifiedAccountsStateImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedAccountsState implements SimplifiedAccountsState {
@@ -150,6 +159,6 @@ abstract class _SimplifiedAccountsState implements SimplifiedAccountsState {
   int get selectedAccountIndex;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedAccountsStateImplCopyWith<_$SimplifiedAccountsStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SimplifiedAccountsStateImplCopyWith<_$SimplifiedAccountsStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -20,12 +20,14 @@ mixin _$CustomerContract {
   Contract get contract => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CustomerContractCopyWith<CustomerContract> get copyWith => throw _privateConstructorUsedError;
+  $CustomerContractCopyWith<CustomerContract> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CustomerContractCopyWith<$Res> {
-  factory $CustomerContractCopyWith(CustomerContract value, $Res Function(CustomerContract) then) =
+  factory $CustomerContractCopyWith(
+          CustomerContract value, $Res Function(CustomerContract) then) =
       _$CustomerContractCopyWithImpl<$Res, CustomerContract>;
   @useResult
   $Res call({String alias, Contract contract});
@@ -71,9 +73,10 @@ class _$CustomerContractCopyWithImpl<$Res, $Val extends CustomerContract>
 }
 
 /// @nodoc
-abstract class _$$CustomerContractImplCopyWith<$Res> implements $CustomerContractCopyWith<$Res> {
-  factory _$$CustomerContractImplCopyWith(
-          _$CustomerContractImpl value, $Res Function(_$CustomerContractImpl) then) =
+abstract class _$$CustomerContractImplCopyWith<$Res>
+    implements $CustomerContractCopyWith<$Res> {
+  factory _$$CustomerContractImplCopyWith(_$CustomerContractImpl value,
+          $Res Function(_$CustomerContractImpl) then) =
       __$$CustomerContractImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -87,8 +90,8 @@ abstract class _$$CustomerContractImplCopyWith<$Res> implements $CustomerContrac
 class __$$CustomerContractImplCopyWithImpl<$Res>
     extends _$CustomerContractCopyWithImpl<$Res, _$CustomerContractImpl>
     implements _$$CustomerContractImplCopyWith<$Res> {
-  __$$CustomerContractImplCopyWithImpl(
-      _$CustomerContractImpl _value, $Res Function(_$CustomerContractImpl) _then)
+  __$$CustomerContractImplCopyWithImpl(_$CustomerContractImpl _value,
+      $Res Function(_$CustomerContractImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -131,7 +134,8 @@ class _$CustomerContractImpl implements _CustomerContract {
         (other.runtimeType == runtimeType &&
             other is _$CustomerContractImpl &&
             (identical(other.alias, alias) || other.alias == alias) &&
-            (identical(other.contract, contract) || other.contract == contract));
+            (identical(other.contract, contract) ||
+                other.contract == contract));
   }
 
   @override
@@ -141,12 +145,14 @@ class _$CustomerContractImpl implements _CustomerContract {
   @override
   @pragma('vm:prefer-inline')
   _$$CustomerContractImplCopyWith<_$CustomerContractImpl> get copyWith =>
-      __$$CustomerContractImplCopyWithImpl<_$CustomerContractImpl>(this, _$identity);
+      __$$CustomerContractImplCopyWithImpl<_$CustomerContractImpl>(
+          this, _$identity);
 }
 
 abstract class _CustomerContract implements CustomerContract {
-  const factory _CustomerContract({required final String alias, required final Contract contract}) =
-      _$CustomerContractImpl;
+  const factory _CustomerContract(
+      {required final String alias,
+      required final Contract contract}) = _$CustomerContractImpl;
 
   @override
   String get alias;

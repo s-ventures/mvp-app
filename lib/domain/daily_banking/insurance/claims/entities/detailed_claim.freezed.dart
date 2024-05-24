@@ -32,12 +32,14 @@ mixin _$DetailedClaim {
   String get agentTelephone => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedClaimCopyWith<DetailedClaim> get copyWith => throw _privateConstructorUsedError;
+  $DetailedClaimCopyWith<DetailedClaim> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedClaimCopyWith<$Res> {
-  factory $DetailedClaimCopyWith(DetailedClaim value, $Res Function(DetailedClaim) then) =
+  factory $DetailedClaimCopyWith(
+          DetailedClaim value, $Res Function(DetailedClaim) then) =
       _$DetailedClaimCopyWithImpl<$Res, DetailedClaim>;
   @useResult
   $Res call(
@@ -147,7 +149,8 @@ class _$DetailedClaimCopyWithImpl<$Res, $Val extends DetailedClaim>
 }
 
 /// @nodoc
-abstract class _$$DetailedClaimImplCopyWith<$Res> implements $DetailedClaimCopyWith<$Res> {
+abstract class _$$DetailedClaimImplCopyWith<$Res>
+    implements $DetailedClaimCopyWith<$Res> {
   factory _$$DetailedClaimImplCopyWith(
           _$DetailedClaimImpl value, $Res Function(_$DetailedClaimImpl) then) =
       __$$DetailedClaimImplCopyWithImpl<$Res>;
@@ -316,20 +319,26 @@ class _$DetailedClaimImpl implements _DetailedClaim {
         (other.runtimeType == runtimeType &&
             other is _$DetailedClaimImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.insuranceId, insuranceId) || other.insuranceId == insuranceId) &&
+            (identical(other.insuranceId, insuranceId) ||
+                other.insuranceId == insuranceId) &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.dossier, dossier) || other.dossier == dossier) &&
-            (identical(other.createDate, createDate) || other.createDate == createDate) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.riskType, riskType) || other.riskType == riskType) &&
+            (identical(other.riskType, riskType) ||
+                other.riskType == riskType) &&
             (identical(other.reason, reason) || other.reason == reason) &&
-            (identical(other.riskLocation, riskLocation) || other.riskLocation == riskLocation) &&
+            (identical(other.riskLocation, riskLocation) ||
+                other.riskLocation == riskLocation) &&
             (identical(other.processStartDate, processStartDate) ||
                 other.processStartDate == processStartDate) &&
             (identical(other.processEndDate, processEndDate) ||
                 other.processEndDate == processEndDate) &&
-            (identical(other.agentName, agentName) || other.agentName == agentName) &&
-            (identical(other.agentEmail, agentEmail) || other.agentEmail == agentEmail) &&
+            (identical(other.agentName, agentName) ||
+                other.agentName == agentName) &&
+            (identical(other.agentEmail, agentEmail) ||
+                other.agentEmail == agentEmail) &&
             (identical(other.agentTelephone, agentTelephone) ||
                 other.agentTelephone == agentTelephone));
   }

@@ -20,21 +20,24 @@ mixin _$FilterSimplifiedPoliciesState {
   DateTime? get createDateTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterSimplifiedPoliciesStateCopyWith<FilterSimplifiedPoliciesState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FilterSimplifiedPoliciesStateCopyWith<FilterSimplifiedPoliciesState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FilterSimplifiedPoliciesStateCopyWith<$Res> {
   factory $FilterSimplifiedPoliciesStateCopyWith(
-          FilterSimplifiedPoliciesState value, $Res Function(FilterSimplifiedPoliciesState) then) =
-      _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res, FilterSimplifiedPoliciesState>;
+          FilterSimplifiedPoliciesState value,
+          $Res Function(FilterSimplifiedPoliciesState) then) =
+      _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res,
+          FilterSimplifiedPoliciesState>;
   @useResult
   $Res call({DateTime? createDateFrom, DateTime? createDateTo});
 }
 
 /// @nodoc
-class _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res, $Val extends FilterSimplifiedPoliciesState>
+class _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res,
+        $Val extends FilterSimplifiedPoliciesState>
     implements $FilterSimplifiedPoliciesStateCopyWith<$Res> {
   _$FilterSimplifiedPoliciesStateCopyWithImpl(this._value, this._then);
 
@@ -65,7 +68,8 @@ class _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res, $Val extends FilterSimpl
 /// @nodoc
 abstract class _$$FilterSimplifiedPoliciesStateImplCopyWith<$Res>
     implements $FilterSimplifiedPoliciesStateCopyWith<$Res> {
-  factory _$$FilterSimplifiedPoliciesStateImplCopyWith(_$FilterSimplifiedPoliciesStateImpl value,
+  factory _$$FilterSimplifiedPoliciesStateImplCopyWith(
+          _$FilterSimplifiedPoliciesStateImpl value,
           $Res Function(_$FilterSimplifiedPoliciesStateImpl) then) =
       __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<$Res>;
   @override
@@ -75,9 +79,11 @@ abstract class _$$FilterSimplifiedPoliciesStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<$Res>
-    extends _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res, _$FilterSimplifiedPoliciesStateImpl>
+    extends _$FilterSimplifiedPoliciesStateCopyWithImpl<$Res,
+        _$FilterSimplifiedPoliciesStateImpl>
     implements _$$FilterSimplifiedPoliciesStateImplCopyWith<$Res> {
-  __$$FilterSimplifiedPoliciesStateImplCopyWithImpl(_$FilterSimplifiedPoliciesStateImpl _value,
+  __$$FilterSimplifiedPoliciesStateImplCopyWithImpl(
+      _$FilterSimplifiedPoliciesStateImpl _value,
       $Res Function(_$FilterSimplifiedPoliciesStateImpl) _then)
       : super(_value, _then);
 
@@ -102,8 +108,10 @@ class __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FilterSimplifiedPoliciesStateImpl implements _FilterSimplifiedPoliciesState {
-  const _$FilterSimplifiedPoliciesStateImpl({this.createDateFrom, this.createDateTo});
+class _$FilterSimplifiedPoliciesStateImpl
+    implements _FilterSimplifiedPoliciesState {
+  const _$FilterSimplifiedPoliciesStateImpl(
+      {this.createDateFrom, this.createDateTo});
 
   @override
   final DateTime? createDateFrom;
@@ -122,7 +130,8 @@ class _$FilterSimplifiedPoliciesStateImpl implements _FilterSimplifiedPoliciesSt
             other is _$FilterSimplifiedPoliciesStateImpl &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
-            (identical(other.createDateTo, createDateTo) || other.createDateTo == createDateTo));
+            (identical(other.createDateTo, createDateTo) ||
+                other.createDateTo == createDateTo));
   }
 
   @override
@@ -131,12 +140,14 @@ class _$FilterSimplifiedPoliciesStateImpl implements _FilterSimplifiedPoliciesSt
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterSimplifiedPoliciesStateImplCopyWith<_$FilterSimplifiedPoliciesStateImpl> get copyWith =>
-      __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<_$FilterSimplifiedPoliciesStateImpl>(
-          this, _$identity);
+  _$$FilterSimplifiedPoliciesStateImplCopyWith<
+          _$FilterSimplifiedPoliciesStateImpl>
+      get copyWith => __$$FilterSimplifiedPoliciesStateImplCopyWithImpl<
+          _$FilterSimplifiedPoliciesStateImpl>(this, _$identity);
 }
 
-abstract class _FilterSimplifiedPoliciesState implements FilterSimplifiedPoliciesState {
+abstract class _FilterSimplifiedPoliciesState
+    implements FilterSimplifiedPoliciesState {
   const factory _FilterSimplifiedPoliciesState(
       {final DateTime? createDateFrom,
       final DateTime? createDateTo}) = _$FilterSimplifiedPoliciesStateImpl;
@@ -147,6 +158,7 @@ abstract class _FilterSimplifiedPoliciesState implements FilterSimplifiedPolicie
   DateTime? get createDateTo;
   @override
   @JsonKey(ignore: true)
-  _$$FilterSimplifiedPoliciesStateImplCopyWith<_$FilterSimplifiedPoliciesStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FilterSimplifiedPoliciesStateImplCopyWith<
+          _$FilterSimplifiedPoliciesStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -40,7 +40,6 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
     required AccountTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = AccountTransactionsFilterDto.fromDomain(
       filter: filter,
@@ -51,7 +50,6 @@ class AccountTransactionsRepository implements IAccountTransactionsRepository {
       final response = await _remoteDataSource.getSimplifiedAccountTransactions(
         filterDto: filterDto,
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
       return right({
         for (final e in response.data)
           const DateConverter().fromJson(e.date): e.transactions.map((e) => e.toDomain()).toList(),

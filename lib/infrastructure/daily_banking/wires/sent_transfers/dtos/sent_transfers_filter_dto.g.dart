@@ -6,7 +6,8 @@ part of 'sent_transfers_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(Map<String, dynamic> json) =>
+SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(
+        Map<String, dynamic> json) =>
     SentTransfersFilterDto(
       type: $enumDecodeNullable(_$SentTransferTypeDtoEnumMap, json['type']),
       baasTransferId: json['baasTransferId'] as String?,
@@ -27,7 +28,8 @@ SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(Map<String, dynamic> jso
       exchangeValueTo: json['exchangeValueTo'] as int?,
       instructedAmountFrom: json['instructedAmountFrom'] as int?,
       instructedAmountTo: json['instructedAmountTo'] as int?,
-      status: $enumDecodeNullable(_$TransferStatusTypeDtoEnumMap, json['status']),
+      status:
+          $enumDecodeNullable(_$TransferStatusTypeDtoEnumMap, json['status']),
       baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
       sentTransferId: json['sentTransferId'] as int?,
@@ -40,7 +42,8 @@ SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(Map<String, dynamic> jso
       pageSize: json['pageSize'] as int? ?? 10,
     );
 
-Map<String, dynamic> _$SentTransfersFilterDtoToJson(SentTransfersFilterDto instance) {
+Map<String, dynamic> _$SentTransfersFilterDtoToJson(
+    SentTransfersFilterDto instance) {
   final val = <String, dynamic>{
     'pageSize': instance.pageSize,
     'pageNumber': instance.pageNumber,
@@ -58,14 +61,18 @@ Map<String, dynamic> _$SentTransfersFilterDtoToJson(SentTransfersFilterDto insta
       'orderDateFrom',
       _$JsonConverterToJson<String, DateTime>(
           instance.orderDateFrom, const DateConverter().toJson));
-  writeNotNull('orderDateTo',
-      _$JsonConverterToJson<String, DateTime>(instance.orderDateTo, const DateConverter().toJson));
+  writeNotNull(
+      'orderDateTo',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.orderDateTo, const DateConverter().toJson));
   writeNotNull(
       'valueDateFrom',
       _$JsonConverterToJson<String, DateTime>(
           instance.valueDateFrom, const DateConverter().toJson));
-  writeNotNull('valueDateTo',
-      _$JsonConverterToJson<String, DateTime>(instance.valueDateTo, const DateConverter().toJson));
+  writeNotNull(
+      'valueDateTo',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.valueDateTo, const DateConverter().toJson));
   writeNotNull('concept', instance.concept);
   writeNotNull('settlementAmountFrom', instance.settlementAmountFrom);
   writeNotNull('settlementAmountTo', instance.settlementAmountTo);

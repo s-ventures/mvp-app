@@ -38,12 +38,14 @@ mixin _$DetailedCardDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailedCardDtoCopyWith<DetailedCardDto> get copyWith => throw _privateConstructorUsedError;
+  $DetailedCardDtoCopyWith<DetailedCardDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedCardDtoCopyWith<$Res> {
-  factory $DetailedCardDtoCopyWith(DetailedCardDto value, $Res Function(DetailedCardDto) then) =
+  factory $DetailedCardDtoCopyWith(
+          DetailedCardDto value, $Res Function(DetailedCardDto) then) =
       _$DetailedCardDtoCopyWithImpl<$Res, DetailedCardDto>;
   @useResult
   $Res call(
@@ -182,9 +184,10 @@ class _$DetailedCardDtoCopyWithImpl<$Res, $Val extends DetailedCardDto>
 }
 
 /// @nodoc
-abstract class _$$DetailedCardDtoImplCopyWith<$Res> implements $DetailedCardDtoCopyWith<$Res> {
-  factory _$$DetailedCardDtoImplCopyWith(
-          _$DetailedCardDtoImpl value, $Res Function(_$DetailedCardDtoImpl) then) =
+abstract class _$$DetailedCardDtoImplCopyWith<$Res>
+    implements $DetailedCardDtoCopyWith<$Res> {
+  factory _$$DetailedCardDtoImplCopyWith(_$DetailedCardDtoImpl value,
+          $Res Function(_$DetailedCardDtoImpl) then) =
       __$$DetailedCardDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -369,19 +372,27 @@ class _$DetailedCardDtoImpl implements _DetailedCardDto {
             other is _$DetailedCardDtoImpl &&
             (identical(other.cardId, cardId) || other.cardId == cardId) &&
             (identical(other.brand, brand) || other.brand == brand) &&
-            (identical(other.cardType, cardType) || other.cardType == cardType) &&
-            (identical(other.cardName, cardName) || other.cardName == cardName) &&
-            (identical(other.createDate, createDate) || other.createDate == createDate) &&
-            (identical(other.deliveryDate, deliveryDate) || other.deliveryDate == deliveryDate) &&
-            (identical(other.activateDate, activateDate) || other.activateDate == activateDate) &&
-            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
+            (identical(other.cardType, cardType) ||
+                other.cardType == cardType) &&
+            (identical(other.cardName, cardName) ||
+                other.cardName == cardName) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
+            (identical(other.deliveryDate, deliveryDate) ||
+                other.deliveryDate == deliveryDate) &&
+            (identical(other.activateDate, activateDate) ||
+                other.activateDate == activateDate) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
                 other.cardEncryptedNumber == cardEncryptedNumber) &&
-            (identical(other.cardContract, cardContract) || other.cardContract == cardContract) &&
+            (identical(other.cardContract, cardContract) ||
+                other.cardContract == cardContract) &&
             (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.dueDate, dueDate) || other.dueDate == dueDate) &&
-            (identical(other.statusReason, statusReason) || other.statusReason == statusReason) &&
+            (identical(other.statusReason, statusReason) ||
+                other.statusReason == statusReason) &&
             (identical(other.cvv, cvv) || other.cvv == cvv));
   }
 
@@ -409,7 +420,8 @@ class _$DetailedCardDtoImpl implements _DetailedCardDto {
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedCardDtoImplCopyWith<_$DetailedCardDtoImpl> get copyWith =>
-      __$$DetailedCardDtoImplCopyWithImpl<_$DetailedCardDtoImpl>(this, _$identity);
+      __$$DetailedCardDtoImplCopyWithImpl<_$DetailedCardDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -437,7 +449,8 @@ abstract class _DetailedCardDto implements DetailedCardDto {
       required final String? statusReason,
       required final String? cvv}) = _$DetailedCardDtoImpl;
 
-  factory _DetailedCardDto.fromJson(Map<String, dynamic> json) = _$DetailedCardDtoImpl.fromJson;
+  factory _DetailedCardDto.fromJson(Map<String, dynamic> json) =
+      _$DetailedCardDtoImpl.fromJson;
 
   @override
   int get cardId;

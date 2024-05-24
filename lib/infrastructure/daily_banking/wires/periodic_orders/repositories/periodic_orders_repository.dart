@@ -33,7 +33,6 @@ class PeriodicOrdersRepository implements IPeriodicOrdersRepository {
     required PeriodicOrdersFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = PeriodicOrdersFilterDto.fromDomain(
       filter: filter,
@@ -44,7 +43,6 @@ class PeriodicOrdersRepository implements IPeriodicOrdersRepository {
       final response = await _remoteDataSource.getSimplifiedPeriodicOrders(
         filterDto: filterDto,
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
       final periodicOrders = response.data.map((e) => e.toDomain()).toList();
       return right(periodicOrders);
     } catch (_) {

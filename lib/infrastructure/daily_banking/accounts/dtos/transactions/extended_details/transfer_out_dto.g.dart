@@ -6,7 +6,8 @@ part of 'transfer_out_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TransferOutDto _$TransferOutDtoFromJson(Map<String, dynamic> json) => TransferOutDto(
+TransferOutDto _$TransferOutDtoFromJson(Map<String, dynamic> json) =>
+    TransferOutDto(
       senderReference: json['senderReference'] as String?,
       type: $enumDecodeNullable(_$SentTransferTypeDtoEnumMap, json['type']),
       bankOperationCode: json['bankOperationCode'] as String?,
@@ -22,15 +23,16 @@ TransferOutDto _$TransferOutDtoFromJson(Map<String, dynamic> json) => TransferOu
       settlementCurrencyCode: json['settlementCurrencyCode'] as String?,
       foreignExchange: (json['foreignExchange'] as num?)?.toDouble(),
       exchangeValue: (json['exchangeValue'] as num?)?.toDouble(),
-      detailsOfCharges:
-          $enumDecodeNullable(_$TransferDetailOfChargesDtoEnumMap, json['detailsOfCharges']),
+      detailsOfCharges: $enumDecodeNullable(
+          _$TransferDetailOfChargesDtoEnumMap, json['detailsOfCharges']),
       instructedAmount: (json['instructedAmount'] as num?)?.toDouble(),
       instructedCurrencyCode: json['instructedCurrencyCode'] as String?,
       senderBankFee: (json['senderBankFee'] as num?)?.toDouble(),
       correspondantFee: (json['correspondantFee'] as num?)?.toDouble(),
       senderCorrespondentBank: json['senderCorrespondentBank'] as String?,
       intermediaryBank: json['intermediaryBank'] as String?,
-      beneficiaryCorrespondentBank: json['beneficiaryCorrespondentBank'] as String?,
+      beneficiaryCorrespondentBank:
+          json['beneficiaryCorrespondentBank'] as String?,
       status: $enumDecode(_$TransferStatusTypeDtoEnumMap, json['status']),
       movementNumber: json['movementNumber'] as String?,
       fileId: json['fileId'] as String?,
@@ -43,7 +45,8 @@ TransferOutDto _$TransferOutDtoFromJson(Map<String, dynamic> json) => TransferOu
       beneficiaryAccount: json['beneficiaryAccount'] as String?,
       beneficiaryName: json['beneficiaryName'] as String,
       beneficiaryAdress: json['beneficiaryAdress'] as String?,
-      beneficiaryCountryCode2char: json['beneficiaryCountryCode2char'] as String?,
+      beneficiaryCountryCode2char:
+          json['beneficiaryCountryCode2char'] as String?,
       beneficiaryBankFee: (json['beneficiaryBankFee'] as num?)?.toDouble(),
       senderPhone: json['senderPhone'] as String?,
       beneficiaryCity: json['beneficiaryCity'] as String?,
@@ -69,23 +72,29 @@ Map<String, dynamic> _$TransferOutDtoToJson(TransferOutDto instance) {
   writeNotNull('senderBank', instance.senderBank);
   val['accountId'] = instance.accountId;
   val['customerId'] = instance.customerId;
-  writeNotNull('orderDate',
-      _$JsonConverterToJson<String, DateTime>(instance.orderDate, const DateConverter().toJson));
-  writeNotNull('valueDate',
-      _$JsonConverterToJson<String, DateTime>(instance.valueDate, const DateConverter().toJson));
+  writeNotNull(
+      'orderDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.orderDate, const DateConverter().toJson));
+  writeNotNull(
+      'valueDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.valueDate, const DateConverter().toJson));
   val['concept'] = instance.concept;
   writeNotNull('settlementAmount', instance.settlementAmount);
   writeNotNull('settlementCurrencyCode', instance.settlementCurrencyCode);
   writeNotNull('foreignExchange', instance.foreignExchange);
   writeNotNull('exchangeValue', instance.exchangeValue);
-  writeNotNull('detailsOfCharges', _$TransferDetailOfChargesDtoEnumMap[instance.detailsOfCharges]);
+  writeNotNull('detailsOfCharges',
+      _$TransferDetailOfChargesDtoEnumMap[instance.detailsOfCharges]);
   writeNotNull('instructedAmount', instance.instructedAmount);
   writeNotNull('instructedCurrencyCode', instance.instructedCurrencyCode);
   writeNotNull('senderBankFee', instance.senderBankFee);
   writeNotNull('correspondantFee', instance.correspondantFee);
   writeNotNull('senderCorrespondentBank', instance.senderCorrespondentBank);
   writeNotNull('intermediaryBank', instance.intermediaryBank);
-  writeNotNull('beneficiaryCorrespondentBank', instance.beneficiaryCorrespondentBank);
+  writeNotNull(
+      'beneficiaryCorrespondentBank', instance.beneficiaryCorrespondentBank);
   val['status'] = _$TransferStatusTypeDtoEnumMap[instance.status]!;
   writeNotNull('movementNumber', instance.movementNumber);
   writeNotNull('fileId', instance.fileId);
@@ -98,13 +107,17 @@ Map<String, dynamic> _$TransferOutDtoToJson(TransferOutDto instance) {
   writeNotNull('beneficiaryAccount', instance.beneficiaryAccount);
   val['beneficiaryName'] = instance.beneficiaryName;
   writeNotNull('beneficiaryAdress', instance.beneficiaryAdress);
-  writeNotNull('beneficiaryCountryCode2char', instance.beneficiaryCountryCode2char);
+  writeNotNull(
+      'beneficiaryCountryCode2char', instance.beneficiaryCountryCode2char);
   writeNotNull('beneficiaryBankFee', instance.beneficiaryBankFee);
   writeNotNull('senderPhone', instance.senderPhone);
   writeNotNull('beneficiaryCity', instance.beneficiaryCity);
-  writeNotNull('additionalInformationSwift', instance.additionalInformationSwift);
-  writeNotNull('transferDate',
-      _$JsonConverterToJson<String, DateTime>(instance.transferDate, const DateConverter().toJson));
+  writeNotNull(
+      'additionalInformationSwift', instance.additionalInformationSwift);
+  writeNotNull(
+      'transferDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.transferDate, const DateConverter().toJson));
   writeNotNull('identificationDocNumber', instance.identificationDocNumber);
   writeNotNull('swiftFee', instance.swiftFee);
   return val;

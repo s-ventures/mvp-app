@@ -30,7 +30,6 @@ class ClaimsRepository implements IClaimsRepository {
     required ClaimsFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = ClaimsFilterDto.fromDomain(
       filter: filter,
@@ -41,7 +40,6 @@ class ClaimsRepository implements IClaimsRepository {
       final response = await _remoteDataSource.getSimplifiedClaims(
         filterDto: filterDto,
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
       final claims = response.data.map((e) => e.toDomain()).toList();
       return right(claims);
     } catch (_) {

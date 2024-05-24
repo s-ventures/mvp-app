@@ -17,7 +17,6 @@ abstract class IAccountTransactionsRepository {
     required AccountTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
   Future<Either<DetailedAccountTransactionFaillure, DetailedAccountTransaction>>

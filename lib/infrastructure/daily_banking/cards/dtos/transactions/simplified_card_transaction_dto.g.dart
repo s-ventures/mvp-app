@@ -6,10 +6,12 @@ part of 'simplified_card_transaction_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CardTransactionDtoImpl _$$CardTransactionDtoImplFromJson(Map<String, dynamic> json) =>
+_$CardTransactionDtoImpl _$$CardTransactionDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$CardTransactionDtoImpl(
       movementId: json['movementId'] as int,
-      postingDate: const DateConverter().fromJson(json['postingDate'] as String),
+      postingDate:
+          const DateConverter().fromJson(json['postingDate'] as String),
       valueDate: const DateConverter().fromJson(json['valueDate'] as String),
       amount: (json['amount'] as num).toDouble(),
       currencyCode: json['currencyCode'] as String,
@@ -22,7 +24,8 @@ _$CardTransactionDtoImpl _$$CardTransactionDtoImplFromJson(Map<String, dynamic> 
       productType: $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
     );
 
-Map<String, dynamic> _$$CardTransactionDtoImplToJson(_$CardTransactionDtoImpl instance) =>
+Map<String, dynamic> _$$CardTransactionDtoImplToJson(
+        _$CardTransactionDtoImpl instance) =>
     <String, dynamic>{
       'movementId': instance.movementId,
       'postingDate': const DateConverter().toJson(instance.postingDate),

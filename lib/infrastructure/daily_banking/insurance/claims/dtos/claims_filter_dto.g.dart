@@ -6,9 +6,12 @@ part of 'claims_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) => ClaimsFilterDto(
+ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) =>
+    ClaimsFilterDto(
       claimId: json['claimId'] as int?,
-      insuranceId: (json['insuranceId'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      insuranceId: (json['insuranceId'] as List<dynamic>?)
+          ?.map((e) => e as int)
+          .toList(),
       year: json['year'] as int?,
       dossier: json['dossier'] as String?,
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
@@ -54,8 +57,10 @@ Map<String, dynamic> _$ClaimsFilterDtoToJson(ClaimsFilterDto instance) {
       'createDateFrom',
       _$JsonConverterToJson<String, DateTime>(
           instance.createDateFrom, const DateConverter().toJson));
-  writeNotNull('createDateTo',
-      _$JsonConverterToJson<String, DateTime>(instance.createDateTo, const DateConverter().toJson));
+  writeNotNull(
+      'createDateTo',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.createDateTo, const DateConverter().toJson));
   writeNotNull('status', _$ClaimStatusTypeDtoEnumMap[instance.status]);
   writeNotNull('riskType', instance.riskType);
   writeNotNull('reason', instance.reason);

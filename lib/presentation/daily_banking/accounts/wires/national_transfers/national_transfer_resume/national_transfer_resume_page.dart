@@ -173,7 +173,7 @@ class NationalTransferResumePage extends StatelessWidget {
                 size: ButtonSize.small,
                 expand: true,
                 onPressed: () async => context.pushNamed(
-                  AppRoute.dailyBankingNationalTransferSignature.name,
+                  AppRoute.dailyBankingNationalTransferOtp.name,
                 ),
               ),
             ],
