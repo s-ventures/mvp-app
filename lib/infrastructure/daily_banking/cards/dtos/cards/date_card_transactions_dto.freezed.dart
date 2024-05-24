@@ -14,14 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-DateCardTransactionsDto _$DateCardTransactionsDtoFromJson(Map<String, dynamic> json) {
+DateCardTransactionsDto _$DateCardTransactionsDtoFromJson(
+    Map<String, dynamic> json) {
   return _DateCardTransactionsDto.fromJson(json);
 }
 
 /// @nodoc
 mixin _$DateCardTransactionsDto {
   String get date => throw _privateConstructorUsedError;
-  List<SimplifiedCardTransactionDto> get transactions => throw _privateConstructorUsedError;
+  List<SimplifiedCardTransactionDto> get transactions =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -31,15 +33,16 @@ mixin _$DateCardTransactionsDto {
 
 /// @nodoc
 abstract class $DateCardTransactionsDtoCopyWith<$Res> {
-  factory $DateCardTransactionsDtoCopyWith(
-          DateCardTransactionsDto value, $Res Function(DateCardTransactionsDto) then) =
+  factory $DateCardTransactionsDtoCopyWith(DateCardTransactionsDto value,
+          $Res Function(DateCardTransactionsDto) then) =
       _$DateCardTransactionsDtoCopyWithImpl<$Res, DateCardTransactionsDto>;
   @useResult
   $Res call({String date, List<SimplifiedCardTransactionDto> transactions});
 }
 
 /// @nodoc
-class _$DateCardTransactionsDtoCopyWithImpl<$Res, $Val extends DateCardTransactionsDto>
+class _$DateCardTransactionsDtoCopyWithImpl<$Res,
+        $Val extends DateCardTransactionsDto>
     implements $DateCardTransactionsDtoCopyWith<$Res> {
   _$DateCardTransactionsDtoCopyWithImpl(this._value, this._then);
 
@@ -71,7 +74,8 @@ class _$DateCardTransactionsDtoCopyWithImpl<$Res, $Val extends DateCardTransacti
 abstract class _$$DateCardTransactionsDtoImplCopyWith<$Res>
     implements $DateCardTransactionsDtoCopyWith<$Res> {
   factory _$$DateCardTransactionsDtoImplCopyWith(
-          _$DateCardTransactionsDtoImpl value, $Res Function(_$DateCardTransactionsDtoImpl) then) =
+          _$DateCardTransactionsDtoImpl value,
+          $Res Function(_$DateCardTransactionsDtoImpl) then) =
       __$$DateCardTransactionsDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -80,10 +84,12 @@ abstract class _$$DateCardTransactionsDtoImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DateCardTransactionsDtoImplCopyWithImpl<$Res>
-    extends _$DateCardTransactionsDtoCopyWithImpl<$Res, _$DateCardTransactionsDtoImpl>
+    extends _$DateCardTransactionsDtoCopyWithImpl<$Res,
+        _$DateCardTransactionsDtoImpl>
     implements _$$DateCardTransactionsDtoImplCopyWith<$Res> {
   __$$DateCardTransactionsDtoImplCopyWithImpl(
-      _$DateCardTransactionsDtoImpl _value, $Res Function(_$DateCardTransactionsDtoImpl) _then)
+      _$DateCardTransactionsDtoImpl _value,
+      $Res Function(_$DateCardTransactionsDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +115,8 @@ class __$$DateCardTransactionsDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DateCardTransactionsDtoImpl implements _DateCardTransactionsDto {
   const _$DateCardTransactionsDtoImpl(
-      {required this.date, required final List<SimplifiedCardTransactionDto> transactions})
+      {required this.date,
+      required final List<SimplifiedCardTransactionDto> transactions})
       : _transactions = transactions;
 
   factory _$DateCardTransactionsDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -136,19 +143,21 @@ class _$DateCardTransactionsDtoImpl implements _DateCardTransactionsDto {
         (other.runtimeType == runtimeType &&
             other is _$DateCardTransactionsDtoImpl &&
             (identical(other.date, date) || other.date == date) &&
-            const DeepCollectionEquality().equals(other._transactions, _transactions));
+            const DeepCollectionEquality()
+                .equals(other._transactions, _transactions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, date, const DeepCollectionEquality().hash(_transactions));
+  int get hashCode => Object.hash(
+      runtimeType, date, const DeepCollectionEquality().hash(_transactions));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DateCardTransactionsDtoImplCopyWith<_$DateCardTransactionsDtoImpl> get copyWith =>
-      __$$DateCardTransactionsDtoImplCopyWithImpl<_$DateCardTransactionsDtoImpl>(this, _$identity);
+  _$$DateCardTransactionsDtoImplCopyWith<_$DateCardTransactionsDtoImpl>
+      get copyWith => __$$DateCardTransactionsDtoImplCopyWithImpl<
+          _$DateCardTransactionsDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -173,6 +182,6 @@ abstract class _DateCardTransactionsDto implements DateCardTransactionsDto {
   List<SimplifiedCardTransactionDto> get transactions;
   @override
   @JsonKey(ignore: true)
-  _$$DateCardTransactionsDtoImplCopyWith<_$DateCardTransactionsDtoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DateCardTransactionsDtoImplCopyWith<_$DateCardTransactionsDtoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -33,7 +33,6 @@ class SentTransfersRepository implements ISentTransfersRepository {
     required SentTransfersFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = SentTransfersFilterDto.fromDomain(
       filter: filter,
@@ -44,7 +43,6 @@ class SentTransfersRepository implements ISentTransfersRepository {
       final response = await _remoteDataSource.getSimplifiedSentTransfers(
         filterDto: filterDto,
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
       final sentTransfers = response.data.map((e) => e.toDomain()).toList();
       return right(sentTransfers);
     } catch (_) {

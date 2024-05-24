@@ -25,8 +25,8 @@ class _CardsRestClient implements CardsRestClient {
     final queryParameters = <String, dynamic>{r'': paginatedRequest.toJson()};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<PaginatedResponse<SimplifiedCardDto>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginatedResponse<SimplifiedCardDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -56,8 +56,8 @@ class _CardsRestClient implements CardsRestClient {
     final queryParameters = <String, dynamic>{r'': paginatedRequest.toJson()};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<PaginatedResponse<DetailedCardDto>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginatedResponse<DetailedCardDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,

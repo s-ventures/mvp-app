@@ -30,7 +30,8 @@ mixin _$AccountBalanceDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AccountBalanceDtoCopyWith<AccountBalanceDto> get copyWith => throw _privateConstructorUsedError;
+  $AccountBalanceDtoCopyWith<AccountBalanceDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -104,9 +105,10 @@ class _$AccountBalanceDtoCopyWithImpl<$Res, $Val extends AccountBalanceDto>
 }
 
 /// @nodoc
-abstract class _$$AccountBalanceDtoImplCopyWith<$Res> implements $AccountBalanceDtoCopyWith<$Res> {
-  factory _$$AccountBalanceDtoImplCopyWith(
-          _$AccountBalanceDtoImpl value, $Res Function(_$AccountBalanceDtoImpl) then) =
+abstract class _$$AccountBalanceDtoImplCopyWith<$Res>
+    implements $AccountBalanceDtoCopyWith<$Res> {
+  factory _$$AccountBalanceDtoImplCopyWith(_$AccountBalanceDtoImpl value,
+          $Res Function(_$AccountBalanceDtoImpl) then) =
       __$$AccountBalanceDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -124,8 +126,8 @@ abstract class _$$AccountBalanceDtoImplCopyWith<$Res> implements $AccountBalance
 class __$$AccountBalanceDtoImplCopyWithImpl<$Res>
     extends _$AccountBalanceDtoCopyWithImpl<$Res, _$AccountBalanceDtoImpl>
     implements _$$AccountBalanceDtoImplCopyWith<$Res> {
-  __$$AccountBalanceDtoImplCopyWithImpl(
-      _$AccountBalanceDtoImpl _value, $Res Function(_$AccountBalanceDtoImpl) _then)
+  __$$AccountBalanceDtoImplCopyWithImpl(_$AccountBalanceDtoImpl _value,
+      $Res Function(_$AccountBalanceDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -212,10 +214,12 @@ class _$AccountBalanceDtoImpl implements _AccountBalanceDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AccountBalanceDtoImpl &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.balance, balance) || other.balance == balance) &&
-            (identical(other.withholding, withholding) || other.withholding == withholding) &&
+            (identical(other.withholding, withholding) ||
+                other.withholding == withholding) &&
             (identical(other.overdraftLimit, overdraftLimit) ||
                 other.overdraftLimit == overdraftLimit) &&
             (identical(other.overdraftAmount, overdraftAmount) ||
@@ -226,14 +230,15 @@ class _$AccountBalanceDtoImpl implements _AccountBalanceDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, accountId, date, balance, withholding,
-      overdraftLimit, overdraftAmount, unpaidBalance);
+  int get hashCode => Object.hash(runtimeType, accountId, date, balance,
+      withholding, overdraftLimit, overdraftAmount, unpaidBalance);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AccountBalanceDtoImplCopyWith<_$AccountBalanceDtoImpl> get copyWith =>
-      __$$AccountBalanceDtoImplCopyWithImpl<_$AccountBalanceDtoImpl>(this, _$identity);
+      __$$AccountBalanceDtoImplCopyWithImpl<_$AccountBalanceDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -253,7 +258,8 @@ abstract class _AccountBalanceDto implements AccountBalanceDto {
       required final double? overdraftAmount,
       required final double? unpaidBalance}) = _$AccountBalanceDtoImpl;
 
-  factory _AccountBalanceDto.fromJson(Map<String, dynamic> json) = _$AccountBalanceDtoImpl.fromJson;
+  factory _AccountBalanceDto.fromJson(Map<String, dynamic> json) =
+      _$AccountBalanceDtoImpl.fromJson;
 
   @override
   int get accountId;

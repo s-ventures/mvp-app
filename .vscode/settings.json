@@ -7,10 +7,9 @@
     "source.organizeImports": "explicit"
   },
   "conventionalCommits.scopes": [
-    "contacts",
-    "erp/expenses",
     "erp/invoices",
+    "erp/expenses",
     "erp/quotes",
-    "router"
+    "daily_banking"
   ]
 }

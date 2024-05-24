@@ -53,12 +53,15 @@ mixin _$DetailedPeriodicOrderFailure {
 /// @nodoc
 abstract class $DetailedPeriodicOrderFailureCopyWith<$Res> {
   factory $DetailedPeriodicOrderFailureCopyWith(
-          DetailedPeriodicOrderFailure value, $Res Function(DetailedPeriodicOrderFailure) then) =
-      _$DetailedPeriodicOrderFailureCopyWithImpl<$Res, DetailedPeriodicOrderFailure>;
+          DetailedPeriodicOrderFailure value,
+          $Res Function(DetailedPeriodicOrderFailure) then) =
+      _$DetailedPeriodicOrderFailureCopyWithImpl<$Res,
+          DetailedPeriodicOrderFailure>;
 }
 
 /// @nodoc
-class _$DetailedPeriodicOrderFailureCopyWithImpl<$Res, $Val extends DetailedPeriodicOrderFailure>
+class _$DetailedPeriodicOrderFailureCopyWithImpl<$Res,
+        $Val extends DetailedPeriodicOrderFailure>
     implements $DetailedPeriodicOrderFailureCopyWith<$Res> {
   _$DetailedPeriodicOrderFailureCopyWithImpl(this._value, this._then);
 
@@ -70,7 +73,8 @@ class _$DetailedPeriodicOrderFailureCopyWithImpl<$Res, $Val extends DetailedPeri
 
 /// @nodoc
 abstract class _$$UnexpectedImplCopyWith<$Res> {
-  factory _$$UnexpectedImplCopyWith(_$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+  factory _$$UnexpectedImplCopyWith(
+          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
       __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
@@ -78,7 +82,8 @@ abstract class _$$UnexpectedImplCopyWith<$Res> {
 class __$$UnexpectedImplCopyWithImpl<$Res>
     extends _$DetailedPeriodicOrderFailureCopyWithImpl<$Res, _$UnexpectedImpl>
     implements _$$UnexpectedImplCopyWith<$Res> {
-  __$$UnexpectedImplCopyWithImpl(_$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
+  __$$UnexpectedImplCopyWithImpl(
+      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 

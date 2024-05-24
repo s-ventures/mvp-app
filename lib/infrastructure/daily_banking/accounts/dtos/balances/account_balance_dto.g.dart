@@ -6,7 +6,8 @@ part of 'account_balance_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AccountBalanceDtoImpl _$$AccountBalanceDtoImplFromJson(Map<String, dynamic> json) =>
+_$AccountBalanceDtoImpl _$$AccountBalanceDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$AccountBalanceDtoImpl(
       accountId: json['accountId'] as int,
       date: json['date'] as String?,
@@ -17,7 +18,8 @@ _$AccountBalanceDtoImpl _$$AccountBalanceDtoImplFromJson(Map<String, dynamic> js
       unpaidBalance: (json['unpaidBalance'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$AccountBalanceDtoImplToJson(_$AccountBalanceDtoImpl instance) =>
+Map<String, dynamic> _$$AccountBalanceDtoImplToJson(
+        _$AccountBalanceDtoImpl instance) =>
     <String, dynamic>{
       'accountId': instance.accountId,
       'date': instance.date,

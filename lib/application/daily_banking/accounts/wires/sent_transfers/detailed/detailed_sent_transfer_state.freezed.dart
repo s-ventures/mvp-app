@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedSentTransferState {
-  AsyncValue<DetailedSentTransfer> get sentTransfer => throw _privateConstructorUsedError;
+  AsyncValue<DetailedSentTransfer> get sentTransfer =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedSentTransferStateCopyWith<DetailedSentTransferState> get copyWith =>
@@ -25,15 +26,16 @@ mixin _$DetailedSentTransferState {
 
 /// @nodoc
 abstract class $DetailedSentTransferStateCopyWith<$Res> {
-  factory $DetailedSentTransferStateCopyWith(
-          DetailedSentTransferState value, $Res Function(DetailedSentTransferState) then) =
+  factory $DetailedSentTransferStateCopyWith(DetailedSentTransferState value,
+          $Res Function(DetailedSentTransferState) then) =
       _$DetailedSentTransferStateCopyWithImpl<$Res, DetailedSentTransferState>;
   @useResult
   $Res call({AsyncValue<DetailedSentTransfer> sentTransfer});
 }
 
 /// @nodoc
-class _$DetailedSentTransferStateCopyWithImpl<$Res, $Val extends DetailedSentTransferState>
+class _$DetailedSentTransferStateCopyWithImpl<$Res,
+        $Val extends DetailedSentTransferState>
     implements $DetailedSentTransferStateCopyWith<$Res> {
   _$DetailedSentTransferStateCopyWithImpl(this._value, this._then);
 
@@ -59,7 +61,8 @@ class _$DetailedSentTransferStateCopyWithImpl<$Res, $Val extends DetailedSentTra
 /// @nodoc
 abstract class _$$DetailedSentTransferStateImplCopyWith<$Res>
     implements $DetailedSentTransferStateCopyWith<$Res> {
-  factory _$$DetailedSentTransferStateImplCopyWith(_$DetailedSentTransferStateImpl value,
+  factory _$$DetailedSentTransferStateImplCopyWith(
+          _$DetailedSentTransferStateImpl value,
           $Res Function(_$DetailedSentTransferStateImpl) then) =
       __$$DetailedSentTransferStateImplCopyWithImpl<$Res>;
   @override
@@ -69,10 +72,12 @@ abstract class _$$DetailedSentTransferStateImplCopyWith<$Res>
 
 /// @nodoc
 class __$$DetailedSentTransferStateImplCopyWithImpl<$Res>
-    extends _$DetailedSentTransferStateCopyWithImpl<$Res, _$DetailedSentTransferStateImpl>
+    extends _$DetailedSentTransferStateCopyWithImpl<$Res,
+        _$DetailedSentTransferStateImpl>
     implements _$$DetailedSentTransferStateImplCopyWith<$Res> {
   __$$DetailedSentTransferStateImplCopyWithImpl(
-      _$DetailedSentTransferStateImpl _value, $Res Function(_$DetailedSentTransferStateImpl) _then)
+      _$DetailedSentTransferStateImpl _value,
+      $Res Function(_$DetailedSentTransferStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +114,8 @@ class _$DetailedSentTransferStateImpl implements _DetailedSentTransferState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedSentTransferStateImpl &&
-            (identical(other.sentTransfer, sentTransfer) || other.sentTransfer == sentTransfer));
+            (identical(other.sentTransfer, sentTransfer) ||
+                other.sentTransfer == sentTransfer));
   }
 
   @override
@@ -118,19 +124,20 @@ class _$DetailedSentTransferStateImpl implements _DetailedSentTransferState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedSentTransferStateImplCopyWith<_$DetailedSentTransferStateImpl> get copyWith =>
-      __$$DetailedSentTransferStateImplCopyWithImpl<_$DetailedSentTransferStateImpl>(
-          this, _$identity);
+  _$$DetailedSentTransferStateImplCopyWith<_$DetailedSentTransferStateImpl>
+      get copyWith => __$$DetailedSentTransferStateImplCopyWithImpl<
+          _$DetailedSentTransferStateImpl>(this, _$identity);
 }
 
 abstract class _DetailedSentTransferState implements DetailedSentTransferState {
-  const factory _DetailedSentTransferState({final AsyncValue<DetailedSentTransfer> sentTransfer}) =
+  const factory _DetailedSentTransferState(
+          {final AsyncValue<DetailedSentTransfer> sentTransfer}) =
       _$DetailedSentTransferStateImpl;
 
   @override
   AsyncValue<DetailedSentTransfer> get sentTransfer;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedSentTransferStateImplCopyWith<_$DetailedSentTransferStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DetailedSentTransferStateImplCopyWith<_$DetailedSentTransferStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,7 +6,8 @@ part of 'simplified_account_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SimplifiedAccountDtoImpl _$$SimplifiedAccountDtoImplFromJson(Map<String, dynamic> json) =>
+_$SimplifiedAccountDtoImpl _$$SimplifiedAccountDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$SimplifiedAccountDtoImpl(
       accountId: json['accountId'] as int,
       entity: json['entity'] as String?,
@@ -14,10 +15,12 @@ _$SimplifiedAccountDtoImpl _$$SimplifiedAccountDtoImplFromJson(Map<String, dynam
       status: $enumDecode(_$AccountStatusDtoEnumMap, json['status']),
       createDate: json['createDate'] as String?,
       currencyCode: json['currencyCode'] as String,
-      balance: AccountBalanceDto.fromJson(json['balance'] as Map<String, dynamic>),
+      balance:
+          AccountBalanceDto.fromJson(json['balance'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$SimplifiedAccountDtoImplToJson(_$SimplifiedAccountDtoImpl instance) =>
+Map<String, dynamic> _$$SimplifiedAccountDtoImplToJson(
+        _$SimplifiedAccountDtoImpl instance) =>
     <String, dynamic>{
       'accountId': instance.accountId,
       'entity': instance.entity,

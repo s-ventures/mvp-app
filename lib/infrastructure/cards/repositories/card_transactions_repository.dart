@@ -39,7 +39,6 @@ class CardTransactionsRepository implements ICardTransactionsRepository {
     required CardTransactionsFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = CardTransactionsFilterDto.fromDomain(
       filter: filter,
@@ -50,8 +49,6 @@ class CardTransactionsRepository implements ICardTransactionsRepository {
       final response = await _remoteDataSource.getSimplifiedCardTransactions(
         filterDto: filterDto,
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
-
       return right({
         for (final e in response.data)
           const DateConverter().fromJson(e.date): e.transactions.map((e) => e.toDomain()).toList(),

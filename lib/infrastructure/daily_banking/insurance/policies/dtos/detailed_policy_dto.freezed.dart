@@ -30,11 +30,13 @@ mixin _$DetailedPolicyDto {
   String get description => throw _privateConstructorUsedError;
   double get amount => throw _privateConstructorUsedError;
   double get lastInvoiceAmount => throw _privateConstructorUsedError;
-  PolicyPaymentPeriodicityDto get paymentPeriodicity => throw _privateConstructorUsedError;
+  PolicyPaymentPeriodicityDto get paymentPeriodicity =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailedPolicyDtoCopyWith<DetailedPolicyDto> get copyWith => throw _privateConstructorUsedError;
+  $DetailedPolicyDtoCopyWith<DetailedPolicyDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -126,9 +128,10 @@ class _$DetailedPolicyDtoCopyWithImpl<$Res, $Val extends DetailedPolicyDto>
 }
 
 /// @nodoc
-abstract class _$$DetailedPolicyDtoImplCopyWith<$Res> implements $DetailedPolicyDtoCopyWith<$Res> {
-  factory _$$DetailedPolicyDtoImplCopyWith(
-          _$DetailedPolicyDtoImpl value, $Res Function(_$DetailedPolicyDtoImpl) then) =
+abstract class _$$DetailedPolicyDtoImplCopyWith<$Res>
+    implements $DetailedPolicyDtoCopyWith<$Res> {
+  factory _$$DetailedPolicyDtoImplCopyWith(_$DetailedPolicyDtoImpl value,
+          $Res Function(_$DetailedPolicyDtoImpl) then) =
       __$$DetailedPolicyDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -149,8 +152,8 @@ abstract class _$$DetailedPolicyDtoImplCopyWith<$Res> implements $DetailedPolicy
 class __$$DetailedPolicyDtoImplCopyWithImpl<$Res>
     extends _$DetailedPolicyDtoCopyWithImpl<$Res, _$DetailedPolicyDtoImpl>
     implements _$$DetailedPolicyDtoImplCopyWith<$Res> {
-  __$$DetailedPolicyDtoImplCopyWithImpl(
-      _$DetailedPolicyDtoImpl _value, $Res Function(_$DetailedPolicyDtoImpl) _then)
+  __$$DetailedPolicyDtoImplCopyWithImpl(_$DetailedPolicyDtoImpl _value,
+      $Res Function(_$DetailedPolicyDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -262,14 +265,17 @@ class _$DetailedPolicyDtoImpl implements _DetailedPolicyDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedPolicyDtoImpl &&
-            (identical(other.insuranceId, insuranceId) || other.insuranceId == insuranceId) &&
+            (identical(other.insuranceId, insuranceId) ||
+                other.insuranceId == insuranceId) &&
             (identical(other.policy, policy) || other.policy == policy) &&
             (identical(other.certificateNumber, certificateNumber) ||
                 other.certificateNumber == certificateNumber) &&
-            (identical(other.createDate, createDate) || other.createDate == createDate) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.description, description) || other.description == description) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.lastInvoiceAmount, lastInvoiceAmount) ||
                 other.lastInvoiceAmount == lastInvoiceAmount) &&
@@ -279,14 +285,25 @@ class _$DetailedPolicyDtoImpl implements _DetailedPolicyDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, insuranceId, policy, certificateNumber, createDate,
-      endDate, status, description, amount, lastInvoiceAmount, paymentPeriodicity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      insuranceId,
+      policy,
+      certificateNumber,
+      createDate,
+      endDate,
+      status,
+      description,
+      amount,
+      lastInvoiceAmount,
+      paymentPeriodicity);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedPolicyDtoImplCopyWith<_$DetailedPolicyDtoImpl> get copyWith =>
-      __$$DetailedPolicyDtoImplCopyWithImpl<_$DetailedPolicyDtoImpl>(this, _$identity);
+      __$$DetailedPolicyDtoImplCopyWithImpl<_$DetailedPolicyDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -298,18 +315,20 @@ class _$DetailedPolicyDtoImpl implements _DetailedPolicyDto {
 
 abstract class _DetailedPolicyDto implements DetailedPolicyDto {
   const factory _DetailedPolicyDto(
-      {required final int insuranceId,
-      required final String policy,
-      required final String certificateNumber,
-      required final DateTime createDate,
-      required final DateTime? endDate,
-      required final String status,
-      required final String description,
-      required final double amount,
-      required final double lastInvoiceAmount,
-      required final PolicyPaymentPeriodicityDto paymentPeriodicity}) = _$DetailedPolicyDtoImpl;
+          {required final int insuranceId,
+          required final String policy,
+          required final String certificateNumber,
+          required final DateTime createDate,
+          required final DateTime? endDate,
+          required final String status,
+          required final String description,
+          required final double amount,
+          required final double lastInvoiceAmount,
+          required final PolicyPaymentPeriodicityDto paymentPeriodicity}) =
+      _$DetailedPolicyDtoImpl;
 
-  factory _DetailedPolicyDto.fromJson(Map<String, dynamic> json) = _$DetailedPolicyDtoImpl.fromJson;
+  factory _DetailedPolicyDto.fromJson(Map<String, dynamic> json) =
+      _$DetailedPolicyDtoImpl.fromJson;
 
   @override
   int get insuranceId;

@@ -12,7 +12,7 @@ enum TransactionOperationType {
 
 extension TransactionOperationTypeX on TransactionOperationType {
   TransactionOperationTypeDto toDto(double? amountFrom, double? amountTo) => switch (this) {
-        TransactionOperationType.all => amountFrom != null || amountTo != null
+        TransactionOperationType.all => amountFrom == null || amountTo == null
             ? TransactionOperationTypeDto.timeline
             : TransactionOperationTypeDto.creditDebit,
         TransactionOperationType.credit => TransactionOperationTypeDto.credit,

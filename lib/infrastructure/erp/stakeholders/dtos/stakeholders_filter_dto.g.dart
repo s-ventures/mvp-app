@@ -6,18 +6,23 @@ part of 'stakeholders_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StakeholdersFilterDto _$StakeholdersFilterDtoFromJson(Map<String, dynamic> json) =>
+StakeholdersFilterDto _$StakeholdersFilterDtoFromJson(
+        Map<String, dynamic> json) =>
     StakeholdersFilterDto(
       stakeholderId: json['stakeholderId'] as int?,
-      personTypeCode: $enumDecodeNullable(_$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
+      personTypeCode: $enumDecodeNullable(
+          _$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
       fullName: json['fullName'] as String?,
-      languageCodeType: $enumDecodeNullable(_$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
-      relationType: $enumDecodeNullable(_$RelationTypeDtoEnumMap, json['relationType']),
+      languageCodeType: $enumDecodeNullable(
+          _$LanguageCodeTypeDtoEnumMap, json['languageCodeType']),
+      relationType:
+          $enumDecodeNullable(_$RelationTypeDtoEnumMap, json['relationType']),
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['createDateFrom'], const DateConverter().fromJson),
       createDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['createDateTo'], const DateConverter().fromJson),
-      documentTypeCode: $enumDecodeNullable(_$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
+      documentTypeCode: $enumDecodeNullable(
+          _$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
       documentNumber: json['documentNumber'] as String?,
       additionalInfo: json['additionalInfo'] as String?,
       favorite: json['favorite'] as bool?,
@@ -25,7 +30,8 @@ StakeholdersFilterDto _$StakeholdersFilterDtoFromJson(Map<String, dynamic> json)
       pageSize: json['pageSize'] as int? ?? 10,
     );
 
-Map<String, dynamic> _$StakeholdersFilterDtoToJson(StakeholdersFilterDto instance) {
+Map<String, dynamic> _$StakeholdersFilterDtoToJson(
+    StakeholdersFilterDto instance) {
   final val = <String, dynamic>{
     'pageSize': instance.pageSize,
     'pageNumber': instance.pageNumber,
@@ -38,17 +44,22 @@ Map<String, dynamic> _$StakeholdersFilterDtoToJson(StakeholdersFilterDto instanc
   }
 
   writeNotNull('stakeholderId', instance.stakeholderId);
-  writeNotNull('personTypeCode', _$PersonTypeCodeDtoEnumMap[instance.personTypeCode]);
+  writeNotNull(
+      'personTypeCode', _$PersonTypeCodeDtoEnumMap[instance.personTypeCode]);
   writeNotNull('fullName', instance.fullName);
-  writeNotNull('languageCodeType', _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
+  writeNotNull('languageCodeType',
+      _$LanguageCodeTypeDtoEnumMap[instance.languageCodeType]);
   writeNotNull('relationType', _$RelationTypeDtoEnumMap[instance.relationType]);
   writeNotNull(
       'createDateFrom',
       _$JsonConverterToJson<String, DateTime>(
           instance.createDateFrom, const DateConverter().toJson));
-  writeNotNull('createDateTo',
-      _$JsonConverterToJson<String, DateTime>(instance.createDateTo, const DateConverter().toJson));
-  writeNotNull('documentTypeCode', _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
+  writeNotNull(
+      'createDateTo',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.createDateTo, const DateConverter().toJson));
+  writeNotNull('documentTypeCode',
+      _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]);
   writeNotNull('documentNumber', instance.documentNumber);
   writeNotNull('additionalInfo', instance.additionalInfo);
   writeNotNull('favorite', instance.favorite);

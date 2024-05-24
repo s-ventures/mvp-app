@@ -16,20 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedAccountTransactionState {
-  AsyncValue<DetailedAccountTransaction> get transaction => throw _privateConstructorUsedError;
+  AsyncValue<DetailedAccountTransaction> get transaction =>
+      throw _privateConstructorUsedError;
   List<FileAttachment> get attachments => throw _privateConstructorUsedError;
-  SingleAccessValue<UploadEvent> get uploadEvent => throw _privateConstructorUsedError;
+  SingleAccessValue<UploadEvent> get uploadEvent =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedAccountTransactionStateCopyWith<DetailedAccountTransactionState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DetailedAccountTransactionStateCopyWith<DetailedAccountTransactionState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedAccountTransactionStateCopyWith<$Res> {
-  factory $DetailedAccountTransactionStateCopyWith(DetailedAccountTransactionState value,
+  factory $DetailedAccountTransactionStateCopyWith(
+          DetailedAccountTransactionState value,
           $Res Function(DetailedAccountTransactionState) then) =
-      _$DetailedAccountTransactionStateCopyWithImpl<$Res, DetailedAccountTransactionState>;
+      _$DetailedAccountTransactionStateCopyWithImpl<$Res,
+          DetailedAccountTransactionState>;
   @useResult
   $Res call(
       {AsyncValue<DetailedAccountTransaction> transaction,
@@ -92,7 +96,8 @@ class __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>
     extends _$DetailedAccountTransactionStateCopyWithImpl<$Res,
         _$DetailedAccountTransactionStateImpl>
     implements _$$DetailedAccountTransactionStateImplCopyWith<$Res> {
-  __$$DetailedAccountTransactionStateImplCopyWithImpl(_$DetailedAccountTransactionStateImpl _value,
+  __$$DetailedAccountTransactionStateImplCopyWithImpl(
+      _$DetailedAccountTransactionStateImpl _value,
       $Res Function(_$DetailedAccountTransactionStateImpl) _then)
       : super(_value, _then);
 
@@ -122,7 +127,8 @@ class __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DetailedAccountTransactionStateImpl extends _DetailedAccountTransactionState {
+class _$DetailedAccountTransactionStateImpl
+    extends _DetailedAccountTransactionState {
   const _$DetailedAccountTransactionStateImpl(
       {this.transaction = const AsyncLoading<DetailedAccountTransaction>(),
       final List<FileAttachment> attachments = const [],
@@ -156,29 +162,34 @@ class _$DetailedAccountTransactionStateImpl extends _DetailedAccountTransactionS
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedAccountTransactionStateImpl &&
-            (identical(other.transaction, transaction) || other.transaction == transaction) &&
-            const DeepCollectionEquality().equals(other._attachments, _attachments) &&
-            (identical(other.uploadEvent, uploadEvent) || other.uploadEvent == uploadEvent));
+            (identical(other.transaction, transaction) ||
+                other.transaction == transaction) &&
+            const DeepCollectionEquality()
+                .equals(other._attachments, _attachments) &&
+            (identical(other.uploadEvent, uploadEvent) ||
+                other.uploadEvent == uploadEvent));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, transaction, const DeepCollectionEquality().hash(_attachments), uploadEvent);
+  int get hashCode => Object.hash(runtimeType, transaction,
+      const DeepCollectionEquality().hash(_attachments), uploadEvent);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedAccountTransactionStateImplCopyWith<_$DetailedAccountTransactionStateImpl>
+  _$$DetailedAccountTransactionStateImplCopyWith<
+          _$DetailedAccountTransactionStateImpl>
       get copyWith => __$$DetailedAccountTransactionStateImplCopyWithImpl<
           _$DetailedAccountTransactionStateImpl>(this, _$identity);
 }
 
-abstract class _DetailedAccountTransactionState extends DetailedAccountTransactionState
-    implements UploadAttachmentState {
+abstract class _DetailedAccountTransactionState
+    extends DetailedAccountTransactionState implements UploadAttachmentState {
   const factory _DetailedAccountTransactionState(
-      {final AsyncValue<DetailedAccountTransaction> transaction,
-      final List<FileAttachment> attachments,
-      final SingleAccessValue<UploadEvent> uploadEvent}) = _$DetailedAccountTransactionStateImpl;
+          {final AsyncValue<DetailedAccountTransaction> transaction,
+          final List<FileAttachment> attachments,
+          final SingleAccessValue<UploadEvent> uploadEvent}) =
+      _$DetailedAccountTransactionStateImpl;
   const _DetailedAccountTransactionState._() : super._();
 
   @override
@@ -189,6 +200,7 @@ abstract class _DetailedAccountTransactionState extends DetailedAccountTransacti
   SingleAccessValue<UploadEvent> get uploadEvent;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedAccountTransactionStateImplCopyWith<_$DetailedAccountTransactionStateImpl>
+  _$$DetailedAccountTransactionStateImplCopyWith<
+          _$DetailedAccountTransactionStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -37,12 +37,14 @@ mixin _$DetailedClaimDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailedClaimDtoCopyWith<DetailedClaimDto> get copyWith => throw _privateConstructorUsedError;
+  $DetailedClaimDtoCopyWith<DetailedClaimDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedClaimDtoCopyWith<$Res> {
-  factory $DetailedClaimDtoCopyWith(DetailedClaimDto value, $Res Function(DetailedClaimDto) then) =
+  factory $DetailedClaimDtoCopyWith(
+          DetailedClaimDto value, $Res Function(DetailedClaimDto) then) =
       _$DetailedClaimDtoCopyWithImpl<$Res, DetailedClaimDto>;
   @useResult
   $Res call(
@@ -152,9 +154,10 @@ class _$DetailedClaimDtoCopyWithImpl<$Res, $Val extends DetailedClaimDto>
 }
 
 /// @nodoc
-abstract class _$$DetailedClaimDtoImplCopyWith<$Res> implements $DetailedClaimDtoCopyWith<$Res> {
-  factory _$$DetailedClaimDtoImplCopyWith(
-          _$DetailedClaimDtoImpl value, $Res Function(_$DetailedClaimDtoImpl) then) =
+abstract class _$$DetailedClaimDtoImplCopyWith<$Res>
+    implements $DetailedClaimDtoCopyWith<$Res> {
+  factory _$$DetailedClaimDtoImplCopyWith(_$DetailedClaimDtoImpl value,
+          $Res Function(_$DetailedClaimDtoImpl) then) =
       __$$DetailedClaimDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -179,8 +182,8 @@ abstract class _$$DetailedClaimDtoImplCopyWith<$Res> implements $DetailedClaimDt
 class __$$DetailedClaimDtoImplCopyWithImpl<$Res>
     extends _$DetailedClaimDtoCopyWithImpl<$Res, _$DetailedClaimDtoImpl>
     implements _$$DetailedClaimDtoImplCopyWith<$Res> {
-  __$$DetailedClaimDtoImplCopyWithImpl(
-      _$DetailedClaimDtoImpl _value, $Res Function(_$DetailedClaimDtoImpl) _then)
+  __$$DetailedClaimDtoImplCopyWithImpl(_$DetailedClaimDtoImpl _value,
+      $Res Function(_$DetailedClaimDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -324,20 +327,26 @@ class _$DetailedClaimDtoImpl implements _DetailedClaimDto {
         (other.runtimeType == runtimeType &&
             other is _$DetailedClaimDtoImpl &&
             (identical(other.claimId, claimId) || other.claimId == claimId) &&
-            (identical(other.insuranceId, insuranceId) || other.insuranceId == insuranceId) &&
+            (identical(other.insuranceId, insuranceId) ||
+                other.insuranceId == insuranceId) &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.dossier, dossier) || other.dossier == dossier) &&
-            (identical(other.createDate, createDate) || other.createDate == createDate) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.riskType, riskType) || other.riskType == riskType) &&
+            (identical(other.riskType, riskType) ||
+                other.riskType == riskType) &&
             (identical(other.reason, reason) || other.reason == reason) &&
-            (identical(other.riskLocation, riskLocation) || other.riskLocation == riskLocation) &&
+            (identical(other.riskLocation, riskLocation) ||
+                other.riskLocation == riskLocation) &&
             (identical(other.processStartDate, processStartDate) ||
                 other.processStartDate == processStartDate) &&
             (identical(other.processEndDate, processEndDate) ||
                 other.processEndDate == processEndDate) &&
-            (identical(other.agentName, agentName) || other.agentName == agentName) &&
-            (identical(other.agentEmail, agentEmail) || other.agentEmail == agentEmail) &&
+            (identical(other.agentName, agentName) ||
+                other.agentName == agentName) &&
+            (identical(other.agentEmail, agentEmail) ||
+                other.agentEmail == agentEmail) &&
             (identical(other.agentTelephone, agentTelephone) ||
                 other.agentTelephone == agentTelephone));
   }
@@ -365,7 +374,8 @@ class _$DetailedClaimDtoImpl implements _DetailedClaimDto {
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedClaimDtoImplCopyWith<_$DetailedClaimDtoImpl> get copyWith =>
-      __$$DetailedClaimDtoImplCopyWithImpl<_$DetailedClaimDtoImpl>(this, _$identity);
+      __$$DetailedClaimDtoImplCopyWithImpl<_$DetailedClaimDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -392,7 +402,8 @@ abstract class _DetailedClaimDto implements DetailedClaimDto {
       required final String agentEmail,
       required final String agentTelephone}) = _$DetailedClaimDtoImpl;
 
-  factory _DetailedClaimDto.fromJson(Map<String, dynamic> json) = _$DetailedClaimDtoImpl.fromJson;
+  factory _DetailedClaimDto.fromJson(Map<String, dynamic> json) =
+      _$DetailedClaimDtoImpl.fromJson;
 
   @override
   int get claimId;

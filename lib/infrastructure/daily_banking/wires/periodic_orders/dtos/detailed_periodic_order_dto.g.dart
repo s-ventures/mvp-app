@@ -6,7 +6,8 @@ part of 'detailed_periodic_order_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DetailedPeriodicOrderDtoImpl _$$DetailedPeriodicOrderDtoImplFromJson(Map<String, dynamic> json) =>
+_$DetailedPeriodicOrderDtoImpl _$$DetailedPeriodicOrderDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$DetailedPeriodicOrderDtoImpl(
       periodicTransferId: json['periodicTransferId'] as int,
       accountId: json['accountId'] as int,
@@ -14,12 +15,16 @@ _$DetailedPeriodicOrderDtoImpl _$$DetailedPeriodicOrderDtoImplFromJson(Map<Strin
       beneficiaryAccount: json['beneficiaryAccount'] as String,
       beneficiaryName: json['beneficiaryName'] as String,
       beneficiaryAddress: json['beneficiaryAddress'] as String?,
-      beneficiaryCountryCode2char: json['beneficiaryCountryCode2char'] as String,
+      beneficiaryCountryCode2char:
+          json['beneficiaryCountryCode2char'] as String,
       amount: (json['amount'] as num).toDouble(),
       currencyCode: json['currencyCode'] as String,
       startDate: DateTime.parse(json['startDate'] as String),
-      endDate: json['endDate'] == null ? null : DateTime.parse(json['endDate'] as String),
-      frecuency: $enumDecode(_$PeriodicOrderFrecuencyTypeDtoEnumMap, json['frecuency']),
+      endDate: json['endDate'] == null
+          ? null
+          : DateTime.parse(json['endDate'] as String),
+      frecuency: $enumDecode(
+          _$PeriodicOrderFrecuencyTypeDtoEnumMap, json['frecuency']),
       status: $enumDecode(_$PeriodicOrderStatusTypeDtoEnumMap, json['status']),
       baasTransferId: json['baasTransferId'] as String,
       concept: json['concept'] as String?,

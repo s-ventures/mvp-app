@@ -6,7 +6,8 @@ part of 'detailed_card_balance_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DetailedCardBalanceDtoImpl _$$DetailedCardBalanceDtoImplFromJson(Map<String, dynamic> json) =>
+_$DetailedCardBalanceDtoImpl _$$DetailedCardBalanceDtoImplFromJson(
+        Map<String, dynamic> json) =>
     _$DetailedCardBalanceDtoImpl(
       cardId: json['cardId'] as int,
       date: json['date'] as String,
@@ -18,7 +19,8 @@ _$DetailedCardBalanceDtoImpl _$$DetailedCardBalanceDtoImplFromJson(Map<String, d
       posMonthlyLimit: (json['posMonthlyLimit'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$DetailedCardBalanceDtoImplToJson(_$DetailedCardBalanceDtoImpl instance) =>
+Map<String, dynamic> _$$DetailedCardBalanceDtoImplToJson(
+        _$DetailedCardBalanceDtoImpl instance) =>
     <String, dynamic>{
       'cardId': instance.cardId,
       'date': instance.date,

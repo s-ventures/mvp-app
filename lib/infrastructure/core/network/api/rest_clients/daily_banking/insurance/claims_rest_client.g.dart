@@ -25,8 +25,8 @@ class _ClaimsRestClient implements ClaimsRestClient {
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<PaginatedResponse<SimplifiedClaimDto>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginatedResponse<SimplifiedClaimDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -58,22 +58,23 @@ class _ClaimsRestClient implements ClaimsRestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<DetailedClaimDto>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<DetailedClaimDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-        .compose(
-          _dio.options,
-          '/insurance/claims/v1/${insuranceId}/details/${claimId}',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
+            .compose(
+              _dio.options,
+              '/insurance/claims/v1/${insuranceId}/details/${claimId}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = DetailedClaimDto.fromJson(_result.data!);
     return value;
   }
