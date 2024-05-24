@@ -5,14 +5,15 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/fi
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_repository.dart';
 
 final accountTransactionsPaginationRepositoryProvider =
-    Provider<AccountTransactionsPaginationRepository>(
-  (ref) =>
-      AccountTransactionsPaginationRepository(ref.watch(accountTransactionsRepositoryProvider)),
+    Provider<AccountTransactionsFilteredPaginationRepository>(
+  (ref) => AccountTransactionsFilteredPaginationRepository(
+    ref.watch(accountTransactionsRepositoryProvider),
+  ),
 );
 
-class AccountTransactionsPaginationRepository extends FilteredPaginationMapRepository<DateTime,
-    List<SimplifiedAccountTransaction>, AccountTransactionsFilter> {
-  AccountTransactionsPaginationRepository(this._transactionRepository);
+class AccountTransactionsFilteredPaginationRepository extends FilteredPaginationMapRepository<
+    DateTime, List<SimplifiedAccountTransaction>, AccountTransactionsFilter> {
+  AccountTransactionsFilteredPaginationRepository(this._transactionRepository);
 
   final AccountTransactionsRepository _transactionRepository;
 

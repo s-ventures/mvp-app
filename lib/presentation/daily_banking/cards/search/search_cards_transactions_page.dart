@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/filter/filter_simplified_card_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/search_bar.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_list.dart';
 import 'package:rxdart/rxdart.dart';
@@ -32,7 +32,7 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
 
     _debounceSubscription = _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
       (text) {
-        ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier).setSearch(text);
+        ref.read(simplifiedCardTransactionsControllerProvider.notifier).setSearch(text);
       },
     );
   }
@@ -48,7 +48,7 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
 
   @override
   Widget build(BuildContext context) {
-    final controller = ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
+    final controller = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
 
     return Scaffold(
       body: NestedScrollView(

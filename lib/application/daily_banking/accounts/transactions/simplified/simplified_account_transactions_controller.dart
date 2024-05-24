@@ -7,7 +7,7 @@ import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_ty
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_filtered_pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
 
 final simplifiedAccountTransactionsControllerProvider = StateNotifierProvider<
@@ -28,7 +28,7 @@ class SimplifiedAccountTransactionsController
     this._accountsRepository,
   ) : super(const SimplifiedAccountTransactionsState());
 
-  final AccountTransactionsPaginationRepository _accountsTransactionPaginationRepository;
+  final AccountTransactionsFilteredPaginationRepository _accountsTransactionPaginationRepository;
   final AccountsRepository _accountsRepository;
 
   Future<void> init() async {
