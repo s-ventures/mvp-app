@@ -54,7 +54,7 @@ class _AccountListSliverPinnedHeaderState extends ConsumerState<AccountListSlive
               },
             ),
           ) ??
-          const CircularProgressIndicator.adaptive(),
+          const CustomLoader(),
     );
   }
 }

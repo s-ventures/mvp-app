@@ -129,7 +129,9 @@ class _ClaimsState extends ConsumerState<Claims> {
                   claims: data.value,
                 ),
               ) ??
-              const Center(child: CircularProgressIndicator.adaptive()),
+              const Center(
+                child: CustomLoader(),
+              ),
         ],
       ),
     );

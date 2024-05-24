@@ -277,7 +277,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
             ),
           ),
           loading: () => const Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoader(),
           ),
         ),
       ),

@@ -104,7 +104,9 @@ class _ContactsListState extends ConsumerState<ContactsList> {
                   ),
                 ),
               ),
-              loading: () => const Center(child: CircularProgressIndicator.adaptive()),
+              loading: () => const Center(
+                child: CustomLoader(),
+              ),
             ),
           ],
         ),

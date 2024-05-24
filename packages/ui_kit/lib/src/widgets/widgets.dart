@@ -15,6 +15,7 @@ export 'custom_card.dart';
 export 'custom_chip.dart';
 export 'custom_divider.dart';
 export 'custom_dropdown.dart';
+export 'custom_loader.dart';
 export 'custom_popup_menu.dart';
 export 'daily_banking/amount_range_filter_list_item.dart';
 export 'daily_banking/category_list_tile.dart';
