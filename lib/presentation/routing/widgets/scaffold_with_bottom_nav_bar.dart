@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -35,7 +36,7 @@ class ScaffoldWithBottomNavBar extends ConsumerWidget {
     } else if (index == 2) {
       context.goNamed(AppRoute.contacts.name);
     } else if (index == 3) {
-      context.goNamed(AppRoute.analitica.name);
+      context.goNamed(AppRoute.analytics.name);
     } else if (index == 4) {
       context.goNamed(AppRoute.protection.name);
     } else if (index == 5) {
@@ -64,35 +65,35 @@ class ScaffoldWithBottomNavBar extends ConsumerWidget {
                 IconAssets.home,
                 color: selectedIndex == 0 ? selectedColor : unselectedColor,
               ),
-              label: 'Inicio',
+              label: context.loc.commonBottomNavigationHome,
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.file,
                 color: selectedIndex == 1 ? selectedColor : unselectedColor,
               ),
-              label: 'Negocio',
+              label: context.loc.commonBottomNavigationBusiness,
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.addressBook,
                 color: selectedIndex == 2 ? selectedColor : unselectedColor,
               ),
-              label: 'Agenda',
+              label: context.loc.commonBottomNavigationAgenda,
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.charm,
                 color: selectedIndex == 3 ? selectedColor : unselectedColor,
               ),
-              label: 'Analítica',
+              label: context.loc.commonBottomNavigationAnalitycs,
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.security,
                 color: selectedIndex == 4 ? selectedColor : unselectedColor,
               ),
-              label: 'Protección',
+              label: context.loc.commonBottomNavigationProtection,
             ),
           ],
         ),

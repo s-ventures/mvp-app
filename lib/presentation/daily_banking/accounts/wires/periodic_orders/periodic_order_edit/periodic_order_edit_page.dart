@@ -146,7 +146,7 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
             ),
           ),
           loading: () => const Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoader(),
           ),
         ),
       ),

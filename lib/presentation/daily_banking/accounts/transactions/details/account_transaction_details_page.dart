@@ -174,7 +174,7 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
             ),
           ),
           loading: () => const Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoader(),
           ),
         ),
       ),

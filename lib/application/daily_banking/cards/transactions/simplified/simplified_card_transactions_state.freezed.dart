@@ -18,6 +18,14 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimplifiedCardTransactionsState {
   AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> get transactions =>
       throw _privateConstructorUsedError;
+  String get search => throw _privateConstructorUsedError;
+  DateTime? get startDate => throw _privateConstructorUsedError;
+  DateTime? get endDate => throw _privateConstructorUsedError;
+  double? get amountFrom => throw _privateConstructorUsedError;
+  double? get amountTo => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
+  TransactionOperationType get operationType =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedCardTransactionsStateCopyWith<SimplifiedCardTransactionsState>
@@ -33,8 +41,14 @@ abstract class $SimplifiedCardTransactionsStateCopyWith<$Res> {
           SimplifiedCardTransactionsState>;
   @useResult
   $Res call(
-      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
-          transactions});
+      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions,
+      String search,
+      DateTime? startDate,
+      DateTime? endDate,
+      double? amountFrom,
+      double? amountTo,
+      String category,
+      TransactionOperationType operationType});
 }
 
 /// @nodoc
@@ -52,12 +66,47 @@ class _$SimplifiedCardTransactionsStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? transactions = null,
+    Object? search = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? amountFrom = freezed,
+    Object? amountTo = freezed,
+    Object? category = null,
+    Object? operationType = null,
   }) {
     return _then(_value.copyWith(
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>,
+      search: null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      amountFrom: freezed == amountFrom
+          ? _value.amountFrom
+          : amountFrom // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amountTo: freezed == amountTo
+          ? _value.amountTo
+          : amountTo // ignore: cast_nullable_to_non_nullable
+              as double?,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      operationType: null == operationType
+          ? _value.operationType
+          : operationType // ignore: cast_nullable_to_non_nullable
+              as TransactionOperationType,
     ) as $Val);
   }
 }
@@ -72,8 +121,14 @@ abstract class _$$SimplifiedCardTransactionsStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
-          transactions});
+      {AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions,
+      String search,
+      DateTime? startDate,
+      DateTime? endDate,
+      double? amountFrom,
+      double? amountTo,
+      String category,
+      TransactionOperationType operationType});
 }
 
 /// @nodoc
@@ -90,12 +145,47 @@ class __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? transactions = null,
+    Object? search = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? amountFrom = freezed,
+    Object? amountTo = freezed,
+    Object? category = null,
+    Object? operationType = null,
   }) {
     return _then(_$SimplifiedCardTransactionsStateImpl(
       transactions: null == transactions
           ? _value.transactions
           : transactions // ignore: cast_nullable_to_non_nullable
               as AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>,
+      search: null == search
+          ? _value.search
+          : search // ignore: cast_nullable_to_non_nullable
+              as String,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      amountFrom: freezed == amountFrom
+          ? _value.amountFrom
+          : amountFrom // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amountTo: freezed == amountTo
+          ? _value.amountTo
+          : amountTo // ignore: cast_nullable_to_non_nullable
+              as double?,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      operationType: null == operationType
+          ? _value.operationType
+          : operationType // ignore: cast_nullable_to_non_nullable
+              as TransactionOperationType,
     ));
   }
 }
@@ -105,16 +195,40 @@ class __$$SimplifiedCardTransactionsStateImplCopyWithImpl<$Res>
 class _$SimplifiedCardTransactionsStateImpl
     implements _SimplifiedCardTransactionsState {
   const _$SimplifiedCardTransactionsStateImpl(
-      {this.transactions = const AsyncLoading<
-          Map<DateTime, List<SimplifiedCardTransaction>>>()});
+      {this.transactions =
+          const AsyncLoading<Map<DateTime, List<SimplifiedCardTransaction>>>(),
+      this.search = '',
+      this.startDate,
+      this.endDate,
+      this.amountFrom,
+      this.amountTo,
+      this.category = 'Entretenimiento',
+      this.operationType = TransactionOperationType.all});
 
   @override
   @JsonKey()
   final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions;
+  @override
+  @JsonKey()
+  final String search;
+  @override
+  final DateTime? startDate;
+  @override
+  final DateTime? endDate;
+  @override
+  final double? amountFrom;
+  @override
+  final double? amountTo;
+  @override
+  @JsonKey()
+  final String category;
+  @override
+  @JsonKey()
+  final TransactionOperationType operationType;
 
   @override
   String toString() {
-    return 'SimplifiedCardTransactionsState(transactions: $transactions)';
+    return 'SimplifiedCardTransactionsState(transactions: $transactions, search: $search, startDate: $startDate, endDate: $endDate, amountFrom: $amountFrom, amountTo: $amountTo, category: $category, operationType: $operationType)';
   }
 
   @override
@@ -123,11 +237,24 @@ class _$SimplifiedCardTransactionsStateImpl
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedCardTransactionsStateImpl &&
             (identical(other.transactions, transactions) ||
-                other.transactions == transactions));
+                other.transactions == transactions) &&
+            (identical(other.search, search) || other.search == search) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.amountFrom, amountFrom) ||
+                other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) ||
+                other.amountTo == amountTo) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.operationType, operationType) ||
+                other.operationType == operationType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transactions);
+  int get hashCode => Object.hash(runtimeType, transactions, search, startDate,
+      endDate, amountFrom, amountTo, category, operationType);
 
   @JsonKey(ignore: true)
   @override
@@ -141,11 +268,33 @@ class _$SimplifiedCardTransactionsStateImpl
 abstract class _SimplifiedCardTransactionsState
     implements SimplifiedCardTransactionsState {
   const factory _SimplifiedCardTransactionsState(
-      {final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
-          transactions}) = _$SimplifiedCardTransactionsStateImpl;
+          {final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>>
+              transactions,
+          final String search,
+          final DateTime? startDate,
+          final DateTime? endDate,
+          final double? amountFrom,
+          final double? amountTo,
+          final String category,
+          final TransactionOperationType operationType}) =
+      _$SimplifiedCardTransactionsStateImpl;
 
   @override
   AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> get transactions;
+  @override
+  String get search;
+  @override
+  DateTime? get startDate;
+  @override
+  DateTime? get endDate;
+  @override
+  double? get amountFrom;
+  @override
+  double? get amountTo;
+  @override
+  String get category;
+  @override
+  TransactionOperationType get operationType;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedCardTransactionsStateImplCopyWith<

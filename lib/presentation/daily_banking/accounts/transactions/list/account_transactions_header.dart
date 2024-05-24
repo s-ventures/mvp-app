@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/filter_account_transactions_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/filter_list.dart';
@@ -17,22 +17,14 @@ class AccountTransactionsHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.read(filterSimplifiedAccountTransactionsControllerProvider.notifier);
-    final stateDate = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.startDate),
-    );
-    final endDate = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.endDate),
-    );
-    final amountFrom = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountFrom),
-    );
-    final amountTo = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.amountTo),
-    );
-    final operationType = ref.watch(
-      filterSimplifiedAccountTransactionsControllerProvider.select((value) => value.operationType),
-    );
+    final controller = ref.read(simplifiedAccountTransactionsControllerProvider.notifier);
+    final state = ref.watch(simplifiedAccountTransactionsControllerProvider);
+
+    final stateDate = state.startDate;
+    final endDate = state.endDate;
+    final amountFrom = state.amountFrom;
+    final amountTo = state.amountTo;
+    final operationType = state.operationType;
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||

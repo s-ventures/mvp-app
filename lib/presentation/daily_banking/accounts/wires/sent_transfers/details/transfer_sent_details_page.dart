@@ -144,7 +144,7 @@ class _TransferSentDetailsPageState extends ConsumerState<TransferSentDetailsPag
               ),
             ),
             loading: () => const Center(
-              child: CircularProgressIndicator(),
+              child: CustomLoader(),
             ),
           ),
         ),

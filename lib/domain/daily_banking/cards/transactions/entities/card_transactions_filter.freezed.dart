@@ -276,7 +276,8 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
           _$CardTransactionsFilterImpl>(this, _$identity);
 }
 
-abstract class _CardTransactionsFilter implements CardTransactionsFilter {
+abstract class _CardTransactionsFilter
+    implements CardTransactionsFilter, PaginationFilter {
   const factory _CardTransactionsFilter(
       {required final List<UniqueId> cardContractIds,
       required final List<UniqueId> cardIds,

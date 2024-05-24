@@ -23,23 +23,23 @@ enum AppRoute {
   dailyBankingTransfersReceivedDetails('transfers-received-details'),
   dailyBankingNationalTransfers('national-transfer'),
   dailyBankingNationalTransferResume('resume'),
-  dailyBankingNationalTransferSignature('signature'),
+  dailyBankingNationalTransferOtp('otp'),
   dailyBankingNationalTransferCertificate('certificate'),
   dailyBankingScheduledTransfers('scheduled-transfers'),
   dailyBankingScheduledTransferDetails('details'),
   dailyBankingScheduledTransferEdit('edit'),
-  dailyBankingScheduledTransferSignature('signature'),
+  dailyBankingScheduledTransferOtp('otp'),
   dailyBankingInternationalTransfers('international-transfer'),
   dailyBankingInternationalTransferResume('resume'),
-  dailyBankingInternationalTransferSignature('signature'),
+  dailyBankingInternationalTransferOtp('otp'),
   dailyBankingInternationalTransferCertificate('certificate'),
   dailyBankingSoonPay('soon-pay'),
   dailyBankingSoonPayContact('contact'),
-  dailyBankingSoonPayOTP('otp'),
+  dailyBankingSoonPayOtp('otp'),
   dailyBankingCertsAndDocuments('certs-and-documents'),
   dailyBankingCertsAndDocumentsRequest('request'),
   dailyBankingCertsAndDocumentsRequestPayment('payment'),
-  dailyBankingCertsAndDocumentsRequestPaymentOTP('otp'),
+  dailyBankingCertsAndDocumentsRequestPaymentOtp('otp'),
   dailyBankingCertsAndDocumentsRequestDownload('download'),
 
   // Erp
@@ -62,7 +62,7 @@ enum AppRoute {
   contactEdit('contact-edit'),
 
   // Analytics
-  analitica('/analitica'),
+  analytics('/analytics'),
 
   // Protection
   protection('/protection'),

@@ -43,7 +43,7 @@ class _AccountTransactionListState extends ConsumerState<AccountTransactionList>
             },
           ),
         ) ??
-        const CircularProgressIndicator.adaptive().sliver;
+        const CustomLoader().sliver;
   }
 }
 

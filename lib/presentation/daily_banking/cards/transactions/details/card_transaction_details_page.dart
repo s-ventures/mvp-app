@@ -169,7 +169,7 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
               ),
             ),
             loading: () => const Center(
-              child: CircularProgressIndicator(),
+              child: CustomLoader(),
             ),
           ),
         ),

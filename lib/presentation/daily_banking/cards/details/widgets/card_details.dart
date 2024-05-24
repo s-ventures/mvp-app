@@ -158,7 +158,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
         ),
       ),
       loading: () => const Center(
-        child: CircularProgressIndicator(),
+        child: CustomLoader(),
       ),
     );
   }

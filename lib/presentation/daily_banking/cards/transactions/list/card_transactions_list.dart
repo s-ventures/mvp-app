@@ -43,7 +43,7 @@ class _CardTransactionsListState extends ConsumerState<CardTransactionsList> {
             },
           ),
         ) ??
-        const CircularProgressIndicator.adaptive().sliver;
+        const CustomLoader().sliver;
   }
 }
 

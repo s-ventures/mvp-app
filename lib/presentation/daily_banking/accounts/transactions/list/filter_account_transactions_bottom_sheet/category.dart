@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class Category extends ConsumerWidget {
@@ -11,7 +11,7 @@ class Category extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final categoryValue = ref.watch(filterSimplifiedAccountTransactionsControllerProvider).category;
+    final categoryValue = ref.watch(simplifiedAccountTransactionsControllerProvider).category;
     final categorySelected = categories.firstWhere((element) => element['value'] == categoryValue);
 
     return OutlinedList(

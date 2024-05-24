@@ -85,7 +85,9 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
                 ),
               ),
             ),
-            loading: () => const Center(child: CircularProgressIndicator.adaptive()),
+            loading: () => const Center(
+              child: CustomLoader(),
+            ),
           ),
         ),
       ],

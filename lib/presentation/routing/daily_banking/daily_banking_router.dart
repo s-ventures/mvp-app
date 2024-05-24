@@ -36,9 +36,7 @@ import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/payme
 import 'package:manifiesto_mvp_app/presentation/daily_banking/certificates/request/request_certificate_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/daily_banking_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/details/insurance_claim_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/claims.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/insurance_policy_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/list/policies.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 
@@ -54,6 +52,31 @@ class DailyBankingRouter {
       routes: [
         //
         // ACCOUNTS
+        // ...
+        // Account list
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoute.dailyBankingAggregatedAccounts.path,
+          name: AppRoute.dailyBankingAggregatedAccounts.name,
+          pageBuilder: (context, state) => MaterialPage(
+            key: state.pageKey,
+            child: const AccountListPage(),
+          ),
+        ),
+
+        // Account details
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoute.dailyBankingAccountDetails.path,
+          name: AppRoute.dailyBankingAccountDetails.name,
+          pageBuilder: (context, state) => MaterialPage(
+            key: state.pageKey,
+            child: AccountDetailsPage(
+              accountId: state.pathParameters['accountId']!,
+            ),
+          ),
+        ),
+
         // Add money
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
@@ -64,6 +87,7 @@ class DailyBankingRouter {
             child: const AddMoneyPage(),
           ),
         ),
+
         // Send money
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
@@ -95,8 +119,8 @@ class DailyBankingRouter {
                   routes: [
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path: AppRoute.dailyBankingNationalTransferSignature.path,
-                      name: AppRoute.dailyBankingNationalTransferSignature.name,
+                      path: AppRoute.dailyBankingNationalTransferOtp.path,
+                      name: AppRoute.dailyBankingNationalTransferOtp.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
                         child: const NationalTransferOtpPage(),
@@ -117,6 +141,7 @@ class DailyBankingRouter {
                 ),
               ],
             ),
+
             // International bank transfers
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
@@ -138,8 +163,8 @@ class DailyBankingRouter {
                   routes: [
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path: AppRoute.dailyBankingInternationalTransferSignature.path,
-                      name: AppRoute.dailyBankingInternationalTransferSignature.name,
+                      path: AppRoute.dailyBankingInternationalTransferOtp.path,
+                      name: AppRoute.dailyBankingInternationalTransferOtp.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
                         child: const InternationalTransferOtpPage(),
@@ -160,6 +185,7 @@ class DailyBankingRouter {
                 ),
               ],
             ),
+
             // Scheduled transfers
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
@@ -200,8 +226,8 @@ class DailyBankingRouter {
                     ),
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path: AppRoute.dailyBankingScheduledTransferSignature.path,
-                      name: AppRoute.dailyBankingScheduledTransferSignature.name,
+                      path: AppRoute.dailyBankingScheduledTransferOtp.path,
+                      name: AppRoute.dailyBankingScheduledTransferOtp.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
                         child: const PeriodicOrderOtpPage(),
@@ -211,6 +237,7 @@ class DailyBankingRouter {
                 ),
               ],
             ),
+
             // Soon pay
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
@@ -232,8 +259,8 @@ class DailyBankingRouter {
                   routes: [
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path: AppRoute.dailyBankingSoonPayOTP.path,
-                      name: AppRoute.dailyBankingSoonPayOTP.name,
+                      path: AppRoute.dailyBankingSoonPayOtp.path,
+                      name: AppRoute.dailyBankingSoonPayOtp.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
                         child: const SoonPayOtpPage(),
@@ -244,6 +271,7 @@ class DailyBankingRouter {
               ],
             ),
 
+            // Search transfers sent
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
               path: AppRoute.dailyBankingTransfersSent.path,
@@ -253,12 +281,15 @@ class DailyBankingRouter {
                 child: const SentTransfersPage(),
               ),
             ),
+
+            // Transfer sent details
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
               path: AppRoute.dailyBankingTransfersSentDetails.path,
               name: AppRoute.dailyBankingTransfersSentDetails.name,
               pageBuilder: (context, state) {
                 final params = state.extra! as TransferSentDetailsRouteParams;
+
                 return MaterialPage(
                   key: state.pageKey,
                   child: TransferSentDetailsPage(
@@ -268,6 +299,7 @@ class DailyBankingRouter {
               },
             ),
 
+            // Transfer received details
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
               path: AppRoute.dailyBankingTransfersReceivedDetails.path,
@@ -278,30 +310,6 @@ class DailyBankingRouter {
               ),
             ),
           ],
-        ),
-
-        // Account list
-        GoRoute(
-          parentNavigatorKey: rootNavigatorKey,
-          path: AppRoute.dailyBankingAggregatedAccounts.path,
-          name: AppRoute.dailyBankingAggregatedAccounts.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const AccountListPage(),
-          ),
-        ),
-
-        // Account details
-        GoRoute(
-          parentNavigatorKey: rootNavigatorKey,
-          path: AppRoute.dailyBankingAccountDetails.path,
-          name: AppRoute.dailyBankingAccountDetails.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: AccountDetailsPage(
-              accountId: state.pathParameters['accountId']!,
-            ),
-          ),
         ),
 
         // Transaction details
@@ -322,6 +330,7 @@ class DailyBankingRouter {
             );
           },
         ),
+
         // Search account transactions
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
@@ -333,19 +342,9 @@ class DailyBankingRouter {
           ),
         ),
 
-        // Search card transactions
-        GoRoute(
-          parentNavigatorKey: rootNavigatorKey,
-          path: AppRoute.dailyBankingSearchCardTransactions.path,
-          name: AppRoute.dailyBankingSearchCardTransactions.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const SearchCardTransactionsPage(),
-          ),
-        ),
-
         //
         // CARDS
+        // ...
         // Card settings
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
@@ -377,6 +376,18 @@ class DailyBankingRouter {
           ],
         ),
 
+        // Search card transactions
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoute.dailyBankingSearchCardTransactions.path,
+          name: AppRoute.dailyBankingSearchCardTransactions.name,
+          pageBuilder: (context, state) => MaterialPage(
+            key: state.pageKey,
+            child: const SearchCardTransactionsPage(),
+          ),
+        ),
+
+        // Card transaction details
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.dailyBankingCardTransactionDetails.path,
@@ -397,24 +408,6 @@ class DailyBankingRouter {
         //
         // INSURANCES
         // ...
-        GoRoute(
-          parentNavigatorKey: rootNavigatorKey,
-          path: AppRoute.dailyBankingInsurancePoliciesList.path,
-          name: AppRoute.dailyBankingInsurancePoliciesList.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const Policies(),
-          ),
-        ),
-        GoRoute(
-          parentNavigatorKey: rootNavigatorKey,
-          path: AppRoute.dailyBankingInsuranceClaimsList.path,
-          name: AppRoute.dailyBankingInsuranceClaimsList.name,
-          pageBuilder: (context, state) => MaterialPage(
-            key: state.pageKey,
-            child: const Claims(),
-          ),
-        ),
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.dailyBankingInsuranceDetails.path,
@@ -448,7 +441,9 @@ class DailyBankingRouter {
           ],
         ),
 
-        // Certificates and documents
+        //
+        // CERTIFICATES AND DOCUMENTS
+        // ...
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.dailyBankingCertsAndDocuments.path,
@@ -478,11 +473,11 @@ class DailyBankingRouter {
                   routes: [
                     GoRoute(
                       parentNavigatorKey: rootNavigatorKey,
-                      path: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOTP.path,
-                      name: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOTP.name,
+                      path: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOtp.path,
+                      name: AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOtp.name,
                       pageBuilder: (context, state) => MaterialPage(
                         key: state.pageKey,
-                        child: const CertificatesAndDocumentsRequestPaymentOTPPage(),
+                        child: const CertificatesAndDocumentsRequestPaymentOtpPage(),
                       ),
                       routes: [
                         GoRoute(

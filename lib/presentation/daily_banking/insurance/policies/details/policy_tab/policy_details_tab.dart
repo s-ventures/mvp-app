@@ -104,7 +104,7 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
         ),
       ),
       loading: () => const Center(
-        child: CircularProgressIndicator(),
+        child: CustomLoader(),
       ),
     );
   }
