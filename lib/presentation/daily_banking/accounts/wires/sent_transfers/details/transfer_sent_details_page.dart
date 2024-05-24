@@ -93,9 +93,9 @@ class _TransferSentDetailsPageState extends ConsumerState<TransferSentDetailsPag
                 AppSpacing.vertical.s5,
                 MovementDetailsDate(
                   titleStartDate: context.loc.dailyBankingTransfersSentMovementDetailsChargeDate,
-                  startDate: sentTransfer.orderDate.formatToDayMonthYear() ?? '-',
+                  startDate: sentTransfer.orderDate.formatToDayMonthYear(),
                   titleEndDate: context.loc.dailyBankingTransfersSentMovementDetailsCreditDate,
-                  endDate: sentTransfer.valueDate.formatToDayMonthYear() ?? '-',
+                  endDate: sentTransfer.valueDate.formatToDayMonthYear(),
                 ),
                 AppSpacing.vertical.s5,
                 MovementDetailsBeneficiary(

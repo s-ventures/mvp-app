@@ -171,14 +171,11 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                     children: [
                       Text(
                         context.loc.dailyBankingScheduledTransfersEditFrequency(
-                          periodicOrder.frecuency ==
-                                  PeriodicOrderFrecuencyType.daily
+                          periodicOrder.frecuency == PeriodicOrderFrecuencyType.daily
                               ? context.loc.commonFrequencyDaily
-                              : periodicOrder.frecuency ==
-                                      PeriodicOrderFrecuencyType.weekly
+                              : periodicOrder.frecuency == PeriodicOrderFrecuencyType.weekly
                                   ? context.loc.commonFrequencyWeekly
-                                  : periodicOrder.frecuency ==
-                                          PeriodicOrderFrecuencyType.monthly
+                                  : periodicOrder.frecuency == PeriodicOrderFrecuencyType.monthly
                                       ? context.loc.commonFrequencyMonthly
                                       : '',
                         ),
@@ -193,8 +190,7 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                       ),
                       Text(
                         context.loc.commonDateSinceDate(
-                          periodicOrder.startDate.formatToTransactionDate() ??
-                              '',
+                          periodicOrder.startDate.formatToTransactionDate(),
                         ),
                         style: context.textStyle.bodyMediumRegular.copyWith(
                           color: context.color.textLight600,
@@ -222,8 +218,7 @@ class _PeriodicOrderEditPageState extends ConsumerState<PeriodicOrderEditPage> {
                     AppSpacing.horizontal.s3,
                     Expanded(
                       child: Button(
-                        title: context.loc
-                            .dailyBankingScheduledTransfersEditButtonConfirm,
+                        title: context.loc.dailyBankingScheduledTransfersEditButtonConfirm,
                         size: ButtonSize.small,
                         onPressed: () async => context.pop(),
                         expand: true,

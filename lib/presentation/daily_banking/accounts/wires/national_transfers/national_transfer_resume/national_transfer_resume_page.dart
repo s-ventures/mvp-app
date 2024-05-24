@@ -158,7 +158,7 @@ class NationalTransferResumePage extends StatelessWidget {
                     ),
                     Text(
                       context.loc.commonDateSinceDate(
-                        DateTime.now().formatToTransactionDate()!,
+                        DateTime.now().formatToTransactionDate(),
                       ),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight600,

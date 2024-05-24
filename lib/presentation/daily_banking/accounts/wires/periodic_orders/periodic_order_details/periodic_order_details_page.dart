@@ -111,7 +111,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                           AppSpacing.horizontal.s3,
                           Text(
                             context.loc.commonDateSinceDate(
-                              periodicOrder.startDate.formatToDayMonthYear() ?? '',
+                              periodicOrder.startDate.formatToDayMonthYear(),
                             ),
                             style: context.textStyle.bodyMediumRegular.copyWith(
                               color: context.color.textLight600,

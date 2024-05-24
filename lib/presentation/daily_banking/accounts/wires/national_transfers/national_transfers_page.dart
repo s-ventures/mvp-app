@@ -120,7 +120,7 @@ class NationalTransfersPage extends StatelessWidget {
                     ),
                     Text(
                       context.loc.commonDateSinceDate(
-                        DateTime.now().formatToTransactionDate()!,
+                        DateTime.now().formatToTransactionDate(),
                       ),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight600,
@@ -145,8 +145,7 @@ class NationalTransfersPage extends StatelessWidget {
                   AppSpacing.horizontal.s3,
                   Expanded(
                     child: Button(
-                      title: context
-                          .loc.dailyBankingNationalTransfersButtonSendMoney,
+                      title: context.loc.dailyBankingNationalTransfersButtonSendMoney,
                       size: ButtonSize.small,
                       onPressed: () => context.pushNamed(
                         AppRoute.dailyBankingNationalTransferResume.name,
