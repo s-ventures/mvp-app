@@ -94,7 +94,7 @@ extension DetailedSentTransferDtoX on DetailedSentTransferDto {
       orderDate: orderDate,
       valueDate: valueDate,
       concept: concept,
-      settlementAmount: settlementAmount,
+      settlementAmount: settlementAmount ?? 0.0,
       settlementCurrencyCode: settlementCurrencyCode,
       foreignExchange: foreignExchange,
       exchangeValue: exchangeValue,

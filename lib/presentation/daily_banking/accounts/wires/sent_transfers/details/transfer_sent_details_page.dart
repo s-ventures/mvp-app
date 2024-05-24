@@ -87,7 +87,7 @@ class _TransferSentDetailsPageState extends ConsumerState<TransferSentDetailsPag
                   title: sentTransfer.concept,
                   iconText: '🏦',
                   iconBgColor: context.color.secondaryLight600.withOpacity(.2),
-                  amount: sentTransfer.settlementAmount ?? 0.0,
+                  amount: sentTransfer.settlementAmount,
                   date: sentTransfer.orderDate,
                 ),
                 AppSpacing.vertical.s5,

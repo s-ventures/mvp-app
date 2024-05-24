@@ -26,7 +26,7 @@ mixin _$DetailedSentTransfer {
   DateTime get orderDate => throw _privateConstructorUsedError;
   DateTime? get valueDate => throw _privateConstructorUsedError;
   String get concept => throw _privateConstructorUsedError;
-  double? get settlementAmount => throw _privateConstructorUsedError;
+  double get settlementAmount => throw _privateConstructorUsedError;
   String? get settlementCurrencyCode => throw _privateConstructorUsedError;
   double? get foreignExchange => throw _privateConstructorUsedError;
   double? get exchangeValue => throw _privateConstructorUsedError;
@@ -71,7 +71,7 @@ abstract class $DetailedSentTransferCopyWith<$Res> {
       DateTime orderDate,
       DateTime? valueDate,
       String concept,
-      double? settlementAmount,
+      double settlementAmount,
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
@@ -118,7 +118,7 @@ class _$DetailedSentTransferCopyWithImpl<$Res,
     Object? orderDate = null,
     Object? valueDate = freezed,
     Object? concept = null,
-    Object? settlementAmount = freezed,
+    Object? settlementAmount = null,
     Object? settlementCurrencyCode = freezed,
     Object? foreignExchange = freezed,
     Object? exchangeValue = freezed,
@@ -181,10 +181,10 @@ class _$DetailedSentTransferCopyWithImpl<$Res,
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
-      settlementAmount: freezed == settlementAmount
+      settlementAmount: null == settlementAmount
           ? _value.settlementAmount
           : settlementAmount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       settlementCurrencyCode: freezed == settlementCurrencyCode
           ? _value.settlementCurrencyCode
           : settlementCurrencyCode // ignore: cast_nullable_to_non_nullable
@@ -288,7 +288,7 @@ abstract class _$$DetailedSentTransferImplCopyWith<$Res>
       DateTime orderDate,
       DateTime? valueDate,
       String concept,
-      double? settlementAmount,
+      double settlementAmount,
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
@@ -332,7 +332,7 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
     Object? orderDate = null,
     Object? valueDate = freezed,
     Object? concept = null,
-    Object? settlementAmount = freezed,
+    Object? settlementAmount = null,
     Object? settlementCurrencyCode = freezed,
     Object? foreignExchange = freezed,
     Object? exchangeValue = freezed,
@@ -395,10 +395,10 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
-      settlementAmount: freezed == settlementAmount
+      settlementAmount: null == settlementAmount
           ? _value.settlementAmount
           : settlementAmount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       settlementCurrencyCode: freezed == settlementCurrencyCode
           ? _value.settlementCurrencyCode
           : settlementCurrencyCode // ignore: cast_nullable_to_non_nullable
@@ -540,7 +540,7 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
   @override
   final String concept;
   @override
-  final double? settlementAmount;
+  final double settlementAmount;
   @override
   final String? settlementCurrencyCode;
   @override
@@ -709,7 +709,7 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
       required final DateTime orderDate,
       required final DateTime? valueDate,
       required final String concept,
-      required final double? settlementAmount,
+      required final double settlementAmount,
       required final String? settlementCurrencyCode,
       required final double? foreignExchange,
       required final double? exchangeValue,
@@ -752,7 +752,7 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
   @override
   String get concept;
   @override
-  double? get settlementAmount;
+  double get settlementAmount;
   @override
   String? get settlementCurrencyCode;
   @override

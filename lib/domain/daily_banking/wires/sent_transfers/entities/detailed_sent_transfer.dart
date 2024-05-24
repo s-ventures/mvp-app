@@ -19,7 +19,7 @@ class DetailedSentTransfer with _$DetailedSentTransfer {
     required DateTime orderDate,
     required DateTime? valueDate,
     required String concept,
-    required double? settlementAmount,
+    required double settlementAmount,
     required String? settlementCurrencyCode,
     required double? foreignExchange,
     required double? exchangeValue,
