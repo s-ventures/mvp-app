@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 extension FileX on File {
   /// Returns the name of the file from the path. Can be null if the path is empty
@@ -19,6 +20,8 @@ extension FileX on File {
       return null;
     }
 
-    return '${parts.first.substring(0, visibleChars)}...${parts.last}';
+    final maxLength = min(parts.first.length, visibleChars);
+
+    return '${parts.first.substring(0, maxLength)}...${parts.last}';
   }
 }
