@@ -90,4 +90,53 @@ class SimplifiedAccountTransactionsController
       }
     });
   }
+
+  Future<void> applyFilters() async {
+    final filter = super.filter?.copyWith(
+          operationType: state.operationType,
+          description: state.search,
+          amountFrom: state.amountFrom,
+          amountTo: state.amountTo,
+          dateFrom: state.startDate,
+          dateTo: state.endDate,
+        );
+
+    if (filter == null) return;
+
+    await updateFilter(filter);
+  }
+
+  Future<void> resetFilters() async {
+    state = const SimplifiedAccountTransactionsState();
+    await applyFilters();
+  }
+
+  void setSearch(String search) {
+    state = state.copyWith(search: search);
+    applyFilters();
+  }
+
+  void setStartDate(DateTime? startDate) {
+    state = state.copyWith(startDate: startDate);
+  }
+
+  void setEndDate(DateTime? endDate) {
+    state = state.copyWith(endDate: endDate);
+  }
+
+  void setAmountFrom(double? amountFrom) {
+    state = state.copyWith(amountFrom: amountFrom);
+  }
+
+  void setAmountTo(double? amountTo) {
+    state = state.copyWith(amountTo: amountTo);
+  }
+
+  void setCategory(String category) {
+    state = state.copyWith(category: category);
+  }
+
+  void setOperationType(TransactionOperationType operationType) {
+    state = state.copyWith(operationType: operationType);
+  }
 }
