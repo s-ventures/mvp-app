@@ -1,29 +1,30 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
-import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
+import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_state.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/sent_transfers_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/simplified_sent_transfer.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_filtered_pagination_repository.dart';
 
 final simplifiedSentTransfersControllerProvider =
     StateNotifierProvider<SimplifiedSentTransfersController, SimplifiedSentTransfersState>(
   (ref) => SimplifiedSentTransfersController(
-    ref.watch(sentTransfersPaginationRepositoryProvider),
+    ref.watch(sentTransfersFilteredPaginationRepositoryProvider),
   ),
 );
 
 class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTransfersState>
-    with PaginationLoadingProvider<List<SimplifiedSentTransfer>> {
+    with FilteredPaginationLoadingProvider<List<SimplifiedSentTransfer>, SentTransfersFilter> {
   SimplifiedSentTransfersController(
     this._repository,
   ) : super(const SimplifiedSentTransfersState());
 
-  final SentTransfersPaginationRepository _repository;
+  final SentTransfersFilteredPaginationRepository _repository;
 
-  //To be used in Ver todas option
   Future<void> init() async {
     initPagination(
       _repository,
+      initialFilter: const SentTransfersFilter(),
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
@@ -55,18 +56,36 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
     }
   }
 
-  Future<void> updateFilter({
-    required int? amountFrom,
-    required int? amountTo,
-    required DateTime? dateFrom,
-    required DateTime? dateTo,
-  }) async {
-    _repository.updateFilter(
-      amountFrom: amountFrom,
-      amountTo: amountTo,
-      startDateFrom: dateFrom,
-      startDateTo: dateTo,
-    );
-    await refresh();
+  Future<void> applyFilters() async {
+    final filter = super.filter?.copyWith(
+          settlementAmountFrom: state.amountFrom,
+          settlementAmountTo: state.amountTo,
+          orderDateFrom: state.startDate,
+          orderDateTo: state.endDate,
+        );
+    if (filter == null) return;
+
+    await updateFilter(filter);
+  }
+
+  Future<void> resetFilters() async {
+    state = const SimplifiedSentTransfersState();
+    await applyFilters();
+  }
+
+  void setStartDate(DateTime? startDate) {
+    state = state.copyWith(startDate: startDate);
+  }
+
+  void setEndDate(DateTime? endDate) {
+    state = state.copyWith(endDate: endDate);
+  }
+
+  void setAmountFrom(int? amountFrom) {
+    state = state.copyWith(amountFrom: amountFrom);
+  }
+
+  void setAmountTo(int? amountTo) {
+    state = state.copyWith(amountTo: amountTo);
   }
 }

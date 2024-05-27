@@ -20,6 +20,10 @@ mixin _$SimplifiedSentTransfersState {
       throw _privateConstructorUsedError;
   AsyncValue<List<SimplifiedSentTransfer>> get lastSentTransfers =>
       throw _privateConstructorUsedError;
+  DateTime? get startDate => throw _privateConstructorUsedError;
+  DateTime? get endDate => throw _privateConstructorUsedError;
+  int? get amountFrom => throw _privateConstructorUsedError;
+  int? get amountTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedSentTransfersStateCopyWith<SimplifiedSentTransfersState>
@@ -36,7 +40,11 @@ abstract class $SimplifiedSentTransfersStateCopyWith<$Res> {
   @useResult
   $Res call(
       {AsyncValue<List<SimplifiedSentTransfer>> sentTransfers,
-      AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers});
+      AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
+      DateTime? startDate,
+      DateTime? endDate,
+      int? amountFrom,
+      int? amountTo});
 }
 
 /// @nodoc
@@ -55,6 +63,10 @@ class _$SimplifiedSentTransfersStateCopyWithImpl<$Res,
   $Res call({
     Object? sentTransfers = null,
     Object? lastSentTransfers = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? amountFrom = freezed,
+    Object? amountTo = freezed,
   }) {
     return _then(_value.copyWith(
       sentTransfers: null == sentTransfers
@@ -65,6 +77,22 @@ class _$SimplifiedSentTransfersStateCopyWithImpl<$Res,
           ? _value.lastSentTransfers
           : lastSentTransfers // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedSentTransfer>>,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      amountFrom: freezed == amountFrom
+          ? _value.amountFrom
+          : amountFrom // ignore: cast_nullable_to_non_nullable
+              as int?,
+      amountTo: freezed == amountTo
+          ? _value.amountTo
+          : amountTo // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -80,7 +108,11 @@ abstract class _$$SimplifiedSentTransfersStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {AsyncValue<List<SimplifiedSentTransfer>> sentTransfers,
-      AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers});
+      AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
+      DateTime? startDate,
+      DateTime? endDate,
+      int? amountFrom,
+      int? amountTo});
 }
 
 /// @nodoc
@@ -98,6 +130,10 @@ class __$$SimplifiedSentTransfersStateImplCopyWithImpl<$Res>
   $Res call({
     Object? sentTransfers = null,
     Object? lastSentTransfers = null,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? amountFrom = freezed,
+    Object? amountTo = freezed,
   }) {
     return _then(_$SimplifiedSentTransfersStateImpl(
       sentTransfers: null == sentTransfers
@@ -108,6 +144,22 @@ class __$$SimplifiedSentTransfersStateImplCopyWithImpl<$Res>
           ? _value.lastSentTransfers
           : lastSentTransfers // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedSentTransfer>>,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      endDate: freezed == endDate
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      amountFrom: freezed == amountFrom
+          ? _value.amountFrom
+          : amountFrom // ignore: cast_nullable_to_non_nullable
+              as int?,
+      amountTo: freezed == amountTo
+          ? _value.amountTo
+          : amountTo // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -119,7 +171,11 @@ class _$SimplifiedSentTransfersStateImpl
   const _$SimplifiedSentTransfersStateImpl(
       {this.sentTransfers = const AsyncLoading<List<SimplifiedSentTransfer>>(),
       this.lastSentTransfers =
-          const AsyncLoading<List<SimplifiedSentTransfer>>()});
+          const AsyncLoading<List<SimplifiedSentTransfer>>(),
+      this.startDate,
+      this.endDate,
+      this.amountFrom,
+      this.amountTo});
 
   @override
   @JsonKey()
@@ -127,10 +183,18 @@ class _$SimplifiedSentTransfersStateImpl
   @override
   @JsonKey()
   final AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers;
+  @override
+  final DateTime? startDate;
+  @override
+  final DateTime? endDate;
+  @override
+  final int? amountFrom;
+  @override
+  final int? amountTo;
 
   @override
   String toString() {
-    return 'SimplifiedSentTransfersState(sentTransfers: $sentTransfers, lastSentTransfers: $lastSentTransfers)';
+    return 'SimplifiedSentTransfersState(sentTransfers: $sentTransfers, lastSentTransfers: $lastSentTransfers, startDate: $startDate, endDate: $endDate, amountFrom: $amountFrom, amountTo: $amountTo)';
   }
 
   @override
@@ -141,12 +205,19 @@ class _$SimplifiedSentTransfersStateImpl
             (identical(other.sentTransfers, sentTransfers) ||
                 other.sentTransfers == sentTransfers) &&
             (identical(other.lastSentTransfers, lastSentTransfers) ||
-                other.lastSentTransfers == lastSentTransfers));
+                other.lastSentTransfers == lastSentTransfers) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.amountFrom, amountFrom) ||
+                other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) ||
+                other.amountTo == amountTo));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, sentTransfers, lastSentTransfers);
+  int get hashCode => Object.hash(runtimeType, sentTransfers, lastSentTransfers,
+      startDate, endDate, amountFrom, amountTo);
 
   @JsonKey(ignore: true)
   @override
@@ -160,14 +231,25 @@ class _$SimplifiedSentTransfersStateImpl
 abstract class _SimplifiedSentTransfersState
     implements SimplifiedSentTransfersState {
   const factory _SimplifiedSentTransfersState(
-          {final AsyncValue<List<SimplifiedSentTransfer>> sentTransfers,
-          final AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers}) =
-      _$SimplifiedSentTransfersStateImpl;
+      {final AsyncValue<List<SimplifiedSentTransfer>> sentTransfers,
+      final AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
+      final DateTime? startDate,
+      final DateTime? endDate,
+      final int? amountFrom,
+      final int? amountTo}) = _$SimplifiedSentTransfersStateImpl;
 
   @override
   AsyncValue<List<SimplifiedSentTransfer>> get sentTransfers;
   @override
   AsyncValue<List<SimplifiedSentTransfer>> get lastSentTransfers;
+  @override
+  DateTime? get startDate;
+  @override
+  DateTime? get endDate;
+  @override
+  int? get amountFrom;
+  @override
+  int? get amountTo;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedSentTransfersStateImplCopyWith<
