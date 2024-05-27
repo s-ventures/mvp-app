@@ -29,6 +29,7 @@ mixin _$DetailedAccountTransaction {
   bool? get bankReceipt => throw _privateConstructorUsedError;
   ExtendedTransactionDetails? get details => throw _privateConstructorUsedError;
   UniqueId get accountId => throw _privateConstructorUsedError;
+  String get accountNumber => throw _privateConstructorUsedError;
   List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -57,6 +58,7 @@ abstract class $DetailedAccountTransactionCopyWith<$Res> {
       bool? bankReceipt,
       ExtendedTransactionDetails? details,
       UniqueId accountId,
+      String accountNumber,
       List<FileAttachment> attachments});
 }
 
@@ -87,6 +89,7 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
     Object? bankReceipt = freezed,
     Object? details = freezed,
     Object? accountId = null,
+    Object? accountNumber = null,
     Object? attachments = null,
   }) {
     return _then(_value.copyWith(
@@ -142,6 +145,10 @@ class _$DetailedAccountTransactionCopyWithImpl<$Res,
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      accountNumber: null == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       attachments: null == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -173,6 +180,7 @@ abstract class _$$DetailedAccountTransactionImplCopyWith<$Res>
       bool? bankReceipt,
       ExtendedTransactionDetails? details,
       UniqueId accountId,
+      String accountNumber,
       List<FileAttachment> attachments});
 }
 
@@ -202,6 +210,7 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
     Object? bankReceipt = freezed,
     Object? details = freezed,
     Object? accountId = null,
+    Object? accountNumber = null,
     Object? attachments = null,
   }) {
     return _then(_$DetailedAccountTransactionImpl(
@@ -257,6 +266,10 @@ class __$$DetailedAccountTransactionImplCopyWithImpl<$Res>
           ? _value.accountId
           : accountId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      accountNumber: null == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       attachments: null == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -282,6 +295,7 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       required this.bankReceipt,
       required this.details,
       required this.accountId,
+      required this.accountNumber,
       final List<FileAttachment> attachments = const []})
       : _attachments = attachments;
 
@@ -311,6 +325,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
   final ExtendedTransactionDetails? details;
   @override
   final UniqueId accountId;
+  @override
+  final String accountNumber;
   final List<FileAttachment> _attachments;
   @override
   @JsonKey()
@@ -322,7 +338,7 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
 
   @override
   String toString() {
-    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, postingDate: $postingDate, valueDate: $valueDate, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt, details: $details, accountId: $accountId, attachments: $attachments)';
+    return 'DetailedAccountTransaction(id: $id, description: $description, amount: $amount, endBalance: $endBalance, postingDate: $postingDate, valueDate: $valueDate, originBranch: $originBranch, category: $category, detailFields: $detailFields, userComments: $userComments, bankReceipt: $bankReceipt, details: $details, accountId: $accountId, accountNumber: $accountNumber, attachments: $attachments)';
   }
 
   @override
@@ -353,6 +369,8 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
             (identical(other.details, details) || other.details == details) &&
             (identical(other.accountId, accountId) ||
                 other.accountId == accountId) &&
+            (identical(other.accountNumber, accountNumber) ||
+                other.accountNumber == accountNumber) &&
             const DeepCollectionEquality()
                 .equals(other._attachments, _attachments));
   }
@@ -373,6 +391,7 @@ class _$DetailedAccountTransactionImpl implements _DetailedAccountTransaction {
       bankReceipt,
       details,
       accountId,
+      accountNumber,
       const DeepCollectionEquality().hash(_attachments));
 
   @JsonKey(ignore: true)
@@ -399,6 +418,7 @@ abstract class _DetailedAccountTransaction
           required final bool? bankReceipt,
           required final ExtendedTransactionDetails? details,
           required final UniqueId accountId,
+          required final String accountNumber,
           final List<FileAttachment> attachments}) =
       _$DetailedAccountTransactionImpl;
 
@@ -428,6 +448,8 @@ abstract class _DetailedAccountTransaction
   ExtendedTransactionDetails? get details;
   @override
   UniqueId get accountId;
+  @override
+  String get accountNumber;
   @override
   List<FileAttachment> get attachments;
   @override

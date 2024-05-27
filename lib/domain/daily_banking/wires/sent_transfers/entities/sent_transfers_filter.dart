@@ -9,7 +9,7 @@ class SentTransfersFilter with _$SentTransfersFilter implements PaginationFilter
   const factory SentTransfersFilter({
     DateTime? orderDateFrom,
     DateTime? orderDateTo,
-    int? settlementAmountFrom,
-    int? settlementAmountTo,
+    double? settlementAmountFrom,
+    double? settlementAmountTo,
   }) = _SentTransfersFilter;
 }

@@ -2,8 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/add_product/add_product_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/contracted_products_page.dart';
-import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/policy_details/claims_tab/details/claims_details_page.dart';
-import 'package:manifiesto_mvp_app/presentation/protection/contracted_products/policy_details/policy_details_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/improve/improve_protection_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/insurances/accidents/accidents_insurance_page.dart';
 import 'package:manifiesto_mvp_app/presentation/protection/insurances/accidents/calculate_price/accidents_calculate_price_first_page.dart';
@@ -61,28 +59,6 @@ class ProtectionRouter {
             child: const ContractedProductsPage(),
           ),
           routes: [
-            GoRoute(
-              parentNavigatorKey: rootNavigatorKey,
-              path: AppRoute.protectionContractedProductsPolicyDetails.path,
-              name: AppRoute.protectionContractedProductsPolicyDetails.name,
-              pageBuilder: (context, state) => NoTransitionPage(
-                key: state.pageKey,
-                child: const ContractedProductsPolicyDetails(),
-              ),
-              routes: [
-                GoRoute(
-                  parentNavigatorKey: rootNavigatorKey,
-                  path: AppRoute.protectionContractedProductsClaimDetails.path,
-                  name: AppRoute.protectionContractedProductsClaimDetails.name,
-                  pageBuilder: (context, state) {
-                    return NoTransitionPage(
-                      key: state.pageKey,
-                      child: const ClaimsDetailsPage(),
-                    );
-                  },
-                ),
-              ],
-            ),
             GoRoute(
               parentNavigatorKey: rootNavigatorKey,
               path: AppRoute.protectionContractedProductsAddNew.path,

@@ -52,6 +52,7 @@ mixin _$DetailedSentTransferDto {
   String get beneficiaryName => throw _privateConstructorUsedError;
   DateTime? get transferDate => throw _privateConstructorUsedError;
   String? get referenceDC => throw _privateConstructorUsedError;
+  String? get accountNumber => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -95,7 +96,8 @@ abstract class $DetailedSentTransferDtoCopyWith<$Res> {
       String beneficiaryAccount,
       String beneficiaryName,
       DateTime? transferDate,
-      String? referenceDC});
+      String? referenceDC,
+      String? accountNumber});
 }
 
 /// @nodoc
@@ -142,6 +144,7 @@ class _$DetailedSentTransferDtoCopyWithImpl<$Res,
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
     Object? referenceDC = freezed,
+    Object? accountNumber = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -264,6 +267,10 @@ class _$DetailedSentTransferDtoCopyWithImpl<$Res,
           ? _value.referenceDC
           : referenceDC // ignore: cast_nullable_to_non_nullable
               as String?,
+      accountNumber: freezed == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -307,7 +314,8 @@ abstract class _$$DetailedSentTransferDtoImplCopyWith<$Res>
       String beneficiaryAccount,
       String beneficiaryName,
       DateTime? transferDate,
-      String? referenceDC});
+      String? referenceDC,
+      String? accountNumber});
 }
 
 /// @nodoc
@@ -353,6 +361,7 @@ class __$$DetailedSentTransferDtoImplCopyWithImpl<$Res>
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
     Object? referenceDC = freezed,
+    Object? accountNumber = freezed,
   }) {
     return _then(_$DetailedSentTransferDtoImpl(
       type: null == type
@@ -475,6 +484,10 @@ class __$$DetailedSentTransferDtoImplCopyWithImpl<$Res>
           ? _value.referenceDC
           : referenceDC // ignore: cast_nullable_to_non_nullable
               as String?,
+      accountNumber: freezed == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -512,7 +525,8 @@ class _$DetailedSentTransferDtoImpl implements _DetailedSentTransferDto {
       required this.beneficiaryAccount,
       required this.beneficiaryName,
       required this.transferDate,
-      required this.referenceDC});
+      required this.referenceDC,
+      required this.accountNumber});
 
   factory _$DetailedSentTransferDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$DetailedSentTransferDtoImplFromJson(json);
@@ -577,10 +591,12 @@ class _$DetailedSentTransferDtoImpl implements _DetailedSentTransferDto {
   final DateTime? transferDate;
   @override
   final String? referenceDC;
+  @override
+  final String? accountNumber;
 
   @override
   String toString() {
-    return 'DetailedSentTransferDto(type: $type, baasTransferId: $baasTransferId, bankOperationCode: $bankOperationCode, senderBank: $senderBank, accountId: $accountId, customerId: $customerId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailsOfCharges: $detailsOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, executionDate: $executionDate, senderAccount: $senderAccount, sentTransferId: $sentTransferId, periodicTransfer: $periodicTransfer, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, transferDate: $transferDate, referenceDC: $referenceDC)';
+    return 'DetailedSentTransferDto(type: $type, baasTransferId: $baasTransferId, bankOperationCode: $bankOperationCode, senderBank: $senderBank, accountId: $accountId, customerId: $customerId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailsOfCharges: $detailsOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, executionDate: $executionDate, senderAccount: $senderAccount, sentTransferId: $sentTransferId, periodicTransfer: $periodicTransfer, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, transferDate: $transferDate, referenceDC: $referenceDC, accountNumber: $accountNumber)';
   }
 
   @override
@@ -644,7 +660,9 @@ class _$DetailedSentTransferDtoImpl implements _DetailedSentTransferDto {
             (identical(other.transferDate, transferDate) ||
                 other.transferDate == transferDate) &&
             (identical(other.referenceDC, referenceDC) ||
-                other.referenceDC == referenceDC));
+                other.referenceDC == referenceDC) &&
+            (identical(other.accountNumber, accountNumber) ||
+                other.accountNumber == accountNumber));
   }
 
   @JsonKey(ignore: true)
@@ -680,7 +698,8 @@ class _$DetailedSentTransferDtoImpl implements _DetailedSentTransferDto {
         beneficiaryAccount,
         beneficiaryName,
         transferDate,
-        referenceDC
+        referenceDC,
+        accountNumber
       ]);
 
   @JsonKey(ignore: true)
@@ -729,7 +748,8 @@ abstract class _DetailedSentTransferDto implements DetailedSentTransferDto {
       required final String beneficiaryAccount,
       required final String beneficiaryName,
       required final DateTime? transferDate,
-      required final String? referenceDC}) = _$DetailedSentTransferDtoImpl;
+      required final String? referenceDC,
+      required final String? accountNumber}) = _$DetailedSentTransferDtoImpl;
 
   factory _DetailedSentTransferDto.fromJson(Map<String, dynamic> json) =
       _$DetailedSentTransferDtoImpl.fromJson;
@@ -794,6 +814,8 @@ abstract class _DetailedSentTransferDto implements DetailedSentTransferDto {
   DateTime? get transferDate;
   @override
   String? get referenceDC;
+  @override
+  String? get accountNumber;
   @override
   @JsonKey(ignore: true)
   _$$DetailedSentTransferDtoImplCopyWith<_$DetailedSentTransferDtoImpl>

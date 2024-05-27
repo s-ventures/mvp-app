@@ -46,6 +46,7 @@ _$DetailedSentTransferDtoImpl _$$DetailedSentTransferDtoImplFromJson(
           ? null
           : DateTime.parse(json['transferDate'] as String),
       referenceDC: json['referenceDC'] as String?,
+      accountNumber: json['accountNumber'] as String?,
     );
 
 Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(
@@ -82,6 +83,7 @@ Map<String, dynamic> _$$DetailedSentTransferDtoImplToJson(
       'beneficiaryName': instance.beneficiaryName,
       'transferDate': instance.transferDate?.toIso8601String(),
       'referenceDC': instance.referenceDC,
+      'accountNumber': instance.accountNumber,
     };
 
 const _$SentTransferTypeDtoEnumMap = {

@@ -135,10 +135,9 @@ class _CardTransactionDetailsPageState extends ConsumerState<CardTransactionDeta
                   location: 'Madrid, España',
                 ),
                 AppSpacing.vertical.s5,
-                const MovementDetailsBankingInfo(
+                MovementDetailsBankingInfo(
                   type: BankAccountType.card,
-                  // TODO(georgeta): Nos falta el numero de tarjeta en el DTO
-                  last4: '1234',
+                  last4: transaction.cardEncryptedNumber.lastFourCharacters,
                   icon: '🖥️',
                   category: 'Tecnología',
                 ),

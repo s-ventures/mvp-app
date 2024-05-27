@@ -39,6 +39,7 @@ _$DetailedAccountTransactionDtoImpl
           extendedDetails: _$JsonConverterFromJson<Map<String, dynamic>,
                   ExtendedDetailsDto?>(json['extendedDetails'],
               const ExtendedDetailsConverter().fromJson),
+          accountNumber: json['accountNumber'] as String?,
           productType:
               $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
         );
@@ -70,6 +71,7 @@ Map<String, dynamic> _$$DetailedAccountTransactionDtoImplToJson(
       'attachments': instance.attachments?.map((e) => e.toJson()).toList(),
       'extendedDetails':
           const ExtendedDetailsConverter().toJson(instance.extendedDetails),
+      'accountNumber': instance.accountNumber,
       'productType': _$ProductTypeDtoEnumMap[instance.productType]!,
     };
 

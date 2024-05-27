@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SentTransfersFilter {
   DateTime? get orderDateFrom => throw _privateConstructorUsedError;
   DateTime? get orderDateTo => throw _privateConstructorUsedError;
-  int? get settlementAmountFrom => throw _privateConstructorUsedError;
-  int? get settlementAmountTo => throw _privateConstructorUsedError;
+  double? get settlementAmountFrom => throw _privateConstructorUsedError;
+  double? get settlementAmountTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SentTransfersFilterCopyWith<SentTransfersFilter> get copyWith =>
@@ -35,8 +35,8 @@ abstract class $SentTransfersFilterCopyWith<$Res> {
   $Res call(
       {DateTime? orderDateFrom,
       DateTime? orderDateTo,
-      int? settlementAmountFrom,
-      int? settlementAmountTo});
+      double? settlementAmountFrom,
+      double? settlementAmountTo});
 }
 
 /// @nodoc
@@ -69,11 +69,11 @@ class _$SentTransfersFilterCopyWithImpl<$Res, $Val extends SentTransfersFilter>
       settlementAmountFrom: freezed == settlementAmountFrom
           ? _value.settlementAmountFrom
           : settlementAmountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       settlementAmountTo: freezed == settlementAmountTo
           ? _value.settlementAmountTo
           : settlementAmountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -89,8 +89,8 @@ abstract class _$$SentTransfersFilterImplCopyWith<$Res>
   $Res call(
       {DateTime? orderDateFrom,
       DateTime? orderDateTo,
-      int? settlementAmountFrom,
-      int? settlementAmountTo});
+      double? settlementAmountFrom,
+      double? settlementAmountTo});
 }
 
 /// @nodoc
@@ -121,11 +121,11 @@ class __$$SentTransfersFilterImplCopyWithImpl<$Res>
       settlementAmountFrom: freezed == settlementAmountFrom
           ? _value.settlementAmountFrom
           : settlementAmountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       settlementAmountTo: freezed == settlementAmountTo
           ? _value.settlementAmountTo
           : settlementAmountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
@@ -144,9 +144,9 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
   @override
   final DateTime? orderDateTo;
   @override
-  final int? settlementAmountFrom;
+  final double? settlementAmountFrom;
   @override
-  final int? settlementAmountTo;
+  final double? settlementAmountTo;
 
   @override
   String toString() {
@@ -185,17 +185,17 @@ abstract class _SentTransfersFilter
   const factory _SentTransfersFilter(
       {final DateTime? orderDateFrom,
       final DateTime? orderDateTo,
-      final int? settlementAmountFrom,
-      final int? settlementAmountTo}) = _$SentTransfersFilterImpl;
+      final double? settlementAmountFrom,
+      final double? settlementAmountTo}) = _$SentTransfersFilterImpl;
 
   @override
   DateTime? get orderDateFrom;
   @override
   DateTime? get orderDateTo;
   @override
-  int? get settlementAmountFrom;
+  double? get settlementAmountFrom;
   @override
-  int? get settlementAmountTo;
+  double? get settlementAmountTo;
   @override
   @JsonKey(ignore: true)
   _$$SentTransfersFilterImplCopyWith<_$SentTransfersFilterImpl> get copyWith =>

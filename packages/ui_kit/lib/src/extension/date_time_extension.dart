@@ -1,15 +1,15 @@
 import 'package:intl/intl.dart';
 
 extension DateFormatX on DateTime? {
-  String? formatToDayMonthYear() {
+  String formatToDayMonthYear() {
     final date = this;
-    if (date == null) return null;
+    if (date == null) return '-';
     return DateFormat('dd/MM/yyyy').format(date);
   }
 
-  String? formatToTransactionDate() {
+  String formatToTransactionDate() {
     final date = this;
-    if (date == null) return null;
+    if (date == null) return '-';
 
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);

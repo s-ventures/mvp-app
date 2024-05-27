@@ -23,6 +23,7 @@ mixin _$DetailedCardTransaction {
   String? get placeId => throw _privateConstructorUsedError;
   String get merchantName => throw _privateConstructorUsedError;
   String get concept => throw _privateConstructorUsedError;
+  String get cardEncryptedNumber => throw _privateConstructorUsedError;
   List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -44,6 +45,7 @@ abstract class $DetailedCardTransactionCopyWith<$Res> {
       String? placeId,
       String merchantName,
       String concept,
+      String cardEncryptedNumber,
       List<FileAttachment> attachments});
 }
 
@@ -68,6 +70,7 @@ class _$DetailedCardTransactionCopyWithImpl<$Res,
     Object? placeId = freezed,
     Object? merchantName = null,
     Object? concept = null,
+    Object? cardEncryptedNumber = null,
     Object? attachments = null,
   }) {
     return _then(_value.copyWith(
@@ -99,6 +102,10 @@ class _$DetailedCardTransactionCopyWithImpl<$Res,
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
+      cardEncryptedNumber: null == cardEncryptedNumber
+          ? _value.cardEncryptedNumber
+          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       attachments: null == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -124,6 +131,7 @@ abstract class _$$DetailedCardTransactionImplCopyWith<$Res>
       String? placeId,
       String merchantName,
       String concept,
+      String cardEncryptedNumber,
       List<FileAttachment> attachments});
 }
 
@@ -147,6 +155,7 @@ class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
     Object? placeId = freezed,
     Object? merchantName = null,
     Object? concept = null,
+    Object? cardEncryptedNumber = null,
     Object? attachments = null,
   }) {
     return _then(_$DetailedCardTransactionImpl(
@@ -178,6 +187,10 @@ class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
+      cardEncryptedNumber: null == cardEncryptedNumber
+          ? _value.cardEncryptedNumber
+          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       attachments: null == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -197,6 +210,7 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
       required this.placeId,
       required this.merchantName,
       required this.concept,
+      required this.cardEncryptedNumber,
       final List<FileAttachment> attachments = const []})
       : _attachments = attachments;
 
@@ -214,6 +228,8 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
   final String merchantName;
   @override
   final String concept;
+  @override
+  final String cardEncryptedNumber;
   final List<FileAttachment> _attachments;
   @override
   @JsonKey()
@@ -225,7 +241,7 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
 
   @override
   String toString() {
-    return 'DetailedCardTransaction(id: $id, amount: $amount, postingDate: $postingDate, description: $description, placeId: $placeId, merchantName: $merchantName, concept: $concept, attachments: $attachments)';
+    return 'DetailedCardTransaction(id: $id, amount: $amount, postingDate: $postingDate, description: $description, placeId: $placeId, merchantName: $merchantName, concept: $concept, cardEncryptedNumber: $cardEncryptedNumber, attachments: $attachments)';
   }
 
   @override
@@ -243,8 +259,9 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
             (identical(other.merchantName, merchantName) ||
                 other.merchantName == merchantName) &&
             (identical(other.concept, concept) || other.concept == concept) &&
-            const DeepCollectionEquality()
-                .equals(other._attachments, _attachments));
+            (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
+                other.cardEncryptedNumber == cardEncryptedNumber) &&
+            const DeepCollectionEquality().equals(other._attachments, _attachments));
   }
 
   @override
@@ -257,6 +274,7 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
       placeId,
       merchantName,
       concept,
+      cardEncryptedNumber,
       const DeepCollectionEquality().hash(_attachments));
 
   @JsonKey(ignore: true)
@@ -276,6 +294,7 @@ abstract class _DetailedCardTransaction implements DetailedCardTransaction {
       required final String? placeId,
       required final String merchantName,
       required final String concept,
+      required final String cardEncryptedNumber,
       final List<FileAttachment> attachments}) = _$DetailedCardTransactionImpl;
 
   @override
@@ -292,6 +311,8 @@ abstract class _DetailedCardTransaction implements DetailedCardTransaction {
   String get merchantName;
   @override
   String get concept;
+  @override
+  String get cardEncryptedNumber;
   @override
   List<FileAttachment> get attachments;
   @override

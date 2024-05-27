@@ -26,7 +26,7 @@ mixin _$DetailedSentTransfer {
   DateTime get orderDate => throw _privateConstructorUsedError;
   DateTime? get valueDate => throw _privateConstructorUsedError;
   String get concept => throw _privateConstructorUsedError;
-  double? get settlementAmount => throw _privateConstructorUsedError;
+  double get settlementAmount => throw _privateConstructorUsedError;
   String? get settlementCurrencyCode => throw _privateConstructorUsedError;
   double? get foreignExchange => throw _privateConstructorUsedError;
   double? get exchangeValue => throw _privateConstructorUsedError;
@@ -47,6 +47,7 @@ mixin _$DetailedSentTransfer {
   String get beneficiaryName => throw _privateConstructorUsedError;
   DateTime? get transferDate => throw _privateConstructorUsedError;
   String? get referenceDC => throw _privateConstructorUsedError;
+  String get accountNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedSentTransferCopyWith<DetailedSentTransfer> get copyWith =>
@@ -70,7 +71,7 @@ abstract class $DetailedSentTransferCopyWith<$Res> {
       DateTime orderDate,
       DateTime? valueDate,
       String concept,
-      double? settlementAmount,
+      double settlementAmount,
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
@@ -89,7 +90,8 @@ abstract class $DetailedSentTransferCopyWith<$Res> {
       String beneficiaryAccount,
       String beneficiaryName,
       DateTime? transferDate,
-      String? referenceDC});
+      String? referenceDC,
+      String accountNumber});
 }
 
 /// @nodoc
@@ -116,7 +118,7 @@ class _$DetailedSentTransferCopyWithImpl<$Res,
     Object? orderDate = null,
     Object? valueDate = freezed,
     Object? concept = null,
-    Object? settlementAmount = freezed,
+    Object? settlementAmount = null,
     Object? settlementCurrencyCode = freezed,
     Object? foreignExchange = freezed,
     Object? exchangeValue = freezed,
@@ -136,6 +138,7 @@ class _$DetailedSentTransferCopyWithImpl<$Res,
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
     Object? referenceDC = freezed,
+    Object? accountNumber = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -178,10 +181,10 @@ class _$DetailedSentTransferCopyWithImpl<$Res,
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
-      settlementAmount: freezed == settlementAmount
+      settlementAmount: null == settlementAmount
           ? _value.settlementAmount
           : settlementAmount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       settlementCurrencyCode: freezed == settlementCurrencyCode
           ? _value.settlementCurrencyCode
           : settlementCurrencyCode // ignore: cast_nullable_to_non_nullable
@@ -258,6 +261,10 @@ class _$DetailedSentTransferCopyWithImpl<$Res,
           ? _value.referenceDC
           : referenceDC // ignore: cast_nullable_to_non_nullable
               as String?,
+      accountNumber: null == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -281,7 +288,7 @@ abstract class _$$DetailedSentTransferImplCopyWith<$Res>
       DateTime orderDate,
       DateTime? valueDate,
       String concept,
-      double? settlementAmount,
+      double settlementAmount,
       String? settlementCurrencyCode,
       double? foreignExchange,
       double? exchangeValue,
@@ -300,7 +307,8 @@ abstract class _$$DetailedSentTransferImplCopyWith<$Res>
       String beneficiaryAccount,
       String beneficiaryName,
       DateTime? transferDate,
-      String? referenceDC});
+      String? referenceDC,
+      String accountNumber});
 }
 
 /// @nodoc
@@ -324,7 +332,7 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
     Object? orderDate = null,
     Object? valueDate = freezed,
     Object? concept = null,
-    Object? settlementAmount = freezed,
+    Object? settlementAmount = null,
     Object? settlementCurrencyCode = freezed,
     Object? foreignExchange = freezed,
     Object? exchangeValue = freezed,
@@ -344,6 +352,7 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
     Object? beneficiaryName = null,
     Object? transferDate = freezed,
     Object? referenceDC = freezed,
+    Object? accountNumber = null,
   }) {
     return _then(_$DetailedSentTransferImpl(
       id: null == id
@@ -386,10 +395,10 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
-      settlementAmount: freezed == settlementAmount
+      settlementAmount: null == settlementAmount
           ? _value.settlementAmount
           : settlementAmount // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
       settlementCurrencyCode: freezed == settlementCurrencyCode
           ? _value.settlementCurrencyCode
           : settlementCurrencyCode // ignore: cast_nullable_to_non_nullable
@@ -466,6 +475,10 @@ class __$$DetailedSentTransferImplCopyWithImpl<$Res>
           ? _value.referenceDC
           : referenceDC // ignore: cast_nullable_to_non_nullable
               as String?,
+      accountNumber: null == accountNumber
+          ? _value.accountNumber
+          : accountNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -503,7 +516,8 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
       required this.beneficiaryAccount,
       required this.beneficiaryName,
       required this.transferDate,
-      required this.referenceDC});
+      required this.referenceDC,
+      required this.accountNumber});
 
   @override
   final UniqueId id;
@@ -526,7 +540,7 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
   @override
   final String concept;
   @override
-  final double? settlementAmount;
+  final double settlementAmount;
   @override
   final String? settlementCurrencyCode;
   @override
@@ -565,10 +579,12 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
   final DateTime? transferDate;
   @override
   final String? referenceDC;
+  @override
+  final String accountNumber;
 
   @override
   String toString() {
-    return 'DetailedSentTransfer(id: $id, type: $type, baasTransferId: $baasTransferId, bankOperationCode: $bankOperationCode, senderBank: $senderBank, accountId: $accountId, customerId: $customerId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailsOfCharges: $detailsOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, executionDate: $executionDate, senderAccount: $senderAccount, periodicTransfer: $periodicTransfer, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, transferDate: $transferDate, referenceDC: $referenceDC)';
+    return 'DetailedSentTransfer(id: $id, type: $type, baasTransferId: $baasTransferId, bankOperationCode: $bankOperationCode, senderBank: $senderBank, accountId: $accountId, customerId: $customerId, orderDate: $orderDate, valueDate: $valueDate, concept: $concept, settlementAmount: $settlementAmount, settlementCurrencyCode: $settlementCurrencyCode, foreignExchange: $foreignExchange, exchangeValue: $exchangeValue, detailsOfCharges: $detailsOfCharges, instructedAmount: $instructedAmount, instructedCurrencyCode: $instructedCurrencyCode, status: $status, baasMovementId: $baasMovementId, concept2: $concept2, movementId: $movementId, executionDate: $executionDate, senderAccount: $senderAccount, periodicTransfer: $periodicTransfer, routingNumber: $routingNumber, beneficiaryBank: $beneficiaryBank, beneficiaryAccount: $beneficiaryAccount, beneficiaryName: $beneficiaryName, transferDate: $transferDate, referenceDC: $referenceDC, accountNumber: $accountNumber)';
   }
 
   @override
@@ -631,7 +647,9 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
             (identical(other.transferDate, transferDate) ||
                 other.transferDate == transferDate) &&
             (identical(other.referenceDC, referenceDC) ||
-                other.referenceDC == referenceDC));
+                other.referenceDC == referenceDC) &&
+            (identical(other.accountNumber, accountNumber) ||
+                other.accountNumber == accountNumber));
   }
 
   @override
@@ -666,7 +684,8 @@ class _$DetailedSentTransferImpl implements _DetailedSentTransfer {
         beneficiaryAccount,
         beneficiaryName,
         transferDate,
-        referenceDC
+        referenceDC,
+        accountNumber
       ]);
 
   @JsonKey(ignore: true)
@@ -690,7 +709,7 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
       required final DateTime orderDate,
       required final DateTime? valueDate,
       required final String concept,
-      required final double? settlementAmount,
+      required final double settlementAmount,
       required final String? settlementCurrencyCode,
       required final double? foreignExchange,
       required final double? exchangeValue,
@@ -709,7 +728,8 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
       required final String beneficiaryAccount,
       required final String beneficiaryName,
       required final DateTime? transferDate,
-      required final String? referenceDC}) = _$DetailedSentTransferImpl;
+      required final String? referenceDC,
+      required final String accountNumber}) = _$DetailedSentTransferImpl;
 
   @override
   UniqueId get id;
@@ -732,7 +752,7 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
   @override
   String get concept;
   @override
-  double? get settlementAmount;
+  double get settlementAmount;
   @override
   String? get settlementCurrencyCode;
   @override
@@ -771,6 +791,8 @@ abstract class _DetailedSentTransfer implements DetailedSentTransfer {
   DateTime? get transferDate;
   @override
   String? get referenceDC;
+  @override
+  String get accountNumber;
   @override
   @JsonKey(ignore: true)
   _$$DetailedSentTransferImplCopyWith<_$DetailedSentTransferImpl>

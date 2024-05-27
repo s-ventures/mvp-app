@@ -83,7 +83,7 @@ class TransactionTransferOutDetails extends StatelessWidget {
         AppSpacing.vertical.s5,
         MovementDetailsBankingInfo(
           type: BankAccountType.account,
-          last4: transaction.originBranch,
+          last4: transaction.accountNumber.lastFourCharacters,
           icon: '🖥️',
           // category: transaction.category,
           category: 'Tecnología',

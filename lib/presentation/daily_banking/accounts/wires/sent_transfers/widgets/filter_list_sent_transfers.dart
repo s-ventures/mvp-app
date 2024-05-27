@@ -15,8 +15,8 @@ class FilterListSentTransfers extends ConsumerStatefulWidget {
 
   final DateTime? stateDate;
   final DateTime? endDate;
-  final int? amountFrom;
-  final int? amountTo;
+  final double? amountFrom;
+  final double? amountTo;
   final VoidCallback onClearDateRange;
   final VoidCallback onClearAmountRange;
 
@@ -41,8 +41,8 @@ class _FilterListSentTransfersState extends ConsumerState<FilterListSentTransfer
             ),
           if (widget.amountFrom != null || widget.amountTo != null)
             AmountRangeFilterListItem(
-              amountFrom: widget.amountFrom != null ? widget.amountFrom!.toDouble() : 0.0,
-              amountTo: widget.amountTo != null ? widget.amountTo!.toDouble() : 0.0,
+              amountFrom: widget.amountFrom ?? 0.0,
+              amountTo: widget.amountTo ?? 0.0,
               onClear: widget.onClearAmountRange,
             ),
         ],
