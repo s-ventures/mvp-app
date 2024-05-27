@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
@@ -10,10 +12,10 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/en
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_filtered_pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
 
-final simplifiedAccountTransactionsControllerProvider = StateNotifierProvider<
+final simplifiedAccountTransactionsControllerProvider = StateNotifierProvider.autoDispose<
     SimplifiedAccountTransactionsController, SimplifiedAccountTransactionsState>(
   (ref) => SimplifiedAccountTransactionsController(
-    ref.watch(accountTransactionsPaginationRepositoryProvider),
+    ref.watch(accountTransactionsFilteredPaginationRepositoryProvider),
     ref.watch(accountsRepositoryProvider),
   ),
 );
@@ -109,6 +111,7 @@ class SimplifiedAccountTransactionsController
 
   Future<void> resetFilters() async {
     state = const SimplifiedAccountTransactionsState();
+
     await applyFilters();
   }
 

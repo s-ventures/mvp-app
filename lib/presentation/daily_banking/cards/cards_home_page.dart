@@ -26,7 +26,7 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
   @override
   void initState() {
     super.initState();
-    ref.read(simplifiedCardTransactionsControllerProvider.notifier).resetFilters();
+    // ref.read(simplifiedCardTransactionsControllerProvider.notifier).resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
