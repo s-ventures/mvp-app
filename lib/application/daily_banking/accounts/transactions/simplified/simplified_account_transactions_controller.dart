@@ -111,7 +111,6 @@ class SimplifiedAccountTransactionsController
 
   Future<void> resetFilters() async {
     state = const SimplifiedAccountTransactionsState();
-
     await applyFilters();
   }
 
