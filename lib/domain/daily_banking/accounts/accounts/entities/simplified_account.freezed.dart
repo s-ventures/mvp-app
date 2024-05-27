@@ -23,7 +23,8 @@ mixin _$SimplifiedAccount {
   AccountBalance get balance => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SimplifiedAccountCopyWith<SimplifiedAccount> get copyWith => throw _privateConstructorUsedError;
+  $SimplifiedAccountCopyWith<SimplifiedAccount> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -95,9 +96,10 @@ class _$SimplifiedAccountCopyWithImpl<$Res, $Val extends SimplifiedAccount>
 }
 
 /// @nodoc
-abstract class _$$SimplifiedAccountImplCopyWith<$Res> implements $SimplifiedAccountCopyWith<$Res> {
-  factory _$$SimplifiedAccountImplCopyWith(
-          _$SimplifiedAccountImpl value, $Res Function(_$SimplifiedAccountImpl) then) =
+abstract class _$$SimplifiedAccountImplCopyWith<$Res>
+    implements $SimplifiedAccountCopyWith<$Res> {
+  factory _$$SimplifiedAccountImplCopyWith(_$SimplifiedAccountImpl value,
+          $Res Function(_$SimplifiedAccountImpl) then) =
       __$$SimplifiedAccountImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -116,8 +118,8 @@ abstract class _$$SimplifiedAccountImplCopyWith<$Res> implements $SimplifiedAcco
 class __$$SimplifiedAccountImplCopyWithImpl<$Res>
     extends _$SimplifiedAccountCopyWithImpl<$Res, _$SimplifiedAccountImpl>
     implements _$$SimplifiedAccountImplCopyWith<$Res> {
-  __$$SimplifiedAccountImplCopyWithImpl(
-      _$SimplifiedAccountImpl _value, $Res Function(_$SimplifiedAccountImpl) _then)
+  __$$SimplifiedAccountImplCopyWithImpl(_$SimplifiedAccountImpl _value,
+      $Res Function(_$SimplifiedAccountImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -187,19 +189,22 @@ class _$SimplifiedAccountImpl implements _SimplifiedAccount {
             other is _$SimplifiedAccountImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.entity, entity) || other.entity == entity) &&
-            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.balance, balance) || other.balance == balance));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, entity, currencyCode, status, balance);
+  int get hashCode =>
+      Object.hash(runtimeType, id, entity, currencyCode, status, balance);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SimplifiedAccountImplCopyWith<_$SimplifiedAccountImpl> get copyWith =>
-      __$$SimplifiedAccountImplCopyWithImpl<_$SimplifiedAccountImpl>(this, _$identity);
+      __$$SimplifiedAccountImplCopyWithImpl<_$SimplifiedAccountImpl>(
+          this, _$identity);
 }
 
 abstract class _SimplifiedAccount implements SimplifiedAccount {

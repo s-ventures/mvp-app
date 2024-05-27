@@ -28,15 +28,16 @@ mixin _$SimplifiedCardTransaction {
 
 /// @nodoc
 abstract class $SimplifiedCardTransactionCopyWith<$Res> {
-  factory $SimplifiedCardTransactionCopyWith(
-          SimplifiedCardTransaction value, $Res Function(SimplifiedCardTransaction) then) =
+  factory $SimplifiedCardTransactionCopyWith(SimplifiedCardTransaction value,
+          $Res Function(SimplifiedCardTransaction) then) =
       _$SimplifiedCardTransactionCopyWithImpl<$Res, SimplifiedCardTransaction>;
   @useResult
   $Res call({UniqueId id, String concept, DateTime date, double amount});
 }
 
 /// @nodoc
-class _$SimplifiedCardTransactionCopyWithImpl<$Res, $Val extends SimplifiedCardTransaction>
+class _$SimplifiedCardTransactionCopyWithImpl<$Res,
+        $Val extends SimplifiedCardTransaction>
     implements $SimplifiedCardTransactionCopyWith<$Res> {
   _$SimplifiedCardTransactionCopyWithImpl(this._value, this._then);
 
@@ -77,7 +78,8 @@ class _$SimplifiedCardTransactionCopyWithImpl<$Res, $Val extends SimplifiedCardT
 /// @nodoc
 abstract class _$$SimplifiedCardTransactionImplCopyWith<$Res>
     implements $SimplifiedCardTransactionCopyWith<$Res> {
-  factory _$$SimplifiedCardTransactionImplCopyWith(_$SimplifiedCardTransactionImpl value,
+  factory _$$SimplifiedCardTransactionImplCopyWith(
+          _$SimplifiedCardTransactionImpl value,
           $Res Function(_$SimplifiedCardTransactionImpl) then) =
       __$$SimplifiedCardTransactionImplCopyWithImpl<$Res>;
   @override
@@ -87,10 +89,12 @@ abstract class _$$SimplifiedCardTransactionImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SimplifiedCardTransactionImplCopyWithImpl<$Res>
-    extends _$SimplifiedCardTransactionCopyWithImpl<$Res, _$SimplifiedCardTransactionImpl>
+    extends _$SimplifiedCardTransactionCopyWithImpl<$Res,
+        _$SimplifiedCardTransactionImpl>
     implements _$$SimplifiedCardTransactionImplCopyWith<$Res> {
   __$$SimplifiedCardTransactionImplCopyWithImpl(
-      _$SimplifiedCardTransactionImpl _value, $Res Function(_$SimplifiedCardTransactionImpl) _then)
+      _$SimplifiedCardTransactionImpl _value,
+      $Res Function(_$SimplifiedCardTransactionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +130,10 @@ class __$$SimplifiedCardTransactionImplCopyWithImpl<$Res>
 
 class _$SimplifiedCardTransactionImpl implements _SimplifiedCardTransaction {
   const _$SimplifiedCardTransactionImpl(
-      {required this.id, required this.concept, required this.date, required this.amount});
+      {required this.id,
+      required this.concept,
+      required this.date,
+      required this.amount});
 
   @override
   final UniqueId id;
@@ -159,9 +166,9 @@ class _$SimplifiedCardTransactionImpl implements _SimplifiedCardTransaction {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SimplifiedCardTransactionImplCopyWith<_$SimplifiedCardTransactionImpl> get copyWith =>
-      __$$SimplifiedCardTransactionImplCopyWithImpl<_$SimplifiedCardTransactionImpl>(
-          this, _$identity);
+  _$$SimplifiedCardTransactionImplCopyWith<_$SimplifiedCardTransactionImpl>
+      get copyWith => __$$SimplifiedCardTransactionImplCopyWithImpl<
+          _$SimplifiedCardTransactionImpl>(this, _$identity);
 }
 
 abstract class _SimplifiedCardTransaction implements SimplifiedCardTransaction {
@@ -181,6 +188,6 @@ abstract class _SimplifiedCardTransaction implements SimplifiedCardTransaction {
   double get amount;
   @override
   @JsonKey(ignore: true)
-  _$$SimplifiedCardTransactionImplCopyWith<_$SimplifiedCardTransactionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SimplifiedCardTransactionImplCopyWith<_$SimplifiedCardTransactionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

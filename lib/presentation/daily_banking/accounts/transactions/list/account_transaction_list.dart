@@ -43,7 +43,7 @@ class _AccountTransactionListState extends ConsumerState<AccountTransactionList>
             },
           ),
         ) ??
-        const CircularProgressIndicator.adaptive().sliver;
+        const CustomLoader().sliver;
   }
 }
 
@@ -69,7 +69,7 @@ class _TransactionList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              date.formatToTransactionDate() ?? '',
+              date.formatToTransactionDate(),
               style: context.textStyle.bodySmallSemiBold.copyWith(
                 color: context.color.textLight300,
               ),

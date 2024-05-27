@@ -158,7 +158,7 @@ class NationalTransferResumePage extends StatelessWidget {
                     ),
                     Text(
                       context.loc.commonDateSinceDate(
-                        DateTime.now().formatToTransactionDate()!,
+                        DateTime.now().formatToTransactionDate(),
                       ),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight600,
@@ -173,7 +173,7 @@ class NationalTransferResumePage extends StatelessWidget {
                 size: ButtonSize.small,
                 expand: true,
                 onPressed: () async => context.pushNamed(
-                  AppRoute.dailyBankingNationalTransferSignature.name,
+                  AppRoute.dailyBankingNationalTransferOtp.name,
                 ),
               ),
             ],

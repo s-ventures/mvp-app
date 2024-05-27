@@ -42,15 +42,19 @@ Map<String, dynamic> _$DebitDtoToJson(DebitDto instance) {
   writeNotNull('currencyCode', instance.currencyCode);
   writeNotNull('issuer', instance.issuer);
   writeNotNull('identification', instance.identification);
-  writeNotNull('dueDate',
-      _$JsonConverterToJson<String, DateTime>(instance.dueDate, const DateConverter().toJson));
+  writeNotNull(
+      'dueDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.dueDate, const DateConverter().toJson));
   writeNotNull('suffix', instance.suffix);
   writeNotNull('sort', instance.sort);
   val['issuerName'] = instance.issuerName;
   writeNotNull('nrc', instance.nrc);
   writeNotNull('bankReference', instance.bankReference);
-  writeNotNull('paymentDate',
-      _$JsonConverterToJson<String, DateTime>(instance.paymentDate, const DateConverter().toJson));
+  writeNotNull(
+      'paymentDate',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.paymentDate, const DateConverter().toJson));
   val['movementNumber'] = instance.movementNumber;
   writeNotNull('fileId', instance.fileId);
   return val;

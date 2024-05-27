@@ -30,7 +30,6 @@ class StakeholdersRepository implements IStakeholdersRepository {
     required StakeholdersFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = StakeholdersFilterDto.fromDomain(
       filter: filter,
@@ -42,7 +41,6 @@ class StakeholdersRepository implements IStakeholdersRepository {
         erpContractId: erpContractId,
         filterDto: filterDto,
       );
-      onPaginationInfo?.call(result.totalPages, result.totalElements);
       return right(
         result.data
             .map(

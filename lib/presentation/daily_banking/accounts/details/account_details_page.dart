@@ -292,7 +292,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
               ),
             ),
             loading: () => const Center(
-              child: CircularProgressIndicator(),
+              child: CustomLoader(),
             ),
           ),
         ),

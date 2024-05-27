@@ -23,12 +23,14 @@ mixin _$ClaimsFilter {
   String? get riskType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ClaimsFilterCopyWith<ClaimsFilter> get copyWith => throw _privateConstructorUsedError;
+  $ClaimsFilterCopyWith<ClaimsFilter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ClaimsFilterCopyWith<$Res> {
-  factory $ClaimsFilterCopyWith(ClaimsFilter value, $Res Function(ClaimsFilter) then) =
+  factory $ClaimsFilterCopyWith(
+          ClaimsFilter value, $Res Function(ClaimsFilter) then) =
       _$ClaimsFilterCopyWithImpl<$Res, ClaimsFilter>;
   @useResult
   $Res call(
@@ -84,7 +86,8 @@ class _$ClaimsFilterCopyWithImpl<$Res, $Val extends ClaimsFilter>
 }
 
 /// @nodoc
-abstract class _$$ClaimsFilterImplCopyWith<$Res> implements $ClaimsFilterCopyWith<$Res> {
+abstract class _$$ClaimsFilterImplCopyWith<$Res>
+    implements $ClaimsFilterCopyWith<$Res> {
   factory _$$ClaimsFilterImplCopyWith(
           _$ClaimsFilterImpl value, $Res Function(_$ClaimsFilterImpl) then) =
       __$$ClaimsFilterImplCopyWithImpl<$Res>;
@@ -180,17 +183,25 @@ class _$ClaimsFilterImpl implements _ClaimsFilter {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ClaimsFilterImpl &&
-            const DeepCollectionEquality().equals(other._insuranceIds, _insuranceIds) &&
+            const DeepCollectionEquality()
+                .equals(other._insuranceIds, _insuranceIds) &&
             (identical(other.createDateFrom, createDateFrom) ||
                 other.createDateFrom == createDateFrom) &&
-            (identical(other.createDateTo, createDateTo) || other.createDateTo == createDateTo) &&
+            (identical(other.createDateTo, createDateTo) ||
+                other.createDateTo == createDateTo) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.riskType, riskType) || other.riskType == riskType));
+            (identical(other.riskType, riskType) ||
+                other.riskType == riskType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_insuranceIds),
-      createDateFrom, createDateTo, status, riskType);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_insuranceIds),
+      createDateFrom,
+      createDateTo,
+      status,
+      riskType);
 
   @JsonKey(ignore: true)
   @override
@@ -199,7 +210,7 @@ class _$ClaimsFilterImpl implements _ClaimsFilter {
       __$$ClaimsFilterImplCopyWithImpl<_$ClaimsFilterImpl>(this, _$identity);
 }
 
-abstract class _ClaimsFilter implements ClaimsFilter {
+abstract class _ClaimsFilter implements ClaimsFilter, PaginationFilter {
   const factory _ClaimsFilter(
       {final List<int>? insuranceIds,
       final DateTime? createDateFrom,

@@ -22,15 +22,21 @@ mixin _$CardContract {
   DateTime? get endDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CardContractCopyWith<CardContract> get copyWith => throw _privateConstructorUsedError;
+  $CardContractCopyWith<CardContract> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CardContractCopyWith<$Res> {
-  factory $CardContractCopyWith(CardContract value, $Res Function(CardContract) then) =
+  factory $CardContractCopyWith(
+          CardContract value, $Res Function(CardContract) then) =
       _$CardContractCopyWithImpl<$Res, CardContract>;
   @useResult
-  $Res call({UniqueId id, UniqueId accountId, DateTime createDate, DateTime? endDate});
+  $Res call(
+      {UniqueId id,
+      UniqueId accountId,
+      DateTime createDate,
+      DateTime? endDate});
 }
 
 /// @nodoc
@@ -73,13 +79,18 @@ class _$CardContractCopyWithImpl<$Res, $Val extends CardContract>
 }
 
 /// @nodoc
-abstract class _$$CardContractImplCopyWith<$Res> implements $CardContractCopyWith<$Res> {
+abstract class _$$CardContractImplCopyWith<$Res>
+    implements $CardContractCopyWith<$Res> {
   factory _$$CardContractImplCopyWith(
           _$CardContractImpl value, $Res Function(_$CardContractImpl) then) =
       __$$CardContractImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, UniqueId accountId, DateTime createDate, DateTime? endDate});
+  $Res call(
+      {UniqueId id,
+      UniqueId accountId,
+      DateTime createDate,
+      DateTime? endDate});
 }
 
 /// @nodoc
@@ -123,7 +134,10 @@ class __$$CardContractImplCopyWithImpl<$Res>
 
 class _$CardContractImpl implements _CardContract {
   const _$CardContractImpl(
-      {required this.id, required this.accountId, required this.createDate, required this.endDate});
+      {required this.id,
+      required this.accountId,
+      required this.createDate,
+      required this.endDate});
 
   @override
   final UniqueId id;
@@ -145,13 +159,16 @@ class _$CardContractImpl implements _CardContract {
         (other.runtimeType == runtimeType &&
             other is _$CardContractImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
-            (identical(other.createDate, createDate) || other.createDate == createDate) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, accountId, createDate, endDate);
+  int get hashCode =>
+      Object.hash(runtimeType, id, accountId, createDate, endDate);
 
   @JsonKey(ignore: true)
   @override

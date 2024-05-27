@@ -25,8 +25,8 @@ class _PoliciesRestClient implements PoliciesRestClient {
     final queryParameters = <String, dynamic>{r'': filter.toJson()};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<PaginatedResponse<SimplifiedPolicyDto>>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginatedResponse<SimplifiedPolicyDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -58,8 +58,8 @@ class _PoliciesRestClient implements PoliciesRestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<DetailedPolicyDto>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<DetailedPolicyDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,

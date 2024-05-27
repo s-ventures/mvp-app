@@ -135,8 +135,7 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
                   AppSpacing.vertical.s5,
                   MovementDetailsBankingInfo(
                     type: BankAccountType.account,
-                    // TODO(georgeta): Nos falta el numero de cuenta en el DTO
-                    last4: transaction.originBranch,
+                    last4: transaction.accountNumber.lastFourCharacters,
                     icon: '🖥️',
                     // category: transaction.category,
                     category: 'Tecnología',
@@ -175,7 +174,7 @@ class _AccountTransactionDetailsPageState extends ConsumerState<AccountTransacti
             ),
           ),
           loading: () => const Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoader(),
           ),
         ),
       ),

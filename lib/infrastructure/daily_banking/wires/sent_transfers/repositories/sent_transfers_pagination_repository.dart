@@ -26,7 +26,6 @@ class SentTransfersPaginationRepository extends PaginationListRepository<Simplif
       filter: _filter ?? const SentTransfersFilter(),
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return sentTransfers.fold(
       (l) => <SimplifiedSentTransfer>[],
@@ -35,8 +34,8 @@ class SentTransfersPaginationRepository extends PaginationListRepository<Simplif
   }
 
   void updateFilter({
-    required int? amountFrom,
-    required int? amountTo,
+    required double? amountFrom,
+    required double? amountTo,
     required DateTime? startDateFrom,
     required DateTime? startDateTo,
   }) {

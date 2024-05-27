@@ -136,7 +136,7 @@ class InternationalTransferResumePage extends StatelessWidget {
             size: ButtonSize.small,
             expand: true,
             onPressed: () async => context.pushNamed(
-              AppRoute.dailyBankingInternationalTransferSignature.name,
+              AppRoute.dailyBankingInternationalTransferOtp.name,
             ),
           ),
         ),

@@ -18,13 +18,14 @@ class FilterSimplifiedClaimsController extends StateNotifier<FilterSimplifiedCla
   final SimplifiedClaimsController _simplifiedClaimsController;
 
   Future<void> applyFilters() async {
-    await _simplifiedClaimsController.updateFilter(
-      insuranceIds: state.insuranceIds,
-      createDateFrom: state.createDateFrom,
-      createDateTo: state.createDateTo,
-      status: state.status,
-      riskType: state.riskType,
-    );
+    // TODO(sergio): uncomment this
+    // await _simplifiedClaimsController.updateFilter(
+    //   insuranceIds: state.insuranceIds,
+    //   createDateFrom: state.createDateFrom,
+    //   createDateTo: state.createDateTo,
+    //   status: state.status,
+    //   riskType: state.riskType,
+    // );
   }
 
   Future<void> resetFilters() async {

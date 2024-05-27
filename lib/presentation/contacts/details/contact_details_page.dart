@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/details/expenses/contact_details_expenses_tab.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/details/profile/contact_details_profile_tab.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/details/revenue/contact_details_revenue_tab.dart';
@@ -22,7 +23,7 @@ class ContactDetailsPage extends StatelessWidget {
                   centerTitle: true,
                   floating: true,
                   pinned: true,
-                  title: 'Contacto',
+                  title: context.loc.contactsDetailsPageTitle,
                   leading: Button(
                     icon: IconAssets.chevronLeft,
                     type: ButtonType.outlined,
@@ -37,11 +38,11 @@ class ContactDetailsPage extends StatelessWidget {
                       onPressed: () async => context.pushNamed(AppRoute.contactEdit.name),
                     ),
                   ],
-                  bottom: const CustomTabBar(
+                  bottom: CustomTabBar(
                     tabs: [
-                      Tab(text: 'Perfil'),
-                      Tab(text: 'Ingresos'),
-                      Tab(text: 'Gastos'),
+                      Tab(text: context.loc.contactsDetailsTabProfile),
+                      Tab(text: context.loc.contactsDetailsTabRevenue),
+                      Tab(text: context.loc.contactsDetailsTabExpenses),
                     ],
                   ),
                 ),

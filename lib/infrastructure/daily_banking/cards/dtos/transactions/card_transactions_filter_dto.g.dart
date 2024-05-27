@@ -6,10 +6,14 @@ part of 'card_transactions_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CardTransactionsFilterDto _$CardTransactionsFilterDtoFromJson(Map<String, dynamic> json) =>
+CardTransactionsFilterDto _$CardTransactionsFilterDtoFromJson(
+        Map<String, dynamic> json) =>
     CardTransactionsFilterDto(
-      cardContractId: (json['cardContractId'] as List<dynamic>).map((e) => e as int).toList(),
-      operationType: $enumDecode(_$TransactionOperationTypeDtoEnumMap, json['operationType']),
+      cardContractId: (json['cardContractId'] as List<dynamic>)
+          .map((e) => e as int)
+          .toList(),
+      operationType: $enumDecode(
+          _$TransactionOperationTypeDtoEnumMap, json['operationType']),
       cardId: (json['cardId'] as List<dynamic>).map((e) => e as int).toList(),
       amountFrom: (json['amountFrom'] as num?)?.toDouble(),
       amountTo: (json['amountTo'] as num?)?.toDouble(),
@@ -22,13 +26,15 @@ CardTransactionsFilterDto _$CardTransactionsFilterDtoFromJson(Map<String, dynami
       pageNumber: json['pageNumber'] as int? ?? 0,
     );
 
-Map<String, dynamic> _$CardTransactionsFilterDtoToJson(CardTransactionsFilterDto instance) {
+Map<String, dynamic> _$CardTransactionsFilterDtoToJson(
+    CardTransactionsFilterDto instance) {
   final val = <String, dynamic>{
     'pageSize': instance.pageSize,
     'pageNumber': instance.pageNumber,
     'cardContractId': instance.cardContractId,
     'cardId': instance.cardId,
-    'operationType': _$TransactionOperationTypeDtoEnumMap[instance.operationType]!,
+    'operationType':
+        _$TransactionOperationTypeDtoEnumMap[instance.operationType]!,
   };
 
   void writeNotNull(String key, dynamic value) {

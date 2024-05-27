@@ -59,7 +59,7 @@ class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPi
               },
             ),
           ) ??
-          const CircularProgressIndicator.adaptive(),
+          const CustomLoader(),
     );
   }
 }

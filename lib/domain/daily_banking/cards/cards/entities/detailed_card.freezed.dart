@@ -24,12 +24,14 @@ mixin _$DetailedCard {
   String get cardEncryptedNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedCardCopyWith<DetailedCard> get copyWith => throw _privateConstructorUsedError;
+  $DetailedCardCopyWith<DetailedCard> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedCardCopyWith<$Res> {
-  factory $DetailedCardCopyWith(DetailedCard value, $Res Function(DetailedCard) then) =
+  factory $DetailedCardCopyWith(
+          DetailedCard value, $Res Function(DetailedCard) then) =
       _$DetailedCardCopyWithImpl<$Res, DetailedCard>;
   @useResult
   $Res call(
@@ -85,7 +87,8 @@ class _$DetailedCardCopyWithImpl<$Res, $Val extends DetailedCard>
 }
 
 /// @nodoc
-abstract class _$$DetailedCardImplCopyWith<$Res> implements $DetailedCardCopyWith<$Res> {
+abstract class _$$DetailedCardImplCopyWith<$Res>
+    implements $DetailedCardCopyWith<$Res> {
   factory _$$DetailedCardImplCopyWith(
           _$DetailedCardImpl value, $Res Function(_$DetailedCardImpl) then) =
       __$$DetailedCardImplCopyWithImpl<$Res>;
@@ -174,7 +177,8 @@ class _$DetailedCardImpl implements _DetailedCard {
         (other.runtimeType == runtimeType &&
             other is _$DetailedCardImpl &&
             (identical(other.cardId, cardId) || other.cardId == cardId) &&
-            (identical(other.cardName, cardName) || other.cardName == cardName) &&
+            (identical(other.cardName, cardName) ||
+                other.cardName == cardName) &&
             (identical(other.dueDate, dueDate) || other.dueDate == dueDate) &&
             (identical(other.cvv, cvv) || other.cvv == cvv) &&
             (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
@@ -182,7 +186,8 @@ class _$DetailedCardImpl implements _DetailedCard {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cardId, cardName, dueDate, cvv, cardEncryptedNumber);
+  int get hashCode => Object.hash(
+      runtimeType, cardId, cardName, dueDate, cvv, cardEncryptedNumber);
 
   @JsonKey(ignore: true)
   @override

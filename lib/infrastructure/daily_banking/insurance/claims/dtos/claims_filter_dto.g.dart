@@ -6,10 +6,13 @@ part of 'claims_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) => ClaimsFilterDto(
-      claimId: json['claimId'] as int?,
-      insuranceId: (json['insuranceId'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      year: json['year'] as int?,
+ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) =>
+    ClaimsFilterDto(
+      claimId: (json['claimId'] as num?)?.toInt(),
+      insuranceId: (json['insuranceId'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
+      year: (json['year'] as num?)?.toInt(),
       dossier: json['dossier'] as String?,
       createDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['createDateFrom'], const DateConverter().fromJson),
@@ -30,8 +33,8 @@ ClaimsFilterDto _$ClaimsFilterDtoFromJson(Map<String, dynamic> json) => ClaimsFi
       agentName: json['agentName'] as String?,
       agentEmail: json['agentEmail'] as String?,
       agentTelephone: json['agentTelephone'] as String?,
-      pageNumber: json['pageNumber'] as int? ?? 0,
-      pageSize: json['pageSize'] as int? ?? 10,
+      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
+      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
     );
 
 Map<String, dynamic> _$ClaimsFilterDtoToJson(ClaimsFilterDto instance) {
@@ -54,8 +57,10 @@ Map<String, dynamic> _$ClaimsFilterDtoToJson(ClaimsFilterDto instance) {
       'createDateFrom',
       _$JsonConverterToJson<String, DateTime>(
           instance.createDateFrom, const DateConverter().toJson));
-  writeNotNull('createDateTo',
-      _$JsonConverterToJson<String, DateTime>(instance.createDateTo, const DateConverter().toJson));
+  writeNotNull(
+      'createDateTo',
+      _$JsonConverterToJson<String, DateTime>(
+          instance.createDateTo, const DateConverter().toJson));
   writeNotNull('status', _$ClaimStatusTypeDtoEnumMap[instance.status]);
   writeNotNull('riskType', instance.riskType);
   writeNotNull('reason', instance.reason);

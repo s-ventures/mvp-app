@@ -30,7 +30,6 @@ class PoliciesRepository implements IPoliciesRepository {
     required PoliciesFilter filter,
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = PoliciesFilterDto.fromDomain(
       filter: filter,
@@ -41,7 +40,6 @@ class PoliciesRepository implements IPoliciesRepository {
       final response = await _remoteDataSource.getSimplifiedPolicies(
         filterDto: filterDto,
       );
-      onPaginationInfo?.call(response.totalPages, response.totalElements);
       final policies = response.data.map((e) => e.toDomain()).toList();
       return right(policies);
     } catch (_) {

@@ -39,17 +39,37 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState>
   final int maxAttachments;
 
   Future<void> addFiles(List<File> files) async {
+    final totalAttachments = state.attachments.length;
+    var filesToAdd = files.toList();
+
+    if (totalAttachments >= maxAttachments) {
+      // No more files can be added
+      return;
+    }
+
+    // Calculate how many files can be added
+    final remainingSpace = maxAttachments - totalAttachments;
+
+    // Get only the ones that fit the max amount
+    if (files.length > remainingSpace) {
+      filesToAdd = files.getRange(0, remainingSpace).toList();
+    }
+
+    if (filesToAdd.isEmpty) {
+      return;
+    }
+
     for (final fileUpload in _files) {
       await fileUpload.operation.cancel();
     }
 
-    final filesToUpload = files.toList();
+    final filesToUpload = filesToAdd.toList();
     final attachments = state.attachments.toList();
 
     final exceededSizeFiles = <File>[];
 
-    for (var i = 0; i < files.length; i++) {
-      final file = files[i];
+    for (var i = 0; i < filesToUpload.length; i++) {
+      final file = filesToUpload[i];
       final fileLength = file.lengthSync();
 
       if (fileLength.bytesToMegaBytes() > maxFileSizeMb) {
@@ -59,7 +79,7 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState>
           FileAttachment.error(
             id: DateTime.now().microsecondsSinceEpoch.toString(),
             error: UploadFileFailure.fileExceedsMaxSize(maxFileSizeMb),
-            fileName: file.shortName(),
+            fileName: file.name,
             size: fileLength,
           ),
         );
@@ -68,7 +88,7 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState>
           FileAttachment.attached(
             id: DateTime.now().microsecondsSinceEpoch.toString(),
             file: file,
-            fileName: file.shortName(),
+            fileName: file.name,
             size: fileLength,
           ),
         );
@@ -172,10 +192,21 @@ abstract class UploadAttachmentsStateNotifier<T extends UploadAttachmentState>
     final totalAttachments = state.attachments.length;
     var attachmentsToUpload = attachments.toList();
 
-    if (totalAttachments > maxAttachments) {
-      final value = totalAttachments - maxAttachments;
-      // Get only the ones that fit the max amount
-      attachmentsToUpload = attachments.getRange(0, attachments.length - value).toList();
+    if (totalAttachments >= maxAttachments) {
+      // No more files can be added
+      return;
+    }
+
+    // Calculate how many files can be added
+    final remainingSpace = maxAttachments - totalAttachments;
+
+    // Get only the ones that fit the max amount
+    if (attachments.length > remainingSpace) {
+      attachmentsToUpload = attachments.getRange(0, remainingSpace).toList();
+    }
+
+    if (attachmentsToUpload.isEmpty) {
+      return;
     }
 
     _files.clear();

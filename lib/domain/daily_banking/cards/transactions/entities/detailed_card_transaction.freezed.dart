@@ -23,6 +23,7 @@ mixin _$DetailedCardTransaction {
   String? get placeId => throw _privateConstructorUsedError;
   String get merchantName => throw _privateConstructorUsedError;
   String get concept => throw _privateConstructorUsedError;
+  String get cardEncryptedNumber => throw _privateConstructorUsedError;
   List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,8 +33,8 @@ mixin _$DetailedCardTransaction {
 
 /// @nodoc
 abstract class $DetailedCardTransactionCopyWith<$Res> {
-  factory $DetailedCardTransactionCopyWith(
-          DetailedCardTransaction value, $Res Function(DetailedCardTransaction) then) =
+  factory $DetailedCardTransactionCopyWith(DetailedCardTransaction value,
+          $Res Function(DetailedCardTransaction) then) =
       _$DetailedCardTransactionCopyWithImpl<$Res, DetailedCardTransaction>;
   @useResult
   $Res call(
@@ -44,11 +45,13 @@ abstract class $DetailedCardTransactionCopyWith<$Res> {
       String? placeId,
       String merchantName,
       String concept,
+      String cardEncryptedNumber,
       List<FileAttachment> attachments});
 }
 
 /// @nodoc
-class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTransaction>
+class _$DetailedCardTransactionCopyWithImpl<$Res,
+        $Val extends DetailedCardTransaction>
     implements $DetailedCardTransactionCopyWith<$Res> {
   _$DetailedCardTransactionCopyWithImpl(this._value, this._then);
 
@@ -67,6 +70,7 @@ class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTrans
     Object? placeId = freezed,
     Object? merchantName = null,
     Object? concept = null,
+    Object? cardEncryptedNumber = null,
     Object? attachments = null,
   }) {
     return _then(_value.copyWith(
@@ -98,6 +102,10 @@ class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTrans
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
+      cardEncryptedNumber: null == cardEncryptedNumber
+          ? _value.cardEncryptedNumber
+          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       attachments: null == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -110,7 +118,8 @@ class _$DetailedCardTransactionCopyWithImpl<$Res, $Val extends DetailedCardTrans
 abstract class _$$DetailedCardTransactionImplCopyWith<$Res>
     implements $DetailedCardTransactionCopyWith<$Res> {
   factory _$$DetailedCardTransactionImplCopyWith(
-          _$DetailedCardTransactionImpl value, $Res Function(_$DetailedCardTransactionImpl) then) =
+          _$DetailedCardTransactionImpl value,
+          $Res Function(_$DetailedCardTransactionImpl) then) =
       __$$DetailedCardTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -122,15 +131,18 @@ abstract class _$$DetailedCardTransactionImplCopyWith<$Res>
       String? placeId,
       String merchantName,
       String concept,
+      String cardEncryptedNumber,
       List<FileAttachment> attachments});
 }
 
 /// @nodoc
 class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
-    extends _$DetailedCardTransactionCopyWithImpl<$Res, _$DetailedCardTransactionImpl>
+    extends _$DetailedCardTransactionCopyWithImpl<$Res,
+        _$DetailedCardTransactionImpl>
     implements _$$DetailedCardTransactionImplCopyWith<$Res> {
   __$$DetailedCardTransactionImplCopyWithImpl(
-      _$DetailedCardTransactionImpl _value, $Res Function(_$DetailedCardTransactionImpl) _then)
+      _$DetailedCardTransactionImpl _value,
+      $Res Function(_$DetailedCardTransactionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -143,6 +155,7 @@ class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
     Object? placeId = freezed,
     Object? merchantName = null,
     Object? concept = null,
+    Object? cardEncryptedNumber = null,
     Object? attachments = null,
   }) {
     return _then(_$DetailedCardTransactionImpl(
@@ -174,6 +187,10 @@ class __$$DetailedCardTransactionImplCopyWithImpl<$Res>
           ? _value.concept
           : concept // ignore: cast_nullable_to_non_nullable
               as String,
+      cardEncryptedNumber: null == cardEncryptedNumber
+          ? _value.cardEncryptedNumber
+          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       attachments: null == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
@@ -193,6 +210,7 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
       required this.placeId,
       required this.merchantName,
       required this.concept,
+      required this.cardEncryptedNumber,
       final List<FileAttachment> attachments = const []})
       : _attachments = attachments;
 
@@ -210,6 +228,8 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
   final String merchantName;
   @override
   final String concept;
+  @override
+  final String cardEncryptedNumber;
   final List<FileAttachment> _attachments;
   @override
   @JsonKey()
@@ -221,7 +241,7 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
 
   @override
   String toString() {
-    return 'DetailedCardTransaction(id: $id, amount: $amount, postingDate: $postingDate, description: $description, placeId: $placeId, merchantName: $merchantName, concept: $concept, attachments: $attachments)';
+    return 'DetailedCardTransaction(id: $id, amount: $amount, postingDate: $postingDate, description: $description, placeId: $placeId, merchantName: $merchantName, concept: $concept, cardEncryptedNumber: $cardEncryptedNumber, attachments: $attachments)';
   }
 
   @override
@@ -231,23 +251,38 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
             other is _$DetailedCardTransactionImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.postingDate, postingDate) || other.postingDate == postingDate) &&
-            (identical(other.description, description) || other.description == description) &&
+            (identical(other.postingDate, postingDate) ||
+                other.postingDate == postingDate) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
-            (identical(other.merchantName, merchantName) || other.merchantName == merchantName) &&
+            (identical(other.merchantName, merchantName) ||
+                other.merchantName == merchantName) &&
             (identical(other.concept, concept) || other.concept == concept) &&
+            (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
+                other.cardEncryptedNumber == cardEncryptedNumber) &&
             const DeepCollectionEquality().equals(other._attachments, _attachments));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, amount, postingDate, description, placeId,
-      merchantName, concept, const DeepCollectionEquality().hash(_attachments));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      amount,
+      postingDate,
+      description,
+      placeId,
+      merchantName,
+      concept,
+      cardEncryptedNumber,
+      const DeepCollectionEquality().hash(_attachments));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl> get copyWith =>
-      __$$DetailedCardTransactionImplCopyWithImpl<_$DetailedCardTransactionImpl>(this, _$identity);
+  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl>
+      get copyWith => __$$DetailedCardTransactionImplCopyWithImpl<
+          _$DetailedCardTransactionImpl>(this, _$identity);
 }
 
 abstract class _DetailedCardTransaction implements DetailedCardTransaction {
@@ -259,6 +294,7 @@ abstract class _DetailedCardTransaction implements DetailedCardTransaction {
       required final String? placeId,
       required final String merchantName,
       required final String concept,
+      required final String cardEncryptedNumber,
       final List<FileAttachment> attachments}) = _$DetailedCardTransactionImpl;
 
   @override
@@ -276,9 +312,11 @@ abstract class _DetailedCardTransaction implements DetailedCardTransaction {
   @override
   String get concept;
   @override
+  String get cardEncryptedNumber;
+  @override
   List<FileAttachment> get attachments;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DetailedCardTransactionImplCopyWith<_$DetailedCardTransactionImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

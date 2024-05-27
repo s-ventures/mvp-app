@@ -19,6 +19,7 @@ class ErpRouter {
         child: const ErpPage(),
       ),
       routes: [
+        // Quotes
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.erpQuotesSearch.path,
@@ -37,6 +38,8 @@ class ErpRouter {
             child: const QuotesDetailsPage(),
           ),
         ),
+
+        // Invoices
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.erpInvoicesSearch.path,
@@ -55,6 +58,8 @@ class ErpRouter {
             child: const InvoicesDetailsPage(),
           ),
         ),
+
+        // Expenses
         GoRoute(
           parentNavigatorKey: rootNavigatorKey,
           path: AppRoute.erpExpensesSearch.path,

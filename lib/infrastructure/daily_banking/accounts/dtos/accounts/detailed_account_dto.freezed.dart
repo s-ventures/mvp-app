@@ -29,7 +29,8 @@ mixin _$DetailedAccountDto {
   String get activateDate => throw _privateConstructorUsedError;
   String? get closureDate => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
-  AccountDispositionTypeDto get dispositionType => throw _privateConstructorUsedError;
+  AccountDispositionTypeDto get dispositionType =>
+      throw _privateConstructorUsedError;
   String get dispositionNumber => throw _privateConstructorUsedError;
   String get lastOperationDate => throw _privateConstructorUsedError;
   AccountBalanceDto get balance => throw _privateConstructorUsedError;
@@ -166,8 +167,8 @@ class _$DetailedAccountDtoCopyWithImpl<$Res, $Val extends DetailedAccountDto>
 /// @nodoc
 abstract class _$$DetailedAccountDtoImplCopyWith<$Res>
     implements $DetailedAccountDtoCopyWith<$Res> {
-  factory _$$DetailedAccountDtoImplCopyWith(
-          _$DetailedAccountDtoImpl value, $Res Function(_$DetailedAccountDtoImpl) then) =
+  factory _$$DetailedAccountDtoImplCopyWith(_$DetailedAccountDtoImpl value,
+          $Res Function(_$DetailedAccountDtoImpl) then) =
       __$$DetailedAccountDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -195,8 +196,8 @@ abstract class _$$DetailedAccountDtoImplCopyWith<$Res>
 class __$$DetailedAccountDtoImplCopyWithImpl<$Res>
     extends _$DetailedAccountDtoCopyWithImpl<$Res, _$DetailedAccountDtoImpl>
     implements _$$DetailedAccountDtoImplCopyWith<$Res> {
-  __$$DetailedAccountDtoImplCopyWithImpl(
-      _$DetailedAccountDtoImpl _value, $Res Function(_$DetailedAccountDtoImpl) _then)
+  __$$DetailedAccountDtoImplCopyWithImpl(_$DetailedAccountDtoImpl _value,
+      $Res Function(_$DetailedAccountDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -339,15 +340,20 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedAccountDtoImpl &&
-            (identical(other.accountId, accountId) || other.accountId == accountId) &&
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
             (identical(other.entity, entity) || other.entity == entity) &&
             (identical(other.branch, branch) || other.branch == branch) &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.createDate, createDate) || other.createDate == createDate) &&
-            (identical(other.activateDate, activateDate) || other.activateDate == activateDate) &&
-            (identical(other.closureDate, closureDate) || other.closureDate == closureDate) &&
-            (identical(other.currencyCode, currencyCode) || other.currencyCode == currencyCode) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
+            (identical(other.activateDate, activateDate) ||
+                other.activateDate == activateDate) &&
+            (identical(other.closureDate, closureDate) ||
+                other.closureDate == closureDate) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode) &&
             (identical(other.dispositionType, dispositionType) ||
                 other.dispositionType == dispositionType) &&
             (identical(other.dispositionNumber, dispositionNumber) ||
@@ -382,7 +388,8 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
   @override
   @pragma('vm:prefer-inline')
   _$$DetailedAccountDtoImplCopyWith<_$DetailedAccountDtoImpl> get copyWith =>
-      __$$DetailedAccountDtoImplCopyWithImpl<_$DetailedAccountDtoImpl>(this, _$identity);
+      __$$DetailedAccountDtoImplCopyWithImpl<_$DetailedAccountDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

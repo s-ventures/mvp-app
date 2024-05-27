@@ -119,7 +119,9 @@ class _PoliciesState extends ConsumerState<Policies> {
                   policies: data.value,
                 ),
               ) ??
-              const Center(child: CircularProgressIndicator.adaptive()),
+              const Center(
+                child: CustomLoader(),
+              ),
         ],
       ),
     );

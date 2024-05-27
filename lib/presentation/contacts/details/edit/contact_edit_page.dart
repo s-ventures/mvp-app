@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -14,7 +15,7 @@ class ContactEdit extends StatelessWidget {
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Contacto',
+              title: context.loc.contactsEditPageTitle,
               leading: Button(
                 icon: IconAssets.chevronLeft,
                 type: ButtonType.outlined,
@@ -36,37 +37,46 @@ class ContactEdit extends StatelessWidget {
         body: ListView(
           padding: const EdgeInsets.all(AppSpacing.s5),
           children: [
-            OutlinedList(
+            Row(
               children: [
-                CustomCheckboxListTile(
-                  title: 'Cliente',
-                  value: true,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(context.radius.checkboxSmall),
-                    topRight: Radius.circular(context.radius.checkboxSmall),
+                Expanded(
+                  child: CustomChip(
+                    title: Text(
+                      context.loc.commonClient,
+                      style: context.textStyle.bodySmallSemiBold.copyWith(
+                        color: context.color.primaryLight300,
+                      ),
+                    ),
+                    onSelected: print,
+                    isExpanded: true,
                   ),
-                  onPressed: print,
                 ),
-                CustomCheckboxListTile(
-                  title: 'Proveedor',
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(context.radius.checkboxSmall),
-                    bottomRight: Radius.circular(context.radius.checkboxSmall),
+                AppSpacing.horizontal.s3,
+                Expanded(
+                  child: CustomChip(
+                    title: Text(
+                      context.loc.commonSupplier,
+                      style: context.textStyle.bodySmallSemiBold.copyWith(
+                        color: context.color.textLight0,
+                      ),
+                    ),
+                    selected: true,
+                    onSelected: print,
+                    isExpanded: true,
                   ),
-                  onPressed: print,
                 ),
               ],
             ),
             AppSpacing.vertical.s6,
             Text(
-              'Información fiscal',
+              context.loc.commonTaxInformation,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Nombre o Razón social',
+              labelText: context.loc.commonNameOrCompanyName,
               controller: TextEditingController(
                 text: 'Alberto Rodriguez',
               ),
@@ -74,7 +84,7 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'CIF/NIF',
+              labelText: context.loc.commonCifOrNif,
               controller: TextEditingController(
                 text: '12345678A',
               ),
@@ -82,7 +92,7 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Dirección',
+              labelText: context.loc.commonAddress,
               controller: TextEditingController(
                 text: 'C/Guzmán el Bueno, 56',
               ),
@@ -90,19 +100,19 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Piso, puerta, nº casa',
+              labelText: context.loc.commonAddressExtraInfo,
               controller: TextEditingController(text: '2C'),
               keyboardType: TextInputType.text,
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Código postal',
+              labelText: context.loc.commonPostalCode,
               controller: TextEditingController(text: '28015'),
               keyboardType: TextInputType.text,
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Ciudad',
+              labelText: context.loc.commonCity,
               controller: TextEditingController(
                 text: 'Madrid',
               ),
@@ -110,7 +120,7 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'País',
+              labelText: context.loc.commonCountry,
               controller: TextEditingController(
                 text: 'España',
               ),
@@ -118,14 +128,14 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s6,
             Text(
-              'Información del contacto',
+              context.loc.contactsEditPageContactInfo,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Email',
+              labelText: context.loc.commonEmail,
               controller: TextEditingController(
                 text: 'alberto.rodriguez@gmail.com',
               ),
@@ -133,7 +143,7 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Teléfono',
+              labelText: context.loc.commonPhone,
               controller: TextEditingController(
                 text: '+34 654 789 654',
               ),
@@ -141,7 +151,7 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'Notas',
+              labelText: context.loc.commonNotes,
               controller: TextEditingController(
                 text: 'Notas',
               ),
@@ -149,14 +159,14 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s6,
             Text(
-              'Información bancaria',
+              context.loc.commonBankingInformation,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'IBAN',
+              labelText: context.loc.commonIban,
               controller: TextEditingController(
                 text: 'ES12 1234 1234 12 1234567890',
               ),
@@ -164,7 +174,7 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s3,
             TextInput(
-              labelText: 'SWIFT/BIC',
+              labelText: context.loc.commonBicSwift,
               controller: TextEditingController(
                 text: 'UCJAES2M',
               ),
@@ -172,7 +182,7 @@ class ContactEdit extends StatelessWidget {
             ),
             AppSpacing.vertical.s6,
             Text(
-              'Preferencia de comunicación',
+              context.loc.commonCommunicationPreferences,
               style: context.textStyle.bodyMediumSemiBold.copyWith(
                 color: context.color.textLight600,
               ),
@@ -181,7 +191,7 @@ class ContactEdit extends StatelessWidget {
             OutlinedList(
               children: [
                 CustomCheckboxListTile(
-                  title: 'Teléfono',
+                  title: context.loc.commonPhone,
                   value: true,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(context.radius.checkboxSmall),
@@ -190,24 +200,16 @@ class ContactEdit extends StatelessWidget {
                   onPressed: print,
                 ),
                 CustomCheckboxListTile(
-                  title: 'SMS',
+                  title: context.loc.commonSms,
                   value: true,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(context.radius.checkboxSmall),
-                    bottomRight: Radius.circular(context.radius.checkboxSmall),
-                  ),
                   onPressed: print,
                 ),
                 CustomCheckboxListTile(
-                  title: 'Mail',
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(context.radius.checkboxSmall),
-                    bottomRight: Radius.circular(context.radius.checkboxSmall),
-                  ),
+                  title: context.loc.commonEmail,
                   onPressed: print,
                 ),
                 CustomCheckboxListTile(
-                  title: 'Whatsapp',
+                  title: context.loc.commonWhatsapp,
                   value: true,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(context.radius.checkboxSmall),
@@ -224,23 +226,25 @@ class ContactEdit extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.s5),
           child: Button(
-            title: 'Eliminar contacto',
+            title: context.loc.contactsDetailsDeleteContactButton,
             size: ButtonSize.small,
             foreground: context.color.statusError,
             background: context.color.statusError.withOpacity(.1),
             onPressed: () async => AlertBottomSheet.show(
               context: context,
               icon: IconAssets.trash,
-              title: '¿Estás seguro de que quieres eliminar este contacto?',
-              message: 'Se perderán todos los datos y no podrás recuperarlos',
-              buttonOkText: 'Eliminar contacto',
+              title: context.loc.contactsDetailsDeleteContactModalTitle,
+              message: context.loc.contactsDetailsDeleteContactModalDescription,
+              buttonOkText: context.loc.contactsDetailsDeleteContactButton,
               buttonOkBackground: context.color.statusError.withOpacity(.1),
               buttonOkForeground: context.color.statusError,
               onOkPressed: () async {
                 context.goNamed(AppRoute.contacts.name);
               },
-              buttonCancelText: 'Cancelar',
+              buttonCancelText: context.loc.commonCancel,
+              buttonCancelType: ButtonType.text,
               onCancelPressed: () => context.pop(),
+              buttonsOrientation: AlertButtonsOrientation.vertical,
             ),
           ),
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/filter/filter_simplified_card_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/filter_account_transactions_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/filter_list.dart';
@@ -17,21 +17,21 @@ class CardTransactionsHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
+    final controller = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
     final stateDate = ref.watch(
-      filterSimplifiedCardTransactionsControllerProvider.select((value) => value.startDate),
+      simplifiedCardTransactionsControllerProvider.select((value) => value.startDate),
     );
     final endDate = ref.watch(
-      filterSimplifiedCardTransactionsControllerProvider.select((value) => value.endDate),
+      simplifiedCardTransactionsControllerProvider.select((value) => value.endDate),
     );
     final amountFrom = ref.watch(
-      filterSimplifiedCardTransactionsControllerProvider.select((value) => value.amountFrom),
+      simplifiedCardTransactionsControllerProvider.select((value) => value.amountFrom),
     );
     final amountTo = ref.watch(
-      filterSimplifiedCardTransactionsControllerProvider.select((value) => value.amountTo),
+      simplifiedCardTransactionsControllerProvider.select((value) => value.amountTo),
     );
     final operationType = ref.watch(
-      filterSimplifiedCardTransactionsControllerProvider.select((value) => value.operationType),
+      simplifiedCardTransactionsControllerProvider.select((value) => value.operationType),
     );
 
     final isFilterApplied = stateDate != null ||

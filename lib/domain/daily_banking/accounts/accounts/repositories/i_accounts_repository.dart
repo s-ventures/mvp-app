@@ -10,7 +10,6 @@ abstract class IAccountsRepository {
   Future<Either<SimplifiedAccountFailure, List<SimplifiedAccount>>> getSimplifiedAccounts({
     int page = 0,
     int pageSize = 10,
-    void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 
   Future<Either<DetailedAccountFailure, DetailedAccount>> getDetailedAccount({

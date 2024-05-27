@@ -15,6 +15,7 @@ class DetailedCardTransaction extends ExtendedTransactionDetails with _$Detailed
     required String? placeId,
     required String merchantName,
     required String concept,
+    required String cardEncryptedNumber,
     @Default([]) List<FileAttachment> attachments,
   }) = _DetailedCardTransaction;
 }

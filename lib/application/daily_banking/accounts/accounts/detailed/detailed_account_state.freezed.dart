@@ -25,15 +25,16 @@ mixin _$DetailedAccountState {
 
 /// @nodoc
 abstract class $DetailedAccountStateCopyWith<$Res> {
-  factory $DetailedAccountStateCopyWith(
-          DetailedAccountState value, $Res Function(DetailedAccountState) then) =
+  factory $DetailedAccountStateCopyWith(DetailedAccountState value,
+          $Res Function(DetailedAccountState) then) =
       _$DetailedAccountStateCopyWithImpl<$Res, DetailedAccountState>;
   @useResult
   $Res call({AsyncValue<DetailedAccount> account});
 }
 
 /// @nodoc
-class _$DetailedAccountStateCopyWithImpl<$Res, $Val extends DetailedAccountState>
+class _$DetailedAccountStateCopyWithImpl<$Res,
+        $Val extends DetailedAccountState>
     implements $DetailedAccountStateCopyWith<$Res> {
   _$DetailedAccountStateCopyWithImpl(this._value, this._then);
 
@@ -59,8 +60,8 @@ class _$DetailedAccountStateCopyWithImpl<$Res, $Val extends DetailedAccountState
 /// @nodoc
 abstract class _$$DetailedAccountStateImplCopyWith<$Res>
     implements $DetailedAccountStateCopyWith<$Res> {
-  factory _$$DetailedAccountStateImplCopyWith(
-          _$DetailedAccountStateImpl value, $Res Function(_$DetailedAccountStateImpl) then) =
+  factory _$$DetailedAccountStateImplCopyWith(_$DetailedAccountStateImpl value,
+          $Res Function(_$DetailedAccountStateImpl) then) =
       __$$DetailedAccountStateImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -71,8 +72,8 @@ abstract class _$$DetailedAccountStateImplCopyWith<$Res>
 class __$$DetailedAccountStateImplCopyWithImpl<$Res>
     extends _$DetailedAccountStateCopyWithImpl<$Res, _$DetailedAccountStateImpl>
     implements _$$DetailedAccountStateImplCopyWith<$Res> {
-  __$$DetailedAccountStateImplCopyWithImpl(
-      _$DetailedAccountStateImpl _value, $Res Function(_$DetailedAccountStateImpl) _then)
+  __$$DetailedAccountStateImplCopyWithImpl(_$DetailedAccountStateImpl _value,
+      $Res Function(_$DetailedAccountStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +93,8 @@ class __$$DetailedAccountStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DetailedAccountStateImpl implements _DetailedAccountState {
-  const _$DetailedAccountStateImpl({this.account = const AsyncLoading<DetailedAccount>()});
+  const _$DetailedAccountStateImpl(
+      {this.account = const AsyncLoading<DetailedAccount>()});
 
   @override
   @JsonKey()
@@ -117,18 +119,20 @@ class _$DetailedAccountStateImpl implements _DetailedAccountState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedAccountStateImplCopyWith<_$DetailedAccountStateImpl> get copyWith =>
-      __$$DetailedAccountStateImplCopyWithImpl<_$DetailedAccountStateImpl>(this, _$identity);
+  _$$DetailedAccountStateImplCopyWith<_$DetailedAccountStateImpl>
+      get copyWith =>
+          __$$DetailedAccountStateImplCopyWithImpl<_$DetailedAccountStateImpl>(
+              this, _$identity);
 }
 
 abstract class _DetailedAccountState implements DetailedAccountState {
-  const factory _DetailedAccountState({final AsyncValue<DetailedAccount> account}) =
-      _$DetailedAccountStateImpl;
+  const factory _DetailedAccountState(
+      {final AsyncValue<DetailedAccount> account}) = _$DetailedAccountStateImpl;
 
   @override
   AsyncValue<DetailedAccount> get account;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedAccountStateImplCopyWith<_$DetailedAccountStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DetailedAccountStateImplCopyWith<_$DetailedAccountStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -82,7 +82,7 @@ class CertificatesAndDocumentsRequestPaymentPage extends StatelessWidget {
             expand: true,
             size: ButtonSize.small,
             onPressed: () async => context.goNamed(
-              AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOTP.name,
+              AppRoute.dailyBankingCertsAndDocumentsRequestPaymentOtp.name,
             ),
           ),
         ),

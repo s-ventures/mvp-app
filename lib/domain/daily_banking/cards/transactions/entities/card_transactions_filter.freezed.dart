@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CardTransactionsFilter {
   List<UniqueId> get cardContractIds => throw _privateConstructorUsedError;
   List<UniqueId> get cardIds => throw _privateConstructorUsedError;
-  TransactionOperationType get operationType => throw _privateConstructorUsedError;
+  TransactionOperationType get operationType =>
+      throw _privateConstructorUsedError;
   double? get amountFrom => throw _privateConstructorUsedError;
   double? get amountTo => throw _privateConstructorUsedError;
   DateTime? get dateFrom => throw _privateConstructorUsedError;
@@ -32,8 +33,8 @@ mixin _$CardTransactionsFilter {
 
 /// @nodoc
 abstract class $CardTransactionsFilterCopyWith<$Res> {
-  factory $CardTransactionsFilterCopyWith(
-          CardTransactionsFilter value, $Res Function(CardTransactionsFilter) then) =
+  factory $CardTransactionsFilterCopyWith(CardTransactionsFilter value,
+          $Res Function(CardTransactionsFilter) then) =
       _$CardTransactionsFilterCopyWithImpl<$Res, CardTransactionsFilter>;
   @useResult
   $Res call(
@@ -48,7 +49,8 @@ abstract class $CardTransactionsFilterCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CardTransactionsFilterCopyWithImpl<$Res, $Val extends CardTransactionsFilter>
+class _$CardTransactionsFilterCopyWithImpl<$Res,
+        $Val extends CardTransactionsFilter>
     implements $CardTransactionsFilterCopyWith<$Res> {
   _$CardTransactionsFilterCopyWithImpl(this._value, this._then);
 
@@ -110,7 +112,8 @@ class _$CardTransactionsFilterCopyWithImpl<$Res, $Val extends CardTransactionsFi
 abstract class _$$CardTransactionsFilterImplCopyWith<$Res>
     implements $CardTransactionsFilterCopyWith<$Res> {
   factory _$$CardTransactionsFilterImplCopyWith(
-          _$CardTransactionsFilterImpl value, $Res Function(_$CardTransactionsFilterImpl) then) =
+          _$CardTransactionsFilterImpl value,
+          $Res Function(_$CardTransactionsFilterImpl) then) =
       __$$CardTransactionsFilterImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -127,10 +130,12 @@ abstract class _$$CardTransactionsFilterImplCopyWith<$Res>
 
 /// @nodoc
 class __$$CardTransactionsFilterImplCopyWithImpl<$Res>
-    extends _$CardTransactionsFilterCopyWithImpl<$Res, _$CardTransactionsFilterImpl>
+    extends _$CardTransactionsFilterCopyWithImpl<$Res,
+        _$CardTransactionsFilterImpl>
     implements _$$CardTransactionsFilterImplCopyWith<$Res> {
   __$$CardTransactionsFilterImplCopyWithImpl(
-      _$CardTransactionsFilterImpl _value, $Res Function(_$CardTransactionsFilterImpl) _then)
+      _$CardTransactionsFilterImpl _value,
+      $Res Function(_$CardTransactionsFilterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -236,13 +241,17 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CardTransactionsFilterImpl &&
-            const DeepCollectionEquality().equals(other._cardContractIds, _cardContractIds) &&
+            const DeepCollectionEquality()
+                .equals(other._cardContractIds, _cardContractIds) &&
             const DeepCollectionEquality().equals(other._cardIds, _cardIds) &&
             (identical(other.operationType, operationType) ||
                 other.operationType == operationType) &&
-            (identical(other.amountFrom, amountFrom) || other.amountFrom == amountFrom) &&
-            (identical(other.amountTo, amountTo) || other.amountTo == amountTo) &&
-            (identical(other.dateFrom, dateFrom) || other.dateFrom == dateFrom) &&
+            (identical(other.amountFrom, amountFrom) ||
+                other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) ||
+                other.amountTo == amountTo) &&
+            (identical(other.dateFrom, dateFrom) ||
+                other.dateFrom == dateFrom) &&
             (identical(other.dateTo, dateTo) || other.dateTo == dateTo) &&
             (identical(other.concept, concept) || other.concept == concept));
   }
@@ -262,11 +271,13 @@ class _$CardTransactionsFilterImpl implements _CardTransactionsFilter {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CardTransactionsFilterImplCopyWith<_$CardTransactionsFilterImpl> get copyWith =>
-      __$$CardTransactionsFilterImplCopyWithImpl<_$CardTransactionsFilterImpl>(this, _$identity);
+  _$$CardTransactionsFilterImplCopyWith<_$CardTransactionsFilterImpl>
+      get copyWith => __$$CardTransactionsFilterImplCopyWithImpl<
+          _$CardTransactionsFilterImpl>(this, _$identity);
 }
 
-abstract class _CardTransactionsFilter implements CardTransactionsFilter {
+abstract class _CardTransactionsFilter
+    implements CardTransactionsFilter, PaginationFilter {
   const factory _CardTransactionsFilter(
       {required final List<UniqueId> cardContractIds,
       required final List<UniqueId> cardIds,
@@ -295,6 +306,6 @@ abstract class _CardTransactionsFilter implements CardTransactionsFilter {
   String? get concept;
   @override
   @JsonKey(ignore: true)
-  _$$CardTransactionsFilterImplCopyWith<_$CardTransactionsFilterImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CardTransactionsFilterImplCopyWith<_$CardTransactionsFilterImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

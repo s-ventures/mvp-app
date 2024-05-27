@@ -18,21 +18,28 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FilterSimplifiedSentTransfersState {
   DateTime? get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
-  int? get amountFrom => throw _privateConstructorUsedError;
-  int? get amountTo => throw _privateConstructorUsedError;
+  double? get amountFrom => throw _privateConstructorUsedError;
+  double? get amountTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $FilterSimplifiedSentTransfersStateCopyWith<FilterSimplifiedSentTransfersState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FilterSimplifiedSentTransfersStateCopyWith<
+          FilterSimplifiedSentTransfersState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FilterSimplifiedSentTransfersStateCopyWith<$Res> {
-  factory $FilterSimplifiedSentTransfersStateCopyWith(FilterSimplifiedSentTransfersState value,
+  factory $FilterSimplifiedSentTransfersStateCopyWith(
+          FilterSimplifiedSentTransfersState value,
           $Res Function(FilterSimplifiedSentTransfersState) then) =
-      _$FilterSimplifiedSentTransfersStateCopyWithImpl<$Res, FilterSimplifiedSentTransfersState>;
+      _$FilterSimplifiedSentTransfersStateCopyWithImpl<$Res,
+          FilterSimplifiedSentTransfersState>;
   @useResult
-  $Res call({DateTime? startDate, DateTime? endDate, int? amountFrom, int? amountTo});
+  $Res call(
+      {DateTime? startDate,
+      DateTime? endDate,
+      double? amountFrom,
+      double? amountTo});
 }
 
 /// @nodoc
@@ -66,11 +73,11 @@ class _$FilterSimplifiedSentTransfersStateCopyWithImpl<$Res,
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       amountTo: freezed == amountTo
           ? _value.amountTo
           : amountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -84,7 +91,11 @@ abstract class _$$FilterSimplifiedSentTransfersStateImplCopyWith<$Res>
       __$$FilterSimplifiedSentTransfersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DateTime? startDate, DateTime? endDate, int? amountFrom, int? amountTo});
+  $Res call(
+      {DateTime? startDate,
+      DateTime? endDate,
+      double? amountFrom,
+      double? amountTo});
 }
 
 /// @nodoc
@@ -117,18 +128,19 @@ class __$$FilterSimplifiedSentTransfersStateImplCopyWithImpl<$Res>
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       amountTo: freezed == amountTo
           ? _value.amountTo
           : amountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$FilterSimplifiedSentTransfersStateImpl implements _FilterSimplifiedSentTransfersState {
+class _$FilterSimplifiedSentTransfersStateImpl
+    implements _FilterSimplifiedSentTransfersState {
   const _$FilterSimplifiedSentTransfersStateImpl(
       {this.startDate, this.endDate, this.amountFrom, this.amountTo});
 
@@ -137,9 +149,9 @@ class _$FilterSimplifiedSentTransfersStateImpl implements _FilterSimplifiedSentT
   @override
   final DateTime? endDate;
   @override
-  final int? amountFrom;
+  final double? amountFrom;
   @override
-  final int? amountTo;
+  final double? amountTo;
 
   @override
   String toString() {
@@ -151,40 +163,47 @@ class _$FilterSimplifiedSentTransfersStateImpl implements _FilterSimplifiedSentT
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FilterSimplifiedSentTransfersStateImpl &&
-            (identical(other.startDate, startDate) || other.startDate == startDate) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.amountFrom, amountFrom) || other.amountFrom == amountFrom) &&
-            (identical(other.amountTo, amountTo) || other.amountTo == amountTo));
+            (identical(other.amountFrom, amountFrom) ||
+                other.amountFrom == amountFrom) &&
+            (identical(other.amountTo, amountTo) ||
+                other.amountTo == amountTo));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, startDate, endDate, amountFrom, amountTo);
+  int get hashCode =>
+      Object.hash(runtimeType, startDate, endDate, amountFrom, amountTo);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FilterSimplifiedSentTransfersStateImplCopyWith<_$FilterSimplifiedSentTransfersStateImpl>
+  _$$FilterSimplifiedSentTransfersStateImplCopyWith<
+          _$FilterSimplifiedSentTransfersStateImpl>
       get copyWith => __$$FilterSimplifiedSentTransfersStateImplCopyWithImpl<
           _$FilterSimplifiedSentTransfersStateImpl>(this, _$identity);
 }
 
-abstract class _FilterSimplifiedSentTransfersState implements FilterSimplifiedSentTransfersState {
+abstract class _FilterSimplifiedSentTransfersState
+    implements FilterSimplifiedSentTransfersState {
   const factory _FilterSimplifiedSentTransfersState(
       {final DateTime? startDate,
       final DateTime? endDate,
-      final int? amountFrom,
-      final int? amountTo}) = _$FilterSimplifiedSentTransfersStateImpl;
+      final double? amountFrom,
+      final double? amountTo}) = _$FilterSimplifiedSentTransfersStateImpl;
 
   @override
   DateTime? get startDate;
   @override
   DateTime? get endDate;
   @override
-  int? get amountFrom;
+  double? get amountFrom;
   @override
-  int? get amountTo;
+  double? get amountTo;
   @override
   @JsonKey(ignore: true)
-  _$$FilterSimplifiedSentTransfersStateImplCopyWith<_$FilterSimplifiedSentTransfersStateImpl>
+  _$$FilterSimplifiedSentTransfersStateImplCopyWith<
+          _$FilterSimplifiedSentTransfersStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

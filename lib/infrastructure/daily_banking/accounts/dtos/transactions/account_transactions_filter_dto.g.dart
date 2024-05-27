@@ -6,10 +6,14 @@ part of 'account_transactions_filter_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AccountTransactionsFilterDto _$AccountTransactionsFilterDtoFromJson(Map<String, dynamic> json) =>
+AccountTransactionsFilterDto _$AccountTransactionsFilterDtoFromJson(
+        Map<String, dynamic> json) =>
     AccountTransactionsFilterDto(
-      accountId: (json['accountId'] as List<dynamic>).map((e) => e as int).toList(),
-      operationType: $enumDecode(_$TransactionOperationTypeDtoEnumMap, json['operationType']),
+      accountId: (json['accountId'] as List<dynamic>)
+          .map((e) => (e as num).toInt())
+          .toList(),
+      operationType: $enumDecode(
+          _$TransactionOperationTypeDtoEnumMap, json['operationType']),
       description: json['description'] as String?,
       amountFrom: (json['amountFrom'] as num?)?.toDouble(),
       amountTo: (json['amountTo'] as num?)?.toDouble(),
@@ -17,16 +21,18 @@ AccountTransactionsFilterDto _$AccountTransactionsFilterDtoFromJson(Map<String, 
           json['postingDateFrom'], const DateConverter().fromJson),
       postingDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['postingDateTo'], const DateConverter().fromJson),
-      pageNumber: json['pageNumber'] as int? ?? 0,
-      pageSize: json['pageSize'] as int? ?? 10,
+      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
+      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
     );
 
-Map<String, dynamic> _$AccountTransactionsFilterDtoToJson(AccountTransactionsFilterDto instance) {
+Map<String, dynamic> _$AccountTransactionsFilterDtoToJson(
+    AccountTransactionsFilterDto instance) {
   final val = <String, dynamic>{
     'pageSize': instance.pageSize,
     'pageNumber': instance.pageNumber,
     'accountId': instance.accountId,
-    'operationType': _$TransactionOperationTypeDtoEnumMap[instance.operationType]!,
+    'operationType':
+        _$TransactionOperationTypeDtoEnumMap[instance.operationType]!,
   };
 
   void writeNotNull(String key, dynamic value) {

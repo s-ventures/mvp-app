@@ -62,12 +62,10 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
           ),
           AppSpacing.vertical.s5,
           DateRangeListTile.disabled(
-            startDateTitle:
-                context.loc.dailyBankingInsurancesPolicyDetailsDateOfIssue,
-            startDate: policy.createDate.formatToDayMonthYear() ?? '---',
-            endDateTitle:
-                context.loc.dailyBankingInsurancesPolicyDetailsExpirationDate,
-            endDate: policy.endDate.formatToDayMonthYear() ?? '---',
+            startDateTitle: context.loc.dailyBankingInsurancesPolicyDetailsDateOfIssue,
+            startDate: policy.createDate.formatToDayMonthYear(),
+            endDateTitle: context.loc.dailyBankingInsurancesPolicyDetailsExpirationDate,
+            endDate: policy.endDate.formatToDayMonthYear(),
           ),
           AppSpacing.vertical.s5,
           PolicyBilling(
@@ -77,29 +75,20 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
           ),
           AppSpacing.vertical.s5,
           Coverages(
-            title:
-                context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncluded,
+            title: context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncluded,
             coverages: [
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedClaimsGeneralBreakdowns,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedComputerAssistance,
+              context
+                  .loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedClaimsGeneralBreakdowns,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedComputerAssistance,
               context.loc
                   .dailyBankingInsurancesPolicyDetailsCoverageIncludedRobberyWithAndWithoutViolence,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedElectricalDamage,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedMachineryBreakdown,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedGlassBreakage,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedAestheticDamage,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedLiability,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedDailyLossProfit,
-              context.loc
-                  .dailyBankingInsurancesPolicyDetailsCoverageIncludedForcedEviction,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedElectricalDamage,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedMachineryBreakdown,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedGlassBreakage,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedAestheticDamage,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedLiability,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedDailyLossProfit,
+              context.loc.dailyBankingInsurancesPolicyDetailsCoverageIncludedForcedEviction,
             ],
           ),
           AppSpacing.vertical.s5,
@@ -115,7 +104,7 @@ class _PolicyDetailsTabState extends ConsumerState<PolicyDetailsTab>
         ),
       ),
       loading: () => const Center(
-        child: CircularProgressIndicator(),
+        child: CustomLoader(),
       ),
     );
   }
