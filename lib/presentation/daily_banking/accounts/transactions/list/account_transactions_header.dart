@@ -17,7 +17,7 @@ class AccountTransactionsHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.read(simplifiedAccountTransactionsControllerProvider.notifier);
+    final controller = ref.watch(simplifiedAccountTransactionsControllerProvider.notifier);
     final state = ref.watch(simplifiedAccountTransactionsControllerProvider);
 
     final stateDate = state.startDate;

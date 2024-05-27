@@ -25,7 +25,7 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
   Future<void> init() async {
     initPagination(
       _repository,
-      // initialFilter: const ClaimsFilter(),
+      initialFilter: const ClaimsFilter(),
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(

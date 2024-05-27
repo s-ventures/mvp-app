@@ -17,7 +17,6 @@ class SentTransfersFilteredPaginationRepository
     this._sentTransfersRepository,
   );
   final SentTransfersRepository _sentTransfersRepository;
-  SentTransfersFilter? _filter;
 
   @override
   Future<List<SimplifiedSentTransfer>> fetchPage({
@@ -26,7 +25,7 @@ class SentTransfersFilteredPaginationRepository
     SentTransfersFilter? filter,
   }) async {
     final sentTransfers = await _sentTransfersRepository.getSimplifiedSentTransfers(
-      filter: _filter ?? const SentTransfersFilter(),
+      filter: filter ?? const SentTransfersFilter(),
       page: page,
       pageSize: pageSize,
     );

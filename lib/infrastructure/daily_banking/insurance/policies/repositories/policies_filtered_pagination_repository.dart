@@ -16,7 +16,6 @@ class PoliciesFilteredPaginationRepository
     this._policiesRepository,
   );
   final PoliciesRepository _policiesRepository;
-  PoliciesFilter? _filter;
 
   @override
   Future<List<SimplifiedPolicy>> fetchPage({
@@ -25,7 +24,7 @@ class PoliciesFilteredPaginationRepository
     PoliciesFilter? filter,
   }) async {
     final policies = await _policiesRepository.getSimplifiedPolicies(
-      filter: _filter ?? const PoliciesFilter(),
+      filter: filter ?? const PoliciesFilter(),
       page: page,
       pageSize: pageSize,
     );

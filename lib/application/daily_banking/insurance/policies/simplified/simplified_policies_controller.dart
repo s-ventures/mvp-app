@@ -24,7 +24,7 @@ class SimplifiedPoliciesController extends StateNotifier<SimplifiedPoliciesState
   Future<void> init() async {
     initPagination(
       _repository,
-      // initialFilter: const PoliciesFilter(),
+      initialFilter: const PoliciesFilter(),
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
