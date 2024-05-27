@@ -64,7 +64,6 @@ class QuotesPaginationRepository extends PaginationListRepository<Quotation> {
       filter: _filter ?? const QuotationFilter(),
       page: page,
       pageSize: pageSize,
-      onPaginationInfo: onPaginationInfo,
     );
     return quotes.fold(
       (l) => [],
