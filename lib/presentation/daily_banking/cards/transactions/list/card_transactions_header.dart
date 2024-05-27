@@ -33,6 +33,9 @@ class CardTransactionsHeader extends ConsumerWidget {
     final operationType = ref.watch(
       simplifiedCardTransactionsControllerProvider.select((value) => value.operationType),
     );
+    final category = ref.watch(
+      simplifiedCardTransactionsControllerProvider.select((value) => value.category),
+    );
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
@@ -73,6 +76,8 @@ class CardTransactionsHeader extends ConsumerWidget {
                       setAmountFrom: controller.setAmountFrom,
                       setAmountTo: controller.setAmountTo,
                       setTransactionType: controller.setOperationType,
+                      setCategory: controller.setCategory,
+                      categorySelected: category,
                     );
                   },
                 ),

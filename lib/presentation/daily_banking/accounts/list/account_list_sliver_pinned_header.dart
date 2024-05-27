@@ -1,41 +1,28 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/accounts/simplified/simplified_accounts_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class AccountListSliverPinnedHeader extends ConsumerStatefulWidget {
-  const AccountListSliverPinnedHeader({super.key});
+class AccountListSliverPinnedHeader extends StatelessWidget {
+  const AccountListSliverPinnedHeader({
+    required this.accounts,
+    required this.selectedAccountIndex,
+    required this.setSelectedAccountIndex,
+    required this.selectAccount,
+    super.key,
+  });
 
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _AccountListSliverPinnedHeaderState();
-}
-
-class _AccountListSliverPinnedHeaderState extends ConsumerState<AccountListSliverPinnedHeader> {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(ref.read(simplifiedAccountsControllerProvider.notifier).init());
-    });
-    super.initState();
-  }
+  final AsyncValue<List<SimplifiedAccount>> accounts;
+  final int selectedAccountIndex;
+  final void Function(int) setSelectedAccountIndex;
+  final void Function(UniqueId) selectAccount;
 
   @override
   Widget build(BuildContext context) {
-    final accounts = ref.watch(
-      simplifiedAccountsControllerProvider.select((value) => value.accounts),
-    );
-    final selectedAccountIndex = ref.watch(
-      simplifiedAccountsControllerProvider.select((value) => value.selectedAccountIndex),
-    );
-    final controller = ref.read(simplifiedAccountsControllerProvider.notifier);
-
     return SliverAppBar(
       shadowColor: Colors.grey,
       scrolledUnderElevation: 4,
@@ -48,13 +35,12 @@ class _AccountListSliverPinnedHeaderState extends ConsumerState<AccountListSlive
               accounts: data.value,
               selectedAccountIndex: selectedAccountIndex,
               onPageChanged: (accountId, index) {
-                controller
-                  ..setSelectedAccountIndex(index)
-                  ..selectAccount(accountId);
+                setSelectedAccountIndex(index);
+                selectAccount(accountId);
               },
             ),
           ) ??
-          const CustomLoader(),
+          const CircularProgressIndicator.adaptive(),
     );
   }
 }
