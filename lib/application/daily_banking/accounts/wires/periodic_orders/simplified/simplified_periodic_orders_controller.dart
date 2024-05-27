@@ -25,7 +25,7 @@ class SimplifiedPeriodicOrdersController extends StateNotifier<SimplifiedPeriodi
   Future<void> init() async {
     initPagination(
       _repository,
-      initialFilter: const PeriodicOrdersFilter(),
+      // initialFilter: const PeriodicOrdersFilter(),
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(

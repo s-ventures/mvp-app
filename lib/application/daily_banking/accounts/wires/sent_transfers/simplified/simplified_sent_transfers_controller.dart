@@ -24,7 +24,7 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
   Future<void> init() async {
     initPagination(
       _repository,
-      initialFilter: const SentTransfersFilter(),
+      // initialFilter: const SentTransfersFilter(),
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
