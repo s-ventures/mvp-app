@@ -72,6 +72,10 @@ abstract class AppThemeColorScheme extends ColorScheme {
     required this.customerBackground,
     required this.supplierBackground,
     required this.supplierForeground,
+    required this.toastErrorBackground,
+    required this.toastInfoBackground,
+    required this.toastSuccessBackground,
+    required this.toastWarningBackground,
   }) : super(
           primary: primaryLight600,
           secondary: secondaryLight600,
@@ -158,6 +162,10 @@ abstract class AppThemeColorScheme extends ColorScheme {
   final Color customerBackground;
   final Color supplierForeground;
   final Color supplierBackground;
+  final Color toastErrorBackground;
+  final Color toastInfoBackground;
+  final Color toastSuccessBackground;
+  final Color toastWarningBackground;
 }
 
 class LightColorScheme extends AppThemeColorScheme {
@@ -233,6 +241,10 @@ class LightColorScheme extends AppThemeColorScheme {
           customerForeground: const Color(0xFF5104B4),
           supplierBackground: const Color(0xFFFFEFCF),
           supplierForeground: const Color(0xFFFF8A00),
+          toastErrorBackground: const Color(0xFFFAEAEA),
+          toastInfoBackground: const Color(0xFFEAF6FA),
+          toastSuccessBackground: const Color(0xFFECFAEA),
+          toastWarningBackground: const Color(0xFFFAF8EA),
         );
 }
 
@@ -309,5 +321,9 @@ class DarkColorScheme extends AppThemeColorScheme {
           customerForeground: const Color(0xFF5104B4),
           supplierBackground: const Color(0xFFFFEFCF),
           supplierForeground: const Color(0xFFFF8A00),
+          toastErrorBackground: const Color(0xFFFAEAEA),
+          toastInfoBackground: const Color(0xFFEAF6FA),
+          toastSuccessBackground: const Color(0xFFECFAEA),
+          toastWarningBackground: const Color(0xFFFAF8EA),
         );
 }

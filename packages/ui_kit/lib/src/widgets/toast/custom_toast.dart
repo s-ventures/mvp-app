@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui_kit/src/extension/toast_type_color_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
-
-enum ToastType {
-  error,
-  warning,
-  info,
-  success,
-}
 
 class CustomToast extends StatelessWidget {
   const CustomToast({
@@ -62,27 +56,11 @@ class CustomToast extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.s5),
       decoration: BoxDecoration(
-        color: type == ToastType.error
-            ? const Color(0xFFFAEAEA)
-            : type == ToastType.warning
-                ? const Color(0xFFFAF8EA)
-                : type == ToastType.info
-                    ? const Color(0xFFEAF6FA)
-                    : type == ToastType.success
-                        ? const Color(0xFFECFAEA)
-                        : const Color(0xFFF4F4FC),
+        color: type.backgroundColor(context),
         borderRadius: const BorderRadius.all(Radius.circular(4)),
         border: Border(
           left: BorderSide(
-            color: type == ToastType.error
-                ? context.color.statusError
-                : type == ToastType.warning
-                    ? context.color.statusWarning
-                    : type == ToastType.info
-                        ? context.color.statusInfo
-                        : type == ToastType.success
-                            ? context.color.statusSuccess
-                            : context.color.neutralLight100,
+            color: type.borderColor(context),
             width: 4,
           ),
         ),
@@ -100,15 +78,7 @@ class CustomToast extends StatelessWidget {
                         child: Text(
                           title!,
                           style: context.textStyle.bodyMediumSemiBold.copyWith(
-                            color: type == ToastType.error
-                                ? context.color.statusError
-                                : type == ToastType.warning
-                                    ? context.color.statusWarning
-                                    : type == ToastType.info
-                                        ? context.color.statusInfo
-                                        : type == ToastType.success
-                                            ? context.color.statusSuccess
-                                            : context.color.textLight900,
+                            color: type.foregroundColor(context),
                           ),
                         ),
                       ),
@@ -119,15 +89,7 @@ class CustomToast extends StatelessWidget {
                           },
                           child: IconSvg.small(
                             IconAssets.xMark,
-                            color: type == ToastType.error
-                                ? context.color.statusError
-                                : type == ToastType.warning
-                                    ? context.color.statusWarning
-                                    : type == ToastType.info
-                                        ? context.color.statusInfo
-                                        : type == ToastType.success
-                                            ? context.color.statusSuccess
-                                            : context.color.textLight900,
+                            color: type.iconColor(context),
                           ),
                         ),
                       ],
@@ -143,15 +105,7 @@ class CustomToast extends StatelessWidget {
                       : 3,
                   overflow: TextOverflow.ellipsis,
                   style: context.textStyle.bodyMediumRegular.copyWith(
-                    color: type == ToastType.error
-                        ? context.color.statusError
-                        : type == ToastType.warning
-                            ? context.color.statusWarning
-                            : type == ToastType.info
-                                ? context.color.statusInfo
-                                : type == ToastType.success
-                                    ? context.color.statusSuccess
-                                    : context.color.textLight900,
+                    color: type.foregroundColor(context),
                   ),
                 ),
                 if (action != null) ...[
@@ -165,15 +119,7 @@ class CustomToast extends StatelessWidget {
                       actionLabel!,
                       style: context.textStyle.bodyMediumSemiBold.copyWith(
                         decoration: TextDecoration.underline,
-                        color: type == ToastType.error
-                            ? context.color.statusError
-                            : type == ToastType.warning
-                                ? context.color.statusWarning
-                                : type == ToastType.info
-                                    ? context.color.statusInfo
-                                    : type == ToastType.success
-                                        ? context.color.statusSuccess
-                                        : context.color.textLight900,
+                        color: type.foregroundColor(context),
                       ),
                     ),
                   ),
@@ -189,15 +135,7 @@ class CustomToast extends StatelessWidget {
               },
               child: IconSvg.small(
                 IconAssets.xMark,
-                color: type == ToastType.error
-                    ? context.color.statusError
-                    : type == ToastType.warning
-                        ? context.color.statusWarning
-                        : type == ToastType.info
-                            ? context.color.statusInfo
-                            : type == ToastType.success
-                                ? context.color.statusSuccess
-                                : context.color.textLight900,
+                color: type.iconColor(context),
               ),
             ),
           ],
