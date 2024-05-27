@@ -22,8 +22,8 @@ mixin _$SimplifiedSentTransfersState {
       throw _privateConstructorUsedError;
   DateTime? get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
-  int? get amountFrom => throw _privateConstructorUsedError;
-  int? get amountTo => throw _privateConstructorUsedError;
+  double? get amountFrom => throw _privateConstructorUsedError;
+  double? get amountTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedSentTransfersStateCopyWith<SimplifiedSentTransfersState>
@@ -43,8 +43,8 @@ abstract class $SimplifiedSentTransfersStateCopyWith<$Res> {
       AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
       DateTime? startDate,
       DateTime? endDate,
-      int? amountFrom,
-      int? amountTo});
+      double? amountFrom,
+      double? amountTo});
 }
 
 /// @nodoc
@@ -88,11 +88,11 @@ class _$SimplifiedSentTransfersStateCopyWithImpl<$Res,
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       amountTo: freezed == amountTo
           ? _value.amountTo
           : amountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ) as $Val);
   }
 }
@@ -111,8 +111,8 @@ abstract class _$$SimplifiedSentTransfersStateImplCopyWith<$Res>
       AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
       DateTime? startDate,
       DateTime? endDate,
-      int? amountFrom,
-      int? amountTo});
+      double? amountFrom,
+      double? amountTo});
 }
 
 /// @nodoc
@@ -155,11 +155,11 @@ class __$$SimplifiedSentTransfersStateImplCopyWithImpl<$Res>
       amountFrom: freezed == amountFrom
           ? _value.amountFrom
           : amountFrom // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       amountTo: freezed == amountTo
           ? _value.amountTo
           : amountTo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
     ));
   }
 }
@@ -188,9 +188,9 @@ class _$SimplifiedSentTransfersStateImpl
   @override
   final DateTime? endDate;
   @override
-  final int? amountFrom;
+  final double? amountFrom;
   @override
-  final int? amountTo;
+  final double? amountTo;
 
   @override
   String toString() {
@@ -235,8 +235,8 @@ abstract class _SimplifiedSentTransfersState
       final AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
       final DateTime? startDate,
       final DateTime? endDate,
-      final int? amountFrom,
-      final int? amountTo}) = _$SimplifiedSentTransfersStateImpl;
+      final double? amountFrom,
+      final double? amountTo}) = _$SimplifiedSentTransfersStateImpl;
 
   @override
   AsyncValue<List<SimplifiedSentTransfer>> get sentTransfers;
@@ -247,9 +247,9 @@ abstract class _SimplifiedSentTransfersState
   @override
   DateTime? get endDate;
   @override
-  int? get amountFrom;
+  double? get amountFrom;
   @override
-  int? get amountTo;
+  double? get amountTo;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedSentTransfersStateImplCopyWith<

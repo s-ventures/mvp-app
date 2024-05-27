@@ -81,11 +81,11 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
     state = state.copyWith(endDate: endDate);
   }
 
-  void setAmountFrom(int? amountFrom) {
+  void setAmountFrom(double? amountFrom) {
     state = state.copyWith(amountFrom: amountFrom);
   }
 
-  void setAmountTo(int? amountTo) {
+  void setAmountTo(double? amountTo) {
     state = state.copyWith(amountTo: amountTo);
   }
 }

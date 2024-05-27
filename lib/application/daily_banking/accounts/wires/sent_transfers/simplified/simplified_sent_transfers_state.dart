@@ -13,7 +13,7 @@ class SimplifiedSentTransfersState with _$SimplifiedSentTransfersState {
     AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
     DateTime? startDate,
     DateTime? endDate,
-    int? amountFrom,
-    int? amountTo,
+    double? amountFrom,
+    double? amountTo,
   }) = _SimplifiedSentTransfersState;
 }
