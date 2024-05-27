@@ -46,7 +46,7 @@ abstract class FilteredPaginationListRepository<T, F extends PaginationFilter>
         data: null,
       ),
     );
-    return _loadPage();
+    return _loadPage(filter: filter);
   }
 
   @override
