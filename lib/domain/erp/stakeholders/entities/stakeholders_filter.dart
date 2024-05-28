@@ -4,11 +4,13 @@ import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_typ
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_type.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/pagination_filter.dart';
 
 part 'stakeholders_filter.freezed.dart';
 
 @freezed
-class StakeholdersFilter with _$StakeholdersFilter {
+class StakeholdersFilter with _$StakeholdersFilter implements PaginationFilter {
+  @Implements<PaginationFilter>()
   const factory StakeholdersFilter({
     UniqueId? stakeholderId,
     PersonTypeCode? personTypeCode,

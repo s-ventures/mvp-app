@@ -6,8 +6,8 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/ent
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/simplified_sent_transfer.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_filtered_pagination_repository.dart';
 
-final simplifiedSentTransfersControllerProvider =
-    StateNotifierProvider<SimplifiedSentTransfersController, SimplifiedSentTransfersState>(
+final simplifiedSentTransfersControllerProvider = StateNotifierProvider.autoDispose<
+    SimplifiedSentTransfersController, SimplifiedSentTransfersState>(
   (ref) => SimplifiedSentTransfersController(
     ref.watch(sentTransfersFilteredPaginationRepositoryProvider),
   ),
@@ -68,8 +68,13 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
     await updateFilter(filter);
   }
 
+  // TODO(georgeta): Revisar reset filters
   Future<void> resetFilters() async {
-    state = const SimplifiedSentTransfersState();
+    setAmountTo(null);
+    setAmountFrom(null);
+    setStartDate(null);
+    setEndDate(null);
+
     await applyFilters();
   }
 

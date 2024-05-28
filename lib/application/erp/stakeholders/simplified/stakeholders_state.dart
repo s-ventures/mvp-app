@@ -7,7 +7,7 @@ part 'stakeholders_state.freezed.dart';
 @freezed
 class StakeholdersState with _$StakeholdersState {
   const factory StakeholdersState({
-    @Default(AsyncLoading<List<Stakeholder>>())
-    AsyncValue<List<Stakeholder>> stakeholders,
+    @Default(AsyncLoading<List<Stakeholder>>()) AsyncValue<List<Stakeholder>> stakeholders,
+    bool? isFavorite,
   }) = _StakeholdersState;
 }

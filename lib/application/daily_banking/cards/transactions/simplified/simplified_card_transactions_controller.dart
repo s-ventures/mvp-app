@@ -106,8 +106,16 @@ class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardT
     await updateFilter(filter);
   }
 
+  // TODO(georgeta): Revisar reset filters
   Future<void> resetFilters() async {
-    state = const SimplifiedCardTransactionsState();
+    setStartDate(null);
+    setEndDate(null);
+    setAmountFrom(null);
+    setAmountTo(null);
+    setCategory('');
+    setSearch('');
+    setOperationType(TransactionOperationType.all);
+
     await applyFilters();
   }
 

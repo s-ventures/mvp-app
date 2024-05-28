@@ -50,6 +50,7 @@ class SimplifiedPoliciesController extends StateNotifier<SimplifiedPoliciesState
     await updateFilter(filter);
   }
 
+  // TODO(georgeta): Revisar reset filters
   Future<void> resetFilters() async {
     state = const SimplifiedPoliciesState();
     await applyFilters();

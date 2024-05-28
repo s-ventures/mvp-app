@@ -54,6 +54,7 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
     await updateFilter(filter);
   }
 
+  // TODO(georgeta): Revisar reset filters
   Future<void> resetFilters() async {
     state = const SimplifiedClaimsState();
     await applyFilters();
