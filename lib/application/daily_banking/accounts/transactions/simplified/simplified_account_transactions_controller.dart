@@ -119,8 +119,6 @@ class SimplifiedAccountTransactionsController
     setSearch('');
     setOperationType(TransactionOperationType.all);
 
-    await dispose();
-
     await applyFilters();
   }
 
