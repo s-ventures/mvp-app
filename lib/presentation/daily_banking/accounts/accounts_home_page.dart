@@ -25,8 +25,9 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   @override
   void initState() {
     super.initState();
-    ref.read(simplifiedAccountTransactionsControllerProvider.notifier).init();
     ref.read(simplifiedAccountsControllerProvider.notifier).init();
+    ref.read(simplifiedAccountTransactionsControllerProvider.notifier).init();
+    ref.read(simplifiedAccountTransactionsControllerProvider.notifier).resetFilters();
     _scrollController.addListener(_loadMore);
   }
 

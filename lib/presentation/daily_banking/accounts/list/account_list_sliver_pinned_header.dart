@@ -40,7 +40,7 @@ class AccountListSliverPinnedHeader extends StatelessWidget {
               },
             ),
           ) ??
-          const CircularProgressIndicator.adaptive(),
+          const CustomLoader(),
     );
   }
 }
