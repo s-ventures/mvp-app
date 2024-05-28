@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/filter_account_transactions_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/filter_list.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CardTransactionsHeader extends ConsumerWidget {
+class CardTransactionsHeader extends StatelessWidget {
   const CardTransactionsHeader({
     required this.stateDate,
     required this.endDate,
@@ -44,7 +43,7 @@ class CardTransactionsHeader extends ConsumerWidget {
   final Future<void> Function()? onPressed;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final isFilterApplied = stateDate != null ||
         endDate != null ||
         amountFrom != null ||
