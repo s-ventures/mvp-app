@@ -109,15 +109,17 @@ class SimplifiedAccountTransactionsController
     await updateFilter(filter);
   }
 
-  // TODO(georgeta): Revisar reset filters
   Future<void> resetFilters() async {
-    setStartDate(null);
-    setEndDate(null);
-    setAmountFrom(null);
-    setAmountTo(null);
-    setCategory('');
-    setSearch('');
-    setOperationType(TransactionOperationType.all);
+    setStateSafe(
+      () => state.copyWith(
+        operationType: TransactionOperationType.all,
+        amountFrom: null,
+        amountTo: null,
+        startDate: null,
+        endDate: null,
+        search: '',
+      ),
+    );
 
     await applyFilters();
   }

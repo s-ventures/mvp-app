@@ -68,13 +68,15 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
     await updateFilter(filter);
   }
 
-  // TODO(georgeta): Revisar reset filters
   Future<void> resetFilters() async {
-    setAmountTo(null);
-    setAmountFrom(null);
-    setStartDate(null);
-    setEndDate(null);
-
+    setStateSafe(
+      () => state.copyWith(
+        amountFrom: null,
+        amountTo: null,
+        startDate: null,
+        endDate: null,
+      ),
+    );
     await applyFilters();
   }
 

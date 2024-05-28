@@ -7,7 +7,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entit
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_filtered_pagination_repository.dart';
 
 final simplifiedPoliciesControllerProvider =
-    StateNotifierProvider<SimplifiedPoliciesController, SimplifiedPoliciesState>(
+    StateNotifierProvider.autoDispose<SimplifiedPoliciesController, SimplifiedPoliciesState>(
   (ref) => SimplifiedPoliciesController(
     ref.watch(policiesFilteredPaginationRepositoryProvider),
   ),
@@ -50,9 +50,13 @@ class SimplifiedPoliciesController extends StateNotifier<SimplifiedPoliciesState
     await updateFilter(filter);
   }
 
-  // TODO(georgeta): Revisar reset filters
   Future<void> resetFilters() async {
-    state = const SimplifiedPoliciesState();
+    setStateSafe(
+      () => state.copyWith(
+        createDateFrom: null,
+        createDateTo: null,
+      ),
+    );
     await applyFilters();
   }
 

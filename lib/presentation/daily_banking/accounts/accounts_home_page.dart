@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,6 +26,12 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(simplifiedAccountTransactionsControllerProvider.notifier).init(),
+      );
+    });
+
     _scrollController.addListener(_loadMore);
   }
 
@@ -41,6 +49,9 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final transactions = ref.watch(
+      simplifiedAccountTransactionsControllerProvider.select((value) => value.transactions),
+    );
     return Builder(
       builder: (context) {
         return CustomScrollView(
@@ -102,6 +113,7 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
                 vertical: AppSpacing.s3,
               ),
               sliver: AccountTransactionList(
+                transactions: transactions,
                 onTransactionPressed: (transaction) {
                   context.pushNamed(
                     AppRoute.dailyBankingAccountTransactionDetails.name,

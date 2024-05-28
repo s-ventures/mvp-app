@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -26,7 +28,11 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
   @override
   void initState() {
     super.initState();
-    // ref.read(simplifiedCardTransactionsControllerProvider.notifier).resetFilters();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(simplifiedCardTransactionsControllerProvider.notifier).init(),
+      );
+    });
     _scrollController.addListener(_loadMore);
   }
 
@@ -44,6 +50,9 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final transactions = ref.watch(
+      simplifiedCardTransactionsControllerProvider.select((value) => value.transactions),
+    );
     return Builder(
       builder: (context) {
         return CustomScrollView(
@@ -66,6 +75,7 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
               sliver: CardTransactionsList(
+                transactions: transactions,
                 onTransactionPressed: (transaction) {
                   context.pushNamed(
                     AppRoute.dailyBankingCardTransactionDetails.name,

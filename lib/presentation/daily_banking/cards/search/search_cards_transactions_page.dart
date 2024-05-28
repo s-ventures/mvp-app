@@ -49,6 +49,7 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
   @override
   Widget build(BuildContext context) {
     final controller = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
+    final state = ref.watch(simplifiedCardTransactionsControllerProvider);
 
     return Scaffold(
       body: NestedScrollView(
@@ -90,6 +91,7 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
                 AppSpacing.s5,
               ),
               sliver: CardTransactionsList(
+                transactions: state.transactions,
                 onTransactionPressed: (transaction) {},
               ),
             ),

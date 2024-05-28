@@ -56,7 +56,15 @@ class SimplifiedPeriodicOrdersController extends StateNotifier<SimplifiedPeriodi
   }
 
   Future<void> resetFilters() async {
-    state = const SimplifiedPeriodicOrdersState();
+    setStateSafe(
+      () => state.copyWith(
+        amountFrom: null,
+        amountTo: null,
+        startDate: null,
+        endDate: null,
+        frecuency: null,
+      ),
+    );
     await applyFilters();
   }
 

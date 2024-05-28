@@ -53,8 +53,7 @@ class StakeholdersController extends StateNotifier<StakeholdersState>
   }
 
   Future<void> resetFilters() async {
-    setFavorite();
-
+    setStateSafe(() => state.copyWith(isFavorite: null));
     await applyFilters();
   }
 

@@ -3,16 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardTransactionsList extends ConsumerStatefulWidget {
   const CardTransactionsList({
+    required this.transactions,
     this.onTransactionPressed,
     super.key,
   });
 
   final void Function(SimplifiedCardTransaction transaction)? onTransactionPressed;
+  final AsyncValue<DateTimeListMap<SimplifiedCardTransaction>> transactions;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _CardTransactionsListState();
@@ -23,7 +26,7 @@ class _CardTransactionsListState extends ConsumerState<CardTransactionsList> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(
-        ref.read(simplifiedCardTransactionsControllerProvider.notifier).init(),
+        ref.read(simplifiedCardTransactionsControllerProvider.notifier).resetFilters(),
       );
     });
     super.initState();
@@ -31,11 +34,7 @@ class _CardTransactionsListState extends ConsumerState<CardTransactionsList> {
 
   @override
   Widget build(BuildContext context) {
-    final transactions = ref.watch(
-      simplifiedCardTransactionsControllerProvider.select((value) => value.transactions),
-    );
-
-    return transactions.mapOrNull(
+    return widget.transactions.mapOrNull(
           data: (data) => _TransactionList(
             transactions: data.value,
             onTransactionPressed: (transaction) {

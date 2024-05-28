@@ -3,16 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class AccountTransactionList extends ConsumerStatefulWidget {
   const AccountTransactionList({
+    required this.transactions,
     this.onTransactionPressed,
     super.key,
   });
 
   final void Function(SimplifiedAccountTransaction transaction)? onTransactionPressed;
+  final AsyncValue<DateTimeListMap<SimplifiedAccountTransaction>> transactions;
 
   @override
   ConsumerState<AccountTransactionList> createState() => _AccountTransactionListState();
@@ -23,7 +26,7 @@ class _AccountTransactionListState extends ConsumerState<AccountTransactionList>
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(
-        ref.read(simplifiedAccountTransactionsControllerProvider.notifier).init(),
+        ref.read(simplifiedAccountTransactionsControllerProvider.notifier).resetFilters(),
       );
     });
     super.initState();
@@ -31,11 +34,7 @@ class _AccountTransactionListState extends ConsumerState<AccountTransactionList>
 
   @override
   Widget build(BuildContext context) {
-    final transactions = ref.watch(
-      simplifiedAccountTransactionsControllerProvider.select((value) => value.transactions),
-    );
-
-    return transactions.mapOrNull(
+    return widget.transactions.mapOrNull(
           data: (data) => _TransactionList(
             transactions: data.value,
             onTransactionPressed: (transaction) {

@@ -191,6 +191,7 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
                 AppSpacing.s5,
               ),
               sliver: AccountTransactionList(
+                transactions: state.transactions,
                 onTransactionPressed: (transaction) {
                   context.pushNamed(
                     AppRoute.dailyBankingAccountTransactionDetails.name,
