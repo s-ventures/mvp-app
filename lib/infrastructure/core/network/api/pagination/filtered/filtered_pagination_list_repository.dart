@@ -98,4 +98,15 @@ abstract class FilteredPaginationListRepository<T, F extends PaginationFilter>
     final currentItems = subject.value.data ?? <T>[];
     return List.of(currentItems)..addAll(newItems);
   }
+
+  @override
+  void reset() {
+    subject.add(
+      PaginationListData(
+        page: 0,
+        pageSize: super.pageSize,
+        data: null,
+      ),
+    );
+  }
 }
