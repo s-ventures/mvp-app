@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -24,11 +21,11 @@ class AccountTransactionList extends ConsumerStatefulWidget {
 class _AccountTransactionListState extends ConsumerState<AccountTransactionList> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(
-        ref.read(simplifiedAccountTransactionsControllerProvider.notifier).resetFilters(),
-      );
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   unawaited(
+    //     ref.read(simplifiedAccountTransactionsControllerProvider.notifier).resetFilters(),
+    //   );
+    // });
     super.initState();
   }
 

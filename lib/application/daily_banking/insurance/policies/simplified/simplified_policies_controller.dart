@@ -42,10 +42,10 @@ class SimplifiedPoliciesController extends StateNotifier<SimplifiedPoliciesState
 
   Future<void> applyFilters() async {
     final filter = super.filter?.copyWith(
-          createDateFrom: state.createDateFrom,
-          createDateTo: state.createDateTo,
-        );
-    if (filter == null) return;
+              createDateFrom: state.createDateFrom,
+              createDateTo: state.createDateTo,
+            ) ??
+        const PoliciesFilter();
 
     await updateFilter(filter);
   }

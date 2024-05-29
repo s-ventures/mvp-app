@@ -93,15 +93,18 @@ class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardT
 
   Future<void> applyFilters() async {
     final filter = super.filter?.copyWith(
-          concept: state.search,
-          amountFrom: state.amountFrom,
-          amountTo: state.amountTo,
-          dateFrom: state.startDate,
-          dateTo: state.endDate,
-          operationType: state.operationType,
+              concept: state.search,
+              amountFrom: state.amountFrom,
+              amountTo: state.amountTo,
+              dateFrom: state.startDate,
+              dateTo: state.endDate,
+              operationType: state.operationType,
+            ) ??
+        CardTransactionsFilter(
+          cardContractIds: [UniqueId.fromUniqueString(1068.toString())],
+          cardIds: [UniqueId.fromUniqueString(50.toString())],
+          operationType: TransactionOperationType.all,
         );
-
-    if (filter == null) return;
 
     await updateFilter(filter);
   }

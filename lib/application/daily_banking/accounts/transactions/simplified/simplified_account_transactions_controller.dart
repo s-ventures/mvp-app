@@ -96,15 +96,17 @@ class SimplifiedAccountTransactionsController
 
   Future<void> applyFilters() async {
     final filter = super.filter?.copyWith(
-          operationType: state.operationType,
-          description: state.search,
-          amountFrom: state.amountFrom,
-          amountTo: state.amountTo,
-          dateFrom: state.startDate,
-          dateTo: state.endDate,
+              operationType: state.operationType,
+              description: state.search,
+              amountFrom: state.amountFrom,
+              amountTo: state.amountTo,
+              dateFrom: state.startDate,
+              dateTo: state.endDate,
+            ) ??
+        AccountTransactionsFilter(
+          accountIds: [UniqueId.fromUniqueString(1066.toString())],
+          operationType: TransactionOperationType.all,
         );
-
-    if (filter == null) return;
 
     await updateFilter(filter);
   }
@@ -152,4 +154,10 @@ class SimplifiedAccountTransactionsController
   void setOperationType(TransactionOperationType operationType) {
     state = state.copyWith(operationType: operationType);
   }
+
+  // @override
+  // Future<void> dispose() async {
+  //   await resetFilters();
+  //   await super.dispose();
+  // }
 }

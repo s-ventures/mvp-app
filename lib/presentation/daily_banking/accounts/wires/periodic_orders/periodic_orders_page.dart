@@ -70,7 +70,10 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async => context.pop(),
+                onPressed: () async {
+                  context.pop();
+                  await controller.resetFilters();
+                },
               ),
             ),
           ];
