@@ -15,12 +15,11 @@ class DetailedExpenseController extends StateNotifier<DetailedExpenseState> {
 
   final ExpensesRepository _repository;
 
-  Future<void> init(String expenseId) async {
+  Future<void> init(int erpContractId, int expenseId) async {
     try {
       final expenseOrFailure = await _repository.getDetailedExpense(
-        // Todo: Replace with actual values
-        erpContractId: 1,
-        expensesId: int.parse(expenseId),
+        erpContractId: erpContractId,
+        expensesId: expenseId,
       );
 
       setStateSafe(
