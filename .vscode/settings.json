@@ -10,6 +10,7 @@
     "erp/invoices",
     "erp/expenses",
     "erp/quotes",
-    "daily_banking"
+    "daily_banking",
+    "ui"
   ]
 }
