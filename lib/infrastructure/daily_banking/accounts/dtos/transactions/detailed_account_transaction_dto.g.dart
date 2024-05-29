@@ -9,7 +9,7 @@ part of 'detailed_account_transaction_dto.dart';
 _$DetailedAccountTransactionDtoImpl
     _$$DetailedAccountTransactionDtoImplFromJson(Map<String, dynamic> json) =>
         _$DetailedAccountTransactionDtoImpl(
-          movementId: (json['movementId'] as num).toInt(),
+          movementId: json['movementId'] as int,
           postingDate:
               const DateConverter().fromJson(json['postingDate'] as String),
           valueDate:
@@ -22,7 +22,7 @@ _$DetailedAccountTransactionDtoImpl
           userComments: json['userComments'] as String?,
           userCategory: json['userCategory'] as String?,
           placeId: json['placeId'] as String?,
-          accountId: (json['accountId'] as num?)?.toInt(),
+          accountId: json['accountId'] as int?,
           endBalance: (json['endBalance'] as num?)?.toDouble(),
           detailFields: json['detailFields'] as String?,
           visible: json['visible'] as bool?,

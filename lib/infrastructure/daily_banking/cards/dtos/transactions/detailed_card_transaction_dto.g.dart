@@ -9,7 +9,7 @@ part of 'detailed_card_transaction_dto.dart';
 DetailedCardTransactionDto _$DetailedCardTransactionDtoFromJson(
         Map<String, dynamic> json) =>
     DetailedCardTransactionDto(
-      movementId: (json['movementId'] as num).toInt(),
+      movementId: json['movementId'] as int,
       postingDate:
           const DateConverter().fromJson(json['postingDate'] as String),
       valueDate: const DateConverter().fromJson(json['valueDate'] as String),
@@ -20,12 +20,12 @@ DetailedCardTransactionDto _$DetailedCardTransactionDtoFromJson(
       userComments: json['userComments'] as String?,
       userCategory: json['userCategory'] as String?,
       placeId: json['placeId'] as String?,
-      cardId: (json['cardId'] as num).toInt(),
+      cardId: json['cardId'] as int,
       responseCode: json['responseCode'] as String,
       merchantName: json['merchantName'] as String,
       concept: json['concept'] as String,
       postingTime: json['postingTime'] as String,
-      accountMovementId: (json['accountMovementId'] as num).toInt(),
+      accountMovementId: json['accountMovementId'] as int,
       cardEncryptedNumber: json['cardEncryptedNumber'] as String?,
       productType: $enumDecode(_$ProductTypeDtoEnumMap, json['productType']),
       attachments: (json['attachments'] as List<dynamic>?)
