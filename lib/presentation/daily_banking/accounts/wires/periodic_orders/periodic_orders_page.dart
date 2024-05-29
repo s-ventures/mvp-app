@@ -72,7 +72,6 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
                 size: ButtonSize.extraSmall,
                 onPressed: () async {
                   context.pop();
-                  await controller.resetFilters();
                 },
               ),
             ),

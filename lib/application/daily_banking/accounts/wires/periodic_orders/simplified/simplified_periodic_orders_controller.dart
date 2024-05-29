@@ -7,8 +7,8 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/en
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_filtered_pagination_repository.dart';
 
-final simplifiedPeriodicOrdersControllerProvider =
-    StateNotifierProvider<SimplifiedPeriodicOrdersController, SimplifiedPeriodicOrdersState>(
+final simplifiedPeriodicOrdersControllerProvider = StateNotifierProvider.autoDispose<
+    SimplifiedPeriodicOrdersController, SimplifiedPeriodicOrdersState>(
   (ref) => SimplifiedPeriodicOrdersController(
     ref.watch(periodicOrdersFilteredPaginationRepositoryProvider),
   ),

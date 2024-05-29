@@ -4,7 +4,7 @@ import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class AccountTransactionList extends ConsumerStatefulWidget {
+class AccountTransactionList extends ConsumerWidget {
   const AccountTransactionList({
     required this.transactions,
     this.onTransactionPressed,
@@ -15,27 +15,12 @@ class AccountTransactionList extends ConsumerStatefulWidget {
   final AsyncValue<DateTimeListMap<SimplifiedAccountTransaction>> transactions;
 
   @override
-  ConsumerState<AccountTransactionList> createState() => _AccountTransactionListState();
-}
-
-class _AccountTransactionListState extends ConsumerState<AccountTransactionList> {
-  @override
-  void initState() {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   unawaited(
-    //     ref.read(simplifiedAccountTransactionsControllerProvider.notifier).resetFilters(),
-    //   );
-    // });
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return widget.transactions.mapOrNull(
+  Widget build(BuildContext context, WidgetRef ref) {
+    return transactions.mapOrNull(
           data: (data) => _TransactionList(
             transactions: data.value,
             onTransactionPressed: (transaction) {
-              widget.onTransactionPressed?.call(transaction);
+              onTransactionPressed?.call(transaction);
             },
           ),
         ) ??
@@ -47,7 +32,6 @@ class _TransactionList extends StatelessWidget {
   const _TransactionList({
     required this.transactions,
     required this.onTransactionPressed,
-    // this.onReload,
   });
 
   final Map<DateTime, List<SimplifiedAccountTransaction>> transactions;

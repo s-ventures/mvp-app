@@ -43,13 +43,13 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
 
   Future<void> applyFilters() async {
     final filter = super.filter?.copyWith(
-              insuranceIds: state.insuranceIds,
-              createDateFrom: state.createDateFrom,
-              createDateTo: state.createDateTo,
-              status: state.status,
-              riskType: state.riskType,
-            ) ??
-        const ClaimsFilter();
+          insuranceIds: state.insuranceIds,
+          createDateFrom: state.createDateFrom,
+          createDateTo: state.createDateTo,
+          status: state.status,
+          riskType: state.riskType,
+        );
+    if (filter == null) return;
 
     await updateFilter(filter);
   }
