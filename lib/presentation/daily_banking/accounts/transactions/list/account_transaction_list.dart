@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -13,7 +12,6 @@ class AccountTransactionList extends StatelessWidget {
 
   final AsyncValue<Map<DateTime, List<SimplifiedAccountTransaction>>> transactions;
   final void Function(SimplifiedAccountTransaction transaction)? onTransactionPressed;
-  final AsyncValue<DateTimeListMap<SimplifiedAccountTransaction>> transactions;
 
   @override
   Widget build(BuildContext context) {
