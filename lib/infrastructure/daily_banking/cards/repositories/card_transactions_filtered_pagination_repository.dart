@@ -4,15 +4,16 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entit
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_map_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_repository.dart';
 
-final cardTransactionsPaginationRepositoryProvider = Provider<CardTransactionsPaginationRepository>(
-  (ref) => CardTransactionsPaginationRepository(
+final cardTransactionsFilteredPaginationRepositoryProvider =
+    Provider<CardTransactionsFilteredPaginationRepository>(
+  (ref) => CardTransactionsFilteredPaginationRepository(
     ref.watch(cardTransactionsRepositoryProvider),
   ),
 );
 
-class CardTransactionsPaginationRepository extends FilteredPaginationMapRepository<DateTime,
+class CardTransactionsFilteredPaginationRepository extends FilteredPaginationMapRepository<DateTime,
     List<SimplifiedCardTransaction>, CardTransactionsFilter> {
-  CardTransactionsPaginationRepository(
+  CardTransactionsFilteredPaginationRepository(
     this._transactionsRepository,
   );
 

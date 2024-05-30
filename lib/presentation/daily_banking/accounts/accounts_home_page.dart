@@ -27,7 +27,6 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
     super.initState();
     ref.read(simplifiedAccountsControllerProvider.notifier).init();
     ref.read(simplifiedAccountTransactionsControllerProvider.notifier).init();
-    ref.read(simplifiedAccountTransactionsControllerProvider.notifier).resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
@@ -50,7 +49,6 @@ class _AccountsState extends ConsumerState<AccountsHomePage> {
     final accountTransactionsController =
         ref.read(simplifiedAccountTransactionsControllerProvider.notifier);
     final accountsController = ref.read(simplifiedAccountsControllerProvider.notifier);
-
     return Builder(
       builder: (context) {
         return CustomScrollView(

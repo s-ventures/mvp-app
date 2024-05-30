@@ -6,12 +6,12 @@ import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_ty
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/card_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_filtered_pagination_repository.dart';
 
-final simplifiedCardTransactionsControllerProvider =
-    StateNotifierProvider<SimplifiedCardTransactionsController, SimplifiedCardTransactionsState>(
+final simplifiedCardTransactionsControllerProvider = StateNotifierProvider.autoDispose<
+    SimplifiedCardTransactionsController, SimplifiedCardTransactionsState>(
   (ref) => SimplifiedCardTransactionsController(
-    ref.watch(cardTransactionsPaginationRepositoryProvider),
+    ref.watch(cardTransactionsFilteredPaginationRepositoryProvider),
   ),
 );
 
@@ -23,7 +23,7 @@ class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardT
     this._repository,
   ) : super(const SimplifiedCardTransactionsState());
 
-  final CardTransactionsPaginationRepository _repository;
+  final CardTransactionsFilteredPaginationRepository _repository;
 
   Future<void> init() async {
     initPagination(
@@ -100,14 +100,21 @@ class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardT
           dateTo: state.endDate,
           operationType: state.operationType,
         );
-
     if (filter == null) return;
-
     await updateFilter(filter);
   }
 
   Future<void> resetFilters() async {
-    state = const SimplifiedCardTransactionsState();
+    setStateSafe(
+      () => state.copyWith(
+        operationType: TransactionOperationType.all,
+        amountFrom: null,
+        amountTo: null,
+        startDate: null,
+        endDate: null,
+        search: '',
+      ),
+    );
     await applyFilters();
   }
 

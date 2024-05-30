@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/filter/filter_simplified_sent_transfers_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/widgets/filter_list_sent_transfers.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/sent_transfers/widgets/filter_sent_transfers_bottom_sheet/filter_sent_transfers_bottom_sheet.dart';
@@ -34,18 +33,18 @@ class _SentTransfersPageState extends ConsumerState<SentTransfersPage> {
       simplifiedSentTransfersControllerProvider.select((value) => value.sentTransfers),
     );
 
-    final controller = ref.read(filterSimplifiedSentTransfersControllerProvider.notifier);
+    final controller = ref.read(simplifiedSentTransfersControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider.select((value) => value.startDate),
+      simplifiedSentTransfersControllerProvider.select((value) => value.startDate),
     );
     final endDate = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider.select((value) => value.endDate),
+      simplifiedSentTransfersControllerProvider.select((value) => value.endDate),
     );
     final amountFrom = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider.select((value) => value.amountFrom),
+      simplifiedSentTransfersControllerProvider.select((value) => value.amountFrom),
     );
     final amountTo = ref.watch(
-      filterSimplifiedSentTransfersControllerProvider.select((value) => value.amountTo),
+      simplifiedSentTransfersControllerProvider.select((value) => value.amountTo),
     );
 
     final isFilterApplied =
