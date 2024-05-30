@@ -30,11 +30,12 @@ class DetailedExpenseDto with _$DetailedExpenseDto {
     required double vatPercentage,
     required String accountingTypeCode,
     required String fullName,
-    // Todo(jesus): Change to DocumentTypeCode
+    // Todo(jesus): Change to DocumentTypeCodeDto
     required String documentTypeCode,
     required String documentNumber,
     required ExpenseStatusDto status,
     required List<ExpenseItemDto> items,
+    // Todo(jesus): Change to SubtotalVatAmountDto
     required dynamic subtotalVatAmount,
     required SerialNumberDto serialNumber,
     required List<PaymentDto> payments,
