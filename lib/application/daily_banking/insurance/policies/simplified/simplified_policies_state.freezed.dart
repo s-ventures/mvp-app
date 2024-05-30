@@ -18,6 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SimplifiedPoliciesState {
   AsyncValue<List<SimplifiedPolicy>> get policies =>
       throw _privateConstructorUsedError;
+  DateTime? get createDateFrom => throw _privateConstructorUsedError;
+  DateTime? get createDateTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedPoliciesStateCopyWith<SimplifiedPoliciesState> get copyWith =>
@@ -30,7 +32,10 @@ abstract class $SimplifiedPoliciesStateCopyWith<$Res> {
           $Res Function(SimplifiedPoliciesState) then) =
       _$SimplifiedPoliciesStateCopyWithImpl<$Res, SimplifiedPoliciesState>;
   @useResult
-  $Res call({AsyncValue<List<SimplifiedPolicy>> policies});
+  $Res call(
+      {AsyncValue<List<SimplifiedPolicy>> policies,
+      DateTime? createDateFrom,
+      DateTime? createDateTo});
 }
 
 /// @nodoc
@@ -48,12 +53,22 @@ class _$SimplifiedPoliciesStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? policies = null,
+    Object? createDateFrom = freezed,
+    Object? createDateTo = freezed,
   }) {
     return _then(_value.copyWith(
       policies: null == policies
           ? _value.policies
           : policies // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedPolicy>>,
+      createDateFrom: freezed == createDateFrom
+          ? _value.createDateFrom
+          : createDateFrom // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createDateTo: freezed == createDateTo
+          ? _value.createDateTo
+          : createDateTo // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -67,7 +82,10 @@ abstract class _$$SimplifiedPoliciesStateImplCopyWith<$Res>
       __$$SimplifiedPoliciesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<List<SimplifiedPolicy>> policies});
+  $Res call(
+      {AsyncValue<List<SimplifiedPolicy>> policies,
+      DateTime? createDateFrom,
+      DateTime? createDateTo});
 }
 
 /// @nodoc
@@ -84,12 +102,22 @@ class __$$SimplifiedPoliciesStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? policies = null,
+    Object? createDateFrom = freezed,
+    Object? createDateTo = freezed,
   }) {
     return _then(_$SimplifiedPoliciesStateImpl(
       policies: null == policies
           ? _value.policies
           : policies // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedPolicy>>,
+      createDateFrom: freezed == createDateFrom
+          ? _value.createDateFrom
+          : createDateFrom // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createDateTo: freezed == createDateTo
+          ? _value.createDateTo
+          : createDateTo // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -98,15 +126,21 @@ class __$$SimplifiedPoliciesStateImplCopyWithImpl<$Res>
 
 class _$SimplifiedPoliciesStateImpl implements _SimplifiedPoliciesState {
   const _$SimplifiedPoliciesStateImpl(
-      {this.policies = const AsyncLoading<List<SimplifiedPolicy>>()});
+      {this.policies = const AsyncLoading<List<SimplifiedPolicy>>(),
+      this.createDateFrom,
+      this.createDateTo});
 
   @override
   @JsonKey()
   final AsyncValue<List<SimplifiedPolicy>> policies;
+  @override
+  final DateTime? createDateFrom;
+  @override
+  final DateTime? createDateTo;
 
   @override
   String toString() {
-    return 'SimplifiedPoliciesState(policies: $policies)';
+    return 'SimplifiedPoliciesState(policies: $policies, createDateFrom: $createDateFrom, createDateTo: $createDateTo)';
   }
 
   @override
@@ -115,11 +149,16 @@ class _$SimplifiedPoliciesStateImpl implements _SimplifiedPoliciesState {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedPoliciesStateImpl &&
             (identical(other.policies, policies) ||
-                other.policies == policies));
+                other.policies == policies) &&
+            (identical(other.createDateFrom, createDateFrom) ||
+                other.createDateFrom == createDateFrom) &&
+            (identical(other.createDateTo, createDateTo) ||
+                other.createDateTo == createDateTo));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, policies);
+  int get hashCode =>
+      Object.hash(runtimeType, policies, createDateFrom, createDateTo);
 
   @JsonKey(ignore: true)
   @override
@@ -131,11 +170,16 @@ class _$SimplifiedPoliciesStateImpl implements _SimplifiedPoliciesState {
 
 abstract class _SimplifiedPoliciesState implements SimplifiedPoliciesState {
   const factory _SimplifiedPoliciesState(
-          {final AsyncValue<List<SimplifiedPolicy>> policies}) =
-      _$SimplifiedPoliciesStateImpl;
+      {final AsyncValue<List<SimplifiedPolicy>> policies,
+      final DateTime? createDateFrom,
+      final DateTime? createDateTo}) = _$SimplifiedPoliciesStateImpl;
 
   @override
   AsyncValue<List<SimplifiedPolicy>> get policies;
+  @override
+  DateTime? get createDateFrom;
+  @override
+  DateTime? get createDateTo;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedPoliciesStateImplCopyWith<_$SimplifiedPoliciesStateImpl>

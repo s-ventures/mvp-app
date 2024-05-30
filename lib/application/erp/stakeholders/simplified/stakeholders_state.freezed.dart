@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$StakeholdersState {
   AsyncValue<List<Stakeholder>> get stakeholders =>
       throw _privateConstructorUsedError;
+  bool? get isFavorite => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StakeholdersStateCopyWith<StakeholdersState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $StakeholdersStateCopyWith<$Res> {
           StakeholdersState value, $Res Function(StakeholdersState) then) =
       _$StakeholdersStateCopyWithImpl<$Res, StakeholdersState>;
   @useResult
-  $Res call({AsyncValue<List<Stakeholder>> stakeholders});
+  $Res call({AsyncValue<List<Stakeholder>> stakeholders, bool? isFavorite});
 }
 
 /// @nodoc
@@ -47,12 +48,17 @@ class _$StakeholdersStateCopyWithImpl<$Res, $Val extends StakeholdersState>
   @override
   $Res call({
     Object? stakeholders = null,
+    Object? isFavorite = freezed,
   }) {
     return _then(_value.copyWith(
       stakeholders: null == stakeholders
           ? _value.stakeholders
           : stakeholders // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<Stakeholder>>,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -65,7 +71,7 @@ abstract class _$$StakeholdersStateImplCopyWith<$Res>
       __$$StakeholdersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<List<Stakeholder>> stakeholders});
+  $Res call({AsyncValue<List<Stakeholder>> stakeholders, bool? isFavorite});
 }
 
 /// @nodoc
@@ -80,12 +86,17 @@ class __$$StakeholdersStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? stakeholders = null,
+    Object? isFavorite = freezed,
   }) {
     return _then(_$StakeholdersStateImpl(
       stakeholders: null == stakeholders
           ? _value.stakeholders
           : stakeholders // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<Stakeholder>>,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -94,15 +105,18 @@ class __$$StakeholdersStateImplCopyWithImpl<$Res>
 
 class _$StakeholdersStateImpl implements _StakeholdersState {
   const _$StakeholdersStateImpl(
-      {this.stakeholders = const AsyncLoading<List<Stakeholder>>()});
+      {this.stakeholders = const AsyncLoading<List<Stakeholder>>(),
+      this.isFavorite});
 
   @override
   @JsonKey()
   final AsyncValue<List<Stakeholder>> stakeholders;
+  @override
+  final bool? isFavorite;
 
   @override
   String toString() {
-    return 'StakeholdersState(stakeholders: $stakeholders)';
+    return 'StakeholdersState(stakeholders: $stakeholders, isFavorite: $isFavorite)';
   }
 
   @override
@@ -111,11 +125,13 @@ class _$StakeholdersStateImpl implements _StakeholdersState {
         (other.runtimeType == runtimeType &&
             other is _$StakeholdersStateImpl &&
             (identical(other.stakeholders, stakeholders) ||
-                other.stakeholders == stakeholders));
+                other.stakeholders == stakeholders) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, stakeholders);
+  int get hashCode => Object.hash(runtimeType, stakeholders, isFavorite);
 
   @JsonKey(ignore: true)
   @override
@@ -127,11 +143,13 @@ class _$StakeholdersStateImpl implements _StakeholdersState {
 
 abstract class _StakeholdersState implements StakeholdersState {
   const factory _StakeholdersState(
-          {final AsyncValue<List<Stakeholder>> stakeholders}) =
-      _$StakeholdersStateImpl;
+      {final AsyncValue<List<Stakeholder>> stakeholders,
+      final bool? isFavorite}) = _$StakeholdersStateImpl;
 
   @override
   AsyncValue<List<Stakeholder>> get stakeholders;
+  @override
+  bool? get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$StakeholdersStateImplCopyWith<_$StakeholdersStateImpl> get copyWith =>

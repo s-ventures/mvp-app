@@ -46,7 +46,7 @@ abstract class FilteredPaginationListRepository<T, F extends PaginationFilter>
         data: null,
       ),
     );
-    return _loadPage();
+    return _loadPage(filter: filter);
   }
 
   @override
@@ -97,5 +97,16 @@ abstract class FilteredPaginationListRepository<T, F extends PaginationFilter>
   List<T> appendNewItems(List<T> newItems) {
     final currentItems = subject.value.data ?? <T>[];
     return List.of(currentItems)..addAll(newItems);
+  }
+
+  @override
+  void reset() {
+    subject.add(
+      PaginationListData(
+        page: 0,
+        pageSize: super.pageSize,
+        data: null,
+      ),
+    );
   }
 }

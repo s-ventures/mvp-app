@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/filter/filter_simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/simplified_claim.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/claims/list/widgets/filter_claims_bottom_sheet/filter_claims_bottom_sheet.dart';
@@ -38,16 +37,16 @@ class _ClaimsState extends ConsumerState<Claims> {
       simplifiedClaimsControllerProvider.select((value) => value.claims),
     );
 
-    final controller = ref.read(filterSimplifiedClaimsControllerProvider.notifier);
+    final controller = ref.read(simplifiedClaimsControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedClaimsControllerProvider.select((value) => value.createDateFrom),
+      simplifiedClaimsControllerProvider.select((value) => value.createDateFrom),
     );
     final endDate = ref.watch(
-      filterSimplifiedClaimsControllerProvider.select((value) => value.createDateTo),
+      simplifiedClaimsControllerProvider.select((value) => value.createDateTo),
     );
 
     final status = ref.watch(
-      filterSimplifiedClaimsControllerProvider.select((value) => value.status),
+      simplifiedClaimsControllerProvider.select((value) => value.status),
     );
 
     final isFilterApplied = startDate != null || endDate != null || status != null;

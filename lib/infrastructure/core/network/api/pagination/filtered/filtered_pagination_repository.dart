@@ -15,4 +15,7 @@ abstract class FilteredPaginationRepository<T, F extends PaginationFilter>
 
   @override
   Future<void> refresh({F? filter});
+
+  /// Resets the pagination to the initial state
+  void reset();
 }

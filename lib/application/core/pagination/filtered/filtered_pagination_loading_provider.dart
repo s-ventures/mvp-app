@@ -57,7 +57,8 @@ mixin FilteredPaginationLoadingProvider<T, F extends PaginationFilter> {
     _loadNextPageSubject.add(null);
   }
 
-  Future<void>? disposePagination() {
+  Future<void>? dispose() {
+    _source?.reset();
     return _subscriptions.dispose();
   }
 

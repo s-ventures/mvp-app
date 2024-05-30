@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/filter/filter_simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/wires/periodic_orders/widgets/filter_list_periodic_orders.dart';
@@ -37,21 +36,21 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
       simplifiedPeriodicOrdersControllerProvider.select((value) => value.periodicOrders),
     );
 
-    final controller = ref.read(filterSimplifiedPeriodicOrdersControllerProvider.notifier);
+    final controller = ref.read(simplifiedPeriodicOrdersControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.startDate),
+      simplifiedPeriodicOrdersControllerProvider.select((value) => value.startDate),
     );
     final endDate = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.endDate),
+      simplifiedPeriodicOrdersControllerProvider.select((value) => value.endDate),
     );
     final amountFrom = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.amountFrom),
+      simplifiedPeriodicOrdersControllerProvider.select((value) => value.amountFrom),
     );
     final amountTo = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.amountTo),
+      simplifiedPeriodicOrdersControllerProvider.select((value) => value.amountTo),
     );
     final frecuency = ref.watch(
-      filterSimplifiedPeriodicOrdersControllerProvider.select((value) => value.frecuency),
+      simplifiedPeriodicOrdersControllerProvider.select((value) => value.frecuency),
     );
 
     final isFilterApplied = startDate != null ||
@@ -71,7 +70,9 @@ class _PeriodicOrdersPageState extends ConsumerState<PeriodicOrdersPage> {
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async => context.pop(),
+                onPressed: () async {
+                  context.pop();
+                },
               ),
             ),
           ];

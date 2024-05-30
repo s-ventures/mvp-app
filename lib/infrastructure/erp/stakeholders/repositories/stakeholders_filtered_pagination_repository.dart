@@ -1,12 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_type_code.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_type.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders_filter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_repository.dart';
 
@@ -25,7 +20,8 @@ final favoriteStakeholdersPaginationRepositoryProvider =
   );
 });
 
-class StakeholdersPaginationRepository extends PaginationListRepository<Stakeholder> {
+class StakeholdersPaginationRepository
+    extends FilteredPaginationListRepository<Stakeholder, StakeholdersFilter> {
   StakeholdersPaginationRepository(
     this._stakeholdersRepository,
     this._contractsRepository,
@@ -35,7 +31,6 @@ class StakeholdersPaginationRepository extends PaginationListRepository<Stakehol
 
   final StakeholdersRepository _stakeholdersRepository;
   final ContractsRepository _contractsRepository;
-  StakeholdersFilter? _filter;
   String? _erpContractId;
 
   void _listenToSelectedContractChanges() {
@@ -60,47 +55,20 @@ class StakeholdersPaginationRepository extends PaginationListRepository<Stakehol
   Future<List<Stakeholder>> fetchPage({
     required int page,
     required int pageSize,
+    StakeholdersFilter? filter,
   }) async {
     final erpContractId = _erpContractId;
     if (erpContractId == null) return [];
 
     final stakeholders = await _stakeholdersRepository.getStakeholders(
       erpContractId: erpContractId,
-      filter: _filter ?? const StakeholdersFilter(),
+      filter: filter ?? const StakeholdersFilter(),
       page: page,
       pageSize: pageSize,
     );
     return stakeholders.fold(
       (l) => [],
       (r) => r,
-    );
-  }
-
-  void updateFilter({
-    UniqueId? stakeholderId,
-    PersonTypeCode? personTypeCode,
-    String? fullName,
-    LanguageCodeType? languageCodeType,
-    RelationType? relationType,
-    DateTime? createDateFrom,
-    DateTime? createDateTo,
-    DocumentTypeCode? documentTypeCode,
-    String? documentNumber,
-    String? additionalInfo,
-    bool? isFavorite,
-  }) {
-    _filter = (_filter ?? const StakeholdersFilter()).copyWith(
-      stakeholderId: stakeholderId,
-      personTypeCode: personTypeCode,
-      fullName: fullName,
-      languageCodeType: languageCodeType,
-      relationType: relationType,
-      createDateFrom: createDateFrom,
-      createDateTo: createDateTo,
-      documentTypeCode: documentTypeCode,
-      documentNumber: documentNumber,
-      additionalInfo: additionalInfo,
-      isFavorite: isFavorite,
     );
   }
 }
