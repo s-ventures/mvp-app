@@ -1,39 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/filter_account_transactions_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/filter_list.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CardTransactionsHeader extends ConsumerWidget {
+class CardTransactionsHeader extends StatelessWidget {
   const CardTransactionsHeader({
+    required this.stateDate,
+    required this.endDate,
+    required this.amountFrom,
+    required this.amountTo,
+    required this.operationType,
+    required this.category,
+    required this.setStartDate,
+    required this.setEndDate,
+    required this.setAmountFrom,
+    required this.setAmountTo,
+    required this.setOperationType,
+    required this.setCategory,
+    required this.applyFilters,
+    required this.resetFilters,
     required this.onPressed,
     super.key,
   });
 
+  final DateTime? stateDate;
+  final DateTime? endDate;
+  final double? amountFrom;
+  final double? amountTo;
+  final TransactionOperationType operationType;
+  final String category;
+  final void Function(DateTime?) setStartDate;
+  final void Function(DateTime?) setEndDate;
+  final void Function(double?) setAmountFrom;
+  final void Function(double?) setAmountTo;
+  final void Function(TransactionOperationType) setOperationType;
+  final void Function(String) setCategory;
+  final Future<void> Function() applyFilters;
+  final Future<void> Function() resetFilters;
+
   final Future<void> Function()? onPressed;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
-    final stateDate = ref.watch(
-      simplifiedCardTransactionsControllerProvider.select((value) => value.startDate),
-    );
-    final endDate = ref.watch(
-      simplifiedCardTransactionsControllerProvider.select((value) => value.endDate),
-    );
-    final amountFrom = ref.watch(
-      simplifiedCardTransactionsControllerProvider.select((value) => value.amountFrom),
-    );
-    final amountTo = ref.watch(
-      simplifiedCardTransactionsControllerProvider.select((value) => value.amountTo),
-    );
-    final operationType = ref.watch(
-      simplifiedCardTransactionsControllerProvider.select((value) => value.operationType),
-    );
-
+  Widget build(BuildContext context) {
     final isFilterApplied = stateDate != null ||
         endDate != null ||
         amountFrom != null ||
@@ -61,18 +71,20 @@ class CardTransactionsHeader extends ConsumerWidget {
                   onPressed: () async {
                     await FilterAccountTransactionsBottomSheet.show<void>(
                       context: context,
-                      onApply: controller.applyFilters,
-                      onReset: controller.resetFilters,
+                      onApply: applyFilters,
+                      onReset: resetFilters,
                       stateDate: stateDate,
                       endDate: endDate,
                       amountFrom: amountFrom,
                       amountTo: amountTo,
                       operationType: operationType,
-                      setStartDate: controller.setStartDate,
-                      setEndDate: controller.setEndDate,
-                      setAmountFrom: controller.setAmountFrom,
-                      setAmountTo: controller.setAmountTo,
-                      setTransactionType: controller.setOperationType,
+                      setStartDate: setStartDate,
+                      setEndDate: setEndDate,
+                      setAmountFrom: setAmountFrom,
+                      setAmountTo: setAmountTo,
+                      setTransactionType: setOperationType,
+                      setCategory: setCategory,
+                      categorySelected: category,
                     );
                   },
                 ),
@@ -109,21 +121,18 @@ class CardTransactionsHeader extends ConsumerWidget {
               amountTo: amountTo,
               operationType: operationType,
               onClearDateRange: () {
-                controller
-                  ..setStartDate(null)
-                  ..setEndDate(null)
-                  ..applyFilters();
+                setStartDate(null);
+                setEndDate(null);
+                applyFilters();
               },
               onClearAmountRange: () {
-                controller
-                  ..setAmountFrom(null)
-                  ..setAmountTo(null)
-                  ..applyFilters();
+                setAmountFrom(null);
+                setAmountTo(null);
+                applyFilters();
               },
               onClearCreditDebit: () {
-                controller
-                  ..setOperationType(TransactionOperationType.all)
-                  ..applyFilters();
+                setOperationType(TransactionOperationType.all);
+                applyFilters();
               },
             ),
           ),

@@ -1,42 +1,32 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/cards/cards/simplified/simplified_cards_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/details/card_details_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CardListSliverPinnedHeader extends ConsumerStatefulWidget {
-  const CardListSliverPinnedHeader({super.key});
+class CardListSliverPinnedHeader extends StatelessWidget {
+  const CardListSliverPinnedHeader({
+    required this.selectedCardsIndex,
+    required this.cards,
+    required this.selectCard,
+    required this.setSelectedCardIndex,
+    super.key,
+  });
 
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _AccountListSliverPinnedHeaderState();
-}
-
-class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPinnedHeader> {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(ref.read(simplifiedCardsControllerProvider.notifier).init());
-    });
-    super.initState();
-  }
+  final int selectedCardsIndex;
+  final AsyncValue<List<SimplifiedCard>> cards;
+  final void Function({
+    required UniqueId cardContractId,
+    required UniqueId cardId,
+  }) selectCard;
+  final void Function(int) setSelectedCardIndex;
 
   @override
   Widget build(BuildContext context) {
-    final cards = ref.watch(
-      simplifiedCardsControllerProvider.select((value) => value.cards),
-    );
-    final selectedCardsIndex = ref.watch(
-      simplifiedCardsControllerProvider.select((value) => value.selectedCardIndex),
-    );
-    final controller = ref.watch(simplifiedCardsControllerProvider.notifier);
-
     return SliverAppBar(
       shadowColor: Colors.grey,
       scrolledUnderElevation: 4,
@@ -53,9 +43,8 @@ class _AccountListSliverPinnedHeaderState extends ConsumerState<CardListSliverPi
                 required UniqueId cardId,
                 required int index,
               }) {
-                controller
-                  ..setSelectedCardIndex(index)
-                  ..selectCard(cardId: cardId, cardContractId: cardContractId);
+                setSelectedCardIndex(index);
+                selectCard(cardId: cardId, cardContractId: cardContractId);
               },
             ),
           ) ??

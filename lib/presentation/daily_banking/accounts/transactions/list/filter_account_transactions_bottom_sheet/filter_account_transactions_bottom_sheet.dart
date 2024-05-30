@@ -23,6 +23,8 @@ class FilterAccountTransactionsBottomSheet {
     required double? amountFrom,
     required double? amountTo,
     required TransactionOperationType? operationType,
+    required String categorySelected,
+    required void Function(String) setCategory,
   }) {
     final pageIndexNotifier = ValueNotifier(0);
 
@@ -52,8 +54,16 @@ class FilterAccountTransactionsBottomSheet {
           amountFrom,
           amountTo,
           operationType,
+          categories,
+          categorySelected,
         ),
-        _buildCategories(modalSheetContext, pageIndexNotifier),
+        _buildCategories(
+          modalSheetContext,
+          pageIndexNotifier,
+          categories,
+          categorySelected,
+          setCategory,
+        ),
       ],
     );
   }
@@ -142,6 +152,8 @@ class FilterAccountTransactionsBottomSheet {
     double? amountFrom,
     double? amountTo,
     TransactionOperationType? operationType,
+    List<Map<String, dynamic>> categories,
+    String category,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
@@ -242,6 +254,7 @@ class FilterAccountTransactionsBottomSheet {
                   ),
                   AppSpacing.vertical.s2,
                   Category(
+                    categoryValue: category,
                     categories: categories,
                     onPressed: () => pageIndexNotifier.value = 1,
                   ),
@@ -255,6 +268,9 @@ class FilterAccountTransactionsBottomSheet {
   static SliverWoltModalSheetPage _buildCategories(
     BuildContext context,
     ValueNotifier<int> pageIndexNotifier,
+    List<Map<String, dynamic>> categories,
+    String categorySelected,
+    void Function(String) setCategory,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
@@ -326,6 +342,8 @@ class FilterAccountTransactionsBottomSheet {
                 ),
                 child: CategoryList(
                   categories: categories,
+                  categorySelected: categorySelected,
+                  setCategory: setCategory,
                   onPressed: () => pageIndexNotifier.value = 0,
                 ),
               ),
