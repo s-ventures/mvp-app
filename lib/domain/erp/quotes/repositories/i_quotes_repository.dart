@@ -1,5 +1,3 @@
-// ignore_for_file: one_member_abstracts
-
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/overview_segment_period.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/overview_quotes.dart';
