@@ -70,7 +70,7 @@ class _QuotesPendingState extends ConsumerState<QuotesPending> {
 
                   return ErpListTile(
                     title: quotation.number,
-                    date: quotation.createdDate.formatToDayMonthYear() ?? '',
+                    date: quotation.createdDate.formatToDayMonthYear(),
                     // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
                     contact: 'Nombre Contacto',
                     amount: quotation.totalAmount,
@@ -97,7 +97,7 @@ class _QuotesPendingState extends ConsumerState<QuotesPending> {
 
                   return ErpGridTile(
                     title: quotation.number,
-                    date: quotation.createdDate.formatToDayMonthYear() ?? '',
+                    date: quotation.createdDate.formatToDayMonthYear(),
                     // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
                     contact: 'Nombre Contacto',
                     amount: quotation.totalAmount,

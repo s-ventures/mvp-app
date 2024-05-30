@@ -23,10 +23,11 @@ mixin _$Quotation {
   DateTime? get dueDate => throw _privateConstructorUsedError;
   DateTime get createdDate => throw _privateConstructorUsedError;
   DateTime? get sentDate => throw _privateConstructorUsedError;
-  DateTime? get statusDate =>
-      throw _privateConstructorUsedError; // TODO(georgeta): Añadir cuando BFMF añada el campo en el DTO
-// required String stakeholderName,
+  DateTime? get statusDate => throw _privateConstructorUsedError;
+  String get fullName => throw _privateConstructorUsedError;
   QuotationStatus get status => throw _privateConstructorUsedError;
+  DocumentTypeCode get documentTypeCode => throw _privateConstructorUsedError;
+  String get documentNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuotationCopyWith<Quotation> get copyWith =>
@@ -47,7 +48,10 @@ abstract class $QuotationCopyWith<$Res> {
       DateTime createdDate,
       DateTime? sentDate,
       DateTime? statusDate,
-      QuotationStatus status});
+      String fullName,
+      QuotationStatus status,
+      DocumentTypeCode documentTypeCode,
+      String documentNumber});
 }
 
 /// @nodoc
@@ -71,7 +75,10 @@ class _$QuotationCopyWithImpl<$Res, $Val extends Quotation>
     Object? createdDate = null,
     Object? sentDate = freezed,
     Object? statusDate = freezed,
+    Object? fullName = null,
     Object? status = null,
+    Object? documentTypeCode = null,
+    Object? documentNumber = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -106,10 +113,22 @@ class _$QuotationCopyWithImpl<$Res, $Val extends Quotation>
           ? _value.statusDate
           : statusDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as QuotationStatus,
+      documentTypeCode: null == documentTypeCode
+          ? _value.documentTypeCode
+          : documentTypeCode // ignore: cast_nullable_to_non_nullable
+              as DocumentTypeCode,
+      documentNumber: null == documentNumber
+          ? _value.documentNumber
+          : documentNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -131,7 +150,10 @@ abstract class _$$QuotationImplCopyWith<$Res>
       DateTime createdDate,
       DateTime? sentDate,
       DateTime? statusDate,
-      QuotationStatus status});
+      String fullName,
+      QuotationStatus status,
+      DocumentTypeCode documentTypeCode,
+      String documentNumber});
 }
 
 /// @nodoc
@@ -153,7 +175,10 @@ class __$$QuotationImplCopyWithImpl<$Res>
     Object? createdDate = null,
     Object? sentDate = freezed,
     Object? statusDate = freezed,
+    Object? fullName = null,
     Object? status = null,
+    Object? documentTypeCode = null,
+    Object? documentNumber = null,
   }) {
     return _then(_$QuotationImpl(
       id: null == id
@@ -188,10 +213,22 @@ class __$$QuotationImplCopyWithImpl<$Res>
           ? _value.statusDate
           : statusDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
+              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as QuotationStatus,
+      documentTypeCode: null == documentTypeCode
+          ? _value.documentTypeCode
+          : documentTypeCode // ignore: cast_nullable_to_non_nullable
+              as DocumentTypeCode,
+      documentNumber: null == documentNumber
+          ? _value.documentNumber
+          : documentNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -208,7 +245,10 @@ class _$QuotationImpl implements _Quotation {
       required this.createdDate,
       required this.sentDate,
       required this.statusDate,
-      required this.status});
+      required this.fullName,
+      required this.status,
+      required this.documentTypeCode,
+      required this.documentNumber});
 
   @override
   final UniqueId id;
@@ -226,14 +266,18 @@ class _$QuotationImpl implements _Quotation {
   final DateTime? sentDate;
   @override
   final DateTime? statusDate;
-// TODO(georgeta): Añadir cuando BFMF añada el campo en el DTO
-// required String stakeholderName,
+  @override
+  final String fullName;
   @override
   final QuotationStatus status;
+  @override
+  final DocumentTypeCode documentTypeCode;
+  @override
+  final String documentNumber;
 
   @override
   String toString() {
-    return 'Quotation(id: $id, erpContractId: $erpContractId, number: $number, totalAmount: $totalAmount, dueDate: $dueDate, createdDate: $createdDate, sentDate: $sentDate, statusDate: $statusDate, status: $status)';
+    return 'Quotation(id: $id, erpContractId: $erpContractId, number: $number, totalAmount: $totalAmount, dueDate: $dueDate, createdDate: $createdDate, sentDate: $sentDate, statusDate: $statusDate, fullName: $fullName, status: $status, documentTypeCode: $documentTypeCode, documentNumber: $documentNumber)';
   }
 
   @override
@@ -254,12 +298,30 @@ class _$QuotationImpl implements _Quotation {
                 other.sentDate == sentDate) &&
             (identical(other.statusDate, statusDate) ||
                 other.statusDate == statusDate) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.documentTypeCode, documentTypeCode) ||
+                other.documentTypeCode == documentTypeCode) &&
+            (identical(other.documentNumber, documentNumber) ||
+                other.documentNumber == documentNumber));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, erpContractId, number,
-      totalAmount, dueDate, createdDate, sentDate, statusDate, status);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      erpContractId,
+      number,
+      totalAmount,
+      dueDate,
+      createdDate,
+      sentDate,
+      statusDate,
+      fullName,
+      status,
+      documentTypeCode,
+      documentNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -278,7 +340,10 @@ abstract class _Quotation implements Quotation {
       required final DateTime createdDate,
       required final DateTime? sentDate,
       required final DateTime? statusDate,
-      required final QuotationStatus status}) = _$QuotationImpl;
+      required final String fullName,
+      required final QuotationStatus status,
+      required final DocumentTypeCode documentTypeCode,
+      required final String documentNumber}) = _$QuotationImpl;
 
   @override
   UniqueId get id;
@@ -296,9 +361,14 @@ abstract class _Quotation implements Quotation {
   DateTime? get sentDate;
   @override
   DateTime? get statusDate;
-  @override // TODO(georgeta): Añadir cuando BFMF añada el campo en el DTO
-// required String stakeholderName,
+  @override
+  String get fullName;
+  @override
   QuotationStatus get status;
+  @override
+  DocumentTypeCode get documentTypeCode;
+  @override
+  String get documentNumber;
   @override
   @JsonKey(ignore: true)
   _$$QuotationImplCopyWith<_$QuotationImpl> get copyWith =>

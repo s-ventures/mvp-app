@@ -13,7 +13,8 @@ abstract class IQuotesRepository {
     required int erpContractId,
     required QuotationFilter filter,
     int page = 0,
-    int pageSize = 10,
+    // TODO(georgeta): Cambiar a 10 cuando arreglen el Filtro en Core
+    int pageSize = 100,
     void Function(int totalPages, int totalElements)? onPaginationInfo,
   });
 

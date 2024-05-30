@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_status_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/document_type_code_dto.dart';
 
 // {
 //       "erpContractId": 1052,
@@ -23,7 +24,10 @@ import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_stat
 //       "stakeholderEmailId": 1,
 //       "sentDate": null,
 //       "status": "DRAFT",
-//       "serialNumberId": null
+//       "serialNumberId": null,
+//       "fullName": "Juan Perez Martinez",
+//       "documentTypeCode": "NIF",
+//        "documentNumber": "12345678Z",
 //     }
 
 part 'quotation_dto.freezed.dart';
@@ -52,6 +56,9 @@ class QuotationDto with _$QuotationDto {
     required DateTime? sentDate,
     required QuotationStatusDto status,
     required int? serialNumberId,
+    required String fullName,
+    required DocumentTypeCodeDto documentTypeCode,
+    required String documentNumber,
   }) = _QuotationDto;
 
   factory QuotationDto.fromJson(Map<String, dynamic> json) => _$QuotationDtoFromJson(json);
@@ -69,6 +76,9 @@ extension QuotationDtoX on QuotationDto {
       sentDate: sentDate,
       statusDate: statusDate,
       status: status.toDomain(),
+      fullName: fullName,
+      documentTypeCode: documentTypeCode.toDomain(),
+      documentNumber: documentNumber,
     );
   }
 }

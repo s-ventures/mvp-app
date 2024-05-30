@@ -36,6 +36,10 @@ _$QuotationDtoImpl _$$QuotationDtoImplFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['sentDate'] as String),
       status: $enumDecode(_$QuotationStatusDtoEnumMap, json['status']),
       serialNumberId: (json['serialNumberId'] as num?)?.toInt(),
+      fullName: json['fullName'] as String,
+      documentTypeCode:
+          $enumDecode(_$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
+      documentNumber: json['documentNumber'] as String,
     );
 
 Map<String, dynamic> _$$QuotationDtoImplToJson(_$QuotationDtoImpl instance) =>
@@ -60,6 +64,10 @@ Map<String, dynamic> _$$QuotationDtoImplToJson(_$QuotationDtoImpl instance) =>
       'sentDate': instance.sentDate?.toIso8601String(),
       'status': _$QuotationStatusDtoEnumMap[instance.status]!,
       'serialNumberId': instance.serialNumberId,
+      'fullName': instance.fullName,
+      'documentTypeCode':
+          _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]!,
+      'documentNumber': instance.documentNumber,
     };
 
 const _$QuotationStatusDtoEnumMap = {
@@ -67,4 +75,11 @@ const _$QuotationStatusDtoEnumMap = {
   QuotationStatusDto.created: 'CREATED',
   QuotationStatusDto.sent: 'SENT',
   QuotationStatusDto.cancelled: 'CANCELLED',
+};
+
+const _$DocumentTypeCodeDtoEnumMap = {
+  DocumentTypeCodeDto.dni: 'DNI',
+  DocumentTypeCodeDto.nie: 'NIE',
+  DocumentTypeCodeDto.nif: 'NIF',
+  DocumentTypeCodeDto.passport: 'PASSPORT',
 };

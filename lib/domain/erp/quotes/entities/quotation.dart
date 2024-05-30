@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_status.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_type_code.dart';
 
 part 'quotation.freezed.dart';
 
@@ -15,8 +16,9 @@ class Quotation with _$Quotation {
     required DateTime createdDate,
     required DateTime? sentDate,
     required DateTime? statusDate,
-    // TODO(georgeta): Añadir cuando BFMF añada el campo en el DTO
-    // required String stakeholderName,
+    required String fullName,
     required QuotationStatus status,
+    required DocumentTypeCode documentTypeCode,
+    required String documentNumber,
   }) = _Quotation;
 }
