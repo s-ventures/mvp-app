@@ -14,9 +14,9 @@ final expensesRestClientProvider = Provider<ExpensesRestClient>(
 abstract class ExpensesRestClient {
   factory ExpensesRestClient(Dio dio) = _ExpensesRestClient;
 
-  @GET('/erp/expenses/v1/{erpContractId}/{expensesId}')
+  @GET('/erp/expenses/v1/{contractId}/{id}')
   Future<DetailedExpenseDto> getDetailedExpense({
-    @Path('erpContractId') required int erpContractId,
-    @Path('expensesId') required int expensesId,
+    @Path('contractId') required int contractId,
+    @Path('id') required int id,
   });
 }

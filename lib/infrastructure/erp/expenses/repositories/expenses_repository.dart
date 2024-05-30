@@ -4,18 +4,11 @@ import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/detailed_expense
 import 'package:manifiesto_mvp_app/domain/erp/expenses/failures/detailed_expense_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/repositories/i_expenses_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/expenses_rest_client.dart';
-import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/data_source/local/expenses_local_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/data_source/remote/expenses_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/detailed_expense_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/local_storage/repositories/shared_preferences_local_storage.dart';
 
 final expensesRepositoryProvider = Provider<ExpensesRepository>(
   (ref) => ExpensesRepository(
-    localDataSource: ExpensesLocalDataSource(
-      ref.watch(
-        sharedPreferencesLocalStorageProvider,
-      ),
-    ),
     remoteDataSource: ExpensesRemoteDataSource(
       ref.watch(
         expensesRestClientProvider,
@@ -26,24 +19,20 @@ final expensesRepositoryProvider = Provider<ExpensesRepository>(
 
 class ExpensesRepository implements IExpensesRepository {
   ExpensesRepository({
-    required ExpensesLocalDataSource localDataSource,
     required ExpensesRemoteDataSource remoteDataSource,
-  })  : _remoteDataSource = remoteDataSource,
-        _localDataSource = localDataSource;
+  }) : _remoteDataSource = remoteDataSource;
 
-  // ignore: unused_field
-  final ExpensesLocalDataSource _localDataSource;
   final ExpensesRemoteDataSource _remoteDataSource;
 
   @override
   Future<Either<DetailedExpenseFailure, DetailedExpense>> getDetailedExpense({
-    required int erpContractId,
-    required int expensesId,
+    required int contractId,
+    required int id,
   }) async {
     try {
       final response = await _remoteDataSource.getDetailedExpense(
-        erpContractId: erpContractId,
-        expensesId: expensesId,
+        contractId: contractId,
+        id: id,
       );
 
       final expense = response.toDomain();

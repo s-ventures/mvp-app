@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedExpense {
+  UniqueId get id => throw _privateConstructorUsedError;
   UniqueId get erpContractId => throw _privateConstructorUsedError;
   String get number => throw _privateConstructorUsedError;
   UniqueId get stakeholderId => throw _privateConstructorUsedError;
@@ -26,21 +27,19 @@ mixin _$DetailedExpense {
   UniqueId get fileId => throw _privateConstructorUsedError;
   String get additionalInfo => throw _privateConstructorUsedError;
   DateTime get statusDate => throw _privateConstructorUsedError;
-  List<ExpensesItem> get items => throw _privateConstructorUsedError;
-  ExpensesSerialNumber get serialNumber => throw _privateConstructorUsedError;
-  UniqueId get expenseId => throw _privateConstructorUsedError;
   DateTime get issueDate => throw _privateConstructorUsedError;
   double get vatAmount => throw _privateConstructorUsedError;
   double get vatPercentage => throw _privateConstructorUsedError;
-  ExpensesStatus get status => throw _privateConstructorUsedError;
   String get accountingTypeCode => throw _privateConstructorUsedError;
-  List<ExpensesPayment> get payments => throw _privateConstructorUsedError;
-  List<ExpensesAttachment> get attachments =>
-      throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
   String get documentTypeCode => throw _privateConstructorUsedError;
   String get documentNumber => throw _privateConstructorUsedError;
+  ExpenseStatus get status => throw _privateConstructorUsedError;
+  List<ExpenseItem> get items => throw _privateConstructorUsedError;
   dynamic get subtotalVatAmount => throw _privateConstructorUsedError;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  List<Payment> get payments => throw _privateConstructorUsedError;
+  List<FileAttachment> get attachments => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedExpenseCopyWith<DetailedExpense> get copyWith =>
@@ -54,7 +53,8 @@ abstract class $DetailedExpenseCopyWith<$Res> {
       _$DetailedExpenseCopyWithImpl<$Res, DetailedExpense>;
   @useResult
   $Res call(
-      {UniqueId erpContractId,
+      {UniqueId id,
+      UniqueId erpContractId,
       String number,
       UniqueId stakeholderId,
       DateTime dueDate,
@@ -64,22 +64,21 @@ abstract class $DetailedExpenseCopyWith<$Res> {
       UniqueId fileId,
       String additionalInfo,
       DateTime statusDate,
-      List<ExpensesItem> items,
-      ExpensesSerialNumber serialNumber,
-      UniqueId expenseId,
       DateTime issueDate,
       double vatAmount,
       double vatPercentage,
-      ExpensesStatus status,
       String accountingTypeCode,
-      List<ExpensesPayment> payments,
-      List<ExpensesAttachment> attachments,
       String fullName,
       String documentTypeCode,
       String documentNumber,
-      dynamic subtotalVatAmount});
+      ExpenseStatus status,
+      List<ExpenseItem> items,
+      dynamic subtotalVatAmount,
+      SerialNumber serialNumber,
+      List<Payment> payments,
+      List<FileAttachment> attachments});
 
-  $ExpensesSerialNumberCopyWith<$Res> get serialNumber;
+  $SerialNumberCopyWith<$Res> get serialNumber;
 }
 
 /// @nodoc
@@ -95,6 +94,7 @@ class _$DetailedExpenseCopyWithImpl<$Res, $Val extends DetailedExpense>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? erpContractId = null,
     Object? number = null,
     Object? stakeholderId = null,
@@ -105,22 +105,25 @@ class _$DetailedExpenseCopyWithImpl<$Res, $Val extends DetailedExpense>
     Object? fileId = null,
     Object? additionalInfo = null,
     Object? statusDate = null,
-    Object? items = null,
-    Object? serialNumber = null,
-    Object? expenseId = null,
     Object? issueDate = null,
     Object? vatAmount = null,
     Object? vatPercentage = null,
-    Object? status = null,
     Object? accountingTypeCode = null,
-    Object? payments = null,
-    Object? attachments = null,
     Object? fullName = null,
     Object? documentTypeCode = null,
     Object? documentNumber = null,
+    Object? status = null,
+    Object? items = null,
     Object? subtotalVatAmount = freezed,
+    Object? serialNumber = null,
+    Object? payments = null,
+    Object? attachments = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       erpContractId: null == erpContractId
           ? _value.erpContractId
           : erpContractId // ignore: cast_nullable_to_non_nullable
@@ -161,18 +164,6 @@ class _$DetailedExpenseCopyWithImpl<$Res, $Val extends DetailedExpense>
           ? _value.statusDate
           : statusDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<ExpensesItem>,
-      serialNumber: null == serialNumber
-          ? _value.serialNumber
-          : serialNumber // ignore: cast_nullable_to_non_nullable
-              as ExpensesSerialNumber,
-      expenseId: null == expenseId
-          ? _value.expenseId
-          : expenseId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
       issueDate: null == issueDate
           ? _value.issueDate
           : issueDate // ignore: cast_nullable_to_non_nullable
@@ -185,22 +176,10 @@ class _$DetailedExpenseCopyWithImpl<$Res, $Val extends DetailedExpense>
           ? _value.vatPercentage
           : vatPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ExpensesStatus,
       accountingTypeCode: null == accountingTypeCode
           ? _value.accountingTypeCode
           : accountingTypeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      payments: null == payments
-          ? _value.payments
-          : payments // ignore: cast_nullable_to_non_nullable
-              as List<ExpensesPayment>,
-      attachments: null == attachments
-          ? _value.attachments
-          : attachments // ignore: cast_nullable_to_non_nullable
-              as List<ExpensesAttachment>,
       fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -213,17 +192,37 @@ class _$DetailedExpenseCopyWithImpl<$Res, $Val extends DetailedExpense>
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ExpenseStatus,
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ExpenseItem>,
       subtotalVatAmount: freezed == subtotalVatAmount
           ? _value.subtotalVatAmount
           : subtotalVatAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      serialNumber: null == serialNumber
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      payments: null == payments
+          ? _value.payments
+          : payments // ignore: cast_nullable_to_non_nullable
+              as List<Payment>,
+      attachments: null == attachments
+          ? _value.attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ExpensesSerialNumberCopyWith<$Res> get serialNumber {
-    return $ExpensesSerialNumberCopyWith<$Res>(_value.serialNumber, (value) {
+  $SerialNumberCopyWith<$Res> get serialNumber {
+    return $SerialNumberCopyWith<$Res>(_value.serialNumber, (value) {
       return _then(_value.copyWith(serialNumber: value) as $Val);
     });
   }
@@ -238,7 +237,8 @@ abstract class _$$DetailedExpenseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UniqueId erpContractId,
+      {UniqueId id,
+      UniqueId erpContractId,
       String number,
       UniqueId stakeholderId,
       DateTime dueDate,
@@ -248,23 +248,22 @@ abstract class _$$DetailedExpenseImplCopyWith<$Res>
       UniqueId fileId,
       String additionalInfo,
       DateTime statusDate,
-      List<ExpensesItem> items,
-      ExpensesSerialNumber serialNumber,
-      UniqueId expenseId,
       DateTime issueDate,
       double vatAmount,
       double vatPercentage,
-      ExpensesStatus status,
       String accountingTypeCode,
-      List<ExpensesPayment> payments,
-      List<ExpensesAttachment> attachments,
       String fullName,
       String documentTypeCode,
       String documentNumber,
-      dynamic subtotalVatAmount});
+      ExpenseStatus status,
+      List<ExpenseItem> items,
+      dynamic subtotalVatAmount,
+      SerialNumber serialNumber,
+      List<Payment> payments,
+      List<FileAttachment> attachments});
 
   @override
-  $ExpensesSerialNumberCopyWith<$Res> get serialNumber;
+  $SerialNumberCopyWith<$Res> get serialNumber;
 }
 
 /// @nodoc
@@ -278,6 +277,7 @@ class __$$DetailedExpenseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? erpContractId = null,
     Object? number = null,
     Object? stakeholderId = null,
@@ -288,22 +288,25 @@ class __$$DetailedExpenseImplCopyWithImpl<$Res>
     Object? fileId = null,
     Object? additionalInfo = null,
     Object? statusDate = null,
-    Object? items = null,
-    Object? serialNumber = null,
-    Object? expenseId = null,
     Object? issueDate = null,
     Object? vatAmount = null,
     Object? vatPercentage = null,
-    Object? status = null,
     Object? accountingTypeCode = null,
-    Object? payments = null,
-    Object? attachments = null,
     Object? fullName = null,
     Object? documentTypeCode = null,
     Object? documentNumber = null,
+    Object? status = null,
+    Object? items = null,
     Object? subtotalVatAmount = freezed,
+    Object? serialNumber = null,
+    Object? payments = null,
+    Object? attachments = null,
   }) {
     return _then(_$DetailedExpenseImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       erpContractId: null == erpContractId
           ? _value.erpContractId
           : erpContractId // ignore: cast_nullable_to_non_nullable
@@ -344,18 +347,6 @@ class __$$DetailedExpenseImplCopyWithImpl<$Res>
           ? _value.statusDate
           : statusDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      items: null == items
-          ? _value._items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<ExpensesItem>,
-      serialNumber: null == serialNumber
-          ? _value.serialNumber
-          : serialNumber // ignore: cast_nullable_to_non_nullable
-              as ExpensesSerialNumber,
-      expenseId: null == expenseId
-          ? _value.expenseId
-          : expenseId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
       issueDate: null == issueDate
           ? _value.issueDate
           : issueDate // ignore: cast_nullable_to_non_nullable
@@ -368,22 +359,10 @@ class __$$DetailedExpenseImplCopyWithImpl<$Res>
           ? _value.vatPercentage
           : vatPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ExpensesStatus,
       accountingTypeCode: null == accountingTypeCode
           ? _value.accountingTypeCode
           : accountingTypeCode // ignore: cast_nullable_to_non_nullable
               as String,
-      payments: null == payments
-          ? _value._payments
-          : payments // ignore: cast_nullable_to_non_nullable
-              as List<ExpensesPayment>,
-      attachments: null == attachments
-          ? _value._attachments
-          : attachments // ignore: cast_nullable_to_non_nullable
-              as List<ExpensesAttachment>,
       fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -396,10 +375,30 @@ class __$$DetailedExpenseImplCopyWithImpl<$Res>
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ExpenseStatus,
+      items: null == items
+          ? _value._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<ExpenseItem>,
       subtotalVatAmount: freezed == subtotalVatAmount
           ? _value.subtotalVatAmount
           : subtotalVatAmount // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      serialNumber: null == serialNumber
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      payments: null == payments
+          ? _value._payments
+          : payments // ignore: cast_nullable_to_non_nullable
+              as List<Payment>,
+      attachments: null == attachments
+          ? _value._attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
     ));
   }
 }
@@ -408,7 +407,8 @@ class __$$DetailedExpenseImplCopyWithImpl<$Res>
 
 class _$DetailedExpenseImpl implements _DetailedExpense {
   const _$DetailedExpenseImpl(
-      {required this.erpContractId,
+      {required this.id,
+      required this.erpContractId,
       required this.number,
       required this.stakeholderId,
       required this.dueDate,
@@ -418,24 +418,25 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
       required this.fileId,
       required this.additionalInfo,
       required this.statusDate,
-      required final List<ExpensesItem> items,
-      required this.serialNumber,
-      required this.expenseId,
       required this.issueDate,
       required this.vatAmount,
       required this.vatPercentage,
-      required this.status,
       required this.accountingTypeCode,
-      required final List<ExpensesPayment> payments,
-      required final List<ExpensesAttachment> attachments,
       required this.fullName,
       required this.documentTypeCode,
       required this.documentNumber,
-      required this.subtotalVatAmount})
+      required this.status,
+      required final List<ExpenseItem> items,
+      required this.subtotalVatAmount,
+      required this.serialNumber,
+      required final List<Payment> payments,
+      required final List<FileAttachment> attachments})
       : _items = items,
         _payments = payments,
         _attachments = attachments;
 
+  @override
+  final UniqueId id;
   @override
   final UniqueId erpContractId;
   @override
@@ -456,18 +457,6 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
   final String additionalInfo;
   @override
   final DateTime statusDate;
-  final List<ExpensesItem> _items;
-  @override
-  List<ExpensesItem> get items {
-    if (_items is EqualUnmodifiableListView) return _items;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_items);
-  }
-
-  @override
-  final ExpensesSerialNumber serialNumber;
-  @override
-  final UniqueId expenseId;
   @override
   final DateTime issueDate;
   @override
@@ -475,25 +464,7 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
   @override
   final double vatPercentage;
   @override
-  final ExpensesStatus status;
-  @override
   final String accountingTypeCode;
-  final List<ExpensesPayment> _payments;
-  @override
-  List<ExpensesPayment> get payments {
-    if (_payments is EqualUnmodifiableListView) return _payments;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_payments);
-  }
-
-  final List<ExpensesAttachment> _attachments;
-  @override
-  List<ExpensesAttachment> get attachments {
-    if (_attachments is EqualUnmodifiableListView) return _attachments;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_attachments);
-  }
-
   @override
   final String fullName;
   @override
@@ -501,11 +472,38 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
   @override
   final String documentNumber;
   @override
+  final ExpenseStatus status;
+  final List<ExpenseItem> _items;
+  @override
+  List<ExpenseItem> get items {
+    if (_items is EqualUnmodifiableListView) return _items;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_items);
+  }
+
+  @override
   final dynamic subtotalVatAmount;
+  @override
+  final SerialNumber serialNumber;
+  final List<Payment> _payments;
+  @override
+  List<Payment> get payments {
+    if (_payments is EqualUnmodifiableListView) return _payments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_payments);
+  }
+
+  final List<FileAttachment> _attachments;
+  @override
+  List<FileAttachment> get attachments {
+    if (_attachments is EqualUnmodifiableListView) return _attachments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attachments);
+  }
 
   @override
   String toString() {
-    return 'DetailedExpense(erpContractId: $erpContractId, number: $number, stakeholderId: $stakeholderId, dueDate: $dueDate, createdDate: $createdDate, currencyCode: $currencyCode, withHoldingTaxesPercentage: $withHoldingTaxesPercentage, fileId: $fileId, additionalInfo: $additionalInfo, statusDate: $statusDate, items: $items, serialNumber: $serialNumber, expenseId: $expenseId, issueDate: $issueDate, vatAmount: $vatAmount, vatPercentage: $vatPercentage, status: $status, accountingTypeCode: $accountingTypeCode, payments: $payments, attachments: $attachments, fullName: $fullName, documentTypeCode: $documentTypeCode, documentNumber: $documentNumber, subtotalVatAmount: $subtotalVatAmount)';
+    return 'DetailedExpense(id: $id, erpContractId: $erpContractId, number: $number, stakeholderId: $stakeholderId, dueDate: $dueDate, createdDate: $createdDate, currencyCode: $currencyCode, withHoldingTaxesPercentage: $withHoldingTaxesPercentage, fileId: $fileId, additionalInfo: $additionalInfo, statusDate: $statusDate, issueDate: $issueDate, vatAmount: $vatAmount, vatPercentage: $vatPercentage, accountingTypeCode: $accountingTypeCode, fullName: $fullName, documentTypeCode: $documentTypeCode, documentNumber: $documentNumber, status: $status, items: $items, subtotalVatAmount: $subtotalVatAmount, serialNumber: $serialNumber, payments: $payments, attachments: $attachments)';
   }
 
   @override
@@ -513,6 +511,7 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedExpenseImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.erpContractId, erpContractId) ||
                 other.erpContractId == erpContractId) &&
             (identical(other.number, number) || other.number == number) &&
@@ -532,36 +531,35 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
                 other.additionalInfo == additionalInfo) &&
             (identical(other.statusDate, statusDate) ||
                 other.statusDate == statusDate) &&
-            const DeepCollectionEquality().equals(other._items, _items) &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
-            (identical(other.expenseId, expenseId) ||
-                other.expenseId == expenseId) &&
             (identical(other.issueDate, issueDate) ||
                 other.issueDate == issueDate) &&
             (identical(other.vatAmount, vatAmount) ||
                 other.vatAmount == vatAmount) &&
             (identical(other.vatPercentage, vatPercentage) ||
                 other.vatPercentage == vatPercentage) &&
-            (identical(other.status, status) || other.status == status) &&
             (identical(other.accountingTypeCode, accountingTypeCode) ||
                 other.accountingTypeCode == accountingTypeCode) &&
-            const DeepCollectionEquality().equals(other._payments, _payments) &&
-            const DeepCollectionEquality()
-                .equals(other._attachments, _attachments) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.documentTypeCode, documentTypeCode) ||
                 other.documentTypeCode == documentTypeCode) &&
             (identical(other.documentNumber, documentNumber) ||
                 other.documentNumber == documentNumber) &&
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other._items, _items) &&
             const DeepCollectionEquality()
-                .equals(other.subtotalVatAmount, subtotalVatAmount));
+                .equals(other.subtotalVatAmount, subtotalVatAmount) &&
+            (identical(other.serialNumber, serialNumber) ||
+                other.serialNumber == serialNumber) &&
+            const DeepCollectionEquality().equals(other._payments, _payments) &&
+            const DeepCollectionEquality()
+                .equals(other._attachments, _attachments));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
+        id,
         erpContractId,
         number,
         stakeholderId,
@@ -572,20 +570,19 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
         fileId,
         additionalInfo,
         statusDate,
-        const DeepCollectionEquality().hash(_items),
-        serialNumber,
-        expenseId,
         issueDate,
         vatAmount,
         vatPercentage,
-        status,
         accountingTypeCode,
-        const DeepCollectionEquality().hash(_payments),
-        const DeepCollectionEquality().hash(_attachments),
         fullName,
         documentTypeCode,
         documentNumber,
-        const DeepCollectionEquality().hash(subtotalVatAmount)
+        status,
+        const DeepCollectionEquality().hash(_items),
+        const DeepCollectionEquality().hash(subtotalVatAmount),
+        serialNumber,
+        const DeepCollectionEquality().hash(_payments),
+        const DeepCollectionEquality().hash(_attachments)
       ]);
 
   @JsonKey(ignore: true)
@@ -598,7 +595,8 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
 
 abstract class _DetailedExpense implements DetailedExpense {
   const factory _DetailedExpense(
-      {required final UniqueId erpContractId,
+      {required final UniqueId id,
+      required final UniqueId erpContractId,
       required final String number,
       required final UniqueId stakeholderId,
       required final DateTime dueDate,
@@ -608,21 +606,22 @@ abstract class _DetailedExpense implements DetailedExpense {
       required final UniqueId fileId,
       required final String additionalInfo,
       required final DateTime statusDate,
-      required final List<ExpensesItem> items,
-      required final ExpensesSerialNumber serialNumber,
-      required final UniqueId expenseId,
       required final DateTime issueDate,
       required final double vatAmount,
       required final double vatPercentage,
-      required final ExpensesStatus status,
       required final String accountingTypeCode,
-      required final List<ExpensesPayment> payments,
-      required final List<ExpensesAttachment> attachments,
       required final String fullName,
       required final String documentTypeCode,
       required final String documentNumber,
-      required final dynamic subtotalVatAmount}) = _$DetailedExpenseImpl;
+      required final ExpenseStatus status,
+      required final List<ExpenseItem> items,
+      required final dynamic subtotalVatAmount,
+      required final SerialNumber serialNumber,
+      required final List<Payment> payments,
+      required final List<FileAttachment> attachments}) = _$DetailedExpenseImpl;
 
+  @override
+  UniqueId get id;
   @override
   UniqueId get erpContractId;
   @override
@@ -644,25 +643,13 @@ abstract class _DetailedExpense implements DetailedExpense {
   @override
   DateTime get statusDate;
   @override
-  List<ExpensesItem> get items;
-  @override
-  ExpensesSerialNumber get serialNumber;
-  @override
-  UniqueId get expenseId;
-  @override
   DateTime get issueDate;
   @override
   double get vatAmount;
   @override
   double get vatPercentage;
   @override
-  ExpensesStatus get status;
-  @override
   String get accountingTypeCode;
-  @override
-  List<ExpensesPayment> get payments;
-  @override
-  List<ExpensesAttachment> get attachments;
   @override
   String get fullName;
   @override
@@ -670,7 +657,17 @@ abstract class _DetailedExpense implements DetailedExpense {
   @override
   String get documentNumber;
   @override
+  ExpenseStatus get status;
+  @override
+  List<ExpenseItem> get items;
+  @override
   dynamic get subtotalVatAmount;
+  @override
+  SerialNumber get serialNumber;
+  @override
+  List<Payment> get payments;
+  @override
+  List<FileAttachment> get attachments;
   @override
   @JsonKey(ignore: true)
   _$$DetailedExpenseImplCopyWith<_$DetailedExpenseImpl> get copyWith =>

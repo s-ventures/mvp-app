@@ -20,8 +20,8 @@ class _ExpensesRestClient implements ExpensesRestClient {
 
   @override
   Future<DetailedExpenseDto> getDetailedExpense({
-    required int erpContractId,
-    required int expensesId,
+    required int contractId,
+    required int id,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -35,7 +35,7 @@ class _ExpensesRestClient implements ExpensesRestClient {
     )
             .compose(
               _dio.options,
-              '/erp/expenses/v1/${erpContractId}/${expensesId}',
+              '/erp/expenses/v1/${contractId}/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

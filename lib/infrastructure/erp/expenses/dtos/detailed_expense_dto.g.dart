@@ -9,6 +9,7 @@ part of 'detailed_expense_dto.dart';
 _$DetailedExpenseDtoImpl _$$DetailedExpenseDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DetailedExpenseDtoImpl(
+      expenseId: json['expenseId'] as int,
       erpContractId: json['erpContractId'] as int,
       number: json['number'] as String,
       stakeholderId: json['stakeholderId'] as int,
@@ -21,32 +22,32 @@ _$DetailedExpenseDtoImpl _$$DetailedExpenseDtoImplFromJson(
       fileId: json['fileId'] as int,
       additionalInfo: json['additionalInfo'] as String,
       statusDate: const DateConverter().fromJson(json['statusDate'] as String),
-      items: (json['items'] as List<dynamic>)
-          .map((e) => ExpensesItemDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      serialNumber: ExpenseSerialNumberDto.fromJson(
-          json['serialNumber'] as Map<String, dynamic>),
-      expenseId: json['expenseId'] as int,
       issueDate: const DateConverter().fromJson(json['issueDate'] as String),
       vatAmount: (json['vatAmount'] as num).toDouble(),
       vatPercentage: (json['vatPercentage'] as num).toDouble(),
-      status: $enumDecode(_$ExpensesStatusDtoEnumMap, json['status']),
       accountingTypeCode: json['accountingTypeCode'] as String,
-      payments: (json['payments'] as List<dynamic>)
-          .map((e) => ExpensesPaymentDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      attachments: (json['attachments'] as List<dynamic>)
-          .map((e) => ExpensesAttachmentDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
       fullName: json['fullName'] as String,
       documentTypeCode: json['documentTypeCode'] as String,
       documentNumber: json['documentNumber'] as String,
+      status: $enumDecode(_$ExpenseStatusDtoEnumMap, json['status']),
+      items: (json['items'] as List<dynamic>)
+          .map((e) => ExpenseItemDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       subtotalVatAmount: json['subtotalVatAmount'],
+      serialNumber: SerialNumberDto.fromJson(
+          json['serialNumber'] as Map<String, dynamic>),
+      payments: (json['payments'] as List<dynamic>)
+          .map((e) => PaymentDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      attachments: (json['attachments'] as List<dynamic>)
+          .map((e) => FileAttachmentDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$DetailedExpenseDtoImplToJson(
         _$DetailedExpenseDtoImpl instance) =>
     <String, dynamic>{
+      'expenseId': instance.expenseId,
       'erpContractId': instance.erpContractId,
       'number': instance.number,
       'stakeholderId': instance.stakeholderId,
@@ -57,26 +58,25 @@ Map<String, dynamic> _$$DetailedExpenseDtoImplToJson(
       'fileId': instance.fileId,
       'additionalInfo': instance.additionalInfo,
       'statusDate': const DateConverter().toJson(instance.statusDate),
-      'items': instance.items.map((e) => e.toJson()).toList(),
-      'serialNumber': instance.serialNumber.toJson(),
-      'expenseId': instance.expenseId,
       'issueDate': const DateConverter().toJson(instance.issueDate),
       'vatAmount': instance.vatAmount,
       'vatPercentage': instance.vatPercentage,
-      'status': _$ExpensesStatusDtoEnumMap[instance.status]!,
       'accountingTypeCode': instance.accountingTypeCode,
-      'payments': instance.payments.map((e) => e.toJson()).toList(),
-      'attachments': instance.attachments.map((e) => e.toJson()).toList(),
       'fullName': instance.fullName,
       'documentTypeCode': instance.documentTypeCode,
       'documentNumber': instance.documentNumber,
+      'status': _$ExpenseStatusDtoEnumMap[instance.status]!,
+      'items': instance.items.map((e) => e.toJson()).toList(),
       'subtotalVatAmount': instance.subtotalVatAmount,
+      'serialNumber': instance.serialNumber.toJson(),
+      'payments': instance.payments.map((e) => e.toJson()).toList(),
+      'attachments': instance.attachments.map((e) => e.toJson()).toList(),
     };
 
-const _$ExpensesStatusDtoEnumMap = {
-  ExpensesStatusDto.received: 'RECEIVED',
-  ExpensesStatusDto.halfPaid: 'HALF_PAID',
-  ExpensesStatusDto.paid: 'PAID',
-  ExpensesStatusDto.cancelled: 'CANCELLED',
-  ExpensesStatusDto.draft: 'DRAFT',
+const _$ExpenseStatusDtoEnumMap = {
+  ExpenseStatusDto.received: 'RECEIVED',
+  ExpenseStatusDto.halfPaid: 'HALF_PAID',
+  ExpenseStatusDto.paid: 'PAID',
+  ExpenseStatusDto.cancelled: 'CANCELLED',
+  ExpenseStatusDto.draft: 'DRAFT',
 };
