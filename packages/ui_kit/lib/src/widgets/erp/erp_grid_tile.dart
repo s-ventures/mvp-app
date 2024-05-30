@@ -8,6 +8,7 @@ class ErpGridTile extends StatelessWidget {
     required this.contact,
     required this.amount,
     required this.status,
+    required this.statusColor,
     required this.onPressed,
     super.key,
   });
@@ -17,6 +18,7 @@ class ErpGridTile extends StatelessWidget {
   final String contact;
   final double amount;
   final String status;
+  final Color statusColor;
   final VoidCallback onPressed;
 
   @override
@@ -45,13 +47,38 @@ class ErpGridTile extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
-                    color: context.color.statusWarning,
+                    color: statusColor,
                     borderRadius: BorderRadius.circular(context.radius.hard),
                   ),
                 ),
                 AppSpacing.horizontal.s2,
+                Expanded(
+                  child: Text(
+                    title,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: context.textStyle.buttonTabBar.copyWith(
+                      color: context.color.textLight600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            AppSpacing.vertical.s4,
+            Expanded(
+              child: Text(
+                contact,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: context.textStyle.bodyMediumSemiBold,
+              ),
+            ),
+            AppSpacing.vertical.s3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 Text(
-                  title,
+                  'Total',
                   style: context.textStyle.buttonTabBar.copyWith(
                     color: context.color.textLight600,
                   ),
@@ -64,27 +91,6 @@ class ErpGridTile extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            AppSpacing.vertical.s4,
-            Row(
-              children: [
-                IconWithContainer(
-                  icon: IconAssets.user,
-                  backgroundColor: context.color.neutralLight100,
-                  size: IconWithContainerSize.extraSmall,
-                  width: AppSpacing.s6,
-                  height: AppSpacing.s6,
-                ),
-                AppSpacing.horizontal.s2,
-                Text(contact, style: context.textStyle.bodyMediumSemiBold),
-              ],
-            ),
-            AppSpacing.vertical.s3,
-            Text(
-              'Total',
-              style: context.textStyle.buttonTabBar.copyWith(
-                color: context.color.textLight600,
-              ),
             ),
             Text(
               amount.toCurrency(plusSign: false),
@@ -100,14 +106,14 @@ class ErpGridTile extends StatelessWidget {
                 vertical: 6,
               ),
               decoration: BoxDecoration(
-                color: context.color.statusWarning.withOpacity(0.1),
+                color: statusColor.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(context.radius.hard),
               ),
               child: Text(
                 status,
                 textAlign: TextAlign.center,
                 style: context.textStyle.buttonTabBar.copyWith(
-                  color: context.color.statusWarning,
+                  color: statusColor,
                 ),
               ),
             ),

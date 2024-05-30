@@ -75,6 +75,7 @@ class _QuotesPendingState extends ConsumerState<QuotesPending> {
                     contact: 'Nombre Contacto',
                     amount: quotation.totalAmount,
                     status: quotation.status.name,
+                    statusColor: Colors.black,
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),
@@ -102,6 +103,7 @@ class _QuotesPendingState extends ConsumerState<QuotesPending> {
                     contact: 'Nombre Contacto',
                     amount: quotation.totalAmount,
                     status: quotation.status.name,
+                    statusColor: Colors.black,
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),

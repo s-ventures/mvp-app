@@ -22,7 +22,7 @@ class PendingInvoicesController extends StateNotifier<PendingInvoicesState>
   final InvoicesPaginationRepository _repository;
 
   Future<void> init() async {
-    // TODO (georgeta): Filtrar por estado pendiente cuando se implemente en el BFMF
+    // TODO(georgeta): Filtrar por estado pendiente cuando se implemente en el BFMF
     await updateFilter(status: InvoiceStatus.draft);
     initPagination(
       _repository,

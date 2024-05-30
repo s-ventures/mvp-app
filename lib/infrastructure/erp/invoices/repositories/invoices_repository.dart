@@ -33,8 +33,7 @@ class InvoicesRepository implements IInvoicesRepository {
     required int erpContractId,
     required InvoiceFilter filter,
     int page = 0,
-    // TODO(georgeta): Cambiar a 10 cuando arreglen el Filtro en Core
-    int pageSize = 100,
+    int pageSize = 10,
     void Function(int totalPages, int totalElements)? onPaginationInfo,
   }) async {
     final filterDto = InvoiceFilterDto.fromDomain(

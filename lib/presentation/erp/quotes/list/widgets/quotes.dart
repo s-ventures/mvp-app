@@ -85,6 +85,7 @@ class _QuotesState extends ConsumerState<Quotes> {
                     contact: 'Nombre Contacto',
                     amount: quotation.totalAmount,
                     status: quotation.status.name,
+                    statusColor: Colors.black,
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),
@@ -112,6 +113,7 @@ class _QuotesState extends ConsumerState<Quotes> {
                     contact: 'Nombre Contacto',
                     amount: quotation.totalAmount,
                     status: quotation.status.name,
+                    statusColor: Colors.black,
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),
