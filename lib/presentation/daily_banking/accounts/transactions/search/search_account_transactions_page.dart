@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/account_transaction_list.dart';
@@ -63,6 +64,7 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
     final amountFrom = state.amountFrom;
     final amountTo = state.amountTo;
     final operationType = state.operationType;
+    final categorySelected = state.category;
 
     final isFilterApplied = stateDate != null ||
         endDate != null ||
@@ -76,7 +78,7 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
           return [
             CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Buscar',
+              title: context.loc.commonSearch,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
@@ -107,6 +109,8 @@ class _SearchAccountTransactionsPageState extends ConsumerState<SearchAccountTra
                           setAmountFrom: controller.setAmountFrom,
                           setAmountTo: controller.setAmountTo,
                           setTransactionType: controller.setOperationType,
+                          setCategory: controller.setCategory,
+                          categorySelected: categorySelected,
                         );
                       },
                     ),

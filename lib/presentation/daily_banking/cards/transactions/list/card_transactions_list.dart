@@ -4,18 +4,18 @@ import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CardTransactionsList extends ConsumerWidget {
+class CardTransactionsList extends StatelessWidget {
   const CardTransactionsList({
     required this.transactions,
     this.onTransactionPressed,
     super.key,
   });
 
-  final void Function(SimplifiedCardTransaction transaction)? onTransactionPressed;
-  final AsyncValue<DateTimeListMap<SimplifiedCardTransaction>> transactions;
+  final AsyncValue<Map<DateTime, List<SimplifiedCardTransaction>>> transactions;
+  final ValueSetter<SimplifiedCardTransaction>? onTransactionPressed;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return transactions.mapOrNull(
           data: (data) => _TransactionList(
             transactions: data.value,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/cards/cards/simplified/simplified_cards_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/list/card_list_sliver_pinned_header.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_header.dart';
@@ -28,11 +29,8 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(
-        ref.read(simplifiedCardTransactionsControllerProvider.notifier).init(),
-      );
-    });
+    ref.read(simplifiedCardsControllerProvider.notifier).init();
+    ref.read(simplifiedCardTransactionsControllerProvider.notifier).init();
     _scrollController.addListener(_loadMore);
   }
 
@@ -50,9 +48,10 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final transactions = ref.watch(
-      simplifiedCardTransactionsControllerProvider.select((value) => value.transactions),
-    );
+    final simplifiedCardsState = ref.watch(simplifiedCardsControllerProvider);
+    final transactionState = ref.watch(simplifiedCardTransactionsControllerProvider);
+    final simplifiedCardController = ref.read(simplifiedCardsControllerProvider.notifier);
+    final transactionController = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
     return Builder(
       builder: (context) {
         return CustomScrollView(
@@ -61,11 +60,30 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
             SliverPinnedOverlapInjector(
               handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
             ),
-            const CardListSliverPinnedHeader(),
+            CardListSliverPinnedHeader(
+              selectedCardsIndex: simplifiedCardsState.selectedCardIndex,
+              cards: simplifiedCardsState.cards,
+              selectCard: simplifiedCardController.selectCard,
+              setSelectedCardIndex: simplifiedCardController.setSelectedCardIndex,
+            ),
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
               sliver: SliverToBoxAdapter(
                 child: CardTransactionsHeader(
+                  stateDate: transactionState.startDate,
+                  endDate: transactionState.endDate,
+                  amountFrom: transactionState.amountFrom,
+                  amountTo: transactionState.amountTo,
+                  operationType: transactionState.operationType,
+                  category: transactionState.category,
+                  setStartDate: transactionController.setStartDate,
+                  setEndDate: transactionController.setEndDate,
+                  setAmountFrom: transactionController.setAmountFrom,
+                  setAmountTo: transactionController.setAmountTo,
+                  setOperationType: transactionController.setOperationType,
+                  setCategory: transactionController.setCategory,
+                  applyFilters: transactionController.applyFilters,
+                  resetFilters: transactionController.resetFilters,
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingSearchCardTransactions.name,
                   ),
@@ -75,7 +93,7 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
             SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s5),
               sliver: CardTransactionsList(
-                transactions: transactions,
+                transactions: transactionState.transactions,
                 onTransactionPressed: (transaction) {
                   context.pushNamed(
                     AppRoute.dailyBankingCardTransactionDetails.name,
