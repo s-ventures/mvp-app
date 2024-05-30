@@ -4,15 +4,16 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/en
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_repository.dart';
 
-final periodicOrdersPaginationRepositoryProvider = Provider<PeriodicOrdersPaginationRepository>(
-  (ref) => PeriodicOrdersPaginationRepository(
+final periodicOrdersFilteredPaginationRepositoryProvider =
+    Provider<PeriodicOrdersFilteredPaginationRepository>(
+  (ref) => PeriodicOrdersFilteredPaginationRepository(
     ref.watch(periodicOrdersRepositoryProvider),
   ),
 );
 
-class PeriodicOrdersPaginationRepository
+class PeriodicOrdersFilteredPaginationRepository
     extends FilteredPaginationListRepository<SimplifiedPeriodicOrder, PeriodicOrdersFilter> {
-  PeriodicOrdersPaginationRepository(
+  PeriodicOrdersFilteredPaginationRepository(
     this._periodicOrdersRepository,
   );
 

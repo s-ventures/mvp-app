@@ -180,7 +180,8 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
           this, _$identity);
 }
 
-abstract class _SentTransfersFilter implements SentTransfersFilter {
+abstract class _SentTransfersFilter
+    implements SentTransfersFilter, PaginationFilter {
   const factory _SentTransfersFilter(
       {final DateTime? orderDateFrom,
       final DateTime? orderDateTo,

@@ -4,7 +4,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/en
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_map_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_repository.dart';
 
-final accountTransactionsPaginationRepositoryProvider =
+final accountTransactionsFilteredPaginationRepositoryProvider =
     Provider<AccountTransactionsFilteredPaginationRepository>(
   (ref) => AccountTransactionsFilteredPaginationRepository(
     ref.watch(accountTransactionsRepositoryProvider),

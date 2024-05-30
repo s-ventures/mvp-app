@@ -4,15 +4,15 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entitie
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/repositories/claims_repository.dart';
 
-final claimsPaginationRepositoryProvider = Provider<ClaimsPaginationRepository>(
-  (ref) => ClaimsPaginationRepository(
+final claimsFilteredPaginationRepositoryProvider = Provider<ClaimsFilteredPaginationRepository>(
+  (ref) => ClaimsFilteredPaginationRepository(
     ref.watch(claimsRepositoryProvider),
   ),
 );
 
-class ClaimsPaginationRepository
+class ClaimsFilteredPaginationRepository
     extends FilteredPaginationListRepository<SimplifiedClaim, ClaimsFilter> {
-  ClaimsPaginationRepository(
+  ClaimsFilteredPaginationRepository(
     this._claimsRepository,
   );
 

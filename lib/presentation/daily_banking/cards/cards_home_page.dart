@@ -29,7 +29,6 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
     super.initState();
     ref.read(simplifiedCardsControllerProvider.notifier).init();
     ref.read(simplifiedCardTransactionsControllerProvider.notifier).init();
-    ref.read(simplifiedCardTransactionsControllerProvider.notifier).resetFilters();
     _scrollController.addListener(_loadMore);
   }
 
@@ -51,7 +50,6 @@ class _CardsHomePageState extends ConsumerState<CardsHomePage> {
     final transactionState = ref.watch(simplifiedCardTransactionsControllerProvider);
     final simplifiedCardController = ref.read(simplifiedCardsControllerProvider.notifier);
     final transactionController = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
-
     return Builder(
       builder: (context) {
         return CustomScrollView(
