@@ -21,7 +21,7 @@ class _InvoicesRestClient implements InvoicesRestClient {
   @override
   Future<PaginatedResponse<InvoiceDto>> getInvoices({
     required int erpContractId,
-    required InvoiceFilter filter,
+    required InvoiceFilterDto filter,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'': filter.toJson()};

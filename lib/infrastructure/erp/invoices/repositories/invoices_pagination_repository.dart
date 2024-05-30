@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/invoices/entities/invoice.dart';
 import 'package:manifiesto_mvp_app/domain/erp/invoices/entities/invoice_filter.dart';
-import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_status.dart';
+import 'package:manifiesto_mvp_app/domain/erp/invoices/entities/invoice_status.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/repositories/invoices_repository.dart';
@@ -81,7 +81,7 @@ class InvoicesPaginationRepository extends PaginationListRepository<Invoice> {
     double? totalAmountFrom,
     double? totalAmountTo,
     String? query,
-    QuotationStatus? status,
+    InvoiceStatus? status,
   }) {
     _filter = (_filter ?? const InvoiceFilter()).copyWith(
       id: id,

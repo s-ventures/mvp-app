@@ -25,7 +25,7 @@ mixin _$InvoiceFilter {
   double? get totalAmountFrom => throw _privateConstructorUsedError;
   double? get totalAmountTo => throw _privateConstructorUsedError;
   String? get query => throw _privateConstructorUsedError;
-  QuotationStatus? get status => throw _privateConstructorUsedError;
+  InvoiceStatus? get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $InvoiceFilterCopyWith<InvoiceFilter> get copyWith =>
@@ -48,7 +48,7 @@ abstract class $InvoiceFilterCopyWith<$Res> {
       double? totalAmountFrom,
       double? totalAmountTo,
       String? query,
-      QuotationStatus? status});
+      InvoiceStatus? status});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class _$InvoiceFilterCopyWithImpl<$Res, $Val extends InvoiceFilter>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as QuotationStatus?,
+              as InvoiceStatus?,
     ) as $Val);
   }
 }
@@ -138,7 +138,7 @@ abstract class _$$InvoiceFilterImplCopyWith<$Res>
       double? totalAmountFrom,
       double? totalAmountTo,
       String? query,
-      QuotationStatus? status});
+      InvoiceStatus? status});
 }
 
 /// @nodoc
@@ -203,7 +203,7 @@ class __$$InvoiceFilterImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as QuotationStatus?,
+              as InvoiceStatus?,
     ));
   }
 }
@@ -242,7 +242,7 @@ class _$InvoiceFilterImpl implements _InvoiceFilter {
   @override
   final String? query;
   @override
-  final QuotationStatus? status;
+  final InvoiceStatus? status;
 
   @override
   String toString() {
@@ -305,7 +305,7 @@ abstract class _InvoiceFilter implements InvoiceFilter {
       final double? totalAmountFrom,
       final double? totalAmountTo,
       final String? query,
-      final QuotationStatus? status}) = _$InvoiceFilterImpl;
+      final InvoiceStatus? status}) = _$InvoiceFilterImpl;
 
   @override
   UniqueId? get id;
@@ -326,7 +326,7 @@ abstract class _InvoiceFilter implements InvoiceFilter {
   @override
   String? get query;
   @override
-  QuotationStatus? get status;
+  InvoiceStatus? get status;
   @override
   @JsonKey(ignore: true)
   _$$InvoiceFilterImplCopyWith<_$InvoiceFilterImpl> get copyWith =>

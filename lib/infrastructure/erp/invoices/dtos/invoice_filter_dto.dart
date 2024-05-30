@@ -15,10 +15,10 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/erp/invoices/entities/invoice_filter.dart';
-import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_status.dart';
+import 'package:manifiesto_mvp_app/domain/erp/invoices/entities/invoice_status.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/json_converter/date_converter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
-import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_status_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/invoice_status_dto.dart';
 
 part 'invoice_filter_dto.g.dart';
 
@@ -75,7 +75,7 @@ class InvoiceFilterDto extends PaginatedRequest {
   final double? totalAmountFrom;
   final double? totalAmountTo;
   final String? query;
-  final QuotationStatusDto? status;
+  final InvoiceStatusDto? status;
 
   @override
   Map<String, dynamic> toJson() => _$InvoiceFilterDtoToJson(this);

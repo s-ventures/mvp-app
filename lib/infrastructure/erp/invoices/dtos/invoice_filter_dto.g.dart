@@ -21,7 +21,7 @@ InvoiceFilterDto _$InvoiceFilterDtoFromJson(Map<String, dynamic> json) =>
       totalAmountFrom: (json['totalAmountFrom'] as num?)?.toDouble(),
       totalAmountTo: (json['totalAmountTo'] as num?)?.toDouble(),
       query: json['query'] as String?,
-      status: $enumDecodeNullable(_$QuotationStatusDtoEnumMap, json['status']),
+      status: $enumDecodeNullable(_$InvoiceStatusDtoEnumMap, json['status']),
       pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
       pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
     );
@@ -59,7 +59,7 @@ Map<String, dynamic> _$InvoiceFilterDtoToJson(InvoiceFilterDto instance) {
   writeNotNull('totalAmountFrom', instance.totalAmountFrom);
   writeNotNull('totalAmountTo', instance.totalAmountTo);
   writeNotNull('query', instance.query);
-  writeNotNull('status', _$QuotationStatusDtoEnumMap[instance.status]);
+  writeNotNull('status', _$InvoiceStatusDtoEnumMap[instance.status]);
   return val;
 }
 
@@ -69,11 +69,12 @@ Value? _$JsonConverterFromJson<Json, Value>(
 ) =>
     json == null ? null : fromJson(json as Json);
 
-const _$QuotationStatusDtoEnumMap = {
-  QuotationStatusDto.draft: 'DRAFT',
-  QuotationStatusDto.created: 'CREATED',
-  QuotationStatusDto.sent: 'SENT',
-  QuotationStatusDto.cancelled: 'CANCELLED',
+const _$InvoiceStatusDtoEnumMap = {
+  InvoiceStatusDto.draft: 'DRAFT',
+  InvoiceStatusDto.issued: 'ISSUED',
+  InvoiceStatusDto.halfPaid: 'HALF_PAID',
+  InvoiceStatusDto.paid: 'PAID',
+  InvoiceStatusDto.cancelled: 'CANCELLED',
 };
 
 Json? _$JsonConverterToJson<Json, Value>(
