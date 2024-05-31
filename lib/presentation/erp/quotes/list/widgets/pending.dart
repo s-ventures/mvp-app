@@ -1,42 +1,25 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/erp/quotes/pending/pending_quotes_controller.dart';
+import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/quotes_status_color_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class QuotesPending extends ConsumerStatefulWidget {
+class QuotesPending extends StatelessWidget {
   const QuotesPending({
     required this.type,
     required this.setType,
+    required this.pendingQuotes,
     super.key,
   });
 
   final SwitchViewType type;
   final void Function(SwitchViewType) setType;
-
-  @override
-  ConsumerState<QuotesPending> createState() => _QuotesPendingState();
-}
-
-class _QuotesPendingState extends ConsumerState<QuotesPending> {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(
-        ref.read(pendingQuotesControllerProvider.notifier).init(),
-      );
-    });
-    super.initState();
-  }
+  final AsyncValue<List<Quotation>> pendingQuotes;
 
   @override
   Widget build(BuildContext context) {
-    final pendingQuotes = ref.watch(
-      pendingQuotesControllerProvider.select((value) => value.pendingQuotes),
-    );
     return Column(
       children: [
         Row(
@@ -51,14 +34,14 @@ class _QuotesPendingState extends ConsumerState<QuotesPending> {
               ),
             ),
             SwitchView(
-              onChanged: widget.setType,
+              onChanged: setType,
             ),
           ],
         ),
         AppSpacing.vertical.s5,
         pendingQuotes.when(
           data: (pendingQuotes) {
-            if (widget.type == SwitchViewType.list) {
+            if (type == SwitchViewType.list) {
               return ListView.separated(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
@@ -71,10 +54,10 @@ class _QuotesPendingState extends ConsumerState<QuotesPending> {
                   return ErpListTile(
                     title: quotation.number,
                     date: quotation.createdDate.formatToDayMonthYear(),
-                    // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
-                    contact: 'Nombre Contacto',
+                    contact: quotation.fullName,
                     amount: quotation.totalAmount,
-                    status: quotation.status.name,
+                    status: quotation.status.groupedStatus(quotation.dueDate),
+                    statusColor: quotation.status.statusColor(quotation.dueDate, context),
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),
@@ -98,10 +81,10 @@ class _QuotesPendingState extends ConsumerState<QuotesPending> {
                   return ErpGridTile(
                     title: quotation.number,
                     date: quotation.createdDate.formatToDayMonthYear(),
-                    // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
-                    contact: 'Nombre Contacto',
+                    contact: quotation.fullName,
                     amount: quotation.totalAmount,
-                    status: quotation.status.name,
+                    status: quotation.status.groupedStatus(quotation.dueDate),
+                    statusColor: quotation.status.statusColor(quotation.dueDate, context),
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),

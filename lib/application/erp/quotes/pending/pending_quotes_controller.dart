@@ -22,7 +22,7 @@ class PendingQuotesController extends StateNotifier<PendingQuotesState>
   final QuotesPaginationRepository _repository;
 
   Future<void> init() async {
-    // TODO (georgeta): Filtrar por estado pendiente cuando se implemente en el BFMF
+    // TODO(georgeta): Filtrar por estado pendiente cuando se implemente en el BFMF
     await updateFilter(status: QuotationStatus.sent);
     initPagination(
       _repository,

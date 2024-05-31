@@ -62,6 +62,7 @@ class InvoicesApproved extends StatelessWidget {
                 contact: item['contact']!,
                 amount: double.parse(item['amount']!),
                 status: item['status']!,
+                statusColor: Colors.black,
                 onPressed: () async => context.pushNamed(
                   AppRoute.erpInvoicesDetails.name,
                 ),
@@ -88,6 +89,7 @@ class InvoicesApproved extends StatelessWidget {
                 contact: item['contact']!,
                 amount: double.parse(item['amount']!),
                 status: item['status']!,
+                statusColor: Colors.black,
                 onPressed: () async => context.pushNamed(
                   AppRoute.erpInvoicesDetails.name,
                 ),

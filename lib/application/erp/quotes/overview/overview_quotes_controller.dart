@@ -14,8 +14,10 @@ class OverviewQuotesController extends StateNotifier<OverviewQuotesState> {
 
   final QuotesRepository _repository;
 
-  Future<void> init(
-      {required int erpContractId, required OverviewSegmentPeriod segmentPeriod}) async {
+  Future<void> init({
+    required int erpContractId,
+    required OverviewSegmentPeriod segmentPeriod,
+  }) async {
     try {
       final overviewOrFailure = await _repository.getOverviewQuotes(
         erpContractId: erpContractId,
