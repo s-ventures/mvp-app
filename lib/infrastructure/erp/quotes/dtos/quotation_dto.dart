@@ -38,7 +38,7 @@ class QuotationDto with _$QuotationDto {
   const factory QuotationDto({
     required int erpContractId,
     required String? number,
-    required int stakeholderId,
+    required int? stakeholderId,
     required DateTime? dueDate,
     required DateTime createdDate,
     required double? totalAmount,
@@ -56,9 +56,9 @@ class QuotationDto with _$QuotationDto {
     required DateTime? sentDate,
     required QuotationStatusDto status,
     required int? serialNumberId,
-    required String fullName,
-    required DocumentTypeCodeDto documentTypeCode,
-    required String documentNumber,
+    required String? fullName,
+    required DocumentTypeCodeDto? documentTypeCode,
+    required String? documentNumber,
   }) = _QuotationDto;
 
   factory QuotationDto.fromJson(Map<String, dynamic> json) => _$QuotationDtoFromJson(json);
@@ -76,9 +76,9 @@ extension QuotationDtoX on QuotationDto {
       sentDate: sentDate,
       statusDate: statusDate,
       status: status.toDomain(),
-      fullName: fullName,
-      documentTypeCode: documentTypeCode.toDomain(),
-      documentNumber: documentNumber,
+      fullName: fullName ?? '',
+      documentTypeCode: documentTypeCode?.toDomain(),
+      documentNumber: documentNumber ?? '',
     );
   }
 }

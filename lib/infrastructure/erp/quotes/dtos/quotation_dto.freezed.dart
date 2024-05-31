@@ -22,7 +22,7 @@ QuotationDto _$QuotationDtoFromJson(Map<String, dynamic> json) {
 mixin _$QuotationDto {
   int get erpContractId => throw _privateConstructorUsedError;
   String? get number => throw _privateConstructorUsedError;
-  int get stakeholderId => throw _privateConstructorUsedError;
+  int? get stakeholderId => throw _privateConstructorUsedError;
   DateTime? get dueDate => throw _privateConstructorUsedError;
   DateTime get createdDate => throw _privateConstructorUsedError;
   double? get totalAmount => throw _privateConstructorUsedError;
@@ -40,10 +40,10 @@ mixin _$QuotationDto {
   DateTime? get sentDate => throw _privateConstructorUsedError;
   QuotationStatusDto get status => throw _privateConstructorUsedError;
   int? get serialNumberId => throw _privateConstructorUsedError;
-  String get fullName => throw _privateConstructorUsedError;
-  DocumentTypeCodeDto get documentTypeCode =>
+  String? get fullName => throw _privateConstructorUsedError;
+  DocumentTypeCodeDto? get documentTypeCode =>
       throw _privateConstructorUsedError;
-  String get documentNumber => throw _privateConstructorUsedError;
+  String? get documentNumber => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,7 +60,7 @@ abstract class $QuotationDtoCopyWith<$Res> {
   $Res call(
       {int erpContractId,
       String? number,
-      int stakeholderId,
+      int? stakeholderId,
       DateTime? dueDate,
       DateTime createdDate,
       double? totalAmount,
@@ -78,9 +78,9 @@ abstract class $QuotationDtoCopyWith<$Res> {
       DateTime? sentDate,
       QuotationStatusDto status,
       int? serialNumberId,
-      String fullName,
-      DocumentTypeCodeDto documentTypeCode,
-      String documentNumber});
+      String? fullName,
+      DocumentTypeCodeDto? documentTypeCode,
+      String? documentNumber});
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
   $Res call({
     Object? erpContractId = null,
     Object? number = freezed,
-    Object? stakeholderId = null,
+    Object? stakeholderId = freezed,
     Object? dueDate = freezed,
     Object? createdDate = null,
     Object? totalAmount = freezed,
@@ -116,9 +116,9 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
     Object? sentDate = freezed,
     Object? status = null,
     Object? serialNumberId = freezed,
-    Object? fullName = null,
-    Object? documentTypeCode = null,
-    Object? documentNumber = null,
+    Object? fullName = freezed,
+    Object? documentTypeCode = freezed,
+    Object? documentNumber = freezed,
   }) {
     return _then(_value.copyWith(
       erpContractId: null == erpContractId
@@ -129,10 +129,10 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String?,
-      stakeholderId: null == stakeholderId
+      stakeholderId: freezed == stakeholderId
           ? _value.stakeholderId
           : stakeholderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       dueDate: freezed == dueDate
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
@@ -201,18 +201,18 @@ class _$QuotationDtoCopyWithImpl<$Res, $Val extends QuotationDto>
           ? _value.serialNumberId
           : serialNumberId // ignore: cast_nullable_to_non_nullable
               as int?,
-      fullName: null == fullName
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      documentTypeCode: null == documentTypeCode
+              as String?,
+      documentTypeCode: freezed == documentTypeCode
           ? _value.documentTypeCode
           : documentTypeCode // ignore: cast_nullable_to_non_nullable
-              as DocumentTypeCodeDto,
-      documentNumber: null == documentNumber
+              as DocumentTypeCodeDto?,
+      documentNumber: freezed == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -228,7 +228,7 @@ abstract class _$$QuotationDtoImplCopyWith<$Res>
   $Res call(
       {int erpContractId,
       String? number,
-      int stakeholderId,
+      int? stakeholderId,
       DateTime? dueDate,
       DateTime createdDate,
       double? totalAmount,
@@ -246,9 +246,9 @@ abstract class _$$QuotationDtoImplCopyWith<$Res>
       DateTime? sentDate,
       QuotationStatusDto status,
       int? serialNumberId,
-      String fullName,
-      DocumentTypeCodeDto documentTypeCode,
-      String documentNumber});
+      String? fullName,
+      DocumentTypeCodeDto? documentTypeCode,
+      String? documentNumber});
 }
 
 /// @nodoc
@@ -264,7 +264,7 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? erpContractId = null,
     Object? number = freezed,
-    Object? stakeholderId = null,
+    Object? stakeholderId = freezed,
     Object? dueDate = freezed,
     Object? createdDate = null,
     Object? totalAmount = freezed,
@@ -282,9 +282,9 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
     Object? sentDate = freezed,
     Object? status = null,
     Object? serialNumberId = freezed,
-    Object? fullName = null,
-    Object? documentTypeCode = null,
-    Object? documentNumber = null,
+    Object? fullName = freezed,
+    Object? documentTypeCode = freezed,
+    Object? documentNumber = freezed,
   }) {
     return _then(_$QuotationDtoImpl(
       erpContractId: null == erpContractId
@@ -295,10 +295,10 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String?,
-      stakeholderId: null == stakeholderId
+      stakeholderId: freezed == stakeholderId
           ? _value.stakeholderId
           : stakeholderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       dueDate: freezed == dueDate
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
@@ -367,18 +367,18 @@ class __$$QuotationDtoImplCopyWithImpl<$Res>
           ? _value.serialNumberId
           : serialNumberId // ignore: cast_nullable_to_non_nullable
               as int?,
-      fullName: null == fullName
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      documentTypeCode: null == documentTypeCode
+              as String?,
+      documentTypeCode: freezed == documentTypeCode
           ? _value.documentTypeCode
           : documentTypeCode // ignore: cast_nullable_to_non_nullable
-              as DocumentTypeCodeDto,
-      documentNumber: null == documentNumber
+              as DocumentTypeCodeDto?,
+      documentNumber: freezed == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -419,7 +419,7 @@ class _$QuotationDtoImpl implements _QuotationDto {
   @override
   final String? number;
   @override
-  final int stakeholderId;
+  final int? stakeholderId;
   @override
   final DateTime? dueDate;
   @override
@@ -455,11 +455,11 @@ class _$QuotationDtoImpl implements _QuotationDto {
   @override
   final int? serialNumberId;
   @override
-  final String fullName;
+  final String? fullName;
   @override
-  final DocumentTypeCodeDto documentTypeCode;
+  final DocumentTypeCodeDto? documentTypeCode;
   @override
-  final String documentNumber;
+  final String? documentNumber;
 
   @override
   String toString() {
@@ -564,7 +564,7 @@ abstract class _QuotationDto implements QuotationDto {
   const factory _QuotationDto(
       {required final int erpContractId,
       required final String? number,
-      required final int stakeholderId,
+      required final int? stakeholderId,
       required final DateTime? dueDate,
       required final DateTime createdDate,
       required final double? totalAmount,
@@ -582,9 +582,9 @@ abstract class _QuotationDto implements QuotationDto {
       required final DateTime? sentDate,
       required final QuotationStatusDto status,
       required final int? serialNumberId,
-      required final String fullName,
-      required final DocumentTypeCodeDto documentTypeCode,
-      required final String documentNumber}) = _$QuotationDtoImpl;
+      required final String? fullName,
+      required final DocumentTypeCodeDto? documentTypeCode,
+      required final String? documentNumber}) = _$QuotationDtoImpl;
 
   factory _QuotationDto.fromJson(Map<String, dynamic> json) =
       _$QuotationDtoImpl.fromJson;
@@ -594,7 +594,7 @@ abstract class _QuotationDto implements QuotationDto {
   @override
   String? get number;
   @override
-  int get stakeholderId;
+  int? get stakeholderId;
   @override
   DateTime? get dueDate;
   @override
@@ -630,11 +630,11 @@ abstract class _QuotationDto implements QuotationDto {
   @override
   int? get serialNumberId;
   @override
-  String get fullName;
+  String? get fullName;
   @override
-  DocumentTypeCodeDto get documentTypeCode;
+  DocumentTypeCodeDto? get documentTypeCode;
   @override
-  String get documentNumber;
+  String? get documentNumber;
   @override
   @JsonKey(ignore: true)
   _$$QuotationDtoImplCopyWith<_$QuotationDtoImpl> get copyWith =>

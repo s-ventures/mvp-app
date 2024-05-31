@@ -26,7 +26,7 @@ mixin _$Quotation {
   DateTime? get statusDate => throw _privateConstructorUsedError;
   String get fullName => throw _privateConstructorUsedError;
   QuotationStatus get status => throw _privateConstructorUsedError;
-  DocumentTypeCode get documentTypeCode => throw _privateConstructorUsedError;
+  DocumentTypeCode? get documentTypeCode => throw _privateConstructorUsedError;
   String get documentNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $QuotationCopyWith<$Res> {
       DateTime? statusDate,
       String fullName,
       QuotationStatus status,
-      DocumentTypeCode documentTypeCode,
+      DocumentTypeCode? documentTypeCode,
       String documentNumber});
 }
 
@@ -77,7 +77,7 @@ class _$QuotationCopyWithImpl<$Res, $Val extends Quotation>
     Object? statusDate = freezed,
     Object? fullName = null,
     Object? status = null,
-    Object? documentTypeCode = null,
+    Object? documentTypeCode = freezed,
     Object? documentNumber = null,
   }) {
     return _then(_value.copyWith(
@@ -121,10 +121,10 @@ class _$QuotationCopyWithImpl<$Res, $Val extends Quotation>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as QuotationStatus,
-      documentTypeCode: null == documentTypeCode
+      documentTypeCode: freezed == documentTypeCode
           ? _value.documentTypeCode
           : documentTypeCode // ignore: cast_nullable_to_non_nullable
-              as DocumentTypeCode,
+              as DocumentTypeCode?,
       documentNumber: null == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
@@ -152,7 +152,7 @@ abstract class _$$QuotationImplCopyWith<$Res>
       DateTime? statusDate,
       String fullName,
       QuotationStatus status,
-      DocumentTypeCode documentTypeCode,
+      DocumentTypeCode? documentTypeCode,
       String documentNumber});
 }
 
@@ -177,7 +177,7 @@ class __$$QuotationImplCopyWithImpl<$Res>
     Object? statusDate = freezed,
     Object? fullName = null,
     Object? status = null,
-    Object? documentTypeCode = null,
+    Object? documentTypeCode = freezed,
     Object? documentNumber = null,
   }) {
     return _then(_$QuotationImpl(
@@ -221,10 +221,10 @@ class __$$QuotationImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as QuotationStatus,
-      documentTypeCode: null == documentTypeCode
+      documentTypeCode: freezed == documentTypeCode
           ? _value.documentTypeCode
           : documentTypeCode // ignore: cast_nullable_to_non_nullable
-              as DocumentTypeCode,
+              as DocumentTypeCode?,
       documentNumber: null == documentNumber
           ? _value.documentNumber
           : documentNumber // ignore: cast_nullable_to_non_nullable
@@ -271,7 +271,7 @@ class _$QuotationImpl implements _Quotation {
   @override
   final QuotationStatus status;
   @override
-  final DocumentTypeCode documentTypeCode;
+  final DocumentTypeCode? documentTypeCode;
   @override
   final String documentNumber;
 
@@ -342,7 +342,7 @@ abstract class _Quotation implements Quotation {
       required final DateTime? statusDate,
       required final String fullName,
       required final QuotationStatus status,
-      required final DocumentTypeCode documentTypeCode,
+      required final DocumentTypeCode? documentTypeCode,
       required final String documentNumber}) = _$QuotationImpl;
 
   @override
@@ -366,7 +366,7 @@ abstract class _Quotation implements Quotation {
   @override
   QuotationStatus get status;
   @override
-  DocumentTypeCode get documentTypeCode;
+  DocumentTypeCode? get documentTypeCode;
   @override
   String get documentNumber;
   @override

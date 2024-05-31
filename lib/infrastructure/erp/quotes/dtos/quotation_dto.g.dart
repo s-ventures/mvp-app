@@ -10,7 +10,7 @@ _$QuotationDtoImpl _$$QuotationDtoImplFromJson(Map<String, dynamic> json) =>
     _$QuotationDtoImpl(
       erpContractId: (json['erpContractId'] as num).toInt(),
       number: json['number'] as String?,
-      stakeholderId: (json['stakeholderId'] as num).toInt(),
+      stakeholderId: (json['stakeholderId'] as num?)?.toInt(),
       dueDate: json['dueDate'] == null
           ? null
           : DateTime.parse(json['dueDate'] as String),
@@ -36,10 +36,10 @@ _$QuotationDtoImpl _$$QuotationDtoImplFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['sentDate'] as String),
       status: $enumDecode(_$QuotationStatusDtoEnumMap, json['status']),
       serialNumberId: (json['serialNumberId'] as num?)?.toInt(),
-      fullName: json['fullName'] as String,
-      documentTypeCode:
-          $enumDecode(_$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
-      documentNumber: json['documentNumber'] as String,
+      fullName: json['fullName'] as String?,
+      documentTypeCode: $enumDecodeNullable(
+          _$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),
+      documentNumber: json['documentNumber'] as String?,
     );
 
 Map<String, dynamic> _$$QuotationDtoImplToJson(_$QuotationDtoImpl instance) =>
@@ -66,7 +66,7 @@ Map<String, dynamic> _$$QuotationDtoImplToJson(_$QuotationDtoImpl instance) =>
       'serialNumberId': instance.serialNumberId,
       'fullName': instance.fullName,
       'documentTypeCode':
-          _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode]!,
+          _$DocumentTypeCodeDtoEnumMap[instance.documentTypeCode],
       'documentNumber': instance.documentNumber,
     };
 

@@ -1,41 +1,24 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/erp/quotes/simplified/simplified_quotes_controller.dart';
+import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/filter_quotes_bottom_sheet/filter_quotes_bottom_sheet.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/quotes_status_color_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Quotes extends ConsumerStatefulWidget {
+class Quotes extends StatelessWidget {
   const Quotes({
     required this.viewType,
+    required this.quotes,
     super.key,
   });
 
   final SwitchViewType viewType;
-
-  @override
-  ConsumerState<Quotes> createState() => _QuotesState();
-}
-
-class _QuotesState extends ConsumerState<Quotes> {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(
-        ref.read(simplifiedQuotesControllerProvider.notifier).init(),
-      );
-    });
-    super.initState();
-  }
+  final AsyncValue<List<Quotation>> quotes;
 
   @override
   Widget build(BuildContext context) {
-    final quotes = ref.watch(
-      simplifiedQuotesControllerProvider.select((value) => value.quotes),
-    );
     return Column(
       children: [
         Row(
@@ -68,7 +51,7 @@ class _QuotesState extends ConsumerState<Quotes> {
         AppSpacing.vertical.s5,
         quotes.when(
           data: (quotes) {
-            if (widget.viewType == SwitchViewType.list) {
+            if (viewType == SwitchViewType.list) {
               return ListView.separated(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
@@ -81,11 +64,10 @@ class _QuotesState extends ConsumerState<Quotes> {
                   return ErpListTile(
                     title: quotation.number,
                     date: quotation.createdDate.formatToDayMonthYear(),
-                    // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
-                    contact: 'Nombre Contacto',
+                    contact: quotation.fullName,
                     amount: quotation.totalAmount,
-                    status: quotation.status.name,
-                    statusColor: Colors.black,
+                    status: quotation.status.groupedStatus(quotation.dueDate),
+                    statusColor: quotation.status.statusColor(quotation.dueDate, context),
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),
@@ -109,11 +91,10 @@ class _QuotesState extends ConsumerState<Quotes> {
                   return ErpGridTile(
                     title: quotation.number,
                     date: quotation.createdDate.formatToDayMonthYear(),
-                    // TODO(georgeta): Añadir stakeholder name cuando BFMF lo añada
-                    contact: 'Nombre Contacto',
+                    contact: quotation.fullName,
                     amount: quotation.totalAmount,
-                    status: quotation.status.name,
-                    statusColor: Colors.black,
+                    status: quotation.status.groupedStatus(quotation.dueDate),
+                    statusColor: quotation.status.statusColor(quotation.dueDate, context),
                     onPressed: () async => context.pushNamed(
                       AppRoute.erpQuotesDetails.name,
                     ),

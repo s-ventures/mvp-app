@@ -83,6 +83,27 @@ class ErpGridTile extends StatelessWidget {
                     color: context.color.textLight600,
                   ),
                 ),
+              ],
+            ),
+            AppSpacing.vertical.s4,
+            Expanded(
+              child: Text(
+                contact,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                style: context.textStyle.bodyMediumSemiBold,
+              ),
+            ),
+            AppSpacing.vertical.s3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Total',
+                  style: context.textStyle.buttonTabBar.copyWith(
+                    color: context.color.textLight600,
+                  ),
+                ),
                 const Spacer(),
                 Text(
                   date,
