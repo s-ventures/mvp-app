@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/erp/invoices/pending/pending_invoices_controller.dart';
-import 'package:manifiesto_mvp_app/application/erp/invoices/simplified/simplified_invoices_controller.dart';
+import 'package:manifiesto_mvp_app/application/erp/invoices/invoices_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/widgets/invoices.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/widgets/pending.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -20,10 +19,7 @@ class _InvoicesTabState extends ConsumerState<InvoicesTab> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(
-        ref.read(simplifiedInvoicesControllerProvider.notifier).init(),
-      );
-      unawaited(
-        ref.read(pendingInvoicesControllerProvider.notifier).init(),
+        ref.read(invoicesControllerProvider.notifier).init(),
       );
     });
     super.initState();
@@ -33,12 +29,8 @@ class _InvoicesTabState extends ConsumerState<InvoicesTab> {
 
   @override
   Widget build(BuildContext context) {
-    final invoices = ref.watch(
-      simplifiedInvoicesControllerProvider.select((value) => value.invoices),
-    );
-    final pendingInvoices = ref.watch(
-      pendingInvoicesControllerProvider.select((value) => value.pendingInvoices),
-    );
+    final state = ref.watch(invoicesControllerProvider);
+
     return ListView(
       padding: const EdgeInsets.all(AppSpacing.s5),
       children: [
@@ -58,7 +50,7 @@ class _InvoicesTabState extends ConsumerState<InvoicesTab> {
         ),
         AppSpacing.vertical.s5,
         InvoicesPending(
-          pendingInvoices: pendingInvoices,
+          pendingInvoices: state.pendingInvoices,
           type: type,
           setType: (value) {
             setState(() {
@@ -68,7 +60,7 @@ class _InvoicesTabState extends ConsumerState<InvoicesTab> {
         ),
         AppSpacing.vertical.s5,
         Invoices(
-          invoices: invoices,
+          invoices: state.invoices,
           viewType: type,
         ),
       ],
