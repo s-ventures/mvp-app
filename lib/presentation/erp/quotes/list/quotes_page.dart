@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/erp/quotes/pending/pending_quotes_controller.dart';
-import 'package:manifiesto_mvp_app/application/erp/quotes/simplified/simplified_quotes_controller.dart';
+import 'package:manifiesto_mvp_app/application/erp/quotes/quotes_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/overview.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/pending.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/widgets/quotes.dart';
@@ -21,10 +20,7 @@ class _QuotesTabState extends ConsumerState<QuotesTab> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(
-        ref.read(pendingQuotesControllerProvider.notifier).init(),
-      );
-      unawaited(
-        ref.read(simplifiedQuotesControllerProvider.notifier).init(),
+        ref.read(quotesControllerProvider.notifier).init(),
       );
     });
     super.initState();
@@ -34,12 +30,7 @@ class _QuotesTabState extends ConsumerState<QuotesTab> {
 
   @override
   Widget build(BuildContext context) {
-    final quotes = ref.watch(
-      simplifiedQuotesControllerProvider.select((value) => value.quotes),
-    );
-    final pendingQuotes = ref.watch(
-      pendingQuotesControllerProvider.select((value) => value.pendingQuotes),
-    );
+    final state = ref.watch(quotesControllerProvider);
 
     return ListView(
       padding: const EdgeInsets.all(AppSpacing.s5),
@@ -47,7 +38,7 @@ class _QuotesTabState extends ConsumerState<QuotesTab> {
         const QuotesOverview(),
         AppSpacing.vertical.s5,
         QuotesPending(
-          pendingQuotes: pendingQuotes,
+          pendingQuotes: state.pendingQuotes,
           type: type,
           setType: (value) {
             setState(() {
@@ -57,7 +48,7 @@ class _QuotesTabState extends ConsumerState<QuotesTab> {
         ),
         AppSpacing.vertical.s5,
         Quotes(
-          quotes: quotes,
+          quotes: state.quotes,
           viewType: type,
         ),
       ],

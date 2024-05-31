@@ -18,7 +18,7 @@ class Quotation with _$Quotation {
     required DateTime? statusDate,
     required String fullName,
     required QuotationStatus status,
-    required DocumentTypeCode documentTypeCode,
+    required DocumentTypeCode? documentTypeCode,
     required String documentNumber,
   }) = _Quotation;
 }
