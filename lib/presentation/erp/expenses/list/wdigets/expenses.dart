@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/expenses/list/filter_expenses_bottom_sheet/filter_expenses_bottom_sheet.dart';
 import 'package:manifiesto_mvp_app/presentation/extensions/expenses_status_color_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class ExpensesPending extends StatelessWidget {
-  const ExpensesPending({
-    required this.type,
-    required this.setType,
-    required this.pendingExpenses,
+class Expenses extends StatelessWidget {
+  const Expenses({
+    required this.viewType,
+    required this.expenses,
     super.key,
   });
 
-  final SwitchViewType type;
-  final void Function(SwitchViewType) setType;
-  final AsyncValue<List<Expense>> pendingExpenses;
+  final SwitchViewType viewType;
+  final AsyncValue<List<Expense>> expenses;
 
   @override
   Widget build(BuildContext context) {
@@ -25,31 +24,42 @@ class ExpensesPending extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: Text(
-                'Pendientes',
-                style: context.textStyle.bodyMediumSemiBold.copyWith(
-                  color: context.color.textLight600,
-                ),
+            Text(
+              'Gastos',
+              style: context.textStyle.bodyMediumSemiBold.copyWith(
+                color: context.color.textLight600,
               ),
             ),
-            SwitchView(
-              onChanged: setType,
+            Button(
+              icon: IconAssets.filter,
+              size: ButtonSize.extraSmall,
+              type: ButtonType.outlined,
+              onPressed: () => FilterExpensesBottomSheet.show(
+                context: context,
+                onApply: () async {},
+                onReset: () async {},
+              ),
             ),
           ],
         ),
         AppSpacing.vertical.s5,
-        pendingExpenses.when(
-          data: (pendingExpenses) {
-            if (type == SwitchViewType.list) {
+        FakeSearchBar(
+          onPressed: () => context.pushNamed(
+            AppRoute.erpExpensesSearch.name,
+          ),
+        ),
+        AppSpacing.vertical.s5,
+        expenses.when(
+          data: (expenses) {
+            if (viewType == SwitchViewType.list) {
               return ListView.separated(
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: pendingExpenses.length,
+                itemCount: expenses.length,
                 separatorBuilder: (context, index) => const Divider(),
                 itemBuilder: (context, index) {
-                  final expense = pendingExpenses[index];
+                  final expense = expenses[index];
 
                   return ErpListTile(
                     title: expense.number,
@@ -73,10 +83,10 @@ class ExpensesPending extends StatelessWidget {
                   crossAxisSpacing: AppSpacing.s5,
                   mainAxisSpacing: AppSpacing.s5,
                 ),
-                itemCount: pendingExpenses.length,
+                itemCount: expenses.length,
                 padding: EdgeInsets.zero,
                 itemBuilder: (context, index) {
-                  final expense = pendingExpenses[index];
+                  final expense = expenses[index];
 
                   return ErpGridTile(
                     title: expense.number,

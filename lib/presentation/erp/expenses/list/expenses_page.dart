@@ -1,22 +1,37 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/expenses/list/wdigets/approved.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/application/erp/expenses/expenses_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/expenses/list/wdigets/expenses.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/expenses/list/wdigets/pending.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class ExpensesTab extends StatefulWidget {
+class ExpensesTab extends ConsumerStatefulWidget {
   const ExpensesTab({
     super.key,
   });
 
   @override
-  State<ExpensesTab> createState() => _ExpensesTabState();
+  ConsumerState<ExpensesTab> createState() => _ExpensesTabState();
 }
 
-class _ExpensesTabState extends State<ExpensesTab> {
+class _ExpensesTabState extends ConsumerState<ExpensesTab> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(expensesControllerProvider.notifier).init(),
+      );
+    });
+    super.initState();
+  }
+
   SwitchViewType type = SwitchViewType.list;
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(expensesControllerProvider);
     return ListView(
       padding: const EdgeInsets.all(AppSpacing.s5),
       children: [
@@ -29,53 +44,23 @@ class _ExpensesTabState extends State<ExpensesTab> {
           yellowValue: 89,
           yellowLabel: 'Pendiente',
           redValue: 23,
-          redLabel: 'Imagado',
+          redLabel: 'Impagado',
           onPeriodChange: print,
         ),
         AppSpacing.vertical.s5,
         ExpensesPending(
+          pendingExpenses: state.pendingExpenses,
           type: type,
           setType: (value) {
             setState(() {
               type = value;
             });
           },
-          items: const [
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 1',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 2',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-          ],
         ),
         AppSpacing.vertical.s5,
-        ExpensesApproved(
+        Expenses(
           viewType: type,
-          items: const [
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 1',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 2',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-          ],
+          expenses: state.expenses,
         ),
       ],
     );
