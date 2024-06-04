@@ -9,7 +9,7 @@ part of 'stakeholders_filter_dto.dart';
 StakeholdersFilterDto _$StakeholdersFilterDtoFromJson(
         Map<String, dynamic> json) =>
     StakeholdersFilterDto(
-      stakeholderId: (json['stakeholderId'] as num?)?.toInt(),
+      stakeholderId: json['stakeholderId'] as int?,
       personTypeCode: $enumDecodeNullable(
           _$PersonTypeCodeDtoEnumMap, json['personTypeCode']),
       fullName: json['fullName'] as String?,
@@ -26,8 +26,8 @@ StakeholdersFilterDto _$StakeholdersFilterDtoFromJson(
       documentNumber: json['documentNumber'] as String?,
       additionalInfo: json['additionalInfo'] as String?,
       favorite: json['favorite'] as bool?,
-      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
-      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
+      pageNumber: json['pageNumber'] as int? ?? 0,
+      pageSize: json['pageSize'] as int? ?? 10,
     );
 
 Map<String, dynamic> _$StakeholdersFilterDtoToJson(
