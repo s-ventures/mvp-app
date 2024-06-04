@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DetailedInvoice {
   UniqueId get id => throw _privateConstructorUsedError;
-  UniqueId get erpContractId => throw _privateConstructorUsedError;
+  UniqueId get contractId => throw _privateConstructorUsedError;
   String get number => throw _privateConstructorUsedError;
   UniqueId get stakeholderId => throw _privateConstructorUsedError;
   DateTime get dueDate => throw _privateConstructorUsedError;
@@ -27,19 +27,18 @@ mixin _$DetailedInvoice {
   UniqueId get fileId => throw _privateConstructorUsedError;
   String get additionalInfo => throw _privateConstructorUsedError;
   DateTime get statusDate => throw _privateConstructorUsedError;
+  List<InvoiceItem> get items => throw _privateConstructorUsedError;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
   UniqueId get stakeholderAddressId => throw _privateConstructorUsedError;
   UniqueId get stakeholderTelephoneId => throw _privateConstructorUsedError;
   UniqueId get stakeholderEmailId => throw _privateConstructorUsedError;
   DateTime get issueDate => throw _privateConstructorUsedError;
-  DetailedInvoiceStatus get status => throw _privateConstructorUsedError;
+  InvoiceStatus get status => throw _privateConstructorUsedError;
   UniqueId get quotationId => throw _privateConstructorUsedError;
   String get accountingTypeCode => throw _privateConstructorUsedError;
   UniqueId get serialNumberId => throw _privateConstructorUsedError;
-  List<DetailedInvoiceItem> get items => throw _privateConstructorUsedError;
-  List<DetailedInvoiceAttachment> get attachments =>
-      throw _privateConstructorUsedError;
-  DetailedInvoiceSerialNumber get serialNumber =>
-      throw _privateConstructorUsedError;
+  List<FileAttachment> get attachments =>
+      throw _privateConstructorUsedError; // Todo(jesus): change to dto from bfmf
   dynamic get subtotalVatAmount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -55,7 +54,7 @@ abstract class $DetailedInvoiceCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      UniqueId erpContractId,
+      UniqueId contractId,
       String number,
       UniqueId stakeholderId,
       DateTime dueDate,
@@ -65,20 +64,20 @@ abstract class $DetailedInvoiceCopyWith<$Res> {
       UniqueId fileId,
       String additionalInfo,
       DateTime statusDate,
+      List<InvoiceItem> items,
+      SerialNumber serialNumber,
       UniqueId stakeholderAddressId,
       UniqueId stakeholderTelephoneId,
       UniqueId stakeholderEmailId,
       DateTime issueDate,
-      DetailedInvoiceStatus status,
+      InvoiceStatus status,
       UniqueId quotationId,
       String accountingTypeCode,
       UniqueId serialNumberId,
-      List<DetailedInvoiceItem> items,
-      List<DetailedInvoiceAttachment> attachments,
-      DetailedInvoiceSerialNumber serialNumber,
+      List<FileAttachment> attachments,
       dynamic subtotalVatAmount});
 
-  $DetailedInvoiceSerialNumberCopyWith<$Res> get serialNumber;
+  $SerialNumberCopyWith<$Res> get serialNumber;
 }
 
 /// @nodoc
@@ -95,7 +94,7 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
   @override
   $Res call({
     Object? id = null,
-    Object? erpContractId = null,
+    Object? contractId = null,
     Object? number = null,
     Object? stakeholderId = null,
     Object? dueDate = null,
@@ -105,6 +104,8 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
     Object? fileId = null,
     Object? additionalInfo = null,
     Object? statusDate = null,
+    Object? items = null,
+    Object? serialNumber = null,
     Object? stakeholderAddressId = null,
     Object? stakeholderTelephoneId = null,
     Object? stakeholderEmailId = null,
@@ -113,9 +114,7 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
     Object? quotationId = null,
     Object? accountingTypeCode = null,
     Object? serialNumberId = null,
-    Object? items = null,
     Object? attachments = null,
-    Object? serialNumber = null,
     Object? subtotalVatAmount = freezed,
   }) {
     return _then(_value.copyWith(
@@ -123,9 +122,9 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      erpContractId: null == erpContractId
-          ? _value.erpContractId
-          : erpContractId // ignore: cast_nullable_to_non_nullable
+      contractId: null == contractId
+          ? _value.contractId
+          : contractId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       number: null == number
           ? _value.number
@@ -163,6 +162,14 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
           ? _value.statusDate
           : statusDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<InvoiceItem>,
+      serialNumber: null == serialNumber
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
       stakeholderAddressId: null == stakeholderAddressId
           ? _value.stakeholderAddressId
           : stakeholderAddressId // ignore: cast_nullable_to_non_nullable
@@ -182,7 +189,7 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceStatus,
+              as InvoiceStatus,
       quotationId: null == quotationId
           ? _value.quotationId
           : quotationId // ignore: cast_nullable_to_non_nullable
@@ -195,18 +202,10 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
           ? _value.serialNumberId
           : serialNumberId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<DetailedInvoiceItem>,
       attachments: null == attachments
           ? _value.attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<DetailedInvoiceAttachment>,
-      serialNumber: null == serialNumber
-          ? _value.serialNumber
-          : serialNumber // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceSerialNumber,
+              as List<FileAttachment>,
       subtotalVatAmount: freezed == subtotalVatAmount
           ? _value.subtotalVatAmount
           : subtotalVatAmount // ignore: cast_nullable_to_non_nullable
@@ -216,9 +215,8 @@ class _$DetailedInvoiceCopyWithImpl<$Res, $Val extends DetailedInvoice>
 
   @override
   @pragma('vm:prefer-inline')
-  $DetailedInvoiceSerialNumberCopyWith<$Res> get serialNumber {
-    return $DetailedInvoiceSerialNumberCopyWith<$Res>(_value.serialNumber,
-        (value) {
+  $SerialNumberCopyWith<$Res> get serialNumber {
+    return $SerialNumberCopyWith<$Res>(_value.serialNumber, (value) {
       return _then(_value.copyWith(serialNumber: value) as $Val);
     });
   }
@@ -234,7 +232,7 @@ abstract class _$$DetailedInvoiceImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
-      UniqueId erpContractId,
+      UniqueId contractId,
       String number,
       UniqueId stakeholderId,
       DateTime dueDate,
@@ -244,21 +242,21 @@ abstract class _$$DetailedInvoiceImplCopyWith<$Res>
       UniqueId fileId,
       String additionalInfo,
       DateTime statusDate,
+      List<InvoiceItem> items,
+      SerialNumber serialNumber,
       UniqueId stakeholderAddressId,
       UniqueId stakeholderTelephoneId,
       UniqueId stakeholderEmailId,
       DateTime issueDate,
-      DetailedInvoiceStatus status,
+      InvoiceStatus status,
       UniqueId quotationId,
       String accountingTypeCode,
       UniqueId serialNumberId,
-      List<DetailedInvoiceItem> items,
-      List<DetailedInvoiceAttachment> attachments,
-      DetailedInvoiceSerialNumber serialNumber,
+      List<FileAttachment> attachments,
       dynamic subtotalVatAmount});
 
   @override
-  $DetailedInvoiceSerialNumberCopyWith<$Res> get serialNumber;
+  $SerialNumberCopyWith<$Res> get serialNumber;
 }
 
 /// @nodoc
@@ -273,7 +271,7 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? erpContractId = null,
+    Object? contractId = null,
     Object? number = null,
     Object? stakeholderId = null,
     Object? dueDate = null,
@@ -283,6 +281,8 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
     Object? fileId = null,
     Object? additionalInfo = null,
     Object? statusDate = null,
+    Object? items = null,
+    Object? serialNumber = null,
     Object? stakeholderAddressId = null,
     Object? stakeholderTelephoneId = null,
     Object? stakeholderEmailId = null,
@@ -291,9 +291,7 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
     Object? quotationId = null,
     Object? accountingTypeCode = null,
     Object? serialNumberId = null,
-    Object? items = null,
     Object? attachments = null,
-    Object? serialNumber = null,
     Object? subtotalVatAmount = freezed,
   }) {
     return _then(_$DetailedInvoiceImpl(
@@ -301,9 +299,9 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      erpContractId: null == erpContractId
-          ? _value.erpContractId
-          : erpContractId // ignore: cast_nullable_to_non_nullable
+      contractId: null == contractId
+          ? _value.contractId
+          : contractId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       number: null == number
           ? _value.number
@@ -341,6 +339,14 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
           ? _value.statusDate
           : statusDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      items: null == items
+          ? _value._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<InvoiceItem>,
+      serialNumber: null == serialNumber
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
       stakeholderAddressId: null == stakeholderAddressId
           ? _value.stakeholderAddressId
           : stakeholderAddressId // ignore: cast_nullable_to_non_nullable
@@ -360,7 +366,7 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceStatus,
+              as InvoiceStatus,
       quotationId: null == quotationId
           ? _value.quotationId
           : quotationId // ignore: cast_nullable_to_non_nullable
@@ -373,18 +379,10 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
           ? _value.serialNumberId
           : serialNumberId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      items: null == items
-          ? _value._items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<DetailedInvoiceItem>,
       attachments: null == attachments
           ? _value._attachments
           : attachments // ignore: cast_nullable_to_non_nullable
-              as List<DetailedInvoiceAttachment>,
-      serialNumber: null == serialNumber
-          ? _value.serialNumber
-          : serialNumber // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceSerialNumber,
+              as List<FileAttachment>,
       subtotalVatAmount: freezed == subtotalVatAmount
           ? _value.subtotalVatAmount
           : subtotalVatAmount // ignore: cast_nullable_to_non_nullable
@@ -398,7 +396,7 @@ class __$$DetailedInvoiceImplCopyWithImpl<$Res>
 class _$DetailedInvoiceImpl implements _DetailedInvoice {
   const _$DetailedInvoiceImpl(
       {required this.id,
-      required this.erpContractId,
+      required this.contractId,
       required this.number,
       required this.stakeholderId,
       required this.dueDate,
@@ -408,6 +406,8 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
       required this.fileId,
       required this.additionalInfo,
       required this.statusDate,
+      required final List<InvoiceItem> items,
+      required this.serialNumber,
       required this.stakeholderAddressId,
       required this.stakeholderTelephoneId,
       required this.stakeholderEmailId,
@@ -416,9 +416,7 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
       required this.quotationId,
       required this.accountingTypeCode,
       required this.serialNumberId,
-      required final List<DetailedInvoiceItem> items,
-      required final List<DetailedInvoiceAttachment> attachments,
-      required this.serialNumber,
+      required final List<FileAttachment> attachments,
       required this.subtotalVatAmount})
       : _items = items,
         _attachments = attachments;
@@ -426,7 +424,7 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
   @override
   final UniqueId id;
   @override
-  final UniqueId erpContractId;
+  final UniqueId contractId;
   @override
   final String number;
   @override
@@ -445,6 +443,16 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
   final String additionalInfo;
   @override
   final DateTime statusDate;
+  final List<InvoiceItem> _items;
+  @override
+  List<InvoiceItem> get items {
+    if (_items is EqualUnmodifiableListView) return _items;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_items);
+  }
+
+  @override
+  final SerialNumber serialNumber;
   @override
   final UniqueId stakeholderAddressId;
   @override
@@ -454,37 +462,28 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
   @override
   final DateTime issueDate;
   @override
-  final DetailedInvoiceStatus status;
+  final InvoiceStatus status;
   @override
   final UniqueId quotationId;
   @override
   final String accountingTypeCode;
   @override
   final UniqueId serialNumberId;
-  final List<DetailedInvoiceItem> _items;
+  final List<FileAttachment> _attachments;
   @override
-  List<DetailedInvoiceItem> get items {
-    if (_items is EqualUnmodifiableListView) return _items;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_items);
-  }
-
-  final List<DetailedInvoiceAttachment> _attachments;
-  @override
-  List<DetailedInvoiceAttachment> get attachments {
+  List<FileAttachment> get attachments {
     if (_attachments is EqualUnmodifiableListView) return _attachments;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_attachments);
   }
 
-  @override
-  final DetailedInvoiceSerialNumber serialNumber;
+// Todo(jesus): change to dto from bfmf
   @override
   final dynamic subtotalVatAmount;
 
   @override
   String toString() {
-    return 'DetailedInvoice(id: $id, erpContractId: $erpContractId, number: $number, stakeholderId: $stakeholderId, dueDate: $dueDate, createdDate: $createdDate, currencyCode: $currencyCode, withHoldingTaxesPercentage: $withHoldingTaxesPercentage, fileId: $fileId, additionalInfo: $additionalInfo, statusDate: $statusDate, stakeholderAddressId: $stakeholderAddressId, stakeholderTelephoneId: $stakeholderTelephoneId, stakeholderEmailId: $stakeholderEmailId, issueDate: $issueDate, status: $status, quotationId: $quotationId, accountingTypeCode: $accountingTypeCode, serialNumberId: $serialNumberId, items: $items, attachments: $attachments, serialNumber: $serialNumber, subtotalVatAmount: $subtotalVatAmount)';
+    return 'DetailedInvoice(id: $id, contractId: $contractId, number: $number, stakeholderId: $stakeholderId, dueDate: $dueDate, createdDate: $createdDate, currencyCode: $currencyCode, withHoldingTaxesPercentage: $withHoldingTaxesPercentage, fileId: $fileId, additionalInfo: $additionalInfo, statusDate: $statusDate, items: $items, serialNumber: $serialNumber, stakeholderAddressId: $stakeholderAddressId, stakeholderTelephoneId: $stakeholderTelephoneId, stakeholderEmailId: $stakeholderEmailId, issueDate: $issueDate, status: $status, quotationId: $quotationId, accountingTypeCode: $accountingTypeCode, serialNumberId: $serialNumberId, attachments: $attachments, subtotalVatAmount: $subtotalVatAmount)';
   }
 
   @override
@@ -493,8 +492,8 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
         (other.runtimeType == runtimeType &&
             other is _$DetailedInvoiceImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.erpContractId, erpContractId) ||
-                other.erpContractId == erpContractId) &&
+            (identical(other.contractId, contractId) ||
+                other.contractId == contractId) &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.stakeholderId, stakeholderId) ||
                 other.stakeholderId == stakeholderId) &&
@@ -512,6 +511,9 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
                 other.additionalInfo == additionalInfo) &&
             (identical(other.statusDate, statusDate) ||
                 other.statusDate == statusDate) &&
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            (identical(other.serialNumber, serialNumber) ||
+                other.serialNumber == serialNumber) &&
             (identical(other.stakeholderAddressId, stakeholderAddressId) ||
                 other.stakeholderAddressId == stakeholderAddressId) &&
             (identical(other.stakeholderTelephoneId, stakeholderTelephoneId) ||
@@ -527,11 +529,8 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
                 other.accountingTypeCode == accountingTypeCode) &&
             (identical(other.serialNumberId, serialNumberId) ||
                 other.serialNumberId == serialNumberId) &&
-            const DeepCollectionEquality().equals(other._items, _items) &&
             const DeepCollectionEquality()
                 .equals(other._attachments, _attachments) &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
             const DeepCollectionEquality()
                 .equals(other.subtotalVatAmount, subtotalVatAmount));
   }
@@ -540,7 +539,7 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
   int get hashCode => Object.hashAll([
         runtimeType,
         id,
-        erpContractId,
+        contractId,
         number,
         stakeholderId,
         dueDate,
@@ -550,6 +549,8 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
         fileId,
         additionalInfo,
         statusDate,
+        const DeepCollectionEquality().hash(_items),
+        serialNumber,
         stakeholderAddressId,
         stakeholderTelephoneId,
         stakeholderEmailId,
@@ -558,9 +559,7 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
         quotationId,
         accountingTypeCode,
         serialNumberId,
-        const DeepCollectionEquality().hash(_items),
         const DeepCollectionEquality().hash(_attachments),
-        serialNumber,
         const DeepCollectionEquality().hash(subtotalVatAmount)
       ]);
 
@@ -575,7 +574,7 @@ class _$DetailedInvoiceImpl implements _DetailedInvoice {
 abstract class _DetailedInvoice implements DetailedInvoice {
   const factory _DetailedInvoice(
       {required final UniqueId id,
-      required final UniqueId erpContractId,
+      required final UniqueId contractId,
       required final String number,
       required final UniqueId stakeholderId,
       required final DateTime dueDate,
@@ -585,23 +584,23 @@ abstract class _DetailedInvoice implements DetailedInvoice {
       required final UniqueId fileId,
       required final String additionalInfo,
       required final DateTime statusDate,
+      required final List<InvoiceItem> items,
+      required final SerialNumber serialNumber,
       required final UniqueId stakeholderAddressId,
       required final UniqueId stakeholderTelephoneId,
       required final UniqueId stakeholderEmailId,
       required final DateTime issueDate,
-      required final DetailedInvoiceStatus status,
+      required final InvoiceStatus status,
       required final UniqueId quotationId,
       required final String accountingTypeCode,
       required final UniqueId serialNumberId,
-      required final List<DetailedInvoiceItem> items,
-      required final List<DetailedInvoiceAttachment> attachments,
-      required final DetailedInvoiceSerialNumber serialNumber,
+      required final List<FileAttachment> attachments,
       required final dynamic subtotalVatAmount}) = _$DetailedInvoiceImpl;
 
   @override
   UniqueId get id;
   @override
-  UniqueId get erpContractId;
+  UniqueId get contractId;
   @override
   String get number;
   @override
@@ -621,6 +620,10 @@ abstract class _DetailedInvoice implements DetailedInvoice {
   @override
   DateTime get statusDate;
   @override
+  List<InvoiceItem> get items;
+  @override
+  SerialNumber get serialNumber;
+  @override
   UniqueId get stakeholderAddressId;
   @override
   UniqueId get stakeholderTelephoneId;
@@ -629,7 +632,7 @@ abstract class _DetailedInvoice implements DetailedInvoice {
   @override
   DateTime get issueDate;
   @override
-  DetailedInvoiceStatus get status;
+  InvoiceStatus get status;
   @override
   UniqueId get quotationId;
   @override
@@ -637,12 +640,8 @@ abstract class _DetailedInvoice implements DetailedInvoice {
   @override
   UniqueId get serialNumberId;
   @override
-  List<DetailedInvoiceItem> get items;
-  @override
-  List<DetailedInvoiceAttachment> get attachments;
-  @override
-  DetailedInvoiceSerialNumber get serialNumber;
-  @override
+  List<FileAttachment> get attachments;
+  @override // Todo(jesus): change to dto from bfmf
   dynamic get subtotalVatAmount;
   @override
   @JsonKey(ignore: true)

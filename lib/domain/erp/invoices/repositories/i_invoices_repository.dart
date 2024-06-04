@@ -5,7 +5,7 @@ import 'package:manifiesto_mvp_app/domain/erp/invoices/entities/detailed_invoice
 // ignore: one_member_abstracts
 abstract class IInvoicesRepository {
   Future<Either<DetailedInvoiceFailure, DetailedInvoice>> getDetailedInvoice({
-    required int erpContractId,
-    required int invoiceId,
+    required int contractId,
+    required int id,
   });
 }

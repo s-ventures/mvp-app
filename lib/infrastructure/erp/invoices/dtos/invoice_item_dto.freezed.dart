@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'detailed_invoice_items.dart';
+part of 'invoice_item_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,50 +14,54 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+InvoiceItemDto _$InvoiceItemDtoFromJson(Map<String, dynamic> json) {
+  return _InvoiceItemDto.fromJson(json);
+}
+
 /// @nodoc
-mixin _$DetailedInvoiceItem {
+mixin _$InvoiceItemDto {
   int get relativeOrder => throw _privateConstructorUsedError;
   String get itemCode => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
-  DetailedInvoiceItemUnitOfMeasure get unitOfMeasure =>
-      throw _privateConstructorUsedError;
+  UnitOfMeasureDto get unitOfMeasure => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   double get discount => throw _privateConstructorUsedError;
-  DetailedInvoiceItemVat get vat => throw _privateConstructorUsedError;
-  UniqueId get invoiceItemId => throw _privateConstructorUsedError;
-  UniqueId get invoiceId => throw _privateConstructorUsedError;
+  VatDto get vat => throw _privateConstructorUsedError;
+  int get invoiceItemId => throw _privateConstructorUsedError;
+  int get invoiceId => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailedInvoiceItemCopyWith<DetailedInvoiceItem> get copyWith =>
+  $InvoiceItemDtoCopyWith<InvoiceItemDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DetailedInvoiceItemCopyWith<$Res> {
-  factory $DetailedInvoiceItemCopyWith(
-          DetailedInvoiceItem value, $Res Function(DetailedInvoiceItem) then) =
-      _$DetailedInvoiceItemCopyWithImpl<$Res, DetailedInvoiceItem>;
+abstract class $InvoiceItemDtoCopyWith<$Res> {
+  factory $InvoiceItemDtoCopyWith(
+          InvoiceItemDto value, $Res Function(InvoiceItemDto) then) =
+      _$InvoiceItemDtoCopyWithImpl<$Res, InvoiceItemDto>;
   @useResult
   $Res call(
       {int relativeOrder,
       String itemCode,
       String description,
       int quantity,
-      DetailedInvoiceItemUnitOfMeasure unitOfMeasure,
+      UnitOfMeasureDto unitOfMeasure,
       double price,
       double discount,
-      DetailedInvoiceItemVat vat,
-      UniqueId invoiceItemId,
-      UniqueId invoiceId});
+      VatDto vat,
+      int invoiceItemId,
+      int invoiceId});
 
-  $DetailedInvoiceItemVatCopyWith<$Res> get vat;
+  $VatDtoCopyWith<$Res> get vat;
 }
 
 /// @nodoc
-class _$DetailedInvoiceItemCopyWithImpl<$Res, $Val extends DetailedInvoiceItem>
-    implements $DetailedInvoiceItemCopyWith<$Res> {
-  _$DetailedInvoiceItemCopyWithImpl(this._value, this._then);
+class _$InvoiceItemDtoCopyWithImpl<$Res, $Val extends InvoiceItemDto>
+    implements $InvoiceItemDtoCopyWith<$Res> {
+  _$InvoiceItemDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -98,7 +102,7 @@ class _$DetailedInvoiceItemCopyWithImpl<$Res, $Val extends DetailedInvoiceItem>
       unitOfMeasure: null == unitOfMeasure
           ? _value.unitOfMeasure
           : unitOfMeasure // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceItemUnitOfMeasure,
+              as UnitOfMeasureDto,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -110,33 +114,33 @@ class _$DetailedInvoiceItemCopyWithImpl<$Res, $Val extends DetailedInvoiceItem>
       vat: null == vat
           ? _value.vat
           : vat // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceItemVat,
+              as VatDto,
       invoiceItemId: null == invoiceItemId
           ? _value.invoiceItemId
           : invoiceItemId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
       invoiceId: null == invoiceId
           ? _value.invoiceId
           : invoiceId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DetailedInvoiceItemVatCopyWith<$Res> get vat {
-    return $DetailedInvoiceItemVatCopyWith<$Res>(_value.vat, (value) {
+  $VatDtoCopyWith<$Res> get vat {
+    return $VatDtoCopyWith<$Res>(_value.vat, (value) {
       return _then(_value.copyWith(vat: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$DetailedInvoiceItemImplCopyWith<$Res>
-    implements $DetailedInvoiceItemCopyWith<$Res> {
-  factory _$$DetailedInvoiceItemImplCopyWith(_$DetailedInvoiceItemImpl value,
-          $Res Function(_$DetailedInvoiceItemImpl) then) =
-      __$$DetailedInvoiceItemImplCopyWithImpl<$Res>;
+abstract class _$$InvoiceItemDtoImplCopyWith<$Res>
+    implements $InvoiceItemDtoCopyWith<$Res> {
+  factory _$$InvoiceItemDtoImplCopyWith(_$InvoiceItemDtoImpl value,
+          $Res Function(_$InvoiceItemDtoImpl) then) =
+      __$$InvoiceItemDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -144,23 +148,23 @@ abstract class _$$DetailedInvoiceItemImplCopyWith<$Res>
       String itemCode,
       String description,
       int quantity,
-      DetailedInvoiceItemUnitOfMeasure unitOfMeasure,
+      UnitOfMeasureDto unitOfMeasure,
       double price,
       double discount,
-      DetailedInvoiceItemVat vat,
-      UniqueId invoiceItemId,
-      UniqueId invoiceId});
+      VatDto vat,
+      int invoiceItemId,
+      int invoiceId});
 
   @override
-  $DetailedInvoiceItemVatCopyWith<$Res> get vat;
+  $VatDtoCopyWith<$Res> get vat;
 }
 
 /// @nodoc
-class __$$DetailedInvoiceItemImplCopyWithImpl<$Res>
-    extends _$DetailedInvoiceItemCopyWithImpl<$Res, _$DetailedInvoiceItemImpl>
-    implements _$$DetailedInvoiceItemImplCopyWith<$Res> {
-  __$$DetailedInvoiceItemImplCopyWithImpl(_$DetailedInvoiceItemImpl _value,
-      $Res Function(_$DetailedInvoiceItemImpl) _then)
+class __$$InvoiceItemDtoImplCopyWithImpl<$Res>
+    extends _$InvoiceItemDtoCopyWithImpl<$Res, _$InvoiceItemDtoImpl>
+    implements _$$InvoiceItemDtoImplCopyWith<$Res> {
+  __$$InvoiceItemDtoImplCopyWithImpl(
+      _$InvoiceItemDtoImpl _value, $Res Function(_$InvoiceItemDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -177,7 +181,7 @@ class __$$DetailedInvoiceItemImplCopyWithImpl<$Res>
     Object? invoiceItemId = null,
     Object? invoiceId = null,
   }) {
-    return _then(_$DetailedInvoiceItemImpl(
+    return _then(_$InvoiceItemDtoImpl(
       relativeOrder: null == relativeOrder
           ? _value.relativeOrder
           : relativeOrder // ignore: cast_nullable_to_non_nullable
@@ -197,7 +201,7 @@ class __$$DetailedInvoiceItemImplCopyWithImpl<$Res>
       unitOfMeasure: null == unitOfMeasure
           ? _value.unitOfMeasure
           : unitOfMeasure // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceItemUnitOfMeasure,
+              as UnitOfMeasureDto,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -209,23 +213,23 @@ class __$$DetailedInvoiceItemImplCopyWithImpl<$Res>
       vat: null == vat
           ? _value.vat
           : vat // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceItemVat,
+              as VatDto,
       invoiceItemId: null == invoiceItemId
           ? _value.invoiceItemId
           : invoiceItemId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
       invoiceId: null == invoiceId
           ? _value.invoiceId
           : invoiceId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
     ));
   }
 }
 
 /// @nodoc
-
-class _$DetailedInvoiceItemImpl implements _DetailedInvoiceItem {
-  const _$DetailedInvoiceItemImpl(
+@JsonSerializable()
+class _$InvoiceItemDtoImpl implements _InvoiceItemDto {
+  const _$InvoiceItemDtoImpl(
       {required this.relativeOrder,
       required this.itemCode,
       required this.description,
@@ -237,6 +241,9 @@ class _$DetailedInvoiceItemImpl implements _DetailedInvoiceItem {
       required this.invoiceItemId,
       required this.invoiceId});
 
+  factory _$InvoiceItemDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InvoiceItemDtoImplFromJson(json);
+
   @override
   final int relativeOrder;
   @override
@@ -246,28 +253,28 @@ class _$DetailedInvoiceItemImpl implements _DetailedInvoiceItem {
   @override
   final int quantity;
   @override
-  final DetailedInvoiceItemUnitOfMeasure unitOfMeasure;
+  final UnitOfMeasureDto unitOfMeasure;
   @override
   final double price;
   @override
   final double discount;
   @override
-  final DetailedInvoiceItemVat vat;
+  final VatDto vat;
   @override
-  final UniqueId invoiceItemId;
+  final int invoiceItemId;
   @override
-  final UniqueId invoiceId;
+  final int invoiceId;
 
   @override
   String toString() {
-    return 'DetailedInvoiceItem(relativeOrder: $relativeOrder, itemCode: $itemCode, description: $description, quantity: $quantity, unitOfMeasure: $unitOfMeasure, price: $price, discount: $discount, vat: $vat, invoiceItemId: $invoiceItemId, invoiceId: $invoiceId)';
+    return 'InvoiceItemDto(relativeOrder: $relativeOrder, itemCode: $itemCode, description: $description, quantity: $quantity, unitOfMeasure: $unitOfMeasure, price: $price, discount: $discount, vat: $vat, invoiceItemId: $invoiceItemId, invoiceId: $invoiceId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DetailedInvoiceItemImpl &&
+            other is _$InvoiceItemDtoImpl &&
             (identical(other.relativeOrder, relativeOrder) ||
                 other.relativeOrder == relativeOrder) &&
             (identical(other.itemCode, itemCode) ||
@@ -288,6 +295,7 @@ class _$DetailedInvoiceItemImpl implements _DetailedInvoiceItem {
                 other.invoiceId == invoiceId));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -305,23 +313,33 @@ class _$DetailedInvoiceItemImpl implements _DetailedInvoiceItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedInvoiceItemImplCopyWith<_$DetailedInvoiceItemImpl> get copyWith =>
-      __$$DetailedInvoiceItemImplCopyWithImpl<_$DetailedInvoiceItemImpl>(
+  _$$InvoiceItemDtoImplCopyWith<_$InvoiceItemDtoImpl> get copyWith =>
+      __$$InvoiceItemDtoImplCopyWithImpl<_$InvoiceItemDtoImpl>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InvoiceItemDtoImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _DetailedInvoiceItem implements DetailedInvoiceItem {
-  const factory _DetailedInvoiceItem(
+abstract class _InvoiceItemDto implements InvoiceItemDto {
+  const factory _InvoiceItemDto(
       {required final int relativeOrder,
       required final String itemCode,
       required final String description,
       required final int quantity,
-      required final DetailedInvoiceItemUnitOfMeasure unitOfMeasure,
+      required final UnitOfMeasureDto unitOfMeasure,
       required final double price,
       required final double discount,
-      required final DetailedInvoiceItemVat vat,
-      required final UniqueId invoiceItemId,
-      required final UniqueId invoiceId}) = _$DetailedInvoiceItemImpl;
+      required final VatDto vat,
+      required final int invoiceItemId,
+      required final int invoiceId}) = _$InvoiceItemDtoImpl;
+
+  factory _InvoiceItemDto.fromJson(Map<String, dynamic> json) =
+      _$InvoiceItemDtoImpl.fromJson;
 
   @override
   int get relativeOrder;
@@ -332,19 +350,19 @@ abstract class _DetailedInvoiceItem implements DetailedInvoiceItem {
   @override
   int get quantity;
   @override
-  DetailedInvoiceItemUnitOfMeasure get unitOfMeasure;
+  UnitOfMeasureDto get unitOfMeasure;
   @override
   double get price;
   @override
   double get discount;
   @override
-  DetailedInvoiceItemVat get vat;
+  VatDto get vat;
   @override
-  UniqueId get invoiceItemId;
+  int get invoiceItemId;
   @override
-  UniqueId get invoiceId;
+  int get invoiceId;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedInvoiceItemImplCopyWith<_$DetailedInvoiceItemImpl> get copyWith =>
+  _$$InvoiceItemDtoImplCopyWith<_$InvoiceItemDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

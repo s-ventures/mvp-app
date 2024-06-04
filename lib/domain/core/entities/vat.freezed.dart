@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'detailed_invoice_items_vat.dart';
+part of 'vat.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$DetailedInvoiceItemVat {
+mixin _$Vat {
   UniqueId get vatId => throw _privateConstructorUsedError;
   int get percentage => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -23,15 +23,13 @@ mixin _$DetailedInvoiceItemVat {
   DateTime get endDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedInvoiceItemVatCopyWith<DetailedInvoiceItemVat> get copyWith =>
-      throw _privateConstructorUsedError;
+  $VatCopyWith<Vat> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DetailedInvoiceItemVatCopyWith<$Res> {
-  factory $DetailedInvoiceItemVatCopyWith(DetailedInvoiceItemVat value,
-          $Res Function(DetailedInvoiceItemVat) then) =
-      _$DetailedInvoiceItemVatCopyWithImpl<$Res, DetailedInvoiceItemVat>;
+abstract class $VatCopyWith<$Res> {
+  factory $VatCopyWith(Vat value, $Res Function(Vat) then) =
+      _$VatCopyWithImpl<$Res, Vat>;
   @useResult
   $Res call(
       {UniqueId vatId,
@@ -42,10 +40,8 @@ abstract class $DetailedInvoiceItemVatCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DetailedInvoiceItemVatCopyWithImpl<$Res,
-        $Val extends DetailedInvoiceItemVat>
-    implements $DetailedInvoiceItemVatCopyWith<$Res> {
-  _$DetailedInvoiceItemVatCopyWithImpl(this._value, this._then);
+class _$VatCopyWithImpl<$Res, $Val extends Vat> implements $VatCopyWith<$Res> {
+  _$VatCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,12 +83,9 @@ class _$DetailedInvoiceItemVatCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$DetailedInvoiceItemVatImplCopyWith<$Res>
-    implements $DetailedInvoiceItemVatCopyWith<$Res> {
-  factory _$$DetailedInvoiceItemVatImplCopyWith(
-          _$DetailedInvoiceItemVatImpl value,
-          $Res Function(_$DetailedInvoiceItemVatImpl) then) =
-      __$$DetailedInvoiceItemVatImplCopyWithImpl<$Res>;
+abstract class _$$VatImplCopyWith<$Res> implements $VatCopyWith<$Res> {
+  factory _$$VatImplCopyWith(_$VatImpl value, $Res Function(_$VatImpl) then) =
+      __$$VatImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -104,13 +97,9 @@ abstract class _$$DetailedInvoiceItemVatImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DetailedInvoiceItemVatImplCopyWithImpl<$Res>
-    extends _$DetailedInvoiceItemVatCopyWithImpl<$Res,
-        _$DetailedInvoiceItemVatImpl>
-    implements _$$DetailedInvoiceItemVatImplCopyWith<$Res> {
-  __$$DetailedInvoiceItemVatImplCopyWithImpl(
-      _$DetailedInvoiceItemVatImpl _value,
-      $Res Function(_$DetailedInvoiceItemVatImpl) _then)
+class __$$VatImplCopyWithImpl<$Res> extends _$VatCopyWithImpl<$Res, _$VatImpl>
+    implements _$$VatImplCopyWith<$Res> {
+  __$$VatImplCopyWithImpl(_$VatImpl _value, $Res Function(_$VatImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +111,7 @@ class __$$DetailedInvoiceItemVatImplCopyWithImpl<$Res>
     Object? initialDate = null,
     Object? endDate = null,
   }) {
-    return _then(_$DetailedInvoiceItemVatImpl(
+    return _then(_$VatImpl(
       vatId: null == vatId
           ? _value.vatId
           : vatId // ignore: cast_nullable_to_non_nullable
@@ -149,8 +138,8 @@ class __$$DetailedInvoiceItemVatImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DetailedInvoiceItemVatImpl implements _DetailedInvoiceItemVat {
-  const _$DetailedInvoiceItemVatImpl(
+class _$VatImpl implements _Vat {
+  const _$VatImpl(
       {required this.vatId,
       required this.percentage,
       required this.description,
@@ -170,14 +159,14 @@ class _$DetailedInvoiceItemVatImpl implements _DetailedInvoiceItemVat {
 
   @override
   String toString() {
-    return 'DetailedInvoiceItemVat(vatId: $vatId, percentage: $percentage, description: $description, initialDate: $initialDate, endDate: $endDate)';
+    return 'Vat(vatId: $vatId, percentage: $percentage, description: $description, initialDate: $initialDate, endDate: $endDate)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DetailedInvoiceItemVatImpl &&
+            other is _$VatImpl &&
             (identical(other.vatId, vatId) || other.vatId == vatId) &&
             (identical(other.percentage, percentage) ||
                 other.percentage == percentage) &&
@@ -195,18 +184,17 @@ class _$DetailedInvoiceItemVatImpl implements _DetailedInvoiceItemVat {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedInvoiceItemVatImplCopyWith<_$DetailedInvoiceItemVatImpl>
-      get copyWith => __$$DetailedInvoiceItemVatImplCopyWithImpl<
-          _$DetailedInvoiceItemVatImpl>(this, _$identity);
+  _$$VatImplCopyWith<_$VatImpl> get copyWith =>
+      __$$VatImplCopyWithImpl<_$VatImpl>(this, _$identity);
 }
 
-abstract class _DetailedInvoiceItemVat implements DetailedInvoiceItemVat {
-  const factory _DetailedInvoiceItemVat(
+abstract class _Vat implements Vat {
+  const factory _Vat(
       {required final UniqueId vatId,
       required final int percentage,
       required final String description,
       required final DateTime initialDate,
-      required final DateTime endDate}) = _$DetailedInvoiceItemVatImpl;
+      required final DateTime endDate}) = _$VatImpl;
 
   @override
   UniqueId get vatId;
@@ -220,6 +208,6 @@ abstract class _DetailedInvoiceItemVat implements DetailedInvoiceItemVat {
   DateTime get endDate;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedInvoiceItemVatImplCopyWith<_$DetailedInvoiceItemVatImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$VatImplCopyWith<_$VatImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

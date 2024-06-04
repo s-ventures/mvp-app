@@ -7,13 +7,13 @@ class InvoicesRemoteDataSource {
   final InvoicesRestClient _restClient;
 
   Future<DetailedInvoiceDto> getDetailedInvoice({
-    required int erpContractId,
-    required int invoiceId,
+    required int contractId,
+    required int id,
   }) async {
     try {
       final response = await _restClient.getDetailedInvoice(
-        erpContractId: erpContractId,
-        invoiceId: invoiceId,
+        contractId: contractId,
+        id: id,
       );
       return response;
     } catch (_) {

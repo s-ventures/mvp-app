@@ -15,11 +15,11 @@ class DetailedInvoiceController extends StateNotifier<DetailedInvoiceState> {
 
   final InvoicesRepository _repository;
 
-  Future<void> init(int erpContractId, int invoiceId) async {
+  Future<void> init(int contractId, int id) async {
     try {
       final invoiceOrFailure = await _repository.getDetailedInvoice(
-        erpContractId: erpContractId,
-        invoiceId: invoiceId,
+        contractId: contractId,
+        id: id,
       );
 
       setStateSafe(

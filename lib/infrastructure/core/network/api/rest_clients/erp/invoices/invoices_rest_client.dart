@@ -14,9 +14,9 @@ final invoicesRestClientProvider = Provider<InvoicesRestClient>(
 abstract class InvoicesRestClient {
   factory InvoicesRestClient(Dio dio) = _InvoicesRestClient;
 
-  @GET('/erp/invoices/v1/{erpContractId}/{invoicesId}')
+  @GET('/erp/invoices/v1/{contractId}/{id}')
   Future<DetailedInvoiceDto> getDetailedInvoice({
-    @Path('erpContractId') required int erpContractId,
-    @Path('invoiceId') required int invoiceId,
+    @Path('contractId') required int contractId,
+    @Path('id') required int id,
   });
 }

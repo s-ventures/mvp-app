@@ -20,8 +20,8 @@ class _InvoicesRestClient implements InvoicesRestClient {
 
   @override
   Future<DetailedInvoiceDto> getDetailedInvoice({
-    required int erpContractId,
-    required int invoiceId,
+    required int contractId,
+    required int id,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -35,7 +35,7 @@ class _InvoicesRestClient implements InvoicesRestClient {
     )
             .compose(
               _dio.options,
-              '/erp/invoices/v1/${erpContractId}/{invoicesId}',
+              '/erp/invoices/v1/${contractId}/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

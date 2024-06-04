@@ -26,13 +26,13 @@ class InvoicesRepository implements IInvoicesRepository {
 
   @override
   Future<Either<DetailedInvoiceFailure, DetailedInvoice>> getDetailedInvoice({
-    required int erpContractId,
-    required int invoiceId,
+    required int contractId,
+    required int id,
   }) async {
     try {
       final response = await _remoteDataSource.getDetailedInvoice(
-        erpContractId: erpContractId,
-        invoiceId: invoiceId,
+        contractId: contractId,
+        id: id,
       );
 
       final invoice = response.toDomain();

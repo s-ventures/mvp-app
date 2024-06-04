@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'detailed_invoice_serial_number.dart';
+part of 'serial_number_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,47 +14,48 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+SerialNumberDto _$SerialNumberDtoFromJson(Map<String, dynamic> json) {
+  return _SerialNumberDto.fromJson(json);
+}
+
 /// @nodoc
-mixin _$DetailedInvoiceSerialNumber {
-  UniqueId get serialNumberId => throw _privateConstructorUsedError;
-  UniqueId get erpContractId => throw _privateConstructorUsedError;
+mixin _$SerialNumberDto {
+  int get serialNumberId => throw _privateConstructorUsedError;
+  int get erpContractId => throw _privateConstructorUsedError;
+  SerialNumberType get type => throw _privateConstructorUsedError;
   String get alias => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   int get numberLast => throw _privateConstructorUsedError;
   String get format => throw _privateConstructorUsedError;
-  UniqueId get templateId => throw _privateConstructorUsedError;
-  DetailedInvoiceSerialNumberType get type =>
-      throw _privateConstructorUsedError;
+  int get templateId => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DetailedInvoiceSerialNumberCopyWith<DetailedInvoiceSerialNumber>
-      get copyWith => throw _privateConstructorUsedError;
+  $SerialNumberDtoCopyWith<SerialNumberDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DetailedInvoiceSerialNumberCopyWith<$Res> {
-  factory $DetailedInvoiceSerialNumberCopyWith(
-          DetailedInvoiceSerialNumber value,
-          $Res Function(DetailedInvoiceSerialNumber) then) =
-      _$DetailedInvoiceSerialNumberCopyWithImpl<$Res,
-          DetailedInvoiceSerialNumber>;
+abstract class $SerialNumberDtoCopyWith<$Res> {
+  factory $SerialNumberDtoCopyWith(
+          SerialNumberDto value, $Res Function(SerialNumberDto) then) =
+      _$SerialNumberDtoCopyWithImpl<$Res, SerialNumberDto>;
   @useResult
   $Res call(
-      {UniqueId serialNumberId,
-      UniqueId erpContractId,
+      {int serialNumberId,
+      int erpContractId,
+      SerialNumberType type,
       String alias,
       String description,
       int numberLast,
       String format,
-      UniqueId templateId,
-      DetailedInvoiceSerialNumberType type});
+      int templateId});
 }
 
 /// @nodoc
-class _$DetailedInvoiceSerialNumberCopyWithImpl<$Res,
-        $Val extends DetailedInvoiceSerialNumber>
-    implements $DetailedInvoiceSerialNumberCopyWith<$Res> {
-  _$DetailedInvoiceSerialNumberCopyWithImpl(this._value, this._then);
+class _$SerialNumberDtoCopyWithImpl<$Res, $Val extends SerialNumberDto>
+    implements $SerialNumberDtoCopyWith<$Res> {
+  _$SerialNumberDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,22 +67,26 @@ class _$DetailedInvoiceSerialNumberCopyWithImpl<$Res,
   $Res call({
     Object? serialNumberId = null,
     Object? erpContractId = null,
+    Object? type = null,
     Object? alias = null,
     Object? description = null,
     Object? numberLast = null,
     Object? format = null,
     Object? templateId = null,
-    Object? type = null,
   }) {
     return _then(_value.copyWith(
       serialNumberId: null == serialNumberId
           ? _value.serialNumberId
           : serialNumberId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
       erpContractId: null == erpContractId
           ? _value.erpContractId
           : erpContractId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as SerialNumberType,
       alias: null == alias
           ? _value.alias
           : alias // ignore: cast_nullable_to_non_nullable
@@ -101,43 +106,36 @@ class _$DetailedInvoiceSerialNumberCopyWithImpl<$Res,
       templateId: null == templateId
           ? _value.templateId
           : templateId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceSerialNumberType,
+              as int,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$DetailedInvoiceSerialNumberImplCopyWith<$Res>
-    implements $DetailedInvoiceSerialNumberCopyWith<$Res> {
-  factory _$$DetailedInvoiceSerialNumberImplCopyWith(
-          _$DetailedInvoiceSerialNumberImpl value,
-          $Res Function(_$DetailedInvoiceSerialNumberImpl) then) =
-      __$$DetailedInvoiceSerialNumberImplCopyWithImpl<$Res>;
+abstract class _$$SerialNumberDtoImplCopyWith<$Res>
+    implements $SerialNumberDtoCopyWith<$Res> {
+  factory _$$SerialNumberDtoImplCopyWith(_$SerialNumberDtoImpl value,
+          $Res Function(_$SerialNumberDtoImpl) then) =
+      __$$SerialNumberDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {UniqueId serialNumberId,
-      UniqueId erpContractId,
+      {int serialNumberId,
+      int erpContractId,
+      SerialNumberType type,
       String alias,
       String description,
       int numberLast,
       String format,
-      UniqueId templateId,
-      DetailedInvoiceSerialNumberType type});
+      int templateId});
 }
 
 /// @nodoc
-class __$$DetailedInvoiceSerialNumberImplCopyWithImpl<$Res>
-    extends _$DetailedInvoiceSerialNumberCopyWithImpl<$Res,
-        _$DetailedInvoiceSerialNumberImpl>
-    implements _$$DetailedInvoiceSerialNumberImplCopyWith<$Res> {
-  __$$DetailedInvoiceSerialNumberImplCopyWithImpl(
-      _$DetailedInvoiceSerialNumberImpl _value,
-      $Res Function(_$DetailedInvoiceSerialNumberImpl) _then)
+class __$$SerialNumberDtoImplCopyWithImpl<$Res>
+    extends _$SerialNumberDtoCopyWithImpl<$Res, _$SerialNumberDtoImpl>
+    implements _$$SerialNumberDtoImplCopyWith<$Res> {
+  __$$SerialNumberDtoImplCopyWithImpl(
+      _$SerialNumberDtoImpl _value, $Res Function(_$SerialNumberDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,22 +143,26 @@ class __$$DetailedInvoiceSerialNumberImplCopyWithImpl<$Res>
   $Res call({
     Object? serialNumberId = null,
     Object? erpContractId = null,
+    Object? type = null,
     Object? alias = null,
     Object? description = null,
     Object? numberLast = null,
     Object? format = null,
     Object? templateId = null,
-    Object? type = null,
   }) {
-    return _then(_$DetailedInvoiceSerialNumberImpl(
+    return _then(_$SerialNumberDtoImpl(
       serialNumberId: null == serialNumberId
           ? _value.serialNumberId
           : serialNumberId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
       erpContractId: null == erpContractId
           ? _value.erpContractId
           : erpContractId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as SerialNumberType,
       alias: null == alias
           ? _value.alias
           : alias // ignore: cast_nullable_to_non_nullable
@@ -180,33 +182,33 @@ class __$$DetailedInvoiceSerialNumberImplCopyWithImpl<$Res>
       templateId: null == templateId
           ? _value.templateId
           : templateId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DetailedInvoiceSerialNumberType,
+              as int,
     ));
   }
 }
 
 /// @nodoc
-
-class _$DetailedInvoiceSerialNumberImpl
-    implements _DetailedInvoiceSerialNumber {
-  const _$DetailedInvoiceSerialNumberImpl(
+@JsonSerializable()
+class _$SerialNumberDtoImpl implements _SerialNumberDto {
+  const _$SerialNumberDtoImpl(
       {required this.serialNumberId,
       required this.erpContractId,
+      required this.type,
       required this.alias,
       required this.description,
       required this.numberLast,
       required this.format,
-      required this.templateId,
-      required this.type});
+      required this.templateId});
+
+  factory _$SerialNumberDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SerialNumberDtoImplFromJson(json);
 
   @override
-  final UniqueId serialNumberId;
+  final int serialNumberId;
   @override
-  final UniqueId erpContractId;
+  final int erpContractId;
+  @override
+  final SerialNumberType type;
   @override
   final String alias;
   @override
@@ -216,24 +218,23 @@ class _$DetailedInvoiceSerialNumberImpl
   @override
   final String format;
   @override
-  final UniqueId templateId;
-  @override
-  final DetailedInvoiceSerialNumberType type;
+  final int templateId;
 
   @override
   String toString() {
-    return 'DetailedInvoiceSerialNumber(serialNumberId: $serialNumberId, erpContractId: $erpContractId, alias: $alias, description: $description, numberLast: $numberLast, format: $format, templateId: $templateId, type: $type)';
+    return 'SerialNumberDto(serialNumberId: $serialNumberId, erpContractId: $erpContractId, type: $type, alias: $alias, description: $description, numberLast: $numberLast, format: $format, templateId: $templateId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DetailedInvoiceSerialNumberImpl &&
+            other is _$SerialNumberDtoImpl &&
             (identical(other.serialNumberId, serialNumberId) ||
                 other.serialNumberId == serialNumberId) &&
             (identical(other.erpContractId, erpContractId) ||
                 other.erpContractId == erpContractId) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.alias, alias) || other.alias == alias) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -241,39 +242,49 @@ class _$DetailedInvoiceSerialNumberImpl
                 other.numberLast == numberLast) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.templateId, templateId) ||
-                other.templateId == templateId) &&
-            (identical(other.type, type) || other.type == type));
+                other.templateId == templateId));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, serialNumberId, erpContractId,
-      alias, description, numberLast, format, templateId, type);
+      type, alias, description, numberLast, format, templateId);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DetailedInvoiceSerialNumberImplCopyWith<_$DetailedInvoiceSerialNumberImpl>
-      get copyWith => __$$DetailedInvoiceSerialNumberImplCopyWithImpl<
-          _$DetailedInvoiceSerialNumberImpl>(this, _$identity);
+  _$$SerialNumberDtoImplCopyWith<_$SerialNumberDtoImpl> get copyWith =>
+      __$$SerialNumberDtoImplCopyWithImpl<_$SerialNumberDtoImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SerialNumberDtoImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _DetailedInvoiceSerialNumber
-    implements DetailedInvoiceSerialNumber {
-  const factory _DetailedInvoiceSerialNumber(
-          {required final UniqueId serialNumberId,
-          required final UniqueId erpContractId,
-          required final String alias,
-          required final String description,
-          required final int numberLast,
-          required final String format,
-          required final UniqueId templateId,
-          required final DetailedInvoiceSerialNumberType type}) =
-      _$DetailedInvoiceSerialNumberImpl;
+abstract class _SerialNumberDto implements SerialNumberDto {
+  const factory _SerialNumberDto(
+      {required final int serialNumberId,
+      required final int erpContractId,
+      required final SerialNumberType type,
+      required final String alias,
+      required final String description,
+      required final int numberLast,
+      required final String format,
+      required final int templateId}) = _$SerialNumberDtoImpl;
+
+  factory _SerialNumberDto.fromJson(Map<String, dynamic> json) =
+      _$SerialNumberDtoImpl.fromJson;
 
   @override
-  UniqueId get serialNumberId;
+  int get serialNumberId;
   @override
-  UniqueId get erpContractId;
+  int get erpContractId;
+  @override
+  SerialNumberType get type;
   @override
   String get alias;
   @override
@@ -283,11 +294,9 @@ abstract class _DetailedInvoiceSerialNumber
   @override
   String get format;
   @override
-  UniqueId get templateId;
-  @override
-  DetailedInvoiceSerialNumberType get type;
+  int get templateId;
   @override
   @JsonKey(ignore: true)
-  _$$DetailedInvoiceSerialNumberImplCopyWith<_$DetailedInvoiceSerialNumberImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SerialNumberDtoImplCopyWith<_$SerialNumberDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
