@@ -1,14 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/overview_segment_period.dart';
+import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/detailed_expense.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense_filter.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/overview_expenses.dart';
+import 'package:manifiesto_mvp_app/domain/erp/expenses/failures/detailed_expense_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/failures/expense_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/failures/overview_expenses_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/repositories/i_expenses_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/expenses/expenses_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/data_sources/expenses_remote_data_sources.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/detailed_expense_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/expense_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/expense_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/overview_expenses_dto.dart';
@@ -68,6 +71,24 @@ class ExpensesRepository implements IExpensesRepository {
       return right(overview);
     } catch (_) {
       return left(const OverviewExpensesFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<DetailedExpenseFailure, DetailedExpense>> getDetailedExpense({
+    required int contractId,
+    required int id,
+  }) async {
+    try {
+      final response = await _remoteDataSource.getDetailedExpense(
+        contractId: contractId,
+        id: id,
+      );
+
+      final expense = response.toDomain();
+      return right(expense);
+    } catch (_) {
+      return left(const DetailedExpenseFailure.unexpected());
     }
   }
 }

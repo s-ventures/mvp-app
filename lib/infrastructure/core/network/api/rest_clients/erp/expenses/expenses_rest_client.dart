@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/overview_segment_period_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/dio_provider.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/detailed_expense_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/expense_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/expense_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/overview_expenses_dto.dart';
@@ -28,5 +29,11 @@ abstract class ExpensesRestClient {
   Future<OverviewExpensesDto> getOverviewExpenses({
     @Path('erpContractId') required int erpContractId,
     @Query('segmentPeriod') required OverviewSegmentPeriodDto segmentPeriod,
+  });
+
+  @GET('/erp/expenses/v1/{contractId}/{id}')
+  Future<DetailedExpenseDto> getDetailedExpense({
+    @Path('contractId') required int contractId,
+    @Path('id') required int id,
   });
 }

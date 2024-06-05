@@ -1,8 +1,10 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/overview_segment_period.dart';
+import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/detailed_expense.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense_filter.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/overview_expenses.dart';
+import 'package:manifiesto_mvp_app/domain/erp/expenses/failures/detailed_expense_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/failures/expense_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/failures/overview_expenses_failure.dart';
 
@@ -13,6 +15,11 @@ abstract class IExpensesRepository {
     int page = 0,
     int pageSize = 10,
     void Function(int totalPages, int totalElements)? onPaginationInfo,
+  });
+
+  Future<Either<DetailedExpenseFailure, DetailedExpense>> getDetailedExpense({
+    required int contractId,
+    required int id,
   });
 
   Future<Either<OverviewExpensesFailure, OverviewExpenses>> getOverviewExpenses({
