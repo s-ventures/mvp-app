@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/overview_segment_period_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/dio_provider.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/detailed_invoice_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/invoice_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/invoice_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/overview_invoices_dto.dart';
@@ -22,6 +23,12 @@ abstract class InvoicesRestClient {
   Future<PaginatedResponse<InvoiceDto>> getInvoices({
     @Path('erpContractId') required int erpContractId,
     @Query('') required InvoiceFilterDto filter,
+  });
+
+  @GET('/erp/invoices/v1/{contractId}/{id}')
+  Future<DetailedInvoiceDto> getDetailedInvoice({
+    @Path('contractId') required int contractId,
+    @Path('id') required int id,
   });
 
   @GET('erp/invoices/v1/overview')
