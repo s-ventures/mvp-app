@@ -14,10 +14,9 @@ _$OverviewExpensesDtoImpl _$$OverviewExpensesDtoImplFromJson(
       totalAmountOfExpenses: (json['totalAmountOfExpenses'] as num).toDouble(),
       totalAmountOfAcceptedExpenses:
           (json['totalAmountOfAcceptedExpenses'] as num).toDouble(),
-      totalNumberOfSentExpenses:
-          (json['totalNumberOfSentExpenses'] as num).toInt(),
+      totalNumberOfSentExpenses: json['totalNumberOfSentExpenses'] as int,
       totalNumberOfAcceptedExpenses:
-          (json['totalNumberOfAcceptedExpenses'] as num).toInt(),
+          json['totalNumberOfAcceptedExpenses'] as int,
       percentageChangeInBudgetAmount:
           (json['percentageChangeInBudgetAmount'] as num).toDouble(),
     );

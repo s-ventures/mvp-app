@@ -10,7 +10,7 @@ _$SimplifiedAccountDtoImpl _$$SimplifiedAccountDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$SimplifiedAccountDtoImpl(
       accountId: json['accountId'] as int,
-      entity: json['entity'] as String?,
+      entity: AccountEntityDto.fromJson(json['entity'] as Map<String, dynamic>),
       number: json['number'] as String?,
       status: $enumDecode(_$AccountStatusDtoEnumMap, json['status']),
       createDate: json['createDate'] as String?,
@@ -23,7 +23,7 @@ Map<String, dynamic> _$$SimplifiedAccountDtoImplToJson(
         _$SimplifiedAccountDtoImpl instance) =>
     <String, dynamic>{
       'accountId': instance.accountId,
-      'entity': instance.entity,
+      'entity': instance.entity.toJson(),
       'number': instance.number,
       'status': _$AccountStatusDtoEnumMap[instance.status]!,
       'createDate': instance.createDate,

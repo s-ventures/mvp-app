@@ -10,7 +10,7 @@ _$DetailedAccountDtoImpl _$$DetailedAccountDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DetailedAccountDtoImpl(
       accountId: json['accountId'] as int,
-      entity: json['entity'] as String,
+      entity: AccountEntityDto.fromJson(json['entity'] as Map<String, dynamic>),
       branch: json['branch'] as String,
       number: json['number'] as String,
       status: $enumDecode(_$AccountStatusDtoEnumMap, json['status']),
@@ -22,6 +22,9 @@ _$DetailedAccountDtoImpl _$$DetailedAccountDtoImplFromJson(
           _$AccountDispositionTypeDtoEnumMap, json['dispositionType']),
       dispositionNumber: json['dispositionNumber'] as String,
       lastOperationDate: json['lastOperationDate'] as String,
+      alias: json['alias'] as String,
+      bicSwift: json['bicSwift'] as String,
+      name: json['name'] as String,
       balance:
           AccountBalanceDto.fromJson(json['balance'] as Map<String, dynamic>),
       accountHolder: json['accountHolder'] as String?,
@@ -31,7 +34,7 @@ Map<String, dynamic> _$$DetailedAccountDtoImplToJson(
         _$DetailedAccountDtoImpl instance) =>
     <String, dynamic>{
       'accountId': instance.accountId,
-      'entity': instance.entity,
+      'entity': instance.entity.toJson(),
       'branch': instance.branch,
       'number': instance.number,
       'status': _$AccountStatusDtoEnumMap[instance.status]!,
@@ -43,6 +46,9 @@ Map<String, dynamic> _$$DetailedAccountDtoImplToJson(
           _$AccountDispositionTypeDtoEnumMap[instance.dispositionType]!,
       'dispositionNumber': instance.dispositionNumber,
       'lastOperationDate': instance.lastOperationDate,
+      'alias': instance.alias,
+      'bicSwift': instance.bicSwift,
+      'name': instance.name,
       'balance': instance.balance.toJson(),
       'accountHolder': instance.accountHolder,
     };

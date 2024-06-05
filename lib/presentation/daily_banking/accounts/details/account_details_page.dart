@@ -185,7 +185,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                                 ),
                               ),
                               Text(
-                                account.number,
+                                account.iban,
                                 style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight900,
                                 ),
@@ -237,7 +237,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                         ),
                       ),
                       Text(
-                        account.entity,
+                        account.entity.name,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight900,
                         ),

@@ -14,10 +14,9 @@ _$OverviewInvoicesDtoImpl _$$OverviewInvoicesDtoImplFromJson(
       totalAmountOfInvoices: (json['totalAmountOfInvoices'] as num).toDouble(),
       totalAmountOfAcceptedInvoices:
           (json['totalAmountOfAcceptedInvoices'] as num).toDouble(),
-      totalNumberOfSentInvoices:
-          (json['totalNumberOfSentInvoices'] as num).toInt(),
+      totalNumberOfSentInvoices: json['totalNumberOfSentInvoices'] as int,
       totalNumberOfAcceptedInvoices:
-          (json['totalNumberOfAcceptedInvoices'] as num).toInt(),
+          json['totalNumberOfAcceptedInvoices'] as int,
       percentageChangeInBudgetAmount:
           (json['percentageChangeInBudgetAmount'] as num).toDouble(),
     );

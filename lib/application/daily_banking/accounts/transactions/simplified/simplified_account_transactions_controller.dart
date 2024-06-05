@@ -11,12 +11,13 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/en
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_filtered_pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_repository.dart';
 
 final simplifiedAccountTransactionsControllerProvider = StateNotifierProvider.autoDispose<
     SimplifiedAccountTransactionsController, SimplifiedAccountTransactionsState>(
   (ref) => SimplifiedAccountTransactionsController(
     ref.watch(accountTransactionsFilteredPaginationRepositoryProvider),
-    ref.watch(accountsRepositoryProvider),
+    ref.watch(fakeAccountsRepositoryProvider),
   ),
 );
 

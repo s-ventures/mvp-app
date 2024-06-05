@@ -19,6 +19,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/account_entity_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/account_status_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/balances/account_balance_dto.dart';
 
@@ -29,7 +30,7 @@ part 'simplified_account_dto.g.dart';
 class SimplifiedAccountDto with _$SimplifiedAccountDto {
   const factory SimplifiedAccountDto({
     required int accountId,
-    required String? entity,
+    required AccountEntityDto entity,
     required String? number,
     required AccountStatusDto status,
     required String? createDate,
@@ -45,7 +46,7 @@ extension SimplifiedAccountDtoX on SimplifiedAccountDto {
   SimplifiedAccount toDomain() {
     return SimplifiedAccount(
       id: UniqueId.fromUniqueString(accountId.toString()),
-      entity: entity ?? '',
+      entity: entity.toDomain(),
       status: status.toDomain(),
       currencyCode: currencyCode,
       balance: balance.toDomain(),

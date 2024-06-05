@@ -14,9 +14,8 @@ _$OverviewQuotesDtoImpl _$$OverviewQuotesDtoImplFromJson(
       totalAmountOfQuotes: (json['totalAmountOfQuotes'] as num).toDouble(),
       totalAmountOfAcceptedQuotes:
           (json['totalAmountOfAcceptedQuotes'] as num).toDouble(),
-      totalNumberOfSentQuotes: (json['totalNumberOfSentQuotes'] as num).toInt(),
-      totalNumberOfAcceptedQuotes:
-          (json['totalNumberOfAcceptedQuotes'] as num).toInt(),
+      totalNumberOfSentQuotes: json['totalNumberOfSentQuotes'] as int,
+      totalNumberOfAcceptedQuotes: json['totalNumberOfAcceptedQuotes'] as int,
       percentageChangeInBudgetAmount:
           (json['percentageChangeInBudgetAmount'] as num).toDouble(),
     );

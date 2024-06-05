@@ -8,9 +8,9 @@ part of 'expense_dto.dart';
 
 _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) =>
     _$ExpenseDtoImpl(
-      erpContractId: (json['erpContractId'] as num).toInt(),
+      erpContractId: json['erpContractId'] as int,
       number: json['number'] as String?,
-      stakeholderId: (json['stakeholderId'] as num).toInt(),
+      stakeholderId: json['stakeholderId'] as int,
       dueDate: json['dueDate'] == null
           ? null
           : DateTime.parse(json['dueDate'] as String),
@@ -19,7 +19,7 @@ _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) =>
       currencyCode: json['currencyCode'] as String?,
       withholdingTaxesPercentage:
           (json['withholdingTaxesPercentage'] as num?)?.toDouble(),
-      fileId: (json['fileId'] as num?)?.toInt(),
+      fileId: json['fileId'] as int?,
       additionalInfo: json['additionalInfo'] as String?,
       statusDate: json['statusDate'] == null
           ? null
@@ -27,7 +27,7 @@ _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) =>
       withHoldingTaxesAmount:
           (json['withHoldingTaxesAmount'] as num?)?.toDouble(),
       totalWithoutTaxes: (json['totalWithoutTaxes'] as num?)?.toDouble(),
-      expenseId: (json['expenseId'] as num).toInt(),
+      expenseId: json['expenseId'] as int,
       issuedDate: json['issuedDate'] == null
           ? null
           : DateTime.parse(json['issuedDate'] as String),

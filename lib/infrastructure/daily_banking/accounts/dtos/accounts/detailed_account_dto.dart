@@ -26,6 +26,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/detailed_account.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/account_disposition_type_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/account_entity_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/account_status_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/balances/account_balance_dto.dart';
 
@@ -36,7 +37,7 @@ part 'detailed_account_dto.g.dart';
 class DetailedAccountDto with _$DetailedAccountDto {
   const factory DetailedAccountDto({
     required int accountId,
-    required String entity,
+    required AccountEntityDto entity,
     required String branch,
     required String number,
     required AccountStatusDto status,
@@ -47,6 +48,9 @@ class DetailedAccountDto with _$DetailedAccountDto {
     required AccountDispositionTypeDto dispositionType,
     required String dispositionNumber,
     required String lastOperationDate,
+    required String alias,
+    required String bicSwift,
+    required String name,
     required AccountBalanceDto balance,
     required String? accountHolder,
   }) = _DetailedAccountDto;
@@ -59,11 +63,14 @@ extension DetailedAccountDtoX on DetailedAccountDto {
   DetailedAccount toDomain() {
     return DetailedAccount(
       id: UniqueId.fromUniqueString(accountId.toString()),
-      number: number,
+      iban: number,
       balance: balance.toDomain(),
       currencyCode: currencyCode,
       accountHolder: accountHolder ?? '',
-      entity: entity,
+      entity: entity.toDomain(),
+      alias: alias,
+      bicSwift: bicSwift,
+      name: name,
     );
   }
 }

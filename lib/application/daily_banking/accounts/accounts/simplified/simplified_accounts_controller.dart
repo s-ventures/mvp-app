@@ -5,11 +5,12 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/accounts/s
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_pagination_repository.dart';
 
 final simplifiedAccountsControllerProvider =
     StateNotifierProvider<SimplifiedAccountsController, SimplifiedAccountsState>(
   (ref) => SimplifiedAccountsController(
-    ref.watch(accountsPaginationRepositoryProvider),
+    ref.watch(fakeAccountsPaginationRepositoryProvider),
   ),
 );
 
