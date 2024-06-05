@@ -8,8 +8,8 @@ part of 'invoice_filter_dto.dart';
 
 InvoiceFilterDto _$InvoiceFilterDtoFromJson(Map<String, dynamic> json) =>
     InvoiceFilterDto(
-      id: (json['id'] as num?)?.toInt(),
-      stakeholderId: (json['stakeholderId'] as num?)?.toInt(),
+      id: json['id'] as int?,
+      stakeholderId: json['stakeholderId'] as int?,
       createdDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['createdDateFrom'], const DateConverter().fromJson),
       createdDateTo: _$JsonConverterFromJson<String, DateTime>(
@@ -22,8 +22,8 @@ InvoiceFilterDto _$InvoiceFilterDtoFromJson(Map<String, dynamic> json) =>
       totalAmountTo: (json['totalAmountTo'] as num?)?.toDouble(),
       query: json['query'] as String?,
       status: $enumDecodeNullable(_$InvoiceStatusDtoEnumMap, json['status']),
-      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
-      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
+      pageNumber: json['pageNumber'] as int? ?? 0,
+      pageSize: json['pageSize'] as int? ?? 10,
     );
 
 Map<String, dynamic> _$InvoiceFilterDtoToJson(InvoiceFilterDto instance) {

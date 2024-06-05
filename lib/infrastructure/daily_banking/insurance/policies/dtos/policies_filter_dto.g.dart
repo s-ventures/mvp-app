@@ -9,7 +9,7 @@ part of 'policies_filter_dto.dart';
 PoliciesFilterDto _$PoliciesFilterDtoFromJson(Map<String, dynamic> json) =>
     PoliciesFilterDto(
       insuranceId: (json['insuranceId'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
+          ?.map((e) => e as int)
           .toList(),
       policy: json['policy'] as String?,
       certificateNumber: json['certificateNumber'] as String?,
@@ -27,8 +27,8 @@ PoliciesFilterDto _$PoliciesFilterDtoFromJson(Map<String, dynamic> json) =>
       paymentPeriodicity: $enumDecodeNullable(
           _$PolicyPaymentPeriodicityDtoEnumMap, json['paymentPeriodicity']),
       iaasBranch: json['iaasBranch'] as String?,
-      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
-      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
+      pageNumber: json['pageNumber'] as int? ?? 0,
+      pageSize: json['pageSize'] as int? ?? 10,
     );
 
 Map<String, dynamic> _$PoliciesFilterDtoToJson(PoliciesFilterDto instance) {

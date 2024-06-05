@@ -21,7 +21,7 @@ DetailedAccountDto _$DetailedAccountDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DetailedAccountDto {
   int get accountId => throw _privateConstructorUsedError;
-  String get entity => throw _privateConstructorUsedError;
+  AccountEntityDto get entity => throw _privateConstructorUsedError;
   String get branch => throw _privateConstructorUsedError;
   String get number => throw _privateConstructorUsedError;
   AccountStatusDto get status => throw _privateConstructorUsedError;
@@ -33,6 +33,9 @@ mixin _$DetailedAccountDto {
       throw _privateConstructorUsedError;
   String get dispositionNumber => throw _privateConstructorUsedError;
   String get lastOperationDate => throw _privateConstructorUsedError;
+  String get alias => throw _privateConstructorUsedError;
+  String get bicSwift => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   AccountBalanceDto get balance => throw _privateConstructorUsedError;
   String? get accountHolder => throw _privateConstructorUsedError;
 
@@ -50,7 +53,7 @@ abstract class $DetailedAccountDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {int accountId,
-      String entity,
+      AccountEntityDto entity,
       String branch,
       String number,
       AccountStatusDto status,
@@ -61,9 +64,13 @@ abstract class $DetailedAccountDtoCopyWith<$Res> {
       AccountDispositionTypeDto dispositionType,
       String dispositionNumber,
       String lastOperationDate,
+      String alias,
+      String bicSwift,
+      String name,
       AccountBalanceDto balance,
       String? accountHolder});
 
+  $AccountEntityDtoCopyWith<$Res> get entity;
   $AccountBalanceDtoCopyWith<$Res> get balance;
 }
 
@@ -92,6 +99,9 @@ class _$DetailedAccountDtoCopyWithImpl<$Res, $Val extends DetailedAccountDto>
     Object? dispositionType = null,
     Object? dispositionNumber = null,
     Object? lastOperationDate = null,
+    Object? alias = null,
+    Object? bicSwift = null,
+    Object? name = null,
     Object? balance = null,
     Object? accountHolder = freezed,
   }) {
@@ -103,7 +113,7 @@ class _$DetailedAccountDtoCopyWithImpl<$Res, $Val extends DetailedAccountDto>
       entity: null == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AccountEntityDto,
       branch: null == branch
           ? _value.branch
           : branch // ignore: cast_nullable_to_non_nullable
@@ -144,6 +154,18 @@ class _$DetailedAccountDtoCopyWithImpl<$Res, $Val extends DetailedAccountDto>
           ? _value.lastOperationDate
           : lastOperationDate // ignore: cast_nullable_to_non_nullable
               as String,
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
+              as String,
+      bicSwift: null == bicSwift
+          ? _value.bicSwift
+          : bicSwift // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       balance: null == balance
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
@@ -153,6 +175,14 @@ class _$DetailedAccountDtoCopyWithImpl<$Res, $Val extends DetailedAccountDto>
           : accountHolder // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AccountEntityDtoCopyWith<$Res> get entity {
+    return $AccountEntityDtoCopyWith<$Res>(_value.entity, (value) {
+      return _then(_value.copyWith(entity: value) as $Val);
+    });
   }
 
   @override
@@ -174,7 +204,7 @@ abstract class _$$DetailedAccountDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {int accountId,
-      String entity,
+      AccountEntityDto entity,
       String branch,
       String number,
       AccountStatusDto status,
@@ -185,9 +215,14 @@ abstract class _$$DetailedAccountDtoImplCopyWith<$Res>
       AccountDispositionTypeDto dispositionType,
       String dispositionNumber,
       String lastOperationDate,
+      String alias,
+      String bicSwift,
+      String name,
       AccountBalanceDto balance,
       String? accountHolder});
 
+  @override
+  $AccountEntityDtoCopyWith<$Res> get entity;
   @override
   $AccountBalanceDtoCopyWith<$Res> get balance;
 }
@@ -215,6 +250,9 @@ class __$$DetailedAccountDtoImplCopyWithImpl<$Res>
     Object? dispositionType = null,
     Object? dispositionNumber = null,
     Object? lastOperationDate = null,
+    Object? alias = null,
+    Object? bicSwift = null,
+    Object? name = null,
     Object? balance = null,
     Object? accountHolder = freezed,
   }) {
@@ -226,7 +264,7 @@ class __$$DetailedAccountDtoImplCopyWithImpl<$Res>
       entity: null == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AccountEntityDto,
       branch: null == branch
           ? _value.branch
           : branch // ignore: cast_nullable_to_non_nullable
@@ -266,6 +304,18 @@ class __$$DetailedAccountDtoImplCopyWithImpl<$Res>
       lastOperationDate: null == lastOperationDate
           ? _value.lastOperationDate
           : lastOperationDate // ignore: cast_nullable_to_non_nullable
+              as String,
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
+              as String,
+      bicSwift: null == bicSwift
+          ? _value.bicSwift
+          : bicSwift // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
       balance: null == balance
           ? _value.balance
@@ -295,6 +345,9 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
       required this.dispositionType,
       required this.dispositionNumber,
       required this.lastOperationDate,
+      required this.alias,
+      required this.bicSwift,
+      required this.name,
       required this.balance,
       required this.accountHolder});
 
@@ -304,7 +357,7 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
   @override
   final int accountId;
   @override
-  final String entity;
+  final AccountEntityDto entity;
   @override
   final String branch;
   @override
@@ -326,13 +379,19 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
   @override
   final String lastOperationDate;
   @override
+  final String alias;
+  @override
+  final String bicSwift;
+  @override
+  final String name;
+  @override
   final AccountBalanceDto balance;
   @override
   final String? accountHolder;
 
   @override
   String toString() {
-    return 'DetailedAccountDto(accountId: $accountId, entity: $entity, branch: $branch, number: $number, status: $status, createDate: $createDate, activateDate: $activateDate, closureDate: $closureDate, currencyCode: $currencyCode, dispositionType: $dispositionType, dispositionNumber: $dispositionNumber, lastOperationDate: $lastOperationDate, balance: $balance, accountHolder: $accountHolder)';
+    return 'DetailedAccountDto(accountId: $accountId, entity: $entity, branch: $branch, number: $number, status: $status, createDate: $createDate, activateDate: $activateDate, closureDate: $closureDate, currencyCode: $currencyCode, dispositionType: $dispositionType, dispositionNumber: $dispositionNumber, lastOperationDate: $lastOperationDate, alias: $alias, bicSwift: $bicSwift, name: $name, balance: $balance, accountHolder: $accountHolder)';
   }
 
   @override
@@ -360,6 +419,10 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
                 other.dispositionNumber == dispositionNumber) &&
             (identical(other.lastOperationDate, lastOperationDate) ||
                 other.lastOperationDate == lastOperationDate) &&
+            (identical(other.alias, alias) || other.alias == alias) &&
+            (identical(other.bicSwift, bicSwift) ||
+                other.bicSwift == bicSwift) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.accountHolder, accountHolder) ||
                 other.accountHolder == accountHolder));
@@ -381,6 +444,9 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
       dispositionType,
       dispositionNumber,
       lastOperationDate,
+      alias,
+      bicSwift,
+      name,
       balance,
       accountHolder);
 
@@ -402,7 +468,7 @@ class _$DetailedAccountDtoImpl implements _DetailedAccountDto {
 abstract class _DetailedAccountDto implements DetailedAccountDto {
   const factory _DetailedAccountDto(
       {required final int accountId,
-      required final String entity,
+      required final AccountEntityDto entity,
       required final String branch,
       required final String number,
       required final AccountStatusDto status,
@@ -413,6 +479,9 @@ abstract class _DetailedAccountDto implements DetailedAccountDto {
       required final AccountDispositionTypeDto dispositionType,
       required final String dispositionNumber,
       required final String lastOperationDate,
+      required final String alias,
+      required final String bicSwift,
+      required final String name,
       required final AccountBalanceDto balance,
       required final String? accountHolder}) = _$DetailedAccountDtoImpl;
 
@@ -422,7 +491,7 @@ abstract class _DetailedAccountDto implements DetailedAccountDto {
   @override
   int get accountId;
   @override
-  String get entity;
+  AccountEntityDto get entity;
   @override
   String get branch;
   @override
@@ -443,6 +512,12 @@ abstract class _DetailedAccountDto implements DetailedAccountDto {
   String get dispositionNumber;
   @override
   String get lastOperationDate;
+  @override
+  String get alias;
+  @override
+  String get bicSwift;
+  @override
+  String get name;
   @override
   AccountBalanceDto get balance;
   @override

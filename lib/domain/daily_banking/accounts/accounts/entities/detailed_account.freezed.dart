@@ -17,11 +17,14 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DetailedAccount {
   UniqueId get id => throw _privateConstructorUsedError;
-  String get number => throw _privateConstructorUsedError;
+  String get iban => throw _privateConstructorUsedError;
   AccountBalance get balance => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
-  String get entity => throw _privateConstructorUsedError;
+  AccountEntity get entity => throw _privateConstructorUsedError;
   String get accountHolder => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get alias => throw _privateConstructorUsedError;
+  String get bicSwift => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DetailedAccountCopyWith<DetailedAccount> get copyWith =>
@@ -36,11 +39,14 @@ abstract class $DetailedAccountCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      String number,
+      String iban,
       AccountBalance balance,
       String currencyCode,
-      String entity,
-      String accountHolder});
+      AccountEntity entity,
+      String accountHolder,
+      String name,
+      String alias,
+      String bicSwift});
 
   $AccountBalanceCopyWith<$Res> get balance;
 }
@@ -59,20 +65,23 @@ class _$DetailedAccountCopyWithImpl<$Res, $Val extends DetailedAccount>
   @override
   $Res call({
     Object? id = null,
-    Object? number = null,
+    Object? iban = null,
     Object? balance = null,
     Object? currencyCode = null,
     Object? entity = null,
     Object? accountHolder = null,
+    Object? name = null,
+    Object? alias = null,
+    Object? bicSwift = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
+      iban: null == iban
+          ? _value.iban
+          : iban // ignore: cast_nullable_to_non_nullable
               as String,
       balance: null == balance
           ? _value.balance
@@ -85,10 +94,22 @@ class _$DetailedAccountCopyWithImpl<$Res, $Val extends DetailedAccount>
       entity: null == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AccountEntity,
       accountHolder: null == accountHolder
           ? _value.accountHolder
           : accountHolder // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
+              as String,
+      bicSwift: null == bicSwift
+          ? _value.bicSwift
+          : bicSwift // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -112,11 +133,14 @@ abstract class _$$DetailedAccountImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
-      String number,
+      String iban,
       AccountBalance balance,
       String currencyCode,
-      String entity,
-      String accountHolder});
+      AccountEntity entity,
+      String accountHolder,
+      String name,
+      String alias,
+      String bicSwift});
 
   @override
   $AccountBalanceCopyWith<$Res> get balance;
@@ -134,20 +158,23 @@ class __$$DetailedAccountImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? number = null,
+    Object? iban = null,
     Object? balance = null,
     Object? currencyCode = null,
     Object? entity = null,
     Object? accountHolder = null,
+    Object? name = null,
+    Object? alias = null,
+    Object? bicSwift = null,
   }) {
     return _then(_$DetailedAccountImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
+      iban: null == iban
+          ? _value.iban
+          : iban // ignore: cast_nullable_to_non_nullable
               as String,
       balance: null == balance
           ? _value.balance
@@ -160,10 +187,22 @@ class __$$DetailedAccountImplCopyWithImpl<$Res>
       entity: null == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AccountEntity,
       accountHolder: null == accountHolder
           ? _value.accountHolder
           : accountHolder // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
+              as String,
+      bicSwift: null == bicSwift
+          ? _value.bicSwift
+          : bicSwift // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -174,28 +213,37 @@ class __$$DetailedAccountImplCopyWithImpl<$Res>
 class _$DetailedAccountImpl implements _DetailedAccount {
   const _$DetailedAccountImpl(
       {required this.id,
-      required this.number,
+      required this.iban,
       required this.balance,
       required this.currencyCode,
       required this.entity,
-      required this.accountHolder});
+      required this.accountHolder,
+      required this.name,
+      required this.alias,
+      required this.bicSwift});
 
   @override
   final UniqueId id;
   @override
-  final String number;
+  final String iban;
   @override
   final AccountBalance balance;
   @override
   final String currencyCode;
   @override
-  final String entity;
+  final AccountEntity entity;
   @override
   final String accountHolder;
+  @override
+  final String name;
+  @override
+  final String alias;
+  @override
+  final String bicSwift;
 
   @override
   String toString() {
-    return 'DetailedAccount(id: $id, number: $number, balance: $balance, currencyCode: $currencyCode, entity: $entity, accountHolder: $accountHolder)';
+    return 'DetailedAccount(id: $id, iban: $iban, balance: $balance, currencyCode: $currencyCode, entity: $entity, accountHolder: $accountHolder, name: $name, alias: $alias, bicSwift: $bicSwift)';
   }
 
   @override
@@ -204,18 +252,22 @@ class _$DetailedAccountImpl implements _DetailedAccount {
         (other.runtimeType == runtimeType &&
             other is _$DetailedAccountImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.number, number) || other.number == number) &&
+            (identical(other.iban, iban) || other.iban == iban) &&
             (identical(other.balance, balance) || other.balance == balance) &&
             (identical(other.currencyCode, currencyCode) ||
                 other.currencyCode == currencyCode) &&
             (identical(other.entity, entity) || other.entity == entity) &&
             (identical(other.accountHolder, accountHolder) ||
-                other.accountHolder == accountHolder));
+                other.accountHolder == accountHolder) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.alias, alias) || other.alias == alias) &&
+            (identical(other.bicSwift, bicSwift) ||
+                other.bicSwift == bicSwift));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, number, balance, currencyCode, entity, accountHolder);
+  int get hashCode => Object.hash(runtimeType, id, iban, balance, currencyCode,
+      entity, accountHolder, name, alias, bicSwift);
 
   @JsonKey(ignore: true)
   @override
@@ -228,24 +280,33 @@ class _$DetailedAccountImpl implements _DetailedAccount {
 abstract class _DetailedAccount implements DetailedAccount {
   const factory _DetailedAccount(
       {required final UniqueId id,
-      required final String number,
+      required final String iban,
       required final AccountBalance balance,
       required final String currencyCode,
-      required final String entity,
-      required final String accountHolder}) = _$DetailedAccountImpl;
+      required final AccountEntity entity,
+      required final String accountHolder,
+      required final String name,
+      required final String alias,
+      required final String bicSwift}) = _$DetailedAccountImpl;
 
   @override
   UniqueId get id;
   @override
-  String get number;
+  String get iban;
   @override
   AccountBalance get balance;
   @override
   String get currencyCode;
   @override
-  String get entity;
+  AccountEntity get entity;
   @override
   String get accountHolder;
+  @override
+  String get name;
+  @override
+  String get alias;
+  @override
+  String get bicSwift;
   @override
   @JsonKey(ignore: true)
   _$$DetailedAccountImplCopyWith<_$DetailedAccountImpl> get copyWith =>

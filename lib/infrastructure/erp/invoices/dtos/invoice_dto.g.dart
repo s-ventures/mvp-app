@@ -8,9 +8,9 @@ part of 'invoice_dto.dart';
 
 _$InvoiceDtoImpl _$$InvoiceDtoImplFromJson(Map<String, dynamic> json) =>
     _$InvoiceDtoImpl(
-      erpContractId: (json['erpContractId'] as num).toInt(),
+      erpContractId: json['erpContractId'] as int,
       number: json['number'] as String?,
-      stakeholderId: (json['stakeholderId'] as num).toInt(),
+      stakeholderId: json['stakeholderId'] as int,
       dueDate: json['dueDate'] == null
           ? null
           : DateTime.parse(json['dueDate'] as String),
@@ -19,7 +19,7 @@ _$InvoiceDtoImpl _$$InvoiceDtoImplFromJson(Map<String, dynamic> json) =>
       currencyCode: json['currencyCode'] as String?,
       withholdingTaxesPercentage:
           (json['withholdingTaxesPercentage'] as num?)?.toDouble(),
-      fileId: (json['fileId'] as num?)?.toInt(),
+      fileId: json['fileId'] as int?,
       additionalInfo: json['additionalInfo'] as String?,
       statusDate: json['statusDate'] == null
           ? null
@@ -27,15 +27,15 @@ _$InvoiceDtoImpl _$$InvoiceDtoImplFromJson(Map<String, dynamic> json) =>
       withHoldingTaxesAmount:
           (json['withHoldingTaxesAmount'] as num?)?.toDouble(),
       totalWithoutTaxes: (json['totalWithoutTaxes'] as num?)?.toDouble(),
-      invoiceId: (json['invoiceId'] as num).toInt(),
-      stakeholderAddressId: (json['stakeholderAddressId'] as num?)?.toInt(),
-      stakeholderTelephoneId: (json['stakeholderTelephoneId'] as num?)?.toInt(),
-      stakeholderEmailId: (json['stakeholderEmailId'] as num?)?.toInt(),
+      invoiceId: json['invoiceId'] as int,
+      stakeholderAddressId: json['stakeholderAddressId'] as int?,
+      stakeholderTelephoneId: json['stakeholderTelephoneId'] as int?,
+      stakeholderEmailId: json['stakeholderEmailId'] as int?,
       sentDate: json['sentDate'] == null
           ? null
           : DateTime.parse(json['sentDate'] as String),
       status: $enumDecode(_$InvoiceStatusDtoEnumMap, json['status']),
-      serialNumberId: (json['serialNumberId'] as num?)?.toInt(),
+      serialNumberId: json['serialNumberId'] as int?,
       fullName: json['fullName'] as String,
       documentTypeCode:
           $enumDecode(_$DocumentTypeCodeDtoEnumMap, json['documentTypeCode']),

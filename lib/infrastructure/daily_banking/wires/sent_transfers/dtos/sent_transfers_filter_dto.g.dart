@@ -24,22 +24,22 @@ SentTransfersFilterDto _$SentTransfersFilterDtoFromJson(
       settlementAmountTo: (json['settlementAmountTo'] as num?)?.toDouble(),
       foreignExchangeFrom: (json['foreignExchangeFrom'] as num?)?.toDouble(),
       foreignExchangeTo: (json['foreignExchangeTo'] as num?)?.toDouble(),
-      exchangeValueFrom: (json['exchangeValueFrom'] as num?)?.toInt(),
-      exchangeValueTo: (json['exchangeValueTo'] as num?)?.toInt(),
+      exchangeValueFrom: json['exchangeValueFrom'] as int?,
+      exchangeValueTo: json['exchangeValueTo'] as int?,
       instructedAmountFrom: (json['instructedAmountFrom'] as num?)?.toDouble(),
       instructedAmountTo: (json['instructedAmountTo'] as num?)?.toDouble(),
       status:
           $enumDecodeNullable(_$TransferStatusTypeDtoEnumMap, json['status']),
       baasMovementId: json['baasMovementId'] as String?,
       concept2: json['concept2'] as String?,
-      sentTransferId: (json['sentTransferId'] as num?)?.toInt(),
+      sentTransferId: json['sentTransferId'] as int?,
       beneficiaryName: json['beneficiaryName'] as String?,
       transferDateFrom: _$JsonConverterFromJson<String, DateTime>(
           json['transferDateFrom'], const DateConverter().fromJson),
       transferDateTo: _$JsonConverterFromJson<String, DateTime>(
           json['transferDateTo'], const DateConverter().fromJson),
-      pageNumber: (json['pageNumber'] as num?)?.toInt() ?? 0,
-      pageSize: (json['pageSize'] as num?)?.toInt() ?? 10,
+      pageNumber: json['pageNumber'] as int? ?? 0,
+      pageSize: json['pageSize'] as int? ?? 10,
     );
 
 Map<String, dynamic> _$SentTransfersFilterDtoToJson(

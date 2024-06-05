@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/detailed_account.dart';
@@ -8,22 +7,11 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failur
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/simplified_account_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_request.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/accounts/accounts_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/data_sources/local/accounts_local_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/data_sources/remote/accounts_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/detailed_account_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/accounts/simplified_account_dto.dart';
-import 'package:manifiesto_mvp_app/infrastructure/local_storage/repositories/shared_preferences_local_storage.dart';
 import 'package:rxdart/rxdart.dart';
-
-final accountsRepositoryProvider = Provider<AccountsRepository>(
-  (ref) => AccountsRepository(
-    localDataSource: AccountsLocalDataSource(
-      ref.watch(sharedPreferencesLocalStorageProvider),
-    ),
-    remoteDataSource: AccountsRemoteDataSource(ref.watch(accountsRestClientProvider)),
-  ),
-);
 
 class AccountsRepository implements IAccountsRepository {
   AccountsRepository({

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SimplifiedAccount {
   UniqueId get id => throw _privateConstructorUsedError;
-  String get entity => throw _privateConstructorUsedError;
+  AccountEntity get entity => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
   AccountStatus get status => throw _privateConstructorUsedError;
   AccountBalance get balance => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $SimplifiedAccountCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
-      String entity,
+      AccountEntity entity,
       String currencyCode,
       AccountStatus status,
       AccountBalance balance});
@@ -70,7 +70,7 @@ class _$SimplifiedAccountCopyWithImpl<$Res, $Val extends SimplifiedAccount>
       entity: null == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AccountEntity,
       currencyCode: null == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
@@ -105,7 +105,7 @@ abstract class _$$SimplifiedAccountImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
-      String entity,
+      AccountEntity entity,
       String currencyCode,
       AccountStatus status,
       AccountBalance balance});
@@ -139,7 +139,7 @@ class __$$SimplifiedAccountImplCopyWithImpl<$Res>
       entity: null == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
-              as String,
+              as AccountEntity,
       currencyCode: null == currencyCode
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ class _$SimplifiedAccountImpl implements _SimplifiedAccount {
   @override
   final UniqueId id;
   @override
-  final String entity;
+  final AccountEntity entity;
   @override
   final String currencyCode;
   @override
@@ -210,7 +210,7 @@ class _$SimplifiedAccountImpl implements _SimplifiedAccount {
 abstract class _SimplifiedAccount implements SimplifiedAccount {
   const factory _SimplifiedAccount(
       {required final UniqueId id,
-      required final String entity,
+      required final AccountEntity entity,
       required final String currencyCode,
       required final AccountStatus status,
       required final AccountBalance balance}) = _$SimplifiedAccountImpl;
@@ -218,7 +218,7 @@ abstract class _SimplifiedAccount implements SimplifiedAccount {
   @override
   UniqueId get id;
   @override
-  String get entity;
+  AccountEntity get entity;
   @override
   String get currencyCode;
   @override
