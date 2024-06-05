@@ -47,7 +47,7 @@ mixin _$DetailedInvoiceDto {
   String get accountingTypeCode => throw _privateConstructorUsedError;
   int get serialNumberId => throw _privateConstructorUsedError;
   List<FileAttachmentDto> get attachments =>
-      throw _privateConstructorUsedError; // Todo(jesus): change to dto from bfmf
+      throw _privateConstructorUsedError; // Todo(jesus): change when we have the type from the bfmf
   dynamic get subtotalVatAmount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -509,7 +509,7 @@ class _$DetailedInvoiceDtoImpl implements _DetailedInvoiceDto {
     return EqualUnmodifiableListView(_attachments);
   }
 
-// Todo(jesus): change to dto from bfmf
+// Todo(jesus): change when we have the type from the bfmf
   @override
   final dynamic subtotalVatAmount;
 
@@ -695,7 +695,7 @@ abstract class _DetailedInvoiceDto implements DetailedInvoiceDto {
   int get serialNumberId;
   @override
   List<FileAttachmentDto> get attachments;
-  @override // Todo(jesus): change to dto from bfmf
+  @override // Todo(jesus): change when we have the type from the bfmf
   dynamic get subtotalVatAmount;
   @override
   @JsonKey(ignore: true)

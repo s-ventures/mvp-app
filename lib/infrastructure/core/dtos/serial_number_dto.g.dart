@@ -9,14 +9,14 @@ part of 'serial_number_dto.dart';
 _$SerialNumberDtoImpl _$$SerialNumberDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$SerialNumberDtoImpl(
-      serialNumberId: json['serialNumberId'] as int,
-      erpContractId: json['erpContractId'] as int,
+      serialNumberId: (json['serialNumberId'] as num).toInt(),
+      erpContractId: (json['erpContractId'] as num).toInt(),
       type: $enumDecode(_$SerialNumberTypeEnumMap, json['type']),
       alias: json['alias'] as String,
       description: json['description'] as String,
-      numberLast: json['numberLast'] as int,
+      numberLast: (json['numberLast'] as num).toInt(),
       format: json['format'] as String,
-      templateId: json['templateId'] as int,
+      templateId: (json['templateId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$SerialNumberDtoImplToJson(

@@ -51,7 +51,7 @@ mixin class PaginationLoadingProvider<T> {
     return _source?.refresh() ?? Future.value();
   }
 
-  Future<void>? disposePagination() {
+  Future<void>? dispose() {
     return _subscriptions.dispose();
   }
 }

@@ -19,6 +19,39 @@ class _InvoicesRestClient implements InvoicesRestClient {
   String? baseUrl;
 
   @override
+  Future<PaginatedResponse<InvoiceDto>> getInvoices({
+    required int erpContractId,
+    required InvoiceFilterDto filter,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'': filter.toJson()};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginatedResponse<InvoiceDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/erp/invoices/v1/${erpContractId}/query',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PaginatedResponse<InvoiceDto>.fromJson(
+      _result.data!,
+      (json) => InvoiceDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
   Future<DetailedInvoiceDto> getDetailedInvoice({
     required int contractId,
     required int id,
@@ -45,6 +78,38 @@ class _InvoicesRestClient implements InvoicesRestClient {
               baseUrl,
             ))));
     final value = DetailedInvoiceDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<OverviewInvoicesDto> getOverviewInvoices({
+    required int erpContractId,
+    required OverviewSegmentPeriodDto segmentPeriod,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'segmentPeriod': segmentPeriod.name
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<OverviewInvoicesDto>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'erp/invoices/v1/overview',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = OverviewInvoicesDto.fromJson(_result.data!);
     return value;
   }
 

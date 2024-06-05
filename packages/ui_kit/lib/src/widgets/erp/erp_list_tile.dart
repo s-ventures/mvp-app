@@ -8,6 +8,7 @@ class ErpListTile extends StatelessWidget {
     required this.contact,
     required this.amount,
     required this.status,
+    required this.statusColor,
     required this.onPressed,
     super.key,
   });
@@ -17,6 +18,7 @@ class ErpListTile extends StatelessWidget {
   final String contact;
   final double amount;
   final String status;
+  final Color statusColor;
   final VoidCallback onPressed;
 
   @override
@@ -47,7 +49,7 @@ class ErpListTile extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: context.color.statusWarning,
+                      color: statusColor,
                       borderRadius: BorderRadius.circular(context.radius.hard),
                     ),
                   ),
@@ -72,8 +74,10 @@ class ErpListTile extends StatelessWidget {
                 dense: true,
                 contentPadding: EdgeInsets.zero,
                 leading: IconWithContainer(
-                  icon: IconAssets.user,
+                  text: contact.initials,
+                  foreground: context.color.textLight900,
                   backgroundColor: context.color.neutralLight100,
+                  textStyle: context.textStyle.bodyMediumRegular,
                 ),
                 title: Text(
                   contact,
@@ -96,7 +100,7 @@ class ErpListTile extends StatelessWidget {
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: context.color.statusWarning.withOpacity(
+                        color: statusColor.withOpacity(
                           0.05,
                         ),
                         borderRadius: BorderRadius.circular(
@@ -106,7 +110,7 @@ class ErpListTile extends StatelessWidget {
                       child: Text(
                         status,
                         style: context.textStyle.buttonTabBar.copyWith(
-                          color: context.color.statusWarning,
+                          color: statusColor,
                         ),
                       ),
                     ),

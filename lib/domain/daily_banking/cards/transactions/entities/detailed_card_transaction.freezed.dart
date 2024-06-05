@@ -261,7 +261,8 @@ class _$DetailedCardTransactionImpl implements _DetailedCardTransaction {
             (identical(other.concept, concept) || other.concept == concept) &&
             (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
                 other.cardEncryptedNumber == cardEncryptedNumber) &&
-            const DeepCollectionEquality().equals(other._attachments, _attachments));
+            const DeepCollectionEquality()
+                .equals(other._attachments, _attachments));
   }
 
   @override

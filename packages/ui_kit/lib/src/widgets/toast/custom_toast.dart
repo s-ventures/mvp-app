@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ui_kit/src/extension/toast_type_color_extension.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CustomToast extends StatelessWidget {

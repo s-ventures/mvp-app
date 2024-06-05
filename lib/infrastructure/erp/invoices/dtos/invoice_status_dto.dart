@@ -1,5 +1,7 @@
+// TODO(georgeta): Pendiente de definir con Negocio y actualizar en CORE
 // [ DRAFT, ISSUED, HALF_PAID, PAID, CANCELLED ]
-import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'package:json_annotation/json_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/erp/invoices/entities/invoice_status.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
@@ -17,6 +19,6 @@ extension InvoiceStatusDtoX on InvoiceStatusDto {
         InvoiceStatusDto.issued => InvoiceStatus.issued,
         InvoiceStatusDto.halfPaid => InvoiceStatus.halfPaid,
         InvoiceStatusDto.paid => InvoiceStatus.paid,
-        InvoiceStatusDto.cancelled => InvoiceStatus.cancelled
+        InvoiceStatusDto.cancelled => InvoiceStatus.cancelled,
       };
 }

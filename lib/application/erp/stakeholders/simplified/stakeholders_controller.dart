@@ -1,14 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
-import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
+import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/erp/stakeholders/simplified/stakeholders_state.dart';
-import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_type_code.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
-import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_type.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
-import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders_filter.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_filtered_pagination_repository.dart';
 
 final stakeholdersControllerProvider =
     StateNotifierProvider<StakeholdersController, StakeholdersState>(
@@ -18,7 +14,7 @@ final stakeholdersControllerProvider =
 );
 
 class StakeholdersController extends StateNotifier<StakeholdersState>
-    with PaginationLoadingProvider<List<Stakeholder>> {
+    with FilteredPaginationLoadingProvider<List<Stakeholder>, StakeholdersFilter> {
   StakeholdersController(
     this._repository,
   ) : super(const StakeholdersState());
@@ -28,6 +24,7 @@ class StakeholdersController extends StateNotifier<StakeholdersState>
   Future<void> init() async {
     initPagination(
       _repository,
+      initialFilter: const StakeholdersFilter(),
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(
@@ -44,32 +41,24 @@ class StakeholdersController extends StateNotifier<StakeholdersState>
     );
   }
 
-  Future<void> updateFilter({
-    UniqueId? stakeholderId,
-    PersonTypeCode? personTypeCode,
-    String? fullName,
-    LanguageCodeType? languageCodeType,
-    RelationType? relationType,
-    DateTime? createDateFrom,
-    DateTime? createDateTo,
-    DocumentTypeCode? documentTypeCode,
-    String? documentNumber,
-    String? additionalInfo,
-    bool? isFavorite,
-  }) async {
-    _repository.updateFilter(
-      stakeholderId: stakeholderId,
-      personTypeCode: personTypeCode,
-      fullName: fullName,
-      languageCodeType: languageCodeType,
-      relationType: relationType,
-      createDateFrom: createDateFrom,
-      createDateTo: createDateTo,
-      documentTypeCode: documentTypeCode,
-      documentNumber: documentNumber,
-      additionalInfo: additionalInfo,
-      isFavorite: isFavorite,
-    );
-    await refresh();
+  Future<void> applyFilters() async {
+    // TODO(georgeta): Revisar los filtros de Contactos
+    final filter = super.filter?.copyWith(
+          isFavorite: state.isFavorite,
+        );
+
+    if (filter == null) return;
+
+    await updateFilter(filter);
+  }
+
+  Future<void> resetFilters() async {
+    setStateSafe(() => state.copyWith(isFavorite: null));
+    await applyFilters();
+  }
+
+  void setFavorite({bool? isFavorite}) {
+    state = state.copyWith(isFavorite: isFavorite);
+    applyFilters();
   }
 }

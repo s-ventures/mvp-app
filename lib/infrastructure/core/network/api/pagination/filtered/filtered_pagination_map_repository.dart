@@ -96,4 +96,15 @@ abstract class FilteredPaginationMapRepository<K, V, F extends PaginationFilter>
     final currentItems = subject.value.data ?? <K, V>{};
     return Map.of(currentItems)..addAll(newItems);
   }
+
+  @override
+  void reset() {
+    subject.add(
+      PaginationMapData(
+        page: 0,
+        pageSize: super.pageSize,
+        data: null,
+      ),
+    );
+  }
 }

@@ -11,5 +11,9 @@ class SimplifiedSentTransfersState with _$SimplifiedSentTransfersState {
     AsyncValue<List<SimplifiedSentTransfer>> sentTransfers,
     @Default(AsyncLoading<List<SimplifiedSentTransfer>>())
     AsyncValue<List<SimplifiedSentTransfer>> lastSentTransfers,
+    DateTime? startDate,
+    DateTime? endDate,
+    double? amountFrom,
+    double? amountTo,
   }) = _SimplifiedSentTransfersState;
 }

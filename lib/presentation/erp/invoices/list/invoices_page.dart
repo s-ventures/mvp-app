@@ -1,20 +1,36 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/widgets/approved.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/application/erp/invoices/invoices_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/widgets/invoices.dart';
 import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/widgets/pending.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class InvoicesTab extends StatefulWidget {
+class InvoicesTab extends ConsumerStatefulWidget {
   const InvoicesTab({super.key});
 
   @override
-  State<InvoicesTab> createState() => _InvoicesTabState();
+  ConsumerState<InvoicesTab> createState() => _InvoicesTabState();
 }
 
-class _InvoicesTabState extends State<InvoicesTab> {
+class _InvoicesTabState extends ConsumerState<InvoicesTab> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      unawaited(
+        ref.read(invoicesControllerProvider.notifier).init(),
+      );
+    });
+    super.initState();
+  }
+
   SwitchViewType type = SwitchViewType.list;
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(invoicesControllerProvider);
+
     return ListView(
       padding: const EdgeInsets.all(AppSpacing.s5),
       children: [
@@ -34,48 +50,18 @@ class _InvoicesTabState extends State<InvoicesTab> {
         ),
         AppSpacing.vertical.s5,
         InvoicesPending(
+          pendingInvoices: state.pendingInvoices,
           type: type,
           setType: (value) {
             setState(() {
               type = value;
             });
           },
-          items: const [
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 1',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 2',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-          ],
         ),
         AppSpacing.vertical.s5,
-        const InvoicesApproved(
-          viewType: SwitchViewType.list,
-          items: [
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 1',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-            {
-              'title': 'F1/2023',
-              'date': '02/23',
-              'contact': 'Contacto 2',
-              'amount': '123',
-              'status': 'Vence en 2 días',
-            },
-          ],
+        Invoices(
+          invoices: state.invoices,
+          viewType: type,
         ),
       ],
     );

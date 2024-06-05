@@ -31,7 +31,6 @@ class _TransactionList extends StatelessWidget {
   const _TransactionList({
     required this.transactions,
     required this.onTransactionPressed,
-    // this.onReload,
   });
 
   final Map<DateTime, List<SimplifiedAccountTransaction>> transactions;

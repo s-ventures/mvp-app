@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/filter/filter_simplified_claims_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/claims_tab/claims_tab.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/details/policy_tab/policy_details_tab.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -27,11 +27,9 @@ class _InsurancePolicyDetailsPageState extends ConsumerState<InsurancePolicyDeta
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref
-          .read(filterSimplifiedClaimsControllerProvider.notifier)
-          .setInsuranceIds([widget.insuranceId]);
+      ref.read(simplifiedClaimsControllerProvider.notifier).setInsuranceIds([widget.insuranceId]);
       unawaited(
-        ref.read(filterSimplifiedClaimsControllerProvider.notifier).applyFilters(),
+        ref.read(simplifiedClaimsControllerProvider.notifier).applyFilters(),
       );
     });
     super.initState();
@@ -57,11 +55,7 @@ class _InsurancePolicyDetailsPageState extends ConsumerState<InsurancePolicyDeta
                     size: ButtonSize.extraSmall,
                     onPressed: () async {
                       unawaited(
-                        ref
-                            .read(
-                              filterSimplifiedClaimsControllerProvider.notifier,
-                            )
-                            .resetFilters(),
+                        ref.read(simplifiedClaimsControllerProvider.notifier).resetFilters(),
                       );
                       context.pop();
                     },

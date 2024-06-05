@@ -9,18 +9,18 @@ part of 'detailed_invoice_dto.dart';
 _$DetailedInvoiceDtoImpl _$$DetailedInvoiceDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DetailedInvoiceDtoImpl(
-      erpContractId: json['erpContractId'] as int,
-      invoiceId: json['invoiceId'] as int,
-      contractId: json['contractId'] as int,
+      erpContractId: (json['erpContractId'] as num).toInt(),
+      invoiceId: (json['invoiceId'] as num).toInt(),
+      contractId: (json['contractId'] as num).toInt(),
       number: json['number'] as String,
-      stakeholderId: json['stakeholderId'] as int,
+      stakeholderId: (json['stakeholderId'] as num).toInt(),
       dueDate: const DateConverter().fromJson(json['dueDate'] as String),
       createdDate:
           const DateConverter().fromJson(json['createdDate'] as String),
       currencyCode: json['currencyCode'] as String,
       withHoldingTaxesPercentage:
           (json['withHoldingTaxesPercentage'] as num).toDouble(),
-      fileId: json['fileId'] as int,
+      fileId: (json['fileId'] as num).toInt(),
       additionalInfo: json['additionalInfo'] as String,
       statusDate: const DateConverter().fromJson(json['statusDate'] as String),
       items: (json['items'] as List<dynamic>)
@@ -28,14 +28,14 @@ _$DetailedInvoiceDtoImpl _$$DetailedInvoiceDtoImplFromJson(
           .toList(),
       serialNumber: SerialNumberDto.fromJson(
           json['serialNumber'] as Map<String, dynamic>),
-      stakeholderAddressId: json['stakeholderAddressId'] as int,
-      stakeholderTelephoneId: json['stakeholderTelephoneId'] as int,
-      stakeholderEmailId: json['stakeholderEmailId'] as int,
+      stakeholderAddressId: (json['stakeholderAddressId'] as num).toInt(),
+      stakeholderTelephoneId: (json['stakeholderTelephoneId'] as num).toInt(),
+      stakeholderEmailId: (json['stakeholderEmailId'] as num).toInt(),
       issueDate: const DateConverter().fromJson(json['issueDate'] as String),
       status: $enumDecode(_$InvoiceStatusDtoEnumMap, json['status']),
-      quotationId: json['quotationId'] as int,
+      quotationId: (json['quotationId'] as num).toInt(),
       accountingTypeCode: json['accountingTypeCode'] as String,
-      serialNumberId: json['serialNumberId'] as int,
+      serialNumberId: (json['serialNumberId'] as num).toInt(),
       attachments: (json['attachments'] as List<dynamic>)
           .map((e) => FileAttachmentDto.fromJson(e as Map<String, dynamic>))
           .toList(),
