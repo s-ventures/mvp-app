@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:manifiesto_mvp_app/flavors.dart';
 import 'package:manifiesto_mvp_app/infrastructure/local_storage/repositories/shared_preferences_local_storage.dart';
 import 'package:manifiesto_mvp_app/providers.dart';
@@ -9,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Initializes services and controllers before the start of the application
 Future<ProviderContainer> bootstrap({required Flavor flavor}) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initializeDateFormatting();
 
   F.appFlavor = flavor;
 

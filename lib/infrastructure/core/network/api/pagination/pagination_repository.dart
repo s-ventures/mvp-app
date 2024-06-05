@@ -3,7 +3,6 @@ abstract class PaginationRepository<T> {
     this.pageSize = 10,
   });
 
-  /// Loads next page. If there are new items returns true, false otherwise
   Future<bool> loadNextPage();
 
   final int pageSize;
@@ -13,4 +12,6 @@ abstract class PaginationRepository<T> {
   Stream<T> observe();
 
   Future<void> refresh();
+
+  void onPaginationInfo(int totalPages, int totalElements);
 }

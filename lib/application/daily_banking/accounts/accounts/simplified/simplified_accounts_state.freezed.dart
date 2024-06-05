@@ -12,13 +12,12 @@ part of 'simplified_accounts_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SimplifiedAccountsState {
   AsyncValue<List<SimplifiedAccount>> get accounts =>
       throw _privateConstructorUsedError;
-  int get selectedAccountIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedAccountsStateCopyWith<SimplifiedAccountsState> get copyWith =>
@@ -31,8 +30,7 @@ abstract class $SimplifiedAccountsStateCopyWith<$Res> {
           $Res Function(SimplifiedAccountsState) then) =
       _$SimplifiedAccountsStateCopyWithImpl<$Res, SimplifiedAccountsState>;
   @useResult
-  $Res call(
-      {AsyncValue<List<SimplifiedAccount>> accounts, int selectedAccountIndex});
+  $Res call({AsyncValue<List<SimplifiedAccount>> accounts});
 }
 
 /// @nodoc
@@ -50,17 +48,12 @@ class _$SimplifiedAccountsStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? accounts = null,
-    Object? selectedAccountIndex = null,
   }) {
     return _then(_value.copyWith(
       accounts: null == accounts
           ? _value.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedAccount>>,
-      selectedAccountIndex: null == selectedAccountIndex
-          ? _value.selectedAccountIndex
-          : selectedAccountIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -74,8 +67,7 @@ abstract class _$$SimplifiedAccountsStateImplCopyWith<$Res>
       __$$SimplifiedAccountsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {AsyncValue<List<SimplifiedAccount>> accounts, int selectedAccountIndex});
+  $Res call({AsyncValue<List<SimplifiedAccount>> accounts});
 }
 
 /// @nodoc
@@ -92,17 +84,12 @@ class __$$SimplifiedAccountsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? accounts = null,
-    Object? selectedAccountIndex = null,
   }) {
     return _then(_$SimplifiedAccountsStateImpl(
       accounts: null == accounts
           ? _value.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedAccount>>,
-      selectedAccountIndex: null == selectedAccountIndex
-          ? _value.selectedAccountIndex
-          : selectedAccountIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -111,19 +98,15 @@ class __$$SimplifiedAccountsStateImplCopyWithImpl<$Res>
 
 class _$SimplifiedAccountsStateImpl implements _SimplifiedAccountsState {
   const _$SimplifiedAccountsStateImpl(
-      {this.accounts = const AsyncLoading<List<SimplifiedAccount>>(),
-      this.selectedAccountIndex = 0});
+      {this.accounts = const AsyncLoading<List<SimplifiedAccount>>()});
 
   @override
   @JsonKey()
   final AsyncValue<List<SimplifiedAccount>> accounts;
-  @override
-  @JsonKey()
-  final int selectedAccountIndex;
 
   @override
   String toString() {
-    return 'SimplifiedAccountsState(accounts: $accounts, selectedAccountIndex: $selectedAccountIndex)';
+    return 'SimplifiedAccountsState(accounts: $accounts)';
   }
 
   @override
@@ -132,13 +115,11 @@ class _$SimplifiedAccountsStateImpl implements _SimplifiedAccountsState {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedAccountsStateImpl &&
             (identical(other.accounts, accounts) ||
-                other.accounts == accounts) &&
-            (identical(other.selectedAccountIndex, selectedAccountIndex) ||
-                other.selectedAccountIndex == selectedAccountIndex));
+                other.accounts == accounts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, accounts, selectedAccountIndex);
+  int get hashCode => Object.hash(runtimeType, accounts);
 
   @JsonKey(ignore: true)
   @override
@@ -150,13 +131,11 @@ class _$SimplifiedAccountsStateImpl implements _SimplifiedAccountsState {
 
 abstract class _SimplifiedAccountsState implements SimplifiedAccountsState {
   const factory _SimplifiedAccountsState(
-      {final AsyncValue<List<SimplifiedAccount>> accounts,
-      final int selectedAccountIndex}) = _$SimplifiedAccountsStateImpl;
+          {final AsyncValue<List<SimplifiedAccount>> accounts}) =
+      _$SimplifiedAccountsStateImpl;
 
   @override
   AsyncValue<List<SimplifiedAccount>> get accounts;
-  @override
-  int get selectedAccountIndex;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedAccountsStateImplCopyWith<_$SimplifiedAccountsStateImpl>

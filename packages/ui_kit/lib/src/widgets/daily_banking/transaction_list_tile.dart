@@ -40,9 +40,9 @@ class TransactionListTile extends StatelessWidget {
             child: ListTile(
               tileColor: Colors.white,
               shape: RoundedRectangleBorder(borderRadius: borderRadius),
-              leading: IconWithContainer(
-                text: leadingEmoji,
+              leading: TextAvatar(
                 backgroundColor: leadingBackgroundColor,
+                text: leadingEmoji,
               ),
               title: Text(
                 title,

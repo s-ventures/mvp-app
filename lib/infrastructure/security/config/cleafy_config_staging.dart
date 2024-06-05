@@ -5,7 +5,7 @@ import 'package:manifiesto_mvp_app/infrastructure/security/config/cleafy_app_con
 class CleafyConfigStaging implements CleafyAppConfig {
   @override
   CleafyConfiguration get() => CleafyConfiguration(
-        // TODO(miguel): ADD ENPOINT
+        // TODO(migalv): ADD ENPOINT
         '',
         AppConfig().appName,
         CleafyDetectorsConfiguration(),

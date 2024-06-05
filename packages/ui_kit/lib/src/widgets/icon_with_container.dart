@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-enum IconWithContainerSize { extraSmall, small, medium, large }
+enum IconWithContainerSize { small, medium, large }
 
 class IconWithContainer extends StatelessWidget {
   const IconWithContainer({
@@ -16,9 +16,6 @@ class IconWithContainer extends StatelessWidget {
     this.subIcon,
     this.backgroundColor = Colors.white,
     this.borderRadius = const BorderRadius.all(Radius.circular(10)),
-    this.outlined = false,
-    this.isLoading = false,
-    this.textStyle,
   });
 
   final double height;
@@ -31,9 +28,6 @@ class IconWithContainer extends StatelessWidget {
   final String? subIcon;
   final Color backgroundColor;
   final BorderRadius borderRadius;
-  final bool outlined;
-  final bool isLoading;
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -44,47 +38,29 @@ class IconWithContainer extends StatelessWidget {
           width: width,
           height: height,
           padding: padding,
-          decoration: ShapeDecoration(
+          decoration: BoxDecoration(
             color: backgroundColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: size == IconWithContainerSize.extraSmall
-                  ? BorderRadius.circular(6)
-                  : borderRadius,
-              side: outlined
-                  ? BorderSide(
-                      color: context.color.strokeLigth100,
-                    )
-                  : BorderSide.none,
-            ),
+            borderRadius: borderRadius,
           ),
           child: Center(
-            child: isLoading
-                ? const CustomLoader()
-                : icon != null
-                    ? IconSvg(
-                        icon!,
-                        color: foreground == Colors.black ? context.color.iconLight900 : foreground,
-                        size: size == IconWithContainerSize.extraSmall
-                            ? 12
-                            : size == IconWithContainerSize.small
-                                ? 16
-                                : size == IconWithContainerSize.medium
-                                    ? 24
-                                    : 32,
-                      )
-                    : Text(
-                        text!,
-                        style: size == IconWithContainerSize.extraSmall
-                            ? textStyle ??
-                                context.textStyle.buttonTabBar.copyWith(
-                                  color: foreground,
-                                  fontSize: 8,
-                                )
-                            : textStyle ??
-                                context.textStyle.h6.copyWith(
-                                  color: foreground,
-                                ),
-                      ),
+            child: icon != null
+                ? IconSvg(
+                    icon!,
+                    color: foreground == Colors.black
+                        ? context.color.iconLight900
+                        : foreground,
+                    size: size == IconWithContainerSize.small
+                        ? 16
+                        : size == IconWithContainerSize.medium
+                            ? 20
+                            : 24,
+                  )
+                : Text(
+                    text!,
+                    style: context.textStyle.h6.copyWith(
+                      color: foreground,
+                    ),
+                  ),
           ),
         ),
         if (subIcon != null)

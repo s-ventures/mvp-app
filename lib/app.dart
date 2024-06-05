@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:localizations/localizations.dart';
+// import 'package:manifiesto_mvp_app/l10n/app_localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -27,9 +27,12 @@ class App extends ConsumerWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: appTheme.theme,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      onGenerateTitle: (context) => context.loc.commonAppTitle,
+      // TODO(localization): Uncomment when localization is needed
+      // localizationsDelegates: AppLocalizations.localizationsDelegates,
+      // supportedLocales: AppLocalizations.supportedLocales,
+      // routeInformationParser: router.routeInformationParser,
+      // routerDelegate: router.routerDelegate,
+      // routeInformationProvider: router.routeInformationProvider,
       routerConfig: router,
       builder: (context, child) => Builder(
         builder: (context) => ThemeProvider(

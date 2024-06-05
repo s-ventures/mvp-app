@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/filter/filter_simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/search_bar.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_list.dart';
 import 'package:rxdart/rxdart.dart';
@@ -14,10 +13,12 @@ class SearchCardTransactionsPage extends ConsumerStatefulWidget {
   const SearchCardTransactionsPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _SearchCardTransactionsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _SearchCardTransactionsPageState();
 }
 
-class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransactionsPage> {
+class _SearchCardTransactionsPageState
+    extends ConsumerState<SearchCardTransactionsPage> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
   final _textSubject = PublishSubject<String>();
@@ -30,9 +31,12 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
       _textSubject.add(_controller.text);
     });
 
-    _debounceSubscription = _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
+    _debounceSubscription =
+        _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
       (text) {
-        ref.read(simplifiedCardTransactionsControllerProvider.notifier).setSearch(text);
+        ref
+            .read(filterSimplifiedCardTransactionsControllerProvider.notifier)
+            .setSearch(text);
       },
     );
   }
@@ -48,28 +52,30 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
 
   @override
   Widget build(BuildContext context) {
-    final controller = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
-    final state = ref.watch(simplifiedCardTransactionsControllerProvider);
+    final controller =
+        ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
 
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
-            CustomAppBar.sliver(
+            CustomAppBar(
               centerTitle: true,
-              title: context.loc.commonSearch,
+              title: 'Buscar',
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async {
-                  await controller.resetFilters().then((_) => context.pop());
-                },
+                onPressed: () async => context.pop(),
               ),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(kToolbarHeight),
-                child: TransactionSearchBar(
-                  controller: _controller,
+                child: Column(
+                  children: [
+                    TransactionSearchBar(
+                      controller: _controller,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -77,21 +83,12 @@ class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransacti
         },
         body: CustomScrollView(
           slivers: [
-            // const SliverPadding(
-            //   padding: EdgeInsets.all(AppSpacing.s5),
-            //   sliver: SliverToBoxAdapter(
-            //     child: RecentCategories(
-            //       // categories: categories,
-            //       onCategoryPressed: print,
-            //     ),
-            //   ),
-            // ),
             SliverPadding(
-              padding: const EdgeInsets.all(
-                AppSpacing.s5,
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s5,
+                vertical: AppSpacing.s5,
               ),
               sliver: CardTransactionsList(
-                transactions: state.transactions,
                 onTransactionPressed: (transaction) {},
               ),
             ),

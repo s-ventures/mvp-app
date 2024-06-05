@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class FakeSearchBar extends StatelessWidget {
@@ -25,7 +24,7 @@ class FakeSearchBar extends StatelessWidget {
                 AppSpacing.horizontal.s3,
                 Expanded(
                   child: Text(
-                    context.loc.commonSearch,
+                    'Buscar',
                     style: context.textStyle.bodyMediumRegular.copyWith(
                       color: context.color.textLight600,
                     ),

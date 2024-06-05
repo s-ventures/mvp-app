@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardSettingsAliasPage extends StatelessWidget {
@@ -13,9 +12,9 @@ class CardSettingsAliasPage extends StatelessWidget {
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar.sliver(
+              CustomAppBar(
                 centerTitle: true,
-                title: context.loc.dailyBankingCardsSettingsCardAlias,
+                title: 'Alias de tu tarjeta',
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -25,29 +24,44 @@ class CardSettingsAliasPage extends StatelessWidget {
               ),
             ];
           },
-          body: ListView(
-            padding: const EdgeInsets.all(16),
+          body: Column(
             children: [
-              TextInput(
-                size: TextInputSize.extraSmall,
-                labelText: context.loc.dailyBankingCardsAlias,
-                hintText: context.loc.dailyBankingCardsSettingsCardAliasDescription,
-                controller: TextEditingController(
-                  text: '-',
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  children: [
+                    CustomCard(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Inserte el alias de su tarjeta',
+                            style: context.textStyle.bodyMediumSemiBold.copyWith(
+                              color: context.color.textLight600,
+                            ),
+                          ),
+                          AppSpacing.vertical.s3,
+                          const TextInput(
+                            size: TextInputSize.extraSmall,
+                            hintText: 'Ej. Tarjeta personal',
+                          ),
+                          AppSpacing.vertical.s5,
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Button(
+                  title: 'Guardar',
+                  size: ButtonSize.medium,
+                  expand: true,
+                  onPressed: () async {},
                 ),
               ),
             ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Button(
-            title: context.loc.commonSave,
-            size: ButtonSize.small,
-            expand: true,
-            onPressed: () async {},
           ),
         ),
       ),

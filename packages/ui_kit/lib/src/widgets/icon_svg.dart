@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 enum IconSvgSize {
-  extraSmall(12),
   small(16),
   medium(24),
   large(32);
@@ -19,12 +18,6 @@ class IconSvg extends StatelessWidget {
     this.color,
     this.size = 24,
   });
-
-  IconSvg.extraSmall(
-    this.icon, {
-    super.key,
-    this.color,
-  }) : size = IconSvgSize.extraSmall.value;
 
   IconSvg.small(
     this.icon, {

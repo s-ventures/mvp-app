@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -15,11 +14,11 @@ class CardSettingsPage extends StatelessWidget {
         body: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar.sliver(
+              CustomAppBar(
                 floating: true,
                 pinned: true,
                 centerTitle: true,
-                title: context.loc.dailyBankingCardsSettingsTitle,
+                title: 'Ajustes de tarjeta',
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -36,17 +35,14 @@ class CardSettingsPage extends StatelessWidget {
                 children: [
                   Splash(
                     borderRadius: BorderRadius.circular(context.radius.soft),
-                    onPressed: () => context.pushNamed(
-                      AppRoute.dailyBankingCardSettingsLimits.name,
-                    ),
+                    onPressed: () => context.pushNamed(AppRoute.dailyBankingCardSettingsLimits.name),
                     child: ListTile(
                       title: Text(
-                        context.loc.dailyBankingCardsSettingsCardLimits,
+                        'Límites de tarjeta',
                         style: context.textStyle.bodyMediumSemiBold,
                       ),
                       subtitle: Text(
-                        context
-                            .loc.dailyBankingCardsSettingsCardLimitsDescription,
+                        'Establece límites de gasto',
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -64,12 +60,11 @@ class CardSettingsPage extends StatelessWidget {
                     onPressed: () => context.pushNamed(AppRoute.dailyBankingCardSettingsAlias.name),
                     child: ListTile(
                       title: Text(
-                        context.loc.dailyBankingCardsSettingsCardAlias,
+                        'Editar alias',
                         style: context.textStyle.bodyMediumSemiBold,
                       ),
                       subtitle: Text(
-                        context
-                            .loc.dailyBankingCardsSettingsCardAliasDescription,
+                        'Establece un nombre a tu tarjeta',
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
                         ),
@@ -81,7 +76,7 @@ class CardSettingsPage extends StatelessWidget {
               ),
               AppSpacing.vertical.s6,
               Text(
-                context.loc.commonSecurity,
+                'Seguridad',
                 style: context.textStyle.bodyMediumSemiBold.copyWith(
                   color: context.color.textLight600,
                 ),
@@ -96,7 +91,7 @@ class CardSettingsPage extends StatelessWidget {
                     ),
                     child: ListTile(
                       title: Text(
-                        context.loc.dailyBankingCardsSettingsCardOnlinePayment,
+                        'Pagos online',
                         style: context.textStyle.bodyMediumRegular,
                       ),
                       trailing: Switch(
@@ -108,7 +103,7 @@ class CardSettingsPage extends StatelessWidget {
                   Splash(
                     child: ListTile(
                       title: Text(
-                        context.loc.dailyBankingCardsSettingsCardAtmWithdrawals,
+                        'Retiradas de cajeros',
                         style: context.textStyle.bodyMediumRegular,
                       ),
                       trailing: Switch(
@@ -124,8 +119,7 @@ class CardSettingsPage extends StatelessWidget {
                     ),
                     child: ListTile(
                       title: Text(
-                        context.loc
-                            .dailyBankingCardsSettingsCardContactlessPayment,
+                        'Pagos contactless',
                         style: context.textStyle.bodyMediumRegular,
                       ),
                       trailing: Switch(
@@ -138,9 +132,8 @@ class CardSettingsPage extends StatelessWidget {
               ),
               AppSpacing.vertical.s6,
               Button(
-                title:
-                    context.loc.dailyBankingCardsSettingsCardReportTheftOrLoss,
-                size: ButtonSize.small,
+                title: 'Reportar robo o pérdida',
+                size: ButtonSize.medium,
                 background: context.color.error.withOpacity(0.15),
                 foreground: context.color.error,
                 onPressed: () async {},
