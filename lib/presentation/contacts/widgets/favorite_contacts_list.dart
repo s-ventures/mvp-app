@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/erp/stakeholders/favorite/favorite_stakeholders_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/search/widgets/filter_contacts_bottom_sheet/filter_contacts_bottom_sheet.dart';
-import 'package:manifiesto_mvp_app/presentation/extensions/stakeholders_relation_type_color.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/stakeholders_relation_type_color_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 

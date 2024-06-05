@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
+import 'package:manifiesto_mvp_app/presentation/extensions/quotes_status_color_extension.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -7,13 +10,13 @@ class QuotesPending extends StatelessWidget {
   const QuotesPending({
     required this.type,
     required this.setType,
-    required this.items,
+    required this.pendingQuotes,
     super.key,
   });
 
   final SwitchViewType type;
   final void Function(SwitchViewType) setType;
-  final List<Map<String, String>> items;
+  final AsyncValue<List<Quotation>> pendingQuotes;
 
   @override
   Widget build(BuildContext context) {
@@ -36,51 +39,70 @@ class QuotesPending extends StatelessWidget {
           ],
         ),
         AppSpacing.vertical.s5,
-        if (type == SwitchViewType.list)
-          ListView.separated(
-            shrinkWrap: true,
-            padding: EdgeInsets.zero,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: items.length,
-            separatorBuilder: (context, index) => const Divider(),
-            itemBuilder: (context, index) {
-              final item = items[index];
+        pendingQuotes.when(
+          data: (pendingQuotes) {
+            if (type == SwitchViewType.list) {
+              return ListView.separated(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: pendingQuotes.length,
+                separatorBuilder: (context, index) => const Divider(),
+                itemBuilder: (context, index) {
+                  final quotation = pendingQuotes[index];
 
-              return ErpListTile(
-                title: item['title']!,
-                date: item['date']!,
-                contact: item['contact']!,
-                amount: double.parse(item['amount']!),
-                status: item['status']!,
-                onPressed: () async => context.pushNamed(
-                  AppRoute.erpQuotesDetails.name,
+                  return ErpListTile(
+                    title: quotation.number,
+                    date: quotation.createdDate.formatToDayMonthYear(),
+                    contact: quotation.fullName,
+                    amount: quotation.totalAmount,
+                    status: quotation.status.groupedStatus(quotation.dueDate),
+                    statusColor: quotation.status.statusColor(quotation.dueDate, context),
+                    onPressed: () async => context.pushNamed(
+                      AppRoute.erpQuotesDetails.name,
+                    ),
+                  );
+                },
+              );
+            } else {
+              return GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: AppSpacing.s5,
+                  mainAxisSpacing: AppSpacing.s5,
                 ),
-              );
-            },
-          )
-        else
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: AppSpacing.s5,
-              mainAxisSpacing: AppSpacing.s5,
-            ),
-            itemCount: 2,
-            padding: EdgeInsets.zero,
-            itemBuilder: (context, index) {
-              final item = items[index];
+                itemCount: pendingQuotes.length,
+                padding: EdgeInsets.zero,
+                itemBuilder: (context, index) {
+                  final quotation = pendingQuotes[index];
 
-              return ErpGridTile(
-                title: item['title']!,
-                date: item['date']!,
-                contact: item['contact']!,
-                amount: double.parse(item['amount']!),
-                status: item['status']!,
+                  return ErpGridTile(
+                    title: quotation.number,
+                    date: quotation.createdDate.formatToDayMonthYear(),
+                    contact: quotation.fullName,
+                    amount: quotation.totalAmount,
+                    status: quotation.status.groupedStatus(quotation.dueDate),
+                    statusColor: quotation.status.statusColor(quotation.dueDate, context),
+                    onPressed: () async => context.pushNamed(
+                      AppRoute.erpQuotesDetails.name,
+                    ),
+                  );
+                },
               );
-            },
+            }
+          },
+          error: (error, _) => Center(
+            child: Text(
+              error.toString(),
+              style: context.textStyle.bodySmallRegular.copyWith(
+                color: context.color.error,
+              ),
+            ),
           ),
+          loading: () => const Center(child: CircularProgressIndicator.adaptive()),
+        ),
       ],
     );
   }
