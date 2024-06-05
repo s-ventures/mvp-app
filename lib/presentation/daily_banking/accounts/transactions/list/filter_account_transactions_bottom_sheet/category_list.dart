@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_controller.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class CategoryList extends ConsumerWidget {
-  const CategoryList({required this.categories, required this.onPressed, super.key});
+class CategoryList extends StatelessWidget {
+  const CategoryList({
+    required this.categories,
+    required this.onPressed,
+    required this.categorySelected,
+    required this.setCategory,
+    super.key,
+  });
 
   final List<Map<String, dynamic>> categories;
   final int Function() onPressed;
+  final String categorySelected;
+  final void Function(String) setCategory;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final categoryValue = ref.watch(simplifiedAccountTransactionsControllerProvider).category;
-    final onCategorySelected =
-        ref.read(simplifiedAccountTransactionsControllerProvider.notifier).setCategory;
-
+  Widget build(BuildContext context) {
     return OutlinedList(
       children: categories.asMap().entries.map((entry) {
         final index = entry.key;
@@ -22,11 +24,11 @@ class CategoryList extends ConsumerWidget {
         return CustomRadioListTile(
           title: categoryMap['title'] as String,
           value: categoryMap['value'],
-          groupValue: categoryValue,
+          groupValue: categorySelected,
           leadingEmoji: categoryMap['emoji'] as String,
           leadingBackgroundColor: categoryMap['backgroundColor'] as Color,
           onChanged: (value) {
-            onCategorySelected(value as String);
+            setCategory(value as String);
             onPressed();
           },
           borderRadius: index == 0

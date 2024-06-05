@@ -8,10 +8,10 @@ part of 'expense_payment_dto.dart';
 
 _$PaymentDtoImpl _$$PaymentDtoImplFromJson(Map<String, dynamic> json) =>
     _$PaymentDtoImpl(
-      referenceId: json['referenceId'] as int,
-      expenseId: json['expenseId'] as int,
+      referenceId: (json['referenceId'] as num).toInt(),
+      expenseId: (json['expenseId'] as num).toInt(),
       origin: $enumDecode(_$PaymentOriginDtoEnumMap, json['origin']),
-      bankMovId: json['bankMovId'] as int,
+      bankMovId: (json['bankMovId'] as num).toInt(),
       amount: (json['amount'] as num).toDouble(),
       currencyCode: json['currencyCode'] as String,
       additionalInfo: json['additionalInfo'] as String,

@@ -317,7 +317,8 @@ class _$StakeholdersFilterImpl implements _StakeholdersFilter {
           this, _$identity);
 }
 
-abstract class _StakeholdersFilter implements StakeholdersFilter {
+abstract class _StakeholdersFilter
+    implements StakeholdersFilter, PaginationFilter {
   const factory _StakeholdersFilter(
       {final UniqueId? stakeholderId,
       final PersonTypeCode? personTypeCode,

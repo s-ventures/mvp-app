@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/filter/filter_simplified_policies_controller.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/simplified/simplified_policies_controller.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/simplified_policy.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/policies/list/widgets/filter_list_policies.dart';
@@ -39,12 +38,12 @@ class _PoliciesState extends ConsumerState<Policies> {
       simplifiedPoliciesControllerProvider.select((value) => value.policies),
     );
 
-    final controller = ref.read(filterSimplifiedPoliciesControllerProvider.notifier);
+    final controller = ref.read(simplifiedPoliciesControllerProvider.notifier);
     final startDate = ref.watch(
-      filterSimplifiedPoliciesControllerProvider.select((value) => value.createDateFrom),
+      simplifiedPoliciesControllerProvider.select((value) => value.createDateFrom),
     );
     final endDate = ref.watch(
-      filterSimplifiedPoliciesControllerProvider.select((value) => value.createDateTo),
+      simplifiedPoliciesControllerProvider.select((value) => value.createDateTo),
     );
 
     final isFilterApplied = startDate != null || endDate != null;
