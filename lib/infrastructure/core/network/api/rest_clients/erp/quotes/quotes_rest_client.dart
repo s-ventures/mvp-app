@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/dtos/overview_segment_period_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/dio_provider.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/paginated_response.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/detailed_quote_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/overview_quotes_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_filter_dto.dart';
@@ -22,6 +23,12 @@ abstract class QuotesRestClient {
   Future<PaginatedResponse<QuotationDto>> getQuotes({
     @Path('erpContractId') required int erpContractId,
     @Query('') required QuotationFilterDto filter,
+  });
+
+  @GET('/erp/quotes/v1/{contractId}/{id}')
+  Future<DetailedQuoteDto> getDetailedQuote({
+    @Path('contractId') required int contractId,
+    @Path('id') required int id,
   });
 
   @GET('erp/quotes/v1/overview')

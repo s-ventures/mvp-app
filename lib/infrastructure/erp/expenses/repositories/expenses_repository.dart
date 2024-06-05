@@ -58,23 +58,6 @@ class ExpensesRepository implements IExpensesRepository {
   }
 
   @override
-  Future<Either<OverviewExpensesFailure, OverviewExpenses>> getOverviewExpenses({
-    required int erpContractId,
-    required OverviewSegmentPeriod segmentPeriod,
-  }) async {
-    try {
-      final response = await _remoteDataSource.getOverviewExpenses(
-        erpContractId: erpContractId,
-        segmentPeriod: segmentPeriod.toDto(),
-      );
-      final overview = response.toDomain();
-      return right(overview);
-    } catch (_) {
-      return left(const OverviewExpensesFailure.unexpected());
-    }
-  }
-
-  @override
   Future<Either<DetailedExpenseFailure, DetailedExpense>> getDetailedExpense({
     required int contractId,
     required int id,
@@ -89,6 +72,23 @@ class ExpensesRepository implements IExpensesRepository {
       return right(expense);
     } catch (_) {
       return left(const DetailedExpenseFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<OverviewExpensesFailure, OverviewExpenses>> getOverviewExpenses({
+    required int erpContractId,
+    required OverviewSegmentPeriod segmentPeriod,
+  }) async {
+    try {
+      final response = await _remoteDataSource.getOverviewExpenses(
+        erpContractId: erpContractId,
+        segmentPeriod: segmentPeriod.toDto(),
+      );
+      final overview = response.toDomain();
+      return right(overview);
+    } catch (_) {
+      return left(const OverviewExpensesFailure.unexpected());
     }
   }
 }

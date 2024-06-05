@@ -52,6 +52,36 @@ class _QuotesRestClient implements QuotesRestClient {
   }
 
   @override
+  Future<DetailedQuoteDto> getDetailedQuote({
+    required int contractId,
+    required int id,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<DetailedQuoteDto>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/erp/quotes/v1/${contractId}/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = DetailedQuoteDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<OverviewQuotesDto> getOverviewQuotes({
     required int erpContractId,
     required OverviewSegmentPeriodDto segmentPeriod,

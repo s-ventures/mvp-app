@@ -1,14 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/overview_segment_period.dart';
+import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/detailed_quote.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/overview_quotes.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_filter.dart';
+import 'package:manifiesto_mvp_app/domain/erp/quotes/failures/detailed_quote_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/failures/overview_quotes_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/failures/quotation_failure.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/repositories/i_quotes_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/erp/quotes/quotes_rest_client.dart';
-import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/data_sources/quotes_remote_data_source.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/data_sources/remote/quotes_remote_data_source.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/detailed_quote_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/overview_quotes_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_filter_dto.dart';
@@ -51,6 +54,24 @@ class QuotesRepository implements IQuotesRepository {
       return right(quotes);
     } catch (_) {
       return left(const QuotationFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<DetailedQuoteFailure, DetailedQuote>> getDetailedQuote({
+    required int contractId,
+    required int id,
+  }) async {
+    try {
+      final response = await _remoteDataSource.getDetailedQuote(
+        contractId: contractId,
+        id: id,
+      );
+
+      final quote = response.toDomain();
+      return right(quote);
+    } catch (_) {
+      return left(const DetailedQuoteFailure.unexpected());
     }
   }
 
