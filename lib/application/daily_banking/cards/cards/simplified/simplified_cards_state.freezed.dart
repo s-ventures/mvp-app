@@ -12,13 +12,12 @@ part of 'simplified_cards_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SimplifiedCardsState {
   AsyncValue<List<SimplifiedCard>> get cards =>
       throw _privateConstructorUsedError;
-  int get selectedCardIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimplifiedCardsStateCopyWith<SimplifiedCardsState> get copyWith =>
@@ -31,7 +30,7 @@ abstract class $SimplifiedCardsStateCopyWith<$Res> {
           $Res Function(SimplifiedCardsState) then) =
       _$SimplifiedCardsStateCopyWithImpl<$Res, SimplifiedCardsState>;
   @useResult
-  $Res call({AsyncValue<List<SimplifiedCard>> cards, int selectedCardIndex});
+  $Res call({AsyncValue<List<SimplifiedCard>> cards});
 }
 
 /// @nodoc
@@ -49,17 +48,12 @@ class _$SimplifiedCardsStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? cards = null,
-    Object? selectedCardIndex = null,
   }) {
     return _then(_value.copyWith(
       cards: null == cards
           ? _value.cards
           : cards // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedCard>>,
-      selectedCardIndex: null == selectedCardIndex
-          ? _value.selectedCardIndex
-          : selectedCardIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -72,7 +66,7 @@ abstract class _$$SimplifiedCardsStateImplCopyWith<$Res>
       __$$SimplifiedCardsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<List<SimplifiedCard>> cards, int selectedCardIndex});
+  $Res call({AsyncValue<List<SimplifiedCard>> cards});
 }
 
 /// @nodoc
@@ -87,17 +81,12 @@ class __$$SimplifiedCardsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cards = null,
-    Object? selectedCardIndex = null,
   }) {
     return _then(_$SimplifiedCardsStateImpl(
       cards: null == cards
           ? _value.cards
           : cards // ignore: cast_nullable_to_non_nullable
               as AsyncValue<List<SimplifiedCard>>,
-      selectedCardIndex: null == selectedCardIndex
-          ? _value.selectedCardIndex
-          : selectedCardIndex // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -106,19 +95,15 @@ class __$$SimplifiedCardsStateImplCopyWithImpl<$Res>
 
 class _$SimplifiedCardsStateImpl implements _SimplifiedCardsState {
   const _$SimplifiedCardsStateImpl(
-      {this.cards = const AsyncLoading<List<SimplifiedCard>>(),
-      this.selectedCardIndex = 0});
+      {this.cards = const AsyncLoading<List<SimplifiedCard>>()});
 
   @override
   @JsonKey()
   final AsyncValue<List<SimplifiedCard>> cards;
-  @override
-  @JsonKey()
-  final int selectedCardIndex;
 
   @override
   String toString() {
-    return 'SimplifiedCardsState(cards: $cards, selectedCardIndex: $selectedCardIndex)';
+    return 'SimplifiedCardsState(cards: $cards)';
   }
 
   @override
@@ -126,13 +111,11 @@ class _$SimplifiedCardsStateImpl implements _SimplifiedCardsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedCardsStateImpl &&
-            (identical(other.cards, cards) || other.cards == cards) &&
-            (identical(other.selectedCardIndex, selectedCardIndex) ||
-                other.selectedCardIndex == selectedCardIndex));
+            (identical(other.cards, cards) || other.cards == cards));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cards, selectedCardIndex);
+  int get hashCode => Object.hash(runtimeType, cards);
 
   @JsonKey(ignore: true)
   @override
@@ -145,13 +128,11 @@ class _$SimplifiedCardsStateImpl implements _SimplifiedCardsState {
 
 abstract class _SimplifiedCardsState implements SimplifiedCardsState {
   const factory _SimplifiedCardsState(
-      {final AsyncValue<List<SimplifiedCard>> cards,
-      final int selectedCardIndex}) = _$SimplifiedCardsStateImpl;
+          {final AsyncValue<List<SimplifiedCard>> cards}) =
+      _$SimplifiedCardsStateImpl;
 
   @override
   AsyncValue<List<SimplifiedCard>> get cards;
-  @override
-  int get selectedCardIndex;
   @override
   @JsonKey(ignore: true)
   _$$SimplifiedCardsStateImplCopyWith<_$SimplifiedCardsStateImpl>

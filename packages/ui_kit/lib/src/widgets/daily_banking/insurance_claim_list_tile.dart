@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsuranceClaimListTile extends StatelessWidget {
@@ -45,9 +44,7 @@ class InsuranceClaimListTile extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            context.loc.dailyBankingInsurancesClaimsNumber(
-                              number,
-                            ),
+                            'Número de expediente: $number',
                             style: context.textStyle.buttonTabBar.copyWith(
                               color: context.color.textLight600,
                             ),
@@ -57,8 +54,8 @@ class InsuranceClaimListTile extends StatelessWidget {
                         Row(
                           children: [
                             Container(
-                              width: AppSpacing.s3,
-                              height: AppSpacing.s3,
+                              width: 6,
+                              height: 6,
                               decoration: BoxDecoration(
                                 color: statusColor,
                                 shape: BoxShape.circle,
@@ -78,9 +75,20 @@ class InsuranceClaimListTile extends StatelessWidget {
                     AppSpacing.vertical.s5,
                     Row(
                       children: [
-                        IconWithContainer(
-                          text: leadingEmoji,
-                          backgroundColor: leadingBackgroundColor,
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: leadingBackgroundColor,
+                            borderRadius:
+                                BorderRadius.circular(context.radius.soft),
+                          ),
+                          child: Center(
+                            child: Text(
+                              leadingEmoji,
+                              style: const TextStyle(fontSize: 20),
+                            ),
+                          ),
                         ),
                         AppSpacing.horizontal.s5,
                         Flexible(

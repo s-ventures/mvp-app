@@ -3,7 +3,8 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pa
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K, V>> {
+abstract class PaginationMapRepository<K, V>
+    extends PaginationRepository<Map<K, V>> {
   PaginationMapRepository({
     super.pageSize,
   }) : subject = BehaviorSubject.seeded(
@@ -11,6 +12,8 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
             page: 0,
             pageSize: pageSize,
             data: null,
+            totalElements: 0,
+            totalPages: 0,
           ),
         );
 
@@ -44,15 +47,34 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
         page: 0,
         pageSize: pageSize,
         data: null,
+        totalElements: 0,
+        totalPages: 0,
       ),
     );
     return _loadPage();
   }
 
+  @override
+  void onPaginationInfo(int totalPages, int totalElements) {
+    final pagination = subject.value;
+    subject.add(
+      PaginationMapData(
+        totalElements: totalElements,
+        totalPages: totalPages,
+        page: pagination.page,
+        pageSize: pagination.pageSize,
+        data: pagination.data,
+      ),
+    );
+  }
+
   Future<bool> _loadPage({int page = 0}) async {
     final pagination = subject.value;
 
-    if (pagination.isComplete) {
+    // if (pagination.isComplete) {
+    //   return false;
+    // }
+    if (pagination.totalPages > 0 && page >= pagination.totalPages) {
       return false;
     }
 
@@ -71,16 +93,17 @@ abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K,
     subject.add(
       PaginationMapData(
         page: page,
-        data: appendNewItems(newItems),
+        data: _appendNewItems(newItems),
         pageSize: pagination.pageSize,
-        isComplete: !hasLoadedMoreItems,
+        totalElements: pagination.totalElements,
+        totalPages: pagination.totalPages,
       ),
     );
 
     return hasLoadedMoreItems;
   }
 
-  Map<K, V> appendNewItems(Map<K, V> newItems) {
+  Map<K, V> _appendNewItems(Map<K, V> newItems) {
     final currentItems = subject.value.data ?? <K, V>{};
     return Map.of(currentItems)..addAll(newItems);
   }

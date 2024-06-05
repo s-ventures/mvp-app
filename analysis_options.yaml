@@ -10,6 +10,3 @@ analyzer:
   exclude:
     - "**/*.freezed.dart"
     - "**/*.g.dart"
-
-formatter:
-  line-length: 100

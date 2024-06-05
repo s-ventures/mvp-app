@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/infrastructure/security/repositories/security_monitor_facade.dart';
+import 'package:manifiesto_mvp_app/infrastructure/security/repositories/security_monitor_cleafy_adapter.dart';
 
 ///
 /// Infrastructure dependencies

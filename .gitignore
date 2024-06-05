@@ -19,6 +19,7 @@
 # Visual Studio Code related
 .classpath
 .project
+.vscode/*
 
 # Flutter repo-specific
 /bin/cache/

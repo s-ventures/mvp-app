@@ -6,7 +6,7 @@ class AppRadius {
     this.checkboxMedium = 8,
     this.checkboxLarge = 10,
   });
-
+  
   final double soft;
   final double hard;
   final double checkboxSmall;

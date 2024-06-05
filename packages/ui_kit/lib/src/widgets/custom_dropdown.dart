@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_kit/src/widgets/custom_divider.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DropownValueModel<T> {
@@ -107,6 +108,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: widget.size.height,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(context.radius.soft),
@@ -125,7 +127,8 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
                 prefixIcon: widget.prefixIcon,
                 floatingLabelBehavior: widget.floatingLabelBehavior,
                 labelText: widget.labelText,
-                enabledBorder: false,
+                contentPadding: const EdgeInsets.only(left: 16),
+                enabledBorder: InputBorder.none,
                 suffixIcon: Align(
                   widthFactor: 1,
                   child: IconSvg(
@@ -143,7 +146,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
           overlayColor: MaterialStateProperty.all(Colors.transparent),
         ),
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.zero,
+          contentPadding: const EdgeInsets.only(top: 8),
           border: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(context.radius.soft),
             borderSide: BorderSide.none,

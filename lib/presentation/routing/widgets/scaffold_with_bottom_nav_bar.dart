@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -32,15 +31,15 @@ class ScaffoldWithBottomNavBar extends ConsumerWidget {
       // https://github.com/flutter/flutter/issues/99124
       context.goNamed(AppRoute.dailyBanking.name);
     } else if (index == 1) {
-      context.goNamed(AppRoute.erp.name);
+      context.goNamed(AppRoute.negocio.name);
     } else if (index == 2) {
-      context.goNamed(AppRoute.contacts.name);
+      context.goNamed(AppRoute.agenda.name);
     } else if (index == 3) {
-      context.goNamed(AppRoute.analytics.name);
+      context.goNamed(AppRoute.analitica.name);
     } else if (index == 4) {
-      context.goNamed(AppRoute.protection.name);
+      context.goNamed(AppRoute.proteccion.name);
     } else if (index == 5) {
-      context.goNamed(AppRoute.protection.name);
+      context.goNamed(AppRoute.proteccion.name);
     }
   }
 
@@ -65,35 +64,35 @@ class ScaffoldWithBottomNavBar extends ConsumerWidget {
                 IconAssets.home,
                 color: selectedIndex == 0 ? selectedColor : unselectedColor,
               ),
-              label: context.loc.commonBottomNavigationHome,
+              label: 'Inicio',
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.file,
                 color: selectedIndex == 1 ? selectedColor : unselectedColor,
               ),
-              label: context.loc.commonBottomNavigationBusiness,
+              label: 'Negocio',
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.addressBook,
                 color: selectedIndex == 2 ? selectedColor : unselectedColor,
               ),
-              label: context.loc.commonBottomNavigationAgenda,
+              label: 'Agenda',
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.charm,
                 color: selectedIndex == 3 ? selectedColor : unselectedColor,
               ),
-              label: context.loc.commonBottomNavigationAnalitycs,
+              label: 'Analítica',
             ),
             BottomNavigationBarItem(
               icon: IconSvg(
                 IconAssets.security,
                 color: selectedIndex == 4 ? selectedColor : unselectedColor,
               ),
-              label: context.loc.commonBottomNavigationProtection,
+              label: 'Protección',
             ),
           ],
         ),

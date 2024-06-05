@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/cards/detailed/detailed_card_controller.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:ui_kit/ui_kit.dart';
@@ -20,9 +19,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      unawaited(
-        ref.read(detailedCardControllerProvider.notifier).init(widget.cardId),
-      );
+      unawaited(ref.read(detailedCardControllerProvider.notifier).init(widget.cardId));
     });
     super.initState();
   }
@@ -47,7 +44,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      context.loc.dailyBankingCardsDetailsHolder,
+                      'Nombre del titular',
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -75,13 +72,13 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      context.loc.dailyBankingCardsDetailsCardNumber,
+                      'Número de tarjeta',
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
                     ),
                     Text(
-                      card.cardEncryptedNumber.padLeft(3, '**** '),
+                      ''.padLeft(3, '**** '),
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -103,7 +100,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      context.loc.dailyBankingCardsDetailsExpirationDate,
+                      'Fecha de caducidad',
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
@@ -131,13 +128,13 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      context.loc.dailyBankingCardsDetailsCvv,
+                      'CVV',
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
                     ),
                     Text(
-                      card.cvv,
+                      card.cardEncryptedNumber,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -158,7 +155,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
         ),
       ),
       loading: () => const Center(
-        child: CustomLoader(),
+        child: CircularProgressIndicator(),
       ),
     );
   }
