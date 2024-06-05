@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class InsurancePolicyListTile extends StatelessWidget {
@@ -6,6 +7,8 @@ class InsurancePolicyListTile extends StatelessWidget {
     required this.leadingEmoji,
     required this.leadingBackgroundColor,
     required this.number,
+    required this.status,
+    required this.statusColor,
     required this.category,
     required this.title,
     this.onTap,
@@ -15,6 +18,8 @@ class InsurancePolicyListTile extends StatelessWidget {
   final String leadingEmoji;
   final Color leadingBackgroundColor;
   final String number;
+  final String status;
+  final Color statusColor;
   final String category;
   final String title;
   final VoidCallback? onTap;
@@ -42,38 +47,43 @@ class InsurancePolicyListTile extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            'Número de póliza: $number',
+                            context.loc
+                                .dailyBankingInsurancesPolicyNumberWithParams(
+                              number,
+                            ),
                             style: context.textStyle.buttonTabBar.copyWith(
                               color: context.color.textLight600,
                             ),
                           ),
                         ),
                         AppSpacing.vertical.s2,
-                        Text(
-                          category,
-                          style: context.textStyle.buttonTabBar.copyWith(
-                            color: context.color.textLight600,
-                          ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                color: statusColor,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            AppSpacing.horizontal.s2,
+                            Text(
+                              status,
+                              style: context.textStyle.buttonTabBar.copyWith(
+                                color: context.color.textLight600,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                     AppSpacing.vertical.s5,
                     Row(
                       children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: leadingBackgroundColor,
-                            borderRadius:
-                                BorderRadius.circular(context.radius.soft),
-                          ),
-                          child: Center(
-                            child: Text(
-                              leadingEmoji,
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                          ),
+                        IconWithContainer(
+                          text: leadingEmoji,
+                          backgroundColor: leadingBackgroundColor,
                         ),
                         AppSpacing.horizontal.s5,
                         Flexible(

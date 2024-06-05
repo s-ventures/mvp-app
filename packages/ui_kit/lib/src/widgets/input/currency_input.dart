@@ -5,7 +5,8 @@ import 'package:ui_kit/ui_kit.dart';
 
 class CurrencyInputFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue,) {
     if (newValue.text.isEmpty) {
       return newValue.copyWith(text: '');
     }
@@ -24,7 +25,8 @@ class CurrencyInputFormatter extends TextInputFormatter {
       final value = double.parse(parts[0]);
       final formatter = NumberFormat('#,###', 'es_ES');
 
-      final decimalDigits = parts[1].length > 2 ? parts[1].substring(0, 2) : parts[1];
+      final decimalDigits =
+          parts[1].length > 2 ? parts[1].substring(0, 2) : parts[1];
 
       final newText = '${formatter.format(value)},$decimalDigits';
 
@@ -46,12 +48,17 @@ class CurrencyInputFormatter extends TextInputFormatter {
 }
 
 class CurrencyInput extends StatelessWidget {
-  const CurrencyInput({super.key});
+  const CurrencyInput({
+    this.controller,
+    super.key,
+  });
+
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return IntrinsicWidth(
-      stepWidth: 130,
+      stepWidth: 100,
       child: TextField(
         cursorHeight: 40,
         keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -63,6 +70,7 @@ class CurrencyInput extends StatelessWidget {
         style: context.textStyle.h3.copyWith(
           color: context.color.textLight900,
         ),
+        controller: controller,
         decoration: InputDecoration(
           labelText: '0,00 €',
           floatingLabelBehavior: FloatingLabelBehavior.never,

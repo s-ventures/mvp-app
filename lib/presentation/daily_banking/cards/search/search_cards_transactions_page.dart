@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/filter/filter_simplified_card_transactions_controller.dart';
+import 'package:localizations/localizations.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_controller.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/search/widgets/search_bar.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/transactions/list/card_transactions_list.dart';
 import 'package:rxdart/rxdart.dart';
@@ -13,12 +14,10 @@ class SearchCardTransactionsPage extends ConsumerStatefulWidget {
   const SearchCardTransactionsPage({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _SearchCardTransactionsPageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _SearchCardTransactionsPageState();
 }
 
-class _SearchCardTransactionsPageState
-    extends ConsumerState<SearchCardTransactionsPage> {
+class _SearchCardTransactionsPageState extends ConsumerState<SearchCardTransactionsPage> {
   final _controller = TextEditingController();
   final _focusNode = FocusNode();
   final _textSubject = PublishSubject<String>();
@@ -31,12 +30,9 @@ class _SearchCardTransactionsPageState
       _textSubject.add(_controller.text);
     });
 
-    _debounceSubscription =
-        _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
+    _debounceSubscription = _textSubject.debounceTime(const Duration(seconds: 1)).distinct().listen(
       (text) {
-        ref
-            .read(filterSimplifiedCardTransactionsControllerProvider.notifier)
-            .setSearch(text);
+        ref.read(simplifiedCardTransactionsControllerProvider.notifier).setSearch(text);
       },
     );
   }
@@ -52,30 +48,28 @@ class _SearchCardTransactionsPageState
 
   @override
   Widget build(BuildContext context) {
-    final controller =
-        ref.read(filterSimplifiedCardTransactionsControllerProvider.notifier);
+    final controller = ref.read(simplifiedCardTransactionsControllerProvider.notifier);
+    final state = ref.watch(simplifiedCardTransactionsControllerProvider);
 
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
-              title: 'Buscar',
+              title: context.loc.commonSearch,
               leading: Button(
                 icon: IconAssets.arrowLeft,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async => context.pop(),
+                onPressed: () async {
+                  await controller.resetFilters().then((_) => context.pop());
+                },
               ),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(kToolbarHeight),
-                child: Column(
-                  children: [
-                    TransactionSearchBar(
-                      controller: _controller,
-                    ),
-                  ],
+                child: TransactionSearchBar(
+                  controller: _controller,
                 ),
               ),
             ),
@@ -83,12 +77,21 @@ class _SearchCardTransactionsPageState
         },
         body: CustomScrollView(
           slivers: [
+            // const SliverPadding(
+            //   padding: EdgeInsets.all(AppSpacing.s5),
+            //   sliver: SliverToBoxAdapter(
+            //     child: RecentCategories(
+            //       // categories: categories,
+            //       onCategoryPressed: print,
+            //     ),
+            //   ),
+            // ),
             SliverPadding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.s5,
-                vertical: AppSpacing.s5,
+              padding: const EdgeInsets.all(
+                AppSpacing.s5,
               ),
               sliver: CardTransactionsList(
+                transactions: state.transactions,
                 onTransactionPressed: (transaction) {},
               ),
             ),

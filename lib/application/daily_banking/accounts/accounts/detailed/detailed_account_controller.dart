@@ -1,11 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/accounts/detailed/detailed_account_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/accounts/repositories/accounts_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_repository.dart';
 
-final detailedAccountControllerProvider = StateNotifierProvider<DetailedAccountController, DetailedAccountState>(
+final detailedAccountControllerProvider =
+    StateNotifierProvider<DetailedAccountController, DetailedAccountState>(
   (ref) => DetailedAccountController(
-    ref.watch(accountsRepositoryProvider),
+    ref.watch(fakeAccountsRepositoryProvider),
   ),
 );
 
@@ -16,7 +18,8 @@ class DetailedAccountController extends StateNotifier<DetailedAccountState> {
 
   Future<void> init(String accountId) async {
     try {
-      final accountOrFailure = await _repository.getDetailedAccount(accountId: int.parse(accountId));
+      final accountOrFailure =
+          await _repository.getDetailedAccount(accountId: int.parse(accountId));
 
       setStateSafe(
         () => state = accountOrFailure.fold(

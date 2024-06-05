@@ -1,0 +1,10 @@
+{
+    "product": {
+        "financialInstitutionId": "string",
+        "financialInstitutionName": "string",
+        "id": "string",
+        "name": "string",
+        "type": "UNDEFINED"
+    },
+    "status": "SUCCESS"
+}

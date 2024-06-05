@@ -1,20 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
+import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_controller.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-class AccountListPage extends StatelessWidget {
+class AccountListPage extends ConsumerWidget {
   const AccountListPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final aggregationController = ref.read(aggregationControllerProvider.notifier);
+    ref.watch(aggregationControllerProvider).aggregationServiceUrl.when(
+          data: (url) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              context.pushNamed(
+                AppRoute.webView.name,
+                extra: WebViewPageRouteParams(
+                  title: 'Agregar cuenta',
+                  url: url,
+                  onNavigationRequest: (request) {
+                    final navigate = !aggregationController.tryParseCredentialsId(request.url);
+                    if (navigate) {
+                      return NavigationDecision.navigate;
+                    } else {
+                      context.pop();
+                      return NavigationDecision.prevent;
+                    }
+                  },
+                ),
+              );
+            });
+          },
+          error: (error, stackTrace) {},
+          loading: () {},
+        );
+
     return Scaffold(
       body: SafeArea(
         child: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
-                title: 'Cuentas',
+                title: context.loc.dailyBankingAccounts,
                 leading: Button(
                   icon: IconAssets.arrowLeft,
                   type: ButtonType.outlined,
@@ -25,7 +57,7 @@ class AccountListPage extends StatelessWidget {
                   Button(
                     icon: IconAssets.plus,
                     size: ButtonSize.extraSmall,
-                    onPressed: () async {},
+                    onPressed: aggregationController.getAggregationServiceUrl,
                   ),
                 ],
               ),
@@ -77,8 +109,15 @@ class AccountListPage extends StatelessWidget {
                     ),
                     AppSpacing.vertical.s6,
                     Text(
-                      'Cuentas',
+                      context.loc.dailyBankingAccounts,
                       style: context.textStyle.bodyMediumSemiBold.copyWith(
+                        color: context.color.textLight600,
+                      ),
+                    ),
+                    AppSpacing.vertical.s3,
+                    Text(
+                      context.loc.dailyBankingAccountsPageDescription,
+                      style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight600,
                       ),
                     ),
@@ -105,7 +144,7 @@ class AccountListPage extends StatelessWidget {
                                         ),
                                         AppSpacing.horizontal.s3,
                                         Text(
-                                          'Disponible',
+                                          'soon',
                                           style: context.textStyle.bodySmallRegular.copyWith(
                                             color: context.color.textLight900,
                                           ),
@@ -185,7 +224,7 @@ class AccountListPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Button(
-                  title: 'Seleccionar cuenta',
+                  title: context.loc.dailyBankingAccountsPageButton,
                   size: ButtonSize.small,
                   expand: true,
                   onPressed: () async => context.pop(),

@@ -23,10 +23,13 @@ class ContactRankingListTile extends StatefulWidget {
 
 class _ContactRankingListTileState extends State<ContactRankingListTile>
     with SingleTickerProviderStateMixin {
-  static final Animatable<double> _easeInTween =
-      CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0, end: 0.5);
+  static final Animatable<double> _easeInTween = CurveTween(
+    curve: Curves.easeIn,
+  );
+  static final Animatable<double> _halfTween = Tween<double>(
+    begin: 0,
+    end: 0.5,
+  );
 
   late AnimationController _controller;
   late Animation<double> _iconTurns;
@@ -71,39 +74,40 @@ class _ContactRankingListTileState extends State<ContactRankingListTile>
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Container(
-          height: 64,
-          decoration: BoxDecoration(
-            borderRadius:
-                BorderRadius.all(Radius.circular(context.radius.soft)),
-            border: Border.all(color: context.color.strokeLigth100),
-            color: context.color.neutralLight0,
-          ),
-          child: Center(
-            child: ListTileTheme.merge(
-              child: ListTile(
-                onTap: _handleTap,
-                leading: widget.leading,
-                title: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        widget.contact,
-                        style: context.textStyle.bodySmallRegular,
-                      ),
-                    ),
-                    Text(
-                      widget.amount,
-                      style: context.textStyle.bodyMediumRegular.copyWith(
-                        color: context.color.textLight600,
-                      ),
-                    ),
-                  ],
+        ListTileTheme.merge(
+          child: ListTile(
+            tileColor: context.color.backgroundLight0,
+            dense: true,
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.s4,
+              vertical: AppSpacing.s3,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(context.radius.soft),
+            ),
+            onTap: _handleTap,
+            leading: widget.leading,
+            title: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.contact,
+                    style: context.textStyle.bodySmallRegular,
+                  ),
                 ),
-                trailing: RotationTransition(
-                  turns: _iconTurns,
-                  child: IconSvg.small(IconAssets.chevronDown),
+                Text(
+                  widget.amount,
+                  style: context.textStyle.bodyMediumRegular.copyWith(
+                    color: context.color.textLight600,
+                  ),
                 ),
+              ],
+            ),
+            trailing: RotationTransition(
+              turns: _iconTurns,
+              child: IconSvg.small(
+                IconAssets.chevronDown,
+                color: context.color.iconLight600,
               ),
             ),
           ),
@@ -118,8 +122,10 @@ class _ContactRankingListTileState extends State<ContactRankingListTile>
                   color: context.color.neutralLight100,
                   borderRadius: BorderRadius.circular(context.radius.soft),
                 ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 16,
+                ),
                 child: Column(
                   children: [
                     widget.lineBarChart,

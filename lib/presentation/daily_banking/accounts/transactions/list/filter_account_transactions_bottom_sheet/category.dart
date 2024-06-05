@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/filter/filter_simplified_account_transactions_controller.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-class Category extends ConsumerWidget {
-  const Category({required this.categories, required this.onPressed, super.key});
+class Category extends StatelessWidget {
+  const Category({
+    required this.categoryValue,
+    required this.categories,
+    required this.onPressed,
+    super.key,
+  });
 
+  final String categoryValue;
   final List<Map<String, dynamic>> categories;
   final VoidCallback? onPressed;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final categoryValue = ref.watch(filterSimplifiedAccountTransactionsControllerProvider).category;
-    final categorySelected = categories.firstWhere((element) => element['value'] == categoryValue);
+  Widget build(BuildContext context) {
+    final categorySelected = categories.firstWhere(
+      (element) => element['value'] == categoryValue,
+    );
 
     return OutlinedList(
       borderColor: context.color.strokeLigth200,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:manifiesto_mvp_app/presentation/erp/quotes/quotes.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/expenses/list/expenses_page.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/invoices/list/invoices_page.dart';
+import 'package:manifiesto_mvp_app/presentation/erp/quotes/list/quotes_page.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class ErpPage extends StatelessWidget {
@@ -13,7 +15,7 @@ class ErpPage extends StatelessWidget {
         body: NestedScrollView(
           headerSliverBuilder: (context, value) {
             return [
-              CustomAppBar(
+              CustomAppBar.sliver(
                 centerTitle: true,
                 floating: true,
                 pinned: true,
@@ -46,18 +48,47 @@ class ErpPage extends StatelessWidget {
           },
           body: TabBarView(
             children: [
-              const Quotes(),
-              Center(
-                child: Text(
-                  'Facturas',
-                  style: TextStyle(color: context.color.primary),
-                ),
+              Stack(
+                children: [
+                  const QuotesTab(),
+                  Positioned(
+                    right: 16,
+                    bottom: 16,
+                    child: Button(
+                      onPressed: () async {},
+                      icon: IconAssets.plus,
+                      size: ButtonSize.small,
+                    ),
+                  ),
+                ],
               ),
-              Center(
-                child: Text(
-                  'Gastos',
-                  style: TextStyle(color: context.color.primary),
-                ),
+              Stack(
+                children: [
+                  const InvoicesTab(),
+                  Positioned(
+                    right: 16,
+                    bottom: 16,
+                    child: Button(
+                      onPressed: () async {},
+                      icon: IconAssets.plus,
+                      size: ButtonSize.small,
+                    ),
+                  ),
+                ],
+              ),
+              Stack(
+                children: [
+                  const ExpensesTab(),
+                  Positioned(
+                    right: 16,
+                    bottom: 16,
+                    child: Button(
+                      onPressed: () async {},
+                      icon: IconAssets.plus,
+                      size: ButtonSize.small,
+                    ),
+                  ),
+                ],
               ),
               Center(
                 child: Text(

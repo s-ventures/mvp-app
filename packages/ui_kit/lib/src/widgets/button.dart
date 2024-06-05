@@ -31,6 +31,8 @@ class Button extends StatefulWidget {
     this.background,
     this.foreground,
     this.outlineColor,
+    this.textColor,
+    this.horizontalPadding,
     super.key,
   });
 
@@ -43,6 +45,8 @@ class Button extends StatefulWidget {
   final Color? background;
   final Color? foreground;
   final Color? outlineColor;
+  final Color? textColor;
+  final double? horizontalPadding;
 
   /// If set to true, allows dev to override isLoading state.
   final bool isLoading;
@@ -82,11 +86,13 @@ class _ButtonState extends State<Button> {
 
     final padding = widget.title != null
         ? switch (widget.size) {
-            ButtonSize.large => const EdgeInsets.symmetric(horizontal: 32),
+            ButtonSize.large =>
+              EdgeInsets.symmetric(horizontal: widget.horizontalPadding ?? 32),
             ButtonSize.medium ||
             ButtonSize.small =>
-              const EdgeInsets.symmetric(horizontal: 24),
-            ButtonSize.extraSmall => const EdgeInsets.symmetric(horizontal: 16),
+              EdgeInsets.symmetric(horizontal: widget.horizontalPadding ?? 24),
+            ButtonSize.extraSmall =>
+              EdgeInsets.symmetric(horizontal: widget.horizontalPadding ?? 16),
           }
         : widget.icon != null
             ? switch (widget.size) {
@@ -150,11 +156,15 @@ class _ButtonState extends State<Button> {
                     widget.title!,
                     maxLines: 1,
                     style: switch (widget.size) {
-                      ButtonSize.large => context.textStyle.buttonLarge,
-                      ButtonSize.medium => context.textStyle.buttonMedium,
-                      ButtonSize.small => context.textStyle.buttonSmall,
-                      ButtonSize.extraSmall =>
-                        context.textStyle.buttonExtraSmall,
+                      ButtonSize.large => context.textStyle.buttonLarge
+                          .copyWith(color: widget.textColor),
+                      ButtonSize.medium => context.textStyle.buttonMedium
+                          .copyWith(color: widget.textColor),
+                      ButtonSize.small => context.textStyle.buttonSmall
+                          .copyWith(color: widget.textColor),
+                      ButtonSize.extraSmall => context
+                          .textStyle.buttonExtraSmall
+                          .copyWith(color: widget.textColor),
                     },
                   )
                 : widget.icon != null
@@ -185,6 +195,7 @@ class _ButtonState extends State<Button> {
         background: widget.background,
         foreground: widget.foreground,
         outlineColor: widget.outlineColor,
+        textColor: widget.textColor,
         child: childOrLoadingWidget,
       ),
     );
@@ -200,6 +211,7 @@ class _CustomButton extends StatelessWidget {
     required this.foreground,
     required this.child,
     this.outlineColor,
+    this.textColor,
     this.onPressed,
   });
 
@@ -209,6 +221,7 @@ class _CustomButton extends StatelessWidget {
   final Color? background;
   final Color? foreground;
   final Color? outlineColor;
+  final Color? textColor;
   final Future<void> Function()? onPressed;
   final Widget child;
 
@@ -283,6 +296,11 @@ class _CustomButton extends StatelessWidget {
           onPressed: onPressed,
           style: ButtonStyle(
             padding: MaterialStatePropertyAll(padding),
+            textStyle: MaterialStateProperty.resolveWith<TextStyle>(
+              (states) => context.textStyle.buttonMedium.copyWith(
+                color: textColor,
+              ),
+            ),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(radius),

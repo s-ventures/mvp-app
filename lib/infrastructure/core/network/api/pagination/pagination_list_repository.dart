@@ -3,8 +3,7 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pa
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class PaginationListRepository<T>
-    extends PaginationRepository<List<T>> {
+abstract class PaginationListRepository<T> extends PaginationRepository<List<T>> {
   PaginationListRepository({
     super.pageSize,
   }) : subject = BehaviorSubject.seeded(
@@ -12,8 +11,6 @@ abstract class PaginationListRepository<T>
             page: 0,
             pageSize: pageSize,
             data: null,
-            totalElements: 0,
-            totalPages: 0,
           ),
         );
 
@@ -26,8 +23,12 @@ abstract class PaginationListRepository<T>
   @override
   Future<bool> loadNextPage() => _loadPage(page: subject.value.page + 1);
 
+  /// Retrieves a page from the data source
   @protected
-  Future<List<T>?> fetchPage({required int page, required int pageSize});
+  Future<List<T>?> fetchPage({
+    required int page,
+    required int pageSize,
+  });
 
   @override
   Future<void> refresh() {
@@ -36,25 +37,9 @@ abstract class PaginationListRepository<T>
         page: 0,
         pageSize: pageSize,
         data: null,
-        totalElements: 0,
-        totalPages: 0,
       ),
     );
     return _loadPage();
-  }
-
-  @override
-  void onPaginationInfo(int totalPages, int totalElements) {
-    final pagination = subject.value;
-    subject.add(
-      PaginationListData(
-        totalElements: totalElements,
-        totalPages: totalPages,
-        page: pagination.page,
-        pageSize: pagination.pageSize,
-        data: pagination.data,
-      ),
-    );
   }
 
   @override
@@ -68,13 +53,13 @@ abstract class PaginationListRepository<T>
         .distinct();
   }
 
+  /// Loads the page for the page index [page] and appends the new items
+  ///
+  /// Returns false if no more items were loaded. True if it loaded more items
   Future<bool> _loadPage({int page = 0}) async {
     final pagination = subject.value;
 
-    // if (pagination.isComplete) {
-    //   return false;
-    // }
-    if (pagination.totalPages > 0 && page >= pagination.totalPages) {
+    if (pagination.isComplete) {
       return false;
     }
 
@@ -84,7 +69,6 @@ abstract class PaginationListRepository<T>
     );
 
     if (newItems == null) {
-      // subject.addError(const AppError());
       return false;
     }
 
@@ -93,17 +77,16 @@ abstract class PaginationListRepository<T>
     subject.add(
       PaginationListData(
         page: page,
-        data: _appendNewItems(newItems),
+        data: appendNewItems(newItems),
         pageSize: pagination.pageSize,
-        totalElements: pagination.totalElements,
-        totalPages: pagination.totalPages,
+        isComplete: !hasLoadedMoreItems,
       ),
     );
 
     return hasLoadedMoreItems;
   }
 
-  List<T> _appendNewItems(List<T> newItems) {
+  List<T> appendNewItems(List<T> newItems) {
     final currentItems = subject.value.data ?? <T>[];
     return List.of(currentItems)..addAll(newItems);
   }

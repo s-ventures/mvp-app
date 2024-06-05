@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:manifiesto_mvp_app/presentation/contacts/widgets/contact_list.dart';
+import 'package:go_router/go_router.dart';
+import 'package:localizations/localizations.dart';
+import 'package:manifiesto_mvp_app/presentation/contacts/widgets/contacts_list.dart';
 import 'package:manifiesto_mvp_app/presentation/contacts/widgets/rankings.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class Contacts extends ConsumerStatefulWidget {
@@ -18,7 +21,7 @@ class _ContactsPageState extends ConsumerState<Contacts> {
       body: NestedScrollView(
         headerSliverBuilder: (context, value) {
           return [
-            CustomAppBar(
+            CustomAppBar.sliver(
               centerTitle: true,
               type: CustomAppBarType.logo,
               leading: Button(
@@ -38,13 +41,53 @@ class _ContactsPageState extends ConsumerState<Contacts> {
             ),
           ];
         },
-        body: ListView(
-          shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        body: Stack(
           children: [
-            const Rankings(),
-            AppSpacing.vertical.s6,
-            const ContactList(),
+            Positioned(
+              child: ListView(
+                padding: const EdgeInsets.all(AppSpacing.s5),
+                children: [
+                  const Rankings(),
+                  AppSpacing.vertical.s6,
+                  const ContactsList(),
+                ],
+              ),
+            ),
+            Positioned(
+              bottom: 16,
+              right: 16,
+              child: Button(
+                icon: IconAssets.plus,
+                size: ButtonSize.small,
+                onPressed: () async => NewContactBottomSheet.show(
+                  context: context,
+                  onPressed: (type) {
+                    switch (type) {
+                      case NewContactType.manual:
+                        context.pop();
+                        context.pushNamed(AppRoute.contactsNewFromManual.name);
+                      case NewContactType.agenda:
+                        context.pop();
+                        AlertBottomSheet.show(
+                          context: context,
+                          icon: IconAssets.security,
+                          title: context.loc.contactsAddFromAgendaModalRequestPermissionsTitle,
+                          message:
+                              context.loc.contactsAddFromAgendaModalRequestPermissionsDescription,
+                          buttonOkText: context.loc.commonAccept,
+                          onOkPressed: () async =>
+                              context.pushNamed(AppRoute.contactsNewFromAgenda.name),
+                          buttonCancelText: context.loc.commonCancel,
+                          onCancelPressed: () async => context.pop(),
+                        );
+                      case NewContactType.upload:
+                        context.pop();
+                        context.pushNamed(AppRoute.contactsNewFromUpload.name);
+                    }
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),

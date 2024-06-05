@@ -37,19 +37,22 @@ class TextInput extends StatefulWidget {
     this.autofillHints = const <String>[],
     this.onChanged,
     this.border,
-    this.enabledBorder,
+    this.borderRadius,
+    this.enabledBorder = true,
     this.maxLength,
     this.minLines,
     this.onEditingComplete,
     this.maxLines,
     this.counter,
     this.hintStyle,
+    this.style,
     this.alignLabelWithHint,
     this.errorText,
     this.contentPadding,
     this.autofocus = false,
     this.enabled = true,
     this.suffixConstraints,
+    this.textAlign = TextAlign.start,
     this.prefixConstraints,
     this.fillColor,
     super.key,
@@ -76,7 +79,8 @@ class TextInput extends StatefulWidget {
   final List<String> autofillHints;
   final ValueChanged<String>? onChanged;
   final InputBorder? border;
-  final InputBorder? enabledBorder;
+  final double? borderRadius;
+  final bool enabledBorder;
   final int? maxLength;
   final int? minLines;
   final int? maxLines;
@@ -84,12 +88,14 @@ class TextInput extends StatefulWidget {
   final bool? alignLabelWithHint;
   final bool enabled;
   final TextStyle? hintStyle;
+  final TextStyle? style;
   final String? initialValue;
   final String? errorText;
   final String? helperText;
   final EdgeInsets? contentPadding;
   final bool autofocus;
   final BoxConstraints? suffixConstraints;
+  final TextAlign textAlign;
   final BoxConstraints? prefixConstraints;
   final Color? fillColor;
 
@@ -102,8 +108,12 @@ class _TextInputState extends State<TextInput> {
       widget.controller ?? _internalController;
   final TextEditingController _internalController = TextEditingController();
 
+  final _focusNode = FocusNode();
+  bool _hasFocus = false;
+
   @override
   void initState() {
+    _focusNode.addListener(_onFocusChange);
     _activeController
       ..text = widget.initialValue ?? widget.controller?.text ?? ''
       ..addListener(_updateUI);
@@ -112,6 +122,9 @@ class _TextInputState extends State<TextInput> {
 
   @override
   void dispose() {
+    _focusNode
+      ..removeListener(_onFocusChange)
+      ..dispose();
     _internalController.dispose();
     _activeController.removeListener(_updateUI);
     super.dispose();
@@ -121,114 +134,158 @@ class _TextInputState extends State<TextInput> {
     setState(() {});
   }
 
+  void _onFocusChange() {
+    setState(() {
+      _hasFocus = _focusNode.hasFocus;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final hasError = widget.errorText != null;
 
-    return TextField(
-      autofocus: widget.autofocus,
-      controller: _activeController,
-      keyboardType: widget.keyboardType,
-      inputFormatters: widget.inputFormatters,
-      textCapitalization: widget.textCapitalization,
-      readOnly: widget.readOnly,
-      obscureText: widget.obscureText,
-      onEditingComplete: widget.onEditingComplete,
-      autofillHints: widget.autofillHints,
-      enabled: widget.enabled,
-      maxLength: widget.counter != null ? widget.counter! : widget.maxLength,
-      minLines: widget.minLines,
-      style: widget.size == TextInputSize.extraSmall
-          ? context.textStyle.bodySmallRegular.copyWith(
-              color: widget.enabled
-                  ? context.color.textLight900
-                  : context.color.textLight300,
-            )
-          : context.textStyle.bodyMediumRegular.copyWith(
-              color: widget.enabled
-                  ? context.color.textLight900
-                  : context.color.textLight300,
-            ),
-      maxLines: widget.obscureText ? 1 : widget.maxLines,
-      focusNode: widget.focusNode ??
-          (widget.readOnly ? _AlwaysDisabledFocusNode() : null),
-      decoration: InputDecoration(
-        helperText: widget.helperText,
-        errorText: widget.errorText,
-        counter: widget.counter != null ? const SizedBox.shrink() : null,
-        contentPadding: widget.contentPadding ??
-            EdgeInsets.symmetric(
-              horizontal: widget.size == TextInputSize.extraSmall
-                  ? widget.size.verticalPadding
-                  : 16,
-              vertical: widget.size.verticalPadding,
-            ),
-        border: widget.border ??
-            OutlineInputBorder(
-              borderRadius: BorderRadius.circular(context.radius.soft),
-            ),
-        enabledBorder: widget.enabledBorder ??
-            OutlineInputBorder(
-              borderSide: BorderSide(
-                color: hasError
-                    ? context.color.statusError
-                    : context.color.strokeLigth100,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: widget.contentPadding ??
+              const EdgeInsets.symmetric(
+                horizontal: AppSpacing.s4,
+                vertical: AppSpacing.s3,
               ),
-              borderRadius: BorderRadius.circular(context.radius.soft),
+          decoration: BoxDecoration(
+            color: widget.fillColor ?? context.color.backgroundLight0,
+            border: Border.all(
+              color: widget.enabledBorder
+                  ? hasError
+                      ? context.color.statusError
+                      : _hasFocus
+                          ? context.color.primaryLight600
+                          : context.color.strokeLigth100
+                  : Colors.transparent,
             ),
-        disabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.transparent),
-          borderRadius: BorderRadius.circular(context.radius.soft),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                widget.borderRadius ?? context.radius.soft,
+              ),
+            ),
+          ),
+          child: IntrinsicHeight(
+            child: TextField(
+              autofocus: widget.autofocus,
+              textAlign: widget.textAlign,
+              controller: _activeController,
+              keyboardType: widget.keyboardType,
+              inputFormatters: widget.inputFormatters,
+              textCapitalization: widget.textCapitalization,
+              readOnly: widget.readOnly,
+              obscureText: widget.obscureText,
+              onEditingComplete: widget.onEditingComplete,
+              autofillHints: widget.autofillHints,
+              enabled: widget.enabled,
+              maxLength:
+                  widget.counter != null ? widget.counter! : widget.maxLength,
+              minLines: widget.minLines,
+              style: widget.style ??
+                  (widget.size == TextInputSize.extraSmall
+                      ? context.textStyle.bodySmallRegular.copyWith(
+                          color: widget.enabled
+                              ? context.color.textLight900
+                              : context.color.textLight300,
+                        )
+                      : context.textStyle.bodyMediumRegular.copyWith(
+                          color: widget.enabled
+                              ? context.color.textLight900
+                              : context.color.textLight300,
+                        )),
+              maxLines: widget.obscureText ? 1 : widget.maxLines,
+              focusNode: _focusNode,
+              decoration: InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.zero,
+                counter:
+                    widget.counter != null ? const SizedBox.shrink() : null,
+                labelText: widget.labelText,
+                hintText: widget.hintText,
+                filled: widget.fillColor != null || !widget.enabled,
+                fillColor: widget.fillColor ??
+                    (widget.enabled
+                        ? context.color.neutralLight0
+                        : context.color.neutralLight100),
+                alignLabelWithHint: widget.alignLabelWithHint ??
+                    (widget.maxLines != null && widget.maxLines! > 1),
+                floatingLabelBehavior: widget.floatingLabelBehavior,
+                labelStyle: context.textStyle.bodyMediumRegular.copyWith(
+                  color: widget.enabled
+                      ? context.color.textLight600
+                      : context.color.textLight300,
+                ),
+                hintStyle: widget.hintStyle ??
+                    context.textStyle.bodyMediumRegular.copyWith(
+                      color: context.color.textLight600,
+                    ),
+                suffixText: widget.suffixText,
+                suffixStyle: widget.style ??
+                    (widget.size == TextInputSize.extraSmall
+                        ? context.textStyle.bodySmall
+                        : context.textStyle.bodyMedium),
+                suffixIconConstraints: widget.suffixConstraints,
+                prefix: widget.prefix,
+                prefixIcon: widget.prefixIcon,
+                suffixIcon: widget.suffixIcon,
+                suffixIconColor: widget.enabled
+                    ? context.color.iconLight600
+                    : context.color.iconLight300,
+                prefixIconConstraints: widget.prefixConstraints,
+                helperStyle: context.textStyle.bodySmallRegular.copyWith(
+                  color: hasError
+                      ? context.color.statusError
+                      : widget.enabled
+                          ? context.color.textLight600
+                          : context.color.textLight300,
+                ),
+                // Borders
+                errorBorder: InputBorder.none,
+                focusedErrorBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                border: InputBorder.none,
+              ),
+              onTap: widget.onTap,
+              onTapOutside: (event) {
+                widget.onTapOutside?.call();
+                FocusScope.of(context).unfocus();
+              },
+              onChanged: widget.onChanged,
+            ),
+          ),
         ),
-        labelText: widget.labelText,
-        filled: widget.fillColor != null || !widget.enabled,
-        fillColor: widget.fillColor ??
-            (widget.enabled
-                ? context.color.neutralLight0
-                : context.color.neutralLight100),
-        hintText: widget.hintText,
-        alignLabelWithHint: widget.alignLabelWithHint ??
-            (widget.maxLines != null && widget.maxLines! > 1),
-        floatingLabelBehavior: widget.floatingLabelBehavior,
-        labelStyle: context.textStyle.bodyMediumRegular.copyWith(
-          color: widget.enabled
-              ? context.color.textLight600
-              : context.color.textLight300,
-        ),
-        hintStyle: widget.hintStyle ??
-            context.textStyle.bodyMediumRegular
-                .copyWith(color: context.color.textLight600),
-        suffixText: widget.suffixText,
-        suffixStyle: widget.size == TextInputSize.extraSmall
-            ? context.textStyle.bodySmall
-            : context.textStyle.bodyMedium,
-        suffixIconConstraints: widget.suffixConstraints,
-        prefix: widget.prefix,
-        prefixIcon: widget.prefixIcon,
-        suffixIcon: widget.suffixIcon,
-        suffixIconColor: widget.enabled
-            ? context.color.iconLight600
-            : context.color.iconLight300,
-        prefixIconConstraints: widget.prefixConstraints,
-        helperStyle: context.textStyle.bodySmallRegular.copyWith(
-          color: hasError
-              ? context.color.statusError
-              : widget.enabled
-                  ? context.color.textLight600
-                  : context.color.textLight300,
-        ),
-      ),
-      onTap: widget.onTap,
-      onTapOutside: (event) {
-        widget.onTapOutside?.call();
-        FocusScope.of(context).unfocus();
-      },
-      onChanged: widget.onChanged,
+        if (widget.errorText != null || widget.helperText != null)
+          Padding(
+            padding: const EdgeInsets.only(
+              left: AppSpacing.s2,
+              top: AppSpacing.s2,
+              right: AppSpacing.s2,
+              bottom: AppSpacing.s2,
+            ),
+            child: widget.errorText != null
+                ? Text(
+                    widget.errorText ?? widget.helperText ?? '',
+                    style: context.textStyle.buttonTabBar.copyWith(
+                      color: context.color.statusError,
+                    ),
+                  )
+                : widget.helperText != null
+                    ? Text(
+                        widget.helperText ?? '',
+                        style: context.textStyle.buttonTabBar.copyWith(
+                          color: context.color.textLight600,
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+          ),
+      ],
     );
   }
-}
-
-class _AlwaysDisabledFocusNode extends FocusNode {
-  @override
-  bool get hasFocus => false;
 }

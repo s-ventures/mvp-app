@@ -12,11 +12,14 @@ part of 'detailed_account_transaction_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DetailedAccountTransactionState {
   AsyncValue<DetailedAccountTransaction> get transaction =>
+      throw _privateConstructorUsedError;
+  List<FileAttachment> get attachments => throw _privateConstructorUsedError;
+  SingleAccessValue<UploadEvent> get uploadEvent =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,7 +35,10 @@ abstract class $DetailedAccountTransactionStateCopyWith<$Res> {
       _$DetailedAccountTransactionStateCopyWithImpl<$Res,
           DetailedAccountTransactionState>;
   @useResult
-  $Res call({AsyncValue<DetailedAccountTransaction> transaction});
+  $Res call(
+      {AsyncValue<DetailedAccountTransaction> transaction,
+      List<FileAttachment> attachments,
+      SingleAccessValue<UploadEvent> uploadEvent});
 }
 
 /// @nodoc
@@ -50,12 +56,22 @@ class _$DetailedAccountTransactionStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? transaction = null,
+    Object? attachments = null,
+    Object? uploadEvent = null,
   }) {
     return _then(_value.copyWith(
       transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as AsyncValue<DetailedAccountTransaction>,
+      attachments: null == attachments
+          ? _value.attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
+      uploadEvent: null == uploadEvent
+          ? _value.uploadEvent
+          : uploadEvent // ignore: cast_nullable_to_non_nullable
+              as SingleAccessValue<UploadEvent>,
     ) as $Val);
   }
 }
@@ -69,7 +85,10 @@ abstract class _$$DetailedAccountTransactionStateImplCopyWith<$Res>
       __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AsyncValue<DetailedAccountTransaction> transaction});
+  $Res call(
+      {AsyncValue<DetailedAccountTransaction> transaction,
+      List<FileAttachment> attachments,
+      SingleAccessValue<UploadEvent> uploadEvent});
 }
 
 /// @nodoc
@@ -86,12 +105,22 @@ class __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? transaction = null,
+    Object? attachments = null,
+    Object? uploadEvent = null,
   }) {
     return _then(_$DetailedAccountTransactionStateImpl(
       transaction: null == transaction
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as AsyncValue<DetailedAccountTransaction>,
+      attachments: null == attachments
+          ? _value._attachments
+          : attachments // ignore: cast_nullable_to_non_nullable
+              as List<FileAttachment>,
+      uploadEvent: null == uploadEvent
+          ? _value.uploadEvent
+          : uploadEvent // ignore: cast_nullable_to_non_nullable
+              as SingleAccessValue<UploadEvent>,
     ));
   }
 }
@@ -99,17 +128,33 @@ class __$$DetailedAccountTransactionStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DetailedAccountTransactionStateImpl
-    implements _DetailedAccountTransactionState {
+    extends _DetailedAccountTransactionState {
   const _$DetailedAccountTransactionStateImpl(
-      {this.transaction = const AsyncLoading<DetailedAccountTransaction>()});
+      {this.transaction = const AsyncLoading<DetailedAccountTransaction>(),
+      final List<FileAttachment> attachments = const [],
+      this.uploadEvent = const SingleAccessVoid<UploadEvent>()})
+      : _attachments = attachments,
+        super._();
 
   @override
   @JsonKey()
   final AsyncValue<DetailedAccountTransaction> transaction;
+  final List<FileAttachment> _attachments;
+  @override
+  @JsonKey()
+  List<FileAttachment> get attachments {
+    if (_attachments is EqualUnmodifiableListView) return _attachments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_attachments);
+  }
+
+  @override
+  @JsonKey()
+  final SingleAccessValue<UploadEvent> uploadEvent;
 
   @override
   String toString() {
-    return 'DetailedAccountTransactionState(transaction: $transaction)';
+    return 'DetailedAccountTransactionState(transaction: $transaction, attachments: $attachments, uploadEvent: $uploadEvent)';
   }
 
   @override
@@ -118,11 +163,16 @@ class _$DetailedAccountTransactionStateImpl
         (other.runtimeType == runtimeType &&
             other is _$DetailedAccountTransactionStateImpl &&
             (identical(other.transaction, transaction) ||
-                other.transaction == transaction));
+                other.transaction == transaction) &&
+            const DeepCollectionEquality()
+                .equals(other._attachments, _attachments) &&
+            (identical(other.uploadEvent, uploadEvent) ||
+                other.uploadEvent == uploadEvent));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, transaction);
+  int get hashCode => Object.hash(runtimeType, transaction,
+      const DeepCollectionEquality().hash(_attachments), uploadEvent);
 
   @JsonKey(ignore: true)
   @override
@@ -134,13 +184,20 @@ class _$DetailedAccountTransactionStateImpl
 }
 
 abstract class _DetailedAccountTransactionState
-    implements DetailedAccountTransactionState {
+    extends DetailedAccountTransactionState implements UploadAttachmentState {
   const factory _DetailedAccountTransactionState(
-          {final AsyncValue<DetailedAccountTransaction> transaction}) =
+          {final AsyncValue<DetailedAccountTransaction> transaction,
+          final List<FileAttachment> attachments,
+          final SingleAccessValue<UploadEvent> uploadEvent}) =
       _$DetailedAccountTransactionStateImpl;
+  const _DetailedAccountTransactionState._() : super._();
 
   @override
   AsyncValue<DetailedAccountTransaction> get transaction;
+  @override
+  List<FileAttachment> get attachments;
+  @override
+  SingleAccessValue<UploadEvent> get uploadEvent;
   @override
   @JsonKey(ignore: true)
   _$$DetailedAccountTransactionStateImplCopyWith<

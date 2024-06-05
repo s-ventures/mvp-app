@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/amount_range.dart';
+import 'package:localizations/localizations.dart';
+import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/amount.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/category_list.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/credit_debit.dart';
-import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/transactions/list/filter_account_transactions_bottom_sheet/date_range.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
@@ -13,6 +13,18 @@ class FilterAccountTransactionsBottomSheet {
     required BuildContext context,
     required Future<void> Function() onApply,
     required Future<void> Function() onReset,
+    required ValueChanged<DateTime> setStartDate,
+    required ValueChanged<DateTime> setEndDate,
+    required ValueChanged<double> setAmountFrom,
+    required ValueChanged<double> setAmountTo,
+    required ValueChanged<TransactionOperationType> setTransactionType,
+    required DateTime? stateDate,
+    required DateTime? endDate,
+    required double? amountFrom,
+    required double? amountTo,
+    required TransactionOperationType? operationType,
+    required String categorySelected,
+    required void Function(String) setCategory,
   }) {
     final pageIndexNotifier = ValueNotifier(0);
 
@@ -27,8 +39,31 @@ class FilterAccountTransactionsBottomSheet {
         onReset().then((_) => context.pop());
       },
       pageListBuilder: (modalSheetContext) => [
-        _buildFilters(modalSheetContext, pageIndexNotifier, onApply, onReset),
-        _buildCategories(modalSheetContext, pageIndexNotifier),
+        _buildFilters(
+          modalSheetContext,
+          pageIndexNotifier,
+          onApply,
+          onReset,
+          setStartDate,
+          setEndDate,
+          setAmountFrom,
+          setAmountTo,
+          setTransactionType,
+          stateDate,
+          endDate,
+          amountFrom,
+          amountTo,
+          operationType,
+          categories,
+          categorySelected,
+        ),
+        _buildCategories(
+          modalSheetContext,
+          pageIndexNotifier,
+          categories,
+          categorySelected,
+          setCategory,
+        ),
       ],
     );
   }
@@ -107,30 +142,49 @@ class FilterAccountTransactionsBottomSheet {
     ValueNotifier<int> pageIndexNotifier,
     Future<void> Function() onApply,
     Future<void> Function() onReset,
+    ValueChanged<DateTime> setStartDate,
+    ValueChanged<DateTime> setEndDate,
+    ValueChanged<double> setAmountFrom,
+    ValueChanged<double> setAmountTo,
+    ValueChanged<TransactionOperationType> setTransactionType,
+    DateTime? stateDate,
+    DateTime? endDate,
+    double? amountFrom,
+    double? amountTo,
+    TransactionOperationType? operationType,
+    List<Map<String, dynamic>> categories,
+    String category,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
-        stickyActionBar: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Button(
-                title: 'Descartar filtros',
-                type: ButtonType.text,
-                size: ButtonSize.small,
-                onPressed: () async {
-                  await onReset().then((_) => context.pop());
-                },
-              ),
-              Button(
-                title: 'Aplicar',
-                size: ButtonSize.small,
-                onPressed: () async {
-                  await onApply().then((_) => context.pop());
-                },
-              ),
-            ],
+        stickyActionBar: ColoredBox(
+          color: const Color(0xFFEFEFF0),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              right: AppSpacing.s5,
+              // bottom: AppSpacing.s5,
+              // top: AppSpacing.s5,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Button(
+                  title: context.loc.commonFilterDiscard,
+                  type: ButtonType.text,
+                  size: ButtonSize.small,
+                  onPressed: () async {
+                    await onReset().then((_) => context.pop());
+                  },
+                ),
+                Button(
+                  title: context.loc.commonFilterApply,
+                  size: ButtonSize.small,
+                  onPressed: () async {
+                    await onApply().then((_) => context.pop());
+                  },
+                ),
+              ],
+            ),
           ),
         ),
         backgroundColor: context.color.bottomSheetBackground,
@@ -138,7 +192,7 @@ class FilterAccountTransactionsBottomSheet {
         leadingNavBarWidget: Transform.translate(
           offset: const Offset(16, 24),
           child: Text(
-            'Filtrar',
+            context.loc.commonFilter,
             style: context.textStyle.h6,
           ),
         ),
@@ -153,9 +207,9 @@ class FilterAccountTransactionsBottomSheet {
         mainContentSlivers: [
           SliverPadding(
             padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 16,
+              left: AppSpacing.s5,
+              right: AppSpacing.s5,
+              top: AppSpacing.s6,
               bottom: 80,
             ),
             sliver: SliverList(
@@ -163,43 +217,47 @@ class FilterAccountTransactionsBottomSheet {
                 [
                   AppSpacing.vertical.s2,
                   Text(
-                    'Fecha',
+                    context.loc.commonDate,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
                   ),
                   AppSpacing.vertical.s2,
-                  const DateRange(),
-                  AppSpacing.vertical.s6,
+                  DateRangeFilter(
+                    startDate: stateDate,
+                    endDate: endDate,
+                    setStartDate: (DateTime value) => setStartDate(value),
+                    setEndDate: (DateTime value) => setEndDate(value),
+                  ),
+                  AppSpacing.vertical.s5,
                   Text(
-                    'Importe',
+                    context.loc.commonAmount,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
                   ),
                   AppSpacing.vertical.s2,
-                  const Amount(),
-                  AppSpacing.vertical.s6,
+                  Amount(
+                    amountFrom: amountFrom,
+                    amountTo: amountTo,
+                    operationType: operationType,
+                    setAmountFrom: (double value) => setAmountFrom(value),
+                    setAmountTo: (double value) => setAmountTo(value),
+                    setOperationType: (TransactionOperationType value) => setTransactionType(value),
+                  ),
+                  AppSpacing.vertical.s5,
                   Text(
-                    'Categoría',
+                    context.loc.commonCategory,
                     style: context.textStyle.bodyMediumSemiBold.copyWith(
                       color: context.color.textLight600,
                     ),
                   ),
                   AppSpacing.vertical.s2,
                   Category(
+                    categoryValue: category,
                     categories: categories,
                     onPressed: () => pageIndexNotifier.value = 1,
                   ),
-                  AppSpacing.vertical.s5,
-                  Text(
-                    'Tipo',
-                    style: context.textStyle.bodyMediumSemiBold.copyWith(
-                      color: context.color.textLight600,
-                    ),
-                  ),
-                  AppSpacing.vertical.s2,
-                  const CreditDebit(),
                 ],
               ),
             ),
@@ -210,6 +268,9 @@ class FilterAccountTransactionsBottomSheet {
   static SliverWoltModalSheetPage _buildCategories(
     BuildContext context,
     ValueNotifier<int> pageIndexNotifier,
+    List<Map<String, dynamic>> categories,
+    String categorySelected,
+    void Function(String) setCategory,
   ) =>
       SliverWoltModalSheetPage(
         hasSabGradient: false,
@@ -219,13 +280,13 @@ class FilterAccountTransactionsBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Button(
-                title: 'Cancelar',
+                title: context.loc.commonCancel,
                 type: ButtonType.text,
                 size: ButtonSize.small,
                 onPressed: () async {},
               ),
               Button(
-                title: 'Seleccionar',
+                title: context.loc.commonFilterSelect,
                 size: ButtonSize.small,
                 onPressed: () async {
                   pageIndexNotifier.value = 0;
@@ -246,7 +307,7 @@ class FilterAccountTransactionsBottomSheet {
         backgroundColor: context.color.bottomSheetBackground,
         sabGradientColor: context.color.bottomSheetBackground,
         topBarTitle: Text(
-          'Categoría',
+          context.loc.commonCategory,
           style: context.textStyle.h6,
         ),
         isTopBarLayerAlwaysVisible: true,
@@ -272,13 +333,17 @@ class FilterAccountTransactionsBottomSheet {
               child: Container(
                 decoration: BoxDecoration(
                   color: context.color.backgroundLight0,
-                  borderRadius: BorderRadius.circular(context.radius.soft),
+                  borderRadius: BorderRadius.circular(
+                    context.radius.soft,
+                  ),
                   border: Border.all(
                     color: context.color.strokeLigth100,
                   ),
                 ),
                 child: CategoryList(
                   categories: categories,
+                  categorySelected: categorySelected,
+                  setCategory: setCategory,
                   onPressed: () => pageIndexNotifier.value = 0,
                 ),
               ),
