@@ -19,6 +19,39 @@ class _QuotesRestClient implements QuotesRestClient {
   String? baseUrl;
 
   @override
+  Future<PaginatedResponse<QuotationDto>> getQuotes({
+    required int erpContractId,
+    required QuotationFilterDto filter,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'': filter.toJson()};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PaginatedResponse<QuotationDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/erp/quotes/v1/${erpContractId}/query',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PaginatedResponse<QuotationDto>.fromJson(
+      _result.data!,
+      (json) => QuotationDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
   Future<DetailedQuoteDto> getDetailedQuote({
     required int contractId,
     required int id,
@@ -45,6 +78,38 @@ class _QuotesRestClient implements QuotesRestClient {
               baseUrl,
             ))));
     final value = DetailedQuoteDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<OverviewQuotesDto> getOverviewQuotes({
+    required int erpContractId,
+    required OverviewSegmentPeriodDto segmentPeriod,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'segmentPeriod': segmentPeriod.name
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<OverviewQuotesDto>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'erp/quotes/v1/overview',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = OverviewQuotesDto.fromJson(_result.data!);
     return value;
   }
 

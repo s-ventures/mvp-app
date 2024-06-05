@@ -9,17 +9,17 @@ part of 'detailed_quote_dto.dart';
 _$DetailedQuoteDtoImpl _$$DetailedQuoteDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DetailedQuoteDtoImpl(
-      quotationId: json['quotationId'] as int,
-      erpContractId: json['erpContractId'] as int,
+      quotationId: (json['quotationId'] as num).toInt(),
+      erpContractId: (json['erpContractId'] as num).toInt(),
       number: json['number'] as String,
-      stakeholderId: json['stakeholderId'] as int,
+      stakeholderId: (json['stakeholderId'] as num).toInt(),
       dueDate: const DateConverter().fromJson(json['dueDate'] as String),
       createdDate:
           const DateConverter().fromJson(json['createdDate'] as String),
       currencyCode: json['currencyCode'] as String,
       withHoldingTaxesPercentage:
           (json['withHoldingTaxesPercentage'] as num).toDouble(),
-      fileId: json['fileId'] as int,
+      fileId: (json['fileId'] as num).toInt(),
       additionalInfo: json['additionalInfo'] as String,
       statusDate: const DateConverter().fromJson(json['statusDate'] as String),
       items: (json['items'] as List<dynamic>)
@@ -27,12 +27,12 @@ _$DetailedQuoteDtoImpl _$$DetailedQuoteDtoImplFromJson(
           .toList(),
       serialNumber: SerialNumberDto.fromJson(
           json['serialNumber'] as Map<String, dynamic>),
-      stakeholderAddressId: json['stakeholderAddressId'] as int,
-      stakeholderTelephoneId: json['stakeholderTelephoneId'] as int,
-      stakeholderEmailId: json['stakeholderEmailId'] as int,
+      stakeholderAddressId: (json['stakeholderAddressId'] as num).toInt(),
+      stakeholderTelephoneId: (json['stakeholderTelephoneId'] as num).toInt(),
+      stakeholderEmailId: (json['stakeholderEmailId'] as num).toInt(),
       issueDate: const DateConverter().fromJson(json['issueDate'] as String),
       status: $enumDecode(_$QuoteStatusDtoEnumMap, json['status']),
-      serialNumberId: json['serialNumberId'] as int,
+      serialNumberId: (json['serialNumberId'] as num).toInt(),
       attachments: (json['attachments'] as List<dynamic>)
           .map((e) => FileAttachmentDto.fromJson(e as Map<String, dynamic>))
           .toList(),
