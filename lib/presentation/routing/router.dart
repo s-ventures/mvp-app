@@ -7,6 +7,7 @@ import 'package:manifiesto_mvp_app/presentation/routing/erp/erp_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/params.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/protection/protection_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/transversal/transversal_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/widgets/scaffold_with_bottom_nav_bar.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/widgets/web_view_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -23,6 +24,7 @@ GoRouter router(RouterRef ref) {
   final erpRouter = ErpRouter.build(_rootNavigatorKey);
   final protectionRouter = ProtectionRouter.build(_rootNavigatorKey);
   final analyticsRouter = AnalyticsRouter.build(_rootNavigatorKey);
+  final transversalRouter = TransversalRouter.build(_rootNavigatorKey);
 
   return GoRouter(
     initialLocation: AppRoute.dailyBanking.path,
@@ -55,6 +57,7 @@ GoRouter router(RouterRef ref) {
           erpRouter,
           protectionRouter,
           analyticsRouter,
+          transversalRouter,
         ],
       ),
     ],

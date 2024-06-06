@@ -46,6 +46,7 @@ class CustomLineBarChart extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(context.radius.soft),
+          // Todo(jesus): Refactor this
           color: !active && CustomLineBarColor.neutral == color
               ? context.color.strokeLigth100
               : !active && CustomLineBarColor.primary == color
@@ -63,7 +64,8 @@ class CustomLineBarChart extends StatelessWidget {
                                       : active && CustomLineBarColor.success == color
                                           ? context.color.statusSuccess
                                           : active && CustomLineBarColor.warning == color
-                                              ? context.color.statusWarning : active && CustomLineBarColor.critical == color
+                                              ? context.color.statusWarning
+                                              : active && CustomLineBarColor.critical == color
                                                   ? context.color.statusError
                                                   : context.color.backgroundLight0,
         ),

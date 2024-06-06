@@ -103,7 +103,10 @@ enum AppRoute {
   protectionInsuranceHealth('health-insurance'),
 
   // Web view
-  webView('/web-view');
+  webView('/web-view'),
+
+  // Tranversal
+  transversal('/transversal');
 
   const AppRoute(this.path);
 

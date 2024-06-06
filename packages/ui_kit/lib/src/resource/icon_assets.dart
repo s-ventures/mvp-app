@@ -30,6 +30,7 @@ class IconAssets {
   static const String ellipsisVertical = '$_iconPath/ellipsis-vertical.svg';
   static const String enlarge = '$_iconPath/enlarge.svg';
   static const String euro = '$_iconPath/euro.svg';
+  static const String exit = '$_iconPath/exit.svg';
   static const String extinguisher = '$_iconPath/extinguisher.svg';
   static const String eye = '$_iconPath/eye.svg';
   static const String eyeSlash = '$_iconPath/eye-slash.svg';

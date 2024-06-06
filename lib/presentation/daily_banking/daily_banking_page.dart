@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/accounts_home_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/cards/cards_home_page.dart';
 import 'package:manifiesto_mvp_app/presentation/daily_banking/insurance/insurance_home_page.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class DailyBankingPage extends StatelessWidget {
@@ -33,7 +35,7 @@ class DailyBankingPage extends StatelessWidget {
                       icon: IconAssets.user,
                       type: ButtonType.outlined,
                       size: ButtonSize.extraSmall,
-                      onPressed: () async {},
+                      onPressed: () async => context.pushNamed(AppRoute.transversal.name),
                     ),
                   ],
                   bottom: CustomTabBar(
