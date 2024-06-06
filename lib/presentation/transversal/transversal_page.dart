@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/transversal/widgets/upload_profile_pic_bottom_sheet.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class TransversalPage extends StatelessWidget {
@@ -17,7 +19,7 @@ class TransversalPage extends StatelessWidget {
                 icon: IconAssets.xMark,
                 type: ButtonType.outlined,
                 size: ButtonSize.extraSmall,
-                onPressed: () async {},
+                onPressed: () async => context.pop(),
               ),
             ),
           ];
@@ -30,7 +32,25 @@ class TransversalPage extends StatelessWidget {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () async {},
+                    onTap: () async => UploadProfilePicBottomSheet.show(
+                      context: context,
+                      handleCamera: () {
+                        CustomToast.show(
+                          context,
+                          type: ToastType.success,
+                          content: 'Foto de perfil subida correctamente.',
+                          isDismissible: true,
+                        );
+                      },
+                      handleGallery: () {
+                        CustomToast.show(
+                          context,
+                          type: ToastType.error,
+                          content: 'Ha ocurrido un error al subir la imagen.',
+                          isDismissible: true,
+                        );
+                      },
+                    ),
                     child: IconWithContainer(
                       backgroundColor: context.color.neutralLight100,
                       text: 'AR',

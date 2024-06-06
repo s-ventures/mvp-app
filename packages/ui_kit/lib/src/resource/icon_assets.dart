@@ -43,6 +43,7 @@ class IconAssets {
   static const String gripSolid = '$_iconPath/grip-solid.svg';
   static const String headPhones = '$_iconPath/head-phones.svg';
   static const String home = '$_iconPath/home.svg';
+  static const String image = '$_iconPath/image.svg';
   static const String info = '$_iconPath/info.svg';
   static const String invoice = '$_iconPath/invoice.svg';
   static const String link = '$_iconPath/link.svg';
