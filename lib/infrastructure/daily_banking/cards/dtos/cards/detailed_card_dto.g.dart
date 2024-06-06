@@ -9,7 +9,7 @@ part of 'detailed_card_dto.dart';
 _$DetailedCardDtoImpl _$$DetailedCardDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DetailedCardDtoImpl(
-      cardId: json['cardId'] as int,
+      cardId: (json['cardId'] as num).toInt(),
       brand: json['brand'] as String,
       cardType: $enumDecode(_$CardTypeDtoEnumMap, json['cardType']),
       cardName: json['cardName'] as String,
@@ -53,6 +53,7 @@ Map<String, dynamic> _$$DetailedCardDtoImplToJson(
 const _$CardTypeDtoEnumMap = {
   CardTypeDto.credit: 'CREDIT',
   CardTypeDto.debit: 'DEBIT',
+  CardTypeDto.virtual: 'VIRTUAL',
 };
 
 const _$CardStatusDtoEnumMap = {

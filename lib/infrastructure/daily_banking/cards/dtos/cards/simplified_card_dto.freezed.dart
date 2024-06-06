@@ -21,11 +21,13 @@ SimplifiedCardDto _$SimplifiedCardDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SimplifiedCardDto {
   int get cardId => throw _privateConstructorUsedError;
-  String get brand => throw _privateConstructorUsedError;
+  String get alias => throw _privateConstructorUsedError;
   CardTypeDto get cardType => throw _privateConstructorUsedError;
-  String get cardName => throw _privateConstructorUsedError;
   CardStatusDto get status => throw _privateConstructorUsedError;
+  String get cardName => throw _privateConstructorUsedError;
+  String get brand => throw _privateConstructorUsedError;
   String get cardEncryptedNumber => throw _privateConstructorUsedError;
+  CardCategoryDto get category => throw _privateConstructorUsedError;
   CardContractDto get cardContract => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,11 +44,13 @@ abstract class $SimplifiedCardDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {int cardId,
-      String brand,
+      String alias,
       CardTypeDto cardType,
-      String cardName,
       CardStatusDto status,
+      String cardName,
+      String brand,
       String cardEncryptedNumber,
+      CardCategoryDto category,
       CardContractDto cardContract});
 
   $CardContractDtoCopyWith<$Res> get cardContract;
@@ -66,11 +70,13 @@ class _$SimplifiedCardDtoCopyWithImpl<$Res, $Val extends SimplifiedCardDto>
   @override
   $Res call({
     Object? cardId = null,
-    Object? brand = null,
+    Object? alias = null,
     Object? cardType = null,
-    Object? cardName = null,
     Object? status = null,
+    Object? cardName = null,
+    Object? brand = null,
     Object? cardEncryptedNumber = null,
+    Object? category = null,
     Object? cardContract = null,
   }) {
     return _then(_value.copyWith(
@@ -78,26 +84,34 @@ class _$SimplifiedCardDtoCopyWithImpl<$Res, $Val extends SimplifiedCardDto>
           ? _value.cardId
           : cardId // ignore: cast_nullable_to_non_nullable
               as int,
-      brand: null == brand
-          ? _value.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
               as String,
       cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
               as CardTypeDto,
-      cardName: null == cardName
-          ? _value.cardName
-          : cardName // ignore: cast_nullable_to_non_nullable
-              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as CardStatusDto,
+      cardName: null == cardName
+          ? _value.cardName
+          : cardName // ignore: cast_nullable_to_non_nullable
+              as String,
+      brand: null == brand
+          ? _value.brand
+          : brand // ignore: cast_nullable_to_non_nullable
+              as String,
       cardEncryptedNumber: null == cardEncryptedNumber
           ? _value.cardEncryptedNumber
           : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as CardCategoryDto,
       cardContract: null == cardContract
           ? _value.cardContract
           : cardContract // ignore: cast_nullable_to_non_nullable
@@ -124,11 +138,13 @@ abstract class _$$SimplifiedCardDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {int cardId,
-      String brand,
+      String alias,
       CardTypeDto cardType,
-      String cardName,
       CardStatusDto status,
+      String cardName,
+      String brand,
       String cardEncryptedNumber,
+      CardCategoryDto category,
       CardContractDto cardContract});
 
   @override
@@ -147,11 +163,13 @@ class __$$SimplifiedCardDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cardId = null,
-    Object? brand = null,
+    Object? alias = null,
     Object? cardType = null,
-    Object? cardName = null,
     Object? status = null,
+    Object? cardName = null,
+    Object? brand = null,
     Object? cardEncryptedNumber = null,
+    Object? category = null,
     Object? cardContract = null,
   }) {
     return _then(_$SimplifiedCardDtoImpl(
@@ -159,26 +177,34 @@ class __$$SimplifiedCardDtoImplCopyWithImpl<$Res>
           ? _value.cardId
           : cardId // ignore: cast_nullable_to_non_nullable
               as int,
-      brand: null == brand
-          ? _value.brand
-          : brand // ignore: cast_nullable_to_non_nullable
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
               as String,
       cardType: null == cardType
           ? _value.cardType
           : cardType // ignore: cast_nullable_to_non_nullable
               as CardTypeDto,
-      cardName: null == cardName
-          ? _value.cardName
-          : cardName // ignore: cast_nullable_to_non_nullable
-              as String,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as CardStatusDto,
+      cardName: null == cardName
+          ? _value.cardName
+          : cardName // ignore: cast_nullable_to_non_nullable
+              as String,
+      brand: null == brand
+          ? _value.brand
+          : brand // ignore: cast_nullable_to_non_nullable
+              as String,
       cardEncryptedNumber: null == cardEncryptedNumber
           ? _value.cardEncryptedNumber
           : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as CardCategoryDto,
       cardContract: null == cardContract
           ? _value.cardContract
           : cardContract // ignore: cast_nullable_to_non_nullable
@@ -192,11 +218,13 @@ class __$$SimplifiedCardDtoImplCopyWithImpl<$Res>
 class _$SimplifiedCardDtoImpl implements _SimplifiedCardDto {
   const _$SimplifiedCardDtoImpl(
       {required this.cardId,
-      required this.brand,
+      required this.alias,
       required this.cardType,
-      required this.cardName,
       required this.status,
+      required this.cardName,
+      required this.brand,
       required this.cardEncryptedNumber,
+      required this.category,
       required this.cardContract});
 
   factory _$SimplifiedCardDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -205,21 +233,25 @@ class _$SimplifiedCardDtoImpl implements _SimplifiedCardDto {
   @override
   final int cardId;
   @override
-  final String brand;
+  final String alias;
   @override
   final CardTypeDto cardType;
   @override
-  final String cardName;
-  @override
   final CardStatusDto status;
   @override
+  final String cardName;
+  @override
+  final String brand;
+  @override
   final String cardEncryptedNumber;
+  @override
+  final CardCategoryDto category;
   @override
   final CardContractDto cardContract;
 
   @override
   String toString() {
-    return 'SimplifiedCardDto(cardId: $cardId, brand: $brand, cardType: $cardType, cardName: $cardName, status: $status, cardEncryptedNumber: $cardEncryptedNumber, cardContract: $cardContract)';
+    return 'SimplifiedCardDto(cardId: $cardId, alias: $alias, cardType: $cardType, status: $status, cardName: $cardName, brand: $brand, cardEncryptedNumber: $cardEncryptedNumber, category: $category, cardContract: $cardContract)';
   }
 
   @override
@@ -228,22 +260,25 @@ class _$SimplifiedCardDtoImpl implements _SimplifiedCardDto {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedCardDtoImpl &&
             (identical(other.cardId, cardId) || other.cardId == cardId) &&
-            (identical(other.brand, brand) || other.brand == brand) &&
+            (identical(other.alias, alias) || other.alias == alias) &&
             (identical(other.cardType, cardType) ||
                 other.cardType == cardType) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.cardName, cardName) ||
                 other.cardName == cardName) &&
-            (identical(other.status, status) || other.status == status) &&
+            (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
                 other.cardEncryptedNumber == cardEncryptedNumber) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             (identical(other.cardContract, cardContract) ||
                 other.cardContract == cardContract));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cardId, brand, cardType,
-      cardName, status, cardEncryptedNumber, cardContract);
+  int get hashCode => Object.hash(runtimeType, cardId, alias, cardType, status,
+      cardName, brand, cardEncryptedNumber, category, cardContract);
 
   @JsonKey(ignore: true)
   @override
@@ -263,11 +298,13 @@ class _$SimplifiedCardDtoImpl implements _SimplifiedCardDto {
 abstract class _SimplifiedCardDto implements SimplifiedCardDto {
   const factory _SimplifiedCardDto(
       {required final int cardId,
-      required final String brand,
+      required final String alias,
       required final CardTypeDto cardType,
-      required final String cardName,
       required final CardStatusDto status,
+      required final String cardName,
+      required final String brand,
       required final String cardEncryptedNumber,
+      required final CardCategoryDto category,
       required final CardContractDto cardContract}) = _$SimplifiedCardDtoImpl;
 
   factory _SimplifiedCardDto.fromJson(Map<String, dynamic> json) =
@@ -276,15 +313,19 @@ abstract class _SimplifiedCardDto implements SimplifiedCardDto {
   @override
   int get cardId;
   @override
-  String get brand;
+  String get alias;
   @override
   CardTypeDto get cardType;
   @override
-  String get cardName;
-  @override
   CardStatusDto get status;
   @override
+  String get cardName;
+  @override
+  String get brand;
+  @override
   String get cardEncryptedNumber;
+  @override
+  CardCategoryDto get category;
   @override
   CardContractDto get cardContract;
   @override

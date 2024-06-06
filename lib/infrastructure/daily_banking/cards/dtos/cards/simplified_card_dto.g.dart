@@ -9,12 +9,14 @@ part of 'simplified_card_dto.dart';
 _$SimplifiedCardDtoImpl _$$SimplifiedCardDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$SimplifiedCardDtoImpl(
-      cardId: json['cardId'] as int,
-      brand: json['brand'] as String,
+      cardId: (json['cardId'] as num).toInt(),
+      alias: json['alias'] as String,
       cardType: $enumDecode(_$CardTypeDtoEnumMap, json['cardType']),
-      cardName: json['cardName'] as String,
       status: $enumDecode(_$CardStatusDtoEnumMap, json['status']),
+      cardName: json['cardName'] as String,
+      brand: json['brand'] as String,
       cardEncryptedNumber: json['cardEncryptedNumber'] as String,
+      category: $enumDecode(_$CardCategoryDtoEnumMap, json['category']),
       cardContract: CardContractDto.fromJson(
           json['cardContract'] as Map<String, dynamic>),
     );
@@ -23,21 +25,29 @@ Map<String, dynamic> _$$SimplifiedCardDtoImplToJson(
         _$SimplifiedCardDtoImpl instance) =>
     <String, dynamic>{
       'cardId': instance.cardId,
-      'brand': instance.brand,
+      'alias': instance.alias,
       'cardType': _$CardTypeDtoEnumMap[instance.cardType]!,
-      'cardName': instance.cardName,
       'status': _$CardStatusDtoEnumMap[instance.status]!,
+      'cardName': instance.cardName,
+      'brand': instance.brand,
       'cardEncryptedNumber': instance.cardEncryptedNumber,
+      'category': _$CardCategoryDtoEnumMap[instance.category]!,
       'cardContract': instance.cardContract.toJson(),
     };
 
 const _$CardTypeDtoEnumMap = {
   CardTypeDto.credit: 'CREDIT',
   CardTypeDto.debit: 'DEBIT',
+  CardTypeDto.virtual: 'VIRTUAL',
 };
 
 const _$CardStatusDtoEnumMap = {
   CardStatusDto.active: 'ACTIVE',
   CardStatusDto.cancelled: 'CANCELLED',
   CardStatusDto.blocked: 'BLOCKED',
+};
+
+const _$CardCategoryDtoEnumMap = {
+  CardCategoryDto.visa: 'VISA',
+  CardCategoryDto.mastercard: 'MASTERCARD',
 };

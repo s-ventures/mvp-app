@@ -14,6 +14,7 @@ abstract class CardContractDto with _$CardContractDto {
     @DateConverter() required DateTime createDate,
     @DateConverter() required DateTime? endDate,
     required String currencyCode,
+    required bool aggregated,
   }) = _CardContractDto;
 
   factory CardContractDto.fromJson(Map<String, dynamic> json) => _$CardContractDtoFromJson(json);
@@ -26,6 +27,8 @@ extension CardContractDtoX on CardContractDto {
       accountId: UniqueId.fromUniqueString(accountId.toString()),
       createDate: createDate,
       endDate: endDate,
+      currencyCode: currencyCode,
+      aggregated: aggregated,
     );
   }
 }

@@ -67,7 +67,7 @@ class DetailedCardDto with _$DetailedCardDto {
 extension DetailedCardDtoX on DetailedCardDto {
   DetailedCard toDomain() {
     return DetailedCard(
-      cardId: UniqueId.fromUniqueString(cardId.toString()),
+      id: UniqueId.fromUniqueString(cardId.toString()),
       cardName: cardName,
       dueDate: dueDate != null ? DateTime.parse(dueDate!) : null,
       cvv: cvv ?? '',
