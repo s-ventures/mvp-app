@@ -7,7 +7,7 @@ part 'detailed_card.freezed.dart';
 @freezed
 class DetailedCard with _$DetailedCard {
   const factory DetailedCard({
-    required UniqueId cardId,
+    required UniqueId id,
     required String cardName,
     @DateConverter() required DateTime? dueDate,
     required String cvv,

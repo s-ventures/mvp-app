@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailedCard {
-  UniqueId get cardId => throw _privateConstructorUsedError;
+  UniqueId get id => throw _privateConstructorUsedError;
   String get cardName => throw _privateConstructorUsedError;
   @DateConverter()
   DateTime? get dueDate => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $DetailedCardCopyWith<$Res> {
       _$DetailedCardCopyWithImpl<$Res, DetailedCard>;
   @useResult
   $Res call(
-      {UniqueId cardId,
+      {UniqueId id,
       String cardName,
       @DateConverter() DateTime? dueDate,
       String cvv,
@@ -55,16 +55,16 @@ class _$DetailedCardCopyWithImpl<$Res, $Val extends DetailedCard>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cardId = null,
+    Object? id = null,
     Object? cardName = null,
     Object? dueDate = freezed,
     Object? cvv = null,
     Object? cardEncryptedNumber = null,
   }) {
     return _then(_value.copyWith(
-      cardId: null == cardId
-          ? _value.cardId
-          : cardId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       cardName: null == cardName
           ? _value.cardName
@@ -95,7 +95,7 @@ abstract class _$$DetailedCardImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UniqueId cardId,
+      {UniqueId id,
       String cardName,
       @DateConverter() DateTime? dueDate,
       String cvv,
@@ -113,16 +113,16 @@ class __$$DetailedCardImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cardId = null,
+    Object? id = null,
     Object? cardName = null,
     Object? dueDate = freezed,
     Object? cvv = null,
     Object? cardEncryptedNumber = null,
   }) {
     return _then(_$DetailedCardImpl(
-      cardId: null == cardId
-          ? _value.cardId
-          : cardId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
       cardName: null == cardName
           ? _value.cardName
@@ -148,14 +148,14 @@ class __$$DetailedCardImplCopyWithImpl<$Res>
 
 class _$DetailedCardImpl implements _DetailedCard {
   const _$DetailedCardImpl(
-      {required this.cardId,
+      {required this.id,
       required this.cardName,
       @DateConverter() required this.dueDate,
       required this.cvv,
       required this.cardEncryptedNumber});
 
   @override
-  final UniqueId cardId;
+  final UniqueId id;
   @override
   final String cardName;
   @override
@@ -168,7 +168,7 @@ class _$DetailedCardImpl implements _DetailedCard {
 
   @override
   String toString() {
-    return 'DetailedCard(cardId: $cardId, cardName: $cardName, dueDate: $dueDate, cvv: $cvv, cardEncryptedNumber: $cardEncryptedNumber)';
+    return 'DetailedCard(id: $id, cardName: $cardName, dueDate: $dueDate, cvv: $cvv, cardEncryptedNumber: $cardEncryptedNumber)';
   }
 
   @override
@@ -176,7 +176,7 @@ class _$DetailedCardImpl implements _DetailedCard {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DetailedCardImpl &&
-            (identical(other.cardId, cardId) || other.cardId == cardId) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.cardName, cardName) ||
                 other.cardName == cardName) &&
             (identical(other.dueDate, dueDate) || other.dueDate == dueDate) &&
@@ -186,8 +186,8 @@ class _$DetailedCardImpl implements _DetailedCard {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, cardId, cardName, dueDate, cvv, cardEncryptedNumber);
+  int get hashCode =>
+      Object.hash(runtimeType, id, cardName, dueDate, cvv, cardEncryptedNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -198,14 +198,14 @@ class _$DetailedCardImpl implements _DetailedCard {
 
 abstract class _DetailedCard implements DetailedCard {
   const factory _DetailedCard(
-      {required final UniqueId cardId,
+      {required final UniqueId id,
       required final String cardName,
       @DateConverter() required final DateTime? dueDate,
       required final String cvv,
       required final String cardEncryptedNumber}) = _$DetailedCardImpl;
 
   @override
-  UniqueId get cardId;
+  UniqueId get id;
   @override
   String get cardName;
   @override

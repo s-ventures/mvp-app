@@ -1,6 +1,7 @@
 enum CardType {
   debit('Débito'),
-  credit('Crédito');
+  credit('Crédito'),
+  virtual('Virtual');
 
   const CardType(this.name);
 

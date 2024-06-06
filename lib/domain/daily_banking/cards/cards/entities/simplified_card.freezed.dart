@@ -17,10 +17,13 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SimplifiedCard {
   UniqueId get id => throw _privateConstructorUsedError;
+  String get alias => throw _privateConstructorUsedError;
+  CardType get type => throw _privateConstructorUsedError;
+  CardStatus get status => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get brand => throw _privateConstructorUsedError;
-  String get lastFourDigits => throw _privateConstructorUsedError;
-  CardType get type => throw _privateConstructorUsedError;
+  String get cardEncryptedNumber => throw _privateConstructorUsedError;
+  CardCategory get category => throw _privateConstructorUsedError;
   CardContract get contract => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,10 +39,13 @@ abstract class $SimplifiedCardCopyWith<$Res> {
   @useResult
   $Res call(
       {UniqueId id,
+      String alias,
+      CardType type,
+      CardStatus status,
       String name,
       String brand,
-      String lastFourDigits,
-      CardType type,
+      String cardEncryptedNumber,
+      CardCategory category,
       CardContract contract});
 
   $CardContractCopyWith<$Res> get contract;
@@ -59,10 +65,13 @@ class _$SimplifiedCardCopyWithImpl<$Res, $Val extends SimplifiedCard>
   @override
   $Res call({
     Object? id = null,
+    Object? alias = null,
+    Object? type = null,
+    Object? status = null,
     Object? name = null,
     Object? brand = null,
-    Object? lastFourDigits = null,
-    Object? type = null,
+    Object? cardEncryptedNumber = null,
+    Object? category = null,
     Object? contract = null,
   }) {
     return _then(_value.copyWith(
@@ -70,6 +79,18 @@ class _$SimplifiedCardCopyWithImpl<$Res, $Val extends SimplifiedCard>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as CardType,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CardStatus,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -78,14 +99,14 @@ class _$SimplifiedCardCopyWithImpl<$Res, $Val extends SimplifiedCard>
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
               as String,
-      lastFourDigits: null == lastFourDigits
-          ? _value.lastFourDigits
-          : lastFourDigits // ignore: cast_nullable_to_non_nullable
+      cardEncryptedNumber: null == cardEncryptedNumber
+          ? _value.cardEncryptedNumber
+          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CardType,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as CardCategory,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -112,10 +133,13 @@ abstract class _$$SimplifiedCardImplCopyWith<$Res>
   @useResult
   $Res call(
       {UniqueId id,
+      String alias,
+      CardType type,
+      CardStatus status,
       String name,
       String brand,
-      String lastFourDigits,
-      CardType type,
+      String cardEncryptedNumber,
+      CardCategory category,
       CardContract contract});
 
   @override
@@ -134,10 +158,13 @@ class __$$SimplifiedCardImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? alias = null,
+    Object? type = null,
+    Object? status = null,
     Object? name = null,
     Object? brand = null,
-    Object? lastFourDigits = null,
-    Object? type = null,
+    Object? cardEncryptedNumber = null,
+    Object? category = null,
     Object? contract = null,
   }) {
     return _then(_$SimplifiedCardImpl(
@@ -145,6 +172,18 @@ class __$$SimplifiedCardImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      alias: null == alias
+          ? _value.alias
+          : alias // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as CardType,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CardStatus,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -153,14 +192,14 @@ class __$$SimplifiedCardImplCopyWithImpl<$Res>
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
               as String,
-      lastFourDigits: null == lastFourDigits
-          ? _value.lastFourDigits
-          : lastFourDigits // ignore: cast_nullable_to_non_nullable
+      cardEncryptedNumber: null == cardEncryptedNumber
+          ? _value.cardEncryptedNumber
+          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CardType,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as CardCategory,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -174,28 +213,37 @@ class __$$SimplifiedCardImplCopyWithImpl<$Res>
 class _$SimplifiedCardImpl implements _SimplifiedCard {
   const _$SimplifiedCardImpl(
       {required this.id,
+      required this.alias,
+      required this.type,
+      required this.status,
       required this.name,
       required this.brand,
-      required this.lastFourDigits,
-      required this.type,
+      required this.cardEncryptedNumber,
+      required this.category,
       required this.contract});
 
   @override
   final UniqueId id;
   @override
+  final String alias;
+  @override
+  final CardType type;
+  @override
+  final CardStatus status;
+  @override
   final String name;
   @override
   final String brand;
   @override
-  final String lastFourDigits;
+  final String cardEncryptedNumber;
   @override
-  final CardType type;
+  final CardCategory category;
   @override
   final CardContract contract;
 
   @override
   String toString() {
-    return 'SimplifiedCard(id: $id, name: $name, brand: $brand, lastFourDigits: $lastFourDigits, type: $type, contract: $contract)';
+    return 'SimplifiedCard(id: $id, alias: $alias, type: $type, status: $status, name: $name, brand: $brand, cardEncryptedNumber: $cardEncryptedNumber, category: $category, contract: $contract)';
   }
 
   @override
@@ -204,18 +252,22 @@ class _$SimplifiedCardImpl implements _SimplifiedCard {
         (other.runtimeType == runtimeType &&
             other is _$SimplifiedCardImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.alias, alias) || other.alias == alias) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.brand, brand) || other.brand == brand) &&
-            (identical(other.lastFourDigits, lastFourDigits) ||
-                other.lastFourDigits == lastFourDigits) &&
-            (identical(other.type, type) || other.type == type) &&
+            (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
+                other.cardEncryptedNumber == cardEncryptedNumber) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             (identical(other.contract, contract) ||
                 other.contract == contract));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, brand, lastFourDigits, type, contract);
+  int get hashCode => Object.hash(runtimeType, id, alias, type, status, name,
+      brand, cardEncryptedNumber, category, contract);
 
   @JsonKey(ignore: true)
   @override
@@ -228,22 +280,31 @@ class _$SimplifiedCardImpl implements _SimplifiedCard {
 abstract class _SimplifiedCard implements SimplifiedCard {
   const factory _SimplifiedCard(
       {required final UniqueId id,
+      required final String alias,
+      required final CardType type,
+      required final CardStatus status,
       required final String name,
       required final String brand,
-      required final String lastFourDigits,
-      required final CardType type,
+      required final String cardEncryptedNumber,
+      required final CardCategory category,
       required final CardContract contract}) = _$SimplifiedCardImpl;
 
   @override
   UniqueId get id;
   @override
+  String get alias;
+  @override
+  CardType get type;
+  @override
+  CardStatus get status;
+  @override
   String get name;
   @override
   String get brand;
   @override
-  String get lastFourDigits;
+  String get cardEncryptedNumber;
   @override
-  CardType get type;
+  CardCategory get category;
   @override
   CardContract get contract;
   @override
