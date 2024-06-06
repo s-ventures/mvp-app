@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:manifiesto_mvp_app/presentation/transversal/widgets/upload_profile_pic_bottom_sheet.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -220,7 +221,9 @@ class TransversalPage extends StatelessWidget {
                     bottomLeft: Radius.circular(context.radius.soft),
                     bottomRight: Radius.circular(context.radius.soft),
                   ),
-                  onPressed: () async {},
+                  onPressed: () async => context.pushNamed(
+                    AppRoute.transversalHelp.name,
+                  ),
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: AppSpacing.s5,

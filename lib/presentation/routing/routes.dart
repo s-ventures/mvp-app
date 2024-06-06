@@ -106,7 +106,9 @@ enum AppRoute {
   webView('/web-view'),
 
   // Tranversal
-  transversal('/transversal');
+  transversal('/transversal'),
+  transversalHelp('help'),
+  transversalHelpFaqs('faqs');
 
   const AppRoute(this.path);
 

@@ -61,46 +61,58 @@ class UploadProfilePicBottomSheet {
                 [
                   OutlinedList(
                     children: [
-                      ListTile(
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.s4,
-                          vertical: AppSpacing.s3,
+                      Splash(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
                         ),
-                        leading: IconWithContainer(
-                          icon: IconAssets.camera,
-                          backgroundColor: context.color.neutralLight100,
-                        ),
-                        title: Text(
-                          'Fotos',
-                          style: context.textStyle.bodySmallRegular,
-                        ),
-                        onTap: () async {
+                        onPressed: () async {
                           handleCamera.call();
                           Navigator.of(context).pop();
                         },
-                        trailing: IconSvg.small(
-                          IconAssets.chevronRight,
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.s4,
+                            vertical: AppSpacing.s3,
+                          ),
+                          leading: IconWithContainer(
+                            icon: IconAssets.camera,
+                            backgroundColor: context.color.neutralLight100,
+                          ),
+                          title: Text(
+                            'Fotos',
+                            style: context.textStyle.bodySmallRegular,
+                          ),
+                          trailing: IconSvg.small(
+                            IconAssets.chevronRight,
+                          ),
                         ),
                       ),
-                      ListTile(
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: AppSpacing.s4,
-                          vertical: AppSpacing.s3,
+                      Splash(
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(8),
+                          bottomRight: Radius.circular(8),
                         ),
-                        leading: IconWithContainer(
-                          icon: IconAssets.image,
-                          backgroundColor: context.color.neutralLight100,
-                        ),
-                        title: Text(
-                          'Galería',
-                          style: context.textStyle.bodySmallRegular,
-                        ),
-                        onTap: () async {
+                        onPressed: () async {
                           handleGallery.call();
                           Navigator.of(context).pop();
                         },
-                        trailing: IconSvg.small(
-                          IconAssets.chevronRight,
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: AppSpacing.s4,
+                            vertical: AppSpacing.s3,
+                          ),
+                          leading: IconWithContainer(
+                            icon: IconAssets.image,
+                            backgroundColor: context.color.neutralLight100,
+                          ),
+                          title: Text(
+                            'Galería',
+                            style: context.textStyle.bodySmallRegular,
+                          ),
+                          trailing: IconSvg.small(
+                            IconAssets.chevronRight,
+                          ),
                         ),
                       ),
                     ],
