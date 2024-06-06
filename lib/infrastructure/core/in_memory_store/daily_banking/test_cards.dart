@@ -1,6 +1,7 @@
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/card_category.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/card_contract.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/card_plan.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/card_status.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/card_type.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/detailed_card.dart';
@@ -25,17 +26,19 @@ final kTestSimplifiedCards = [
     brand: 'soon',
     cardEncryptedNumber: '7070',
     category: CardCategory.visa,
+    plan: CardPlan.basic,
     contract: _cardContract,
   ),
   SimplifiedCard(
     id: UniqueId.fromUniqueString('2'),
-    alias: 'Perdonal',
+    alias: 'Personal',
     type: CardType.debit,
     status: CardStatus.active,
     name: 'Juan Martínez Rodríguez',
     brand: 'soon',
     cardEncryptedNumber: '5858',
     category: CardCategory.mastercard,
+    plan: CardPlan.premium,
     contract: _cardContract,
   ),
 ];

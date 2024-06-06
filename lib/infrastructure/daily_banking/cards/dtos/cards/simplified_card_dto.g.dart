@@ -17,6 +17,7 @@ _$SimplifiedCardDtoImpl _$$SimplifiedCardDtoImplFromJson(
       brand: json['brand'] as String,
       cardEncryptedNumber: json['cardEncryptedNumber'] as String,
       category: $enumDecode(_$CardCategoryDtoEnumMap, json['category']),
+      plan: $enumDecode(_$CardPlanDtoEnumMap, json['plan']),
       cardContract: CardContractDto.fromJson(
           json['cardContract'] as Map<String, dynamic>),
     );
@@ -32,6 +33,7 @@ Map<String, dynamic> _$$SimplifiedCardDtoImplToJson(
       'brand': instance.brand,
       'cardEncryptedNumber': instance.cardEncryptedNumber,
       'category': _$CardCategoryDtoEnumMap[instance.category]!,
+      'plan': _$CardPlanDtoEnumMap[instance.plan]!,
       'cardContract': instance.cardContract.toJson(),
     };
 
@@ -50,4 +52,9 @@ const _$CardStatusDtoEnumMap = {
 const _$CardCategoryDtoEnumMap = {
   CardCategoryDto.visa: 'VISA',
   CardCategoryDto.mastercard: 'MASTERCARD',
+};
+
+const _$CardPlanDtoEnumMap = {
+  CardPlanDto.basic: 'BASIC',
+  CardPlanDto.premium: 'PREMIUM',
 };

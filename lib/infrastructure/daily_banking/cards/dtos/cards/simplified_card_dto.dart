@@ -3,6 +3,7 @@ import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/card_category_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/card_contract_dto.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/card_plan_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/card_status_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards/card_type_dto.dart';
 
@@ -20,6 +21,7 @@ abstract class SimplifiedCardDto with _$SimplifiedCardDto {
     required String brand,
     required String cardEncryptedNumber,
     required CardCategoryDto category,
+    required CardPlanDto plan,
     required CardContractDto cardContract,
   }) = _SimplifiedCardDto;
 
@@ -38,6 +40,7 @@ extension SimplifiedCardDtoX on SimplifiedCardDto {
       brand: brand,
       cardEncryptedNumber: cardEncryptedNumber,
       category: category.toDomain(),
+      plan: plan.toDomain(),
       contract: cardContract.toDomain(),
     );
   }

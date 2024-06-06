@@ -24,6 +24,7 @@ mixin _$SimplifiedCard {
   String get brand => throw _privateConstructorUsedError;
   String get cardEncryptedNumber => throw _privateConstructorUsedError;
   CardCategory get category => throw _privateConstructorUsedError;
+  CardPlan get plan => throw _privateConstructorUsedError;
   CardContract get contract => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -46,6 +47,7 @@ abstract class $SimplifiedCardCopyWith<$Res> {
       String brand,
       String cardEncryptedNumber,
       CardCategory category,
+      CardPlan plan,
       CardContract contract});
 
   $CardContractCopyWith<$Res> get contract;
@@ -72,6 +74,7 @@ class _$SimplifiedCardCopyWithImpl<$Res, $Val extends SimplifiedCard>
     Object? brand = null,
     Object? cardEncryptedNumber = null,
     Object? category = null,
+    Object? plan = null,
     Object? contract = null,
   }) {
     return _then(_value.copyWith(
@@ -107,6 +110,10 @@ class _$SimplifiedCardCopyWithImpl<$Res, $Val extends SimplifiedCard>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as CardCategory,
+      plan: null == plan
+          ? _value.plan
+          : plan // ignore: cast_nullable_to_non_nullable
+              as CardPlan,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -140,6 +147,7 @@ abstract class _$$SimplifiedCardImplCopyWith<$Res>
       String brand,
       String cardEncryptedNumber,
       CardCategory category,
+      CardPlan plan,
       CardContract contract});
 
   @override
@@ -165,6 +173,7 @@ class __$$SimplifiedCardImplCopyWithImpl<$Res>
     Object? brand = null,
     Object? cardEncryptedNumber = null,
     Object? category = null,
+    Object? plan = null,
     Object? contract = null,
   }) {
     return _then(_$SimplifiedCardImpl(
@@ -200,6 +209,10 @@ class __$$SimplifiedCardImplCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as CardCategory,
+      plan: null == plan
+          ? _value.plan
+          : plan // ignore: cast_nullable_to_non_nullable
+              as CardPlan,
       contract: null == contract
           ? _value.contract
           : contract // ignore: cast_nullable_to_non_nullable
@@ -220,6 +233,7 @@ class _$SimplifiedCardImpl implements _SimplifiedCard {
       required this.brand,
       required this.cardEncryptedNumber,
       required this.category,
+      required this.plan,
       required this.contract});
 
   @override
@@ -239,11 +253,13 @@ class _$SimplifiedCardImpl implements _SimplifiedCard {
   @override
   final CardCategory category;
   @override
+  final CardPlan plan;
+  @override
   final CardContract contract;
 
   @override
   String toString() {
-    return 'SimplifiedCard(id: $id, alias: $alias, type: $type, status: $status, name: $name, brand: $brand, cardEncryptedNumber: $cardEncryptedNumber, category: $category, contract: $contract)';
+    return 'SimplifiedCard(id: $id, alias: $alias, type: $type, status: $status, name: $name, brand: $brand, cardEncryptedNumber: $cardEncryptedNumber, category: $category, plan: $plan, contract: $contract)';
   }
 
   @override
@@ -261,13 +277,14 @@ class _$SimplifiedCardImpl implements _SimplifiedCard {
                 other.cardEncryptedNumber == cardEncryptedNumber) &&
             (identical(other.category, category) ||
                 other.category == category) &&
+            (identical(other.plan, plan) || other.plan == plan) &&
             (identical(other.contract, contract) ||
                 other.contract == contract));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, alias, type, status, name,
-      brand, cardEncryptedNumber, category, contract);
+      brand, cardEncryptedNumber, category, plan, contract);
 
   @JsonKey(ignore: true)
   @override
@@ -287,6 +304,7 @@ abstract class _SimplifiedCard implements SimplifiedCard {
       required final String brand,
       required final String cardEncryptedNumber,
       required final CardCategory category,
+      required final CardPlan plan,
       required final CardContract contract}) = _$SimplifiedCardImpl;
 
   @override
@@ -305,6 +323,8 @@ abstract class _SimplifiedCard implements SimplifiedCard {
   String get cardEncryptedNumber;
   @override
   CardCategory get category;
+  @override
+  CardPlan get plan;
   @override
   CardContract get contract;
   @override
