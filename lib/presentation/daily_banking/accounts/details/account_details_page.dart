@@ -55,39 +55,51 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
             data: (account) => ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 14,
-                      backgroundColor: context.color.backgroundLight200,
-                      child: CircleAvatar(
-                        radius: 12,
-                        backgroundColor: context.color.backgroundLight0,
-                        child: IconSvg.small(
-                          account.entity == '2103' ? IconAssets.soon : IconAssets.santander,
-                          color: account.entity == '2103'
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: AppSpacing.s2,
+                      horizontal: AppSpacing.s5,
+                    ),
+                    decoration: BoxDecoration(
+                      color: context.color.backgroundLight0,
+                      borderRadius: BorderRadius.circular(
+                        context.radius.hard,
+                      ),
+                      border: Border.all(
+                        color: context.color.strokeLigth100,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconSvg.small(
+                          account.entity.icon,
+                          color: account.entity.name == 'soon'
                               ? context.color.secondaryLight600
                               : context.color.statusError,
                         ),
-                      ),
+                        AppSpacing.horizontal.s3,
+                        Text(
+                          'Cuenta ${account.entity.name}',
+                          style: context.textStyle.bodySmallRegular.copyWith(
+                            color: context.color.textLight900,
+                          ),
+                        ),
+                        Text(
+                          ' • ${account.currencyCode}',
+                          style: context.textStyle.buttonTabBar.copyWith(
+                            color: context.color.textLight600,
+                          ),
+                        ),
+                      ],
                     ),
-                    AppSpacing.horizontal.s3,
-                    Text(
-                      account.entity == '2103' ? 'Cuenta soon' : 'Cuenta Santander',
-                      style: context.textStyle.bodySmallRegular.copyWith(
-                        color: context.color.textLight900,
-                      ),
-                    ),
-                    Text(
-                      ' • ${account.currencyCode}',
-                      style: context.textStyle.buttonTabBar.copyWith(
-                        color: context.color.neutralDark500,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-                AppSpacing.vertical.s6,
+                AppSpacing.vertical.s5,
                 CustomCard(
+                  radius: context.radius.hard,
                   outlined: true,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +131,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                     ],
                   ),
                 ),
-                AppSpacing.vertical.s6,
+                AppSpacing.vertical.s5,
                 CustomCard(
                   outlined: true,
                   child: Column(
@@ -132,7 +144,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                         ),
                       ),
                       Text(
-                        '',
+                        account.name,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight900,
                         ),
@@ -145,7 +157,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                         ),
                       ),
                       Text(
-                        '',
+                        account.alias,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight900,
                         ),
@@ -153,7 +165,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                     ],
                   ),
                 ),
-                AppSpacing.vertical.s6,
+                AppSpacing.vertical.s5,
                 CustomCard(
                   outlined: true,
                   child: Column(
@@ -214,7 +226,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                                 ),
                               ),
                               Text(
-                                '',
+                                account.bicSwift,
                                 style: context.textStyle.bodySmallRegular.copyWith(
                                   color: context.color.textLight900,
                                 ),
@@ -245,30 +257,24 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                     ],
                   ),
                 ),
-                AppSpacing.vertical.s6,
+                AppSpacing.vertical.s5,
                 OutlinedList(
                   children: [
                     Splash(
                       borderRadius: BorderRadius.circular(context.radius.soft),
                       onPressed: () async {},
                       child: ListTile(
-                        leading: Container(
-                          width: 40,
-                          height: 40,
-                          padding: const EdgeInsets.all(AppSpacing.s3),
-                          decoration: ShapeDecoration(
-                            color: context.color.backgroundLight200,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(context.radius.soft),
-                            ),
-                          ),
-                          child: IconSvg.small(
-                            IconAssets.document,
-                            color: context.color.iconLight900,
-                          ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.s4,
+                          vertical: AppSpacing.s2,
+                        ),
+                        leading: IconWithContainer(
+                          icon: IconAssets.document,
+                          backgroundColor: context.color.backgroundLight200,
+                          size: IconWithContainerSize.medium,
                         ),
                         title: Text(
-                          context.loc.dailyBankingScheduledTransfers,
+                          context.loc.dailyBankingAccountsDetailsTitleCertificate,
                           style: context.textStyle.bodySmallRegular.copyWith(
                             color: context.color.textLight900,
                           ),

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
+import 'package:manifiesto_mvp_app/presentation/daily_banking/accounts/list/widgets/card_add_account.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -63,9 +64,16 @@ class _AccountList extends StatelessWidget {
         viewportFraction: .9,
         initialPage: selectedAccountIndex,
       ),
-      itemCount: accounts.length,
-      onPageChanged: (index) => onPageChanged(accounts[index].id, index),
+      itemCount: accounts.length + 1,
+      onPageChanged: (index) {
+        if (index >= accounts.length) return;
+        onPageChanged(accounts[index].id, index);
+      },
       itemBuilder: (context, index) {
+        if (index >= accounts.length) {
+          return const CardAddAccount();
+        }
+
         final account = accounts[index];
 
         return Container(
@@ -95,12 +103,21 @@ class _AccountList extends StatelessWidget {
                   CustomPopupMenuButton(
                     items: [
                       PopupMenuItem(
-                        onTap: () => context.pushNamed(
-                          AppRoute.dailyBankingAccountDetails.name,
-                          pathParameters: {
-                            'accountId': account.id.getOrCrash(),
-                          },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              context.loc.dailyBankingAccountsMenuAccount,
+                            ),
+                            AppSpacing.horizontal.s6,
+                            IconSvg.small(IconAssets.wallet),
+                          ],
                         ),
+                        onTap: () => context.pushNamed(
+                          AppRoute.dailyBankingAggregatedAccounts.name,
+                        ),
+                      ),
+                      PopupMenuItem(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -108,8 +125,14 @@ class _AccountList extends StatelessWidget {
                               context.loc.dailyBankingAccountsMenuSeeDetails,
                             ),
                             AppSpacing.horizontal.s6,
-                            IconSvg.small(IconAssets.bank),
+                            IconSvg.small(IconAssets.info),
                           ],
+                        ),
+                        onTap: () => context.pushNamed(
+                          AppRoute.dailyBankingAccountDetails.name,
+                          pathParameters: {
+                            'accountId': account.id.getOrCrash(),
+                          },
                         ),
                       ),
                       PopupMenuItem(
@@ -169,9 +192,12 @@ class _AccountList extends StatelessWidget {
                   CustomChip(
                     size: CustomChipSize.extraSmall,
                     backgroundColor: context.color.backgroundLight200,
-                    leadingIcon: account.entity == '2103' ? IconAssets.soon : IconAssets.santander,
-                    leadingIconColor: account.entity == '2103'
+                    leadingIcon: account.entity.icon,
+                    leadingIconColor: account.entity.name == 'soon'
                         ? context.color.secondaryLight600
+                        : context.color.backgroundLight0,
+                    leadingIconBackgroundColor: account.entity.name == 'soon'
+                        ? context.color.backgroundLight0
                         : context.color.statusError,
                     title: Row(
                       children: [
@@ -182,7 +208,7 @@ class _AccountList extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          account.entity == '2103' ? 'soon' : 'Santander',
+                          account.entity.name,
                           style: context.textStyle.bodySmallSemiBold.copyWith(
                             color: context.color.primaryLight600,
                           ),

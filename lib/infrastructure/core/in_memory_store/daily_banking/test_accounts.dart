@@ -7,25 +7,45 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/balances/entiti
 import 'package:ui_kit/ui_kit.dart';
 
 final _id = UniqueId.fromUniqueString('1');
-final _balance = AccountBalance(
+
+final _balanceSoon = AccountBalance(
   id: UniqueId(),
   balance: 456,
   availableBalance: 336,
 );
+
+final _balanceSantander = AccountBalance(
+  id: UniqueId(),
+  balance: 333,
+  availableBalance: 336,
+);
+
 const _currencyCode = 'EUR';
 
-final _entity = AccountEntity(
+final _entitySoon = AccountEntity(
   name: 'soon',
   icon: IconAssets.soon,
+);
+
+final _entitySantander = AccountEntity(
+  name: 'Santander',
+  icon: IconAssets.santander,
 );
 
 final kTestSimplifiedAccounts = [
   SimplifiedAccount(
     id: _id,
-    entity: _entity,
+    entity: _entitySoon,
     currencyCode: _currencyCode,
     status: AccountStatus.active,
-    balance: _balance,
+    balance: _balanceSoon,
+  ),
+  SimplifiedAccount(
+    id: UniqueId.fromUniqueString('2'),
+    entity: _entitySantander,
+    currencyCode: _currencyCode,
+    status: AccountStatus.active,
+    balance: _balanceSantander,
   ),
 ];
 
@@ -33,9 +53,9 @@ final kTestDetailedAccounts = [
   DetailedAccount(
     id: _id,
     iban: 'ES92 1234 5678 9012 1234',
-    balance: _balance,
+    balance: _balanceSoon,
     currencyCode: _currencyCode,
-    entity: _entity,
+    entity: _entitySoon,
     accountHolder: 'Miguel García',
     alias: 'Alias',
     name: 'Cuenta',
