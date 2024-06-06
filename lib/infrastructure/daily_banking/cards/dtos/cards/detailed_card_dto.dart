@@ -53,7 +53,7 @@ class DetailedCardDto with _$DetailedCardDto {
     required String activateDate,
     required String currencyCode,
     required CardStatusDto status,
-    required String cardEncryptedNumber,
+    required String cardNumber,
     required CardContractDto cardContract,
     required SimplifiedCardBalanceDto? balance,
     required String? dueDate,
@@ -71,7 +71,7 @@ extension DetailedCardDtoX on DetailedCardDto {
       cardName: cardName,
       dueDate: dueDate != null ? DateTime.parse(dueDate!) : null,
       cvv: cvv ?? '',
-      cardEncryptedNumber: cardEncryptedNumber,
+      cardNumber: cardNumber,
     );
   }
 }

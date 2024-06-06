@@ -18,7 +18,7 @@ _$DetailedCardDtoImpl _$$DetailedCardDtoImplFromJson(
       activateDate: json['activateDate'] as String,
       currencyCode: json['currencyCode'] as String,
       status: $enumDecode(_$CardStatusDtoEnumMap, json['status']),
-      cardEncryptedNumber: json['cardEncryptedNumber'] as String,
+      cardNumber: json['cardNumber'] as String,
       cardContract: CardContractDto.fromJson(
           json['cardContract'] as Map<String, dynamic>),
       balance: json['balance'] == null
@@ -42,7 +42,7 @@ Map<String, dynamic> _$$DetailedCardDtoImplToJson(
       'activateDate': instance.activateDate,
       'currencyCode': instance.currencyCode,
       'status': _$CardStatusDtoEnumMap[instance.status]!,
-      'cardEncryptedNumber': instance.cardEncryptedNumber,
+      'cardNumber': instance.cardNumber,
       'cardContract': instance.cardContract.toJson(),
       'balance': instance.balance?.toJson(),
       'dueDate': instance.dueDate,

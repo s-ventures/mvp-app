@@ -21,17 +21,15 @@ mixin _$DetailedCard {
   @DateConverter()
   DateTime? get dueDate => throw _privateConstructorUsedError;
   String get cvv => throw _privateConstructorUsedError;
-  String get cardEncryptedNumber => throw _privateConstructorUsedError;
+  String get cardNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DetailedCardCopyWith<DetailedCard> get copyWith =>
-      throw _privateConstructorUsedError;
+  $DetailedCardCopyWith<DetailedCard> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DetailedCardCopyWith<$Res> {
-  factory $DetailedCardCopyWith(
-          DetailedCard value, $Res Function(DetailedCard) then) =
+  factory $DetailedCardCopyWith(DetailedCard value, $Res Function(DetailedCard) then) =
       _$DetailedCardCopyWithImpl<$Res, DetailedCard>;
   @useResult
   $Res call(
@@ -39,7 +37,7 @@ abstract class $DetailedCardCopyWith<$Res> {
       String cardName,
       @DateConverter() DateTime? dueDate,
       String cvv,
-      String cardEncryptedNumber});
+      String cardNumber});
 }
 
 /// @nodoc
@@ -59,7 +57,7 @@ class _$DetailedCardCopyWithImpl<$Res, $Val extends DetailedCard>
     Object? cardName = null,
     Object? dueDate = freezed,
     Object? cvv = null,
-    Object? cardEncryptedNumber = null,
+    Object? cardNumber = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -78,17 +76,16 @@ class _$DetailedCardCopyWithImpl<$Res, $Val extends DetailedCard>
           ? _value.cvv
           : cvv // ignore: cast_nullable_to_non_nullable
               as String,
-      cardEncryptedNumber: null == cardEncryptedNumber
-          ? _value.cardEncryptedNumber
-          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+      cardNumber: null == cardNumber
+          ? _value.cardNumber
+          : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$DetailedCardImplCopyWith<$Res>
-    implements $DetailedCardCopyWith<$Res> {
+abstract class _$$DetailedCardImplCopyWith<$Res> implements $DetailedCardCopyWith<$Res> {
   factory _$$DetailedCardImplCopyWith(
           _$DetailedCardImpl value, $Res Function(_$DetailedCardImpl) then) =
       __$$DetailedCardImplCopyWithImpl<$Res>;
@@ -99,7 +96,7 @@ abstract class _$$DetailedCardImplCopyWith<$Res>
       String cardName,
       @DateConverter() DateTime? dueDate,
       String cvv,
-      String cardEncryptedNumber});
+      String cardNumber});
 }
 
 /// @nodoc
@@ -117,7 +114,7 @@ class __$$DetailedCardImplCopyWithImpl<$Res>
     Object? cardName = null,
     Object? dueDate = freezed,
     Object? cvv = null,
-    Object? cardEncryptedNumber = null,
+    Object? cardNumber = null,
   }) {
     return _then(_$DetailedCardImpl(
       id: null == id
@@ -136,9 +133,9 @@ class __$$DetailedCardImplCopyWithImpl<$Res>
           ? _value.cvv
           : cvv // ignore: cast_nullable_to_non_nullable
               as String,
-      cardEncryptedNumber: null == cardEncryptedNumber
-          ? _value.cardEncryptedNumber
-          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+      cardNumber: null == cardNumber
+          ? _value.cardNumber
+          : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -152,7 +149,7 @@ class _$DetailedCardImpl implements _DetailedCard {
       required this.cardName,
       @DateConverter() required this.dueDate,
       required this.cvv,
-      required this.cardEncryptedNumber});
+      required this.cardNumber});
 
   @override
   final UniqueId id;
@@ -164,11 +161,11 @@ class _$DetailedCardImpl implements _DetailedCard {
   @override
   final String cvv;
   @override
-  final String cardEncryptedNumber;
+  final String cardNumber;
 
   @override
   String toString() {
-    return 'DetailedCard(id: $id, cardName: $cardName, dueDate: $dueDate, cvv: $cvv, cardEncryptedNumber: $cardEncryptedNumber)';
+    return 'DetailedCard(id: $id, cardName: $cardName, dueDate: $dueDate, cvv: $cvv, cardNumber: $cardNumber)';
   }
 
   @override
@@ -177,17 +174,14 @@ class _$DetailedCardImpl implements _DetailedCard {
         (other.runtimeType == runtimeType &&
             other is _$DetailedCardImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.cardName, cardName) ||
-                other.cardName == cardName) &&
+            (identical(other.cardName, cardName) || other.cardName == cardName) &&
             (identical(other.dueDate, dueDate) || other.dueDate == dueDate) &&
             (identical(other.cvv, cvv) || other.cvv == cvv) &&
-            (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
-                other.cardEncryptedNumber == cardEncryptedNumber));
+            (identical(other.cardNumber, cardNumber) || other.cardNumber == cardNumber));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, cardName, dueDate, cvv, cardEncryptedNumber);
+  int get hashCode => Object.hash(runtimeType, id, cardName, dueDate, cvv, cardNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -202,7 +196,7 @@ abstract class _DetailedCard implements DetailedCard {
       required final String cardName,
       @DateConverter() required final DateTime? dueDate,
       required final String cvv,
-      required final String cardEncryptedNumber}) = _$DetailedCardImpl;
+      required final String cardNumber}) = _$DetailedCardImpl;
 
   @override
   UniqueId get id;
@@ -214,7 +208,7 @@ abstract class _DetailedCard implements DetailedCard {
   @override
   String get cvv;
   @override
-  String get cardEncryptedNumber;
+  String get cardNumber;
   @override
   @JsonKey(ignore: true)
   _$$DetailedCardImplCopyWith<_$DetailedCardImpl> get copyWith =>

@@ -11,6 +11,6 @@ class DetailedCard with _$DetailedCard {
     required String cardName,
     @DateConverter() required DateTime? dueDate,
     required String cvv,
-    required String cardEncryptedNumber,
+    required String cardNumber,
   }) = _DetailedCard;
 }

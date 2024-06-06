@@ -6,8 +6,6 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/car
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/detailed_card.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
 
-final _id = UniqueId.fromUniqueString('1');
-
 final _cardContract = CardContract(
   id: UniqueId.fromUniqueString('1'),
   accountId: UniqueId.fromUniqueString('1'),
@@ -19,35 +17,42 @@ final _cardContract = CardContract(
 
 final kTestSimplifiedCards = [
   SimplifiedCard(
-    id: _id,
+    id: UniqueId.fromUniqueString('1'),
     alias: 'Personal',
     type: CardType.virtual,
     status: CardStatus.active,
     name: 'Visa',
     brand: 'soon',
-    cardEncryptedNumber: '1234',
+    cardEncryptedNumber: '7070',
     category: CardCategory.visa,
     contract: _cardContract,
   ),
   SimplifiedCard(
-    id: _id,
-    alias: 'Personal',
-    type: CardType.virtual,
+    id: UniqueId.fromUniqueString('2'),
+    alias: 'Perdonal',
+    type: CardType.debit,
     status: CardStatus.active,
     name: 'Juan Martínez Rodríguez',
     brand: 'soon',
-    cardEncryptedNumber: '1234',
-    category: CardCategory.visa,
+    cardEncryptedNumber: '5858',
+    category: CardCategory.mastercard,
     contract: _cardContract,
   ),
 ];
 
 final kTestDetailedCards = [
   DetailedCard(
-    id: _id,
+    id: UniqueId.fromUniqueString('1'),
     cardName: 'Juan Martínez Rodríguez',
     dueDate: DateTime.parse('2025-07-20'),
-    cvv: '123',
-    cardEncryptedNumber: '1234',
+    cvv: '777',
+    cardNumber: '1234567890127070',
+  ),
+  DetailedCard(
+    id: UniqueId.fromUniqueString('2'),
+    cardName: 'Juan Martínez Rodríguez',
+    dueDate: DateTime.parse('2025-04-04'),
+    cvv: '588',
+    cardNumber: '1234567890125858',
   ),
 ];

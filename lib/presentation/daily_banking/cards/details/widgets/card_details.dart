@@ -81,7 +81,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                       ),
                     ),
                     Text(
-                      card.cardEncryptedNumber.padLeft(3, '**** '),
+                      card.cardNumber.insertSpaceEveryFourCharacters,
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -109,7 +109,7 @@ class _CardDetailsState extends ConsumerState<CardDetails> {
                       ),
                     ),
                     Text(
-                      card.dueDate?.toString() ?? '',
+                      card.dueDate.formatToDayMonthYear(),
                       style: context.textStyle.bodySmallRegular.copyWith(
                         color: context.color.textLight900,
                       ),
