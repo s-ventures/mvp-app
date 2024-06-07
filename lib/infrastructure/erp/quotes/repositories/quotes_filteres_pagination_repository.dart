@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_filter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/repositories/quotes_repository.dart';
 
@@ -21,7 +21,7 @@ final pendingQuotesPaginationRepositoryProvider =
 });
 
 class QuotesFilteredPaginationRepository
-    extends FilteredPaginationListRepository<Quotation, QuotationFilter> {
+    extends IFilteredPaginationListRepository<Quotation, QuotationFilter> {
   QuotesFilteredPaginationRepository(
     this._quotesRepository,
     this._contractsRepository,

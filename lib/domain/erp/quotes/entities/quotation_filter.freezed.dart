@@ -295,7 +295,7 @@ class _$QuotationFilterImpl implements _QuotationFilter {
           this, _$identity);
 }
 
-abstract class _QuotationFilter implements QuotationFilter, PaginationFilter {
+abstract class _QuotationFilter implements QuotationFilter, IPaginationFilter {
   const factory _QuotationFilter(
       {final UniqueId? id,
       final UniqueId? stakeholderId,

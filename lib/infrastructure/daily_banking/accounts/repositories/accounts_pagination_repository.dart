@@ -1,10 +1,10 @@
 import 'package:fpdart/fpdart.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/select_account_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 
-class AccountsPaginationRepository extends PaginationListRepository<SimplifiedAccount> {
+class AccountsPaginationRepository extends IPaginationListRepository<SimplifiedAccount> {
   AccountsPaginationRepository(this._repository);
 
   final IAccountsRepository _repository;

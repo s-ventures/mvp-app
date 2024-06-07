@@ -7,8 +7,8 @@ part of 'vat_dto.dart';
 // **************************************************************************
 
 _$VatDtoImpl _$$VatDtoImplFromJson(Map<String, dynamic> json) => _$VatDtoImpl(
-      vatId: (json['vatId'] as num).toInt(),
-      percentage: (json['percentage'] as num).toInt(),
+      vatId: json['vatId'] as int,
+      percentage: json['percentage'] as int,
       description: json['description'] as String,
       initialDate:
           const DateConverter().fromJson(json['initialDate'] as String),

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders_filter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_repository.dart';
 
@@ -21,7 +21,7 @@ final favoriteStakeholdersPaginationRepositoryProvider =
 });
 
 class StakeholdersPaginationRepository
-    extends FilteredPaginationListRepository<Stakeholder, StakeholdersFilter> {
+    extends IFilteredPaginationListRepository<Stakeholder, StakeholdersFilter> {
   StakeholdersPaginationRepository(
     this._stakeholdersRepository,
     this._contractsRepository,

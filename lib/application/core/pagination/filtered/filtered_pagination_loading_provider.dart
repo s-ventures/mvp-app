@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
 import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/pagination_filter.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
 import 'package:rxdart/rxdart.dart';
 
-mixin FilteredPaginationLoadingProvider<T, F extends PaginationFilter> {
+mixin FilteredPaginationLoadingProvider<T, F extends IPaginationFilter> {
   final CompositeSubscription _subscriptions = CompositeSubscription();
   final PublishSubject<void> _loadNextPageSubject = PublishSubject();
 

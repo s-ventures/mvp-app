@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_orders_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_repository.dart';
 
 final periodicOrdersFilteredPaginationRepositoryProvider =
@@ -12,7 +12,7 @@ final periodicOrdersFilteredPaginationRepositoryProvider =
 );
 
 class PeriodicOrdersFilteredPaginationRepository
-    extends FilteredPaginationListRepository<SimplifiedPeriodicOrder, PeriodicOrdersFilter> {
+    extends IFilteredPaginationListRepository<SimplifiedPeriodicOrder, PeriodicOrdersFilter> {
   PeriodicOrdersFilteredPaginationRepository(
     this._periodicOrdersRepository,
   );

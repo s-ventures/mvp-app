@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense_filter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/repositories/expenses_repository.dart';
 
@@ -21,7 +21,7 @@ final pendingInvoicesPaginationRepositoryProvider =
 });
 
 class ExpensesFilteredPaginationRepository
-    extends FilteredPaginationListRepository<Expense, ExpenseFilter> {
+    extends IFilteredPaginationListRepository<Expense, ExpenseFilter> {
   ExpensesFilteredPaginationRepository(
     this._expensesRepository,
     this._contractsRepository,

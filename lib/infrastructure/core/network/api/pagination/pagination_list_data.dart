@@ -1,6 +1,6 @@
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_data.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_data.dart';
 
-class PaginationListData<T> extends PaginationData {
+class PaginationListData<T> extends IPaginationData {
   PaginationListData({
     required super.page,
     required super.pageSize,

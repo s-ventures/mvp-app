@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/policies_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/entities/simplified_policy.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_repository.dart';
 
 final policiesFilteredPaginationRepositoryProvider = Provider<PoliciesFilteredPaginationRepository>(
@@ -11,7 +11,7 @@ final policiesFilteredPaginationRepositoryProvider = Provider<PoliciesFilteredPa
 );
 
 class PoliciesFilteredPaginationRepository
-    extends FilteredPaginationListRepository<SimplifiedPolicy, PoliciesFilter> {
+    extends IFilteredPaginationListRepository<SimplifiedPolicy, PoliciesFilter> {
   PoliciesFilteredPaginationRepository(
     this._policiesRepository,
   );

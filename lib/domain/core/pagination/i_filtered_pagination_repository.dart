@@ -1,7 +1,7 @@
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
 import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/pagination_filter.dart';
 
-abstract class IFilteredPaginationRepository<T, F extends PaginationFilter>
+abstract class IFilteredPaginationRepository<T, F extends IPaginationFilter>
     extends IPaginationRepository<T> {
   IFilteredPaginationRepository({
     super.pageSize = 10,

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_map_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/card_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_map_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_repository.dart';
 
 final cardTransactionsFilteredPaginationRepositoryProvider =
@@ -11,8 +11,8 @@ final cardTransactionsFilteredPaginationRepositoryProvider =
   ),
 );
 
-class CardTransactionsFilteredPaginationRepository extends FilteredPaginationMapRepository<DateTime,
-    List<SimplifiedCardTransaction>, CardTransactionsFilter> {
+class CardTransactionsFilteredPaginationRepository extends IFilteredPaginationMapRepository<
+    DateTime, List<SimplifiedCardTransaction>, CardTransactionsFilter> {
   CardTransactionsFilteredPaginationRepository(
     this._transactionsRepository,
   );

@@ -137,7 +137,7 @@ class _$PoliciesFilterImpl implements _PoliciesFilter {
           this, _$identity);
 }
 
-abstract class _PoliciesFilter implements PoliciesFilter, PaginationFilter {
+abstract class _PoliciesFilter implements PoliciesFilter, IPaginationFilter {
   const factory _PoliciesFilter(
       {final DateTime? createDateFrom,
       final DateTime? createDateTo}) = _$PoliciesFilterImpl;
