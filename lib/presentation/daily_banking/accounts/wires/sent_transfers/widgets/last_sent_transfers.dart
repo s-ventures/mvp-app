@@ -50,7 +50,7 @@ class _LastSentTransfersState extends ConsumerState<LastSentTransfers> {
               type: ButtonType.text,
               size: ButtonSize.small,
               outlineColor: context.color.tertiaryLight800,
-              textColor: context.color.statusInfo,
+              foreground: context.color.statusInfo,
               horizontalPadding: 0,
               onPressed: () => context.pushNamed(AppRoute.dailyBankingTransfersSent.name),
             ),

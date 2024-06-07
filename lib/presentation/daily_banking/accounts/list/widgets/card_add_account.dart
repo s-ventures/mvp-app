@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:localizations/localizations.dart';
+import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 class CardAddAccount extends StatelessWidget {
@@ -20,29 +22,23 @@ class CardAddAccount extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: context.color.backgroundLight0,
-        borderRadius: BorderRadius.circular(context.radius.hard),
+        borderRadius: BorderRadius.circular(
+          context.radius.hard,
+        ),
         border: Border.all(
           color: context.color.strokeLigth100,
         ),
       ),
       child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconSvg.small(
-              IconAssets.plus,
-              color: context.color.statusInfo,
-            ),
-            AppSpacing.horizontal.s3,
-            Text(
-              context.loc.dailyBankingAccountsAddAccount,
-              style: TextStyle(
-                color: context.color.statusInfo,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
+        child: Button(
+          title: context.loc.dailyBankingAccountsAddAccount,
+          icon: IconAssets.plus,
+          type: ButtonType.text,
+          expand: true,
+          foreground: context.color.statusInfo,
+          onPressed: () async => context.pushNamed(
+            AppRoute.dailyBankingAggregatedAccounts.name,
+          ),
         ),
       ),
     );

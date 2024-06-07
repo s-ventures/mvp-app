@@ -82,7 +82,7 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                         ),
                         AppSpacing.horizontal.s3,
                         Text(
-                          'Cuenta ${account.entity.name}',
+                          context.loc.commonAccountName(account.entity.name),
                           style: context.textStyle.bodySmallRegular.copyWith(
                             color: context.color.textLight900,
                           ),

@@ -51,7 +51,7 @@ class TransactionAttachmentsSection extends StatelessWidget {
         if (onFileSelected != null)
           Button(
             type: ButtonType.text,
-            textColor: context.color.statusInfo,
+            foreground: context.color.statusInfo,
             size: ButtonSize.small,
             horizontalPadding: 0,
             title: 'Añadir archivo',
