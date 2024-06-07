@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
-import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
+import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 
 part 'card_transactions_filter.freezed.dart';
 

@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/document_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/language_code_type.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/person_type_code.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/relation_type.dart';
-import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
 
 part 'stakeholders_filter.freezed.dart';
 

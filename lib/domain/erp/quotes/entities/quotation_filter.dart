@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_status.dart';
-import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
 
 part 'quotation_filter.freezed.dart';
 

@@ -55,7 +55,7 @@ class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardT
   //     // No card has been selected. Select first card
   //     if (cardRecordOption.isNone()) {
   //       _filter = CardTransactionsFilter(
-  //         // TODO(sergio): hardcoded card id
+  //         // `TODO`(sergio): hardcoded card id
   //         cardContractIds: [UniqueId.fromUniqueString(1068.toString())],
   //         cardIds: [UniqueId.fromUniqueString(50.toString())],
   //         operationType: TransactionOperationType.all,

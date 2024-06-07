@@ -60,7 +60,7 @@ class SimplifiedAccountTransactionsController
 
   void _listenToSelectedAccountChanges() {
     _accountsRepository.watchSelectedAccount().listen((accountIdOption) {
-      AccountTransactionsFilter? filter = null;
+      AccountTransactionsFilter? filter;
 
       // No account has been selected. Select first account
       if (accountIdOption.isNone()) {
@@ -77,19 +77,11 @@ class SimplifiedAccountTransactionsController
         if (accountId == null) return;
 
         // No filter has been set. Create filter with selected account
-        if (filter == null) {
-          filter = AccountTransactionsFilter(
-            accountIds: [accountId],
-            operationType: TransactionOperationType.all,
-          );
-        }
-        // Filter has been set. Update filter with selected account
-        else {
-          filter = filter.copyWith(
-            accountIds: [accountId],
-          );
-        }
-
+        filter = AccountTransactionsFilter(
+          accountIds: [accountId],
+          operationType: TransactionOperationType.all,
+        );
+      
         refresh();
       }
     });
