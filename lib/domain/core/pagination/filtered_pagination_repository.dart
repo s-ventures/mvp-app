@@ -1,5 +1,5 @@
+import 'package:manifiesto_mvp_app/domain/core/pagination/pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/pagination_filter.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 
 abstract class FilteredPaginationRepository<T, F extends PaginationFilter>
     extends PaginationRepository<T> {

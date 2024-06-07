@@ -7,10 +7,10 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactio
 import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_filtered_pagination_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_repository.dart';
 
 final simplifiedAccountTransactionsControllerProvider = StateNotifierProvider.autoDispose<
@@ -32,7 +32,7 @@ class SimplifiedAccountTransactionsController
   ) : super(const SimplifiedAccountTransactionsState());
 
   final AccountTransactionsFilteredPaginationRepository _accountsTransactionPaginationRepository;
-  final AccountsRepository _accountsRepository;
+  final IAccountsRepository _accountsRepository;
 
   Future<void> init() async {
     initPagination(

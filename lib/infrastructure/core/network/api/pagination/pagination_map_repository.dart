@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_map_data.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class PaginationMapRepository<K, V> extends PaginationRepository<Map<K, V>> {

@@ -4,25 +4,30 @@ import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loadin
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/accounts/simplified/simplified_accounts_state.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entities/simplified_account.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_repository.dart';
 
 final simplifiedAccountsControllerProvider =
     StateNotifierProvider<SimplifiedAccountsController, SimplifiedAccountsState>(
   (ref) => SimplifiedAccountsController(
     ref.watch(fakeAccountsPaginationRepositoryProvider),
+    ref.watch(fakeAccountsRepositoryProvider),
   ),
 );
 
 class SimplifiedAccountsController extends StateNotifier<SimplifiedAccountsState>
     with PaginationLoadingProvider<List<SimplifiedAccount>> {
-  SimplifiedAccountsController(this._repository) : super(const SimplifiedAccountsState());
+  SimplifiedAccountsController(this.paginatedRepository, this._repository)
+      : super(const SimplifiedAccountsState());
 
-  final AccountsPaginationRepository _repository;
+  final PaginationListRepository<SimplifiedAccount> paginatedRepository;
+  final IAccountsRepository _repository;
 
   Future<void> init() async {
     initPagination(
-      _repository,
+      paginatedRepository,
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(

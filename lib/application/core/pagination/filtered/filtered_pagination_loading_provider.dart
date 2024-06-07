@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/filtered_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/filtered_pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/pagination_filter.dart';
 import 'package:rxdart/rxdart.dart';
 
