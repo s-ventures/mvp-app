@@ -1,18 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/async/stream_extensions.dart';
-import 'package:manifiesto_mvp_app/domain/core/pagination/pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 mixin class PaginationLoadingProvider<T> {
   final CompositeSubscription _subscriptions = CompositeSubscription();
   final PublishSubject<void> _loadNextPageSubject = PublishSubject();
 
-  PaginationRepository<T>? _source;
+  IPaginationRepository<T>? _source;
 
   int get page => _source?.page ?? 0;
 
   void initPagination(
-    PaginationRepository<T> source, {
+    IPaginationRepository<T> source, {
     required void Function(AsyncValue<T>) onDataLoaded,
     void Function({required bool isDataLoaded})? onNextPageLoaded,
     void Function(Object)? onDataLoadingError,

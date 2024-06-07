@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:manifiesto_mvp_app/domain/core/pagination/filtered_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/filtered/pagination_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_map_data.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class FilteredPaginationMapRepository<K, V, F extends PaginationFilter>
-    extends FilteredPaginationRepository<Map<K, V>, F> {
+    extends IFilteredPaginationRepository<Map<K, V>, F> {
   FilteredPaginationMapRepository({
     super.pageSize,
   }) : subject = BehaviorSubject.seeded(

@@ -1,5 +1,5 @@
-abstract class PaginationRepository<T> {
-  PaginationRepository({
+abstract class IPaginationRepository<T> {
+  IPaginationRepository({
     this.pageSize = 10,
   });
 
