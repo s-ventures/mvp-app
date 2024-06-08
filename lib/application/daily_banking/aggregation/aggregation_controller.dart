@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/aggregation/aggregation_state.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/aggregation/aggregation/repositories/i_aggregation.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/aggregation/repositories/aggregation_facade.dart';
 
 final aggregationControllerProvider =
@@ -10,8 +11,7 @@ final aggregationControllerProvider =
 class AggregationController extends StateNotifier<AggregationState> {
   AggregationController(this._facade) : super(const AggregationState());
 
-  // TODO: Replace with interface
-  final AggregationFacade _facade;
+  final IAggregation _facade;
 
   Future<void> getAggregationServiceUrl() async {
     final urlOption = await _facade.aggregationServiceUrl;

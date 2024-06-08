@@ -16,7 +16,7 @@ import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/expense_dto.
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/expense_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/dtos/overview_expenses_dto.dart';
 
-final expensesRepositoryProvider = Provider<ExpensesRepository>(
+final expensesRepositoryProvider = Provider<IExpensesRepository>(
   (ref) => ExpensesRepository(
     remoteDataSource: ExpensesRemoteDataSource(
       ref.watch(expensesRestClientProvider),

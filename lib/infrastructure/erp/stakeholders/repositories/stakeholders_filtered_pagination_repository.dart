@@ -5,7 +5,8 @@ import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_repository.dart';
 
-final stakeholdersPaginationRepositoryProvider = Provider<StakeholdersPaginationRepository>((ref) {
+final stakeholdersPaginationRepositoryProvider =
+    Provider<IFilteredPaginationListRepository<Stakeholder, StakeholdersFilter>>((ref) {
   return StakeholdersPaginationRepository(
     ref.watch(stakeholdersRepositoryProvider),
     ref.watch(contractsRepositoryProvider),
@@ -13,7 +14,7 @@ final stakeholdersPaginationRepositoryProvider = Provider<StakeholdersPagination
 });
 
 final favoriteStakeholdersPaginationRepositoryProvider =
-    Provider<StakeholdersPaginationRepository>((ref) {
+    Provider<IFilteredPaginationListRepository<Stakeholder, StakeholdersFilter>>((ref) {
   return StakeholdersPaginationRepository(
     ref.watch(stakeholdersRepositoryProvider),
     ref.watch(contractsRepositoryProvider),

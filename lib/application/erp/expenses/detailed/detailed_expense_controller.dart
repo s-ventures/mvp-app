@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/erp/expenses/detailed/detailed_expense_state.dart';
+import 'package:manifiesto_mvp_app/domain/erp/expenses/repositories/i_expenses_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/repositories/expenses_repository.dart';
 
 final detailedExpenseControllerProvider =
@@ -13,8 +14,7 @@ final detailedExpenseControllerProvider =
 class DetailedExpenseController extends StateNotifier<DetailedExpenseState> {
   DetailedExpenseController(this._repository) : super(const DetailedExpenseState());
 
-  // TODO: Replace with interface
-  final ExpensesRepository _repository;
+  final IExpensesRepository _repository;
 
   Future<void> init(int contractId, int id) async {
     try {

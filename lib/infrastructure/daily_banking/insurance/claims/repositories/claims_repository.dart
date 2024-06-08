@@ -12,7 +12,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/detailed_claim_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/dtos/simplified_claim_dto.dart';
 
-final claimsRepositoryProvider = Provider<ClaimsRepository>(
+final claimsRepositoryProvider = Provider<IClaimsRepository>(
   (ref) => ClaimsRepository(
     remoteDataSource: ClaimsRemoteDataSource(ref.watch(claimsRestClientProvider)),
   ),

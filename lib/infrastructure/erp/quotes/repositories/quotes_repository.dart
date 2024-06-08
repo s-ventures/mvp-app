@@ -16,7 +16,7 @@ import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/overview_quote
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/dtos/quotation_filter_dto.dart';
 
-final quotesRepositoryProvider = Provider<QuotesRepository>(
+final quotesRepositoryProvider = Provider<IQuotesRepository>(
   (ref) => QuotesRepository(
     remoteDataSource: QuotesRemoteDataSource(
       ref.watch(quotesRestClientProvider),

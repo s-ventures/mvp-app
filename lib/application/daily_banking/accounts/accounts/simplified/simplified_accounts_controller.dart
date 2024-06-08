@@ -19,15 +19,15 @@ final simplifiedAccountsControllerProvider =
 
 class SimplifiedAccountsController extends StateNotifier<SimplifiedAccountsState>
     with PaginationLoadingProvider<List<SimplifiedAccount>> {
-  SimplifiedAccountsController(this.paginatedRepository, this._repository)
+  SimplifiedAccountsController(this._paginatedRepository, this._repository)
       : super(const SimplifiedAccountsState());
 
-  final IPaginationListRepository<SimplifiedAccount> paginatedRepository;
+  final IPaginationListRepository<SimplifiedAccount> _paginatedRepository;
   final IAccountsRepository _repository;
 
   Future<void> init() async {
     initPagination(
-      paginatedRepository,
+      _paginatedRepository,
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(

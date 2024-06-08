@@ -1,11 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
+import 'package:manifiesto_mvp_app/domain/erp/contracts/repositories/i_contracts_repositoy.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_filter.dart';
+import 'package:manifiesto_mvp_app/domain/erp/quotes/repositories/i_quotes_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/repositories/quotes_repository.dart';
 
-final quotesPaginationRepositoryProvider = Provider<QuotesFilteredPaginationRepository>((ref) {
+final quotesPaginationRepositoryProvider =
+    Provider<IFilteredPaginationListRepository<Quotation, QuotationFilter>>((ref) {
   return QuotesFilteredPaginationRepository(
     ref.watch(quotesRepositoryProvider),
     ref.watch(contractsRepositoryProvider),
@@ -13,7 +16,7 @@ final quotesPaginationRepositoryProvider = Provider<QuotesFilteredPaginationRepo
 });
 
 final pendingQuotesPaginationRepositoryProvider =
-    Provider<QuotesFilteredPaginationRepository>((ref) {
+    Provider<IFilteredPaginationListRepository<Quotation, QuotationFilter>>((ref) {
   return QuotesFilteredPaginationRepository(
     ref.watch(quotesRepositoryProvider),
     ref.watch(contractsRepositoryProvider),
@@ -29,8 +32,8 @@ class QuotesFilteredPaginationRepository
     _listenToSelectedContractChanges();
   }
 
-  final QuotesRepository _quotesRepository;
-  final ContractsRepository _contractsRepository;
+  final IQuotesRepository _quotesRepository;
+  final IContractsRepository _contractsRepository;
   int? _erpContractId;
 
   void _listenToSelectedContractChanges() {

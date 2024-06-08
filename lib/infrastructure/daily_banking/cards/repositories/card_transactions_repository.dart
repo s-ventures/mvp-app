@@ -18,7 +18,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/trans
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/transactions/detailed_card_transaction_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/transactions/simplified_card_transaction_dto.dart';
 
-final cardTransactionsRepositoryProvider = Provider<CardTransactionsRepository>(
+final cardTransactionsRepositoryProvider = Provider<ICardTransactionsRepository>(
   (ref) => CardTransactionsRepository(
     remoteDataSource: CardTransactionsRemoteDataSource(
       ref.watch(cardTransactionsRestClientProvider),

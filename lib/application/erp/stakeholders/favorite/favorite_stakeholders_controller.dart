@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/erp/stakeholders/favorite/favorite_stakeholders_state.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_filtered_pagination_repository.dart';
@@ -19,8 +20,7 @@ class FavoriteStakeholdersController extends StateNotifier<FavoriteStakeholdersS
     this._repository,
   ) : super(const FavoriteStakeholdersState());
 
-  // TODO: Replace with interface
-  final StakeholdersPaginationRepository _repository;
+  final IFilteredPaginationListRepository<Stakeholder, StakeholdersFilter> _repository;
 
   Future<void> init() async {
     initPagination(

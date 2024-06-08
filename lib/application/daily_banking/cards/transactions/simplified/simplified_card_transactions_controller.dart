@@ -3,6 +3,7 @@ import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensio
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/simplified/simplified_card_transactions_state.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_map_repository.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/card_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/entities/simplified_card_transaction.dart';
@@ -23,8 +24,8 @@ class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardT
     this._repository,
   ) : super(const SimplifiedCardTransactionsState());
 
-  // TODO: Replace with interface
-  final CardTransactionsFilteredPaginationRepository _repository;
+  final IFilteredPaginationMapRepository<DateTime, List<SimplifiedCardTransaction>,
+      CardTransactionsFilter> _repository;
 
   Future<void> init() async {
     initPagination(

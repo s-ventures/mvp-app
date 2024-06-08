@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/detailed/detailed_claim_state.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/repositories/i_claims_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/claims/repositories/claims_repository.dart';
 
 final detailedClaimControllerProvider =
@@ -11,8 +12,7 @@ final detailedClaimControllerProvider =
 class DetailedClaimController extends StateNotifier<DetailedClaimState> {
   DetailedClaimController(this._repository) : super(const DetailedClaimState());
 
-  // TODO: Replace with interface
-  final ClaimsRepository _repository;
+  final IClaimsRepository _repository;
 
   Future<void> init({required int insuranceId, required int claimId}) async {
     try {

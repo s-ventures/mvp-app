@@ -6,6 +6,7 @@ import 'package:manifiesto_mvp_app/application/core/upload/attachments/upload_at
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/transactions/detailed/detailed_card_transaction_state.dart';
 import 'package:manifiesto_mvp_app/core/extensions/file_extension.dart';
 import 'package:manifiesto_mvp_app/core/extensions/list_extension.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/transactions/repositories/i_card_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/card_transactions_repository.dart';
@@ -27,8 +28,7 @@ class DetailedCardTransactionController
           maxFileSizeMb: 10,
         );
 
-  // TODO: Replace with interface
-  final CardTransactionsRepository _repository;
+  final ICardTransactionsRepository _repository;
 
   Future<void> init({
     required String cardContractId,

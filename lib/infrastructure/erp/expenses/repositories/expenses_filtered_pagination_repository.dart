@@ -1,11 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
+import 'package:manifiesto_mvp_app/domain/erp/contracts/repositories/i_contracts_repositoy.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense_filter.dart';
+import 'package:manifiesto_mvp_app/domain/erp/expenses/repositories/i_expenses_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/expenses/repositories/expenses_repository.dart';
 
-final expensesPaginationRepositoryProvider = Provider<ExpensesFilteredPaginationRepository>((ref) {
+final expensesPaginationRepositoryProvider =
+    Provider<IFilteredPaginationListRepository<Expense, ExpenseFilter>>((ref) {
   return ExpensesFilteredPaginationRepository(
     ref.watch(expensesRepositoryProvider),
     ref.watch(contractsRepositoryProvider),
@@ -29,8 +32,8 @@ class ExpensesFilteredPaginationRepository
     _listenToSelectedContractChanges();
   }
 
-  final ExpensesRepository _expensesRepository;
-  final ContractsRepository _contractsRepository;
+  final IExpensesRepository _expensesRepository;
+  final IContractsRepository _contractsRepository;
   int? _erpContractId;
 
   void _listenToSelectedContractChanges() {

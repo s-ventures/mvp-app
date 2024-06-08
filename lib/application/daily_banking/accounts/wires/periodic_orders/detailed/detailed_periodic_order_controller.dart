@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/detailed/detailed_periodic_order_state.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/repositories/i_periodic_orders_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/repositories/periodic_orders_repository.dart';
 
 final detailedPeriodicOrderControllerProvider =
@@ -13,8 +14,7 @@ final detailedPeriodicOrderControllerProvider =
 class DetailedPeriodicOrderController extends StateNotifier<DetailedPeriodicOrderState> {
   DetailedPeriodicOrderController(this._repository) : super(const DetailedPeriodicOrderState());
 
-  // TODO: Replace with interface
-  final PeriodicOrdersRepository _repository;
+  final IPeriodicOrdersRepository _repository;
 
   Future<void> init({required int periodicOrderId}) async {
     try {
