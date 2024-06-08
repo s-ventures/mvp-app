@@ -10,6 +10,7 @@ final aggregationControllerProvider =
 class AggregationController extends StateNotifier<AggregationState> {
   AggregationController(this._facade) : super(const AggregationState());
 
+  // TODO: Replace with interface
   final AggregationFacade _facade;
 
   Future<void> getAggregationServiceUrl() async {

@@ -11,6 +11,7 @@ final detailedClaimControllerProvider =
 class DetailedClaimController extends StateNotifier<DetailedClaimState> {
   DetailedClaimController(this._repository) : super(const DetailedClaimState());
 
+  // TODO: Replace with interface
   final ClaimsRepository _repository;
 
   Future<void> init({required int insuranceId, required int claimId}) async {

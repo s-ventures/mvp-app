@@ -19,6 +19,7 @@ class QuotesController extends StateNotifier<QuotesState>
     this._repository,
   ) : super(const QuotesState());
 
+  // TODO: Replace with interface
   final QuotesFilteredPaginationRepository _repository;
 
   Future<void> init() async {

@@ -13,6 +13,7 @@ final detailedPeriodicOrderControllerProvider =
 class DetailedPeriodicOrderController extends StateNotifier<DetailedPeriodicOrderState> {
   DetailedPeriodicOrderController(this._repository) : super(const DetailedPeriodicOrderState());
 
+  // TODO: Replace with interface
   final PeriodicOrdersRepository _repository;
 
   Future<void> init({required int periodicOrderId}) async {

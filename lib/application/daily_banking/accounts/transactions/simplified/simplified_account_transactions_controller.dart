@@ -31,6 +31,7 @@ class SimplifiedAccountTransactionsController
     this._accountsRepository,
   ) : super(const SimplifiedAccountTransactionsState());
 
+  // TODO: Replace with interface
   final AccountTransactionsFilteredPaginationRepository _accountsTransactionPaginationRepository;
   final IAccountsRepository _accountsRepository;
 
@@ -81,7 +82,7 @@ class SimplifiedAccountTransactionsController
           accountIds: [accountId],
           operationType: TransactionOperationType.all,
         );
-      
+
         refresh();
       }
     });

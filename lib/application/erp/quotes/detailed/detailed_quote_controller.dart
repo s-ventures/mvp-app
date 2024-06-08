@@ -13,6 +13,7 @@ final detailedQuoteControllerProvider =
 class DetailedQuoteController extends StateNotifier<DetailedQuoteState> {
   DetailedQuoteController(this._repository) : super(const DetailedQuoteState());
 
+  // TODO: Replace with interface
   final QuotesRepository _repository;
 
   Future<void> init(int contractId, int id) async {

@@ -23,6 +23,7 @@ class SimplifiedCardTransactionsController extends StateNotifier<SimplifiedCardT
     this._repository,
   ) : super(const SimplifiedCardTransactionsState());
 
+  // TODO: Replace with interface
   final CardTransactionsFilteredPaginationRepository _repository;
 
   Future<void> init() async {

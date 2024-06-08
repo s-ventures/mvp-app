@@ -28,6 +28,7 @@ class DetailedAccountTransactionController
           maxFileSizeMb: 10,
         );
 
+  // TODO: Replace with interface
   final AccountTransactionsRepository _repository;
 
   Future<void> init(String accountId, String transactionId) async {

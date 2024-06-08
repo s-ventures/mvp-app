@@ -27,6 +27,7 @@ class DetailedCardTransactionController
           maxFileSizeMb: 10,
         );
 
+  // TODO: Replace with interface
   final CardTransactionsRepository _repository;
 
   Future<void> init({

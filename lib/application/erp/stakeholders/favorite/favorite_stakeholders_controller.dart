@@ -19,6 +19,7 @@ class FavoriteStakeholdersController extends StateNotifier<FavoriteStakeholdersS
     this._repository,
   ) : super(const FavoriteStakeholdersState());
 
+  // TODO: Replace with interface
   final StakeholdersPaginationRepository _repository;
 
   Future<void> init() async {

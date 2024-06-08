@@ -14,6 +14,7 @@ final detailedCardControllerProvider =
 class DetailedCardController extends StateNotifier<DetailedCardState> {
   DetailedCardController(this._repository) : super(const DetailedCardState());
 
+  // TODO: Replace with interface
   final CardsRepository _repository;
 
   Future<void> init(UniqueId cardId) async {

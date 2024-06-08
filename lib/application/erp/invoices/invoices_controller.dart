@@ -20,6 +20,7 @@ class InvoicesController extends StateNotifier<InvoicesState>
     this._repository,
   ) : super(const InvoicesState());
 
+  // TODO: Replace with interface
   final InvoicesFilteredPaginationRepository _repository;
 
   Future<void> init() async {

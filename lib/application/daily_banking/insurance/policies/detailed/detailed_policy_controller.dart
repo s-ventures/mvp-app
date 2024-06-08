@@ -11,6 +11,7 @@ final detailedPolicyControllerProvider =
 class DetailedPolicyController extends StateNotifier<DetailedPolicyState> {
   DetailedPolicyController(this._repository) : super(const DetailedPolicyState());
 
+  // TODO: Replace with interface
   final PoliciesRepository _repository;
 
   Future<void> init({

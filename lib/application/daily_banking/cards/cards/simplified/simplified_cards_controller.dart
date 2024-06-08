@@ -15,6 +15,7 @@ class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
     with PaginationLoadingProvider<List<SimplifiedCard>> {
   SimplifiedCardsController(this._repository) : super(const SimplifiedCardsState());
 
+  // TODO: Replace with interface
   final CardsPaginationRepository _repository;
 
   Future<void> init() async {

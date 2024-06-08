@@ -13,6 +13,7 @@ final detailedExpenseControllerProvider =
 class DetailedExpenseController extends StateNotifier<DetailedExpenseState> {
   DetailedExpenseController(this._repository) : super(const DetailedExpenseState());
 
+  // TODO: Replace with interface
   final ExpensesRepository _repository;
 
   Future<void> init(int contractId, int id) async {

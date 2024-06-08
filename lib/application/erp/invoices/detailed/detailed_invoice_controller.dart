@@ -13,6 +13,7 @@ final detailedInvoiceControllerProvider =
 class DetailedInvoiceController extends StateNotifier<DetailedInvoiceState> {
   DetailedInvoiceController(this._repository) : super(const DetailedInvoiceState());
 
+  // TODO: Replace with interface
   final InvoicesRepository _repository;
 
   Future<void> init(int contractId, int id) async {

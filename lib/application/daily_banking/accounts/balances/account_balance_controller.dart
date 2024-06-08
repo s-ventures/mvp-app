@@ -10,6 +10,7 @@ final accountBalanceControllerProvider =
 class AccountBalanceController extends StateNotifier<AccountBalanceState> {
   AccountBalanceController(this._repository) : super(const AccountBalanceState());
 
+  // TODO: Replace with interface
   final AccountBalancesRepository _repository;
 
   Future<void> init(String accountId) async {

@@ -20,6 +20,7 @@ class ExpensesController extends StateNotifier<ExpensesState>
     this._repository,
   ) : super(const ExpensesState());
 
+  // TODO: Replace with interface
   final ExpensesFilteredPaginationRepository _repository;
 
   Future<void> init() async {

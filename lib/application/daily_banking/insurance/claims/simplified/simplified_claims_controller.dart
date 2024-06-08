@@ -20,6 +20,7 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
     this._repository,
   ) : super(const SimplifiedClaimsState());
 
+  // TODO: Replace with interface
   final ClaimsFilteredPaginationRepository _repository;
 
   Future<void> init() async {

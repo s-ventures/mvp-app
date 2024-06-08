@@ -19,6 +19,7 @@ class StakeholdersController extends StateNotifier<StakeholdersState>
     this._repository,
   ) : super(const StakeholdersState());
 
+  // TODO: Replace with interface
   final StakeholdersPaginationRepository _repository;
 
   Future<void> init() async {
