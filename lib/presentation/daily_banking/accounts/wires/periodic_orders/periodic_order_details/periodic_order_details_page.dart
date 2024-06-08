@@ -214,7 +214,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                       ),
                     ),
                     Text(
-                      periodicOrder.startDate.formatToTransactionDate().toString(),
+                      periodicOrder.startDate.formatToTransactionDate(),
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,
                       ),
@@ -228,7 +228,7 @@ class _PeriodicOrderDetailsPageState extends ConsumerState<PeriodicOrderDetailsP
                     ),
                     Text(
                       periodicOrder.endDate != null
-                          ? periodicOrder.endDate.formatToTransactionDate().toString()
+                          ? periodicOrder.endDate.formatToTransactionDate()
                           : '-',
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight900,

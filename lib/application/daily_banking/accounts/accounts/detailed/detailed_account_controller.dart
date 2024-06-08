@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/accounts/detailed/detailed_account_state.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_repository.dart';
 
 final detailedAccountControllerProvider =
@@ -14,7 +14,7 @@ final detailedAccountControllerProvider =
 class DetailedAccountController extends StateNotifier<DetailedAccountState> {
   DetailedAccountController(this._repository) : super(const DetailedAccountState());
 
-  final AccountsRepository _repository;
+  final IAccountsRepository _repository;
 
   Future<void> init(String accountId) async {
     try {

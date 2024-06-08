@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/erp/expenses/expenses_state.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense_filter.dart';
 import 'package:manifiesto_mvp_app/domain/erp/expenses/entities/expense_status.dart';
@@ -20,7 +21,7 @@ class ExpensesController extends StateNotifier<ExpensesState>
     this._repository,
   ) : super(const ExpensesState());
 
-  final ExpensesFilteredPaginationRepository _repository;
+  final IFilteredPaginationListRepository<Expense, ExpenseFilter> _repository;
 
   Future<void> init() async {
     initPagination(

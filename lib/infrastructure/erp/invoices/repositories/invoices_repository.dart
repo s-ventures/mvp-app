@@ -16,7 +16,7 @@ import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/invoice_dto.
 import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/invoice_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/dtos/overview_invoices_dto.dart';
 
-final invoicesRepositoryProvider = Provider<InvoicesRepository>(
+final invoicesRepositoryProvider = Provider<IInvoicesRepository>(
   (ref) => InvoicesRepository(
     remoteDataSource: InvoicesRemoteDataSource(
       ref.watch(invoicesRestClientProvider),

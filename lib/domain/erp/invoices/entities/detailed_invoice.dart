@@ -32,7 +32,7 @@ class DetailedInvoice with _$DetailedInvoice {
     required String accountingTypeCode,
     required UniqueId serialNumberId,
     required List<FileAttachment> attachments,
-    // Todo(jesus): change when we have the type from the bfmf
+    // TODO(jesus): change when we have the type from the bfmf
     required dynamic subtotalVatAmount,
   }) = _DetailedInvoice;
 }

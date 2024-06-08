@@ -1430,7 +1430,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get contactsAddFromAgendaModalRequestPermissionsTitle => 'Acceso agenda';
 
   @override
-  String get contactsAddFromAgendaModalRequestPermissionsDescription => 'Para poder añadir contactos desde tu agenda, necesitamos acceder a ella. Por favor, pulsa en \"Aceptar\" para permitir el acceso. ¡Gracias!';
+  String get contactsAddFromAgendaModalRequestPermissionsDescription => 'Para poder añadir contactos desde tu agenda, necesitamos acceder a ella. Por favor, pulsa en "Aceptar" para permitir el acceso. ¡Gracias!';
 
   @override
   String get contactsAddFromAgendaPageTitle => 'Agenda';

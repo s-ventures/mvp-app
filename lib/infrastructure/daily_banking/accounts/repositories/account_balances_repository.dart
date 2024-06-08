@@ -7,7 +7,7 @@ import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/data_sources/remote/account_balances_remote_data_source.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/dtos/balances/account_balance_dto.dart';
 
-final accountBalancesRepositoryProvider = Provider<AccountBalancesRepository>(
+final accountBalancesRepositoryProvider = Provider<IAccountBalancesRepository>(
   (ref) => AccountBalancesRepository(
     remoteDataSource: AccountBalancesRemoteDataSource(
       ref.watch(accountBalancesRestClientProvider),

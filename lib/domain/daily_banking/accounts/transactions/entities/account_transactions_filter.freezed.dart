@@ -253,7 +253,7 @@ class _$AccountTransactionsFilterImpl implements _AccountTransactionsFilter {
 }
 
 abstract class _AccountTransactionsFilter
-    implements AccountTransactionsFilter, PaginationFilter {
+    implements AccountTransactionsFilter, IPaginationFilter {
   const factory _AccountTransactionsFilter(
       {required final List<UniqueId> accountIds,
       required final TransactionOperationType operationType,

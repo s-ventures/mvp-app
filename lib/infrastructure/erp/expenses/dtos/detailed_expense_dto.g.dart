@@ -9,17 +9,17 @@ part of 'detailed_expense_dto.dart';
 _$DetailedExpenseDtoImpl _$$DetailedExpenseDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DetailedExpenseDtoImpl(
-      expenseId: (json['expenseId'] as num).toInt(),
-      erpContractId: (json['erpContractId'] as num).toInt(),
+      expenseId: json['expenseId'] as int,
+      erpContractId: json['erpContractId'] as int,
       number: json['number'] as String,
-      stakeholderId: (json['stakeholderId'] as num).toInt(),
+      stakeholderId: json['stakeholderId'] as int,
       dueDate: const DateConverter().fromJson(json['dueDate'] as String),
       createdDate:
           const DateConverter().fromJson(json['createdDate'] as String),
       currencyCode: json['currencyCode'] as String,
       withHoldingTaxesPercentage:
           (json['withHoldingTaxesPercentage'] as num).toDouble(),
-      fileId: (json['fileId'] as num).toInt(),
+      fileId: json['fileId'] as int,
       additionalInfo: json['additionalInfo'] as String,
       statusDate: const DateConverter().fromJson(json['statusDate'] as String),
       issueDate: const DateConverter().fromJson(json['issueDate'] as String),

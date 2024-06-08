@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/balances/account_balance_state.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/balances/repositories/i_account_balances_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_balances_repository.dart';
 
 final accountBalanceControllerProvider =
@@ -10,7 +11,7 @@ final accountBalanceControllerProvider =
 class AccountBalanceController extends StateNotifier<AccountBalanceState> {
   AccountBalanceController(this._repository) : super(const AccountBalanceState());
 
-  final AccountBalancesRepository _repository;
+  final IAccountBalancesRepository _repository;
 
   Future<void> init(String accountId) async {
     final balance = await _repository.getAccountBalance(accountId: accountId);
