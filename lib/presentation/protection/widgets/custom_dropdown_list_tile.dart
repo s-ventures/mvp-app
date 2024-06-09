@@ -25,10 +25,13 @@ class CustomDropdownListTile extends StatefulWidget {
     this.radius = CustomDropdownListTileRadius.soft,
     this.initialState = CustomDropdownListTileInitialState.expanded,
     this.nextToCollapse = false,
+    this.nextToCollapseColor,
+    this.nextToCollapsePadding,
     this.trailingIconCollapsed,
     this.trailingIconExpanded,
     this.trailingIconColor,
     this.collapsable = true,
+    this.outlined = true,
     this.trailingIconsAnimation = CustomDropdownListTileTrailingIconAnimation.enabled,
     super.key,
   });
@@ -40,10 +43,13 @@ class CustomDropdownListTile extends StatefulWidget {
   final CustomDropdownListTileRadius? radius;
   final CustomDropdownListTileInitialState initialState;
   final bool nextToCollapse;
+  final Color? nextToCollapseColor;
+  final double? nextToCollapsePadding;
   final Widget? trailingIconCollapsed;
   final Widget? trailingIconExpanded;
   final Color? trailingIconColor;
   final bool? collapsable;
+  final bool outlined;
   final CustomDropdownListTileTrailingIconAnimation? trailingIconsAnimation;
 
   @override
@@ -103,7 +109,11 @@ class _CustomDropdownListTileState extends State<CustomDropdownListTile>
   Widget _buildChildren(BuildContext context, Widget? child) {
     return Container(
       decoration: ShapeDecoration(
-        color: widget.nextToCollapse ? context.color.strokeLigth100 : Colors.transparent,
+        color: widget.nextToCollapse && widget.nextToCollapseColor != null
+            ? widget.nextToCollapseColor
+            : widget.nextToCollapse
+                ? context.color.strokeLigth100
+                : Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             widget.radius == CustomDropdownListTileRadius.soft
@@ -125,7 +135,7 @@ class _CustomDropdownListTileState extends State<CustomDropdownListTile>
                       : context.radius.hard,
                 ),
                 side: BorderSide(
-                  color: context.color.strokeLigth100,
+                  color: widget.outlined ? context.color.strokeLigth100 : Colors.transparent,
                 ),
               ),
             ),
@@ -196,7 +206,7 @@ class _CustomDropdownListTileState extends State<CustomDropdownListTile>
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(
-                    widget.nextToCollapse ? AppSpacing.s3 : 0.0,
+                    widget.nextToCollapse ? widget.nextToCollapsePadding ?? AppSpacing.s3 : 0,
                   ),
                   child: Column(
                     children: [...widget.dropdownItems],

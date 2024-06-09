@@ -108,7 +108,10 @@ enum AppRoute {
   // Tranversal
   transversal('/transversal'),
   transversalHelp('help'),
-  transversalHelpFaqs('faqs');
+  transversalHelpFaqs('faqs'),
+  transversalPlan('plan'),
+  transversalPlanUpgrade('upgrade'),
+  ;
 
   const AppRoute(this.path);
 

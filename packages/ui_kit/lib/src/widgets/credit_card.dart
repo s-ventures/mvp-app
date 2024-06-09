@@ -12,17 +12,21 @@ enum CreditCardType {
   physical,
 }
 
+enum CreditCardSize { extraSmall, normal }
+
 class CreditCard extends StatelessWidget {
   const CreditCard({
     required this.plan,
     required this.type,
     required this.last4Digits,
+    this.size = CreditCardSize.normal,
     super.key,
   });
 
   final CreditCardPlan plan;
   final CreditCardType type;
   final String last4Digits;
+  final CreditCardSize size;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,9 @@ class CreditCard extends StatelessWidget {
       aspectRatio: 1.586,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(context.radius.soft),
+          borderRadius: BorderRadius.circular(
+            size == CreditCardSize.extraSmall ? 3 : context.radius.soft,
+          ),
           color: plan == CreditCardPlan.basic && type == CreditCardType.virtual
               ? context.color.secondaryLight600
               : plan == CreditCardPlan.premium && type == CreditCardType.virtual
@@ -40,7 +46,9 @@ class CreditCard extends StatelessWidget {
         child: Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(context.radius.soft),
+            borderRadius: BorderRadius.circular(
+              size == CreditCardSize.extraSmall ? 3 : context.radius.soft,
+            ),
           ),
           child: Stack(
             children: [
@@ -49,26 +57,30 @@ class CreditCard extends StatelessWidget {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                child: plan == CreditCardPlan.basic &&
-                        type == CreditCardType.physical
+                child: plan == CreditCardPlan.basic && type == CreditCardType.physical
                     ? const CardSvg.basic()
-                    : plan == CreditCardPlan.premium &&
-                            type == CreditCardType.physical
+                    : plan == CreditCardPlan.premium && type == CreditCardType.physical
                         ? const CardSvg.premium()
                         : const SizedBox.shrink(),
               ),
               Positioned(
-                top: 24,
-                left: 24,
-                child: IconSvg.medium(
-                  IconAssets.logotype,
-                  color: context.color.textLight0,
-                ),
+                top: size == CreditCardSize.extraSmall ? 6 : 24,
+                left: size == CreditCardSize.extraSmall ? 6 : 24,
+                child: size == CreditCardSize.extraSmall
+                    ? IconSvg(
+                        IconAssets.logotype,
+                        color: context.color.textLight0,
+                        size: 6,
+                      )
+                    : IconSvg.medium(
+                        IconAssets.logotype,
+                        color: context.color.textLight0,
+                      ),
               ),
               if (type == CreditCardType.virtual)
                 Positioned(
-                  top: 24,
-                  right: 24,
+                  top: size == CreditCardSize.extraSmall ? 6 : 24,
+                  right: size == CreditCardSize.extraSmall ? 6 : 24,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
@@ -89,45 +101,56 @@ class CreditCard extends StatelessWidget {
                   ),
                 ),
               Positioned(
-                bottom: 24,
-                left: 24,
+                bottom: size == CreditCardSize.extraSmall ? 6 : 24,
+                left: size == CreditCardSize.extraSmall ? 6 : 24,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RichText(
-                      text: TextSpan(
-                        text: 'soon ',
-                        style: context.textStyle.bodyMediumBold.copyWith(
-                          color: context.color.textLight0,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: plan == CreditCardPlan.basic
-                                ? context.loc.dailyBankingCardsBasic
-                                : context.loc.dailyBankingCardsPremium,
-                            style: context.textStyle.bodyMediumRegular.copyWith(
-                              color: context.color.textLight0,
-                            ),
+                    if (size != CreditCardSize.extraSmall) ...[
+                      RichText(
+                        text: TextSpan(
+                          text: 'soon ',
+                          style: context.textStyle.bodyMediumBold.copyWith(
+                            color: context.color.textLight0,
+                            fontSize: size == CreditCardSize.extraSmall ? 6 : 14,
                           ),
-                        ],
+                          children: [
+                            TextSpan(
+                              text: plan == CreditCardPlan.basic
+                                  ? context.loc.dailyBankingCardsBasic
+                                  : context.loc.dailyBankingCardsPremium,
+                              style: context.textStyle.bodyMediumRegular.copyWith(
+                                color: context.color.textLight0,
+                                fontSize: size == CreditCardSize.extraSmall ? 6 : 14,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
+                    ],
                     Text(
                       '•• $last4Digits',
                       style: context.textStyle.bodyMediumRegular.copyWith(
                         color: context.color.textLight0,
+                        fontSize: size == CreditCardSize.extraSmall ? 6 : 14,
                       ),
                     ),
                   ],
                 ),
               ),
               Positioned(
-                bottom: 24,
-                right: 24,
-                child: IconSvg.medium(
-                  IconAssets.visa,
-                  color: context.color.textLight0,
-                ),
+                bottom: size == CreditCardSize.extraSmall ? 6 : 24,
+                right: size == CreditCardSize.extraSmall ? 6 : 24,
+                child: size == CreditCardSize.extraSmall
+                    ? IconSvg(
+                        IconAssets.visa,
+                        color: context.color.textLight0,
+                        size: 6,
+                      )
+                    : IconSvg.medium(
+                        IconAssets.visa,
+                        color: context.color.textLight0,
+                      ),
               ),
             ],
           ),

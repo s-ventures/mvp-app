@@ -10,32 +10,36 @@ enum CoverageCheckboxColoros {
 
 class Coverages extends StatelessWidget {
   const Coverages({
-    required this.title,
+    this.title,
     this.coveragesWithDescription,
     this.coverages,
     this.coverageCheckboxColors = CoverageCheckboxColoros.tertiary,
+    this.outlined = true,
     super.key,
   });
 
-  final String title;
+  final String? title;
   final List<Map<String, String>>? coveragesWithDescription;
   final List<String>? coverages;
   final CoverageCheckboxColoros? coverageCheckboxColors;
+  final bool outlined;
 
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      outlined: true,
+      outlined: outlined,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            title,
-            style: context.textStyle.bodyMediumSemiBold.copyWith(
-              color: context.color.textLight900,
+          if (title != null) ...[
+            Text(
+              title!,
+              style: context.textStyle.bodyMediumSemiBold.copyWith(
+                color: context.color.textLight900,
+              ),
             ),
-          ),
-          AppSpacing.vertical.s3,
+            AppSpacing.vertical.s3,
+          ],
           if (coveragesWithDescription != null && coveragesWithDescription!.isNotEmpty) ...[
             ...coveragesWithDescription!.map(
               (Map<String, dynamic> coverage) => GestureDetector(
@@ -118,7 +122,7 @@ class Coverages extends StatelessWidget {
                         coverage,
                         style: context.textStyle.bodySmallRegular.copyWith(
                           color: context.color.textLight600,
-                          decoration: TextDecoration.underline,
+                          // decoration: TextDecoration.underline,
                         ),
                       ),
                     ),

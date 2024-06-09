@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:manifiesto_mvp_app/presentation/routing/routes.dart';
 import 'package:manifiesto_mvp_app/presentation/transversal/options/help/faqs/help_faqs_page.dart';
 import 'package:manifiesto_mvp_app/presentation/transversal/options/help/transversal_help_page.dart';
+import 'package:manifiesto_mvp_app/presentation/transversal/options/plan/transversal_plan_page.dart';
+import 'package:manifiesto_mvp_app/presentation/transversal/options/plan/upgrade/plan_upgrade_page.dart';
 import 'package:manifiesto_mvp_app/presentation/transversal/transversal_page.dart';
 
 class TransversalRouter {
@@ -31,6 +33,26 @@ class TransversalRouter {
               pageBuilder: (context, state) => NoTransitionPage(
                 key: state.pageKey,
                 child: const HelpFaqsPage(),
+              ),
+            ),
+          ],
+        ),
+        GoRoute(
+          parentNavigatorKey: rootNavigatorKey,
+          path: AppRoute.transversalPlan.path,
+          name: AppRoute.transversalPlan.name,
+          pageBuilder: (context, state) => NoTransitionPage(
+            key: state.pageKey,
+            child: const TransversalPlanPage(),
+          ),
+          routes: [
+            GoRoute(
+              parentNavigatorKey: rootNavigatorKey,
+              path: AppRoute.transversalPlanUpgrade.path,
+              name: AppRoute.transversalPlanUpgrade.name,
+              pageBuilder: (context, state) => NoTransitionPage(
+                key: state.pageKey,
+                child: const PlanUpgradePage(),
               ),
             ),
           ],

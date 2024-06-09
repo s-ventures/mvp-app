@@ -200,7 +200,9 @@ class TransversalPage extends StatelessWidget {
                     topLeft: Radius.circular(context.radius.soft),
                     topRight: Radius.circular(context.radius.soft),
                   ),
-                  onPressed: () async {},
+                  onPressed: () async => context.pushNamed(
+                    AppRoute.transversalPlan.name,
+                  ),
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: AppSpacing.s5,
