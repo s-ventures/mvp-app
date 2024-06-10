@@ -8,6 +8,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/sim
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/failures/detailed_card_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/failures/select_card_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/failures/simplified_card_failure.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/repositories/i_cards_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/in_memory_store/daily_banking/test_cards.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/in_memory_store/in_memory_store.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/data_sources/local/cards_local_data_source.dart';
@@ -15,7 +16,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositori
 import 'package:manifiesto_mvp_app/infrastructure/local_storage/repositories/shared_preferences_local_storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-final fakeCardsRepositoryProvider = Provider<FakeCardsRepository>((ref) {
+final fakeCardsRepositoryProvider = Provider<ICardsRepository>((ref) {
   return FakeCardsRepository(
     localDataSource: CardsLocalDataSource(ref.watch(sharedPreferencesLocalStorageProvider)),
     simplifiedCards: InMemoryStore<List<SimplifiedCard>>(List.from(kTestSimplifiedCards)),

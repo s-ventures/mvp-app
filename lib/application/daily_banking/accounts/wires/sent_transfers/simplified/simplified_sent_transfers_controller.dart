@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/simplified/simplified_sent_transfers_state.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/sent_transfers_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/simplified_sent_transfer.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_filtered_pagination_repository.dart';
@@ -19,7 +20,7 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
     this._repository,
   ) : super(const SimplifiedSentTransfersState());
 
-  final SentTransfersFilteredPaginationRepository _repository;
+  final IFilteredPaginationListRepository<SimplifiedSentTransfer, SentTransfersFilter> _repository;
 
   Future<void> init() async {
     initPagination(
@@ -45,7 +46,7 @@ class SimplifiedSentTransfersController extends StateNotifier<SimplifiedSentTran
     try {
       final lastSentTransfers = await _repository.fetchPage(page: 0, pageSize: 5);
       setStateSafe(
-        () => state.copyWith(lastSentTransfers: AsyncData(lastSentTransfers)),
+        () => state.copyWith(lastSentTransfers: AsyncData(lastSentTransfers ?? [])),
       );
     } catch (e) {
       setStateSafe(

@@ -12,7 +12,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_o
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/periodic_orders_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/periodic_orders/dtos/simplified_periodic_order_dto.dart';
 
-final periodicOrdersRepositoryProvider = Provider<PeriodicOrdersRepository>(
+final periodicOrdersRepositoryProvider = Provider<IPeriodicOrdersRepository>(
   (ref) => PeriodicOrdersRepository(
     remoteDataSource: PeriodicOrdersRemoteDataSource(
       ref.watch(periodicOrdersRestClientProvider),

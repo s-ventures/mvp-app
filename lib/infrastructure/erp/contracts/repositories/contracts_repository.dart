@@ -12,7 +12,7 @@ import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/dtos/customer_co
 import 'package:manifiesto_mvp_app/infrastructure/local_storage/repositories/shared_preferences_local_storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-final contractsRepositoryProvider = Provider<ContractsRepository>((ref) {
+final contractsRepositoryProvider = Provider<IContractsRepository>((ref) {
   return ContractsRepository(
     localDataSource: ContractsLocalDataSource(
       ref.watch(sharedPreferencesLocalStorageProvider),
