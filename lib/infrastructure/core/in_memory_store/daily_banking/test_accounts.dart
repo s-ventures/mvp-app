@@ -26,11 +26,15 @@ const _currencyCode = 'EUR';
 final _entitySoon = AccountEntity(
   name: 'soon',
   icon: IconAssets.soon,
+  iconColor: AppThemeColorScheme.light.secondaryLight600,
+  iconBackgroundColor: AppThemeColorScheme.light.backgroundLight0,
 );
 
 final _entitySantander = AccountEntity(
   name: 'Santander',
   icon: IconAssets.santander,
+  iconColor: AppThemeColorScheme.light.iconLight0,
+  iconBackgroundColor: AppThemeColorScheme.light.statusError,
 );
 
 final kTestSimplifiedAccounts = [

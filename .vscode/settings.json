@@ -15,7 +15,6 @@
     "daily_banking/taxes",
     "daily_banking/transactions",
     "daily_banking/wires",
-    "-----------------------------------------------",
     "erp",
     "erp/accounting",
     "erp/expenses",
@@ -23,7 +22,6 @@
     "erp/quotations",
     "erp/stakeholders",
     "erp/taxes",
-    "-----------------------------------------------",
     "protection",
     "protection/actives",
     "protection/contracted",
@@ -31,12 +29,10 @@
     "protection/healt",
     "protection/responsibility",
     "protection/revenue",
-    "-----------------------------------------------",
     "transversal",
     "transversal/alerts",
     "transversal/notifications",
     "transversal/profile",
-    "-----------------------------------------------",
     "ui"
   ]
 }

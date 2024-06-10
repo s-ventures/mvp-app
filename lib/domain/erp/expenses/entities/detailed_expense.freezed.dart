@@ -32,12 +32,12 @@ mixin _$DetailedExpense {
   double get vatPercentage => throw _privateConstructorUsedError;
   String get accountingTypeCode => throw _privateConstructorUsedError;
   String get fullName =>
-      throw _privateConstructorUsedError; // Todo(jesus): Change to DocumentTypeCode
+      throw _privateConstructorUsedError; // TODO(jesus): Change to DocumentTypeCode
   String get documentTypeCode => throw _privateConstructorUsedError;
   String get documentNumber => throw _privateConstructorUsedError;
   ExpenseStatus get status => throw _privateConstructorUsedError;
   List<ExpenseItem> get items =>
-      throw _privateConstructorUsedError; // Todo(jesus): Change to SubtotalVatAmount
+      throw _privateConstructorUsedError; // TODO(jesus): Change to SubtotalVatAmount
   dynamic get subtotalVatAmount => throw _privateConstructorUsedError;
   SerialNumber get serialNumber => throw _privateConstructorUsedError;
   List<Payment> get payments => throw _privateConstructorUsedError;
@@ -469,7 +469,7 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
   final String accountingTypeCode;
   @override
   final String fullName;
-// Todo(jesus): Change to DocumentTypeCode
+// TODO(jesus): Change to DocumentTypeCode
   @override
   final String documentTypeCode;
   @override
@@ -484,7 +484,7 @@ class _$DetailedExpenseImpl implements _DetailedExpense {
     return EqualUnmodifiableListView(_items);
   }
 
-// Todo(jesus): Change to SubtotalVatAmount
+// TODO(jesus): Change to SubtotalVatAmount
   @override
   final dynamic subtotalVatAmount;
   @override
@@ -656,7 +656,7 @@ abstract class _DetailedExpense implements DetailedExpense {
   String get accountingTypeCode;
   @override
   String get fullName;
-  @override // Todo(jesus): Change to DocumentTypeCode
+  @override // TODO(jesus): Change to DocumentTypeCode
   String get documentTypeCode;
   @override
   String get documentNumber;
@@ -664,7 +664,7 @@ abstract class _DetailedExpense implements DetailedExpense {
   ExpenseStatus get status;
   @override
   List<ExpenseItem> get items;
-  @override // Todo(jesus): Change to SubtotalVatAmount
+  @override // TODO(jesus): Change to SubtotalVatAmount
   dynamic get subtotalVatAmount;
   @override
   SerialNumber get serialNumber;

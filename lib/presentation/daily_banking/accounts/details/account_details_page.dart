@@ -58,9 +58,11 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: AppSpacing.s2,
-                      horizontal: AppSpacing.s5,
+                    padding: const EdgeInsets.only(
+                      top: AppSpacing.s2,
+                      bottom: AppSpacing.s2,
+                      left: AppSpacing.s2,
+                      right: AppSpacing.s5,
                     ),
                     decoration: BoxDecoration(
                       color: context.color.backgroundLight0,
@@ -74,11 +76,22 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        IconSvg.small(
-                          account.entity.icon,
-                          color: account.entity.name == 'soon'
-                              ? context.color.secondaryLight600
-                              : context.color.statusError,
+                        Container(
+                          height: AppSpacing.s6,
+                          width: AppSpacing.s6,
+                          padding: const EdgeInsets.all(
+                            AppSpacing.s2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: account.entity.iconBackgroundColor,
+                            borderRadius: BorderRadius.circular(
+                              context.radius.hard,
+                            ),
+                          ),
+                          child: IconSvg.small(
+                            account.entity.icon,
+                            color: account.entity.iconColor,
+                          ),
                         ),
                         AppSpacing.horizontal.s3,
                         Text(
@@ -261,7 +274,9 @@ class _AccountDetailsPageState extends ConsumerState<AccountDetailsPage> {
                 OutlinedList(
                   children: [
                     Splash(
-                      borderRadius: BorderRadius.circular(context.radius.soft),
+                      borderRadius: BorderRadius.circular(
+                        context.radius.soft,
+                      ),
                       onPressed: () async {},
                       child: ListTile(
                         contentPadding: const EdgeInsets.symmetric(

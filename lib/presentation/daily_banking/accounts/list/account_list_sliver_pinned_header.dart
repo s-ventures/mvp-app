@@ -193,12 +193,8 @@ class _AccountList extends StatelessWidget {
                     size: CustomChipSize.extraSmall,
                     backgroundColor: context.color.backgroundLight200,
                     leadingIcon: account.entity.icon,
-                    leadingIconColor: account.entity.name == 'soon'
-                        ? context.color.secondaryLight600
-                        : context.color.backgroundLight0,
-                    leadingIconBackgroundColor: account.entity.name == 'soon'
-                        ? context.color.backgroundLight0
-                        : context.color.statusError,
+                    leadingIconColor: account.entity.iconColor,
+                    leadingIconBackgroundColor: account.entity.iconBackgroundColor,
                     title: Row(
                       children: [
                         Text(

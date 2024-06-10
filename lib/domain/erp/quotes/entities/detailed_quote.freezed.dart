@@ -36,7 +36,7 @@ mixin _$DetailedQuote {
   QuoteStatus get status => throw _privateConstructorUsedError;
   UniqueId get serialNumberId => throw _privateConstructorUsedError;
   List<FileAttachment> get attachments =>
-      throw _privateConstructorUsedError; // Todo(jesus): change when we have the dto from the backend
+      throw _privateConstructorUsedError; // TODO(jesus): change when we have the dto from the backend
   dynamic get subtotalVatAmount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -445,7 +445,7 @@ class _$DetailedQuoteImpl implements _DetailedQuote {
     return EqualUnmodifiableListView(_attachments);
   }
 
-// Todo(jesus): change when we have the dto from the backend
+// TODO(jesus): change when we have the dto from the backend
   @override
   final dynamic subtotalVatAmount;
 
@@ -596,7 +596,7 @@ abstract class _DetailedQuote implements DetailedQuote {
   UniqueId get serialNumberId;
   @override
   List<FileAttachment> get attachments;
-  @override // Todo(jesus): change when we have the dto from the backend
+  @override // TODO(jesus): change when we have the dto from the backend
   dynamic get subtotalVatAmount;
   @override
   @JsonKey(ignore: true)
