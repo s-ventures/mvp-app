@@ -294,7 +294,7 @@ class _$InvoiceFilterImpl implements _InvoiceFilter {
       __$$InvoiceFilterImplCopyWithImpl<_$InvoiceFilterImpl>(this, _$identity);
 }
 
-abstract class _InvoiceFilter implements InvoiceFilter, PaginationFilter {
+abstract class _InvoiceFilter implements InvoiceFilter, IPaginationFilter {
   const factory _InvoiceFilter(
       {final UniqueId? id,
       final UniqueId? stakeholderId,

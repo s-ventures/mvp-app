@@ -12,7 +12,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/polici
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/dtos/policies_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/dtos/simplified_policy_dto.dart';
 
-final policiesRepositoryProvider = Provider<PoliciesRepository>(
+final policiesRepositoryProvider = Provider<IPoliciesRepository>(
   (ref) => PoliciesRepository(
     remoteDataSource: PoliciesRemoteDataSource(ref.watch(policiesRestClientProvider)),
   ),

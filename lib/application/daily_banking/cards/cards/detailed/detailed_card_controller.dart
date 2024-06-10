@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/cards/detailed/detailed_card_state.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/repositories/i_cards_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/fake_cards_repository.dart';
 
@@ -15,7 +16,7 @@ final detailedCardControllerProvider =
 class DetailedCardController extends StateNotifier<DetailedCardState> {
   DetailedCardController(this._repository) : super(const DetailedCardState());
 
-  final CardsRepository _repository;
+  final ICardsRepository _repository;
 
   Future<void> init(UniqueId cardId) async {
     try {

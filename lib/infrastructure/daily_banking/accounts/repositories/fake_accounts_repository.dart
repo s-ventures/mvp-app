@@ -9,14 +9,14 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/entiti
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/detailed_account_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/select_account_failure.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/failures/simplified_account_failure.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/in_memory_store/daily_banking/test_accounts.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/in_memory_store/in_memory_store.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/data_sources/local/accounts_local_data_source.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/local_storage/repositories/shared_preferences_local_storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-final fakeAccountsRepositoryProvider = Provider<FakeAccountsRepository>((ref) {
+final fakeAccountsRepositoryProvider = Provider<IAccountsRepository>((ref) {
   return FakeAccountsRepository(
     localDataSource: AccountsLocalDataSource(ref.watch(sharedPreferencesLocalStorageProvider)),
     simplifiedAccounts: InMemoryStore<List<SimplifiedAccount>>(List.from(kTestSimplifiedAccounts)),
@@ -24,7 +24,7 @@ final fakeAccountsRepositoryProvider = Provider<FakeAccountsRepository>((ref) {
   );
 });
 
-class FakeAccountsRepository implements AccountsRepository {
+class FakeAccountsRepository implements IAccountsRepository {
   FakeAccountsRepository({
     required AccountsLocalDataSource localDataSource,
     required InMemoryStore<List<SimplifiedAccount>> simplifiedAccounts,

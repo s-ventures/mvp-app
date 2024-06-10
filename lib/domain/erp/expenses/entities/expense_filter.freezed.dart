@@ -294,7 +294,7 @@ class _$ExpenseFilterImpl implements _ExpenseFilter {
       __$$ExpenseFilterImplCopyWithImpl<_$ExpenseFilterImpl>(this, _$identity);
 }
 
-abstract class _ExpenseFilter implements ExpenseFilter, PaginationFilter {
+abstract class _ExpenseFilter implements ExpenseFilter, IPaginationFilter {
   const factory _ExpenseFilter(
       {final UniqueId? id,
       final UniqueId? stakeholderId,

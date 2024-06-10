@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/claims/simplified/simplified_claims_state.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claim_status_type.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/claims_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/claims/entities/simplified_claim.dart';
@@ -20,7 +21,7 @@ class SimplifiedClaimsController extends StateNotifier<SimplifiedClaimsState>
     this._repository,
   ) : super(const SimplifiedClaimsState());
 
-  final ClaimsFilteredPaginationRepository _repository;
+  final IFilteredPaginationListRepository<SimplifiedClaim, ClaimsFilter> _repository;
 
   Future<void> init() async {
     initPagination(

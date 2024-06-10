@@ -5,7 +5,7 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/aggregation/aggregation/
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/rest_clients/daily_banking/aggregation/aggregation_rest_client.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/aggregation/data_sources/remote/aggregation_remote_data_source.dart';
 
-final aggregationFacadeProvider = Provider<AggregationFacade>(
+final aggregationFacadeProvider = Provider<IAggregation>(
   (ref) => AggregationFacade(
     remoteDataSource: AggregationRemoteDataSource(
       ref.watch(aggregationRestClientProvider),
