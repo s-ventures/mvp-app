@@ -53,7 +53,7 @@ class PeriodicOrderCard extends StatelessWidget {
                   title: context.loc.dailyBankingScheduledTransfersSeeDetails,
                   type: ButtonType.text,
                   size: ButtonSize.extraSmall,
-                  textColor: context.color.statusInfo,
+                  foreground: context.color.statusInfo,
                   onPressed: () => context.pushNamed(
                     AppRoute.dailyBankingScheduledTransferDetails.name,
                     extra: PeriodicOrderDetailsRouteParams(
@@ -99,8 +99,7 @@ class PeriodicOrderCard extends StatelessWidget {
                           AppSpacing.horizontal.s2,
                           Text(
                             context.loc.dailyBankingScheduledTransfersDateSince(
-                              periodicOrder.startDate?.formatToDayMonthYear() ??
-                                  '',
+                              periodicOrder.startDate?.formatToDayMonthYear() ?? '',
                             ),
                             style: context.textStyle.bodyMediumRegular.copyWith(
                               color: context.color.textLight600,

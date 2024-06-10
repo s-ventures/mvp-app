@@ -123,6 +123,7 @@ class AccountListPage extends ConsumerWidget {
                     ),
                     AppSpacing.vertical.s3,
                     OutlinedList(
+                      borderColor: context.color.strokeLigth200,
                       children: [
                         Splash(
                           borderRadius: BorderRadius.circular(context.radius.soft),
@@ -172,6 +173,7 @@ class AccountListPage extends ConsumerWidget {
                     ),
                     AppSpacing.vertical.s3,
                     OutlinedList(
+                      borderColor: context.color.strokeLigth200,
                       children: [
                         Splash(
                           borderRadius: BorderRadius.circular(context.radius.soft),
@@ -189,6 +191,7 @@ class AccountListPage extends ConsumerWidget {
                                           icon: IconAssets.santander,
                                           backgroundColor: context.color.statusError,
                                           foreground: context.color.neutralLight0,
+                                          subIcon: IconAssets.check,
                                         ),
                                         AppSpacing.horizontal.s3,
                                         Text(

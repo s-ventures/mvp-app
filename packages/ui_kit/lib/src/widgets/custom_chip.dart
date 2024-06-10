@@ -8,6 +8,7 @@ class CustomChip extends StatelessWidget {
     this.onSelected,
     this.leadingIcon,
     this.leadingIconColor,
+    this.leadingIconBackgroundColor,
     this.trailingIcon,
     this.isExpanded = false,
     this.onTrailingIconPressed,
@@ -25,6 +26,7 @@ class CustomChip extends StatelessWidget {
   final Color? selectedColor;
   final String? leadingIcon;
   final Color? leadingIconColor;
+  final Color? leadingIconBackgroundColor;
   final String? trailingIcon;
   final bool isExpanded;
   final CustomChipSize size;
@@ -59,7 +61,7 @@ class CustomChip extends StatelessWidget {
               width: AppSpacing.s6,
               padding: const EdgeInsets.all(AppSpacing.s2),
               decoration: ShapeDecoration(
-                color: context.color.backgroundLight0,
+                color: leadingIconBackgroundColor,
                 shape: const CircleBorder(),
               ),
               child: IconSvg.small(
@@ -71,9 +73,7 @@ class CustomChip extends StatelessWidget {
       deleteIcon: trailingIcon != null
           ? IconSvg.small(
               trailingIcon!,
-              color: selected
-                  ? context.color.strokeLigth100
-                  : context.color.primaryLight300,
+              color: selected ? context.color.strokeLigth100 : context.color.primaryLight300,
             )
           : null,
       onDeleted: onTrailingIconPressed,
