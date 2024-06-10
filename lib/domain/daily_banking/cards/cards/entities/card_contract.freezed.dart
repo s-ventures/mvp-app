@@ -20,6 +20,8 @@ mixin _$CardContract {
   UniqueId get accountId => throw _privateConstructorUsedError;
   DateTime get createDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
+  bool get aggregated => throw _privateConstructorUsedError;
+  String get currencyCode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CardContractCopyWith<CardContract> get copyWith =>
@@ -36,7 +38,9 @@ abstract class $CardContractCopyWith<$Res> {
       {UniqueId id,
       UniqueId accountId,
       DateTime createDate,
-      DateTime? endDate});
+      DateTime? endDate,
+      bool aggregated,
+      String currencyCode});
 }
 
 /// @nodoc
@@ -56,6 +60,8 @@ class _$CardContractCopyWithImpl<$Res, $Val extends CardContract>
     Object? accountId = null,
     Object? createDate = null,
     Object? endDate = freezed,
+    Object? aggregated = null,
+    Object? currencyCode = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -74,6 +80,14 @@ class _$CardContractCopyWithImpl<$Res, $Val extends CardContract>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      aggregated: null == aggregated
+          ? _value.aggregated
+          : aggregated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currencyCode: null == currencyCode
+          ? _value.currencyCode
+          : currencyCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -90,7 +104,9 @@ abstract class _$$CardContractImplCopyWith<$Res>
       {UniqueId id,
       UniqueId accountId,
       DateTime createDate,
-      DateTime? endDate});
+      DateTime? endDate,
+      bool aggregated,
+      String currencyCode});
 }
 
 /// @nodoc
@@ -108,6 +124,8 @@ class __$$CardContractImplCopyWithImpl<$Res>
     Object? accountId = null,
     Object? createDate = null,
     Object? endDate = freezed,
+    Object? aggregated = null,
+    Object? currencyCode = null,
   }) {
     return _then(_$CardContractImpl(
       id: null == id
@@ -126,6 +144,14 @@ class __$$CardContractImplCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      aggregated: null == aggregated
+          ? _value.aggregated
+          : aggregated // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currencyCode: null == currencyCode
+          ? _value.currencyCode
+          : currencyCode // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -137,7 +163,9 @@ class _$CardContractImpl implements _CardContract {
       {required this.id,
       required this.accountId,
       required this.createDate,
-      required this.endDate});
+      required this.endDate,
+      required this.aggregated,
+      required this.currencyCode});
 
   @override
   final UniqueId id;
@@ -147,10 +175,14 @@ class _$CardContractImpl implements _CardContract {
   final DateTime createDate;
   @override
   final DateTime? endDate;
+  @override
+  final bool aggregated;
+  @override
+  final String currencyCode;
 
   @override
   String toString() {
-    return 'CardContract(id: $id, accountId: $accountId, createDate: $createDate, endDate: $endDate)';
+    return 'CardContract(id: $id, accountId: $accountId, createDate: $createDate, endDate: $endDate, aggregated: $aggregated, currencyCode: $currencyCode)';
   }
 
   @override
@@ -163,12 +195,16 @@ class _$CardContractImpl implements _CardContract {
                 other.accountId == accountId) &&
             (identical(other.createDate, createDate) ||
                 other.createDate == createDate) &&
-            (identical(other.endDate, endDate) || other.endDate == endDate));
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.aggregated, aggregated) ||
+                other.aggregated == aggregated) &&
+            (identical(other.currencyCode, currencyCode) ||
+                other.currencyCode == currencyCode));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, accountId, createDate, endDate);
+  int get hashCode => Object.hash(runtimeType, id, accountId, createDate,
+      endDate, aggregated, currencyCode);
 
   @JsonKey(ignore: true)
   @override
@@ -182,7 +218,9 @@ abstract class _CardContract implements CardContract {
       {required final UniqueId id,
       required final UniqueId accountId,
       required final DateTime createDate,
-      required final DateTime? endDate}) = _$CardContractImpl;
+      required final DateTime? endDate,
+      required final bool aggregated,
+      required final String currencyCode}) = _$CardContractImpl;
 
   @override
   UniqueId get id;
@@ -192,6 +230,10 @@ abstract class _CardContract implements CardContract {
   DateTime get createDate;
   @override
   DateTime? get endDate;
+  @override
+  bool get aggregated;
+  @override
+  String get currencyCode;
   @override
   @JsonKey(ignore: true)
   _$$CardContractImplCopyWith<_$CardContractImpl> get copyWith =>

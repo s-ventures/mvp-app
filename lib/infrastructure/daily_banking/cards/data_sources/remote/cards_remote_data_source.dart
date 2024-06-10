@@ -22,12 +22,11 @@ class CardsRemoteDataSource {
     }
   }
 
-  Future<PaginatedResponse<DetailedCardDto>> getDetailedCard({
-    required PaginatedRequest paginatedRequest,
+  Future<DetailedCardDto> getDetailedCard({
+    required String cardId,
   }) async {
     try {
-      final response = await _restClient.getDetailedCard(paginatedRequest: paginatedRequest);
-      return response;
+      return _restClient.getDetailedCard(cardId: cardId);
     } catch (_) {
       rethrow;
     }

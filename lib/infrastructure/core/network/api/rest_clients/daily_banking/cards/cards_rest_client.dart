@@ -23,7 +23,7 @@ abstract class CardsRestClient {
   });
 
   @GET('/cards/v1/query/cards/detailed')
-  Future<PaginatedResponse<DetailedCardDto>> getDetailedCard({
-    @Query('') required PaginatedRequest paginatedRequest,
+  Future<DetailedCardDto> getDetailedCard({
+    @Path('cardId') required String cardId,
   });
 }

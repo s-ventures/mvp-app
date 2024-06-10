@@ -10,5 +10,7 @@ class CardContract with _$CardContract {
     required UniqueId accountId,
     required DateTime createDate,
     required DateTime? endDate,
+    required bool aggregated,
+    required String currencyCode,
   }) = _CardContract;
 }

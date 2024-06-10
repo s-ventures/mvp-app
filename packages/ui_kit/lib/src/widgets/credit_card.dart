@@ -17,12 +17,14 @@ class CreditCard extends StatelessWidget {
     required this.plan,
     required this.type,
     required this.last4Digits,
+    required this.entityName,
     super.key,
   });
 
   final CreditCardPlan plan;
   final CreditCardType type;
   final String last4Digits;
+  final String entityName;
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +51,9 @@ class CreditCard extends StatelessWidget {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                child: plan == CreditCardPlan.basic &&
-                        type == CreditCardType.physical
+                child: plan == CreditCardPlan.basic && type == CreditCardType.physical
                     ? const CardSvg.basic()
-                    : plan == CreditCardPlan.premium &&
-                            type == CreditCardType.physical
+                    : plan == CreditCardPlan.premium && type == CreditCardType.physical
                         ? const CardSvg.premium()
                         : const SizedBox.shrink(),
               ),
@@ -94,22 +94,10 @@ class CreditCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RichText(
-                      text: TextSpan(
-                        text: 'soon ',
-                        style: context.textStyle.bodyMediumBold.copyWith(
-                          color: context.color.textLight0,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: plan == CreditCardPlan.basic
-                                ? context.loc.dailyBankingCardsBasic
-                                : context.loc.dailyBankingCardsPremium,
-                            style: context.textStyle.bodyMediumRegular.copyWith(
-                              color: context.color.textLight0,
-                            ),
-                          ),
-                        ],
+                    Text(
+                      entityName,
+                      style: context.textStyle.bodyMediumBold.copyWith(
+                        color: context.color.textLight0,
                       ),
                     ),
                     Text(
