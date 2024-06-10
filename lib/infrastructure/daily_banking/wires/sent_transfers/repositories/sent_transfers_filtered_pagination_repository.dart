@@ -2,10 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/sent_transfers_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/entities/simplified_sent_transfer.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/repositories/i_sent_transfers_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_repository.dart';
 
 final sentTransfersFilteredPaginationRepositoryProvider =
-    Provider<SentTransfersFilteredPaginationRepository>(
+    Provider<IFilteredPaginationListRepository<SimplifiedSentTransfer, SentTransfersFilter>>(
   (ref) => SentTransfersFilteredPaginationRepository(
     ref.watch(sentTransfersRepositoryProvider),
   ),
@@ -16,7 +17,7 @@ class SentTransfersFilteredPaginationRepository
   SentTransfersFilteredPaginationRepository(
     this._sentTransfersRepository,
   );
-  final SentTransfersRepository _sentTransfersRepository;
+  final ISentTransfersRepository _sentTransfersRepository;
 
   @override
   Future<List<SimplifiedSentTransfer>> fetchPage({

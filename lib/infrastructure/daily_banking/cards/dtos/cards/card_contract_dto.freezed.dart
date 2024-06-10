@@ -27,6 +27,7 @@ mixin _$CardContractDto {
   @DateConverter()
   DateTime? get endDate => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
+  bool get aggregated => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +46,8 @@ abstract class $CardContractDtoCopyWith<$Res> {
       int accountId,
       @DateConverter() DateTime createDate,
       @DateConverter() DateTime? endDate,
-      String currencyCode});
+      String currencyCode,
+      bool aggregated});
 }
 
 /// @nodoc
@@ -66,6 +68,7 @@ class _$CardContractDtoCopyWithImpl<$Res, $Val extends CardContractDto>
     Object? createDate = null,
     Object? endDate = freezed,
     Object? currencyCode = null,
+    Object? aggregated = null,
   }) {
     return _then(_value.copyWith(
       cardContractId: null == cardContractId
@@ -88,6 +91,10 @@ class _$CardContractDtoCopyWithImpl<$Res, $Val extends CardContractDto>
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      aggregated: null == aggregated
+          ? _value.aggregated
+          : aggregated // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -105,7 +112,8 @@ abstract class _$$CardContractDtoImplCopyWith<$Res>
       int accountId,
       @DateConverter() DateTime createDate,
       @DateConverter() DateTime? endDate,
-      String currencyCode});
+      String currencyCode,
+      bool aggregated});
 }
 
 /// @nodoc
@@ -124,6 +132,7 @@ class __$$CardContractDtoImplCopyWithImpl<$Res>
     Object? createDate = null,
     Object? endDate = freezed,
     Object? currencyCode = null,
+    Object? aggregated = null,
   }) {
     return _then(_$CardContractDtoImpl(
       cardContractId: null == cardContractId
@@ -146,6 +155,10 @@ class __$$CardContractDtoImplCopyWithImpl<$Res>
           ? _value.currencyCode
           : currencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      aggregated: null == aggregated
+          ? _value.aggregated
+          : aggregated // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -158,7 +171,8 @@ class _$CardContractDtoImpl implements _CardContractDto {
       required this.accountId,
       @DateConverter() required this.createDate,
       @DateConverter() required this.endDate,
-      required this.currencyCode});
+      required this.currencyCode,
+      required this.aggregated});
 
   factory _$CardContractDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$CardContractDtoImplFromJson(json);
@@ -175,10 +189,12 @@ class _$CardContractDtoImpl implements _CardContractDto {
   final DateTime? endDate;
   @override
   final String currencyCode;
+  @override
+  final bool aggregated;
 
   @override
   String toString() {
-    return 'CardContractDto(cardContractId: $cardContractId, accountId: $accountId, createDate: $createDate, endDate: $endDate, currencyCode: $currencyCode)';
+    return 'CardContractDto(cardContractId: $cardContractId, accountId: $accountId, createDate: $createDate, endDate: $endDate, currencyCode: $currencyCode, aggregated: $aggregated)';
   }
 
   @override
@@ -194,13 +210,15 @@ class _$CardContractDtoImpl implements _CardContractDto {
                 other.createDate == createDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.currencyCode, currencyCode) ||
-                other.currencyCode == currencyCode));
+                other.currencyCode == currencyCode) &&
+            (identical(other.aggregated, aggregated) ||
+                other.aggregated == aggregated));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, cardContractId, accountId,
-      createDate, endDate, currencyCode);
+      createDate, endDate, currencyCode, aggregated);
 
   @JsonKey(ignore: true)
   @override
@@ -223,7 +241,8 @@ abstract class _CardContractDto implements CardContractDto {
       required final int accountId,
       @DateConverter() required final DateTime createDate,
       @DateConverter() required final DateTime? endDate,
-      required final String currencyCode}) = _$CardContractDtoImpl;
+      required final String currencyCode,
+      required final bool aggregated}) = _$CardContractDtoImpl;
 
   factory _CardContractDto.fromJson(Map<String, dynamic> json) =
       _$CardContractDtoImpl.fromJson;
@@ -240,6 +259,8 @@ abstract class _CardContractDto implements CardContractDto {
   DateTime? get endDate;
   @override
   String get currencyCode;
+  @override
+  bool get aggregated;
   @override
   @JsonKey(ignore: true)
   _$$CardContractDtoImplCopyWith<_$CardContractDtoImpl> get copyWith =>

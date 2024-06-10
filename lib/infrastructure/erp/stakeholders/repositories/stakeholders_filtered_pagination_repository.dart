@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
+import 'package:manifiesto_mvp_app/domain/erp/contracts/repositories/i_contracts_repositoy.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholder.dart';
 import 'package:manifiesto_mvp_app/domain/erp/stakeholders/entities/stakeholders_filter.dart';
+import 'package:manifiesto_mvp_app/domain/erp/stakeholders/repositories/i_stakeholders_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/contracts/repositories/contracts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/repositories/stakeholders_repository.dart';
 
@@ -30,8 +32,8 @@ class StakeholdersPaginationRepository
     _listenToSelectedContractChanges();
   }
 
-  final StakeholdersRepository _stakeholdersRepository;
-  final ContractsRepository _contractsRepository;
+  final IStakeholdersRepository _stakeholdersRepository;
+  final IContractsRepository _contractsRepository;
   String? _erpContractId;
 
   void _listenToSelectedContractChanges() {

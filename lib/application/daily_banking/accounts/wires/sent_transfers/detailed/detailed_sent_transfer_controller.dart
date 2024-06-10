@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/sent_transfers/detailed/detailed_sent_transfer_state.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/wires/sent_transfers/repositories/i_sent_transfers_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/repositories/sent_transfers_repository.dart';
 
 final detailedSentTransferControllerProvider =
@@ -13,7 +14,7 @@ final detailedSentTransferControllerProvider =
 class DetailedSentTransferController extends StateNotifier<DetailedSentTransferState> {
   DetailedSentTransferController(this._repository) : super(const DetailedSentTransferState());
 
-  final SentTransfersRepository _repository;
+  final ISentTransfersRepository _repository;
 
   Future<void> init({required int sentTransferId}) async {
     try {

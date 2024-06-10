@@ -29,7 +29,7 @@ mixin _$DetailedCardDto {
   String get activateDate => throw _privateConstructorUsedError;
   String get currencyCode => throw _privateConstructorUsedError;
   CardStatusDto get status => throw _privateConstructorUsedError;
-  String get cardEncryptedNumber => throw _privateConstructorUsedError;
+  String get cardNumber => throw _privateConstructorUsedError;
   CardContractDto get cardContract => throw _privateConstructorUsedError;
   SimplifiedCardBalanceDto? get balance => throw _privateConstructorUsedError;
   String? get dueDate => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $DetailedCardDtoCopyWith<$Res> {
       String activateDate,
       String currencyCode,
       CardStatusDto status,
-      String cardEncryptedNumber,
+      String cardNumber,
       CardContractDto cardContract,
       SimplifiedCardBalanceDto? balance,
       String? dueDate,
@@ -91,7 +91,7 @@ class _$DetailedCardDtoCopyWithImpl<$Res, $Val extends DetailedCardDto>
     Object? activateDate = null,
     Object? currencyCode = null,
     Object? status = null,
-    Object? cardEncryptedNumber = null,
+    Object? cardNumber = null,
     Object? cardContract = null,
     Object? balance = freezed,
     Object? dueDate = freezed,
@@ -135,9 +135,9 @@ class _$DetailedCardDtoCopyWithImpl<$Res, $Val extends DetailedCardDto>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as CardStatusDto,
-      cardEncryptedNumber: null == cardEncryptedNumber
-          ? _value.cardEncryptedNumber
-          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+      cardNumber: null == cardNumber
+          ? _value.cardNumber
+          : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
       cardContract: null == cardContract
           ? _value.cardContract
@@ -201,7 +201,7 @@ abstract class _$$DetailedCardDtoImplCopyWith<$Res>
       String activateDate,
       String currencyCode,
       CardStatusDto status,
-      String cardEncryptedNumber,
+      String cardNumber,
       CardContractDto cardContract,
       SimplifiedCardBalanceDto? balance,
       String? dueDate,
@@ -234,7 +234,7 @@ class __$$DetailedCardDtoImplCopyWithImpl<$Res>
     Object? activateDate = null,
     Object? currencyCode = null,
     Object? status = null,
-    Object? cardEncryptedNumber = null,
+    Object? cardNumber = null,
     Object? cardContract = null,
     Object? balance = freezed,
     Object? dueDate = freezed,
@@ -278,9 +278,9 @@ class __$$DetailedCardDtoImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as CardStatusDto,
-      cardEncryptedNumber: null == cardEncryptedNumber
-          ? _value.cardEncryptedNumber
-          : cardEncryptedNumber // ignore: cast_nullable_to_non_nullable
+      cardNumber: null == cardNumber
+          ? _value.cardNumber
+          : cardNumber // ignore: cast_nullable_to_non_nullable
               as String,
       cardContract: null == cardContract
           ? _value.cardContract
@@ -319,7 +319,7 @@ class _$DetailedCardDtoImpl implements _DetailedCardDto {
       required this.activateDate,
       required this.currencyCode,
       required this.status,
-      required this.cardEncryptedNumber,
+      required this.cardNumber,
       required this.cardContract,
       required this.balance,
       required this.dueDate,
@@ -348,7 +348,7 @@ class _$DetailedCardDtoImpl implements _DetailedCardDto {
   @override
   final CardStatusDto status;
   @override
-  final String cardEncryptedNumber;
+  final String cardNumber;
   @override
   final CardContractDto cardContract;
   @override
@@ -362,7 +362,7 @@ class _$DetailedCardDtoImpl implements _DetailedCardDto {
 
   @override
   String toString() {
-    return 'DetailedCardDto(cardId: $cardId, brand: $brand, cardType: $cardType, cardName: $cardName, createDate: $createDate, deliveryDate: $deliveryDate, activateDate: $activateDate, currencyCode: $currencyCode, status: $status, cardEncryptedNumber: $cardEncryptedNumber, cardContract: $cardContract, balance: $balance, dueDate: $dueDate, statusReason: $statusReason, cvv: $cvv)';
+    return 'DetailedCardDto(cardId: $cardId, brand: $brand, cardType: $cardType, cardName: $cardName, createDate: $createDate, deliveryDate: $deliveryDate, activateDate: $activateDate, currencyCode: $currencyCode, status: $status, cardNumber: $cardNumber, cardContract: $cardContract, balance: $balance, dueDate: $dueDate, statusReason: $statusReason, cvv: $cvv)';
   }
 
   @override
@@ -385,8 +385,8 @@ class _$DetailedCardDtoImpl implements _DetailedCardDto {
             (identical(other.currencyCode, currencyCode) ||
                 other.currencyCode == currencyCode) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.cardEncryptedNumber, cardEncryptedNumber) ||
-                other.cardEncryptedNumber == cardEncryptedNumber) &&
+            (identical(other.cardNumber, cardNumber) ||
+                other.cardNumber == cardNumber) &&
             (identical(other.cardContract, cardContract) ||
                 other.cardContract == cardContract) &&
             (identical(other.balance, balance) || other.balance == balance) &&
@@ -409,7 +409,7 @@ class _$DetailedCardDtoImpl implements _DetailedCardDto {
       activateDate,
       currencyCode,
       status,
-      cardEncryptedNumber,
+      cardNumber,
       cardContract,
       balance,
       dueDate,
@@ -442,7 +442,7 @@ abstract class _DetailedCardDto implements DetailedCardDto {
       required final String activateDate,
       required final String currencyCode,
       required final CardStatusDto status,
-      required final String cardEncryptedNumber,
+      required final String cardNumber,
       required final CardContractDto cardContract,
       required final SimplifiedCardBalanceDto? balance,
       required final String? dueDate,
@@ -471,7 +471,7 @@ abstract class _DetailedCardDto implements DetailedCardDto {
   @override
   CardStatusDto get status;
   @override
-  String get cardEncryptedNumber;
+  String get cardNumber;
   @override
   CardContractDto get cardContract;
   @override

@@ -11,7 +11,7 @@ import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/natural_
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/person_type_code_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/stakeholders/dtos/stakeholders_filter_dto.dart';
 
-final stakeholdersRepositoryProvider = Provider<StakeholdersRepository>((ref) {
+final stakeholdersRepositoryProvider = Provider<IStakeholdersRepository>((ref) {
   return StakeholdersRepository(
     remoteDataSource: StakeholdersRemoteDataSource(ref.watch(stakeholdersRestClientProvider)),
   );

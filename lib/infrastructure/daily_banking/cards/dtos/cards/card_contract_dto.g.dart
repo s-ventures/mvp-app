@@ -9,12 +9,13 @@ part of 'card_contract_dto.dart';
 _$CardContractDtoImpl _$$CardContractDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$CardContractDtoImpl(
-      cardContractId: json['cardContractId'] as int,
-      accountId: json['accountId'] as int,
+      cardContractId: (json['cardContractId'] as num).toInt(),
+      accountId: (json['accountId'] as num).toInt(),
       createDate: const DateConverter().fromJson(json['createDate'] as String),
       endDate: _$JsonConverterFromJson<String, DateTime>(
           json['endDate'], const DateConverter().fromJson),
       currencyCode: json['currencyCode'] as String,
+      aggregated: json['aggregated'] as bool,
     );
 
 Map<String, dynamic> _$$CardContractDtoImplToJson(
@@ -26,6 +27,7 @@ Map<String, dynamic> _$$CardContractDtoImplToJson(
       'endDate': _$JsonConverterToJson<String, DateTime>(
           instance.endDate, const DateConverter().toJson),
       'currencyCode': instance.currencyCode,
+      'aggregated': instance.aggregated,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

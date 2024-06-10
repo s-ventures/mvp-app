@@ -6,14 +6,14 @@ import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_list_repo
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/repositories/i_cards_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_pagination_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/fake_cards_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/fake_cards_repository.dart';
 
 final simplifiedCardsControllerProvider =
     StateNotifierProvider<SimplifiedCardsController, SimplifiedCardsState>(
   (ref) => SimplifiedCardsController(
-    ref.watch(cardsPaginationRepositoryProvider),
-    ref.watch(cardsRepositoryProvider),
+    ref.watch(fakeCardsPaginationRepositoryProvider),
+    ref.watch(fakeCardsRepositoryProvider),
   ),
 );
 

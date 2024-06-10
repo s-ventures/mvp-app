@@ -12,7 +12,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_trans
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/dtos/sent_transfers_filter_dto.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/wires/sent_transfers/dtos/simplified_sent_transfer_dto.dart';
 
-final sentTransfersRepositoryProvider = Provider<SentTransfersRepository>(
+final sentTransfersRepositoryProvider = Provider<ISentTransfersRepository>(
   (ref) => SentTransfersRepository(
     remoteDataSource: SentTransfersRemoteDataSource(
       ref.watch(sentTransfersRestClientProvider),

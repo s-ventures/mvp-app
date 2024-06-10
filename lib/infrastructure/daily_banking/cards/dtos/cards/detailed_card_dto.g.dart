@@ -9,7 +9,7 @@ part of 'detailed_card_dto.dart';
 _$DetailedCardDtoImpl _$$DetailedCardDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$DetailedCardDtoImpl(
-      cardId: json['cardId'] as int,
+      cardId: (json['cardId'] as num).toInt(),
       brand: json['brand'] as String,
       cardType: $enumDecode(_$CardTypeDtoEnumMap, json['cardType']),
       cardName: json['cardName'] as String,
@@ -18,7 +18,7 @@ _$DetailedCardDtoImpl _$$DetailedCardDtoImplFromJson(
       activateDate: json['activateDate'] as String,
       currencyCode: json['currencyCode'] as String,
       status: $enumDecode(_$CardStatusDtoEnumMap, json['status']),
-      cardEncryptedNumber: json['cardEncryptedNumber'] as String,
+      cardNumber: json['cardNumber'] as String,
       cardContract: CardContractDto.fromJson(
           json['cardContract'] as Map<String, dynamic>),
       balance: json['balance'] == null
@@ -42,7 +42,7 @@ Map<String, dynamic> _$$DetailedCardDtoImplToJson(
       'activateDate': instance.activateDate,
       'currencyCode': instance.currencyCode,
       'status': _$CardStatusDtoEnumMap[instance.status]!,
-      'cardEncryptedNumber': instance.cardEncryptedNumber,
+      'cardNumber': instance.cardNumber,
       'cardContract': instance.cardContract.toJson(),
       'balance': instance.balance?.toJson(),
       'dueDate': instance.dueDate,
@@ -53,6 +53,7 @@ Map<String, dynamic> _$$DetailedCardDtoImplToJson(
 const _$CardTypeDtoEnumMap = {
   CardTypeDto.credit: 'CREDIT',
   CardTypeDto.debit: 'DEBIT',
+  CardTypeDto.virtual: 'VIRTUAL',
 };
 
 const _$CardStatusDtoEnumMap = {

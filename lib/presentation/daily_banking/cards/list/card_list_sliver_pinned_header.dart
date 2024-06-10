@@ -104,7 +104,7 @@ class _CardList extends StatelessWidget {
                       title: Row(
                         children: [
                           Text(
-                            context.loc.dailyBankingCardsAlias,
+                            card.alias,
                             style: context.textStyle.bodySmallSemiBold.copyWith(
                               color: context.color.primaryLight600,
                             ),
@@ -177,13 +177,15 @@ class _CardList extends StatelessWidget {
                   CreditCard(
                     plan: CreditCardPlan.basic,
                     type: CreditCardType.physical,
-                    last4Digits: card.lastFourDigits,
+                    entityName: card.brand,
+                    last4Digits: card.cardEncryptedNumber.lastFourCharacters,
                   ),
                 if (card.id.toInt() != 50)
                   CreditCard(
                     plan: CreditCardPlan.premium,
                     type: CreditCardType.physical,
-                    last4Digits: card.lastFourDigits,
+                    entityName: card.brand,
+                    last4Digits: card.cardEncryptedNumber.lastFourCharacters,
                   ),
               ],
             ),

@@ -5,11 +5,13 @@ import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/car
 enum CardTypeDto {
   credit,
   debit,
+  virtual,
 }
 
 extension CardTypeDtoX on CardTypeDto {
   CardType toDomain() => switch (this) {
         CardTypeDto.credit => CardType.credit,
         CardTypeDto.debit => CardType.debit,
+        CardTypeDto.virtual => CardType.virtual,
       };
 }

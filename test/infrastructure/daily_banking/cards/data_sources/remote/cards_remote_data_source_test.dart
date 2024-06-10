@@ -25,13 +25,9 @@ void main() {
     totalPages: 1,
     data: [tSimplifiedCardDto],
   );
+  const tCardId = '1';
   final tDetailedCardDto = DetailedCardDto.fromJson(
     'daily_banking/cards/detailed_card_dto.json'.toFixture(),
-  );
-  final tPaginatedResponseDetailedCard = PaginatedResponse<DetailedCardDto>(
-    totalElements: 1,
-    totalPages: 1,
-    data: [tDetailedCardDto],
   );
 
   setUp(() async {
@@ -115,51 +111,41 @@ void main() {
 
   group('getDetailedCard', () {
     test(
-      'should perform a GET request on /cards/v1/query/cards/detailed',
+      'should perform a GET request on /cards/v1/{cardId}',
       () async {
         // arrange
         when(
-          () => restClient.getDetailedCard(
-            paginatedRequest: paginatedRequest,
-          ),
+          () => restClient.getDetailedCard(cardId: tCardId),
         ).thenAnswer(
-          (_) async => tPaginatedResponseDetailedCard,
+          (_) async => tDetailedCardDto,
         );
 
         // act
-        await dataSource.getDetailedCard(
-          paginatedRequest: paginatedRequest,
-        );
+        await dataSource.getDetailedCard(cardId: tCardId);
 
         // assert
         verify(
-          () => restClient.getDetailedCard(
-            paginatedRequest: paginatedRequest,
-          ),
+          () => restClient.getDetailedCard(cardId: tCardId),
         );
         verifyNoMoreInteractions(restClient);
       },
     );
 
     test(
-      'should return a paginated list of DetailedCardDto when the response code is 200 (success)',
+      'should return a DetailedCardDto when the response code is 200 (success)',
       () async {
         // arrange
         when(
-          () => restClient.getDetailedCard(
-            paginatedRequest: paginatedRequest,
-          ),
+          () => restClient.getDetailedCard(cardId: tCardId),
         ).thenAnswer(
-          (_) async => tPaginatedResponseDetailedCard,
+          (_) async => tDetailedCardDto,
         );
 
         // act
-        final result = await dataSource.getDetailedCard(
-          paginatedRequest: paginatedRequest,
-        );
+        final result = await dataSource.getDetailedCard(cardId: tCardId);
 
         // assert
-        expect(result, equals(tPaginatedResponseDetailedCard));
+        expect(result, equals(tDetailedCardDto));
       },
     );
 
@@ -168,9 +154,7 @@ void main() {
       () async {
         // arrange
         when(
-          () => restClient.getDetailedCard(
-            paginatedRequest: paginatedRequest,
-          ),
+          () => restClient.getDetailedCard(cardId: tCardId),
         ).thenThrow(
           DioException(requestOptions: RequestOptions()),
         );
@@ -180,7 +164,7 @@ void main() {
 
         // assert
         expect(
-          () => call(paginatedRequest: paginatedRequest),
+          () => call(cardId: tCardId),
           throwsException,
         );
       },

@@ -50,14 +50,13 @@ class _CardsRestClient implements CardsRestClient {
   }
 
   @override
-  Future<PaginatedResponse<DetailedCardDto>> getDetailedCard(
-      {required PaginatedRequest paginatedRequest}) async {
+  Future<DetailedCardDto> getDetailedCard({required String cardId}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'': paginatedRequest.toJson()};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PaginatedResponse<DetailedCardDto>>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<DetailedCardDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -73,10 +72,7 @@ class _CardsRestClient implements CardsRestClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = PaginatedResponse<DetailedCardDto>.fromJson(
-      _result.data!,
-      (json) => DetailedCardDto.fromJson(json as Map<String, dynamic>),
-    );
+    final value = DetailedCardDto.fromJson(_result.data!);
     return value;
   }
 
