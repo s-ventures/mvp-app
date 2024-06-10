@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_pagination_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/fake_cards_repository.dart';
 
@@ -8,7 +8,7 @@ final fakeCardsPaginationRepositoryProvider = Provider<FakeCardsPaginationReposi
   return FakeCardsPaginationRepository(ref.watch(fakeCardsRepositoryProvider));
 });
 
-class FakeCardsPaginationRepository extends PaginationListRepository<SimplifiedCard>
+class FakeCardsPaginationRepository extends IPaginationListRepository<SimplifiedCard>
     implements CardsPaginationRepository {
   FakeCardsPaginationRepository(this._repository);
 
