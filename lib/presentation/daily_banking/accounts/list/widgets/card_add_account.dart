@@ -34,6 +34,7 @@ class CardAddAccount extends StatelessWidget {
           title: context.loc.dailyBankingAccountsAddAccount,
           icon: IconAssets.plus,
           type: ButtonType.text,
+          size: ButtonSize.small,
           expand: true,
           foreground: context.color.statusInfo,
           onPressed: () async => context.pushNamed(
