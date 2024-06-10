@@ -6,11 +6,12 @@ import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactions/simplified/simplified_account_transactions_state.dart';
 import 'package:manifiesto_mvp_app/core/typedef.dart';
 import 'package:manifiesto_mvp_app/domain/core/entities/transaction_operation_type.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_map_repository.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/accounts/repositories/i_accounts_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/account_transactions_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/entities/simplified_account_transaction.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_filtered_pagination_repository.dart';
-import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/accounts_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/fake_accounts_repository.dart';
 
 final simplifiedAccountTransactionsControllerProvider = StateNotifierProvider.autoDispose<
@@ -31,8 +32,9 @@ class SimplifiedAccountTransactionsController
     this._accountsRepository,
   ) : super(const SimplifiedAccountTransactionsState());
 
-  final AccountTransactionsFilteredPaginationRepository _accountsTransactionPaginationRepository;
-  final AccountsRepository _accountsRepository;
+  final IFilteredPaginationMapRepository<DateTime, List<SimplifiedAccountTransaction>,
+      AccountTransactionsFilter> _accountsTransactionPaginationRepository;
+  final IAccountsRepository _accountsRepository;
 
   Future<void> init() async {
     initPagination(
@@ -60,7 +62,7 @@ class SimplifiedAccountTransactionsController
 
   void _listenToSelectedAccountChanges() {
     _accountsRepository.watchSelectedAccount().listen((accountIdOption) {
-      AccountTransactionsFilter? filter = null;
+      AccountTransactionsFilter? filter;
 
       // No account has been selected. Select first account
       if (accountIdOption.isNone()) {
@@ -77,18 +79,10 @@ class SimplifiedAccountTransactionsController
         if (accountId == null) return;
 
         // No filter has been set. Create filter with selected account
-        if (filter == null) {
-          filter = AccountTransactionsFilter(
-            accountIds: [accountId],
-            operationType: TransactionOperationType.all,
-          );
-        }
-        // Filter has been set. Update filter with selected account
-        else {
-          filter = filter.copyWith(
-            accountIds: [accountId],
-          );
-        }
+        filter = AccountTransactionsFilter(
+          accountIds: [accountId],
+          operationType: TransactionOperationType.all,
+        );
 
         refresh();
       }

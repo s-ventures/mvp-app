@@ -181,7 +181,7 @@ class _$SentTransfersFilterImpl implements _SentTransfersFilter {
 }
 
 abstract class _SentTransfersFilter
-    implements SentTransfersFilter, PaginationFilter {
+    implements SentTransfersFilter, IPaginationFilter {
   const factory _SentTransfersFilter(
       {final DateTime? orderDateFrom,
       final DateTime? orderDateTo,

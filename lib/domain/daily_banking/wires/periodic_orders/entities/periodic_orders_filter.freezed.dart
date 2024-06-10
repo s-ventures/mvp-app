@@ -406,7 +406,7 @@ class _$PeriodicOrdersFilterImpl implements _PeriodicOrdersFilter {
 }
 
 abstract class _PeriodicOrdersFilter
-    implements PeriodicOrdersFilter, PaginationFilter {
+    implements PeriodicOrdersFilter, IPaginationFilter {
   const factory _PeriodicOrdersFilter(
       {final UniqueId? id,
       final List<int>? accountIds,

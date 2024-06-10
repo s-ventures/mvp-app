@@ -1,10 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_filter.dart';
 import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_list_data.dart';
-import 'package:manifiesto_mvp_app/infrastructure/core/network/api/pagination/pagination_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract class PaginationListRepository<T> extends PaginationRepository<List<T>> {
-  PaginationListRepository({
+abstract class IFilteredPaginationListRepository<T, F extends IPaginationFilter>
+    extends IFilteredPaginationRepository<List<T>, F> {
+  IFilteredPaginationListRepository({
     super.pageSize,
   }) : subject = BehaviorSubject.seeded(
           PaginationListData(
@@ -15,23 +17,28 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
         );
 
   @protected
+  @visibleForTesting
   final BehaviorSubject<PaginationListData<T>> subject;
 
   @override
   int get page => subject.value.page;
 
   @override
-  Future<bool> loadNextPage() => _loadPage(page: subject.value.page + 1);
+  Future<bool> loadNextPage({F? filter}) => _loadPage(
+        page: subject.value.page + 1,
+        filter: filter,
+      );
 
-  /// Retrieves a page from the data source
   @protected
+  @visibleForTesting
   Future<List<T>?> fetchPage({
     required int page,
     required int pageSize,
+    F? filter,
   });
 
   @override
-  Future<void> refresh() {
+  Future<void> refresh({F? filter}) {
     subject.add(
       PaginationListData(
         page: 0,
@@ -39,13 +46,13 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
         data: null,
       ),
     );
-    return _loadPage();
+    return _loadPage(filter: filter);
   }
 
   @override
-  Stream<List<T>> observe() async* {
+  Stream<List<T>> observe({F? filter}) async* {
     if (subject.value.data == null) {
-      _loadPage().ignore();
+      _loadPage(filter: filter).ignore();
     }
     yield* subject.stream
         .where((pagination) => pagination.data != null)
@@ -56,7 +63,7 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
   /// Loads the page for the page index [page] and appends the new items
   ///
   /// Returns false if no more items were loaded. True if it loaded more items
-  Future<bool> _loadPage({int page = 0}) async {
+  Future<bool> _loadPage({int page = 0, F? filter}) async {
     final pagination = subject.value;
 
     if (pagination.isComplete) {
@@ -66,6 +73,7 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
     final newItems = await fetchPage(
       page: page,
       pageSize: pageSize,
+      filter: filter,
     );
 
     if (newItems == null) {
@@ -89,5 +97,16 @@ abstract class PaginationListRepository<T> extends PaginationRepository<List<T>>
   List<T> appendNewItems(List<T> newItems) {
     final currentItems = subject.value.data ?? <T>[];
     return List.of(currentItems)..addAll(newItems);
+  }
+
+  @override
+  void reset() {
+    subject.add(
+      PaginationListData(
+        page: 0,
+        pageSize: super.pageSize,
+        data: null,
+      ),
+    );
   }
 }

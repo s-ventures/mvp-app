@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/insurance/policies/detailed/detailed_policy_state.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/insurance/policies/repositories/i_policies_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/insurance/policies/repositories/policies_repository.dart';
 
 final detailedPolicyControllerProvider =
@@ -11,7 +12,7 @@ final detailedPolicyControllerProvider =
 class DetailedPolicyController extends StateNotifier<DetailedPolicyState> {
   DetailedPolicyController(this._repository) : super(const DetailedPolicyState());
 
-  final PoliciesRepository _repository;
+  final IPoliciesRepository _repository;
 
   Future<void> init({
     required int insuranceId,

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/erp/quotes/detailed/detailed_quote_state.dart';
+import 'package:manifiesto_mvp_app/domain/erp/quotes/repositories/i_quotes_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/repositories/quotes_repository.dart';
 
 final detailedQuoteControllerProvider =
@@ -13,7 +14,7 @@ final detailedQuoteControllerProvider =
 class DetailedQuoteController extends StateNotifier<DetailedQuoteState> {
   DetailedQuoteController(this._repository) : super(const DetailedQuoteState());
 
-  final QuotesRepository _repository;
+  final IQuotesRepository _repository;
 
   Future<void> init(int contractId, int id) async {
     try {

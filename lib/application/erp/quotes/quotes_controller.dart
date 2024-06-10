@@ -2,10 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/erp/quotes/quotes_state.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_filter.dart';
 import 'package:manifiesto_mvp_app/domain/erp/quotes/entities/quotation_status.dart';
-import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/repositories/quotes_filteres_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/erp/quotes/repositories/quotes_filtered_pagination_repository.dart';
 
 final quotesControllerProvider = StateNotifierProvider.autoDispose<QuotesController, QuotesState>(
   (ref) => QuotesController(
@@ -19,7 +20,7 @@ class QuotesController extends StateNotifier<QuotesState>
     this._repository,
   ) : super(const QuotesState());
 
-  final QuotesFilteredPaginationRepository _repository;
+  final IFilteredPaginationListRepository<Quotation, QuotationFilter> _repository;
 
   Future<void> init() async {
     initPagination(

@@ -1,5 +1,5 @@
-abstract class PaginationData {
-  const PaginationData({
+abstract class IPaginationData {
+  const IPaginationData({
     required this.page,
     required this.pageSize,
     this.isComplete = false,

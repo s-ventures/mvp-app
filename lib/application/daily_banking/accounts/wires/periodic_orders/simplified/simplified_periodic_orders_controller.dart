@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/filtered/filtered_pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/accounts/wires/periodic_orders/simplified/simplified_periodic_orders_state.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_filtered_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_order_frecuency_type.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/periodic_orders_filter.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/wires/periodic_orders/entities/simplified_periodic_order.dart';
@@ -20,7 +21,8 @@ class SimplifiedPeriodicOrdersController extends StateNotifier<SimplifiedPeriodi
     this._repository,
   ) : super(const SimplifiedPeriodicOrdersState());
 
-  final PeriodicOrdersFilteredPaginationRepository _repository;
+  final IFilteredPaginationListRepository<SimplifiedPeriodicOrder, PeriodicOrdersFilter>
+      _repository;
 
   Future<void> init() async {
     initPagination(

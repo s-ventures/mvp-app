@@ -2,24 +2,32 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/core/pagination/pagination_loading_provider.dart';
 import 'package:manifiesto_mvp_app/application/daily_banking/cards/cards/simplified/simplified_cards_state.dart';
+import 'package:manifiesto_mvp_app/domain/core/pagination/i_pagination_list_repository.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
 import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/entities/simplified_card.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/cards/cards/repositories/i_cards_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_pagination_repository.dart';
+import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/repositories/cards_repository.dart';
 
 final simplifiedCardsControllerProvider =
     StateNotifierProvider<SimplifiedCardsController, SimplifiedCardsState>(
-  (ref) => SimplifiedCardsController(ref.watch(cardsPaginationRepositoryProvider)),
+  (ref) => SimplifiedCardsController(
+    ref.watch(cardsPaginationRepositoryProvider),
+    ref.watch(cardsRepositoryProvider),
+  ),
 );
 
 class SimplifiedCardsController extends StateNotifier<SimplifiedCardsState>
     with PaginationLoadingProvider<List<SimplifiedCard>> {
-  SimplifiedCardsController(this._repository) : super(const SimplifiedCardsState());
+  SimplifiedCardsController(this._paginatedRepository, this._repository)
+      : super(const SimplifiedCardsState());
 
-  final CardsPaginationRepository _repository;
+  final IPaginationListRepository<SimplifiedCard> _paginatedRepository;
+  final ICardsRepository _repository;
 
   Future<void> init() async {
     initPagination(
-      _repository,
+      _paginatedRepository,
       onDataLoading: () {
         setStateSafe(
           () => state.copyWith(

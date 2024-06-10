@@ -7,6 +7,7 @@ import 'package:manifiesto_mvp_app/application/daily_banking/accounts/transactio
 import 'package:manifiesto_mvp_app/core/extensions/file_extension.dart';
 import 'package:manifiesto_mvp_app/core/extensions/list_extension.dart';
 import 'package:manifiesto_mvp_app/domain/core/value_objects.dart';
+import 'package:manifiesto_mvp_app/domain/daily_banking/accounts/transactions/repositories/i_account_transactions_repository.dart';
 import 'package:manifiesto_mvp_app/domain/upload/entities/file_attachment.dart';
 import 'package:manifiesto_mvp_app/domain/upload/failures/upload_file_failure.dart';
 import 'package:manifiesto_mvp_app/infrastructure/daily_banking/accounts/repositories/account_transactions_repository.dart';
@@ -28,7 +29,7 @@ class DetailedAccountTransactionController
           maxFileSizeMb: 10,
         );
 
-  final AccountTransactionsRepository _repository;
+  final IAccountTransactionsRepository _repository;
 
   Future<void> init(String accountId, String transactionId) async {
     try {

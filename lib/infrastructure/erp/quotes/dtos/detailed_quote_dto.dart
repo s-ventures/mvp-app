@@ -33,7 +33,7 @@ class DetailedQuoteDto with _$DetailedQuoteDto {
     required QuoteStatusDto status,
     required int serialNumberId,
     required List<FileAttachmentDto> attachments,
-    // Todo(jesus): change when we have the dto from the backend
+    // TODO(jesus): change when we have the dto from the backend
     required dynamic subtotalVatAmount,
   }) = _DetailedQuoteDto;
 

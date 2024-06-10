@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:manifiesto_mvp_app/application/core/extensions/riverpod_extensions.dart';
 import 'package:manifiesto_mvp_app/application/erp/invoices/detailed/detailed_invoice_state.dart';
+import 'package:manifiesto_mvp_app/domain/erp/invoices/repositories/i_invoices_repository.dart';
 import 'package:manifiesto_mvp_app/infrastructure/erp/invoices/repositories/invoices_repository.dart';
 
 final detailedInvoiceControllerProvider =
@@ -13,7 +14,7 @@ final detailedInvoiceControllerProvider =
 class DetailedInvoiceController extends StateNotifier<DetailedInvoiceState> {
   DetailedInvoiceController(this._repository) : super(const DetailedInvoiceState());
 
-  final InvoicesRepository _repository;
+  final IInvoicesRepository _repository;
 
   Future<void> init(int contractId, int id) async {
     try {

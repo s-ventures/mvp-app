@@ -8,17 +8,17 @@ part of 'invoice_item_dto.dart';
 
 _$InvoiceItemDtoImpl _$$InvoiceItemDtoImplFromJson(Map<String, dynamic> json) =>
     _$InvoiceItemDtoImpl(
-      relativeOrder: (json['relativeOrder'] as num).toInt(),
+      relativeOrder: json['relativeOrder'] as int,
       itemCode: json['itemCode'] as String,
       description: json['description'] as String,
-      quantity: (json['quantity'] as num).toInt(),
+      quantity: json['quantity'] as int,
       unitOfMeasure:
           $enumDecode(_$UnitOfMeasureDtoEnumMap, json['unitOfMeasure']),
       price: (json['price'] as num).toDouble(),
       discount: (json['discount'] as num).toDouble(),
       vat: VatDto.fromJson(json['vat'] as Map<String, dynamic>),
-      invoiceItemId: (json['invoiceItemId'] as num).toInt(),
-      invoiceId: (json['invoiceId'] as num).toInt(),
+      invoiceItemId: json['invoiceItemId'] as int,
+      invoiceId: json['invoiceId'] as int,
     );
 
 Map<String, dynamic> _$$InvoiceItemDtoImplToJson(

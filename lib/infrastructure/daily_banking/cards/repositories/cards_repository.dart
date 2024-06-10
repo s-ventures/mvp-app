@@ -16,7 +16,7 @@ import 'package:manifiesto_mvp_app/infrastructure/daily_banking/cards/dtos/cards
 import 'package:manifiesto_mvp_app/infrastructure/local_storage/repositories/shared_preferences_local_storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-final cardsRepositoryProvider = Provider<CardsRepository>(
+final cardsRepositoryProvider = Provider<ICardsRepository>(
   (ref) => CardsRepository(
     localDataSource: CardsLocalDataSource(ref.watch(sharedPreferencesLocalStorageProvider)),
     remoteDataSource: CardsRemoteDataSource(ref.watch(cardsRestClientProvider)),
